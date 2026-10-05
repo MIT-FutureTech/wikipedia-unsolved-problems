@@ -826,11 +826,6 @@ function applyScope(id) {
   DATA = PROBLEMS.filter(SCOPES.find(s => s[0] === id)[2]);
   $('#n-corpus').textContent = DATA.length;
   document.querySelectorAll('.n-corpus').forEach(el => el.textContent = DATA.length);
-  // bound to the data rather than written into the markup, so it follows the corpus control
-  document.querySelectorAll('.n-aitouched').forEach(el => el.textContent = DATA.filter(aiTouched).length);
-  // problems whose only credit is a system no source names — excluded from the per-system bars
-  document.querySelectorAll('.n-unnamed').forEach(el => el.textContent =
-    DATA.filter(p => p.ai_models.includes('unnamed model')).length);
   renderScope(); renderRail(); update();
 }
 $('#sort').addEventListener('change', e => { state.sort = e.target.value; update(); });

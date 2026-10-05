@@ -363,7 +363,7 @@ footer p{max-width:80ch}
     <div class="note" id="release-note"></div>
   </div>
   <h2 class="sechead">AI Systems Credited</h2>
-  <div class="panel" id="a-models"><div class="tip" id="tip-a2"></div><h3>Individual systems credited</h3><div class="sub">Problems each named system contributed to, grouped by lab and split by kind of contribution</div><div class="bars" id="a-model-bars"></div><div class="note">A problem can credit more than one system, so these bars sum to more than the <span class="n-aitouched"></span> problems with an AI system credited. Proof assistants used for verification (Lean 4, Nanoda) are not counted as systems here, and neither is the unnamed-system placeholder: <span class="n-unnamed"></span> problem carries a credit no source attaches a name to, so it has no bar below though it is counted everywhere else on this page.</div></div>
+  <div class="panel" id="a-models"><div class="tip" id="tip-a2"></div><h3>Individual systems credited</h3><div class="sub">Problems each named system contributed to, grouped by lab and split by kind of contribution</div><div class="bars" id="a-model-bars"></div><div class="note">A problem can credit more than one system, so these bars sum to more than 100%. Proof assistants used for verification (Lean 4, Nanoda) are not counted as AI systems.</div></div>
 </section>
 
 <section class="view" id="view-outcomes" hidden>
@@ -1368,11 +1368,6 @@ function applyScope(id) {
   DATA = PROBLEMS.filter(SCOPES.find(s => s[0] === id)[2]);
   $('#n-corpus').textContent = DATA.length;
   document.querySelectorAll('.n-corpus').forEach(el => el.textContent = DATA.length);
-  // bound to the data rather than written into the markup, so it follows the corpus control
-  document.querySelectorAll('.n-aitouched').forEach(el => el.textContent = DATA.filter(aiTouched).length);
-  // problems whose only credit is a system no source names — excluded from the per-system bars
-  document.querySelectorAll('.n-unnamed').forEach(el => el.textContent =
-    DATA.filter(p => p.ai_models.includes('unnamed model')).length);
   renderScope(); renderRail(); update();
 }
 $('#sort').addEventListener('change', e => { state.sort = e.target.value; update(); });
