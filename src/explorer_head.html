@@ -138,11 +138,13 @@ nav.tabs button .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:va
 .prose ol,.prose ul{margin:0 0 10px;padding-left:22px;color:var(--ink-2);font-size:13.8px;line-height:1.65}
 .prose li{margin:0 0 6px}
 .prose em{color:var(--ink);font-style:italic}
+.prose p.asof{color:var(--ink-3);font-size:12.5px}
+.prose p.asof b{color:var(--ink-2);font-weight:600}
 .dt{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:12.5px}
 .dt th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--line);padding:5px 10px 5px 0;background:none}
 .dt td{padding:6px 10px 6px 0;border-bottom:1px solid var(--line-soft);color:var(--ink-2)}
-.defs{margin:8px 0 4px;display:grid;grid-template-columns:auto 1fr;gap:5px 14px;align-items:baseline}
-.defs dt{font-weight:600;font-size:12.5px;white-space:nowrap}
+.defs{margin:14px 0 12px;padding-left:20px;display:grid;grid-template-columns:auto 1fr;gap:16px 44px;align-items:baseline}
+.defs dt{font-weight:700;font-size:13px;white-space:nowrap}
 .defs dd{margin:0;color:var(--ink-2);font-size:13px}
 .defs .c-res{color:var(--st-resolved)}.defs .c-clm{color:var(--st-claimed)}.defs .c-par{color:var(--st-partial)}.defs .c-prg{color:var(--ai-bound)}.defs .c-stl{color:var(--st-stale)}.defs .c-aig{color:var(--ai-gen)}.defs .c-aia{color:var(--ai-asst)}.defs .c-ain{color:var(--ai-none)}
 footer{border-top:1px solid var(--canvas-line);background:var(--canvas-deep)}
@@ -424,7 +426,7 @@ footer p{max-width:80ch}
       <div class="chips" id="lists"></div>
     </div>
     <div class="block"><button class="reset" id="reset">Clear all filters</button></div>
-    <div class="block small">Status was researched on 9 Sep 2026 and audited claim by claim on 11 Sep 2026 against current Wikipedia articles, arXiv preprints, Terence Tao's blog and lab announcements. Many 2026 items are weeks old and not yet peer reviewed; each card lists its sources.</div>
+    <div class="block small">Status was researched and audited claim by claim against current Wikipedia articles, arXiv preprints, Terence Tao's blog and lab announcements. Many 2026 items are weeks old and not yet peer reviewed; each card lists its sources. The review date is in the <a href="#" data-goto="about">About tab</a>.</div>
     <div class="block small">Years marked <span class="mono">~</span> come from the mathematical literature as recalled, not from the list itself; the rest are stated in the linked Wikipedia article. Treat both as approximate.</div>
   </aside>
 
@@ -512,6 +514,7 @@ footer p{max-width:80ch}
     <p>You can explore the data and results in the <a href="#explore" data-goto="explore">Explore tab</a>.</p>
 
     <h2>Collecting the Data</h2>
+    <p class="asof">Every status on this site was last reviewed on <b>__STATUS_CHECKED__</b>.</p>
     <p>Every problem was researched on its own by Claude Sonnet 5 (<span class="mono">medium</span> effort) with web search enabled, given that one problem and a fixed written protocol. Each agent searched for anything that had happened to its problem since the snapshot, opened the primary sources &mdash; arXiv preprints, journal pages, the authors&rsquo; own announcements, lab posts, Lean repositories &mdash; and returned a structured record: the status, the dated event, author credit, the AI involvement level, whether the result is a counterexample, and supporting links. Agents used about nine sources per problem on average.</p>
     <p>Initially, we had Sonnet do a slimmer triage pass (with fewer suggested searches) before doing a deep dive, but many events were missed using this approach. We opted instead to give Sonnet the triage results while still completing a full search for every problem.</p>
     <p>The records were then checked automatically for internal contradictions (manually by humans and using Claude Opus with <span class="mono">low</span> effort). This step is to ensure the data gathered by Sonnet was consistent with the metadata summary, which often requires judgement calls. Every hand correction was kept in the record, with the underlying reasoning.</p>
@@ -529,5 +532,5 @@ footer p{max-width:80ch}
 </section>
 
 <footer>
-  <div class="footrow"><span>Wikipedia Unsolved Problems Tracker</span><span>Corpus frozen 26 January 2024 · status checked 11 September 2026 · problem text CC BY-SA 4.0</span></div>
+  <div class="footrow"><span>Wikipedia Unsolved Problems Tracker</span><span>Corpus frozen 26 January 2024 · problem text CC BY-SA 4.0</span></div>
 </footer>

@@ -613,7 +613,7 @@ function renderOrigins() {
   $('#o-open-bars').innerHTML = fell.map(({ p, yrs }) => {
     const col = p.ai_involvement === 'generated' ? AIC.generated : p.ai_involvement === 'assisted' ? AIC.assisted : AIC.none;
     const tip = `<b>${esc(p.name)}</b><br>posed ${fmtYear(p.year_introduced)}${p.year_source && p.year_source.startsWith('math') ? ' (approx.)' : ''} · ${p.status === 'claimed' ? 'claimed' : 'resolved'} ${p.year_resolved}<br>${yrs} years open<br><span style="opacity:.75">${esc(p.resolved_by || '')}</span>`;
-    return `<div class="brow"${opts.gapAfter ? ' style="margin-bottom:15px"' : ''}><span class="lab" style="width:210px" data-tip="${attr(tip)}">${esc(p.name.length > 30 ? p.name.slice(0, 29) + '…' : p.name)}</span><span class="track"><i style="width:${100 * yrs / maxY}%;background:${col}" data-tip="${attr(tip)}"></i></span><span class="n" data-tip="${attr(tip)}">${yrs} yr</span></div>`;
+    return `<div class="brow"><span class="lab" style="width:210px" data-tip="${attr(tip)}">${esc(p.name.length > 30 ? p.name.slice(0, 29) + '…' : p.name)}</span><span class="track"><i style="width:${100 * yrs / maxY}%;background:${col}" data-tip="${attr(tip)}"></i></span><span class="n" data-tip="${attr(tip)}">${yrs} yr</span></div>`;
   }).join('');
   const s = fell.map(f => f.yrs).sort((a, b) => a - b), k = s.length;
   const median = k % 2 ? s[(k - 1) / 2] : (s[k / 2 - 1] + s[k / 2]) / 2;
@@ -636,7 +636,7 @@ function renderSince(rows) {
       return `<i style="width:${100 * n / max}%;background:${AIC[a]}" data-tip="${tip.replace(/"/g, '&quot;')}" data-cat="${a}"></i>`;
     }).join('');
     const rowTip = `<b>${STATUS_LABEL[c]}</b>: ${ps.length}<br>` + AI_ORDER.filter(a => ps.some(p => p.ai_involvement === a)).map(a => `${AI_LABEL[a]}: ${ps.filter(p => p.ai_involvement === a).length}`).join('<br>');
-    return `<div class="row"><span class="lab" data-tip="${rowTip.replace(/"/g, '&quot;')}">${STATUS_LABEL[c]}</span><span class="track">${outline}${segs}</span><span class="n" data-tip="${rowTip.replace(/"/g, '&quot;')}">${ps.length}</span></div>`;
+    return `<div class="row"><span class="lab" data-tip="${rowTip.replace(/"/g, '&quot;')}">${STATUS_LABEL[c]}</span><span class="track">${segs}</span><span class="n" data-tip="${rowTip.replace(/"/g, '&quot;')}">${ps.length}</span></div>`;
   }).join('');
   const hl = changed.filter(p => ['resolved', 'claimed'].includes(p.status)).sort((a, b) => (b.year_resolved || 0) - (a.year_resolved || 0) || a.name.localeCompare(b.name));
   $('#since').innerHTML = `<div class="tip" id="tip3"></div><div><h3>What changed after the snapshot</h3><div class="sub">${changed.length} of ${rows.length} problems in the selection have moved; bars split by who did the work — hover any band for its exact count</div>${rowsHtml || '<div class="small">No changes in the current selection.</div>'}

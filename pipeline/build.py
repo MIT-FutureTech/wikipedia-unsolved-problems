@@ -1,4 +1,4 @@
-import re, json, csv, sqlite3, html, os, sys
+import re, json, csv, sqlite3, html, os, sys, datetime
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 RESEARCH = None      # loaded below, once DATA_DIR is known
 
@@ -506,6 +506,10 @@ head = open(os.path.join(SRC_DIR, 'explorer_head.html'), encoding='utf-8').read(
 # The page is standalone — no server, no network — so the masthead logo is inlined as a data URI.
 # src/logo.b64 is a web-sized copy of the root PNG, generated once; regenerate it if the logo changes.
 head = head.replace('__LOGO__', open(os.path.join(SRC_DIR, 'logo.b64'), encoding='utf-8').read().strip())
+# The About tab's review date is substituted from STATUS_CHECKED rather than written into the
+# markup, so it cannot drift from the dataset it describes.
+_d = datetime.date.fromisoformat(STATUS_CHECKED)
+head = head.replace('__STATUS_CHECKED__', f'{_d.day} {_d.strftime("%B")} {_d.year}')
 app = open(os.path.join(SRC_DIR, 'explorer_app.js'), encoding='utf-8').read()
 explorer = head + '<script>\n' + data_js + app + '</script>\n'
 open(os.path.join(SRC_DIR, 'explorer.html'), 'w', encoding='utf-8').write(explorer)
