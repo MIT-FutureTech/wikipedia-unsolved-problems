@@ -1,0 +1,16 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/typescript-node:22-bookworm",
+  "features": {
+    "ghcr.io/anthropics/devcontainer-features/claude-code:1.0": {}
+  },
+  "postCreateCommand": "sudo chown -R node:node /home/node/.claude /home/node/.codex && npm install -g @openai/codex",
+  "mounts": [
+    "source=claude-config-${devcontainerId},target=/home/node/.claude,type=volume",
+    "source=codex-config-${devcontainerId},target=/home/node/.codex,type=volume"
+  ],
+  "containerEnv": {
+    "CLAUDE_CONFIG_DIR": "/home/node/.claude",
+  "CLAUDE_CODE_OAUTH_TOKEN": "${localEnv:CLAUDE_CODE_OAUTH_TOKEN}"
+  },
+  "remoteUser": "node"
+}

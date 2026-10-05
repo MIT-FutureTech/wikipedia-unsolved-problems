@@ -1,0 +1,45 @@
+{
+  "key": "snake-in-the-box-problem",
+  "judgement": {
+    "events": [
+      {
+        "id": "ace-2025",
+        "what": "T. Ace posts new lower bounds for snake-in-the-box in dimensions 10-13 (732/1439/2854 for 11/12/13) via heuristic pruned search",
+        "date": "2025-11-06", "precision": "day", "after_snapshot": true,
+        "source": "https://zenodo.org/records/17538015",
+        "scope": "bound", "verification": "checkable", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "orland-2026",
+        "what": "Orland et al. (Gukov group) report new snake records in dimensions 9-13 (191/379/746/1476/2924)",
+        "date": "2026-07-16", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2607.15270",
+        "scope": "bound", "verification": "checkable", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "bernatonis-2026",
+        "what": "Bernatonis extends pruned-BFS heuristic records to dimensions 14-17",
+        "date": "2026", "precision": "year", "after_snapshot": true,
+        "source": "https://zenodo.org/records/21728434",
+        "scope": "bound", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      }
+    ],
+    "rests_on": "orland-2026",
+    "derived": { "status": "progress", "ai_role": "none", "resolution_direction": null },
+    "changed": ["status", "resolution_direction"],
+    "doubts": "The bullet asks for the exact value of a(n); new record snakes are lower bounds only, so nothing is settled for any n>=8. The Orland et al. paper has no methods section and acknowledges TPU/GPU compute from an RL-for-math group; if a later methods account shows a learned policy produced the snakes, ai_role should become generated/assisted. Bernatonis record was not opened and is year-dated only (2026, after snapshot regardless).",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "changes": { "status": "progress", "resolution_direction": null },
+  "outcome_prefix": null,
+  "corrections": [
+    { "field": "status", "from": "partial", "to": "progress", "why": "F3: every event is a new lower-bound record (the record's own summary: 'no resolution of the general problem occurred ... the best-known lower bounds moved'); no a(n) for any n was determined, so scope is bound, not case." },
+    { "field": "resolution_direction", "from": "confirmed", "to": null, "why": "F14: a progress row carries null direction; nothing was settled or confirmed." },
+    { "field": "ai_role", "from": "none", "to": "none", "why": "other: kept, but the Orland et al. paper states no search method and credits TPU/GPU grants from an RL-for-mathematics group (competing_reading); no authorial account of AI producing the snakes was found, so none stands pending a methods disclosure." }
+  ]
+}

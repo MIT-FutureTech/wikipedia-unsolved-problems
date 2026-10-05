@@ -1,0 +1,114 @@
+{
+  "key": "cycle-double-cover-conjecture",
+
+  "status": "resolved",
+  "no_change_found": false,
+  "outcome": "OpenAI announced on 10 July 2026 that its GPT-5.6 Sol Ultra model had produced a proof of the cycle double cover conjecture; the proof and an accompanying Lean 4 formalization were released, independent expository write-ups by Jim Geelen and Sang-il Oum followed, and a guest post on The Matroid Union by Johannes Carmesin explicitly endorses the proof's correctness after reviewing multiple independent Lean formalizations and the expository accounts.",
+  "status_sources": [
+    "https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf",
+    "https://matroidunion.org/?p=6255",
+    "https://arxiv.org/abs/2607.16356",
+    "https://arxiv.org/abs/2607.15399",
+    "https://en.wikipedia.org/wiki/Cycle_double_cover"
+  ],
+
+  "event": {
+    "date": "2026-07-10",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf",
+      "https://x.com/__eknight__/status/2075643450196971805"
+    ]
+  },
+
+  "credited_humans": [
+    "Johannes Carmesin (guest post, verdict of correctness)",
+    "Jim Geelen (independent expository write-up)",
+    "Sang-il Oum (independent expository write-up)",
+    "Krystal Guo (independent Lean formalization, per Carmesin's post)"
+  ],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "the primary preprint says the proof was entirely due to GPT-5.6 Sol Ultra and the writeup was prepared with Codex using GPT-5.6 Sol; OpenAI's own announcement states GPT-5.6 Sol Ultra 'produced a proof of the 50-year-old Cycle Double Cover Conjecture using 64 subagents in just under one hour'",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["GPT-5.6 Sol Ultra", "GPT-5.6 Sol", "Codex"],
+    "sources": [
+      "https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf",
+      "https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf",
+      "https://x.com/__eknight__/status/2075643450196971805"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [
+    {
+      "kind": "scope",
+      "summary": "The proof as formalized in Lean covers finite loopless bridgeless multigraphs (allowing parallel edges), which is a broader class than the traditional statement in terms of simple graphs; a commentator (toknow.ai) flagged that mathematicians must independently confirm the Lean definitions match the conventional conjecture's meaning before treating the formal check as settling the classical statement. This is a scope/definitional caveat rather than a rival proof or priority dispute.",
+      "sources": ["https://toknow.ai/posts/gpt-56-sol-cycle-double-cover-lean-proof/"]
+    }
+  ],
+
+  "summary": "On 10 July 2026 OpenAI announced that GPT-5.6 Sol Ultra had produced a two-to-three-page proof of the cycle double cover conjecture (Szekeres 1973 / Seymour 1979) in under an hour using 64 subagents, releasing the proof PDF, the prompt used, and a Lean 4 formalization (github.com/openai/cdc-lean) that OpenAI reports builds cleanly with no 'sorry'/'admit' placeholders and no project-specific axioms. The proof reduces to cubic 3-edge-connected (multi)graphs, uses the Jaeger–Kilpatrick eight-flow theorem / a nowhere-zero F2^3-flow, and a linear-algebra duality argument to build an 8-cycle double cover (the stronger 5-cycle double cover conjecture remains open). Independent human expositions followed within days: Jim Geelen's arXiv note (2607.15399, submitted 16 July 2026, explicitly 'offers no new insights' but recasts the argument) and Sang-il Oum's arXiv exposition (2607.16356, submitted 17 July, revised through 1 August, v3 adding material on the small cycle double cover conjecture and matroid implications). Decisively, Johannes Carmesin — a graph/matroid theorist publishing in JCTB — wrote a guest post on The Matroid Union (21 July 2026) stating directly 'yes, the proof is correct,' after reviewing the argument's structure, the independent Lean 4 formalizations (by Krystal Guo's team, Carmesin's own team, and OpenAI's), and the Geelen/Oum expositions. This is the kind of expert digestion §6.1 treats as sufficient for `resolved` even absent journal publication, which as of my research (September 2026) has not yet occurred. TheoremDB lists the mathematical claim as 'Supported' citing these same expositions, though it separately notes it has not yet run OpenAI's Lean repository inside its own controlled verifier (a note about TheoremDB's own re-verification pipeline, not a doubt raised by any mathematician). The live Wikipedia article on cycle double cover has already been updated to describe the July 2026 preprint and its claimed resolution. Given a specialist's public, reasoned endorsement of correctness in a recognized expert venue, multiple independently-authored Lean formalizations, and no gap, retraction, or dissenting expert view found anywhere in my search, I classify this as `resolved` rather than `claimed`, while noting the caveat about journal non-publication and the multigraph-vs-simple-graph scope point in `competing_reading`.",
+  "competing_reading": "A stricter reading would keep this at `claimed`: there is no refereed journal publication as of September 2026, Geelen's own note is explicitly not a verification ('no new insights'), and the toknow.ai piece raises a real definitional-scope question (multigraphs vs. simple graphs) that no source shows was formally closed. If Carmesin's blog post is read as a personal opinion rather than the kind of considered, venue-backed expert digestion §6.1 requires, or if The Matroid Union is judged not to rise to the level of a refereed check, `claimed` is the more conservative and defensible call. I weighed this and went with `resolved` because Carmesin's statement is unequivocal, made in a recognized subject-expert venue, backed by his own review of multiple independent formalizations, and unrebutted by any subsequent source I found.",
+  "what_would_settle_it": "A journal acceptance, or an explicit statement from a second independent expert (beyond Carmesin) confirming the multigraph-vs-simple-graph formalization gap is immaterial or resolved, would remove the remaining ambiguity.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_proof.pdf", "title": "A Proof of the Cycle Double Cover Conjecture (OpenAI)", "type": "press_release", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.16356", "title": "A proof of the cycle double cover conjecture by OpenAI: An exposition", "type": "preprint", "opened": true},
+    {"url": "https://sangil.dimag.kr/2026/cdc/", "title": "A proof of the cycle double cover conjecture by OpenAI: An exposition (Oum's blog)", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.15399", "title": "OpenAI's proof of the Cycle Double Cover Theorem (Geelen)", "type": "preprint", "opened": true},
+    {"url": "https://matroidunion.org/?p=6255", "title": "The cycle double cover theorem", "type": "blog", "opened": true},
+    {"url": "https://www.theoremdb.org/statements/cycle-double-cover-conjecture/", "title": "[#P3062] Cycle Double Cover Conjecture · TheoremDB", "type": "encyclopedia", "opened": true},
+    {"url": "https://aiweekly.co/alerts/openai-attributes-cycle-double-cover-proof-to-gpt-56-sol-ultra", "title": "OpenAI Attributes Cycle Double Cover Proof to GPT-5.6 Sol Ultra | AI Weekly", "type": "news", "opened": true},
+    {"url": "https://toknow.ai/posts/gpt-56-sol-cycle-double-cover-lean-proof/", "title": "GPT-5.6 Sol's Cycle Double Cover Proof: What Lean Actually Checks", "type": "blog", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Cycle_double_cover", "title": "Cycle double cover", "type": "encyclopedia", "opened": true},
+    {"url": "https://x.com/__eknight__/status/2075643450196971805", "title": "Ethan Knight announcement of GPT-5.6 Sol Ultra proof", "type": "news", "opened": false},
+    {"url": "https://pith.science/paper/2607.16356", "title": "A proof of the cycle double cover conjecture by OpenAI: An exposition · Pith Review", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/2511.07285", "title": "Approximate cycle double cover", "type": "preprint", "opened": false},
+    {"url": "https://www.researchgate.net/profile/Johannes-Carmesin", "title": "Johannes Carmesin research profile", "type": "encyclopedia", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "cycle double cover conjecture proof OpenAI 2026",
+      "\"cycle double cover\" conjecture resolved OR proof OR disproof 2026",
+      "GPT-5.6 Sol Ultra cycle double cover Lean formalization sorry verification",
+      "Jim Geelen cycle double cover conjecture exposition OpenAI proof",
+      "cycle double cover conjecture peer review 2026 mathematicians reaction verified",
+      "cycle double cover conjecture gap error withdrawn September 2026",
+      "\"cycle double cover\" Wikipedia article updated GPT-5.6 proof",
+      "Johannes Carmesin matroid union cycle double cover journal submission accepted"
+    ],
+    "places_checked": [
+      "OpenAI's own PDF release",
+      "arXiv (Oum's and Geelen's expositions)",
+      "The Matroid Union blog (expert digestion venue for this subfield)",
+      "TheoremDB problem database",
+      "live Wikipedia article on cycle double cover",
+      "AI Weekly, toknow.ai, and other secondary tech-press coverage",
+      "general web search for any withdrawal, retraction, or found gap"
+    ],
+    "dead_ends": [
+      "pith.science paper page returned empty content on fetch — could not extract review status from it directly",
+      "no search turned up a retraction, withdrawal, or identified gap as of the September 2026 checked-on date, despite explicitly searching for one",
+      "OpenAI's own proof PDF could not be parsed as text by the fetch tool (binary/compressed stream); relied on the PDF's own summary via search results and secondary sources describing its content instead of a direct read of the primary PDF text"
+    ]
+  },
+
+  "incomplete": "I was unable to directly extract readable text from OpenAI's primary proof PDF (cdn.openai.com) due to a tool limitation with its PDF encoding; my characterization of its exact contents rests on search-result summaries and secondary sources (Geelen's and Oum's expositions, Matroid Union, AI Weekly) rather than a direct read of that one primary document. I also did not independently execute or inspect the Lean repository at github.com/openai/cdc-lean; my statements about its build status rest on OpenAI's own reported figures as relayed by secondary sources, not on my own check of the repository.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false
+}

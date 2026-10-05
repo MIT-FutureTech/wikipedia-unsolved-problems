@@ -1,0 +1,294 @@
+{
+  "key": "minimum-overlap-problem",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "Judged: the status rests on SimpleTES (Ye et al., arXiv 2604.19341, April 2026), whose AI-generated construction gives the current record upper bound 0.380868, superseding the AlphaEvolve, TTT-Discover and TogetherAI bounds. [Judged 2026-09-28; the researcher's original outcome follows.] The problem itself (the exact asymptotic value of lim M(n)/n) remains open, but the upper bound has been repeatedly improved by a sequence of AI systems since mid-2025: AlphaEvolve (0.380924, mid-2025), TogetherAI's EinsteinArena agents (0.380871, early 2026), TTT-Discover (0.380876, reported before TogetherAI's improvement in the same window), and SimpleTES (0.380868, April 2026) — each beating the prior record, all beating the pre-2024 best human bound of 0.380926/0.380927 due to Haugland (2016). The lower bound (0.379005, White 2022) has not moved in the window.",
+  "status_sources": [
+    "https://arxiv.org/abs/2604.19341",
+    "https://haotianye.com/blog/simpletes/",
+    "https://en.wikipedia.org/wiki/Minimum_overlap_problem"
+  ],
+  "event": {
+    "date": "2026-04",
+    "precision": "month",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2604.19341",
+      "https://haotianye.com/blog/simpletes/"
+    ]
+  },
+  "credited_humans": [
+    "Haotian Ye"
+  ],
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "AlphaEvolve established a new upper bound for the minimum overlap problem, slightly improving upon the previous record. Each generation of AlphaEvolve was tasked with evolving a program representing a search heuristic... TTT-Discover improved the upper bound on Erdős' Minimum Overlap Problem to 0.380876, surpassing AlphaEvolve's recent construction with 0.380924... the solution from TTT-Discover is an asymmetric construction, finding a 600-piece step function... 'It is straightforward to verify that the provided functions give bounds that improve upon the state of the art' (Prof. Davide Torlo, expert reviewer). SimpleTES reaches 0.380868, ahead of the best human (0.380927), AlphaEvolve (0.380924, Gemini-2.0 Pro), and TogetherAI (0.380871).",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "AlphaEvolve",
+      "Gemini-2.0 Pro",
+      "TTT-Discover",
+      "SimpleTES",
+      "gpt-oss-120b",
+      "gpt-oss-20b",
+      "TogetherAI EinsteinArena agents"
+    ],
+    "sources": [
+      "https://ar5iv.labs.arxiv.org/html/2506.13131",
+      "https://arxiv.org/abs/2601.16175",
+      "https://arxiv.org/html/2601.16175",
+      "https://haotianye.com/blog/simpletes/",
+      "https://github.com/togethercomputer/erdos-minimum-overlap"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Four separate AI systems from different groups (Google DeepMind's AlphaEvolve, Together AI's EinsteinArena agents, Yuksekgonul et al.'s TTT-Discover, and Ye et al.'s SimpleTES) each claimed a new record upper bound within roughly a nine-month window (June 2025 to April 2026), each explicitly framed as beating the immediately preceding AI record. The exact chronological order between TTT-Discover's 0.380876 and TogetherAI's 0.380871 was not fully pinned down from primary timestamps; the current Wikipedia article and SimpleTES blog post both treat SimpleTES's 0.380868 as the most recent and tightest.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Minimum_overlap_problem",
+        "https://haotianye.com/blog/simpletes/",
+        "https://github.com/togethercomputer/erdos-minimum-overlap"
+      ]
+    }
+  ],
+  "summary": "This is a bound-type bullet (asymptotic constant c = lim M(n)/n for Erdős's 1955 minimum overlap problem), so under §3.1 a bound moving counts directly, and it moved several times. Before the frozen revision the state was: lower bound 0.379005 (White, arXiv 2201.05704, Jan 2022) and upper bound 0.380926 (Haugland 2016, 'The minimum overlap problem revisited', arXiv 1609.08000) — both pre-2024 and unchanged in the window as far as the lower bound goes. Starting mid-2025 a chain of AI systems repeatedly tightened the upper bound: Google DeepMind's AlphaEvolve (Novikov et al., arXiv 2506.13131, submitted 16 June 2025) evolved a search-heuristic program that discovered a 95-piece step-function construction giving upper bound 0.380924, the first upper-bound improvement since 2016; the paper's own account (quoted in ai.basis_quote) describes AlphaEvolve evolving the search heuristic itself, with the paper's acknowledgements crediting mathematicians Javier Gomez Serrano and Terence Tao only with suggesting/formulating the problem, not with producing the construction — so this is `generated`, not merely `assisted`. Subsequently, Together AI's EinsteinArena agents produced 0.380871 (repository last updated 1 April 2026, 'purely obtained by AI agents'); Yuksekgonul et al.'s TTT-Discover (arXiv 2601.16175, test-time RL fine-tuning of an LLM) found an asymmetric 600-piece step function giving 0.380876, explicitly reported as surpassing AlphaEvolve's 0.380924 and verified by an outside human expert (Prof. Davide Torlo) who confirmed the bound but did not himself produce it; and Ye et al.'s SimpleTES (arXiv 2604.19341, using only the open-source gpt-oss-120b/20b models) reached 0.380868, described on the authors' own blog as ahead of the best human (0.380927), AlphaEvolve (0.380924), and TogetherAI (0.380871). All of these are upper-bound improvements on a problem that remains fully open (no exact value of the constant is known), so status is `progress` rather than `resolved`/`claimed`/`partial` — nothing was proved to be exactly true or false, a number simply moved, repeatedly. I used the earliest well-documented event (AlphaEvolve, June 2025) as the anchor `event` since it is the first AI-driven change from the pre-2024 baseline; the later improvements (TogetherAI, TTT-Discover, SimpleTES) are described in this summary rather than given separate records, per the instruction to keep one decisive event per record. `resolution_direction` is null because `progress` never takes a direction. `ai_role` is `generated` for all four systems on the authors' own accounts: in each case the construction itself (the step function achieving the bound) was produced by the AI system, with humans only verifying it, suggesting the problem, or running verification notebooks — none of the sources describe a human producing part of the mathematical content that ended up in the winning construction.",
+  "competing_reading": "One could argue AlphaEvolve's role is closer to `assisted` since it 'evolved a search heuristic' rather than directly outputting the final numeric construction, and since named mathematicians (Gomez Serrano, Tao) were involved in problem formulation. But the paper is explicit that the program AlphaEvolve evolved is what searched for and found the improved construction — the humans' contribution was posing/formalizing the problem, not producing part of the mathematics in the result, which under §6.2 keeps this at `generated` rather than `assisted`. Also arguable: since four different AI systems each improved on the last with no single 'the' event, one could treat this as `open` with a `bound` role for the whole sequence rather than `progress`/`generated`; I judged AlphaEvolve's initial jump (first improvement since 2016) as the anchor `generated` event because it produced the qualifying construction itself, with `ai_role` describing that first and clearest case, and the subsequent chain narrated in `summary`.",
+  "what_would_settle_it": "A primary-source timestamp resolving the exact order of the TTT-Discover (0.380876) and TogetherAI (0.380871) results relative to each other, and confirmation of whether any newer AI or human result has superseded SimpleTES's 0.380868 since April 2026.",
+  "confidence": "high",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Minimum_overlap_problem",
+      "title": "Minimum overlap problem",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2506.13131",
+      "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.13131",
+      "title": "AlphaEvolve: A coding agent for scientific and algorithmic discovery",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.16175",
+      "title": "Learning to Discover at Test Time",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2601.16175",
+      "title": "Learning to Discover at Test Time",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://haotianye.com/blog/simpletes/",
+      "title": "A New Scaling Axis for Open-ended Discovery",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.19341",
+      "title": "Structured Scaling of AI Discovery Across Diverse Scientific Domains",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/togethercomputer/erdos-minimum-overlap",
+      "title": "EinsteinArena-new-SOTA: New state-of-the-art bounds for open problems",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2201.05704",
+      "title": "Erdős' minimum overlap problem",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/1609.08000",
+      "title": "The minimum overlap problem revisited",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://google-deepmind.github.io/alphaevolve_repository_of_problems/problems/5.html",
+      "title": "Erdős minimum overlap problem — AlphaEvolve repository of problems",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.researchgate.net/publication/373185306_A_new_bound_for_Erdos'_minimum_overlap_problem",
+      "title": "A new bound for Erdös' minimum overlap problem",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "minimum overlap problem AlphaEvolve upper bound 0.380924",
+      "AlphaEvolve DeepMind technical report minimum overlap problem construction",
+      "\"TTT-Discover\" Yuksekgonul minimum overlap problem",
+      "SimpleTES Ye minimum overlap problem open-source AI",
+      "AlphaEvolve paper Novikov 2025 \"minimum overlap\" arxiv",
+      "Haugland 2016 minimum overlap problem 0.3809 upper bound",
+      "\"minimum overlap\" TogetherAI 0.380871 construction",
+      "minimum overlap problem 2026 new bound improved SimpleTES OR TTT-Discover OR AlphaEvolve latest",
+      "\"minimum overlap\" Erdos bound September 2026"
+    ],
+    "places_checked": [
+      "Wikipedia article 'Minimum overlap problem' (live, for citation trail — used only to identify primary sources, not as the finding itself)",
+      "arXiv abstract and full-text (ar5iv/HTML) for AlphaEvolve paper 2506.13131",
+      "arXiv abstract and full-text for TTT-Discover paper 2601.16175",
+      "arXiv abstract for SimpleTES paper 2604.19341",
+      "SimpleTES author's own blog post",
+      "Together AI's GitHub repository for EinsteinArena results",
+      "Google DeepMind's AlphaEvolve repository of problems page (template only, no content found)",
+      "General web search for any later 2026 result superseding SimpleTES's bound"
+    ],
+    "dead_ends": [
+      "google-deepmind.github.io/alphaevolve_repository_of_problems/problems/5.html returned only template placeholder text, no actual content",
+      "A search snippet suggesting a 'September 2026' framework improving the lower bound could not be traced to any identifiable primary source and was not used",
+      "ResearchGate page for 'A new bound for Erdős' minimum overlap problem' (the triage's found item) could not be dated or opened in full; appears to be an older, pre-2024 publication (via Acta Arithmetica) and was not relied upon"
+    ]
+  },
+  "incomplete": null,
+  "triage_disagreement": true,
+  "triage_queries_replaced": true,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "event",
+      "from": "AlphaEvolve preprint 2025-06-16",
+      "to": "SimpleTES preprint 2026-04",
+      "why": "F8: the record's summary says SimpleTES's 0.380868 is 'the most recent and tightest'; under §4 step 3 a later bound on the same quantity supersedes earlier ones, so the status rests on it, not on the first AI improvement."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "credited_humans",
+      "from": "AlphaEvolve, TTT-Discover and SimpleTES people combined",
+      "to": [
+        "Haotian Ye"
+      ],
+      "why": "F8: credited_humans must describe the event the status rests on; the record names only Haotian Ye ('Ye et al.') for SimpleTES."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status_sources",
+      "from": "five sources across all events",
+      "to": "SimpleTES preprint, blog, Wikipedia",
+      "why": "F8: aligned with the new rests-on event."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "generated",
+      "to": "generated",
+      "why": "other: kept; SimpleTES blog credits the bound to gpt-oss models, as do the other three events. No human expert has digested SimpleTES specifically, but the construction is explicit and checkable."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "alphaevolve-2025",
+        "what": "AlphaEvolve (Novikov et al.) evolves a search heuristic that finds a 95-piece step function giving upper bound 0.380924, beating Haugland's 2016 0.380926",
+        "date": "2025-06-16",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://ar5iv.labs.arxiv.org/html/2506.13131",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "AlphaEvolve established a new upper bound for the minimum overlap problem, slightly improving upon the previous record. Each generation of AlphaEvolve was tasked with evolving a program representing a search heuristic...",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "ttt-discover-2026",
+        "what": "TTT-Discover (Yuksekgonul et al.) finds an asymmetric 600-piece step function giving 0.380876; checked by Torlo",
+        "date": "2026-01",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2601.16175",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "TTT-Discover improved the upper bound on Erdős' Minimum Overlap Problem to 0.380876 ... the solution from TTT-Discover is an asymmetric construction, finding a 600-piece step function",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "togetherai-2026",
+        "what": "Together AI EinsteinArena agents report 0.380871, 'purely obtained by AI agents'",
+        "date": "2026",
+        "precision": "year",
+        "after_snapshot": true,
+        "source": "https://github.com/togethercomputer/erdos-minimum-overlap",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "'purely obtained by AI agents'",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "simpletes-2026",
+        "what": "SimpleTES (Ye et al.), using gpt-oss-120b/20b, reaches upper bound 0.380868, the current record",
+        "date": "2026-04",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2604.19341",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "SimpleTES reaches 0.380868, ahead of the best human (0.380927), AlphaEvolve (0.380924, Gemini-2.0 Pro), and TogetherAI (0.380871).",
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "simpletes-2026",
+    "derived": {
+      "status": "progress",
+      "ai_role": "generated",
+      "resolution_direction": null
+    },
+    "changed": [
+      "event",
+      "credited_humans",
+      "status_sources"
+    ],
+    "doubts": "All four events are successive bounds on the same constant; the latest (SimpleTES) supersedes the earlier ones, so the event is moved to it (F8). Codes are unchanged: every event is an AI-generated upper-bound construction, so status progress / generated / null holds regardless of anchor. Verification is 'checkable' in the sense of explicit step functions; only TTT-Discover's bound has a named human checker (Torlo). SimpleTES date is month-only from the arXiv id; exact ordering of TTT-Discover and TogetherAI unresolved, immaterial here. Record gives only 'Ye et al.' for SimpleTES, so credited_humans lists only Haotian Ye.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "judge_problems": []
+}

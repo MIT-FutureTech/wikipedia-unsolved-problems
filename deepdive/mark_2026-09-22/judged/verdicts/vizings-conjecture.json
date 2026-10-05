@@ -1,0 +1,76 @@
+{
+  "key": "vizings-conjecture",
+  "judgement": {
+    "events": [
+      {
+        "id": "steiner-2026",
+        "what": "Steiner raises the universal constant c in γ(G□H) ≥ c·γ(G)γ(H) from 1/2 to (5+√73)/24 ≈ 0.5643",
+        "date": "2026-06-12", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2606.14414",
+        "scope": "bound", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "aliabadi-krop-v1-2026",
+        "what": "Aliabadi & Krop v1 claims c ≈ 0.5809",
+        "date": "2026-07-01", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/html/2607.01109v1",
+        "scope": "bound", "verification": "unreviewed", "credibility": "doubtful",
+        "credibility_reason": "The next version (v2, one day later) was withdrawn for an 'algebraic mistake'; whether v1 shares the error is not shown in the record. Superseded by v3 in any case.",
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "aliabadi-krop-v3-2026",
+        "what": "Aliabadi & Krop v3 fixes the argument and claims c = 2/3",
+        "date": "2026-09-09", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/html/2607.01109v3",
+        "scope": "bound", "verification": "unreviewed", "credibility": "doubtful",
+        "credibility_reason": "Follows a withdrawn version with an algebraic mistake; the corrected, stronger bound is under three weeks old and unread by anyone else.",
+        "ai_role": "assisted",
+        "ai_basis": "the authors used Claude (Fable 5) for language editing and computational assistance related to the proofs of Theorems 1.1 and 1.4.",
+        "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "hosking-2025",
+        "what": "Hosking's math.GM preprint proves only a conditional inequality with an unresolved deficit term",
+        "date": "2025-08-26", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2509.10473",
+        "scope": "none", "verification": "unreviewed", "credibility": "doubtful",
+        "credibility_reason": "math.GM, five revisions, no case actually closed per the record's reading of the full text.",
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "reed-zenodo-2026",
+        "what": "Self-published Zenodo claim of a full Lean 4 proof by contradiction",
+        "date": "2026-08-08", "precision": "day", "after_snapshot": true,
+        "source": "https://zenodo.org/records/21854681",
+        "scope": "whole", "verification": "unreviewed", "credibility": "not_credible",
+        "credibility_reason": "F5/F10: landmark problem, self-published outside arXiv, no uptake or discussion anywhere, and papers after it (Aliabadi–Krop v3, 2026-09-09) still treat the conjecture as open and improve constants; a Lean build alone does not show the formal statement is Vizing's conjecture.",
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      }
+    ],
+    "rests_on": "aliabadi-krop-v3-2026",
+    "derived": { "status": "progress", "ai_role": "assisted", "resolution_direction": null },
+    "changed": [],
+    "doubts": "The status rests on an undigested preprint whose previous version was withdrawn for an algebraic mistake; if v3's 2/3 falls, the row would rest on Steiner's human bound (≈0.5643, ai_role none). The AI role rests on a thin disclosure: 'computational assistance related to the proofs' says the model computed something that went into the proofs of two theorems, but not what. I read that as the model producing part of the mathematics (assisted), but the reading is borderline. Confirming that v1's 0.5809 survived v2's error was not needed, since v3 supersedes it.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {},
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "assisted",
+      "why": "F9 (thin quote): kept. The v3 disclosure credits Claude with 'computational assistance related to the proofs of Theorems 1.1 and 1.4'. That is more than language editing, and it names computations inside specific theorems, but it never says the model produced a step that appears in the final proof rather than checking the authors' own algebra. If the authors clarify that it only checked their work, the role becomes none."
+    },
+    {
+      "field": "status",
+      "from": "progress",
+      "to": "progress",
+      "why": "other: kept. A better constant c < 1 is a bound on a question that stays open (F3). It rests on Aliabadi–Krop v3, whose v2 was withdrawn for an 'algebraic mistake' (disputes). That makes it doubtful but not knocked down, since no specific error in v3 has been identified. Steiner's 0.5643 is the fallback. The Zenodo Lean claim is set aside as not credible (F5/F10)."
+    }
+  ]
+}

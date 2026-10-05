@@ -1,0 +1,66 @@
+{
+  "key": "are-there-any-pairs-of-amicable-numbers-which-have",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No proof, disproof, example, or theoretical/search-bound advance on opposite-parity amicable pairs was found since 26 January 2024; the only new item is a January 2026 Lean 4 formalization paper that restates the existing (pre-2024) parity-constraint theorem without proving it, and a February 2026 GitHub issue formalizing the bare conjecture statement.",
+  "status_sources": [],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": true,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": null,
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The question is whether any amicable pair exists with one member even and one odd. No such pair is known, and this remains true today. The relevant theoretical constraints (if an odd-even pair exists, the odd member must be a perfect square and the even member 2^k times an odd square) trace to Kanold and to D'Abramo/Starni's 2005 paper 'On Amicable Numbers With Different Parity' (arXiv:math/0501402) — all predating the 26 January 2024 window, so not counted here. I found two items from within the window: (1) arXiv:2601.07444, 'Formalization of Amicable Numbers Theory' (Chen, Tang, Zhan; submitted 12 Jan 2026), a Lean 4 formalization paper. I read the full PDF: §3.7.4 'Parity Constraints' explicitly states the two parity-constraint theorems (OddMemberSquareTheorem, EvenMemberFormTheorem) are formalized 'without proof' as bare Lean Prop statements — the paper does not prove them, merely states the classical (already-known) constraint as a target for 'future work.' It reports no new mathematical result about opposite parity; it is a formalization/engineering paper, and its own future-work section lists 'attempting formal proofs of the parity constraint theorems' as unfinished. No AI system is mentioned anywhere in the paper (methods, acknowledgements, or elsewhere) — the authors used the zify and ring Lean tactics, which are ordinary automated proof-search/normalization tactics, not AI/LLM systems, so ai_role is 'none' rather than any AI-involvement code. (2) A February 2026 GitHub issue (google-deepmind/formal-conjectures #2241), 'Amicable Numbers with Opposite Parity,' which per the triage's own note and my read of it (via WebFetch) is purely a formalization task tracking the open conjecture statement in Lean/Mathlib-style code for a benchmark repository — it explicitly says the problem 'remains open' and does not itself contain or claim a resolution; it is an issue asking a contributor (human or AI) to write the formal statement, not a proof attempt or a result. Neither item changes what a careful person would write in this bullet: the conjecture is exactly as open now as in January 2024, no example has been found, and no bound specific to opposite-parity pairs (as opposed to the separate, older coprime-amicable-pair search bound of 10^65/10^74) has moved during the window. This is a restatement/formalization, not a case or a variant that advances the mathematics, so I classify as open with no_change_found true rather than 'progress'.",
+  "competing_reading": "One could argue the arXiv:2601.07444 Lean formalization of the parity-constraint statement counts as a minor 'progress' event (formal statement of the known theorem in a new proof assistant), similar to how a Wikipedia note or survey restates a bound. But per §3.1 the test is whether it changes what a careful person would write in this bullet's entry, and a formalization that explicitly declares the theorem unproved ('without proof') and unresolved, of an already-known 2005-era result, does not move the needle on the stated question ('are there any pairs...'). I classify it as no new event rather than as a 'progress' status.",
+  "what_would_settle_it": "Either (a) an explicit odd-even amicable pair discovered by exhaustive search or construction, (b) a proof that no such pair can exist, or (c) a paper that tightens the numerical lower bound specifically for opposite-parity pairs (distinct from the general coprime-amicable-pair bound) beyond the existing Hagis-era bounds (mn > 10^74, both members > 10^60, dating to the 1990s per Hagis's work referenced in secondary sources) — none of which I found dated after 26 January 2024.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Amicable_numbers", "title": "Amicable numbers", "type": "encyclopedia", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/issues/2241", "title": "Amicable Numbers with Opposite Parity · Issue #2241 · google-deepmind/formal-conjectures", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2601.07444", "title": "Formalization of Amicable Numbers Theory", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2601.07444", "title": "Formalization of Amicable Numbers Theory (full PDF)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/math/0501402", "title": "On Amicable Numbers With Different Parity (D'Abramo/Starni, 2005)", "type": "preprint", "opened": false},
+    {"url": "https://math.dartmouth.edu/~carlp/amicablehanh5.pdf", "title": "The Reciprocal Sum of the Amicable Numbers (Nguyen and Pomerance)", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "amicable numbers opposite parity 2024 2025 2026",
+      "amicable numbers different parity proof",
+      "\"amicable numbers\" opposite parity D'Abramo",
+      "amicable numbers opposite parity lower bound improved 2024 2025",
+      "\"amicable numbers\" \"opposite parity\" arxiv 2024 2025 2026",
+      "\"opposite parity\" amicable numbers search bound 10^67 OR 10^68 improved",
+      "Starni amicable numbers different parity 2024 2025"
+    ],
+    "places_checked": [
+      "Wikipedia article 'Amicable numbers' (current, for context; problem's own dedicated article does not exist separately)",
+      "arXiv abstract and full PDF for 2601.07444",
+      "google-deepmind/formal-conjectures GitHub issue #2241",
+      "general web search for opposite-parity-specific bounds and any 2024-2026 papers"
+    ],
+    "dead_ends": [
+      "Searched for a Starni/D'Abramo follow-up paper post-2024; none found, only the original 2005 paper being cited by newer secondary sources",
+      "Checked whether the 'coprime amicable pair' bound (10^65, Pedersen 2003) had been improved post-2024 in a way relevant to opposite parity; this is a distinct (broader) conjecture from opposite-parity and no post-2024 update was found for either"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

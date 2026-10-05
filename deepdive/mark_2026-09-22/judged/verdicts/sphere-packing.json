@@ -1,0 +1,102 @@
+{
+  "key": "sphere-packing",
+  "judgement": {
+    "events": [
+      {
+        "id": "cjms-2023",
+        "what": "Campos–Jenssen–Michelen–Sahasrabudhe new lower bound of order n·log n·2^-n",
+        "date": "2023-12", "precision": "month", "after_snapshot": false,
+        "source": "https://arxiv.org/abs/2312.10026",
+        "scope": "bound", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "klartag-2025",
+        "what": "Klartag proves a lattice sphere-packing lower bound of order n²·2^-n via a stochastically evolving ellipsoid",
+        "date": "2025-04-07", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2504.05042",
+        "scope": "bound", "verification": "digested", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "huawei-ucl-2025",
+        "what": "Huawei Noah's Ark / UCL team uses Bayesian optimization + MCTS to find three-point SDP certificates giving new upper bounds in dimensions 4-16 (excluding 8)",
+        "date": "2025-12-04", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2512.04829",
+        "scope": "bound", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": "Record: 'used a Bayesian-optimization-plus-Monte-Carlo-Tree-Search pipeline to search for polynomial pairs in the Cohn–Elkies three-point semidefinite-programming method'",
+        "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "astra-2026",
+        "what": "OpenAI's Astra determines the exact asymptotic exponent of the Cohn–Elkies linear-programming bound",
+        "date": "2026-08-01", "precision": "day", "after_snapshot": true,
+        "source": "https://openai.com/index/ten-advances-in-mathematics/",
+        "scope": "none", "verification": "unreviewed", "credibility": "doubtful",
+        "credibility_reason": "Not peer reviewed; primary PDF unread by the researcher; unresolved priority dispute (Miller); Lee's digestion says he does not yet understand how the exponents match.",
+        "ai_role": "generated",
+        "ai_basis": "Astra works on the problem, sometimes for a long time, and produces the core insight and strategy for a proof; human mathematicians then write that strategy up as a traditional, readable manuscript",
+        "direction": null, "is_counterexample": false
+      }
+    ],
+    "rests_on": "klartag-2025",
+    "derived": { "status": "progress", "ai_role": "none", "resolution_direction": null },
+    "changed": ["ai_role", "event", "credited_humans", "status_sources"],
+    "doubts": "Astra scoped `none` per F3, which names this exact case: determining the reach of the Cohn–Elkies LP method is a bound on the method, not on packing density. The record also says it is 'the first improvement to the general high-dimensional upper-bound exponent since 1978'; if the LP bound's exponent is shown strictly below Kabatiansky–Levenshtein, it would be a genuine upper bound and a `bound` event with ai_role `generated`, which would make this row's ai_role `generated` by step 4. The record does not state that clearly, and its source was never read in primary form. Huawei/UCL pipeline coded `none` as optimization/search (F9), though the paper calls itself 'AI-assisted'; a reader who counts BO+MCTS as AI would get `assisted` or `generated`. Status `progress` is robust under every reading.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {
+    "ai_role": "none",
+    "event": {
+      "date": "2025-04-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "sources": [
+        "https://arxiv.org/abs/2504.05042",
+        "https://gilkalai.wordpress.com/2025/04/09/boaz-klartag-striking-new-lower-bounds-for-sphere-packing-in-high-dimensions/"
+      ]
+    },
+    "credited_humans": ["Boaz Klartag"],
+    "status_sources": [
+      "https://arxiv.org/abs/2504.05042",
+      "https://gilkalai.wordpress.com/2025/04/09/boaz-klartag-striking-new-lower-bounds-for-sphere-packing-in-high-dimensions/",
+      "https://arxiv.org/abs/2512.04829"
+    ]
+  },
+  "outcome_prefix": "Klartag's April 2025 preprint (arXiv:2504.05042) proves a lattice sphere-packing lower bound of order n²·2^-n, which Kalai called 'an amazing breakthrough'; this bound on the packing density is the event the status rests on.",
+  "corrections": [
+    {
+      "field": "event",
+      "from": "Astra announcement 2026-08-01",
+      "to": "Klartag preprint 2025-04-07",
+      "why": "F3/F8: the record's summary and the 2026-09-24 correction both describe Astra's result as 'a theorem about how far a proof METHOD can ever reach, not about packing density'. That makes it scope `none`, so it cannot set the status. The surviving bounds on the density itself are Klartag's lower bound and the Huawei/UCL dimension 4-16 upper bounds. Klartag's is the one digested (Kalai's blog)."
+    },
+    {
+      "field": "ai_role",
+      "from": "generated",
+      "to": "none",
+      "why": "F8: 'generated' came from the Astra quote, which belongs to a discarded event. Klartag's result is 'pure human work' per the record. The other surviving bound (Huawei/UCL) came from Bayesian optimization + MCTS search over SDP certificates, which is optimization/search rather than an AI system producing mathematics (F9, 'computer-assisted is not AI'). The ai.basis_quote is left in place as evidence about the Astra event."
+    },
+    {
+      "field": "credited_humans",
+      "from": "Klartag, Tutunov, Maraval, Grosnit, Li, Wang, Bou-Ammar",
+      "to": "Boaz Klartag",
+      "why": "F8: credited_humans must describe the event the status rests on, which is Klartag's sole-author preprint."
+    },
+    {
+      "field": "status_sources",
+      "from": "OpenAI PDF, OpenAI page, Scientific American, arXiv:2504.05042, arXiv:2512.04829",
+      "to": "arXiv:2504.05042, Kalai blog, arXiv:2512.04829",
+      "why": "F8: the Astra sources support a discarded event. The status now rests on the density bounds."
+    },
+    {
+      "field": "status",
+      "from": "progress",
+      "to": "progress",
+      "why": "other: kept. Every surviving event is a bound, and the bullet asks for the densest packing density and its asymptotics, which stay open. If Astra's result did count as a real upper-bound exponent improvement, it would still be only `progress`."
+    }
+  ]
+}

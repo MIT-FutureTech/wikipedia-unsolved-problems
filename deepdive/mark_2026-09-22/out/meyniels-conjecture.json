@@ -1,0 +1,79 @@
+{
+  "key": "meyniels-conjecture",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No progress on the general n-vertex conjecture: the best known general upper bound on cop number remains n/2^{(1-o(1))√(log n)}, established independently by Lu-Peng and Scott-Sudakov (and Frieze-Krivelevich-Loh) in 2011, unimproved as of September 2026. All post-January-2024 work found either addresses restricted graph classes (algebraic/Cayley graphs, bounded vertex cover, diameter two), a hypergraph analogue, or uses machine learning to predict (not prove) cop numbers on small graphs — none of these change what should be written in the general conjecture's bullet.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Cop_number",
+    "https://arxiv.org/abs/2303.05381",
+    "https://arxiv.org/abs/2602.07435",
+    "https://arxiv.org/abs/2606.27066"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "Meyniel's conjecture (cop number of a connected n-vertex graph is O(√n)) remains fully open for general graphs as of September 2026. The current Wikipedia 'Cop number' article confirms the best known general upper bound is still n/2^{(1-o(1))√(log n)}, the 2011 Lu-Peng/Scott-Sudakov(/Frieze-Krivelevich-Loh) bound; even the weaker 'soft Meyniel conjecture' (some constant c<1 with cop number O(n^c)) is unresolved. I checked every item the triage pass surfaced plus additional searches. 'On the cop number and the weak Meyniel's conjecture for algebraic graphs' (arXiv:2303.05381, v2 revised 2025-04-28, published EJC 2025) proves the *weak* Meyniel conjecture (cop number O(n) with a good constant, not O(√n)) for Cayley sum/generalized Cayley/twisted Cayley sum graphs — a different, weaker statement restricted to algebraic graph classes, not a case of the stated conjecture. 'Cops and robber in graphs with bounded vertex cover number' (arXiv:2602.07435, submitted 2026-02-07) proves a sublinear bound (k/2^{(1-o(1))√(log k)}) in terms of vertex cover number k rather than n — a genuinely different parameterization (a graph can have bounded vertex cover with unbounded n), so this is a related problem, not a restriction of the n-vertex conjecture. 'On Meyniel's Conjecture in Random Hypergraphs' (arXiv:2606.27066, submitted 2026-06-25) proves an analogous statement for hypergraphs, not the graph conjecture, and contains no AI-involvement disclosure. A 2026 paper, 'Predicting The Cop Number Using Machine Learning' (arXiv:2602.16600, submitted 2026-02-18), trains gradient-boosted trees and GNNs to predict (not prove) cop numbers of small graphs (≤13 vertices) with ~94-98% accuracy as a computational aid; its only substantive mention of Meyniel's conjecture is noting that the GNN's low false-positive rate for high cop numbers is desirable for avoiding spurious apparent counterexamples during search — it does not claim, find, or move toward any counterexample, and does not touch the proven bound. No AI system produced, checked, or contributed to any mathematical result bearing on the general conjecture. I also note (but exclude as non-primary) a GitHub PR (graph-theory-AI/graph-conjectures#10) that catalogs Meyniel's conjecture on a conjecture-tracking website with an 'AI-generated status review' summarizing existing literature; this is a secondary aggregation tool, not primary mathematical research, and its own AI use is limited to writing a literature summary, not to any mathematics that appears in a result.",
+  "competing_reading": "One could argue the vertex-cover-bounded result is 'a case' of the general conjecture in a loose sense, since bounding a different graph parameter is philosophically similar to bounding n. But vertex cover number and n are genuinely different quantities (a star graph has vertex cover 1 but arbitrary n), so a bound in terms of vertex cover does not restrict or settle any instance of the O(√n) question as stated; it is a related/parameterized problem, consistent with how the triage pass and §3.1 treat it.",
+  "what_would_settle_it": "A preprint or announcement proving or improving the general upper bound n/2^{(1-o(1))√(log n)} for all n-vertex connected graphs (moving it closer to O(√n)), or one exhibiting an explicit family of graphs with cop number ω(√n) (a counterexample), would change this record's status.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Cop_number", "title": "Cop number", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2303.05381", "title": "On the cop number and the weak Meyniel's conjecture for algebraic graphs", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2602.07435", "title": "Cops and robber in graphs with bounded vertex cover number", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.27066", "title": "On Meyniel's Conjecture in Random Hypergraphs", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2602.16600", "title": "Predicting The Cop Number Using Machine Learning", "type": "preprint", "opened": true},
+    {"url": "https://github.com/graph-theory-AI/graph-conjectures/pull/10", "title": "Add curated corpus and put Meyniel's conjecture on the site", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Cop-win_graph", "title": "Cop-win graph", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Meyniel's conjecture cop number upper bound 2024 2025 2026",
+      "Meyniel conjecture cop number breakthrough proof",
+      "\"Meyniel's conjecture\" arXiv 2025 2026",
+      "cop number general upper bound improvement 2024 2025 Lu Peng Scott Sudakov",
+      "Meyniel conjecture disproved counterexample",
+      "cop number graph AI machine learning proof conjecture cops and robbers",
+      "\"cop number\" Wikipedia game on graphs"
+    ],
+    "places_checked": [
+      "arXiv listings via web search",
+      "Wikipedia 'Cop number' article (current)",
+      "Wikipedia 'Cop-win graph' article",
+      "GitHub graph-theory-AI/graph-conjectures tracker",
+      "General web search for breakthroughs/counterexamples"
+    ],
+    "dead_ends": [
+      "graph-theory-AI/graph-conjectures GitHub PR: an AI-curated conjecture-tracking website entry, not primary research; checked and excluded",
+      "Search for a Lu-Peng/Scott-Sudakov successor bound turned up no post-2011 improvement to the general bound"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

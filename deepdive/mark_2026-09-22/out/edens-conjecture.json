@@ -1,0 +1,98 @@
+{
+  "key": "edens-conjecture",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "Matthew J. Colbrook (University of Cambridge) posted a preprint, 'Aperiodic maximisers of Lyapunov dimension: a counterexample to the unrestricted form of Eden's conjecture' (Zenodo, 21 September 2026), constructing a polynomial ODE on R^5 with a compact global attractor whose maximal Lyapunov dimension (4+4/c) is attained on an invariant two-torus carrying an irrational (aperiodic) linear flow, strictly exceeding the maximum (3) attained over equilibria and periodic orbits -- directly contradicting the unrestricted statement of Eden's conjecture as given in the Wikipedia bullet. The same maximizing set holds for the finite-time local dimension at every positive time and for the asymptotic Kaplan-Yorke dimension. The result is accompanied by a complete, from-scratch Lean 4 formalization (219 results in Solution.lean plus a 777-theorem supporting 'Eden' library) in a public GitHub repository, restricted to a small trusted axiom set (propext, Classical.choice, Quot.sound) and checked by an independent 'Comparator' tool plus a third-party 'Palomar' verification pipeline.",
+  "status_sources": [
+    "https://zenodo.org/doi/10.5281/zenodo.22883032",
+    "https://github.com/MColbrook/Eden_conjecture",
+    "https://en.wikipedia.org/wiki/Eden's_conjecture"
+  ],
+
+  "event": {
+    "date": "2026-09-21",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://zenodo.org/doi/10.5281/zenodo.22883032",
+      "https://github.com/MColbrook/Eden_conjecture"
+    ]
+  },
+
+  "credited_humans": ["Matthew J. Colbrook"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "A polynomial vector field on R^5 with uniformly negative divergence and a compact global attractor, whose Lyapunov-dimension maximizer is an invariant two-torus carrying an irrational (hence aperiodic) linear flow, rather than any stationary point or periodic orbit.",
+    "explicit": true,
+    "verified_how": "Exact singular-value/exact-identity analytic argument in the paper, plus an independent, from-scratch Lean 4 formal verification (219 main results, 777 supporting library theorems) restricted to a small trusted axiom set and cross-checked by an automated Comparator tool and a separate 'Palomar' independent verification pipeline.",
+    "sources": [
+      "https://zenodo.org/doi/10.5281/zenodo.22883032",
+      "https://github.com/MColbrook/Eden_conjecture"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [],
+
+  "summary": "The triage record (verdict 'none', checked 2026-09-20) missed this because the result was posted the day after its check (21 September 2026) -- a one-day gap that happens to fall right at the edge of triage timing rather than any error in its searches. I disagree with the triage verdict and set triage_disagreement, though the miss is purely a timing artifact, not a bad search. Colbrook's paper constructs an explicit polynomial ODE on R^5 whose global attractor's maximal Lyapunov dimension is achieved on an aperiodic invariant torus rather than on a stationary point or unstable periodic orbit, which is exactly and precisely a counterexample to the bullet as worded ('the supremum ... is achieved on a stationary point or an unstable periodic orbit'). This is squarely in scope under Sec 3.1: it directly negates the stated claim, not a variant or restricted case. I classify status as 'claimed' rather than 'resolved' because, as of today (22 September 2026), the paper is a one-day-old single-author preprint on Zenodo (not yet on arXiv at the time of my search, and not published in a journal); I found no expert digestion, commentary, blog discussion (Tao's blog, Quanta, Xena Project, etc. all silent on it), or third-party citation discussing or confirming the result. The accompanying from-scratch Lean formalization is extensive and methodologically serious (restricted axiom set, an independent Comparator/Palomar cross-check), which is strong self-verification evidence, but per Sec 6.1 a machine-checked certificate that no outside expert has yet reviewed is 'claimed', not 'resolved' -- soundness bugs in kernels remain possible in principle, and more importantly no human mathematician outside the author is on record as having reviewed the argument. On AI involvement: I found zero evidence, in the Zenodo record, the GitHub repository (README, READING_GUIDE, file listing), or general search, that any AI/ML system (language model, autoformalization tool, Copilot, etc.) was used in constructing either the mathematical argument or the Lean formalization; all methodology descriptions reference only classical tools (Lean/Mathlib, exact analytic identities). I also checked Colbrook's closely related contemporaneous 'computer-assisted counterexample' papers (to the planar Berenstein and Pompeiu-Schiffer conjectures, posted around the same time) to see whether 'computer-assisted' in his usual practice means AI; in the Berenstein paper it explicitly means interval arithmetic and Newton-Kantorovich certification, i.e. not AI, which supports (but does not prove, since it's a different paper) that this is also not AI-involved. Because I could not quote any author statement invoking an AI system, ai_role is 'none' per Sec 6.2's requirement that assisted/generated need the authors' own account.",
+  "competing_reading": "One could argue this should be 'resolved' rather than 'claimed' given how thorough and independently cross-checked (Comparator, Palomar) the Lean formalization is -- arguably approaching the bar of a 'published verification by named experts' if the Palomar pipeline constitutes independent third-party review rather than the same author's own additional tooling. I could not determine from available sources whether 'Palomar' is an independent third party or another tool built by Colbrook himself; if it is a genuinely independent verifier, this would push toward 'resolved'. I read the available evidence as the latter (self-built verification infrastructure) given it lives in the same repository under the same authorship with no distinct credited reviewers, but flag the ambiguity.",
+  "what_would_settle_it": "Confirmation of whether 'Palomar' verification is run by an independent party or by Colbrook himself; an arXiv posting or journal submission; any expert commentary, citation, or independent confirmation of the Lean proof (e.g., a second party running the Lean check, or discussion on a mathematical blog/forum); clarification of whether any AI coding assistant was used anywhere in the (extensive, 777+219 theorem) Lean development, which none of the available documentation discloses either way.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Eden's_conjecture", "title": "Eden's conjecture - Wikipedia", "type": "encyclopedia", "opened": true},
+    {"url": "https://zenodo.org/doi/10.5281/zenodo.22883032", "title": "Aperiodic maximisers of Lyapunov dimension: a counterexample to the unrestricted form of Eden's conjecture", "type": "preprint", "opened": true},
+    {"url": "https://github.com/MColbrook/Eden_conjecture", "title": "MColbrook/Eden_conjecture: Formal Lean verification of counterexample to Eden's conjecture", "type": "repository", "opened": true},
+    {"url": "https://www.damtp.cam.ac.uk/user/mjc249/Publications.html", "title": "Publications | Matthew Colbrook", "type": "blog", "opened": false},
+    {"url": "https://arxiv.org/abs/2608.08953", "title": "A computer-assisted counterexample to the planar Berenstein conjecture", "type": "preprint", "opened": true},
+    {"url": "https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/", "title": "Human mathematicians are being outcounterexampled | Xena", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/pdf/2607.06377", "title": "Automation Without Understanding", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2605.13171", "title": "Formal Conjectures: An Open and Evolving Benchmark for Verified Discovery in Mathematics", "type": "preprint", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Eden's conjecture Lyapunov dimension attractor proof",
+      "\"Eden's conjecture\" Lyapunov dimension 2024 2025",
+      "Kuznetsov \"Eden's conjecture\" verification new attractor",
+      "Matthew Colbrook counterexample Eden's conjecture arXiv",
+      "\"Aperiodic maximisers of Lyapunov dimension\" Colbrook arXiv",
+      "arxiv.org abs \"Eden's conjecture\" Colbrook 2026",
+      "\"Eden's conjecture\" Colbrook arXiv abstract Lyapunov dimension counterexample site:arxiv.org",
+      "Colbrook Eden conjecture counterexample Lean AlphaProof AI formalization",
+      "\"Eden's conjecture\" disproved Colbrook news September 2026",
+      "Colbrook \"Eden's conjecture\" GPT OR Claude OR Copilot OR \"language model\" Lean formalization",
+      "\"Colbrook\" \"Eden\" conjecture Terence Tao OR Quanta OR blog discussion counterexample"
+    ],
+    "places_checked": [
+      "Wikipedia article on Eden's conjecture (live) and frozen 26 Jan 2024 revision (via the given statement)",
+      "Zenodo record for the Colbrook preprint",
+      "GitHub repository MColbrook/Eden_conjecture (README, READING_GUIDE, file listing)",
+      "Matthew Colbrook's Cambridge publications page (fetch failed with certificate error; not resolved via alternate route)",
+      "General web search for news/blog coverage (Xena Project, arXiv HO papers on AI-and-math)",
+      "Cross-check of Colbrook's contemporaneous 'computer-assisted counterexample' papers to determine his usual meaning of 'computer-assisted'"
+    ],
+    "dead_ends": [
+      "damtp.cam.ac.uk publications page returned a TLS certificate error on WebFetch and could not be loaded directly; relied on search snippets instead",
+      "No arXiv ID could be found for the Colbrook Eden's-conjecture paper itself; it appears to be Zenodo-hosted only as of the check date",
+      "The arXiv paper 'Automation Without Understanding' (2607.06377) was suggested by search as possibly discussing this result but on full read makes no mention of Eden's conjecture or Colbrook at all -- discusses only the Erdős unit-distance problem and general AI/math funding policy; discarded as irrelevant after verification",
+      "'Formal Conjectures' arXiv paper (2605.13171, Google DeepMind benchmark) does not mention Eden's conjecture on inspection"
+    ]
+  },
+
+  "incomplete": "Could not access Colbrook's own Cambridge homepage due to a TLS fetch error, so could not independently verify author-stated funding/acknowledgement text beyond what Zenodo/GitHub expose. Could not determine with certainty whether the 'Palomar' verification pipeline referenced in the repository is run by an independent third party or is additional tooling by the same author (relevant to the resolved-vs-claimed line, see competing_reading). No arXiv posting was found for this specific paper as of the check date; only the Zenodo record and GitHub repository were available as primary sources.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false
+}

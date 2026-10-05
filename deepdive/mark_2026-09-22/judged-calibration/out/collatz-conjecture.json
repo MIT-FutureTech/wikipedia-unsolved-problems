@@ -1,0 +1,319 @@
+{
+  "key": "collatz-conjecture",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The status rests on an unreviewed, Lean-checked GitHub claim (msharpe248/collatz) that improves the Krasikov-Lagarias density exponent from 0.84 to 0.8676; the July 2026 AI Lean 'disproof' is knocked down and the 2^71 verification counts only as instances. [Judged 2026-09-28; the researcher's original outcome follows.] The conjecture remains open. The most notable event in the window is a withdrawn AI-produced Lean 'disproof' (July 25-28, 2026) that turned out to exploit two independent Lean/nanoda kernel soundness bugs rather than settle the conjecture; separately, computational verification was extended to 2^71 (Barina, 2025) and an unreviewed solo GitHub project claims a machine-checked improvement to the Krasikov-Lagarias density bound (0.8676 vs 0.84), with no AI involvement claimed for that result.",
+  "status_sources": [
+    "https://github.com/msharpe248/collatz",
+    "https://en.wikipedia.org/wiki/Collatz_conjecture"
+  ],
+  "event": {
+    "date": null,
+    "precision": "unknown",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://github.com/msharpe248/collatz"
+    ]
+  },
+  "credited_humans": [
+    "msharpe248 (GitHub handle; no full name in record)"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "On July 25, Ramana Kumar published a repository containing a sorry-free 'disproof' of the Collatz conjecture, produced with AI assistance. ... Ramana believes the timing was coincidental, but cannot rule out that the model had seen the nanoda report.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "an unnamed AI model/system (not identified by name in any source found)"
+    ],
+    "sources": [
+      "https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/",
+      "https://tildes.net/~comp/1vep/postmortem_for_lean_kernel_soundness_bug_14576",
+      "https://gigazine.net/gsc_news/en/20260803-collatz-lean-kernel-bug"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": "The claimed disproof was checked by two independent verifiers (Lean's official kernel and the nanoda external checker in Rust), both of which passed it — but each was later shown to have an independent soundness bug (a missing check in nested inductive type/kernel elimination handling) that let a proof of False through. Kiran Gopinathan reduced the exploit to a minimal proof of False on July 28, 2026, and the Lean kernel bug (#14576) was patched about an hour after being reported. The 'disproof' establishes nothing about the conjecture.",
+    "sources": [
+      "https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/",
+      "https://lawrencecpaulson.github.io/2026/07/30/Collatz.html"
+    ]
+  },
+  "resolution_direction": null,
+  "disputes": [
+    {
+      "kind": "intent",
+      "summary": "Sources disagree on whether Ramana Kumar genuinely believed the AI-produced Lean proof was valid when publishing it, or knowingly circulated a kernel-bug exploit under the guise of a mathematical disproof. De Moura's postmortem and the Paulson/GIGAZINE accounts treat it as a good-faith claim later found to be invalid ('produced with AI assistance', discovered by others to exploit a bug). A LessWrong post ('Don't trust Lean4 alone') instead states Kumar 'knew it was a soundness bug' at the time of posting and released it 'under false pretenses' as a deliberate illustration of the danger, gaining publicity because it was not originally framed as a bug report.",
+      "sources": [
+        "https://www.lesswrong.com/posts/jgmmMa7AqJNausrqx/don-t-trust-lean4-alone",
+        "https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/"
+      ]
+    }
+  ],
+  "summary": "Since the 26 January 2024 frozen revision, the Collatz conjecture remains unproven, and the article's own current lead still describes it as open. The single event with a genuine, if indirect, AI angle is the July 2026 Lean 'disproof': on 25 July 2026 Ramana Kumar published a Lean 4 repository (github.com/xrchz/CollatzLean) containing a sorry-free formal 'disproof' of the conjecture that was, per Leonardo de Moura's postmortem, 'produced with AI assistance', and that passed both Lean's official kernel and the independent nanoda checker. On 28 July 2026 Kiran Gopinathan reduced it to a minimal proof of False and reported it as Lean issue #14576; investigation showed it exploited two unrelated soundness bugs (a missing check in the kernel's handling of nested inductive types, and a matching gap in nanoda's projection-node type checking) rather than proving anything about Collatz, and the kernel bug was patched within about an hour. No source I could open names the specific AI system involved — 'produced with AI assistance' / 'AI-generated' is as specific as any account (de Moura's blog, Lawrence Paulson's blog, GIGAZINE, and the Tildes discussion of the postmortem) gets, so I record the system as unnamed rather than guessing. There is also a genuine dispute about intent: a LessWrong post ('Don't trust Lean4 alone') asserts Kumar knew at the time of posting that the 'proof' exploited a bug and released it under false pretenses as a cautionary demonstration, which is a materially different story from an AI genuinely (if wrongly) believed to have found a real disproof — I record this as a dispute rather than picking a side. Per the withdrawn-claim rule (§6.1/§7), I classify this event as status 'progress' with ai_role 'incident', dated to the 25 July 2026 claim, since the problem itself did not move. Separately, I checked for any real (non-incident) progress in the window: computational verification was extended to 2^71 by David Barina (Journal of Supercomputing, published online ~May 2025, per FIT VUT and ResearchGate records) — this is a record-extension on an infinitude-shaped bullet and per §3.1 does not itself change the bullet, but I note it as background. I also found an unreviewed solo GitHub project (msharpe248/collatz) claiming a Lean-4, kernel-checked improvement of the Krasikov-Lagarias (2003) density bound from x^0.84 to π₁(x) = Ω(x^0.8676) via scaling the classical elimination argument to 3^14 congruence classes; this would be a genuine 'bound moved' progress event if it holds up, but it has no arXiv preprint, no journal venue, and no independent digestion I could find beyond the author's own kernel-checked certificate, so I do not treat it as decisive and note it only as background evidence that 'progress' (rather than 'open' with no_change_found) is the more defensible status even setting the AI incident aside. No AI role is claimed for that bound-improvement work. I also examined several 2024-2026 full-proof preprints (arXiv:2309.09991, Cambridge Open Engage Dec 2025, Preprints.org Aug/Oct 2025) and structural/dynamical papers (the circle-rotation near-conjugacy paper arXiv:2601.04289, and Edward Y. Chang's 'Exploring Collatz Dynamics with Human-LLM Collaboration' arXiv:2603.11066) — none of these claim to resolve the conjecture or settle a case of it; Chang's paper explicitly disclaims being a proof and instead catalogues why the conjecture resists proof across 29 frameworks, so despite naming human-LLM collaboration it is a related/variant contribution (proof-obstacle survey), not a case of the stated problem, and I exclude it from the status-determining event.",
+  "competing_reading": "One could argue the correct status is 'open' with no_change_found true, treating the withdrawn Lean incident as too ephemeral and too indirectly tied to genuine mathematical progress to count as a status-changing 'event' at all — it was retracted within three days and settled nothing, positive or negative, about the conjecture. Against that: §7 explicitly says 'a withdrawn claim is still an event' and directs recording it as progress/incident rather than dropping it, which is the reading I followed. A second competing reading concerns the msharpe248 density-bound claim: if one credits it despite the lack of peer review or an arXiv posting, the status could instead rest on that bound-moving event (still 'progress', but with a different event and ai_role 'none' rather than 'incident') rather than on the Lean incident; I chose the Lean incident because it is better corroborated by independent, higher-authority sources (Lean's own creator, an established Isabelle/HOL expert's blog, tech press) whereas the density-bound claim rests solely on the claimant's own repository.",
+  "what_would_settle_it": "For the Lean incident: a direct statement from Ramana Kumar (a tweet, blog post, or repository commit message) explaining his own intent and knowledge at the time of posting would resolve the priority/intent dispute, and identifying the specific AI system (model name and provider) used would let this be coded more precisely and cross-referenced against model release dates. For the density-bound claim: an arXiv posting or any third-party review of msharpe248/collatz's Krasikov-Lagarias improvement would let it be weighed as a genuine progress event rather than background context.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/",
+      "title": "Postmortem for Kernel Soundness Bug #14576",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://lawrencecpaulson.github.io/2026/07/30/Collatz.html",
+      "title": "Why is it all in the kernel?",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://gigazine.net/gsc_news/en/20260803-collatz-lean-kernel-bug",
+      "title": "An AI-assisted 'falsification of the Collatz conjecture' was found to be invalid, having exploited a kernel bug in Lean",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://tildes.net/~comp/1vep/postmortem_for_lean_kernel_soundness_bug_14576",
+      "title": "Postmortem for Lean kernel soundness bug #14576 - ~comp",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.lesswrong.com/posts/jgmmMa7AqJNausrqx/don-t-trust-lean4-alone",
+      "title": "Don't trust Lean4 alone",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/xrchz/CollatzLean",
+      "title": "xrchz/CollatzLean",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Collatz_conjecture",
+      "title": "Collatz conjecture",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+      "title": "List of mathematical discoveries by artificial intelligence",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.fit.vut.cz/research/result/c197809/.en",
+      "title": "Improved verification limit for the convergence of the Collatz conjecture",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/msharpe248/collatz",
+      "title": "msharpe248/collatz: Machine-verified results on the 3x+1 problem (Lean 4)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.cambridge.org/engage/coe/article-details/693a3e41ef27c95d3b064d2e",
+      "title": "All orbits of the collatz map attain the trivial cycle 4 2 1",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.04289",
+      "title": "An Explicit Near-Conjugacy Between the Collatz Map and a Circle Rotation",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.11066",
+      "title": "Exploring Collatz Dynamics with Human-LLM Collaboration",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2309.09991",
+      "title": "The Proof of the Collatz Conjecture",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://terrytao.wordpress.com/2019/09/10/almost-all-collatz-orbits-attain-almost-bounded-values/",
+      "title": "Almost all Collatz orbits attain almost bounded values",
+      "type": "blog",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Collatz conjecture Lean kernel bug disproof retracted July 2026",
+      "Collatz conjecture 2024 2025 2026 proof progress",
+      "Ramana Kumar Collatz disproof AI Lean GitHub repository",
+      "\"Collatz\" Lean disproof \"Claude\" OR \"GPT\" OR \"Gemini\" OR \"o3\" model name AI generated",
+      "\"CollatzLean\" Ramana Kumar AI model name \"generated the proof\" OR \"wrote the proof\"",
+      "Ramana Kumar Collatz \"I knew\" OR \"did not know\" bug Twitter X thread July 2026",
+      "Collatz high cycles do not exist ScienceDirect 2025",
+      "Barina Collatz conjecture verified 2^71 2025 paper date",
+      "Terence Tao Collatz conjecture 2024 2025 progress almost all",
+      "Collatz Conjecture Challenge ccchallenge.org Lean formalization status",
+      "Collatz conjecture proof debunked 2025 flawed error found",
+      "msharpe248 collatz density exponent Krasikov Lagarias arxiv paper",
+      "Collatz conjecture \"3^14\" OR \"1,594,323\" density record 2025 2026",
+      "Edward Y. Chang Collatz LLM collaboration paper claims",
+      "Collatz conjecture Wikipedia \"unverified list\" OR \"Menta2357\" collatz-classical Krasikov Lagarias formalized"
+    ],
+    "places_checked": [
+      "Wikipedia article 'Collatz conjecture' (current)",
+      "Wikipedia 'List of mathematical discoveries by artificial intelligence'",
+      "arXiv listings for 2024-2026 Collatz preprints",
+      "GitHub repositories (xrchz/CollatzLean, msharpe248/collatz)",
+      "Lean creator Leonardo de Moura's blog (kernel postmortem)",
+      "Lawrence Paulson's blog (Isabelle/HOL expert commentary)",
+      "Tildes and LessWrong community discussions of the incident",
+      "GIGAZINE tech press coverage",
+      "ccchallenge.org (Collatz literature formalization tracker)",
+      "Journal of Supercomputing / FIT VUT record for Barina's 2^71 verification"
+    ],
+    "dead_ends": [
+      "The GitHub README for xrchz/CollatzLean itself contains no methodology or AI-system disclosure — all such detail comes from de Moura's and Paulson's secondary accounts",
+      "Could not identify the specific AI system/model name behind the July 2026 Lean disproof from any source opened",
+      "hal.science page for a 2023 'Collatz High Cycles Do Not Exist' paper (Kevin Knight) was blocked by bot-protection (Anubis); this appears to be a 2023 paper predating the window in any case and was not pursued further",
+      "Could not find any independent (non-self-published) review of msharpe248/collatz's density-bound claim"
+    ]
+  },
+  "incomplete": "Could not confirm the identity of the specific AI system used to produce the withdrawn July 2026 Lean disproof; every source that discusses it (de Moura, Paulson, GIGAZINE, Tildes, LessWrong) refers to it only as 'AI assistance' or 'AI-generated' without a model name. I also could not independently verify or find third-party review of the msharpe248/collatz density-bound claim beyond the claimant's own repository, so I treated it as background rather than the status-determining event.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "event",
+      "from": "2026-07-25 Lean 'disproof' repository",
+      "to": "msharpe248/collatz density-bound repository",
+      "why": "F6/F8: the record itself says the Lean 'disproof' exploited two soundness bugs and 'establishes nothing about the conjecture', so it is knocked down and cannot carry the status. The only surviving event is the density bound, which the record calls 'a genuine bound moved progress event if it holds up'. Barina's 2^71 is instances (F4)."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "incident",
+      "to": "none",
+      "why": "F8: the AI role must describe the event the status rests on. The record says 'No AI role is claimed for that bound-improvement work'. The basis_quote belongs to the knocked-down Lean event and is left in place as evidence."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "credited_humans",
+      "from": "[Ramana Kumar, Kiran Gopinathan, Leonardo de Moura]",
+      "to": "[msharpe248]",
+      "why": "F8: these names belong to the knocked-down Lean incident, not to the event the status rests on."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status_sources",
+      "from": "Lean postmortem, Paulson, Wikipedia, FIT VUT, msharpe248",
+      "to": "msharpe248, Wikipedia",
+      "why": "F8: the status now rests on the density-bound repository."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "progress",
+      "to": "progress",
+      "why": "F10: kept at 'progress', with doubt. The only surviving bound is unreviewed, checked only by its author's Lean build, and undated in the record. If it is set aside, the status becomes 'open'."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "kumar-lean-disproof-2026",
+        "what": "AI-assisted sorry-free Lean 'disproof' of Collatz, shown to exploit two kernel/checker soundness bugs",
+        "date": "2026-07-25",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/",
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Reduced to a minimal proof of False on 2026-07-28 (Lean issue #14576); it exploited soundness bugs in Lean's kernel and in nanoda, and proves nothing about Collatz.",
+        "ai_role": "generated",
+        "ai_basis": "a sorry-free 'disproof' of the Collatz conjecture, produced with AI assistance",
+        "direction": "refuted",
+        "is_counterexample": false
+      },
+      {
+        "id": "barina-2-71-2025",
+        "what": "Barina extends computational verification to 2^71",
+        "date": "2025-05",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://www.fit.vut.cz/research/result/c197809/.en",
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "msharpe248-density-bound",
+        "what": "Solo GitHub project claims a Lean-4 kernel-checked improvement of the Krasikov-Lagarias density exponent from 0.84 to 0.8676 using 3^14 congruence classes",
+        "date": null,
+        "precision": "unknown",
+        "after_snapshot": true,
+        "source": "https://github.com/msharpe248/collatz",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Rests only on the author's own Lean build (F10: formal statement not checked against the density claim by any human); no arXiv posting, venue or third-party review. The method (scaling the known elimination argument) is plausible, so it is kept.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "chang-human-llm-2026",
+        "what": "Chang, 'Exploring Collatz Dynamics with Human-LLM Collaboration': a survey of proof obstacles, explicitly not a proof",
+        "date": "2026-03",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2603.11066",
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "msharpe248-density-bound",
+    "derived": {
+      "status": "progress",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [
+      "ai_role",
+      "event",
+      "credited_humans",
+      "status_sources"
+    ],
+    "doubts": "The status is still 'progress', but it now rests on the msharpe248 density bound. That bound is unreviewed, rests only on a Lean build, and the record gives no date for it. The researcher put it inside the window, and I accepted that without checking. If the bound turns out to predate 2024-01-26 or is set aside, the status becomes 'open'. The Lean incident is knocked down and cannot set the status (F6). The researcher's 'incident' role and its 'withdrawn claim is still an event' rule do not apply under the current rules. The record gives the author's identity only as the GitHub handle msharpe248.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  }
+}

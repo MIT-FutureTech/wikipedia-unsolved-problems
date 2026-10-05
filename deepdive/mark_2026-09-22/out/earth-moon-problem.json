@@ -1,0 +1,91 @@
+{
+  "key": "earth-moon-problem",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "The chromatic number of biplanar graphs is still unresolved (bounded between 9 and 12, unchanged since 1980/1959), but a 2026 preprint by Arjun Trivedi eliminates an entire candidate family — clique blow-ups of the 5-cycle C5[w] — as a possible source of a 10-chromatic biplanar graph, proving all such biplanar blow-ups are 9-colourable and giving a short proof that the specific candidate C5[4,4,4,4,3] is not biplanar. This narrows (but does not resolve) the search space Gethner's 2018 conjecture pointed to; no AI system is credited in any source found.",
+  "status_sources": [
+    "https://zenodo.org/records/22074335",
+    "https://en.wikipedia.org/wiki/Earth%E2%80%93Moon_problem",
+    "http://www.openproblemgarden.org/op/earth_moon_problem"
+  ],
+
+  "event": {
+    "date": "2026-08-05",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://zenodo.org/records/22074335"]
+  },
+
+  "credited_humans": ["Arjun Trivedi"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "The Earth-Moon problem (maximum chromatic number of biplanar graphs) remains open: the bounds are still 9 (Sulanke, 1980) and 12 (Ringel, 1959), exactly as before the frozen revision. No construction of a 10-chromatic biplanar graph has been found, and no expert digestion, journal publication, or arXiv listing of any new result was located. Two items of genuine post-window activity exist. (1) A GitHub repository by user 'EpsilonPhoenix' (earth_moon_small_order) gives a computer-assisted (Python/Z3/partial Lean 4) verification that every biplanar graph on at most 18 vertices is 9-colourable; this is explicitly a partial, unpublished formalization with unproved hypotheses, reconfirming rather than moving the known lower bound, and mentions no AI system. (2) A Zenodo self-archived preprint (DOI 10.5281/zenodo.22074335, posted 2026-08-05) by Arjun Trivedi, 'Biplanar clique blow-ups of C5 are 9-colourable', proves χ(C5[w]) = max{max_i(w_i+w_{i+1}), ⌈n/2⌉}, shows every biplanar clique blow-up of C5 is 9-colourable (so this natural family, which includes several of Ellen Gethner's 2018-conjectured 10-chromatic candidates, cannot yield a counterexample), classifies the four 10-chromatic K9-free members of the family, and gives a short proof that C5[4,4,4,4,3] specifically is not biplanar (extending the 2023 arXiv result, predating this window, that showed C5⊠K4−v is not biplanar). This is a genuine case of the problem — it restricts the search space by ruling out a whole family of candidate constructions — so it counts as `partial` with `resolution_direction` confirmed (the family was confirmed to be 9-colourable, as conjectured/expected, not counterexample-producing). However, it has not been digested by experts: it is not on arXiv, has no citations, and its author has no visible institutional affiliation or other visible track record in this area (a Google Scholar page and GitHub profile under the same name were found but show no other related work). I classify this conservatively as `partial` rather than `claimed`+status-shift because the underlying mathematical content (a case elimination) is modest and mechanically checkable (a closed-form chromatic number formula for a well-understood graph family plus a routine biplanarity argument), similar in kind to the 2023 result already accepted as settling that specific graph. No source anywhere — the Zenodo record, the GitHub repo, Epoch AI's FrontierMath page, or the current Wikipedia article — credits any AI system with producing any part of this work; Epoch AI's page frames the Earth-Moon problem as an outstanding AI benchmark target (find a 10-chromatic biplanar graph) that remains unmet, not as a problem any AI system has moved.",
+  "competing_reading": "One could argue the Trivedi result should be `open` with `no_change_found` true, on the grounds that ruling out one already-known-nonbiplanar-adjacent family (a variant class Gethner herself proposed only as candidates, never as confirmed 10-chromatic biplanar graphs) is closer to 'exploring where an answer isn't' than to settling any part of the stated question — the Earth-Moon problem asks for the maximum chromatic number, and narrowing candidate constructions without moving the proven bounds of 9-12 changes nothing a careful person would write in the bullet. Under that reading this is exactly the kind of narrowing search-space activity that §3.1 excludes for existence-style questions. I judged it as `partial` instead because the chromatic number question is not a pure existence question in the same sense as 'are there infinitely many X' — it is asking for an exact value, and formally settling that an entire well-defined subclass of biplanar graphs is 9-colourable is a genuine (if small) piece of the classification the problem calls for, analogous to case-by-case work on other coloring problems. Given the total absence of expert uptake, `open`/`no_change_found` is a defensible alternative.",
+  "what_would_settle_it": "Whether an expert (a topological/chromatic graph theory researcher, or a citation/review of Trivedi's Zenodo preprint) treats this classification of C5-blow-up candidates as a real, correct contribution to the Earth-Moon problem's literature, or dismisses/ignores it as a minor self-published exercise; also whether the paper ever appears on arXiv or in a journal.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://zenodo.org/records/22074335", "title": "Biplanar clique blow-ups of C5 are 9-colourable", "type": "preprint", "opened": true},
+    {"url": "https://github.com/EpsilonPhoenix/earth_moon_small_order", "title": "Computer-assisted proof of nine-colorability for biplanar graphs on at most 18 vertices", "type": "repository", "opened": true},
+    {"url": "https://epoch.ai/frontiermath/open-problems/earth-moon", "title": "The Earth–Moon Problem | Epoch AI", "type": "blog", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Earth%E2%80%93Moon_problem", "title": "Earth–Moon problem", "type": "encyclopedia", "opened": true},
+    {"url": "http://www.openproblemgarden.org/op/earth_moon_problem", "title": "Earth-Moon Problem | Open Problem Garden", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2301.09246", "title": "On the Biplanarity of Blowups", "type": "preprint", "opened": false},
+    {"url": "https://scholar.google.com/citations?user=zzGqRGwAAAAJ&hl=en", "title": "Arjun Trivedi - Google Scholar", "type": "encyclopedia", "opened": false},
+    {"url": "https://github.com/4R9UN", "title": "4R9UN (Arjun Trivedi) · GitHub", "type": "repository", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Earth-Moon problem chromatic number biplanar graphs 2024 2025",
+      "\"Earth-Moon problem\" biplanar chromatic number solved proof",
+      "Earth-Moon problem Wikipedia chromatic number biplanar graphs",
+      "Epoch AI FrontierMath Earth-Moon problem",
+      "\"Arjun Trivedi\" biplanar clique blow-ups C5 9-colourable",
+      "EpsilonPhoenix earth_moon_small_order GitHub Claude GPT LLM assisted",
+      "\"C5[w]\" OR \"clique blow-up\" Earth-Moon problem Trivedi arxiv 2026",
+      "\"biplanar\" chromatic number lower bound \"10-chromatic\" 2024 2025 construction",
+      "Gethner biplanar graph 10-chromatic candidate 2024 2025 disproved"
+    ],
+    "places_checked": [
+      "Wikipedia article Earth–Moon problem (current, and cross-checked against the frozen 2024 statement)",
+      "Open Problem Garden entry for the Earth-Moon problem",
+      "Zenodo record for the Trivedi 2026 preprint",
+      "GitHub repository EpsilonPhoenix/earth_moon_small_order",
+      "Epoch AI FrontierMath open-problems page for Earth-Moon",
+      "arXiv search for related 2024-2026 biplanarity/blow-up papers",
+      "Google Scholar / GitHub profile check on 'Arjun Trivedi' for track record and affiliation"
+    ],
+    "dead_ends": [
+      "No arXiv listing exists for the Trivedi paper despite searching multiple phrasings; it appears to be Zenodo-only",
+      "No citations, reviews, or discussion of the Trivedi paper found anywhere",
+      "Open Problem Garden page is stale (last substantive edit 2013) and not useful for post-2024 status",
+      "A WebSearch tool summary speculated the GitHub repo 'likely' used Claude/GPT based on my own query wording — this is an unsupported inference from the search tool, not evidence, and was disregarded; the repo's actual README/content lists only Python, Z3, and Lean 4 as tools, with no AI system named"
+    ]
+  },
+
+  "incomplete": "I could not fully render the Trivedi Zenodo PDF itself (only its metadata/description page rendered via WebFetch), so claims about its internal methodology beyond the abstract-level description are based on that description and secondary search summaries rather than a full read of the paper text. I also could not independently confirm whether 'Arjun Trivedi' has any institutional affiliation or prior publication record beyond a Google Scholar profile and GitHub account found by name search, which I did not open in full.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false
+}

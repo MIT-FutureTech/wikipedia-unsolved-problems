@@ -1,0 +1,128 @@
+{
+  "key": "how-many-unit-distances",
+
+  "status": "resolved",
+  "no_change_found": false,
+  "outcome": "Erdős's conjecture that the maximum number u(n) of unit distances among n points in the plane is n^{1+o(1)} was disproved: an OpenAI internal reasoning model produced a construction (using towers of algebraic number fields via a Golod–Shafarevich criterion) yielding u(n) > n^{1+delta} for a fixed delta>0 and infinitely many n, announced 20 May 2026 and subsequently digested and human-verified by a group of leading mathematicians (Alon, Bloom, Gowers, Litt, Sawin, Shankar, Tsimerman, Wang, Matchett Wood) in a short 'Remarks' paper. Will Sawin then made the exponent explicit (delta ≥ 0.014114), and several further human/AI-assisted refinements pushed delta above 0.036 within weeks. The classical upper bound O(n^{4/3}) (Spencer–Szemerédi–Trotter, 1984) is untouched, so the problem 'how many unit distances' is not fully closed, but the specific conjectured answer given in the Wikipedia bullet's implicit context (Erdős's n^{1+o(1)} conjecture) has been refuted and the refutation has passed expert digestion, meeting the resolved bar.",
+  "status_sources": [
+    "https://arxiv.org/abs/2605.20579",
+    "https://arxiv.org/abs/2605.20695",
+    "https://terrytao.wordpress.com/2026/07/03/a-digestion-of-unit-distance-constructions/",
+    "https://gilkalai.wordpress.com/2026/05/21/amazing-erdos-unit-distance-problem-was-disproved-it-was-achieved-by-ai/",
+    "https://blog.computationalcomplexity.org/2026/05/two-erdos-problems-on-points-in-plane.html"
+  ],
+
+  "event": {
+    "date": "2026-05-20",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://openai.com/index/model-disproves-discrete-geometry-conjecture/",
+      "https://arxiv.org/abs/2605.20695",
+      "https://gilkalai.wordpress.com/2026/05/21/amazing-erdos-unit-distance-problem-was-disproved-it-was-achieved-by-ai/"
+    ]
+  },
+
+  "credited_humans": [
+    "Noga Alon", "Thomas F. Bloom", "W. T. Gowers", "Daniel Litt", "Will Sawin",
+    "Arul Shankar", "Jacob Tsimerman", "Victor Wang", "Melanie Matchett Wood",
+    "Sébastien Bubeck (OpenAI)"
+  ],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "We present a short, digested, human-verified version of the recent OpenAI-generated counterexample to the Erdős unit distance conjecture. ... the proof [is] a human-digested, somewhat simplified, and somewhat generalized version of the AI proof.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["an internal general-purpose reasoning model of OpenAI"],
+    "sources": [
+      "https://arxiv.org/abs/2605.20695",
+      "https://openai.com/index/model-disproves-discrete-geometry-conjecture/",
+      "https://theaitrack.com/openai-disproves-unit-distance-problem/",
+      "https://blog.computationalcomplexity.org/2026/05/two-erdos-problems-on-points-in-plane.html"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "An infinite family of planar point sets, constructed via towers of algebraic number fields of large degree and small discriminant with many small-norm primes (Golod–Shafarevich construction), giving n points with more than n^{1+delta} unit-distance pairs for a fixed delta>0 and infinitely many n — exceeding Erdős's conjectured bound n^{1+o(1)}.",
+    "explicit": false,
+    "verified_how": "Original OpenAI construction gave only an inexplicit delta>0; the construction and its correctness were reviewed and rewritten by the named mathematicians in the 'Remarks' paper. Will Sawin then produced an explicit, independently-checkable value delta ≥ 0.014114.",
+    "sources": [
+      "https://arxiv.org/abs/2605.20695",
+      "https://arxiv.org/abs/2605.20579"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [
+    {
+      "kind": "characterization",
+      "summary": "Whether the result should be described as 'AI-generated' or merely 'AI-assisted' is disputed. The Computational Complexity blog reports that critic Gary Marcus disputed OpenAI's 'AI-generated' framing, calling it 'AI-assisted' instead, given the substantial human role in digesting, checking, and rewriting the proof before publication. OpenAI's Sébastien Bubeck defended crediting the achievement primarily to the model.",
+      "sources": ["https://blog.computationalcomplexity.org/2026/05/two-erdos-problems-on-points-in-plane.html"]
+    },
+    {
+      "kind": "priority/credit",
+      "summary": "Multiple independent rapid improvements to the explicit exponent followed within days by different people/groups (mlewko, spiderduckpig, Naslund, Tseng, Emmerich) via informal channels (MathOverflow, blogs) as well as formal preprints, making it hard to assign clean priority for the numeric record beyond Sawin's first explicit bound.",
+      "sources": ["https://teorth.github.io/optimizationproblems/constants/84a.html", "https://arxiv.org/abs/2606.03419"]
+    }
+  ],
+
+  "summary": "Wikipedia's bullet asks for u(n), the maximum number of unit distances among n planar points. As of the frozen revision (Jan 2024) the known bounds were the classical O(n^{4/3}) upper bound (Spencer–Szemerédi–Trotter 1984) and a lower bound of n^{1+c/log log n} (Erdős's own construction), with Erdős conjecturing the truth was n^{1+o(1)}. On 20 May 2026, OpenAI announced that an internal general-purpose reasoning model had produced a construction refuting that conjecture: point sets with more than n^{1+delta} unit distances for a fixed delta>0. This was not a bare announcement — a paper 'Remarks on the disproof of the unit distance conjecture' (arXiv:2605.20695), authored by prominent mathematicians including Alon, Gowers, Litt, Sawin, Tsimerman, Wang and Matchett Wood, presents 'a short, digested, human-verified version' of the AI-generated argument, explicitly stating it is a 'human-digested, somewhat simplified, and somewhat generalized version of the AI proof.' This constitutes the kind of expert digestion required for `resolved` under §6.1: the underlying mathematics has been checked and rewritten by named experts, not merely a compiler or an unreviewed preprint. Within days, Will Sawin (arXiv:2605.20579) made the exponent explicit, proving u(n) > n^{1.014114...} for arbitrarily large n via the same number-theoretic (Golod–Shafarevich) method — this is `resolved`/`refuted` since it directly answers the stated conjecture (the exponent is provably > 1, not = 1+o(1)) against Erdős's expectation. A cascade of further improvements followed over the following weeks (mlewko, spiderduckpig, Naslund reaching delta≈0.0358, Tseng, and a formal optimization paper by Emmerich reaching delta>0.036 as of June 2026, per Terence Tao's tracking page), some involving further AI assistance (a blog by 'nor' credits 'GPT 5.5 Pro' with producing 'the construction and proof... as well as most of the technical parts of the writeup' for one such improvement). These are bound-improving `progress` on an already-refuted conjecture, not separate resolutions, and are noted here rather than filed as separate events per the instruction to describe one decisive event. The classical upper bound side (O(n^{4/3})) is unchanged; a related paper (arXiv:2605.26145, 'An incomplete attack on the upper bound') attempted improvement there but is explicitly incomplete. Terence Tao's own expository blog post ('A digestion of unit distance constructions', July 2026) treats the OpenAI/Sawin result as established mathematics and discusses the current state of the exponent (0.03583 ≤ c ≤ 1/3 as of his writing), which is strong independent confirmation of expert acceptance.",
+  "competing_reading": "One could argue for `claimed` rather than `resolved` if one holds that only the peer-reviewed journal version (not yet known to exist) counts as 'digested.' But the 'Remarks' paper's authors are themselves among the top experts in the relevant areas (algebraic number theory, additive combinatorics, discrete geometry) and its abstract explicitly frames itself as a verification/digestion exercise, which is exactly the bar §6.1 sets for `resolved` (an expert digestion that works through the proof) rather than requiring formal journal publication. Also debatable: whether the AI's role is `generated` or effectively `assisted`, since the publishable version was substantially rewritten by humans — but per §6.2, `generated` is correct whenever the authors' own account is that the model produced the proof/counterexample and humans verified it (as here), regardless of how much rewriting followed; the rewriting is verification and exposition, not new mathematical content per the sources reviewed.",
+  "what_would_settle_it": "A published, refereed journal version of either the OpenAI/Alon-et-al. 'Remarks' paper or Sawin's explicit-bound paper, or an explicit statement from Tao or another leading expert unambiguously certifying the argument's correctness beyond the digestion exercise already performed, would remove any residual doubt about the `resolved` classification.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2605.20579", "title": "An explicit lower bound for the unit distance problem", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2605.20695", "title": "Remarks on the disproof of the unit distance conjecture", "type": "preprint", "opened": true},
+    {"url": "https://cdn.openai.com/pdf/74c24085-19b0-4534-9c90-465b8e29ad73/unit-distance-remarks.pdf", "title": "Remarks on the disproof of the unit distance conjecture (OpenAI-hosted PDF)", "type": "preprint", "opened": false},
+    {"url": "https://openai.com/index/model-disproves-discrete-geometry-conjecture/", "title": "An OpenAI model has disproved a central conjecture in discrete geometry", "type": "press_release", "opened": false},
+    {"url": "https://interestingengineering.com/ai-robotics/openai-paul-erdos-geometry-problem-cracked", "title": "80-year-old geometry puzzle cracked by OpenAI using number theory", "type": "news", "opened": true},
+    {"url": "https://arxiv.org/pdf/2606.03419", "title": "Optimizing Explicit Unit-Distance Lower-Bound Certificates", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.03419", "title": "Optimizing Explicit Unit-Distance Lower-Bound Certificates", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2605.26145", "title": "An incomplete attack on the upper bound of the unit distance problem", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/2507.15679", "title": "Erdős's unit distance problem and rigidity", "type": "preprint", "opened": false},
+    {"url": "https://teorth.github.io/optimizationproblems/constants/84a.html", "title": "Erdős unit distance exponent (Tao's tracking page)", "type": "blog", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2026/07/03/a-digestion-of-unit-distance-constructions/", "title": "A digestion of unit distance constructions", "type": "blog", "opened": true},
+    {"url": "https://gilkalai.wordpress.com/2026/05/21/amazing-erdos-unit-distance-problem-was-disproved-it-was-achieved-by-ai/", "title": "Amazing: Erdős' Unit Distance Problem was Disproved! It was achieved by AI!", "type": "blog", "opened": true},
+    {"url": "https://blog.computationalcomplexity.org/2026/05/two-erdos-problems-on-points-in-plane.html", "title": "Two Erdős Problems on Points in the Plane and AI", "type": "blog", "opened": true},
+    {"url": "https://theaitrack.com/openai-disproves-unit-distance-problem/", "title": "OpenAI Model Disproves Unit Distance Problem Assumption", "type": "news", "opened": true},
+    {"url": "https://nor-blog.pages.dev/posts/2026-05-21-improving-unit-distance-lower-bounds/", "title": "Improving the lower bound for the unit distance problem", "type": "blog", "opened": true},
+    {"url": "https://www.erdosproblems.com/1196", "title": "Erdős Problem 1196 (unrelated primitive-set problem, wrong page for this topic)", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Erdos unit distance conjecture disproved OpenAI 2026",
+      "\"unit distance\" conjecture Sawin explicit exponent arxiv",
+      "Terence Tao blog unit distance problem OpenAI Erdos 2026",
+      "OpenAI unit distance conjecture Gowers Alon verified proof May 2026",
+      "OpenAI \"unit distance\" model name GPT experimental reasoning May 2026 announcement",
+      "\"unit distance\" OpenAI \"GPT-5.5\" OR \"o5\" OR internal model name disprove conjecture",
+      "Naslund unit distance conjecture 1.03583 ChatGPT GPT-5.5 covolume ideal lattice",
+      "Wikipedia \"unit distance problem\" article 2026 update Erdos disproved"
+    ],
+    "places_checked": [
+      "arXiv abstracts/HTML for 2605.20579, 2605.20695, 2606.03419, 2605.26145",
+      "OpenAI's own announcement page (index/model-disproves-discrete-geometry-conjecture)",
+      "OpenAI-hosted PDF of the Remarks paper",
+      "Terence Tao's blog and his constants-tracking page",
+      "Gil Kalai's blog",
+      "Computational Complexity blog (Lance Fortnow / Bill Gasarch)",
+      "erdosproblems.com (checked #1196, found to be an unrelated problem)",
+      "News aggregators (theaitrack, interestingengineering) for corroboration"
+    ],
+    "dead_ends": [
+      "erdosproblems.com/1196 turned out to be about a different conjecture (primitive sets, Erdős–Sárközy–Szemerédi) despite matching search terms — not used as evidence",
+      "Direct PDF fetch of arXiv 2606.03419 via WebFetch returned raw binary/compressed stream, not text; relied on arXiv abstract page and secondary summaries instead",
+      "openai.com press page returned HTTP 403 to WebFetch; relied on secondary reporting (theaitrack, gilkalai, computationalcomplexity) that quotes it",
+      "Could not find a specific named/versioned OpenAI model (e.g. a GPT-x designation) for the original disproof; sources consistently describe it only as 'an internal general-purpose reasoning model'"
+    ]
+  },
+
+  "incomplete": "Could not directly read the full text of the OpenAI-hosted Remarks PDF (binary encoding blocked textual extraction) or the full body of arXiv 2606.03419 (WebFetch returned metadata/abstract-level content rather than full body text for the AI-declaration section); relied on the abstract, secondary paraphrase, and independent corroborating sources (nor-blog, Computational Complexity blog) for those details instead. The specific internal OpenAI model name/version was not disclosed in any source found.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

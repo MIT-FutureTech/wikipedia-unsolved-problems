@@ -1,0 +1,135 @@
+{
+  "key": "jacobian-conjecture",
+
+  "status": "resolved",
+  "no_change_found": false,
+  "outcome": "On 19-20 July 2026, Levent Alpöge (an Anthropic technical staff member) announced on X an explicit polynomial map F: C^3 -> C^3 with constant Jacobian determinant -2 (three degree-7 components) that sends three distinct points to the same image, disproving the Jacobian conjecture in dimension 3 and, by a standard stabilization argument (append the identity on extra coordinates), in every dimension n >= 3. The n=1 case was already trivially true and the planar (n=2) case remains open. Alpöge credited the construction to Anthropic's Claude Fable 5. The counterexample was independently checked by computer algebra within a day, digested mathematically by Terence Tao, and independently formalized in Lean 4 and in Isabelle (Archive of Formal Proofs), meeting the resolved bar via expert digestion plus independent machine-checked verification even though no journal has yet published it.",
+  "status_sources": [
+    "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/",
+    "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+    "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+    "https://isa-afp.org/entries/Jacobian_Counterexample.html",
+    "https://zenodo.org/records/21514514",
+    "https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/"
+  ],
+
+  "event": {
+    "date": "2026-07-19",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+      "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+      "https://glitchwire.com/news/a-mathematician-used-claude-fable-to-disprove-the-87-year-old-jacobian-conjectur/"
+    ]
+  },
+
+  "credited_humans": ["Levent Alpöge"],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "hello there the jacobian conjecture is false thanx to my close friend akhil for asking about it and my other close friend fable for working during the world cup final",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["Claude Fable 5"],
+    "sources": [
+      "https://glitchwire.com/news/a-mathematician-used-claude-fable-to-disprove-the-87-year-old-jacobian-conjectur/",
+      "https://www.datacamp.com/blog/claude-fable-5-jacobian-conjecture",
+      "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "Explicit polynomial map F=(P,Q,R): C^3 -> C^3 with P=(1+xy)^3 z + y^2(1+xy)(4+3xy), Q=y+3x(1+xy)^2 z+3xy^2(4+3xy), R=2x-3x^2y-x^3z, with det(J_F) identically -2, and with three distinct explicit rational points (e.g. (0,0,-1/4), (1,-3/2,13/2), (-1,3/2,13/2)) mapping to the same image (-1/4,0,0).",
+    "explicit": true,
+    "verified_how": "Independently checked by exact/symbolic computer algebra by multiple mathematicians within a day of announcement; independently formalized and machine-checked in Lean 4 (independent verification, and separately by Paul Lezeau, submitted to Google DeepMind's Formal Conjectures repository) and in Isabelle/HOL (Archive of Formal Proofs entry), plus a digestion/explanation by Terence Tao.",
+    "sources": [
+      "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/",
+      "https://isa-afp.org/entries/Jacobian_Counterexample.html",
+      "https://zenodo.org/records/21514514",
+      "https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/",
+      "https://github.com/dcposch/jc2-lean"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Alexander Borisov, Ofer Gabber and Adrian Vasiu published a preprint ('On endomorphisms of affine spaces and the Jacobian problem', arXiv:2609.05746) with a 'Supplemental AI statement of the third author [Vasiu]' raising the concern that an earlier, unpublished version of their framework may have been included in the training data of frontier AI models and could have informed Fable's construction of the counterexample without proper credit. Commentary (e.g. Benjamin Collas and Gro-Tsen on X) framed this as part of a broader pattern of AI labs allegedly training on unpublished drafts/private communications across several 2026 conjecture resolutions (Jacobian, non-sofic groups, Navier-Stokes) without disclosing or crediting the source material. Alpöge subsequently stated on X that Borisov, Gabber and Vasiu 'deserve credit too.' I was not able to read the Vasiu PDF's exact statement directly (fetch failed to extract readable text and Bash access to convert it was not authorized), so this is based on secondary reporting (DataCamp; Fortune) and X posts describing the preprint's content, not a direct reading of page 160 of that preprint.",
+      "sources": [
+        "https://www.datacamp.com/blog/claude-fable-5-jacobian-conjecture",
+        "https://x.com/gro_tsen/status/2097806720709861845",
+        "https://x.com/BCollasMath/status/2097629137708134423"
+      ]
+    }
+  ],
+
+  "summary": "Levent Alpöge, a mathematician on Anthropic's technical staff, announced on X on 19 July 2026 (a 'very casual' post reading 'hello there the jacobian conjecture is false thanx to my close friend akhil for asking about it and my other close friend fable for working during the world cup final') an explicit degree-7 polynomial counterexample in C^3 to the Jacobian conjecture, disproving it for n=3 and, by trivial extension (identity on extra coordinates), for all n>=3; the n=1 case was already known true and n=2 (the planar Jacobian conjecture) remains open. He credited the construction itself to Claude Fable 5 (Anthropic). Multiple independent sources (John D. Cook, Terence Tao, Fortune, DataCamp, The Conversation, Kevin Buzzard's Xena blog) corroborate that the AI produced the actual construction/search result while Alpöge posed the question and announced/verified it -- DataCamp's framing 'a human posed the question, an AI did the work, a human announced the result' matches Alpöge's own phrasing crediting Fable with 'working' on it. No source I found discloses the actual prompts or the human-AI interaction log, so the fine-grained division of labor within that process is not publicly documented, but the authors' own account (Alpöge's post) squarely credits the AI system with producing the mathematical construction, supporting ai_role=generated rather than assisted. The result was verified extremely quickly: computer-algebra checks within hours/a day, a mathematical digestion by Terence Tao explaining why the construction works, and at least two independent formal verifications (a Lean 4 formalization, and a separate Isabelle/HOL Archive-of-Formal-Proofs entry proving the Jacobian is identically -2 and that three named points share an image), plus a Lean formalization submitted to DeepMind's Formal Conjectures repository. This combination of expert digestion (Tao) and independent machine-checkable verification meets the bar for status=resolved under Sec 6.1 even though, as of the sources found (through mid-September 2026), no traditional journal has yet published a refereed version -- it remains, in one source's words, 'a verified calculation and a preprint, not a refereed paper.' Multiple follow-up arXiv papers (Shuhong Gao, arXiv:2608.00222; T. Shaska, arXiv:2607.20210, 'Graded Keller maps and the Jacobian Conjecture'; Arno van den Essen, arXiv:2609.17795, showing an 'elementary' route to essentially the same example) generalize or re-derive the construction, and a Zenodo preprint traces downstream consequences for several related conjectures (Mathieu, Dixmier, Poisson, Gaussian moments). A priority dispute emerged: Borisov, Gabber and Vasiu's preprint (arXiv:2609.05746) includes a 'supplemental AI statement' suggesting their earlier unpublished framework may have been absorbed into AI training data and used without credit in reaching the counterexample; Alpöge reportedly acknowledged on X that they 'deserve credit too.' I could not directly read that supplemental statement (PDF text extraction failed via WebFetch, and Bash commands to download/convert it were not authorized in this session), so the dispute is recorded from secondary reporting and social-media commentary rather than the primary document -- flagged in confidence and in the dispute entry. The n=2 case is untouched by any of this and remains open with no result found addressing it in the window.",
+  "competing_reading": "One could argue ai_role should be 'assisted' rather than 'generated', since no source discloses the actual prompt/interaction transcript, and it is conceivable Alpöge did substantial guiding work (choice of ansatz, search space design) that is simply not reported. The Conversation explicitly notes 'details have not been made public regarding exactly how Alpöge prompted the AI model.' However, the balance of direct evidence -- Alpöge's own words crediting Fable with 'working' on it, and multiple secondary sources' explicit framing that the AI produced the construction while Alpöge only posed the question and announced the result -- favors 'generated.' If a more detailed account later emerges showing Alpöge did the core mathematical construction and merely used the AI to check steps, this should be revised to 'assisted' or 'none'.",
+  "what_would_settle_it": "Publication of Alpöge's own detailed writeup or interaction transcript describing exactly what he prompted and what Fable returned; alternatively, a technical report from Anthropic describing the episode (as has happened for other AI-math results) would settle both the ai_role classification and the priority dispute with Borisov-Gabber-Vasiu regarding training-data provenance. A referee report or journal acceptance would also move status language from 'resolved-by-community-verification' to an unambiguous formal resolution, though this does not change the classification here.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/", "title": "A digestion of the Jacobian conjecture counterexample", "type": "blog", "opened": true},
+    {"url": "https://fortune.com/2026/07/21/ai-solves-jacobian-conjecture-levant-alpoge-claude-fable-5/", "title": "Mathematicians grapple with a 'very rapid and very unsettling change' as AI cracks yet another century-old problem", "type": "news", "opened": true},
+    {"url": "https://www.johndcook.com/blog/2026/07/21/jacobian-conjecture/", "title": "Locally everywhere does not imply everywhere", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.00222", "title": "Counterexamples to the Jacobian conjecture in dimensions greater than two", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2607.20210v1", "title": "Graded Keller maps and the Jacobian Conjecture", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.17795", "title": "An elementary way to find a counterexample to the Jacobian Conjecture", "type": "preprint", "opened": true},
+    {"url": "https://www.ulam.ai/research/jacobian.pdf", "title": "A counterexample to the Jacobian conjecture (writeup)", "type": "preprint", "opened": false},
+    {"url": "https://theconversation.com/hello-there-the-jacobian-conjecture-is-false-thanx-why-a-tiny-social-media-post-has-mathematicians-rethinking-ai-283883", "title": "'hello there the jacobian conjecture is false thanx': why a tiny social media post has mathematicians rethinking AI", "type": "news", "opened": true},
+    {"url": "https://www.datacamp.com/blog/claude-fable-5-jacobian-conjecture", "title": "Claude Fable 5 and the Jacobian Conjecture, Explained", "type": "blog", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Jacobian_conjecture", "title": "Jacobian conjecture (current Wikipedia article)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge", "title": "Levent Alpöge", "type": "encyclopedia", "opened": true},
+    {"url": "https://glitchwire.com/news/a-mathematician-used-claude-fable-to-disprove-the-87-year-old-jacobian-conjectur/", "title": "A Mathematician Used Claude Fable to Disprove the 87-Year-Old Jacobian Conjecture in a Few Hours", "type": "news", "opened": true},
+    {"url": "https://xenaproject.wordpress.com/2026/07/20/human-mathematicians-are-being-outcounterexampled/", "title": "Human mathematicians are being outcounterexampled", "type": "blog", "opened": true},
+    {"url": "https://isa-afp.org/entries/Jacobian_Counterexample.html", "title": "Formal Verification of an Explicit Counterexample to the Jacobian Conjecture", "type": "repository", "opened": false},
+    {"url": "https://zenodo.org/records/21514514", "title": "An Independent Lean 4 Verification of the Alpöge–Fable Counterexample", "type": "repository", "opened": false},
+    {"url": "https://github.com/dcposch/jc2-lean", "title": "jc2-lean: Proofs related to the plane Jacobian conjecture", "type": "repository", "opened": false},
+    {"url": "https://zenodo.org/records/22834179", "title": "The Collateral Impact of the Three-Dimensional Jacobian Counterexample: a Source-Verified Cascade", "type": "preprint", "opened": true},
+    {"url": "https://people.math.binghamton.edu/adrian/AI.pdf", "title": "On endomorphisms of affine spaces and the Jacobian problem (with Supplemental AI statement)", "type": "preprint", "opened": false},
+    {"url": "https://x.com/gro_tsen/status/2097806720709861845", "title": "Gro-Tsen on X re: Borisov-Gabber-Vasiu AI statement", "type": "news", "opened": false},
+    {"url": "https://x.com/BCollasMath/status/2097629137708134423", "title": "Benjamin Collas on X re: Jacobian conjecture credit dispute", "type": "news", "opened": false},
+    {"url": "https://sbseminar.wordpress.com/2026/07/20/the-new-counterexample-to-the-jacobian-conjecture/", "title": "The new counterexample to the Jacobian conjecture", "type": "blog", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Jacobian conjecture proof 2025",
+      "Jacobian conjecture disproved counterexample",
+      "Jacobian conjecture arXiv 2026",
+      "Levent Alpöge Jacobian conjecture counterexample arXiv paper July 2026",
+      "Alpöge Jacobian conjecture Claude Fable 5 \"we used\" OR \"produced\" OR acknowledgements",
+      "Levent Alpöge Jacobian conjecture \"hello there the jacobian conjecture is false\"",
+      "Borisov Gabber Vasiu Jacobian conjecture Alpöge credit dispute training data",
+      "Jacobian conjecture counterexample Lean formalization verified",
+      "\"Borisov\" \"Gabber\" \"Vasiu\" \"On endomorphisms of affine spaces and the Jacobian problem\" arXiv",
+      "arxiv Alpöge Jacobian conjecture counterexample paper \"F(x,y,z)\" OR \"explicit map\" 2026",
+      "Jacobian conjecture counterexample retracted OR withdrawn OR error 2026",
+      "Jacobian conjecture Alpöge peer review journal accepted September 2026"
+    ],
+    "places_checked": [
+      "Terence Tao's blog (What's New)",
+      "Kevin Buzzard's Xena Project blog",
+      "John D. Cook's blog",
+      "Secret Blogging Seminar",
+      "arXiv (multiple follow-up papers)",
+      "Wikipedia articles for Jacobian conjecture and Levent Alpöge",
+      "Archive of Formal Proofs",
+      "Zenodo",
+      "GitHub (Lean formalization repos)",
+      "News/AI-industry blogs (Fortune, DataCamp, The Conversation, Glitchwire, ScienceDaily)"
+    ],
+    "dead_ends": [
+      "https://www.ulam.ai/research/jacobian.pdf and https://people.math.binghamton.edu/adrian/AI.pdf could not be read as text via WebFetch (binary/compressed PDF), and Bash commands to curl+pdftotext them were blocked by the permission system in this session, so the Borisov-Gabber-Vasiu 'Supplemental AI statement' content is based on secondary/social-media reporting rather than a direct read",
+      "x.com/gro_tsen status returned HTTP 402 Payment Required via WebFetch, so the underlying X post could not be read directly"
+    ]
+  },
+
+  "incomplete": "Could not directly read the Borisov-Gabber-Vasiu preprint's 'Supplemental AI statement of the third author' (PDF text extraction failed and Bash download/conversion was not authorized), nor the underlying X posts about that dispute (paywalled/402 error via WebFetch). The dispute is recorded from secondary sources only. Also could not find any first-person detailed account from Alpöge of the actual prompts/interaction beyond his short X announcement, so the precise division of labor behind ai_role=generated rests on that short quote plus secondary-source framing rather than a full methods disclosure.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false
+}

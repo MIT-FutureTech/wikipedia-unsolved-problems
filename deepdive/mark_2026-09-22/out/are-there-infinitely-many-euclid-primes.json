@@ -1,0 +1,88 @@
+{
+  "key": "are-there-infinitely-many-euclid-primes",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "The infinitude of Euclid (primorial+1) primes remains an open problem; the only developments since 26 January 2024 are new record-holder terms found by conventional distributed/probabilistic computation, none of which bear on the infinitude question.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Euclid_number",
+    "https://en.wikipedia.org/wiki/Primorial_prime",
+    "https://oeis.org/A014545"
+  ],
+
+  "event": {
+    "date": "2025-06-29",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Primorial_prime",
+      "https://oeis.org/A014545"
+    ]
+  },
+
+  "credited_humans": ["PrimeGrid project (distributed computing volunteers)", "Jeppe Stig Nielsen (OEIS contributor/verifier)"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The problem asks whether there are infinitely many Euclid primes (primes of the form E_n = 1 + product of the first n primes, i.e. primorial+1 primes, OEIS A006862/A014545). This remains fully open. Wikipedia's 'Euclid number' and 'Primorial prime' articles (both current as of this research) state plainly that it is not known whether infinitely many exist. Since 26 January 2024, the only concrete developments are: (1) the PrimeGrid distributed-computing project found new, larger Euclid primes — most notably 9562633#+1 (n=637,491, index a(28) in OEIS A014545), announced/verified around 29 June 2025 (per the Primorial prime Wikipedia article) and logged to OEIS on 21 Aug 2025 — using standard probabilistic PRP testing followed by deterministic N-1/Brillhart-Lehmer-Selfridge verification; and (2) an independent August 2025 Zenodo dataset (zenodo.org/records/16932166 and the related 16930308) that ran the Miller-Rabin and Pollard's Rho algorithms over a range of indices and reported 14 known Euclid primes among 1,406 candidates checked, with index 1391 the largest new one it turned up (already known via PrimeGrid/OEIS by that point). Neither of these results touches the infinitude question: per the task's scope rule (§3.1), 'are there infinitely many X?' is not advanced by finding one more X or extending a search to a larger range — it narrows where an answer could hide, not whether one exists. Both efforts used purely classical computational number theory (probabilistic and deterministic primality tests, integer factorization via Pollard's Rho); I found no mention of AI, machine learning, or LLM involvement in either the PrimeGrid announcements, the OEIS entries, or the Zenodo dataset's documentation. The triage record's verdict of 'none' and its conclusion are corroborated by this independent research.",
+  "competing_reading": "One could argue that each new record Euclid prime is itself a 'case' of the existential question being partially settled (i.e., existence of a prime at that specific index is confirmed), which would justify a 'partial' status. However, per §3.1 this is precisely the pattern the rules exclude: an existence/infinitude question moves only when answered, and a record extension is not a change to the bullet's core question of infinitude. I classify as `open`/no_change_found rather than `partial`.",
+  "what_would_settle_it": "A proof (or disproof) of infinitude of primorial+1 primes, or a proof that only finitely many exist — neither of which has been claimed or attempted in any source found.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Euclid_number", "title": "Euclid number", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Primorial_prime", "title": "Primorial prime", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A014545", "title": "OEIS A014545: Numbers k such that 1 + product of first k primes is prime", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/16932166", "title": "Euclid Primes computed based on the Miller-Rabin Algorithm and Pollard's Rho Algorithm", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/16930308", "title": "Euclid Primes computed based on the Miller-Rabin Algorithm and Pollard's Rho Algorithm (related record)", "type": "repository", "opened": false},
+    {"url": "https://t5k.org/largest.html", "title": "The Largest Known Primes (database summary)", "type": "repository", "opened": false},
+    {"url": "https://mathworld.wolfram.com/PrimorialPrime.html", "title": "Primorial Prime -- from Wolfram MathWorld", "type": "encyclopedia", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Euclid primes infinitely many 2024 2025 2026",
+      "\"Euclid number\" prime open problem infinitude",
+      "Euclid primes AI discovery search new prime 2025",
+      "OEIS A014545 Euclid numbers primes indices",
+      "PrimeGrid 9562633# + 1 primorial prime discovery 2025 announcement",
+      "primorial prime record largest known 2024 2025 2026 discovery"
+    ],
+    "places_checked": [
+      "Wikipedia: Euclid number",
+      "Wikipedia: Primorial prime",
+      "OEIS A014545 (indices n with primorial(n)+1 prime)",
+      "OEIS A006862 (Euclid numbers)",
+      "Zenodo dataset records 16932166 and 16930308",
+      "t5k.org (The Prime Pages) largest known primes list",
+      "Wolfram MathWorld Primorial Prime page",
+      "General web search for AI/ML involvement in Euclid/primorial prime search"
+    ],
+    "dead_ends": [
+      "Searched explicitly for any AI or LLM role in primorial prime search efforts (PrimeGrid, Zenodo dataset) — found none; all methods are classical probabilistic/deterministic primality algorithms (Miller-Rabin, Pollard's Rho, N-1/BLS test) run via distributed computing or standard scripts."
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

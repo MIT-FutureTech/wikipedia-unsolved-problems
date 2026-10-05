@@ -1,0 +1,94 @@
+{
+  "key": "flint-hills-series",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "No proof of convergence or divergence of the Flint Hills series has survived scrutiny. A January 2025 preprint (Mantzakouras & López Zapata, arXiv:2502.03474) claimed a convergence proof but was withdrawn by one of its authors in September 2026 after the authors themselves found the argument invalid. Since then, related preprints (including a March-2026-onward series by López Zapata, arXiv:2603.09719, giving a continued-fraction criterion reducing convergence to the growth of partial quotients of 1/pi, and a September 2026 paper by Yuya Dan on a generalized version) have made partial/structural progress and reformulated the problem, but the classical series' convergence 'remains undecided' in the words of the most recent paper found. No result has been digested by recognized experts or published in a refereed venue; several relevant papers are in arXiv's unrefereed math.GM category.",
+  "status_sources": [
+    "https://arxiv.org/abs/2502.03474",
+    "https://arxiv.org/abs/2603.09719",
+    "https://arxiv.org/abs/2609.12338"
+  ],
+
+  "event": {
+    "date": "2026-09-14",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2502.03474"]
+  },
+
+  "credited_humans": ["Nikos Mantzakouras", "Carlos López Zapata", "Yuya Dan", "Cahlen Humphreys"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "the author used the assistant Claude, developed by Anthropic, for symbolic and numerical verification and for language editing; the author has checked every result and takes full responsibility for the correctness of the paper.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["Claude"],
+    "sources": ["https://arxiv.org/abs/2603.09719"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [
+    {
+      "kind": "correctness",
+      "summary": "Mantzakouras & López Zapata's January 2025 preprint (arXiv:2502.03474) claimed to prove convergence of the Flint Hills series and an upper bound mu(pi) <= 2.5. Co-author López Zapata withdrew the manuscript in a v2 posted 14 Sep 2026, stating: 'I withdraw the manuscript after finding serious issues: the partial-sum argument does not prove Flint-Hills convergence, nor does Hölder continuity by itself establish the proof; the claimed (mu(pi)<=2.5) is not established; and Eq. (1.1) has a numerical error.' This is a self-retraction by the author, not an external refutation, but it means the claimed resolution never stood.",
+      "sources": ["https://arxiv.org/abs/2502.03474"]
+    }
+  ],
+
+  "summary": "The triage record pointed to two preprints: arXiv:2502.03474 (Mantzakouras & López Zapata, Jan 2025), which the triage described as 'claims to prove convergence', and arXiv:2510.27041 (Oct 2025), described as building on that claim. I read both directly. 2502.03474's v1 abstract does claim a convergence proof and a bound mu(pi) <= 2.5, but its v2 (posted 14 September 2026, within the window) is a one-paragraph withdrawal in which co-author López Zapata states the partial-sum argument does not actually prove convergence, the mu(pi) bound is not established, and there is a numerical error in the paper's Eq. (1.1). So the triage's headline finding is precisely the case §7 warns about: a claim that did not survive and was withdrawn by its own author. This is not a case of an external refutation with a resolution_direction; it is a claim retracted before any expert weighed in, so I coded it as progress/ai_role none rather than open_stale, dating the event to the withdrawal (the corrective event) rather than the original 2025 claim, per §6.1's guidance that where 'there is both an earlier event and a later one, classify on the later.' The second preprint, 2510.27041, turned out on inspection to be a fairly modest six-page note ('A Geometric-Arithmetic Framework for the Flint Hills Series') that discusses the qualitative connection between near-multiples of pi and the irrationality measure but does not itself claim a proof of convergence; it does not change the status. Searching further (beyond the triage's queries, since the field is more active than the triage's snapshot suggested) turned up a continuing thread of preprints by the same author, Carlos López Zapata, under a new arXiv ID 2603.09719 ('A Continued-Fraction Criterion for the Flint Hills Series...'), now at v5 (13 September 2026), which gives a genuine (if 'near-complete', per one summary) reduction: the series converges iff a certain sum of squared partial quotients of the continued fraction of 1/pi, divided by convergent denominators, is finite — turning the analytic convergence question into a question about the growth of an integer sequence. This is real mathematical content and could arguably be `partial` if it settled a restricted case, but on inspection it is an equivalence/reformulation of the open question rather than a settlement of any case of it (no case is actually resolved; whether the criterion's sum is finite is exactly as open as the original problem, contingent on the still-open question of mu(pi)). I therefore treat it as `progress` (a genuine reformulation/partial structural advance) rather than `partial` or `resolved`. This same paper's acknowledgements explicitly credit 'the assistant Claude, developed by Anthropic, for symbolic and numerical verification and for language editing', with the author stating personal responsibility for correctness — this is exactly the §6.2 case of AI used for checking/verification/language editing, which is defined as `ai_role: none` regardless of how many systems are named. A companion September 2026 preprint by Yuya Dan (arXiv:2609.12338) on a generalized Flint Hills series proves a related conjecture (Meiburg's conjecture) for a generalized family but states explicitly 'The convergence of the classical Flint Hills series ... remains undecided' — a related/variant result, not a case of the stated problem, and it does not mention AI. A GPU computation site (bigcompute.science) extended numerical partial sums to 10^10 terms, crediting 'human-AI collaboration (Cahlen Humphreys + Claude)', but frames Claude's role as documentation/analysis rather than the computation itself (done via custom CUDA kernels), and explicitly disclaims this as anything but empirical, non-proof evidence. I found no journal publication, no Tao-blog or comparable expert digestion, and no Wikipedia article update discussing any of this; math.GM is arXiv's unrefereed general-mathematics category, which several of these papers sit in. Net: as of 22 September 2026 the Flint Hills series' convergence is still fully open, but the period saw real, AI-adjacent (checking/verification only) activity: a claimed resolution that was made and then withdrawn, and an unresolved but substantive reformulation of the problem in continued-fraction terms.",
+  "competing_reading": "One could argue the continued-fraction criterion paper (2603.09719) deserves `partial` status if its 'near-complete' criterion is read as settling an equivalence that some readers would treat as resolving a meaningful special case (e.g., showing convergence holds for almost every real number via Gauss-Kuzmin statistics for a *generic* point, which is a restriction of the generalized problem). However, that near-everywhere-convergence result is about generic reals, not about the specific arithmetic point 1/pi that the Flint Hills series concerns, so it is a related/variant statement about measure rather than a case of the stated problem, and I did not let it move the status past `progress`. One could also argue the withdrawn 2502.03474 preprint, being withdrawn by only one of two co-authors, constitutes a dispute over correctness rather than a clean retraction; I found no counter-statement from Mantzakouras defending the result, so I treated the withdrawal as authoritative.",
+  "what_would_settle_it": "A peer-reviewed proof (or an unretracted, expert-digested preprint) either establishing convergence/divergence of the classical series, or an authoritative determination of whether mu(pi) is above or below 5/2 (per Alekseyev's 2011 equivalence) would settle it. Absent that, an expert (e.g., a number theorist's blog post or a journal referee report) explicitly engaging with López Zapata's continued-fraction criterion would clarify whether it is considered a genuine structural advance or itself flawed.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2502.03474", "title": "Diophantine FLINT-HILLS series: Convergence, Polylogarithms and π's bound", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2510.27041", "title": "A Geometric-Arithmetic Framework for the Flint Hills Series", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2603.09719", "title": "A Continued-Fraction Criterion for the Flint Hills Series, and the Integer Sequences It Generates", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.12338", "title": "Critical convergence and Hausdorff measures for generalized Flint Hills series", "type": "preprint", "opened": true},
+    {"url": "https://bigcompute.science/experiments/flint-hills-series/", "title": "Flint Hills Series: Partial Sums to 10^{10} with Spike Decomposition", "type": "blog", "opened": true},
+    {"url": "https://pith.science/paper/2603.09719", "title": "On the Critical Line Re(s)=1/2, the Irrationality Measure of π, and the Automorphic Structure of the Flint Hills Series · Pith", "type": "blog", "opened": false},
+    {"url": "https://pith.science/submit", "title": "Review - Pith", "type": "blog", "opened": false},
+    {"url": "https://simonrs.com/eulercircle/infiniteseries2026/dallas-flinthills.pdf", "title": "The Mystery of the Flint Hills Series (Dallas Anderson, March 2026)", "type": "preprint", "opened": false},
+    {"url": "https://mathworld.wolfram.com/FlintHillsSeries.html", "title": "Flint Hills Series -- from Wolfram MathWorld", "type": "encyclopedia", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Flint Hills series convergence proof 2025",
+      "\"Flint Hills series\" wikipedia irrationality measure pi",
+      "arxiv 2502.03474 withdrawn Flint Hills",
+      "Carlos López Zapata Flint Hills series continued fraction criterion 2026",
+      "Terence Tao Flint Hills series 2025 2026",
+      "\"López Zapata\" OR \"Mantzakouras\" Flint Hills Claude Anthropic acknowledgement",
+      "Flint Hills series Wikipedia article convergence 2026",
+      "pith.science site review arxiv papers what is it"
+    ],
+    "places_checked": [
+      "arXiv abstract and version-history pages for 2502.03474, 2510.27041, 2603.09719, 2609.12338",
+      "Google/web search for Tao blog coverage",
+      "Google/web search for journal publication of the withdrawn claim",
+      "pith.science and bigcompute.science secondary sites turned up by search",
+      "Wolfram MathWorld Flint Hills Series page (via search snippet)"
+    ],
+    "dead_ends": [
+      "simonrs.com Dallas Anderson PDF (March 2026 'Mystery of the Flint Hills Series') could not be extracted as readable text by the fetch tool; likely a course/seminar note, not opened successfully",
+      "Attempted to fetch pith.science paper page directly by bare domain (without https://) which failed validation; a corrected fetch attempt returned no usable content",
+      "No Wikipedia-article-specific update found; searches for the live article's current wording turned up only the encyclopedia's general problem statement, not a dedicated Flint Hills article section discussing 2025-2026 developments"
+    ]
+  },
+
+  "incomplete": "Could not read the Dallas Anderson March 2026 seminar note (simonrs.com) as text, so I do not know whether it contains additional relevant context or expert commentary on the withdrawn claim or the continued-fraction criterion paper. Also did not independently verify the full body/proof text of arXiv:2603.09719 (only the abstract, version history, and a secondary summary of its acknowledgements) since the PDF fetch returned raw encoded content rather than extracted text; the Claude-acknowledgement quote and theorem statement rest on a WebFetch tool's own extraction, which I was not able to cross-check character-for-character against the raw PDF.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": true
+}

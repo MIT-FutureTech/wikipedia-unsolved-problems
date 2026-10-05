@@ -1,0 +1,52 @@
+{
+  "key": "degree-diameter-problem",
+  "judgement": {
+    "events": [
+      {
+        "id": "mizuno-2026",
+        "what": "Mizuno gives explicit graphs improving the lower bounds N(12,5) >= 34,992 and N(16,5) >= 147,456, with constructions found through dialogue with ChatGPT",
+        "date": "2026-06-14",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2606.15860",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "ChatGPT was used as an interactive discovery engine. The author checked the mathematical claims, code, certificates ... In Round 036 the LLM produced the initial 132-vertex controller ...",
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "mizuno-2026",
+    "derived": {
+      "status": "progress",
+      "ai_role": "generated",
+      "resolution_direction": null
+    },
+    "changed": ["ai_role"],
+    "doubts": "Status progress agrees with the 2026-09-24 correction: the bullet asks for the largest graph for each (d,k), and two improved lower-bound constructions leave N(12,5) and N(16,5) undetermined (F3). The graphs are explicit and certificate-checked; the Comellas table has adopted them. The ai_role boundary between generated and assisted is close: the author steered at a meta level, but by the record's own account supplied no candidate components.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {
+    "ai_role": "generated"
+  },
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "generated",
+      "why": "F9: under Q5 the question is what the model produced that is in the result. The record's summary says 'the LLM produced the actual combinatorial objects ... that became the final graphs' and that 'the human did not supply candidate components and instead verified/directed'; the quote says 'In Round 036 the LLM produced the initial 132-vertex controller' and 'The author checked the mathematical claims, code, certificates'. An AI that produced the construction, which people then checked, is `generated`. The researcher chose `assisted` because the human's steering and verification were substantial, but steering and checking are not mathematics in the result."
+    },
+    {
+      "field": "status",
+      "from": "progress",
+      "to": "progress",
+      "why": "F3: I kept the earlier correction. Two improved lower bounds on N(d,k) in a table that stays open are a `bound`, not a case settled. I considered `partial` because the bullet is about records, and rejected it: no value N(d,k) has been determined."
+    }
+  ]
+}

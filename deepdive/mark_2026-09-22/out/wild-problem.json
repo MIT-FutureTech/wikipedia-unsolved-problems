@@ -1,0 +1,78 @@
+{
+  "key": "wild-problem",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No result since 26 January 2024 changes the classification of pairs of n×n matrices under simultaneous conjugation; the two candidate papers found by searches both address distinct, related problems (a different equivalence relation, and a finite-field algorithmic variant), and the classical wild problem itself is a long-standing complexity benchmark rather than an active open conjecture with a research program aimed at resolving it.",
+  "status_sources": [
+    "https://arxiv.org/abs/2408.04244",
+    "https://arxiv.org/abs/2409.12457",
+    "https://en.wikipedia.org/wiki/Wild_problem"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The Wikipedia bullet describes the classical 'wild problem': classifying pairs of n×n matrices under simultaneous conjugation (A,B) ↦ (S⁻¹AS, S⁻¹BS). This is not an open conjecture in the usual sense but a decades-old benchmark of representation-theoretic complexity, formalized by Yu. A. Drozd's tame/wild dichotomy: a classification problem is 'wild' precisely when it contains (is at least as hard as) this matrix-pair problem, which is considered intractable/'hopeless' to classify explicitly because it is known to encode the representation theory of arbitrary finitely generated algebras. Nothing in the mathematical literature treats this as a problem awaiting resolution — its content (that no tractable classification exists) was established well before 2024, so there is no pending resolution for a 2024-2026 result to deliver. Triage found two 2024 papers: arXiv:2408.04244 ('Polynomial similarity of pairs of matrices', published in Linear Algebra and its Applications vol. 708, 2025) proves that classification under a different, weaker equivalence relation ('polynomial similarity', involving polynomial coordinate changes plus similarity, restricted to commuting nilpotent pairs) is itself wild by reduction to the classical problem — this is a related problem (a different equivalence relation), not a case of the stated problem, and it does not change the classical statement. arXiv:2409.12457 ('Canonical forms for matrix tuples in polynomial time', FOCS 2024) gives polynomial-time algorithms for computing canonical forms of matrix tuples over finite fields under conjugation and left-right actions — this is an algorithmic/computational question about a specific setting (finite fields, isomorphism/canonical-form testing) that coexists with wildness (wildness is about the impossibility of a tame parametrized classification, not about computational infeasibility of canonical-form algorithms) and is a related but distinct problem, not a resolution or partial resolution of the stated classification problem. I opened both papers directly (via WebFetch) rather than relying on titles/snippets, confirming triage's reading in both cases. I also checked the current Wikipedia 'Wild problem' article, which contains no update reflecting any 2024-2026 development. No source anywhere mentions AI, machine learning, or automated theorem proving in connection with this problem or either paper. I agree with the triage verdict of 'none' and its scope classification of both found items as variants rather than cases.",
+  "competing_reading": "One could argue arXiv:2409.12457's polynomial-time canonical-form algorithm for matrix tuples over finite fields is a 'case' of the stated problem restricted to finite fields — if so it would be `partial` progress with `ai_role` none. I reject this reading because the stated problem is about classification (a normal-form/parametrization question showing the parameter space structure, which wildness says is intractable in a technical representation-theoretic sense), whereas the FOCS paper is about the different question of algorithmically computing/testing canonical forms and isomorphism given specific matrix tuples over a finite field — a computational complexity question that is compatible with, and does not resolve or restrict, the classification-theoretic wildness statement (the paper itself does not claim to make progress on or resolve any case of the wildness classification). It also is not confined to n×n conjugation of pairs (it covers general tuples and multiple groups of actions), further indicating a different-but-related problem rather than a restriction of the exact stated one.",
+  "what_would_settle_it": "A paper explicitly reducing part of the classical simultaneous-conjugation classification problem to a tame/tractable sub-case (e.g., a bounded-dimension case proven tame where previously open) would settle the ambiguity in favor of `partial`; absent that, the current reading (both found papers are related-but-distinct problems) stands.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2408.04244", "title": "Polynomial similarity of pairs of matrices", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2408.04244", "title": "Polynomial similarity of pairs of matrices (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://www.sciencedirect.com/science/article/abs/pii/S0024379524004555", "title": "Polynomial similarity of pairs of matrices (Linear Algebra Appl. 708, 2025)", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/abs/2409.12457", "title": "Canonical forms for matrix tuples in polynomial time", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2409.12457", "title": "Canonical forms for matrix tuples in polynomial time (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Wild_problem", "title": "Wild problem", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/pdf/0709.2488", "title": "Complexity of matrix problems (Belitskii et al.)", "type": "preprint", "opened": true},
+    {"url": "https://www.wikidata.org/wiki/Q25103756", "title": "wild problem - Wikidata", "type": "encyclopedia", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "\"wild problem\" classification pairs of matrices simultaneous conjugation 2024 2025",
+      "wild classification problem matrix pairs conjugation representation type solved",
+      "\"pairs of matrices\" \"wild\" classification problem AI machine learning",
+      "\"wild problem\" matrices representation theory 2025 AI neural network solved unsolvable",
+      "classification pairs matrices simultaneous similarity conjugation Drozd 2025",
+      "\"classifying pairs\" matrices simultaneous similarity wild problem meaning \"cannot be classified\" Belitskii"
+    ],
+    "places_checked": [
+      "General web search (multiple query variants)",
+      "arXiv preprints and abstracts for the two candidate papers",
+      "Wikipedia 'Wild problem' article (current version)",
+      "Wikidata entry for wild problem",
+      "ScienceDirect listing for the journal version of arXiv:2408.04244"
+    ],
+    "dead_ends": [
+      "A search snippet claimed 'the problem of classifying pairs of n×n complex matrices under simultaneous similarity has been solved completely and explicitly' — investigated further; this refers to the well-established pre-2024 fact that finite-dimensional/complex cases decompose via known (old) canonical form theory in restricted settings, not a 2024-2026 resolution of the general wild classification statement, and no source ties this claim to a specific dated recent event",
+      "Checked whether the FOCS 2024 paper's polynomial identity testing / group isomorphism connections implied any classification-theoretic progress on the stated problem; the paper's own framing keeps its algorithmic contribution separate from the classification-theoretic wildness result"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

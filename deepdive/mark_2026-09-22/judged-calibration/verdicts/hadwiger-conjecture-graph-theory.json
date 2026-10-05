@@ -1,0 +1,65 @@
+{
+  "key": "hadwiger-conjecture-graph-theory",
+  "judgement": {
+    "events": [
+      {
+        "id": "delcourt-postle-2021",
+        "what": "Delcourt and Postle: O(t log log t) bound on chromatic number of K_t-minor-free graphs",
+        "date": "2021-08", "precision": "month", "after_snapshot": false,
+        "source": "https://arxiv.org/abs/2108.01633",
+        "scope": "bound", "verification": "digested", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "liu-luo-2026",
+        "what": "Liu and Luo: claimed O(t log log log t) bound (per record)",
+        "date": "2026-09", "precision": "month", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.06867",
+        "scope": "bound", "verification": "unreviewed", "credibility": "doubtful",
+        "credibility_reason": "Record's attribution is uncertain: the title 'Beyond halfway to Hadwiger's conjecture, again' suggests a different quantity than the chromatic bound the record assigns to it.",
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "lin-2026",
+        "what": "Lin: O(t sqrt(log log t)) bound via star contraction, AI-assisted central idea",
+        "date": "2026-09-08", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.08713",
+        "scope": "bound", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "The central proof idea in this manuscript was developed with the assistance of GPT 5.6 Sol and GPT 6 Astra. The author subsequently refined the idea and wrote the manuscript",
+        "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "odd-hadwiger-disproof-2025",
+        "what": "Disproof of the Odd Hadwiger Conjecture",
+        "date": "2025-12", "precision": "month", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2512.20392",
+        "scope": "variant", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      }
+    ],
+    "rests_on": "lin-2026",
+    "derived": { "status": "progress", "ai_role": "assisted", "resolution_direction": null },
+    "changed": ["ai_role"],
+    "doubts": "The record's bound chain is internally inconsistent: O(t sqrt(log log t)) is weaker than O(t log log log t), so if Liu-Luo really proved the latter for the same quantity, Lin's bound is superseded and ai_role should be none. Either Lin's result concerns a different quantity (title 'Coloring Small K_t-Minor-Free Graphs' suggests a small-graph ingredient of the Delcourt-Postle reduction) or the record mis-attributed the Liu-Luo bound. Status is progress either way; the AI role hinges on this. Model names 'GPT 5.6 Sol'/'GPT 6 Astra' unverified.",
+    "insufficient_evidence": false,
+    "confidence": "low",
+    "searches": []
+  },
+  "changes": { "ai_role": "assisted" },
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "ai_role",
+      "from": "bound",
+      "to": "assisted",
+      "why": "other: 'bound' is not a valid ai_role; Lin's own statement 'The central proof idea in this manuscript was developed with the assistance of GPT 5.6 Sol and GPT 6 Astra' credits AI with part of the mathematics in a human-refined, human-written result, which is assisted. Doubt: O(t sqrt(log log t)) is weaker than the O(t log log log t) the record attributes to Liu-Luo (arXiv:2609.06867); if those bound the same quantity, Lin's bound is superseded (F8) and ai_role would be none."
+    },
+    {
+      "field": "status",
+      "from": "progress",
+      "to": "progress",
+      "why": "F3: kept. Asymptotic chromatic bounds for K_t-minor-free graphs move a quantity on the stated conjecture, which remains open for t>=7; no case settled after the snapshot."
+    }
+  ]
+}

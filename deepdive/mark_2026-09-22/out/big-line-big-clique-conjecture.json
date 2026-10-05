@@ -1,0 +1,191 @@
+{
+ "key": "big-line-big-clique-conjecture",
+ "status": "partial",
+ "no_change_found": false,
+ "outcome": "The smallest previously-open case of the conjecture (k=6, ℓ=4: every sufficiently large finite planar point set has 4 collinear points or a clique of 6 mutually visible points) has been settled in the confirming direction by a preprint whose author states the proof itself was produced by the AI system GPT-5.6 Sol Pro; the argument has also been formalized in Lean and passes a sorry-free kernel-checked build, but has not yet been digested in print by an independent human expert.",
+ "status_sources": [
+  "https://arxiv.org/abs/2608.19468",
+  "https://arxiv.org/html/2608.19468",
+  "https://en.wikipedia.org/wiki/Big-line-big-clique_conjecture",
+  "https://github.com/EdouardBonnet/big-line-big-clique"
+ ],
+ "event": {
+  "date": "2026-08-19",
+  "precision": "day",
+  "kind": "preprint",
+  "predates_frozen_revision": false,
+  "sources": [
+   "https://arxiv.org/abs/2608.19468"
+  ]
+ },
+ "credited_humans": [
+  "Édouard Bonnet"
+ ],
+ "ai_role": "generated",
+ "ai": {
+  "basis_quote": "After one fruitless attempt and the now customary generic encouragement, a relatively detailed proof of Theorem 1 was provided by GPT-5.6 Sol Pro after pondering for 222 minutes. [The author's] contributions were limited to checking the proof, simplifying some parts, and eventually writing the paper.",
+  "formalisation_only": false,
+  "disclosed_cost": null,
+  "systems": [
+   "GPT-5.6 Sol Pro"
+  ],
+  "sources": [
+   "https://arxiv.org/html/2608.19468",
+   "https://vibemathed.com/problem/big-line-big-clique-four-collinear-or-six-clique"
+  ]
+ },
+ "counterexample": {
+  "is_counterexample": false,
+  "object": null,
+  "explicit": false,
+  "verified_how": null,
+  "sources": []
+ },
+ "resolution_direction": "confirmed",
+ "disputes": [],
+ "summary": "The frozen Wikipedia revision states the big-line-big-clique conjecture of Kára, Pór and Wood is proved for k≤5 or ℓ≤3, and open for the first case k=6, ℓ=4 (its own naming convention differs slightly from the source papers' k/ℓ labels, but the case is described the same way in both). On 19 August 2026 Édouard Bonnet (CNRS/ENS de Lyon) posted arXiv:2608.19468, 'Large Finite Point Sets Have 4 Collinear Points or a 6-Clique,' proving every finite point set of size at least 10^11055931 contains 4 collinear points or a set of 6 pairwise-visible points — exactly the smallest open case, described in the paper itself as 'the first open case of the big-line-big-clique conjecture' resolved since 2009. Critically, the paper's own AI-disclosure section states in the author's words that after one failed attempt, 'a relatively detailed proof of Theorem 1 was provided by GPT-5.6 Sol Pro after pondering for 222 minutes,' with Bonnet's own role limited to checking, simplifying, and writing up — squarely meeting the bar for ai_role=generated (the authors' own account that the AI system produced the mathematics, with humans verifying). The proof was subsequently formalized in Lean by Bonnet and formalizer clemenskuske under the 'lax-56' submission in the Lax Lean Archive (github.com/EdouardBonnet/big-line-big-clique); as of a 15 September 2026 update (port to Lean v4.33), the FORMALIZATION.md states there are no sorry proofs, SAT calls, or native_decide calls, that the full Lake build (8574 jobs) passed, and that 'lax build --profile --replay' passed compilation, kernel replay, and statement inspection, resting only on standard axioms (propext, Classical.choice, Quot.sound). This is a strong machine-checked certificate, but I found no evidence of an independent human expert's public digestion of the informal argument (no Tao blog post, no Quanta coverage, no journal acceptance) as of 22 September 2026, about five weeks after posting — hence status=claimed rather than resolved, per §6.1's rule that a clean formal check alone is not sufficient without an expert reader. The triage's flagged item, the Sarkar preprint arXiv:2605.00918 ('Visibility cliques, cubic containers, and dense orchard cores,' posted 30 April 2026), is real but proves only structured special cases (points mostly on a real cubic curve, or with few ordinary lines via the Green–Tao structure theorem) — its own abstract says the full conjecture 'remains open otherwise,' and it explicitly states any AI tools it used were confined to LaTeX typesetting, literature search and proofreading, all mathematics verified by the human author — so under these rules ai_role=none for that paper and it is scope-relevant only as `partial` background, superseded in the k=6/ℓ=4 case by the later Bonnet/GPT-5.6 result which I treat as the decisive event. I also found the 11 September 2026 Fields Medallists' declaration 'A Severe Misalignment of AI in Mathematics,' which is a general reaction to the wave of AI math claims (including reportedly this kind of result) rather than a dispute of this specific proof's correctness, so I did not record it as a `dispute`.",
+ "competing_reading": "One could argue status should be `resolved`: the Lean formalization is sorry-free and kernel-replayed, which is about as mechanically certain as mathematics gets, and one could read that as satisfying 'directly checkable by hand or computer algebra' even without a human expert's narrative digestion. I did not take this reading because §6.1 explicitly treats a machine-checked certificate with no expert reader as `claimed`, precisely because proof assistants can have soundness bugs and nobody outside the author/formalizer pair has yet vetted the mathematical content in prose. A second competing reading: since Wikipedia's own case boundary is 'k=6 or ℓ=4' (open) versus 'k≤5 or ℓ≤3' (closed), and Bonnet's theorem is stated as exactly '4 collinear or 6-clique', this is unambiguously the k=6,ℓ=4 case rather than a nearby variant, so I am confident this is a case of the stated problem, not a related one.",
+ "what_would_settle_it": "A published expert digestion (a referee report, a blog post from a specialist in discrete/combinatorial geometry such as the co-authors of the original 2005 conjecture paper, or Quanta/Tao-level coverage) endorsing or disputing the correctness of the informal argument would move this from `claimed` to `resolved` (or surface a flaw and move it to `progress`/`incident`). Absent that, continued silence for many more months without any critique would itself be weak evidence in favor, but per these rules would not on its own justify `resolved`.",
+ "confidence": "medium",
+ "sources": [
+  {
+   "url": "https://en.wikipedia.org/wiki/Big-line-big-clique_conjecture",
+   "title": "Big-line-big-clique conjecture",
+   "type": "encyclopedia",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/abs/2605.00918",
+   "title": "Visibility cliques, cubic containers, and dense orchard cores",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/pdf/2605.00918",
+   "title": "Visibility cliques, cubic containers, and dense orchard cores (PDF)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/html/2605.00918",
+   "title": "Visibility cliques, cubic containers, and dense orchard cores (HTML)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/abs/2608.19468",
+   "title": "Large Finite Point Sets Have 4 Collinear Points or a 6-Clique",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/pdf/2608.19468",
+   "title": "Large Finite Point Sets Have 4 Collinear Points or a 6-Clique (PDF)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/html/2608.19468",
+   "title": "Large Finite Point Sets Have 4 Collinear Points or a 6-Clique (HTML)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://vibemathed.com/problem/big-line-big-clique-four-collinear-or-six-clique",
+   "title": "The Kára–Pór–Wood Big-Line-Big-Clique Conjecture: Four Collinear Points or a Six-Clique",
+   "type": "blog",
+   "opened": true
+  },
+  {
+   "url": "https://github.com/EdouardBonnet/big-line-big-clique",
+   "title": "EdouardBonnet/big-line-big-clique (Lax/Lean formalization repo)",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://raw.githubusercontent.com/EdouardBonnet/big-line-big-clique/main/FORMALIZATION.md",
+   "title": "FORMALIZATION.md",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://github.com/EdouardBonnet/big-line-big-clique/pull/1",
+   "title": "Port lax-56 to Lean v4.33",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://github.com/lax-archive/lax/issues/56",
+   "title": "Lax submission control-plane issue for big-line-big-clique",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://www.alphaxiv.org/@edouard-bonnet",
+   "title": "Édouard Bonnet on alphaXiv",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/",
+   "title": "A Severe Misalignment of AI in Mathematics",
+   "type": "blog",
+   "opened": false
+  },
+  {
+   "url": "http://garden.irmacs.sfu.ca/op/big_line_or_big_clique_in_planar_point_sets",
+   "title": "Big Line or Big Clique in Planar Point Sets",
+   "type": "encyclopedia",
+   "opened": false
+  },
+  {
+   "url": "https://arxiv.org/abs/1008.2988",
+   "title": "The Big-Line-Big-Clique Conjecture is False for Infinite Point Sets",
+   "type": "preprint",
+   "opened": false
+  }
+ ],
+ "search": {
+  "queries": [
+   "\"big-line-big-clique\" conjecture",
+   "big-line-big-clique conjecture proof visibility points",
+   "\"Visibility cliques, cubic containers, and dense orchard cores\"",
+   "Sohail Sarkar big-line-big-clique arXiv 2605.00918 AI assisted",
+   "arXiv 2608.19468 big-line-big-clique GPT-5.6 Sol Pro",
+   "vibemathed.com GPT-5.6 Sol Pro OpenAI",
+   "\"Édouard Bonnet\" \"4 collinear points\" \"6-clique\" GPT proof",
+   "Bonnet big-line-big-clique GPT-5.6 proof verified Lean formalization September 2026",
+   "big-line-big-clique conjecture resolved k=6 solved Terence Tao",
+   "Bonnet \"big-line-big-clique\" OR \"6-clique\" GPT proof mathematicians react blog",
+   "\"10^11055931\" OR \"big-line-big-clique\" Quanta Tao blog reaction",
+   "\"Severe Misalignment of AI in Mathematics\" declaration Bonnet big-line-big-clique",
+   "\"big-line-big-clique\" Bonnet resolved first case news math September 2026"
+  ],
+  "places_checked": [
+   "arXiv abstract and HTML/PDF full text for both preprints",
+   "Wikipedia's current (live) big-line-big-clique conjecture article",
+   "VibeMathed problem page",
+   "GitHub Lax/Lean formalization repository, its FORMALIZATION.md, and the v4.33 port PR",
+   "alphaXiv author page for Édouard Bonnet",
+   "General web search for expert/blog/press digestion or dispute"
+  ],
+  "dead_ends": [
+   "Direct PDF fetch of both arXiv papers returned mostly binary/compressed stream data rather than readable text; had to rely on the arXiv HTML mirror (arxiv.org/html/...) for verbatim quotes instead",
+   "No Tao blog post, Quanta article, or named-expert commentary specifically addressing this result was found, despite it fitting the theme of the September 2026 'Severe Misalignment' declaration",
+   "GitHub issue #56 on lax-archive/lax (the submission control-plane) had no substantive discussion beyond metadata"
+  ]
+ },
+ "incomplete": "I could not find any independent human expert's public assessment of the informal (non-Lean) proof's correctness, which is the piece of evidence that would most cleanly settle resolved-vs-claimed; the classification rests on the absence of such a digestion as of the research date rather than on a negative finding.",
+ "triage_disagreement": true,
+ "triage_queries_replaced": true,
+ "corrections": [
+  {
+   "date": "2026-09-24",
+   "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass. Judged from this record's own findings; no new sources were opened",
+   "field": "status",
+   "from": "claimed",
+   "to": "partial",
+   "why": "SCOPE: `claimed` counted this among resolutions, but by the record's own account Bonnet settles one case, k=6 and l=4, 'the smallest previously-open case', not the conjecture. A case settled is `partial` under 6.1. The research rules fold 'how much was settled' and 'has an expert checked it' into one field, and the agent read an unreviewed case as `claimed`; that is the pattern this batch of corrections fixes. `partial` does not record review status, so the absence of expert digestion stays in `summary`. `ai_role` stays `generated` and `resolution_direction` stays `confirmed` for the case."
+  }
+ ]
+}

@@ -1,0 +1,101 @@
+{
+  "key": "values-of-the-hermite-constants-for-dimensions-other-than",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "A preprint by Dutour Sikirić and van Woerden (arXiv:2508.20719) computes all 2,237,251,040 perfect lattices in dimension 9 via Voronoi's algorithm and derives that the Hermite constant γ9 equals 2, extending the set of dimensions with a known value beyond {1-8, 24} for the first time since 24 was settled. The result has not yet received independent expert digestion, journal acceptance, or independent reproduction of the computation.",
+  "status_sources": [
+    "https://arxiv.org/abs/2508.20719",
+    "https://en.wikipedia.org/wiki/Hermite_constant"
+  ],
+
+  "event": {
+    "date": "2025-08-28",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2508.20719"]
+  },
+
+  "credited_humans": ["Mathieu Dutour Sikirić", "Wessel van Woerden"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "The Wikipedia bullet asserts the Hermite constant is known only for dimensions 1-8 and 24. The triage pointer was correct: a preprint posted 28 August 2025 (revised 7 February 2026) by Mathieu Dutour Sikirić and Wessel van Woerden, 'The lattice packing problem in dimension 9 by Voronoi's algorithm' (arXiv:2508.20719), completes Voronoi's algorithm in dimension 9 for the first time, enumerating all 2,237,251,040 perfect lattices up to similarity, and concludes as a corollary that γ9 = 2 (with the laminated lattice Λ9 achieving the densest packing). This is squarely a case of the stated problem (it fills in exactly the 'dimensions other than 1-8 and 24' the bullet names), not a variant, so it counts under §3.1. I read the full text (via the arXiv HTML rendering) and confirmed the methodology is entirely classical: Voronoi's 1908 algorithm, graph-isomorphism software (Nauty/Traces), polyhedral computation libraries (PPL, LRS), and MPI-parallelized enumeration, with completeness certified by the algorithm's own termination criterion (no new perfect-form neighbors found) and a consistency check against a prior partial enumeration for high-incidence forms. No machine learning, neural network, or other AI system is mentioned anywhere in the text or acknowledgements, so ai_role is 'none'. I classified status as 'claimed' rather than 'resolved': the paper remains an arXiv preprint with no journal submission/acceptance noted, and I found no expert digestion (no Terence Tao or comparable blog treatment, no citing survey, no independent reproduction of the 2.2-billion-lattice enumeration) as of my search on 2026-09-22 — only the authors' own account and secondary paraphrases of the abstract. The 'directly checkable by computer algebra' clause of the resolved definition is a genuine complication: the computation is deterministic and the authors' code/data are on Zenodo, so a suitably resourced expert could rerun it, but no evidence I found shows anyone has done so, and a computation of this scale is not 'directly checkable by hand' in the way the rule seems to intend for a quick verification. I therefore treat it as claimed rather than resolved, pending independent confirmation.",
+  "competing_reading": "One could argue for 'resolved' on the grounds that the result rests on a deterministic, reproducible enumeration algorithm (not a probabilistic or heuristic method) with data published on Zenodo, so it is 'directly checkable ... by computer algebra' per the resolved criterion even without a human having independently redone it. Under that reading the status would be 'resolved', direction 'confirmed', with ai_role and all other fields unchanged.",
+  "what_would_settle_it": "An independent reproduction or audit of the dimension-9 perfect-lattice enumeration (or of the derived γ9 = 2 claim) by another group, a journal acceptance, or a digestion by a recognized expert commentator (e.g., a blog post, survey, or update to the Hermite constant / sphere-packing literature citing and endorsing the result) would move this to 'resolved'.",
+  "confidence": "high",
+
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2508.20719",
+      "title": "The lattice packing problem in dimension 9 by Voronoi's algorithm",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2508.20719",
+      "title": "The lattice packing problem in dimension 9 by Voronoi's algorithm (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Hermite_constant",
+      "title": "Hermite constant",
+      "type": "encyclopedia",
+      "opened": true
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "Hermite constant dimension 9 Dutour Sikirić Van Woerden perfect lattices",
+      "\"Hermite constant\" 2026 dimension 9 verified accepted journal",
+      "Hermite constant AI machine learning lattice packing proof",
+      "\"perfect lattices\" dimension 9 Dutour Sikirić Van Woerden Terence Tao OR blog OR announcement",
+      "\"2508.20719\" citations OR cited OR \"Hermite constant\" dimension 9 confirmed"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML full text of 2508.20719 (both versions listed)",
+      "Wikipedia 'Hermite constant' article (live version, for current stated known dimensions)",
+      "General web search for expert commentary (Tao blog, announcements), journal/acceptance status, and any AI/ML angle"
+    ],
+    "dead_ends": [
+      "Searched for journal acceptance or peer-reviewed publication of arXiv:2508.20719; found none — it remains preprint-only as of the February 2026 revision",
+      "Searched for expert blog digestion (Tao-style) or citing survey confirming the result; found none",
+      "Searched explicitly for any AI/ML angle on Hermite constant or this paper; found nothing — methodology is confirmed classical/algorithmic"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass. Judged from this record's own findings; no new sources were opened",
+      "field": "status",
+      "from": "claimed",
+      "to": "partial",
+      "why": "SCOPE: `claimed` counted this among resolutions, but the bullet asks for the Hermite constant in every dimension other than 1-8 and 24, and Dutour Sikiric-van Woerden determine one of them, gamma_9 = 2. One value of a family asked for is a case, `partial` under 6.1. The research rules fold 'how much was settled' and 'has an expert checked it' into one field, and the agent read an unreviewed case as `claimed`; that is the pattern this batch of corrections fixes. The record's competing_reading that the enumeration is directly checkable by computer bears on review status, which `partial` does not record."
+    }
+  ]
+}

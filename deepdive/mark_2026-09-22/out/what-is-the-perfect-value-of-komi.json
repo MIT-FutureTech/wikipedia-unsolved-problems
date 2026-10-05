@@ -1,0 +1,86 @@
+{
+  "key": "what-is-the-perfect-value-of-komi",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No new bound, proof, or change to the perfect komi value for full-size (19x19) Go was found since 26 January 2024. Standard AI-derived estimates (KataGo/professional statistics suggesting 6-7 points under various rulesets) remain unchanged pre- and post-window. The one genuinely new, dated result in the window is a May 2024 arXiv paper rigorously solving 5x5 Go (a much smaller board, komi 24.5, no komi under area scoring) under the positional superko ruleset specifically — but this is a case of a related small-board problem, not a change to the stated 19x19 'perfect komi' question, and its underlying board result (Black wins by 25 points with no komi) was already established by van der Werf et al. in 2002/2003, well before the frozen revision.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Komi_(Go)",
+    "https://arxiv.org/abs/2405.05594",
+    "https://arxiv.org/html/2405.05594"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The Wikipedia bullet asks for the perfect (fair) value of komi in Go — implicitly the full 19x19 board, where 'perfect komi would make each game result in Jigo given perfect play by both sides' (per the Komi (Go) Wikipedia article). This value is not known with certainty because perfect play on 19x19 Go is computationally out of reach, and nothing in the 26 Jan 2024 – present window changes that: no proof, no new bound, no updated AI-derived estimate that supersedes the pre-2024 consensus (professional/computer statistics suggesting the fair value is around 6-7 points, with 7 argued as the theoretically likely odd integer under area scoring). I searched specifically for updated KataGo or other AI self-play estimates from 2024-2026 and found none beyond older (pre-2024, including 2020-era) forum and community discussion threads restating the same 6-7 point consensus. The one concrete, dated, in-window item I found is arXiv:2405.05594 ('Expected Work Search: Combining Win Rate and Proof Size Estimation', submitted 9 May 2024, Randall/Müller/Wei/Hayward, University of Alberta), which presents 'the first solution to the empty 5x5 board with the commonly used positional superko ruleset.' I fetched the abstract, introduction and full HTML text: the paper uses classical Monte Carlo Tree Search-style rollouts and Proof Number Search (no neural networks or learned evaluation functions in its reported results — the authors explicitly list 'machine learned evaluation functions' only as future work), so even if this counted, ai_role would be none. More importantly, this does not change the stated problem: (1) it concerns the 5x5 board, not 19x19, so it is at most a case of a much smaller instance of the general question, and general komi results on tiny boards do not constrain or inform the 19x19 answer in any established way; (2) the underlying combinatorial result for 5x5 Go without komi (Black wins by 25 points under Japanese-style rules) was already established by van der Werf et al. in 2002-2003 (predates the frozen revision by two decades); the 2024 paper's actual novelty is proving the same result holds rigorously under the stricter 'positional superko' rule variant (resolving a technical superko/GHI-problem complication), which is a ruleset technicality rather than a new komi value or a new case of the 'what is the perfect komi' question as commonly understood. I therefore classify this as `open` with `no_change_found` true, consistent with the triage's `none` verdict, which I confirm rather than contradict.",
+  "competing_reading": "One could argue the 2024 EWS paper is a genuine `partial` result: 5x5 Go is a legitimate case of 'Go' broadly construed, and rigorously nailing down its exact result under a previously-unresolved ruleset variant is new mathematical content produced within the window. Under a generous reading where 'the problem' is 'determine perfect komi for boards of various sizes' rather than specifically 19x19, this would count as `partial`/`progress` with `ai_role` `none`. I did not adopt this reading because (a) the base numerical result (25-point win, i.e. komi 24.5) was not new — only the ruleset rigor was — and (b) the Wikipedia bullet, read in context of the Go article's other sub-bullets, is most naturally about the standard 19x19 game where komi is actually used in practice, which is exactly the value that remains unknown.",
+  "what_would_settle_it": "A rigorous solution (or credible new AI/human-derived estimate that moves the consensus) for 19x19 perfect komi, or an explicit Wikipedia/community consensus that small-board superko results are considered a 'case' of this bullet, would settle the classification either way.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Komi_(Go)", "title": "Komi (Go)", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2405.05594", "title": "Expected Work Search: Combining Win Rate and Proof Size Estimation", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2405.05594", "title": "Expected Work Search: Combining Win Rate and Proof Size Estimation (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://www.arxiv.org/pdf/2405.05594", "title": "Expected Work Search: Combining Win Rate and Proof Size Estimation (PDF)", "type": "preprint", "opened": false},
+    {"url": "https://forums.online-go.com/t/what-is-the-strong-bot-based-fair-komi-for-19x19-using-japanese-like-for-example-katago-rules/27288", "title": "What is the Strong bot based fair komi for 19x19 using Japanese-like (for example, KataGo) rules", "type": "blog", "opened": false},
+    {"url": "https://www.nordicgodojo.eu/post/182/is-fair-komi-necessarily-an-integer", "title": "Is 'fair' komi necessarily an integer?", "type": "blog", "opened": false},
+    {"url": "https://forums.online-go.com/t/komi-and-perfect-play/42650", "title": "Komi and perfect play", "type": "blog", "opened": false},
+    {"url": "https://www.researchgate.net/publication/2925531_Solving_Go_On_Small_Boards", "title": "Solving Go On Small Boards", "type": "journal", "opened": false},
+    {"url": "https://journals.sagepub.com/doi/abs/10.3233/ICG-2009-32203", "title": "Solving Go for Rectangular Boards (van der Werf, Winands, 2009)", "type": "journal", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "perfect komi Go 19x19 KataGo estimate 2024 2025",
+      "\"komi\" \"7.5\" OR \"7 points\" go proof solved 2025",
+      "Wikipedia \"unsolved problems in mathematics\" komi Go article",
+      "solved Go board size komi proof combinatorial game theory 2024 2025 2026",
+      "\"perfect komi\" mathematically determined small board Go solved",
+      "5x5 Go solved positional superko komi 24.5 first player win paper",
+      "6x6 Go solved komi proof",
+      "van der Werf 2003 5x5 Go solved komi history superko",
+      "\"Expected Work Search\" Randall Muller Wei Hayward 5x5 Go superko result komi value",
+      "perfect komi Go 2026 research paper",
+      "KataGo fair komi analysis update 2025"
+    ],
+    "places_checked": [
+      "Wikipedia Komi (Go) article",
+      "arXiv (direct paper fetch, abstract and HTML full text)",
+      "General web search across Go community forums (Life in 19x19, online-go.com forums)",
+      "Nordic Go Dojo blog",
+      "ResearchGate for van der Werf prior work"
+    ],
+    "dead_ends": [
+      "Searched for a 2025/2026 dedicated 'perfect komi' paper — none found beyond restatements of the 6-7 point consensus",
+      "Searched for 6x6 Go solved status — confirmed still unsolved, no proof of komi value exists even pre-2024",
+      "Checked whether the 2024 EWS paper's 5x5 result was itself new (it was not — only the superko ruleset rigor was new); base result traced to van der Werf 2002/2003",
+      "Checked for AI/neural-network involvement in the EWS paper — confirmed pure classical search (MCTS rollouts + proof number search), no learned models used in the reported results"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": true
+}

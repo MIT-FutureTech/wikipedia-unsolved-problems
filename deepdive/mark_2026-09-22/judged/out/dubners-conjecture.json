@@ -1,0 +1,200 @@
+{
+  "key": "dubners-conjecture",
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No proof, disproof, or partial resolution of Dubner's conjecture was found; the only dated development is a computational extension of the exhaustive search for exceptions from 10^9 to 10^11 (no new exception found), plus a distinct, weaker 'intermediate' conjecture inspired by Dubner's and a Lean formalization tracking issue, neither of which changes the statement itself.",
+  "status_sources": [
+    "https://oeis.org/A007534",
+    "https://arxiv.org/abs/2608.02381",
+    "https://arxiv.org/html/2608.02381"
+  ],
+  "event": {
+    "date": "2026-07-28",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://oeis.org/A007534",
+      "https://arxiv.org/abs/2608.02381"
+    ]
+  },
+  "credited_humans": [
+    "Tushar Pandey",
+    "Tomás Oliveira e Silva"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [],
+  "summary": "Dubner's conjecture (every even number > 4208 is the sum of two primes that each have a twin) remains open. The most concrete dated development in the window is a comment added to OEIS A007534 on 28 Jul 2026 by Tushar Pandey ('No other k < 10^11'), extending the prior exhaustive-search bound of 10^9 (T. D. Noe, 2007) for exceptions to the conjecture by a factor of ~100 with no new exception found. This same extension is described in Pandey's arXiv paper 2608.02381 (v1 submitted 3 Aug 2026, v2 26 Aug 2026), 'An intermediate conjecture between Goldbach and Dubner: every even number is the sum of a prime and a twin prime,' whose acknowledgements state an independent cross-check: 'I thank Tomás Oliveira e Silva for independently verifying (S) to 10^13 with a program sharing no code with ours.' However, that independent 10^13 verification is of the paper's own intermediate conjecture (S) — every even number is the sum of a prime and a twin prime — not of Dubner's conjecture (sum of two twin primes), which the paper separately reports verifying only to 10^11: 'Dubner's conjecture ... finds no further both-twin exception up to 10^11, re-verifying Dubner's conjecture and extending its verified range by a factor of five.' Per the deep-dive rules, an existence/universality claim is not advanced by a search verified to a larger limit — it narrows where a counterexample could hide, not whether one exists — so this does not amount to partial resolution; it is recorded as `progress` because it is a concrete, dated, citable computational event, consistent with how this kind of Goldbach-style range extension is typically treated, while acknowledging the stricter reading below. Separately, a GitHub issue (google-deepmind/formal-conjectures #3628, opened 24 Mar 2026) requests a Lean/Mathlib formalization of the conjecture's *statement* — rated difficulty 1/5, 'good first issue,' closed with no linked PRs, comments, or proof attempt — so it is not evidence of any mathematical progress, only of a tracking/formalization backlog. Pandey's paper itself is a related-but-distinct conjecture (a prime plus a twin prime, not two twin primes), which per §3.1 is a variant rather than a case of Dubner's conjecture, and is not counted as touching Dubner's conjecture beyond the incidental exception-search extension. No mention of AI systems, language models, or AI-assisted code generation appears anywhere in the arXiv paper, its acknowledgements, its described C/Python verification code, or the OEIS entry; the computation is described purely as a segmented sieve run on ordinary hardware ('C kernel: a segmented bit-packed odd-only sieve ... on 16 threads under OpenMP, 9.0 hours of wall time on a laptop'). No proof, refutation, or partial case-settlement of Dubner's conjecture as stated was found anywhere in the window.",
+  "competing_reading": "One could argue the correct status is `open` with `no_change_found` true, on the strict reading of §3.1 that a search verified to a larger bound never moves an existence/universality question — only an answer does, and finding no new exception in [10^9, 10^11) is exactly the case the rules say does not count. I classified as `progress` instead because the extension is a discrete, dated, well-sourced computational event directly about Dubner's conjecture (not a variant), and the instructions describe `progress` as covering 'a bound moved' generally; a reasonable reading of 'bound' includes a verified-exception-free range even for a universal claim, since exactly this kind of range-extension is the customary unit of progress reported for Goldbach-adjacent conjectures. A stricter grader might mark this `open`/`no_change_found` instead.",
+  "what_would_settle_it": "Either an explicit statement (from Pandey, Oliveira e Silva, or another source) that Dubner's conjecture specifically (not the intermediate conjecture) was checked to 10^13 or beyond, which would sharpen the bound further, or a clarification of whether the deep-dive project intends 'bound moved' to include exception-free range extensions for universal conjectures — which would decide between `progress` and `open`/`no_change_found` here.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://oeis.org/A007534",
+      "title": "A007534 - OEIS",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.02381",
+      "title": "An intermediate conjecture between Goldbach and Dubner: every even number is the sum of a prime and a twin prime",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.02381",
+      "title": "An intermediate conjecture between Goldbach and Dubner: every even number is the sum of a prime and a twin prime (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/issues/3628",
+      "title": "Dubner's conjecture: Twin prime sums · Issue #3628 · google-deepmind/formal-conjectures",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Harvey_Dubner",
+      "title": "Harvey Dubner",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://t5k.org/curios/page.php/4208.html",
+      "title": "Prime Curios! 4208",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://oeis.org/A007534/a007534.pdf",
+      "title": "TWIN PRIME CONJECTURES, Harvey Dubner",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Dubner's conjecture twin primes sum even number proof",
+      "\"Dubner's conjecture\" 4208 twin prime",
+      "\"Dubner conjecture\" arxiv 2024 2025 2026",
+      "Dubner conjecture verified up to 10^14 twin prime least summand",
+      "\"Dubner's conjecture\" Lean Mathlib formalized proof 2026",
+      "Tushar Pandey twin prime Dubner conjecture computation AI",
+      "Dubner conjecture disproved counterexample even number no twin prime sum"
+    ],
+    "places_checked": [
+      "OEIS A007534 (sequence page and comments/history)",
+      "arXiv abstract and HTML full text for 2608.02381",
+      "GitHub issue google-deepmind/formal-conjectures#3628",
+      "Wikipedia article on Harvey Dubner",
+      "General web search for disproofs/counterexamples"
+    ],
+    "dead_ends": [
+      "arXiv/HTML mirror at https://arxiv.org/html/2608.02381 returned 404 on direct fetch; content was retrieved instead via the /abs/ page and search snippets",
+      "Search for a Lean/Mathlib formalized proof of Dubner's conjecture itself turned up only unrelated Lean formalization papers, confirming no proof has been formalized (only the statement-tracking issue exists)"
+    ]
+  },
+  "incomplete": "Did not independently verify the raw OEIS b-file or Pandey's Zenodo-archived code; relied on the paper's and OEIS's own stated verification bounds. Could not directly load https://arxiv.org/html/2608.02381 (404) and relied on the /abs/ page plus search-engine-extracted text for full-text details such as the acknowledgements sentence.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "progress",
+      "to": "open",
+      "why": "F4: the only event touching the bullet is a search for exceptions extended from 10^9 to 10^11 ('No other k < 10^11'); the record itself says this 'narrows where a counterexample could hide, not whether one exists'. Scope instances; the intermediate conjecture is a variant and the Lean issue is none, so nothing survives."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "no_change_found",
+      "from": false,
+      "to": true,
+      "why": "F4: with the search extension discarded as instances, no event settles or bounds any part of the bullet."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "pandey-oeis-2026",
+        "what": "Pandey extends the exhaustive search for exceptions to Dubner's conjecture from 10^9 to 10^11 (OEIS A007534 comment; also reported in arXiv 2608.02381), no new exception found",
+        "date": "2026-07-28",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://oeis.org/A007534",
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "pandey-intermediate-2026",
+        "what": "Pandey proposes and verifies (to 10^13, cross-checked by Oliveira e Silva) a weaker intermediate conjecture: every even number is the sum of a prime and a twin prime",
+        "date": "2026-08-03",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2608.02381",
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "formal-conjectures-3628",
+        "what": "GitHub issue requesting a Lean formalisation of the statement",
+        "date": "2026-03-24",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://github.com/google-deepmind/formal-conjectures/issues/3628",
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": null,
+    "derived": {
+      "status": "open",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [
+      "status",
+      "no_change_found"
+    ],
+    "doubts": "The record's own competing_reading states the correct answer: extending an exception-free search range for a universal statement is finitely many instances, not a bound. Event, sources and credited_humans left as evidence.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "judge_problems": []
+}

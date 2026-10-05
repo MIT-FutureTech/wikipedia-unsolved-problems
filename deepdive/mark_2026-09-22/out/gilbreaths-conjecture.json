@@ -1,0 +1,89 @@
+{
+  "key": "gilbreaths-conjecture",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "Gilbreath's conjecture itself remains open, but Chase, Hunter and Tao (arXiv:2607.08712, Jul 2026) prove the analogue of the conjecture holds almost surely for a Cramér random model of prime gaps, and give a deterministic inverse theorem showing the only ways a Gilbreath array can fail to have a {0,1}-valued first entry are (i) long blocks of zeroes or (ii) very long shallow {0,d}-valued blocks (d≥2) — a genuine structural narrowing of what would have to happen for the real conjecture to fail, though it does not settle any case of the conjecture for actual primes.",
+  "status_sources": [
+    "https://arxiv.org/abs/2607.08712",
+    "https://arxiv.org/html/2607.08712v1",
+    "https://terrytao.wordpress.com/2026/07/11/gilbreaths-conjecture-a-cramer-random-model-and-a-deterministic-analysis/"
+  ],
+
+  "event": {
+    "date": "2026-07-09",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2607.08712"]
+  },
+
+  "credited_humans": ["Zachary Chase", "Zach Hunter", "Terence Tao"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "Gemini was used to generate the code for Figure 1.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["Gemini"],
+    "sources": ["https://arxiv.org/html/2607.08712v1"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [
+    {
+      "kind": "credibility",
+      "summary": "A separate July 2026 preprint by Vincent Granville, 'Piercing Gilbreath's Conjecture: From Deep Number Theory Insights to Fintech and Cybersecurity' (arXiv:2607.04166), claims 'a precise path to the solution' via a 'reverse sieving' method. Independent assessment found the proof route runs through a conjecture (its Conjecture 5.1(4)) that is essentially as hard as Gilbreath's conjecture itself, so the paper does not deliver a genuine proof strategy despite its framing; its computational observations (reverse sieving, 'magic primes', forbidden constellations) are credited as novel but incidental. This is not counted as progress on the conjecture's scope under §3.1, since no case or bound was actually settled.",
+      "sources": [
+        "https://arxiv.org/abs/2607.04166",
+        "https://arxiv.org/pdf/2607.04166"
+      ]
+    }
+  ],
+
+  "summary": "Gilbreath's conjecture — that the leftmost entries of the triangular array of iterated absolute differences of consecutive primes are all 1 after the first row — remains unresolved as of September 2026. The most substantive development in the window is Chase, Hunter and Tao, 'Gilbreath's conjecture: a Cramér random model and a deterministic analysis' (arXiv:2607.08712, submitted 9 July 2026, also summarized on Tao's blog the same week). They prove that a probabilistic analogue of the conjecture (prime gaps replaced by independent geometric random variables per the Cramér heuristic model of primes) holds almost surely, and separately give an unconditional 'deterministic inverse theorem' (their Theorem 1.6) that pins down the only two ways an actual Gilbreath array could fail to be {0,1}-valued at the first entry: a long run of zero differences, or a long run of shallow {0,d}-valued differences for some fixed d≥2. This is structural progress that changes what a careful person would need to rule out to prove the real conjecture — it narrows the space of potential obstructions — but it explicitly does not resolve any case of the conjecture for actual primes; the authors state they 'cannot (personally) resolve Gilbreath's conjecture.' I classify this as status 'progress' rather than 'partial', since no case of the stated conjecture (a universal claim about primes) was settled, in either direction — the random-model result is a related/heuristic model, not a restriction of the actual problem to a sub-case, and the inverse theorem is conditional/structural rather than a settled instance. The paper's acknowledgements state plainly: 'Gemini was used to generate the code for Figure 1' (a Monte Carlo plot of constants in the continuous model) — this is not mathematics appearing in the result, only plotting code, so ai_role is 'none' per §6.2's instruction that code generation for figures does not count as AI involvement in the mathematics. No other AI system is mentioned anywhere in the paper, Tao's blog post, or secondary coverage I found. Separately, computational verification of the conjecture (not a resolution, per §3.1's rule that existence/pattern-search extensions don't count) was extended: Simon Plouffe verified up to 10^14 (arXiv:2510.06688, Oct 2025), and per the current Wikipedia article, Jean-François Colonna later extended this to 2×10^14 (2025) and 1.5×10^15 (2026) — these are recorded as background but do not change the status, being existence-type range extensions explicitly excluded by §3.1. I also found and read a second July 2026 preprint, Vincent Granville's 'Piercing Gilbreath's Conjecture' (arXiv:2607.04166), which claims to present 'a precise path to the solution'; an independent critical assessment I found concludes its proof route depends on an unproved conjecture of comparable difficulty to Gilbreath's conjecture itself, so it does not constitute genuine progress toward resolution despite the framing, and I have not counted it as a status-changing event. I checked the current (September 2026) Wikipedia article on Gilbreath's conjecture directly: it explicitly still states 'The conjecture remains an open problem,' and does not yet mention the Chase-Hunter-Tao or Granville papers, only the Plouffe/Colonna computational verifications. I also confirmed the triage's characterization of the Chase-Hunter-Tao paper is essentially accurate: it correctly distinguishes this from computational verification and correctly notes the conjecture remains open.",
+  "competing_reading": "One could argue the Cramér random model result, combined with the inverse theorem, is close enough to a case of the conjecture (i.e., 'the conjecture holds under the Cramér heuristic model of primes') to count as 'partial' rather than 'progress', since a genuine mathematical statement was proved rather than merely a bound moved. Against this: the Cramér random model is a different (probabilistic) object, not a restriction obtained by narrowing the domain of the original statement about actual primes — it is closer to a 'related problem' under §3.1's variant test, since the model replaces the object of study (primes) with i.i.d. random variables. I lean 'progress' because the inverse theorem is the piece that most directly bears on the real conjecture (an unconditional structural fact about any Gilbreath array, prime-derived or not), and 'progress' better captures 'a bound moved, or an instructive incident'-adjacent structural narrowing without overclaiming a settled case.",
+  "what_would_settle_it": "A proof (or disproof) that actual prime gaps cannot produce arbitrarily long zero-blocks or long shallow {0,d}-blocks in the Gilbreath array — which the paper notes would follow from (but is stronger than needed, and harder than) a Cramér-type bound on prime gaps — would resolve the conjecture outright via the authors' own inverse theorem.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2607.08712", "title": "Gilbreath's conjecture: a Cramér random model and a deterministic analysis", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2607.08712v1", "title": "Gilbreath's conjecture: a Cramér random model and a deterministic analysis (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2026/07/11/gilbreaths-conjecture-a-cramer-random-model-and-a-deterministic-analysis/", "title": "Gilbreath's conjecture: a Cramér random model and a deterministic analysis | What's new", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.04166", "title": "Piercing Gilbreath's Conjecture: From Deep Number Theory Insights to Fintech and Cybersecurity", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2607.04166", "title": "Piercing Gilbreath's Conjecture (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.23721", "title": "Holes in Valid-Extension Sets of Finite Gilbreath Sequences", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2510.06688", "title": "Verification of Gilbraith's conjecture up to 10^14", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Gilbreath%27s_conjecture", "title": "Gilbreath's conjecture", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Vincent Granville Gilbreath conjecture 2026 arxiv withdrawn retracted",
+      "Gilbreath conjecture Chase Hunter Tao Cramer model",
+      "\"Piercing Gilbreath's Conjecture\" Granville reverse sieving reaction criticism"
+    ],
+    "places_checked": [
+      "arXiv abstract and full-text HTML pages for 2607.08712, 2607.04166, 2606.23721, 2510.06688",
+      "Terence Tao's blog (What's New)",
+      "Current (September 2026) English Wikipedia article on Gilbreath's conjecture",
+      "General web search for reception/criticism of the Granville preprint"
+    ],
+    "dead_ends": [
+      "PDF text extraction of arXiv:2510.06688 (Plouffe verification) was garbled/non-extractable via the fetch tool; metadata and abstract were instead obtained from the arXiv abstract page, which sufficed since this is a computational-verification result excluded from status changes by §3.1 regardless of detail",
+      "Checked for a related 2024 Chase paper ('A random analogue of Gilbreath's conjecture') referenced by the current Wikipedia article as a precursor; it predates or is at the boundary of the window and is superseded in substance by the 2026 Chase-Hunter-Tao paper, so it was not separately researched in depth"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

@@ -1,0 +1,300 @@
+{
+  "key": "vizings-conjecture",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The conjecture remains open, but the best known universal constant in the approximate form γ(G□H) ≥ c·γ(G)γ(H) was raised twice within the window: Steiner (arXiv:2606.14414, 2026-06-12) improved Clark & Suen's 2000 bound of 1/2 to (5+√73)/24 ≈ 0.5643, and Aliabadi & Krop (arXiv:2607.01109) then raised it further, first to ≈0.5809 (v1, 2026-07-01), then — after a withdrawn v2 flagged in the arXiv listing as containing an 'algebraic mistake' — to a corrected 2/3 ≈ 0.667 in v3 (2026-09-09). The claimed bipartite case-restriction preprint (arXiv:2509.10473, Hosking) and the Zenodo 'Impossible Descent' Lean 4 item do not add genuine progress (see summary).",
+  "status_sources": [
+    "https://arxiv.org/abs/2606.14414",
+    "https://arxiv.org/abs/2607.01109",
+    "https://arxiv.org/html/2607.01109v1",
+    "https://arxiv.org/html/2607.01109v3"
+  ],
+  "event": {
+    "date": "2026-09-09",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/html/2607.01109v3",
+      "https://arxiv.org/abs/2607.01109"
+    ]
+  },
+  "credited_humans": [
+    "Mohsen Aliabadi",
+    "Elliot Krop",
+    "Raphael Steiner"
+  ],
+  "ai_role": "assisted",
+  "ai": {
+    "basis_quote": "AI disclosure: During the preparation of this work, the authors used Claude (Fable 5) for language editing and computational assistance related to the proofs of Theorems 1.1 and 1.4.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "Claude (Fable 5)"
+    ],
+    "sources": [
+      "https://arxiv.org/html/2607.01109v3"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [
+    {
+      "kind": "correction",
+      "summary": "Aliabadi & Krop v2 (posted 2026-07-02, one day after v1) was withdrawn; the arXiv math.CO July 2026 listing records the withdrawal comment 'Algebraic mistake.' v3 (2026-09-09) states the authors 'fixed the argument and made an improvement,' raising the claimed constant from v1's ≈0.5809 to 2/3. The v1 constant (0.5809) itself was never withdrawn or corrected — only v2 was pulled — so v1's result appears to stand as an intermediate step, superseded by v3's stronger 2/3 bound.",
+      "sources": [
+        "https://arxiv.org/abs/2607.01109",
+        "https://arxiv.org/html/2607.01109v1"
+      ]
+    }
+  ],
+  "summary": "Vizing's conjecture (γ(G□H) ≥ γ(G)γ(H) for all graphs G, H) is still open. Within the window, the universal-constant approximate form saw two genuine improvements: Raphael Steiner (arXiv:2606.14414, 2026-06-12, no AI mentioned) raised Clark & Suen's (2000) bound of 1/2 to (5+√73)/24 ≈ 0.5643 — the first improvement on that constant since 2000. Mohsen Aliabadi and Elliot Krop (arXiv:2607.01109) then improved it further: v1 (2026-07-01) claimed ≈0.5809 with no AI acknowledgement; v2 (2026-07-02) was withdrawn, flagged in the arXiv combinatorics listing as containing an 'algebraic mistake'; v3 (2026-09-09) fixed the argument, restructured the paper around Theorem 1.1 (a packing-based inequality) and Theorem 1.3 (the headline 2/3 bound), and carries an explicit AI disclosure that Claude (Fable 5) was used 'for language editing and computational assistance related to the proofs of Theorems 1.1 and 1.4.' That sentence — the authors' own account, quoted directly from the v3 HTML — is the basis for `ai_role: assisted`: it names AI contribution to the derivation of specific numbered theorems, not merely proofreading or formalisation, so it clears the `none` bar. Neither of these bound-improvement papers has yet received an expert digestion (no Tao blog post, no Quanta coverage, no journal acceptance found); they remain unreviewed preprints, which is why status is `progress` rather than `claimed` — `claimed` per the rubric attaches to resolution/certificate claims, and a moved bound on a still-open problem is `progress` by definition regardless of review status. Separately, two lower-credibility items surfaced by triage were examined and found not to constitute progress: (1) arXiv:2509.10473 (Noah Hosking, math.GM, v1 2025-08-26 through v5 2026-08-23) does not prove the conjecture for any concrete case such as 'k-regular bipartite graphs with k≥7' as triage's note suggested — reading the full text shows it only proves a conditional inequality with an unresolved additive-deficit term (Remark 1), explicitly leaving the reduction to 'domination-neutral leaf deletions' as future work; it is math.GM (not math.CO), never rigorously closes any case, and so is not a genuine partial result. (2) The Zenodo item 'Vizing's Impossible Descent' (Jonathan Reed, posted 2026-08-08) claims a full Lean 4 proof by contradiction but is self-published with no corroboration, no peer engagement, and no visible acknowledgements section; per the rubric a machine-checked certificate no expert has reviewed would be `claimed` at best, but there is no evidence anyone besides the author has run or examined the Lean development, and no trace of it anywhere else (no arXiv cross-post, no mathoverflow/blog discussion), so it is treated as non-credible noise rather than a countable event, consistent with the triage note. I also checked arXiv:2608.29595 ('GPT, the Counterexample Machine' by Suvrit Sra), which surfaced in AI+Vizing search results; it documents ~16 GPT-discovered counterexamples in combinatorics/convexity/analysis but does not mention Vizing's conjecture at all — a false positive, not evidence for this record.",
+  "competing_reading": "One could argue the Aliabadi-Krop v3 AI disclosure ('language editing and computational assistance related to the proofs') is ambiguous enough to read as `none` if 'computational assistance' meant only checking algebra rather than generating proof steps — the rubric's `none` bucket explicitly includes debugging and proofreading. I read 'computational assistance related to the proofs of Theorems 1.1 and 1.4' as naming a specific mathematical contribution to those theorems (not just language), which pushes it past the `none` threshold into `assisted`, but the sentence does not spell out exactly what Claude computed, so a stricter reading landing on `none` is defensible.",
+  "what_would_settle_it": "The authors' full acknowledgement wording is already quoted in full above; what would resolve the ambiguity is the papers' actual working notes or a more detailed methods statement specifying whether Claude produced any algebraic step, inequality, or case analysis that appears in the final Theorem 1.1 / 1.4 proofs, versus merely double-checking arithmetic the authors had already derived.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2509.10473",
+      "title": "Vizing's Conjecture: A Density-Based Re-framing Applied to Bipartite Graphs / Domination Density and Vizing's Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2509.10473v3",
+      "title": "Vizing's Conjecture: A Density-Based Re-framing Applied to Bipartite Graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.10473v1",
+      "title": "Domination Density and Vizing's Conjecture (v1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2509.10473v5",
+      "title": "Domination Density and Vizing's Conjecture (v5)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/21854681",
+      "title": "Vizing's Impossible Descent - Boundary Analysis and Formal Proof by Contradiction of Vizing's Conjecture in Lean 4",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Vizing%27s_conjecture",
+      "title": "Vizing's conjecture - Wikipedia",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.14414",
+      "title": "A constant-factor step towards Vizing's conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2606.14414",
+      "title": "A constant-factor step towards Vizing's conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2606.14414",
+      "title": "A constant-factor step towards Vizing's conjecture (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.01109",
+      "title": "An improved constant for Vizing's conjecture / A 2/3 Bound for Vizing's Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.01109",
+      "title": "A 2/3 Bound for Vizing's Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.01109v1",
+      "title": "A 2/3 Bound for Vizing's Conjecture (v1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.01109v3",
+      "title": "A 2/3 Bound for Vizing's Conjecture (v3)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2607.01109",
+      "title": "An improved constant for Vizing's conjecture (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.29595",
+      "title": "GPT, the Counterexample Machine",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/list/math.CO/2026-07",
+      "title": "Combinatorics Jul 2026 (arXiv listing)",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Vizing's conjecture domination number cartesian product 2024 2025 2026 progress",
+      "Vizing's conjecture Wikipedia article current status",
+      "\"Vizing's conjecture\" arxiv 2024 2025 math.CO domination cartesian product",
+      "\"Vizing conjecture\" AI proof GPT Claude counterexample",
+      "Steiner Vizing's conjecture universal constant 0.5643 arxiv date",
+      "Aliabadi Krop \"2/3 bound\" Vizing conjecture",
+      "\"Vizing's conjecture\" 2026 \"2/3\" bound blog Tao improved constant news",
+      "\"2607.01109\" OR \"A 2/3 Bound for Vizing's Conjecture\" Aliabadi Krop discussion review"
+    ],
+    "places_checked": [
+      "arXiv listings and abstracts/HTML/PDF for 2509.10473, 2606.14414, 2607.01109 (all versions)",
+      "Zenodo record 21854681",
+      "current (live) Wikipedia article 'Vizing's conjecture' for context only, not as a substitute for the frozen revision",
+      "general web search for Terence Tao blog or other expert digestion of the 2026 bound-improvement papers (none found)",
+      "general web search for AI+Vizing coverage (surfaced an unrelated paper, arXiv:2608.29595, correctly excluded)"
+    ],
+    "dead_ends": [
+      "No Tao blog, Quanta, or other expert-digestion coverage of Steiner's or Aliabadi-Krop's bound papers was found — they appear to be unreviewed preprints as of 2026-09-22",
+      "The Zenodo 'Impossible Descent' Lean 4 item has no corroborating discussion anywhere (no arXiv cross-listing, no forum threads found)",
+      "A WebSearch synthesis initially asserted the Aliabadi-Krop paper used Claude 'for language editing and computational assistance' but without a quote; this was independently re-verified by fetching the actual v3 HTML/PDF and locating the exact acknowledgement sentence, which is quoted verbatim in this record"
+    ]
+  },
+  "incomplete": null,
+  "triage_disagreement": true,
+  "triage_queries_replaced": true,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "assisted",
+      "why": "F9 (thin quote): kept. The v3 disclosure credits Claude with 'computational assistance related to the proofs of Theorems 1.1 and 1.4'. That is more than language editing, and it names computations inside specific theorems, but it never says the model produced a step that appears in the final proof rather than checking the authors' own algebra. If the authors clarify that it only checked their work, the role becomes none."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "progress",
+      "to": "progress",
+      "why": "other: kept. A better constant c < 1 is a bound on a question that stays open (F3). It rests on Aliabadi–Krop v3, whose v2 was withdrawn for an 'algebraic mistake' (disputes). That makes it doubtful but not knocked down, since no specific error in v3 has been identified. Steiner's 0.5643 is the fallback. The Zenodo Lean claim is set aside as not credible (F5/F10)."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "steiner-2026",
+        "what": "Steiner raises the universal constant c in γ(G□H) ≥ c·γ(G)γ(H) from 1/2 to (5+√73)/24 ≈ 0.5643",
+        "date": "2026-06-12",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2606.14414",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "aliabadi-krop-v1-2026",
+        "what": "Aliabadi & Krop v1 claims c ≈ 0.5809",
+        "date": "2026-07-01",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/html/2607.01109v1",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "The next version (v2, one day later) was withdrawn for an 'algebraic mistake'; whether v1 shares the error is not shown in the record. Superseded by v3 in any case.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "aliabadi-krop-v3-2026",
+        "what": "Aliabadi & Krop v3 fixes the argument and claims c = 2/3",
+        "date": "2026-09-09",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/html/2607.01109v3",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Follows a withdrawn version with an algebraic mistake; the corrected, stronger bound is under three weeks old and unread by anyone else.",
+        "ai_role": "assisted",
+        "ai_basis": "the authors used Claude (Fable 5) for language editing and computational assistance related to the proofs of Theorems 1.1 and 1.4.",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "hosking-2025",
+        "what": "Hosking's math.GM preprint proves only a conditional inequality with an unresolved deficit term",
+        "date": "2025-08-26",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2509.10473",
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "math.GM, five revisions, no case actually closed per the record's reading of the full text.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "reed-zenodo-2026",
+        "what": "Self-published Zenodo claim of a full Lean 4 proof by contradiction",
+        "date": "2026-08-08",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://zenodo.org/records/21854681",
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "F5/F10: landmark problem, self-published outside arXiv, no uptake or discussion anywhere, and papers after it (Aliabadi–Krop v3, 2026-09-09) still treat the conjecture as open and improve constants; a Lean build alone does not show the formal statement is Vizing's conjecture.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "aliabadi-krop-v3-2026",
+    "derived": {
+      "status": "progress",
+      "ai_role": "assisted",
+      "resolution_direction": null
+    },
+    "changed": [],
+    "doubts": "The status rests on an undigested preprint whose previous version was withdrawn for an algebraic mistake; if v3's 2/3 falls, the row would rest on Steiner's human bound (≈0.5643, ai_role none). The AI role rests on a thin disclosure: 'computational assistance related to the proofs' says the model computed something that went into the proofs of two theorems, but not what. I read that as the model producing part of the mathematics (assisted), but the reading is borderline. Confirming that v1's 0.5809 survived v2's error was not needed, since v3 supersedes it.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "judge_problems": []
+}

@@ -1,0 +1,70 @@
+{
+  "key": "bellmans-lost-in-a-forest-problem",
+  "judgement": {
+    "events": [
+      {
+        "id": "deng-2024",
+        "what": "Deng proposes a general computational (discretised TSP-style) framework for the problem that recovers known cases (circle, equilateral triangle, infinite strip)",
+        "date": "2024-12", "precision": "month", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2412.10686",
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "deng-2026",
+        "what": "Deng claims a proof of the framework's validity plus variations (closed paths, 3D), with Lean formalisations; no new case of the bullet settled per the record",
+        "date": "2026-06", "precision": "month", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2606.13987",
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "temerev-doria-2026",
+        "what": "Temerev and Doria prove the exact optimal escape curve for the golden gnomon (isosceles triangle, sides 1, apex 108°), length ≈1.282676, with Lean 4 certificates",
+        "date": "2026-07-27", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2607.24483",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.",
+        "direction": "confirmed",
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "temerev-doria-2026",
+    "derived": {
+      "status": "partial",
+      "ai_role": "assisted",
+      "resolution_direction": "confirmed"
+    },
+    "changed": [],
+    "doubts": "Codes agree with the record. One shape is a case of a bullet about arbitrary shapes, so partial is right whatever the review state; the only check so far is the authors' own Lean build and audit scripts (F10). The AI role could arguably be generated: the quote says the models searched for the extremal curve and drafted the arguments, which is most of the mathematics. But the authors do not say the models produced the proof with the humans only checking it, so assisted is kept. Deng's framework papers settle no new case and are scored none.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {},
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "assisted",
+      "why": "other: basis_quote says the LLMs were used 'to search for the extremal curve, to draft the arguments', so the curve itself and the argument may be model-produced, which would point toward generated. The authors do not say the humans only checked, so assisted is kept, with doubt."
+    }
+  ]
+}

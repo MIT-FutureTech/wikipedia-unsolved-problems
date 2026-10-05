@@ -1,0 +1,109 @@
+{
+  "key": "grimms-conjecture",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The conjecture remains fully open, but the computational no-counterexample bound was extended from 1.9×10^10 (Laishram & Shorey, 2006) to 10^12 by an independent GitHub repository (thebrockchain/grimm-conjecture-verification), completed 2026-08-26. A separate attempt to submit a finite Lean-certified range [2,10^4] to the crypto-funded 'Justin Sun Prize' bounty program was rejected as insufficient (partial progress, not a full solution).",
+  "status_sources": [
+    "https://github.com/thebrockchain/grimm-conjecture-verification",
+    "https://www.erdosproblems.com/375"
+  ],
+
+  "event": {
+    "date": "2026-08-26",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": ["https://github.com/thebrockchain/grimm-conjecture-verification"]
+  },
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [
+    {
+      "kind": "other",
+      "summary": "The GitHub repository thebrockchain/grimm-conjecture-verification claims a 52.6x extension of the verified no-counterexample bound (to 10^12) and states its own README/CLAUDE.md contain no explicit AI-authorship disclosure, yet the repository includes a CLAUDE.md file (typically used to instruct an AI coding agent) and reports computation on an 'Apple M5' processor, a chip generation not otherwise documented as publicly released. The claim has not been picked up or cited by erdosproblems.com (last updated 2026-01-24, still citing only the 2006 bound), so it is unverified by any independent expert and should be treated cautiously.",
+      "sources": [
+        "https://github.com/thebrockchain/grimm-conjecture-verification",
+        "https://www.erdosproblems.com/375"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "A Lean 4 + Mathlib formalization (JSP-000310, submitted by GitHub user aznikline, attributed to 'Devin (aznikline)') certified Grimm's conjecture by kernel-checked decision procedure over the finite range [2, 10^4] (1,228 maximal composite runs). It was submitted to the 'Justin Sun Prize' bounty program (announced 2026-09-16) as pull request #1232 (2026-09-18) and, after an administrative closure over hosting-format rules, resubmitted as #2119 (2026-09-20). A prize-program reviewer (Federico2014) rejected it because the program requires a complete solution to the original (unbounded) conjecture, not a finite certificate. No AI system is disclosed as having produced the Lean proof; attribution is to a named human account, though 'Devin' is also the name of an AI coding-agent product, creating ambiguity not resolved by the PR text.",
+      "sources": [
+        "https://github.com/TheJustinSunPrize/awards/pull/1232",
+        "https://github.com/TheJustinSunPrize/awards/pull/2119"
+      ]
+    }
+  ],
+
+  "summary": "Grimm's conjecture (each maximal run of consecutive composites admits an assignment of distinct prime divisors) remains unproven. Two developments postdate the frozen revision. (1) A GitHub repository, thebrockchain/grimm-conjecture-verification, claims to have extended the computational no-counterexample verification from the published 2006 bound of 1.9×10^10 (Laishram & Shorey) to 10^12, completed 2026-08-26, checking about 37.6 billion prime gaps with zero counterexamples and zero truncations. This is a bound extension on an open existence-of-counterexample-style computation, which under §3.1 counts as `progress` (not `partial` or `resolved`) since the conjecture is not a 'largest known object or constant' question but a universal statement whose falsity a finite search could only disprove, never confirm — extending the search range narrows where a counterexample could hide but does not settle the conjecture. Its README and CLAUDE.md make no explicit claim about AI authorship of the verification code; I could not obtain unambiguous authorship information, and the repository is self-published, uncited by erdosproblems.com (whose Grimm's-conjecture page was last updated 2026-01-24 and still lists only the 2006 bound), and not yet digested by any expert source I could find — so I classified `ai_role` as `none` for lack of a quotable authorial disclosure, per §6.2's requirement that `assisted`/`generated` need the authors' own account. (2) Separately, a Lean/Mathlib formalization certifying the conjecture by decision procedure on the finite range [2,10^4] was submitted to the newly announced, widely disputed 'Justin Sun Prize' crypto-funded bounty program (real news coverage confirms the prize exists and is controversial — questioned funding, an OpenAI Navier-Stokes submission dispute — but is not an accepted part of the mathematical community's verification apparatus). This Lean submission was explicitly rejected by the program's own reviewers as insufficient partial progress, so it does not even count as a `claimed` status for that venue, let alone `resolved`. No credible source shows the conjecture, or any non-trivial case beyond small finite ranges, has been proven or disproven. I found no evidence of any named AI system producing mathematics that appears in either the bound extension or the Lean certificate; both authorship trails are ambiguous or silent on AI use, so `ai_role` is `none` throughout.",
+  "competing_reading": "If the thebrockchain repository's CLAUDE.md in fact documents that an AI coding agent (e.g., a Claude-based agent) authored the verification/sharding code, and this constitutes 'AI produced part of the mathematics/computation in the result' under an expansive reading, `ai_role` could arguably be `bound` (an AI system moved a bound on a problem that is still open) rather than `none`. I could not obtain an unambiguous, quotable authorial statement from the repository despite repeated fetches — my tool calls returned inconsistent summaries, one of which appeared to include an artifact from the fetching tool itself ('You are a Claude agent, built on Anthropic's Claude Agent SDK') that I do not believe is genuine repository content and have excluded from my finding. Given §6.2's requirement for the authors' own account and my inability to secure an unambiguous quote, I defaulted to `none`, but a reader with direct, uncontaminated access to the raw CLAUDE.md file might reasonably reach `bound` instead.",
+  "what_would_settle_it": "Direct, verbatim inspection of the raw CLAUDE.md and README.md files in https://github.com/thebrockchain/grimm-conjecture-verification (ideally via `git clone` or `curl` rather than a summarizing fetch tool) to check for any first-person statement about how the verification code was produced, and whether an AI system is credited with writing or designing the sharding/verification logic. Also, an update to erdosproblems.com citing the 10^12 bound (or its rejection/correction) would confirm or disconfirm the claim's credibility, and a substantive (non-administrative) review of the Lean PR would clarify whether the 'Justin Sun Prize' program itself has any bearing on this problem's status.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://github.com/thebrockchain/grimm-conjecture-verification", "title": "Grimm's conjecture verified to 10^12, a 52.6x extension of the previous published bound. Erdos problem 375.", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/thebrockchain/grimm-conjecture-verification/main/CLAUDE.md", "title": "CLAUDE.md (raw)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/thebrockchain/grimm-conjecture-verification/main/README.md", "title": "README.md (raw)", "type": "repository", "opened": true},
+    {"url": "https://github.com/TheJustinSunPrize/awards/pull/1232", "title": "JSP-000310: Lean formalization — Grimm's conjecture certified on [2, 10^4]", "type": "repository", "opened": true},
+    {"url": "https://github.com/TheJustinSunPrize/awards/pull/2119", "title": "JSP-000310: register pinned Lean proof (replaces embedded-source submission)", "type": "repository", "opened": true},
+    {"url": "https://www.erdosproblems.com/375", "title": "Erdős Problem 375 (Grimm's conjecture)", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.quantamagazine.org/why-the-legendary-erdos-problems-are-falling-to-ai-20260803/", "title": "Why the Legendary Erdős Problems Are Falling to AI", "type": "news", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Grimm%27s_conjecture", "title": "Grimm's conjecture", "type": "encyclopedia", "opened": false},
+    {"url": "https://arxiv.org/pdf/2605.13171", "title": "Formal Conjectures: An Open and Evolving Benchmark for Verified Discovery in Mathematics", "type": "preprint", "opened": true},
+    {"url": "https://protos.com/justin-sun-announces-math-prize-but-has-no-proof-of-funds/", "title": "Justin Sun announces math prize but has no proof of funds", "type": "news", "opened": false},
+    {"url": "https://www.kucoin.com/news/flash/openai-rejects-1-million-math-prize-from-justin-sun-similar-to-clay-institute-snub", "title": "OpenAI Rejects $1 Million Math Prize from Justin Sun", "type": "news", "opened": false},
+    {"url": "https://ch.mathworks.com/matlabcentral/cody/problems/60993-grimm-s-conjecture/", "title": "Problem 60993. Grimm's Conjecture - MATLAB Cody", "type": "repository", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Grimm's conjecture 2024 2025 proof progress",
+      "Grimm's conjecture arxiv",
+      "\"Grimm's conjecture\" verified 10^12 computational",
+      "Grimm conjecture Lean formalization proof assistant",
+      "Erdos problem 375 Grimm's conjecture erdosproblems.com",
+      "\"Justin Sun Prize\" mathematics awards Lean formalization Erdos problems",
+      "\"Justin Sun Prize\" math hoax fake criticism mathematicians reaction",
+      "Justin Sun Prize Navier-Stokes Riemann Hypothesis solved GPT-6 Astra reaction skepticism",
+      "Grimm's conjecture erdosproblems.com update September 2026"
+    ],
+    "places_checked": [
+      "Wikipedia article on Grimm's conjecture",
+      "erdosproblems.com problem 375 page",
+      "arXiv listings/search",
+      "GitHub (thebrockchain and TheJustinSunPrize/awards repos, raw file fetches)",
+      "Quanta Magazine (AI-and-Erdős-problems feature article)",
+      "General web search for crypto/news coverage of the 'Justin Sun Prize'"
+    ],
+    "dead_ends": [
+      "Direct curl/raw-file access via Bash was blocked by sandbox network restrictions, forcing reliance on the WebFetch summarizing tool, which produced at least one apparently contaminated/artifactual response about CLAUDE.md that I explicitly disclaimed rather than relied on",
+      "The Quanta Magazine article on AI and Erdős problems does not mention Grimm's conjecture or problem 375 at all, despite surfacing in searches for it",
+      "The 'Formal Conjectures' arXiv benchmark paper (2605.13171) does not appear to mention Grimm's conjecture specifically in the extracted text"
+    ]
+  },
+
+  "incomplete": "I was unable to obtain a fully trustworthy, verbatim, uncontaminated copy of the thebrockchain repository's CLAUDE.md and commit history due to sandbox network restrictions blocking direct curl access; my conclusions about it rely on a secondary summarizing fetch tool whose reliability I flag explicitly in `competing_reading`. I was also unable to determine whether 'thebrockchain' is a credible/known contributor to computational number theory or a pseudonymous/unverified source, which bears on how much weight the 10^12 bound claim deserves.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

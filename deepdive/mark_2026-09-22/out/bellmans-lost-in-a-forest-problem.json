@@ -1,0 +1,149 @@
+{
+ "key": "bellmans-lost-in-a-forest-problem",
+ "status": "partial",
+ "no_change_found": false,
+ "outcome": "The general problem (optimal escape curve for an arbitrary shape) remains open, but a new specific case was settled: Temerev and Doria (arXiv:2607.24483, July 2026) proved the exact optimal escape curve for the 'golden gnomon' (the isosceles triangle with equal sides 1 and apex angle 108°), the first proved exact optimum for an isosceles triangle with base angle below 45°, with the algebraic certificates checked in Lean 4. Separately, Zhipeng Deng (arXiv:2412.10686, Dec 2024, and follow-ups) proposed a general optimization/TSP-style computational framework for the problem that recovers known results (circle, equilateral triangle, infinite strip) but does not itself resolve new cases or the general conjecture, and a later paper (arXiv:2606.13987, June 2026) claims a proof of that framework's validity plus further variations.",
+ "status_sources": [
+  "https://arxiv.org/abs/2607.24483",
+  "https://arxiv.org/html/2607.24483",
+  "https://github.com/atemerev/gnomon",
+  "https://arxiv.org/abs/2412.10686",
+  "https://arxiv.org/abs/2606.13987",
+  "https://en.wikipedia.org/wiki/Bellman%27s_lost-in-a-forest_problem"
+ ],
+ "event": {
+  "date": "2026-07-27",
+  "precision": "day",
+  "kind": "preprint",
+  "predates_frozen_revision": false,
+  "sources": [
+   "https://arxiv.org/abs/2607.24483"
+  ]
+ },
+ "credited_humans": [
+  "Alexander Temerev",
+  "Alessio Doria"
+ ],
+ "ai_role": "assisted",
+ "ai": {
+  "basis_quote": "Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.",
+  "formalisation_only": false,
+  "disclosed_cost": null,
+  "systems": [
+   "Claude Fable 5",
+   "GPT 5.6 Sol",
+   "Claude Opus 5"
+  ],
+  "sources": [
+   "https://arxiv.org/html/2607.24483"
+  ]
+ },
+ "counterexample": {
+  "is_counterexample": false,
+  "object": null,
+  "explicit": null,
+  "verified_how": null,
+  "sources": []
+ },
+ "resolution_direction": "confirmed",
+ "disputes": [],
+ "summary": "The Wikipedia bullet asks for the shortest curve guaranteed to reach the boundary of an arbitrary shape from an unknown starting point and orientation — a problem still open in general. Since 26 Jan 2024 I found two distinct lines of work. (1) Zhipeng Deng's arXiv:2412.10686 (Dec 2024) proposes a general computational framework converting the problem into translation/rotation of the forest boundary and a discretized TSP/Hamiltonian-path-style optimization; per the paper's own text this recovers 'nontrivial results consistent with those from previous papers' (circle, equilateral triangle, infinite strip — i.e. confirms Finch/Wetzel/Zalgaller/Besicovitch results) rather than resolving new territory or the general conjecture. A follow-up, arXiv:2606.13987 (June 2026, v3 July 2026), claims to prove the validity of that general framework and adds Lean 4 formalizations of Theorems 1-7, plus further variations (closed paths, 3D, Wetzel's arc-covering connection); I found no AI-involvement disclosure in either Deng paper. Because this framework's claimed contribution is a solution *method* consistent with prior known cases rather than a newly settled case or the general problem, I read it as not a scope-qualifying advance under §3.1 (a related/derivative formulation, not new territory) — it belongs in the record for completeness but does not itself drive the status. (2) The status-driving event is Temerev and Doria's arXiv:2607.24483 (27 Jul 2026, GitHub: atemerev/gnomon), which proves the exact optimal escape curve for the golden gnomon (isosceles triangle, sides 1, apex 108°) — a symmetric seven-piece path of length C≈1.282676025459, described as 'the first proved exact optimum for an isosceles triangle whose base angle is below 45°.' This is a genuine case of the stated problem (a specific shape), so it counts as `partial`, direction `confirmed` (an escape curve was found and proven optimal, consistent with the problem being well-posed, not refuting anything). Crucially, the paper's own footnote states LLMs (Claude Fable 5, GPT 5.6 Sol, Claude Opus 5) were used 'to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development' — i.e., by the authors' own account, AI systems contributed to producing the mathematical argument and the formal proof, not merely checking or tidying human-produced work. That meets the bar for `assisted` (the authors' account describes AI producing part of the mathematics — the search for the extremal curve and drafting the argument — while humans verified via Lean's axiom audit restricting to the standard classical trio of axioms, and via Python audit scripts). I did not find evidence that the model produced the entire proof autonomously with humans only checking (which would push toward `generated`); the paper frames LLM use as embedded 'throughout' the discovery and drafting process alongside human-directed verification, which is squarely the `assisted` case. No expert digestion (journal acceptance, third-party mathematician review, or a Terence-Tao/Quanta-style writeup) was found for this two-month-old preprint, and Wikipedia's live article (checked 2026-09) has not been updated to mention any of this 2024-2026 work — it still cites only Finch and Wetzel (2004). A related paper by the same GitHub/arXiv cluster, arXiv:2608.01393 (Deng, Aug 2026) and arXiv:2609.04591 (worm problem, Sep 2026) extend similar covering-curve methodology but are either variants (worm problem is a different, though related, problem) or general frameworks rather than new settled cases of this exact bullet.",
+ "competing_reading": "One could argue the golden-gnomon result is 'claimed' rather than 'partial'-with-confirmed-status, on the grounds that no human mathematician outside the two authors has yet reviewed or digested the proof (it is only ~2 months old, unpublished in any journal, and the only 'independent audits' are the authors' own Python scripts). Under the `resolved` vs `claimed` distinction that logic would apply to whether the *overall problem* is resolved, but since this is only a `partial` case-settlement, the resolved/claimed distinction is not squarely dispositive — the rules only make direction mandatory for partial, not additionally gating it behind an expert-digestion bar the way `resolved` is gated. I nonetheless flag this because a stricter reading might prefer to treat the golden-gnomon result as an unreviewed claim and downgrade confidence rather than accept it as a settled partial case. Separately, one could read Deng's framework papers as themselves partial progress (a new solution method, even if it only reproduces known cases) rather than a related/derivative contribution; I judged the framework itself doesn't settle any new case of the stated bullet, so it stays outside the scope-qualifying event, but this is a judgment call.",
+ "what_would_settle_it": "An independent mathematician's review, referee report, or journal acceptance of arXiv:2607.24483 confirming the golden-gnomon proof is correct (upgrading it toward `resolved`-grade confidence in that case), and/or a citation or discussion of the paper in a survey, blog (e.g. Terence Tao's), or MathOverflow thread. Also useful: clarification from Deng on whether arXiv:2606.13987's 'proof of general solution' resolves any previously-unknown case beyond confirming known ones.",
+ "confidence": "medium",
+ "sources": [
+  {
+   "url": "https://arxiv.org/abs/2412.10686",
+   "title": "A General Solution to Bellman's Lost-in-a-forest Problem",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/pdf/2412.10686",
+   "title": "A General Solution to Bellman's Lost-in-a-forest Problem (PDF)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/abs/2606.13987",
+   "title": "Proof and More Variations of Bellman's Lost-in-a-forest Problem",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/html/2606.13987v3",
+   "title": "Proof and More Variations of Bellman's Lost-in-a-forest Problem (HTML v3)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/abs/2607.24483",
+   "title": "The exact solution of Bellman's lost-in-a-forest problem for the golden gnomon",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/html/2607.24483",
+   "title": "The exact solution of Bellman's lost-in-a-forest problem for the golden gnomon (HTML)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://github.com/atemerev/gnomon",
+   "title": "gnomon: proof package, Lean 4 certificates, and independent audits",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/abs/2608.01393",
+   "title": "Universal Triangle Covering Curve and Polygonal Chain: Escaping Forest and Fitting Worm",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Bellman%27s_lost-in-a-forest_problem",
+   "title": "Bellman's lost-in-a-forest problem",
+   "type": "encyclopedia",
+   "opened": true
+  },
+  {
+   "url": "https://pith.science/paper/2607.24483",
+   "title": "The exact solution of Bellman's lost-in-a-forest problem for the golden gnomon · Pith",
+   "type": "blog",
+   "opened": false
+  },
+  {
+   "url": "https://pith.science/paper/2606.13987",
+   "title": "Proof and More Variations of Bellman's Lost-in-a-forest Problem · Pith Review",
+   "type": "blog",
+   "opened": false
+  }
+ ],
+ "search": {
+  "queries": [
+   "Bellman's lost in a forest problem solved 2025 2026",
+   "\"lost in a forest\" problem Zhipeng Deng Bellman proof",
+   "atemerev gnomon Bellman lost in a forest golden gnomon AI Claude",
+   "\"lost-in-a-forest\" Deng Lean formalization github",
+   "Bellman lost in a forest Zhipeng Deng review citation Terence Tao OR MathOverflow OR Quanta",
+   "\"golden gnomon\" Bellman lost forest Temerev Doria review verified",
+   "\"lost-in-a-forest\" OR \"golden gnomon\" Temerev arxiv retraction error withdrawn",
+   "Bellman lost in a forest golden gnomon Temerev Doria Hacker News reddit discussion"
+  ],
+  "places_checked": [
+   "arXiv abstract and HTML pages for 2412.10686, 2606.13987, 2607.24483, 2608.01393",
+   "GitHub repository atemerev/gnomon (README)",
+   "current live Wikipedia article for the problem",
+   "pith.science paper review pages (content did not load via fetch)",
+   "general web search for expert commentary (Tao's blog, MathOverflow, Quanta) — none found"
+  ],
+  "dead_ends": [
+   "pith.science/paper/2601.21867 and pith.science/paper/2606.13987 returned empty content via WebFetch, so could not confirm review verdicts directly from that site",
+   "arXiv PDF binary for 2412.10686 could not be parsed directly by WebFetch (had to rely on HTML mirror instead)",
+   "No Hacker News or Reddit discussion specific to the 2026 golden-gnomon paper was found despite search result mentioning HN in general"
+  ]
+ },
+ "incomplete": "I could not access the pith.science review-site assessments of these papers directly (empty content each time fetched), so any independent-review verdict that site might contain is not reflected here. I also could not fully read the raw PDF of arXiv:2412.10686 (relied on the HTML mirror and search-engine summaries), and did not locate any post-publication mathematician commentary (blogs, MathOverflow, Tao) on the golden-gnomon result, likely because it is only ~2 months old at the time of research.",
+ "triage_disagreement": false,
+ "triage_queries_replaced": false
+}

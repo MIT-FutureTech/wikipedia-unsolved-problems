@@ -1,0 +1,100 @@
+{
+  "key": "is-10-a-solitary-number",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The question remains fully open: no proof or disproof that 10 is solitary. Since 26 January 2024, several papers have tightened necessary conditions any hypothetical 'friend' of 10 would have to satisfy (number and congruences of prime factors, structure of exponents, bounds on prime divisors), and an independent computational project (2026) established a certified lower bound that any friend of 10, if it exists, exceeds 10^32, improving on prior uncertified bounds by about two orders of magnitude. None of this settles or partially settles the existence question itself; it narrows where a counterexample could hide, which per the deep-dive rules (§3.1) does not move an existence/infinitude-type question. No AI system involvement was disclosed anywhere in this work.",
+  "status_sources": [
+    "https://arxiv.org/abs/2404.00624",
+    "https://arxiv.org/abs/2412.02701",
+    "https://arxiv.org/abs/2504.08295",
+    "https://github.com/caioross/solitary10",
+    "https://en.wikipedia.org/wiki/Solitary_number"
+  ],
+
+  "event": {
+    "date": "2026",
+    "precision": "year",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": ["https://github.com/caioross/solitary10"]
+  },
+
+  "credited_humans": ["Caio Comitre Rossi"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "Whether 10 is a solitary number ('is 10 a solitary number' — equivalently, does 10 have a 'friend', i.e. another integer with the same abundancy index 9/5) is unchanged since 26 January 2024: no proof, disproof, or counterexample exists. What has happened is a run of papers and one substantial computational project that progressively tighten the necessary conditions any hypothetical friend of 10 would have to satisfy, none of which resolve or partially resolve the existence question. arXiv:2404.00624 (submitted 31 Mar 2024, latest v5 17 Jan 2025, Thackeray) shows any friend must be an odd perfect square with at least seven distinct prime factors including 5, plus several congruence conditions. arXiv:2412.02701 (submitted 10 Nov 2024, latest v4 16 Oct 2025) improves bounds on the 3rd and 4th smallest prime divisors of a hypothetical friend. arXiv:2504.08295 (submitted 11 Apr 2025, Sagar Mandal) proves further structural/modular constraints and a lower-bound inequality on the size of a friend in terms of its number of prime factors. arXiv:2503.11694 ('A note on solitary numbers', Mar 2025) is actually about 14, not 10, and does not address this problem — a related-but-distinct case, not evidence for this record. The most substantial recent item is a 2026 GitHub project by Caio Comitre Rossi (github.com/caioross/solitary10) which re-derives known necessary conditions mechanically via certified exact-arithmetic computation and establishes a new certified lower bound: any friend of 10 must exceed 10^32, about 100x tighter than the prior uncertified figure. I read the README, METHODOLOGY.md and RESULTS.md directly; none mentions any AI/ML/LLM system in deriving proofs, writing the certifiers, or designing the search — the methodology is explicitly classical exact-arithmetic computation (index pruning, valuation budgets, cyclotomic-polynomial arguments, Zsygmondy's theorem, Nielsen-style branching), with an internal 'proof / independent verification / adversarial review' discipline before anything is labeled proved. The author's own GitHub profile describes them as an individual developer (São Paulo, Brazil) working in 'local-first AI, XR, full-stack, hardware' — this describes their general work, not a claim that AI produced this project's mathematics, and no basis quote to that effect exists anywhere in the repo. I also found that Google DeepMind's formal-conjectures Lean repository contains a formal *statement* of this exact conjecture (FormalConjectures/Wikipedia/SolitaryNumber.lean, theorem is_ten_solitary), but it is stated with `sorry` — a benchmark placeholder with no proof attempt — so it is not an event that changes the problem's status. I also ruled out a same-name collision: a 2026 USAMO-style 'solitary integers' problem that appears in an AI-Olympiad-benchmark paper uses an entirely unrelated digit-based definition of 'solitary' and has nothing to do with abundancy/friendly numbers. No expert digestion (Tao's blog, MathOverflow consensus, OEIS updates) treats any of this as resolving the question; Wikipedia's own 'Solitary number' article (checked live, for context only) still lists 10 as an open, conjectured-solitary case with a raised lower bound. Given all this, status is `progress` (an instructive tightening of bounds/structure, not resolution of the open question), ai_role `none`, and resolution_direction null since the core question stayed open throughout.",
+  "competing_reading": "One could argue the case-narrowing results (necessary structural conditions on any friend of 10) constitute a 'case of the problem' settled and thus warrant `partial` rather than `progress`. I read the rule in §3.1 as requiring that a genuine case be a *restriction* of the question that gets fully answered (e.g. 'is 10 solitary among numbers with ω(N)=7' answered yes) — but these results instead just narrow the search space for a still-fully-open existence question, which §3.1 explicitly says a bound or search-space narrowing does not move. If a future record-keeper disagrees, `partial` with `resolution_direction: null` would not fit either, since `partial` requires a direction; that internal inconsistency is further evidence `progress` is the better fit.",
+  "what_would_settle_it": "Either an explicit friend of 10 exhibited and verified (refuted, counterexample), or a proof that no friend can exist (confirmed) — reviewed and digested by number theorists, or a machine-checked Lean proof (not just a `sorry` statement) that experts accept the soundness of.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2404.00624", "title": "A note on necessary conditions for a friend of 10", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2412.02701", "title": "Prime Divisors of 10's Friends: A Generalization of Prior Bounds", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2503.11694", "title": "A note on solitary numbers", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2504.08295", "title": "Exploring the Relationships Between the Divisors of Friends of 10", "type": "preprint", "opened": true},
+    {"url": "https://github.com/caioross/solitary10", "title": "solitary10: Certified exact-arithmetic search and structural results on whether 10 is a solitary number", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/caioross/solitary10/main/README.md", "title": "solitary10 README", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/caioross/solitary10/main/docs/METHODOLOGY.md", "title": "solitary10 METHODOLOGY", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/caioross/solitary10/main/results/RESULTS.md", "title": "solitary10 RESULTS", "type": "repository", "opened": true},
+    {"url": "https://github.com/caioross", "title": "caioross GitHub profile", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Solitary_number", "title": "Solitary number", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2310.15900", "title": "Each friend of 10 has at least 10 nonidentical prime factors", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence", "title": "List of mathematical discoveries by artificial intelligence", "type": "encyclopedia", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures", "title": "google-deepmind/formal-conjectures", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/Wikipedia/SolitaryNumber.lean", "title": "SolitaryNumber.lean", "type": "repository", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "is 10 a solitary number proof solved",
+      "solitary number 10 2025 arxiv friendly number",
+      "solitary number Wikipedia article",
+      "\"friend of 10\" solitary number 2026 AI large language model proof",
+      "solitary number 10 friend lower bound 10^32 certified computation",
+      "caioross solitary10 github AI Claude generated",
+      "\"solitary10\" OR \"solitary number\" 10 Terence Tao blog 2026",
+      "DeepMind formal-conjectures repository \"solitary\" 10 Lean",
+      "\"formal-conjectures\" \"SolitaryNumber.lean\" OR \"solitary number\" wikipedia formalized",
+      "solitary number 10 GPT-4 Claude AlphaProof AlphaEvolve counterexample OR proof 2024 2025 2026",
+      "\"solitary10\" caioross Claude Code OR Codex OR GPT OR LLM used"
+    ],
+    "places_checked": [
+      "arXiv abstracts/preprints for all triage-found papers",
+      "GitHub repo caioross/solitary10 (README, METHODOLOGY.md, RESULTS.md)",
+      "GitHub user profile caioross",
+      "Wikipedia 'Solitary number' live article",
+      "Wikipedia 'List of mathematical discoveries by artificial intelligence'",
+      "Google DeepMind formal-conjectures repository and the specific SolitaryNumber.lean file",
+      "General web search for AI-related claims about this specific problem"
+    ],
+    "dead_ends": [
+      "arXiv:2503.11694 turned out to be about 14, not 10 — a related but distinct problem, not counted",
+      "A 2026 USAMO-style problem about 'solitary integers' is a namesake collision with an unrelated digit-based definition; not counted",
+      "No Terence Tao blog post or other expert digestion specifically discussing this problem was found"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

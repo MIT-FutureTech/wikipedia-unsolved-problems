@@ -1,0 +1,89 @@
+{
+  "key": "what-is-the-smallest-skewess-number",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No change to the known bracket for the smallest Skewes number since January 2024: the upper bound remains e^727.951336105 (Saouter, Trudgian & Demichel, 2015) and the lower bound remains 1.39×10^17 (Platt & Trudgian). One 2025 paper refines the underlying error-term methodology for Lehman-type bounds but does not produce a new numerical crossover bound; one 2026 paper on 'generalized Skewes numbers' addresses a different (prime-race) problem, not this one.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Skewes%27s_number",
+    "https://arxiv.org/abs/2501.04488",
+    "https://arxiv.org/html/2501.04488v2"
+  ],
+
+  "event": {
+    "date": "2025-01-08",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2501.04488"]
+  },
+
+  "credited_humans": ["Michael Revers"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The Wikipedia bullet asks for the exact value of Skewes's number, i.e. the smallest x with π(x) > li(x). As of 26 January 2024 the state of the art was: upper bound Ξ < e^727.951336105 ≈ 1.398×10^316 (Saouter, Trudgian & Demichel 2015), no crossing below 10^19 (Büthe 2015), and lower bound Ξ > 1.39×10^17 (Platt & Trudgian). I found no post-2024-01-26 source that narrows this bracket, exhibits a value, or otherwise settles the question. The one clearly on-topic paper in the window is Michael Revers, 'New bounds in R.S. Lehman's estimates for the difference π(x)−li(x)' (arXiv:2501.04488, submitted 8 Jan 2025, revised 30 Jan 2025, later published in the Journal of Number Theory per ScienceDirect). It improves Lehman's 1966 error-term machinery (a new, sharper R₆ term, removal of a lower restriction on the parameter η, and adaptation to the Saouter-Trudgian-Demichel kernel), and reports roughly 30-34% tighter η values in numerical illustrations 'near 10^316' — but per the paper's own abstract and body, this is a methodological refinement, not a new certified numerical crossover bound; it does not claim to beat e^727.951336105, nor does it exhibit any new region below 10^19 where a crossing is shown to occur or be excluded. Because the bullet is a 'smallest value' question rather than a pure existence question, under §3.1 a bound that moves in either direction would count as progress — but I could not find that this paper (or anything else in the window) actually moved either the upper or lower numerical bound; it is best read as `progress` on tooling for future bound improvements rather than progress on the bound itself, so I classified as `open` / `no_change_found`. A second paper turned up in searches, arXiv:2603.20093 ('A Wasserstein metric approach to generalized Skewes' numbers. I. Prime number races', 2026), but this concerns 'generalized Skewes numbers' for races between residue classes / quadratic residues vs nonresidues under GRH — a different, renamed problem (a variant per §3.1), not a case of the classical π(x) vs li(x) question, so it is out of scope here. No AI system appears anywhere in this line of research; both papers are conventional analytic/computational number theory with no AI acknowledgement, tool, or system named.",
+  "competing_reading": "One could argue the Revers (2025) paper counts as `progress` since it tightens error terms that feed directly into future crossover-bound computations and is explicitly framed as advancing the Lehman/Saouter-Trudgian-Demichel program on this exact bullet. I did not adopt this reading because the paper itself states no new numerical bound on the crossover point (the quantity the bullet actually asks about) — the improved η/error terms are a step toward a future improved bound, not the bound itself, and I could not verify from the abstract/HTML that any concrete new region was certified. If the full paper's numerical section in fact certifies a value below 10^19 excluded, or a smaller upper bound than 1.398×10^316, this should be reclassified as `progress` with `ai_role` `none`.",
+  "what_would_settle_it": "Reading the full body/numerical-results section of arXiv:2501.04488 (or its published Journal of Number Theory version) to see whether Theorem 3.1's improved error terms are used to derive and state any new certified numerical bound (upper or lower) on the crossover point, versus purely illustrating the sharper machinery on the existing known region.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Skewes%27s_number", "title": "Skewes's number", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2501.04488", "title": "New bounds in R.S. Lehman's estimates for the difference π(x)−li(x)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2501.04488v2", "title": "New bounds in R.S. Lehman's estimates for the difference π(x)−li(x) (HTML v2)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2501.04488", "title": "New bounds in R.S. Lehman's estimates for the difference π(x)−li(x) (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://www.sciencedirect.com/science/article/abs/pii/S0022314X25002045", "title": "New bounds in R.S. Lehman's estimates for the difference π(x)−li(x) (Journal of Number Theory)", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/abs/2603.20093", "title": "A Wasserstein metric approach to generalized Skewes' numbers. I. Prime number races", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2603.20093v1", "title": "A Wasserstein metric approach to generalized Skewes' numbers. I. Prime number races (HTML)", "type": "preprint", "opened": false},
+    {"url": "https://pith.science/paper/2501.04488", "title": "Pith summary of arXiv:2501.04488", "type": "blog", "opened": true},
+    {"url": "https://mathworld.wolfram.com/SkewesNumber.html", "title": "Skewes Number -- from Wolfram MathWorld", "type": "encyclopedia", "opened": false},
+    {"url": "https://arxiv.org/pdf/2407.03530", "title": "Comparative Prime Number Theory Problem List", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Skewes number improved bound 2024 2025",
+      "\"Skewes\" number pi(x) li(x) crossing new upper bound arXiv",
+      "Skewes number Wikipedia article",
+      "Skewes number generalized Wasserstein metric prime number races 2026",
+      "arXiv 2024 2025 \"li(x)\" prime counting function crossing point improved bound Saouter Trudgian",
+      "\"2501.04488\" Revers Lehman crossover pi(x) li(x) new upper bound e^",
+      "Revers \"New bounds in R.S. Lehman's estimates\" abstract full text improvement crossover",
+      "Platt Trudgian lower bound Skewes number 2024 2025 improved 1.39e17",
+      "arXiv listing math.NT Skewes number 2025 2026"
+    ],
+    "places_checked": [
+      "current (live) Wikipedia article on Skewes's number",
+      "arXiv abstract and HTML full text of 2501.04488",
+      "arXiv listing for 2603.20093 and its abstract",
+      "general web search for post-2024 numeric bound improvements",
+      "Pith.science paper summary aggregator"
+    ],
+    "dead_ends": [
+      "Attempted to read the raw PDF of 2501.04488 directly via WebFetch and via curl; PDF came back as compressed FlateDecode streams unreadable by the fetch tool, so relied on the arXiv HTML rendering (arxiv.org/html/2501.04488v2) instead, which did render as text",
+      "Searched for a 2024-2026 update to the Platt-Trudgian lower bound (1.39×10^17); found nothing newer"
+    ]
+  },
+
+  "incomplete": "Did not obtain the full numerical/theorem section of arXiv:2501.04488 in readable form (only abstract and an AI-generated HTML summary via WebFetch), so cannot fully rule out that it contains a stated improved numerical bound buried past the introduction; confidence is medium rather than high for this reason.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

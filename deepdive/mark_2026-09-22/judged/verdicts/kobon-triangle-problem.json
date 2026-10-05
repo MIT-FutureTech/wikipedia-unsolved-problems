@@ -1,0 +1,70 @@
+{
+  "key": "kobon-triangle-problem",
+  "judgement": {
+    "events": [
+      {
+        "id": "savchuk-2025",
+        "what": "Savchuk's arXiv preprint uses SAT solving and heuristic straightening to find optimal arrangements giving K(23)=161 and K(27)=225, and shows the upper bound 32 is unreachable for n=11 (per the record)",
+        "date": "2025-07-10", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2507.07951",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": "confirmed",
+        "is_counterexample": false
+      },
+      {
+        "id": "liang-liu-zhang-2026",
+        "what": "Liang, Liu & Zhang's Zenodo preprint claims exact values K(28)=238 and K(22)=143 using a local sign parity lemma plus SAT corroboration",
+        "date": "2026-06-17", "precision": "day", "after_snapshot": true,
+        "source": "https://zenodo.org/records/20723644",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Self-hosted on Zenodo with no expert uptake in the record; OEIS A006066 still lists K(28) only as a lower bound (>=238); the full PDF could not be read, so only the abstract was seen.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": "confirmed",
+        "is_counterexample": false
+      },
+      {
+        "id": "zarzuelo-lean",
+        "what": "Zarzuelo's Lean repository formalises a K(28)=238 witness (lower bound only) and disclaims first discovery",
+        "date": null, "precision": null, "after_snapshot": null,
+        "source": "https://github.com/alejandrozu/kobon-proof",
+        "scope": "none",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "liang-liu-zhang-2026",
+    "derived": {
+      "status": "partial",
+      "ai_role": "none",
+      "resolution_direction": "confirmed"
+    },
+    "changed": [],
+    "doubts": "Both surviving events are case-level (specific n) and unreviewed, and they share the partial tier. Savchuk 2025 on its own would support partial if the Liang/Liu/Zhang Zenodo claim fails, so the status holds either way. The bullet asks the general Kobon problem, so determining individual K(n) values is case scope, not bound. No AI involvement is reported in any event, but the Liang/Liu/Zhang full text was not read.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "changes": {},
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "status",
+      "from": "partial",
+      "to": "partial",
+      "why": "F5: kept partial, but the event it rests on (Liang/Liu/Zhang Zenodo, June 2026) is unreviewed and not yet reflected in OEIS A006066, which the record says still lists K(28) as >=238. Savchuk's arXiv 2507.07951 (K(11), K(23), K(27)) independently supports partial."
+    }
+  ]
+}

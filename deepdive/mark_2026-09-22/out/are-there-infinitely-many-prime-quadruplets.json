@@ -1,0 +1,76 @@
+{
+  "key": "are-there-infinitely-many-prime-quadruplets",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No result since 26 January 2024 settles, narrows, or bears directly on whether there are infinitely many prime quadruplets {p, p+2, p+6, p+8}; the question remains completely open.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Prime_quadruplet"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": null,
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The prime quadruplet conjecture (infinitely many p with p, p+2, p+6, p+8 all prime) remains open, and I found nothing in the window that changes it. Three candidate leads were checked and ruled out as not bearing on this specific problem under §3.1's scope rule. (1) A 2026 preprint, 'Prime Quadruplets and Jump Conditions on Arithmetic Functions' (arXiv:2606.10331, Roy Choudhury & Wei, first submitted 9 June 2026), poses a new conjecture about jump conditions on the totient and divisor-sum functions and states that IF that conjecture is proven true, infinitude of prime quadruplets would follow; the paper itself proves no case of the quadruplet conjecture, only an unproven conditional implication plus computational verification (no counterexamples) up to 10^12 of its own separate conjecture. This is not a case of the stated problem — it is a related problem (a different, new conjecture) whose resolution remains itself open, so nothing here changes what a careful reader would write in the quadruplet bullet. No AI involvement is mentioned anywhere in the paper. (2) OpenAI's August 2026 result (repository openai/PrimeGaps186, paper 'Improved Short Gaps Between Primes') establishes DHL[40,2] and thereby liminf(p_{n+1}-p_n) <= 186 for consecutive primes — a bounded-gaps result in the same Maynard-Tao/DHL sieve framework, using an AI system to help produce a Lean 4 formalization of a conditional theorem. However, this concerns gaps between *consecutive* primes for a 40-element admissible set with only 2 required primes (DHL[40,2]), which is a categorically different statement from the fixed, specific 4-tuple {0,2,6,8} needing *all four* shifts simultaneously prime (which would correspond to something like DHL[4,4], far beyond current sieve-theoretic reach — the best unconditional DHL[k,2] result only reaches k=50, let alone k=4 with m=4). This is a related/neighbouring problem under §3.1 (same conjecture family, different parameters and different tuple), not a case of the quadruplet conjecture, so it is excluded. (3) General Maynard-Tao/Polymath8 bounded-gaps literature since 2024 (e.g., 'On smooth gaps between primes using the Maynard-Tao sieve', arXiv:2403.19696) continues to refine k2 bounds for pairs of primes in admissible k-tuples, currently k2 <= 50; none of this addresses the specific 4-element admissible set {0,2,6,8} needing all four positions prime. (4) Records for the largest known explicit prime quadruplet (e.g. via Tony Forbes's k-tuplet records page or t5k.org) are search-verification records, which per §3.1 do not advance an infinitude question regardless of how large they get. No AI system was found to have produced, assisted with, or even touched any result that is a genuine case of this specific conjecture.",
+  "competing_reading": "One could argue the OpenAI DHL[40,2] result is close enough in spirit (same sieve machinery, same conjecture family) to count as 'progress' worth noting even though it targets a different tuple and different m. I judged it a related problem rather than a case, since it neither restricts nor touches the specific admissible set {0,2,6,8} with m=4 — the gap between DHL[40,2] and anything resembling DHL[4,4] is enormous and no technique currently bridges it. If a future reader takes a looser view of 'case', this could be reclassified as tangential 'progress' background rather than fully excluded, but the stated bullet's content would not change either way.",
+  "what_would_settle_it": "A paper proving DHL[4,4] (or equivalently, that the specific admissible 4-tuple {0,2,6,8} is realized as all-prime infinitely often), or any unconditional narrowing of the m=k=4 case of the prime k-tuples conjecture, would settle or advance this problem. Absent that, the question stays open.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Prime_quadruplet", "title": "Prime quadruplet", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.10331", "title": "Prime Quadruplets and Jump Conditions on Arithmetic Functions", "type": "preprint", "opened": true},
+    {"url": "https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/short_gaps.pdf", "title": "Improved Short Gaps Between Primes", "type": "preprint", "opened": false},
+    {"url": "https://github.com/openai/PrimeGaps186", "title": "PrimeGaps186: Conditional Lean formalization and numerical certificate for prime gaps at most 186", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/pdf/2403.19696", "title": "On smooth gaps between primes using the Maynard-Tao sieve", "type": "preprint", "opened": false},
+    {"url": "https://math.colgate.edu/~integers/z44/z44.pdf", "title": "On smooth gaps between primes using the Maynard-Tao sieve (INTEGERS 25, 2025)", "type": "journal", "opened": false},
+    {"url": "https://mathworld.wolfram.com/PrimeQuadruplet.html", "title": "Prime Quadruplet -- from Wolfram MathWorld", "type": "encyclopedia", "opened": false},
+    {"url": "https://t5k.org/largest.html", "title": "The Largest Known Primes (database summary)", "type": "repository", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "prime quadruplets infinitely many 2024 2025 progress",
+      "\"prime quadruplet\" conjecture bounded gaps 2025",
+      "prime quadruplets Wikipedia article conjecture",
+      "largest known prime quadruplet record 2024 2025 2026",
+      "prime k-tuples conjecture AI large language model proof 2025",
+      "Maynard Tao prime tuples 2024 2025 bounded gaps improvement",
+      "OpenAI \"short gaps between primes\" DHL Lean formalization announcement",
+      "\"DHL(k\" OR \"DHL[k\" Maynard Tao smallest k unconditional value m=2",
+      "prime quadruplets record largest known 2024 2025 t5k.org",
+      "DHL[4,4] OR \"prime quadruplets\" DHL k-tuples m=4 formalization"
+    ],
+    "places_checked": [
+      "Wikipedia article 'Prime quadruplet'",
+      "arXiv (general web search coverage of relevant preprints, 2024-2026)",
+      "OpenAI's published prime-gaps materials and GitHub repository (openai/PrimeGaps186)",
+      "Wolfram MathWorld page on prime quadruplets",
+      "General web search for prime k-tuples / Maynard-Tao literature 2024-2026"
+    ],
+    "dead_ends": [
+      "arXiv:2606.10331 - poses a new, still-unproven conjecture whose truth would imply the result; not itself a case of the problem",
+      "OpenAI DHL[40,2] / PrimeGaps186 - resolves a different tuple/parameter (bounded gaps between consecutive primes with m=2 in a 40-tuple), not the fixed quadruplet {0,2,6,8} with m=4",
+      "Maynard-Tao/Polymath8 k2 bound refinements (currently k2<=50) - address pairs (m=2) within admissible k-tuples generally, nowhere near the m=4, k=4 case",
+      "Largest known prime quadruplet records (t5k.org / Forbes k-tuplet pages) - explicit search records, which per the scope rules do not advance an infinitude question"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

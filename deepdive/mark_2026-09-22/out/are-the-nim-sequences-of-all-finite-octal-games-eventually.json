@@ -1,0 +1,100 @@
+{
+ "key": "are-the-nim-sequences-of-all-finite-octal-games-eventually",
+ "status": "open",
+ "no_change_found": true,
+ "outcome": "Guy's conjecture (that the Sprague-Grundy/nim-sequence of every finite octal game is eventually periodic) remains open; no case, counterexample, or bound relevant to this exact (impartial) conjecture was found dated after 26 January 2024.",
+ "status_sources": [
+  "https://en.wikipedia.org/wiki/Octal_game",
+  "https://ics.uci.edu/~eppstein/cgt/octal.html",
+  "http://wwwhomes.uni-bielefeld.de/achim/octal.html",
+  "https://github.com/google-deepmind/formal-conjectures/issues/3697"
+ ],
+ "event": null,
+ "credited_humans": [],
+ "ai_role": "none",
+ "ai": {
+  "basis_quote": null,
+  "formalisation_only": false,
+  "disclosed_cost": null,
+  "systems": [],
+  "sources": []
+ },
+ "counterexample": {
+  "is_counterexample": false,
+  "object": null,
+  "explicit": false,
+  "verified_how": null,
+  "sources": []
+ },
+ "resolution_direction": null,
+ "disputes": [],
+ "summary": "The Wikipedia bullet is Guy's conjecture for impartial octal games: every finite octal game's nim-sequence is eventually periodic. I checked the two standing reference resources for this problem — Achim Flammenkamp's octal-games database (wwwhomes.uni-bielefeld.de/achim/octal.html, last touched with a July 2026 note that a contributor 'extend[ed] the sgv-sequence of lots of octal-games,' i.e. computed further terms of already-known sequences rather than settling any new game's eventual periodicity) and David Eppstein's 'Octal periodicity' page — plus the current 'Octal game' Wikipedia article, none of which report any octal game's periodicity status changing since January 2024. The one live GitHub artifact the triage found, google-deepmind/formal-conjectures issue #3697 (opened 2026-04-05), is only a request/plan to state Guy's conjecture formally in Lean; it lists the Mathlib building blocks needed and explicitly leaves the proof open — no proof or disproof exists there. The triage's other lead, arXiv:2608.13273 ('A Finite Automaton Approach to Combinatorial Games,' 2026-08), does solve many two-digit games and states results toward a Guy's-conjecture analogue, but its abstract is explicit that this is a *partizan* version of Guy's conjecture ('we propose a partizan version of Guy's conjecture'), a different, non-impartial game class from the one this Wikipedia bullet states; per §3.1 this is a related/variant problem, not a case of the stated (impartial) conjecture, so it does not count as a change in scope. A tangential lead turned up while searching, arXiv:2512.24221 ('Node-Kayles on Trees,' 2026-01-01), proves periodicity results for Node-Kayles played on trees, but Node-Kayles-on-paths (the linear game, equal to octal game 0.137/Dawson's-Kayles-adjacent) is a different structure from Node-Kayles-on-trees, so this is also a related problem rather than a case of the finite-octal-game conjecture as stated (which concerns heap games on a line, not tree structures). No AI system appears anywhere in this search: the automaton paper uses classical finite-automaton construction and formal verification, not machine learning, and the formal-conjectures GitHub issue is human-authored planning text with no AI-generated content credited. I conclude 'open' with no change found, at high confidence for the impartial conjecture as literally stated, tempered slightly by the fact that the octal-games literature is scattered across personal pages and small journals that a search engine may not fully index.",
+ "competing_reading": "If a reader takes 'octal games' broadly enough to include the automaton paper's partizan variant or the Node-Kayles-on-trees periodicity results as 'a case of' the conjecture, one could code this as `partial` with an AI role of `none`. I don't think that reading survives contact with the stated question, since both papers change the object (partizan payoff structure; tree adjacency structure) rather than restricting the same impartial, linear-heap game class — but the boundary between 'restriction' and 'variant' in combinatorial game theory is genuinely blurry when a paper explicitly frames its result as an analogue of the named conjecture.",
+ "what_would_settle_it": "A paper or database update that (a) proves or disproves eventual periodicity for a specific unsolved impartial octal game (e.g. one of the ~65 unsettled 2-digit or 8 unsettled 3-digit games listed on Flammenkamp's page, or Grundy's Game / 0.6111...), or (b) exhibits a finite octal game whose nim-sequence is proven non-eventually-periodic, dated after 26 January 2024 — either would move this out of 'open.' Absent that, the conjecture stays open regardless of adjacent partizan or tree-game results.",
+ "confidence": "medium",
+ "sources": [
+  {
+   "url": "https://en.wikipedia.org/wiki/Octal_game",
+   "title": "Octal game",
+   "type": "encyclopedia",
+   "opened": true
+  },
+  {
+   "url": "https://ics.uci.edu/~eppstein/cgt/octal.html",
+   "title": "Octal periodicity",
+   "type": "blog",
+   "opened": true
+  },
+  {
+   "url": "http://wwwhomes.uni-bielefeld.de/achim/octal.html",
+   "title": "Sprague-Grundy Values of Octal-Games",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://github.com/google-deepmind/formal-conjectures/issues/3697",
+   "title": "Periodicity of finite octal games · Issue #3697 · google-deepmind/formal-conjectures",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/abs/2608.13273",
+   "title": "A Finite Automaton Approach to Combinatorial Games",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/pdf/2512.24221",
+   "title": "Node-Kayles on Trees",
+   "type": "preprint",
+   "opened": true
+  }
+ ],
+ "search": {
+  "queries": [
+   "octal games nim-sequence eventually periodic conjecture 2024 2025 2026",
+   "\"0.106\" OR \"0.007\" OR \"0.454\" octal game periodic proof 2025",
+   "Guy's conjecture octal games AI machine learning proof",
+   "octal game Grundy sequence periodic disproof counterexample 2024 2025 2026",
+   "DeepMind AlphaEvolve combinatorial game theory octal games Grundy",
+   "google-deepmind formal-conjectures octal games Lean formalization status 2026",
+   "\"Finite Automaton Approach to Combinatorial Games\" arxiv octal games partizan Guy's conjecture"
+  ],
+  "places_checked": [
+   "Achim Flammenkamp's octal-games database (wwwhomes.uni-bielefeld.de/achim/octal.html)",
+   "David Eppstein's Octal periodicity survey page",
+   "Wikipedia 'Octal game' current article",
+   "arXiv abstract/full text for 2608.13273",
+   "arXiv full text for 2512.24221",
+   "google-deepmind/formal-conjectures GitHub issue #3697",
+   "general web search for AI/DeepMind involvement in octal game or Guy's conjecture research"
+  ],
+  "dead_ends": [
+   "arXiv:2608.13273 initially looked promising as a resolution of Guy's conjecture but concerns only the partizan variant, not the impartial conjecture as stated",
+   "arXiv:2512.24221 (Node-Kayles on Trees) looked like it might settle periodicity for octal game 0.137 but is about a distinct tree-structured game, not the linear heap game"
+  ]
+ },
+ "incomplete": null,
+ "triage_disagreement": false,
+ "triage_queries_replaced": false
+}

@@ -1,0 +1,238 @@
+{
+  "key": "cerecedas-conjecture",
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "The general conjecture (that a d-degenerate graph's (d+2)-coloring reconfiguration graph has quadratic diameter) remains open, including the long-flagged d=2 case, but several papers in the window moved related bounds: a September 2025 preprint proves a *linear* recoloring diameter for d-degenerate chordal graphs and for bounded-treewidth graphs, though only at higher color counts (t≥2d+1, resp. t≥2k+1) than the conjecture's own threshold of d+2 colors, so it is a related strengthening at a different parameter regime rather than a resolution of a case of the conjecture as stated; a December 2024 paper pins down exact (not just asymptotic) recoloring diameters for complete bipartite graphs K_{p,q}; and a December 2025 paper determines extremal (max/min) 3-coloring diameters of trees, sharpening constants in the already-known linear d=1 case.",
+  "status_sources": [
+    "https://arxiv.org/abs/2509.15456",
+    "https://arxiv.org/html/2509.15456",
+    "https://en.wikipedia.org/wiki/Cereceda's_conjecture"
+  ],
+  "event": {
+    "date": "2025-09-18",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2509.15456"
+    ]
+  },
+  "credited_humans": [
+    "Yichen Wang",
+    "Mei Lu"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [],
+  "summary": "Cereceda's conjecture, posed in Cereceda's 2007 PhD thesis and stated on Wikipedia as: for a d-degenerate graph G and any t ≥ d+2, the t-recoloring diameter of G is O(n²), remains open in general and specifically at the flagged easy-looking case d=2 (confirmed still open as of the Wikipedia article's current text, checked live). I found three papers with arXiv dates inside the 26 Jan 2024 – 22 Sep 2026 window that touch this cluster of problems. (1) Wang and Lu, 'Linear recoloring diameter of degenerate chordal graphs and bounded treewidth graphs' (arXiv:2509.15456, v1 18 Sep 2025), the paper the triage pass flagged: it proves an O(n) (linear, stronger than the conjectured quadratic) recoloring diameter for d-degenerate chordal graphs when t≥2d+1 colors are used, and for graphs of treewidth at most k when t≥2k+1 colors are used. I fetched the paper's HTML directly (not just the abstract) and confirmed it explicitly states Cereceda's conjecture in its introduction as the t≥d+2 quadratic-diameter statement, and frames its own results as exceeding that bound in strength (linear vs quadratic) but at a materially larger number of colors (2d+1 or 2k+1 rather than d+2). Because the conjecture is a statement about the specific threshold t=d+2, a result requiring roughly twice as many colors is progress on a closely related question (how many colors are needed for a linear, rather than merely quadratic, bound) rather than a proof of a case of the conjecture as Wikipedia states it — no case at the conjectured threshold t=d+2 was newly settled by this paper. I classified this as 'progress' rather than 'partial' for that reason; see competing_reading. (2) Cambie, Cames van Batenburg and Cranston, 'Sharp Bounds on Lengths of Linear Recolouring Sequences' (arXiv:2412.19695, v1 27 Dec 2024, published EJC 33(1) P1.18 in 2026): exactly determines (up to a small additive constant) the k-recoloring diameter of complete bipartite graphs K_{p,q} for all k≥3. This is a case of a related but distinct question (exact diameter constants for a specific graph family known to already have linear diameter) rather than new territory on the conjecture's own quadratic-vs-not question; I could not fully extract its acknowledgements/introduction text (PDF extraction failed) so I did not confirm from primary text whether it discusses Cereceda's conjecture explicitly, though the abstract and secondary description tie it to the same recoloring-diameter research programme. (3) Asgarli, Krehbiel, MacLean and Zaimi, 'Extremal diameters of 3-coloring graphs of trees' (arXiv:2512.03789, v1 3 Dec 2025): for trees (which are 1-degenerate, so this is the t=d+2=3 case), determines the exact maximum and minimum 3-coloring diameter over all n-vertex trees and the extremal trees achieving them. Its introduction explicitly invokes Cereceda's conjecture (quoted: 'Cereceda conjectured that the diameter of the k-coloring graph of a d-degenerate graph on n vertices is O(n^d)') and frames the tree work as refining the already-linear d=1 case (proved before 2024 by Bonamy, Johnson, Lignos, Patel and Paulusma) down to exact constants. None of the three papers' methods sections, acknowledgements, or any secondary source I found mentions any AI system, language model, or automated theorem-proving tool; searches for AI/LLM involvement specifically tied to Cereceda's conjecture returned nothing relevant. All work in the window is conventional human mathematics.",
+  "competing_reading": "One could argue 2509.15456 deserves 'partial' rather than 'progress', on the reading that proving a *stronger* conclusion (linear diameter) at a *larger* color count is still 'about' the conjecture's graph classes (degenerate chordal, bounded treewidth) even though the color threshold differs, and that a linear bound at t=2d+1 trivially implies nothing about the quadratic bound at t=d+2 (fewer colors is a harder, not easier, regime), so strictly the paper doesn't settle any case of the stated conjecture at all — it answers a different, harder-in-one-sense/easier-in-another-sense related question. Under a stricter application of §3.1's case/variant test, this could even be classified as a 'related problem' (changing the number of colors changes the question) rather than a case, pushing toward 'open' with no_change_found note about the near-miss. I kept 'progress' as a middle reading: it is closely enough tied to the same conjecture (explicitly discussed by the authors as such) and to the same graph classes that dismissing it as wholly unrelated seems too strict, but it does not settle a case at the conjectured threshold, so 'partial' (which implies a case of the actual stated question was settled) seemed too strong.",
+  "what_would_settle_it": "A paper proving the O(n²) bound (or refuting it) at exactly t=d+2 colors for any degeneracy class beyond what was already known before Jan 2024 (trees, d=1; planar bipartite/degeneracy-3 case; treewidth-2) — in particular any progress on the flagged d=2 case, which as of the live Wikipedia article and my searches is still completely open, with no polynomial bound known even at the conjectured color count.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2509.15456",
+      "title": "Linear recoloring diameter of degenerate chordal graphs and bounded treewidth graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2509.15456",
+      "title": "Linear recoloring diameter of degenerate chordal graphs and bounded treewidth graphs (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Cereceda's_conjecture",
+      "title": "Cereceda's conjecture",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.19695",
+      "title": "Sharp Bounds on Lengths of Linear Recolouring Sequences",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2412.19695",
+      "title": "Sharp Bounds on Lengths of Linear Recolouring Sequences (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v33i1p18",
+      "title": "Sharp Bounds on Lengths of Linear Recolouring Sequences, EJC 33(1) P1.18",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.03789",
+      "title": "Extremal diameters of 3-coloring graphs of trees",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2512.03789",
+      "title": "Extremal diameters of 3-coloring graphs of trees (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://dl.acm.org/doi/10.1016/j.jctb.2022.01.006",
+      "title": "A polynomial version of Cereceda's conjecture, JCTB",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1903.05619",
+      "title": "A polynomial version of Cereceda's conjecture",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/abs/10.1002/jgt.23064",
+      "title": "5-Coloring reconfiguration of planar graphs with no short odd cycles",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.03748",
+      "title": "Optimal List Recoloring of Subcubic Graphs and Complete Multipartite Graphs",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Cereceda's conjecture diameter recoloring 2024 2025",
+      "Cereceda conjecture degeneracy 3 planar bipartite quadratic diameter 2024 proof",
+      "\"Cereceda\" conjecture 2024 OR 2025 OR 2026 arxiv recoloring diameter proof",
+      "\"Sharp Bounds on Lengths of Linear Recolouring Sequences\" Cambie Cranston arxiv",
+      "Cereceda conjecture d=2 degeneracy open problem 2025 2026 progress quadratic",
+      "Cereceda conjecture \"large language model\" OR \"AI\" OR GPT OR Claude recoloring diameter graph",
+      "Cereceda conjecture trees degeneracy 1 known proved linear diameter before 2024"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML full text for 2509.15456",
+      "arXiv abstract and PDF for 2412.19695",
+      "arXiv abstract and PDF for 2512.03789",
+      "live Wikipedia article 'Cereceda's conjecture'",
+      "general web search for AI/LLM involvement in this specific conjecture"
+    ],
+    "dead_ends": [
+      "PDF text extraction for 2412.19695 and 2512.03789 failed to yield acknowledgements/methods sections in a readable form via WebFetch; relied on abstract, secondary summaries, and (for 2512.03789) partial introduction text that was successfully extracted",
+      "No paper, blog, or lab announcement found linking any AI/LLM system to Cereceda's conjecture specifically"
+    ]
+  },
+  "incomplete": "Could not fully extract the acknowledgements/methods sections of arXiv:2412.19695 (Cambie, Cames van Batenburg, Cranston) via automated PDF fetch, so AI-involvement disclosure for that specific paper rests on the absence of any secondary source mentioning it rather than a direct read of its acknowledgements. Given the uniform absence of any AI mention across every source checked for this problem, I judged this gap unlikely to change the overall ai_role:none determination, but flag it per §9.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "progress",
+      "to": "open",
+      "why": "F3/other: none of the three events moves a bound on the bullet's quadratic-diameter question at t>=d+2. The record itself says Wang–Lu works 'at a materially larger number of colors' and 'no case at the conjectured threshold t=d+2 was newly settled', which makes it a variant (stronger conclusion under different hypotheses); the tree and K_{p,q} papers sharpen constants for cases already known to be linear. Nothing survives step 1, and nothing resolved it before the snapshot, so the status is open."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "resolution_direction",
+      "from": "confirmed",
+      "to": null,
+      "why": "F14: a 'progress' row cannot carry 'confirmed', and 'open' carries null."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "no_change_found",
+      "from": false,
+      "to": true,
+      "why": "other: nothing after the snapshot moves this bullet; the record's own what_would_settle_it notes that d=2 remains completely open."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "wang-lu-2025",
+        "what": "Wang and Lu prove linear recoloring diameter for d-degenerate chordal graphs with t>=2d+1 colors and treewidth-k graphs with t>=2k+1 colors",
+        "date": "2025-09-18",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2509.15456",
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "cambie-camesvanbatenburg-cranston-2024",
+        "what": "Exact k-recoloring diameters of complete bipartite graphs K_{p,q}, k>=3",
+        "date": "2024-12-27",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2412.19695",
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "asgarli-et-al-2025",
+        "what": "Exact maximum and minimum 3-coloring diameters over n-vertex trees",
+        "date": "2025-12-03",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2512.03789",
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": null,
+    "derived": {
+      "status": "open",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [
+      "status",
+      "resolution_direction",
+      "no_change_found"
+    ],
+    "doubts": "Wang–Lu could be read as a 'case' (graph class x colour range t>=2d+1 inside the conjecture's t>=d+2), which would make the status partial. I read it as a variant: it proves a stronger conclusion (linear) in a regime with far more colours than the conjecture's threshold, and the record gives no sign the quadratic bound at t>=2d+1 for these classes was open before; the paper's own framing (per the record) is a strengthening beyond the conjecture, not a new case of it. The other two papers refine exact constants for families already known to have linear diameter (trees d=1 proved pre-2024; K_{p,q}), which leaves the conjecture's question unchanged. Even under the rejected reading, 'progress' was wrong: a settled restriction is 'partial', not a bound.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "judge_problems": []
+}

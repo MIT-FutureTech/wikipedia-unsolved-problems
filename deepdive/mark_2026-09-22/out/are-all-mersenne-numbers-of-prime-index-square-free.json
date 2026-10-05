@@ -1,0 +1,116 @@
+{
+  "key": "are-all-mersenne-numbers-of-prime-index-square-free",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No proof, counterexample, or new bound on the square-freeness of Mersenne numbers with prime index was found since 26 January 2024; the problem remains exactly as open as it was, resting on the same pre-2024 Wieferich-prime-based partial verification.",
+  "status_sources": [
+    "https://www.primepuzzles.net/conjectures/conj_012.htm",
+    "https://en.wikipedia.org/wiki/Wieferich_prime",
+    "https://johnblythedobson.org/mathematics/Mersenne_numbers.html"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The conjecture asks whether every Mersenne number M_q = 2^q − 1 with q prime is square-free. It is classical (Rotkiewicz-era work) that p^2 | M_q for prime p implies p is a Wieferich prime (2^(p-1) ≡ 1 mod p^2), so the conjecture is equivalent to a strong non-occurrence statement about Wieferich primes. Only two Wieferich primes are known (1093 and 3511), both found before 1922, and the relevant computational fact — that M_q is therefore square-free for all prime q below roughly 4×10^12 — predates 2024 (see primepuzzles.net's Conjecture 12 page and johnblythedobson.org's page on square divisors of Mersenne numbers). The main lever that could move this problem is an extended Wieferich prime search, but PrimeGrid's search completed its scan to 2^64 (~1.8×10^19) in December 2022 and has no plans to continue, so no bound moved inside the window (26 Jan 2024–present). A claimed full proof by Jacques Basaldúa (discussed on the primepuzzles.net page) was shown to contain a flaw in its treatment of the Wieferich prime 1093 well before the window and remains unresolved/withdrawn; it is not a 2024+ event. Searches for arXiv papers turned up Kovač–Luca, 'On the number of divisors of Mersenne numbers' (arXiv:2506.04883, June 2025, revised through Feb 2026), which studies the unboundedness of f(2n)/f(n) where f(n)=Σ τ(2^k−1) — a divisor-count growth question motivated by Erdős, not the square-freeness of individual Mersenne numbers. This is a related-but-different problem (§3.1): it says nothing about whether any M_q for prime q has a repeated prime factor, so it does not touch this bullet's scope, and does not even remove a case of it. No Lean/Coq formalization, no lab announcement, and no new named Wieferich prime candidate were found. This is an existence-type question (does any prime-index Mersenne number have a square factor) and, per §3.1, is not advanced merely by pushing verification limits further — and in any case no such push occurred in the window. I therefore agree with the triage's 'none' verdict and did not find anything it missed.",
+  "competing_reading": "One could argue the 2022 completion of PrimeGrid's Wieferich search to 2^64, even though it finished before the window, has not been superseded and thus implicitly 'holds' the current bound into the window with no change — but this is not an event that happened in the window, so it correctly plays no role in the classification beyond providing background for why no progress was possible/attempted. There is no genuine ambiguity here between 'case' and 'variant' for the one adjacent paper found (Kovač–Luca): it is unambiguously a different question about a summatory divisor-count function, not about square-freeness of individual Mersenne numbers.",
+  "what_would_settle_it": "Any of: (1) a new Wieferich prime discovered beyond 1093/3511 with a computation showing whether it divides some M_q; (2) an extension of the Wieferich prime search past 2^64; (3) a full unconditional proof (peer-reviewed or expert-digested) that no Mersenne number with prime index has a square factor; (4) a computer-verified counterexample exhibiting a prime q and prime p with p^2 | 2^q − 1.",
+  "confidence": "high",
+
+  "sources": [
+    {
+      "url": "https://www.primepuzzles.net/conjectures/conj_012.htm",
+      "title": "Conjecture 12. Are Mersenne and Fermat numbers square free?",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://garden.irmacs.sfu.ca/op/are_all_mersenne_numbers_with_prime_exponent_square_free",
+      "title": "Are all Mersenne Numbers with prime exponent square-free? | Open Problem Garden",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.04883",
+      "title": "On the number of divisors of Mersenne numbers",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://johnblythedobson.org/mathematics/Mersenne_numbers.html",
+      "title": "On square divisors of Mersenne numbers",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Wieferich_prime",
+      "title": "Wieferich prime",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://t5k.org/notes/proofs/SquareMerDiv.html",
+      "title": "Proof that all prime-squared Mersenne divisors are Wieferich",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://www.mersenneforum.org/showthread.php?t=25930",
+      "title": "All Mersenne numbers Mp are square free (maybe) - mersenneforum.org",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "Mersenne numbers prime index square-free conjecture proof 2024 2025",
+      "\"square-free\" Mersenne number \"2^p - 1\" Wieferich prime research",
+      "Kovač Luca number of divisors Mersenne numbers arxiv 2025",
+      "Wikipedia list of unsolved problems mathematics Mersenne numbers prime index square-free",
+      "Wieferich prime search new record 2024 2025 no new Wieferich primes found limit",
+      "\"Mersenne\" \"square-free\" verified up to limit 2024 2025 2026 computation",
+      "erdosproblems.com Mersenne square-free OR Wieferich divisors conjecture"
+    ],
+    "places_checked": [
+      "arXiv (via search and direct abstract fetch of 2506.04883)",
+      "primepuzzles.net Conjecture 12 page",
+      "Open Problem Garden page (fetch blocked by TLS cert mismatch; relied on search snippet and other corroborating sources instead)",
+      "Wikipedia Wieferich prime article",
+      "johnblythedobson.org page on square divisors of Mersenne numbers",
+      "mersenneforum.org thread (fetch blocked, HTTP 403)",
+      "t5k.org (Prime Pages) proof note on square Mersenne divisors",
+      "General web search for erdosproblems.com coverage"
+    ],
+    "dead_ends": [
+      "Open Problem Garden page could not be fetched directly (TLS certificate hostname mismatch redirecting to openproblemgarden.org); mitigated via search snippets and cross-checking with primepuzzles.net and johnblythedobson.org, which cover the same facts",
+      "mersenneforum.org thread returned HTTP 403 Forbidden; could not confirm whether any 2024-2026 forum posts contain informal new computational results, though no such results surfaced in general web search either"
+    ]
+  },
+
+  "incomplete": "Could not directly fetch garden.irmacs.sfu.ca/openproblemgarden.org or the mersenneforum.org thread due to a TLS certificate issue and an HTTP 403 respectively; relied on search snippets and independent corroborating sources (primepuzzles.net, johnblythedobson.org, Wikipedia) for the same underlying facts, which agree with each other, so confidence remains high despite these two blocked fetches.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

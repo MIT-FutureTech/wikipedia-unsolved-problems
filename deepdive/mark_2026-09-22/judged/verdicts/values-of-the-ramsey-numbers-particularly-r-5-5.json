@@ -1,0 +1,57 @@
+{
+  "key": "values-of-the-ramsey-numbers-particularly-r-5-5",
+  "judgement": {
+    "events": [
+      {
+        "id": "angeltveit-mckay-2024",
+        "what": "Angeltveit and McKay prove R(5,5) ≤ 46 by linear programming plus computer case-checking",
+        "date": "2024-09-24", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2409.15709",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "alphaevolve-2026",
+        "what": "Nagda, Raghavan and Thakurta use AlphaEvolve to improve lower bounds on nine classical Ramsey numbers (R(3,13), R(3,18), R(4,13)–R(4,16), R(4,18)–R(4,20))",
+        "date": "2026-03-10", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2603.09172",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "AlphaEvolve, 'an LLM-based code mutation agent' that 'uses LLMs...to iteratively evolve code-snippets to generate better lower bounds'",
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "angeltveit-mckay-2024",
+    "derived": {
+      "status": "progress",
+      "ai_role": "generated",
+      "resolution_direction": null
+    },
+    "changed": ["status", "ai_role", "resolution_direction"],
+    "doubts": "Both surviving events are bounds on different quantities within the bullet 'the values of the Ramsey numbers'; neither supersedes the other, so per §4 step 4 ai_role takes the stronger role (generated, from AlphaEvolve). The event field is left on Angeltveit–McKay, the headline R(5,5) result; the AI role comes from the co-equal AlphaEvolve bound. AlphaEvolve constructions are explicit graphs posted on GitHub and so checkable in principle, but the record does not show anyone checked them. If the bullet is read as R(5,5) only, ai_role would be none.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {
+    "status": "progress",
+    "ai_role": "generated",
+    "resolution_direction": null
+  },
+  "outcome_prefix": null,
+  "corrections": [
+    { "field": "status", "from": "partial", "to": "progress", "why": "F3: the record itself says 'R(5,5)'s exact value remains open (only the range narrowed, from 43–48 to 43–46)'. An improved upper bound is scope 'bound', which gives progress, not partial." },
+    { "field": "resolution_direction", "from": "confirmed", "to": null, "why": "F14: a bound settles nothing, so progress carries a null direction." },
+    { "field": "ai_role", "from": "none", "to": "generated", "why": "F2/§4 step 4: the bullet asks for 'the values of the Ramsey numbers', with R(5,5) only 'particularly' named. The record's AlphaEvolve preprint (arXiv:2603.09172) moves lower bounds on nine other Ramsey numbers. That is a co-equal progress-tier bound on the same bullet, and by the authors' account the AI generated it. The stronger role applies." }
+  ]
+}

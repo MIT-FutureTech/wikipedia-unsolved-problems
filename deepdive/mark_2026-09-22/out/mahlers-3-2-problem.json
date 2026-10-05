@@ -1,0 +1,105 @@
+{
+  "key": "mahlers-3-2-problem",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The conjecture (that no real x has {x(3/2)^n} < 1/2 for all n) remains open. A November 2024 preprint claimed to settle the restricted case x in Z+ (positive integers), which is a genuine case of the stated problem; it was revised in June 2025 and then withdrawn by its sole author, who cited concerns about the proof method rather than an external refutation. A September 2026 preprint proves a related but distinct result -- that no orbit stays confined to the interval [2/7, 5/7) under multiplication by 3/2 -- but this concerns a different interval (length 3/7, not length 1/2, and not positioned at [0,1/2)) in the generalized family Z_{p/q}(s,s+t), so it is a related problem rather than a case of the stated conjecture, and does not itself move the status past 'progress'.",
+  "status_sources": [
+    "https://arxiv.org/abs/2411.03468",
+    "https://arxiv.org/html/2411.03468v1"
+  ],
+
+  "event": {
+    "date": "2024-11-05",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2411.03468",
+      "https://arxiv.org/html/2411.03468v1"
+    ]
+  },
+
+  "credited_humans": ["Nikhil S Kumar"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The stated problem (Mahler's 1968 conjecture that no real x has {x(3/2)^n} < 1/2 for all positive integers n, equivalently that no Z-number exists) remains open as of 2026-09-22, with no case or resolution of the literal [0,1/2) statement surviving scrutiny. Two events since 26 January 2024 are relevant, and neither settles it. (1) arXiv:2411.03468 (Nikhil S Kumar, submitted 2024-11-05) claimed no Z-numbers exist among the positive integers -- a genuine restriction/case of the stated problem, since Z+ is a subset of the reals the conjecture ranges over. The paper was revised on 2025-06-18 and marked withdrawn, with the author's own submission comment reading 'The paper has an alternate proof method, but there are trivial ways to prove the same,' which signals the author's own loss of confidence in the argument's substance rather than a third-party refutation. Per the withdrawn-claim rule (DEEP_DIVE.md 6.1/7), this is recorded as status 'progress', ai_role 'incident is not applicable since no AI was involved here -- rather this is a plain human claim-then-withdrawal, so I used ai_role 'none' and status 'progress' to reflect an instructive non-outcome rather than settled progress. No independent source discusses or corroborates any content of the withdrawn proof, so nothing about its substance can be salvaged as partial progress. (2) A second, unrelated and much more recent item surfaced during this search: a September 2026 Lean-formalized preprint by Ralf Stephan ('Confinement schemas and the reach of block certificates for powers of rational numbers modulo one', github.com/rwst/Confinement-Certificates, entered on the community registry VibeMathed on 2026-09-12) proves Theorem E: Z_{3/2}(2/7,5/7) = the empty set, i.e. no nonzero real number's orbit under multiplication by 3/2 stays confined to the interval [2/7,5/7) (length 3/7 ~ 0.4286) forever, improving on a prior record window from Dubickas. This is a real, AI-generated mathematical result -- the repository's own formalization.yaml (via 'automated systems' credits) states that 'claude-fable-5' performed 'Mathematical discovery, and the drafting of the paper' and 'claude-opus-5' performed 'Formalization and tooling,' both operating as agents in Claude Code under the human author's direction, who 'chose the problem, set the targets ... steered the work turn by turn, reviewed every statement.' That would code as ai_role 'generated' under 6.2 (the model produced the mathematics; a human verified and wrote up the framing) -- but I did not make it the record's decisive event, because under 3.1 it fails the scope test for this particular Wikipedia bullet: the stated conjecture is specifically about the interval [0,1/2), and Theorem E is about the differently-sized, differently-positioned interval [2/7,5/7) in the generalized Z_{p/q}(s,s+t) family. It does not restrict or remove any territory from the literal [0,1/2) question (it is not a sub-case of it), and it explicitly does not establish a new lower bound on Omega(3/2) (the quantity that, per Flatto-Lagarias-Pollington and the Wikipedia article itself, would need to exceed 1/2 to prove Mahler's conjecture) -- Theorem E only rules out one specific narrower window, not all windows of its length, so Omega(3/2) is not moved. I therefore treat it as a related problem per 3.1 rather than a case, and it does not change the record's status field, though it is the most interesting AI-relevant fact found for this key. The paper itself is unpublished, has zero external citations, is explicitly self-described as 'not peer reviewed and no independent expert endorsement' with novelty for some of its component theorems 'recorded as unknown' (part of section 3 duplicates a 2004 Bugaenko result), so even on its own terms it would be 'claimed', not 'resolved'. Also found in passing: a Google DeepMind formal-conjectures repository PR (#5524, Sept 2026) that fixed a logical-direction bug in a Lean *statement* of Mahler's conjecture (the conjecture itself remains an unformalized sorry/target there) -- this is bookkeeping on a benchmark repository, not mathematical progress, and is not counted as an event.",
+  "competing_reading": "One could argue Theorem E should be treated as `partial` progress on the generalized/underlying research program the Wikipedia article itself gestures at via Omega(p/q) and Flatto-Lagarias-Pollington, since the field studies exactly this family of interval-confinement statements as the route to the original conjecture, and Wikipedia cites Flatto-Lagarias-Pollington's Omega(p/q) > 1/p bound as directly relevant progress despite it also not being about the literal [0,1/2) interval. Under that reading the status might be 'claimed' with ai_role 'generated' and event dated 2026-09-08/09-12, with the Kumar incident relegated to the summary instead. I did not adopt this reading because Theorem E does not move Omega(3/2) itself (it is a single-window statement, not a bound over all windows of that length), so it is a strictly weaker and more tangential fact than Flatto-Lagarias-Pollington's genuine Omega bound, and because it fails 3.1's operational test ('does this change what a careful person would write in this bullet's entry?') -- a careful editor of the Mahler's-3/2-problem bullet would not cite a fact about the [2/7,5/7) window.",
+  "what_would_settle_it": "Either (a) a proof or refutation of a Z-number's existence on the literal [0,1/2) interval, (b) a proof that Omega(3/2) > 1/2 (which Wikipedia's own article states would imply the conjecture) or a sharpened general lower bound on Omega(3/2) itself (as opposed to a single fixed window), or (c) an expert (e.g. a number theorist, or acceptance by a journal) reviewing the Stephan 2026 preprint and stating explicitly whether/how it bears on Mahler's conjecture -- which would resolve the competing_reading above.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2411.03468", "title": "Mahler's 3/2 problem in Z+", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2411.03468v1", "title": "Mahler's 3/2 problem in Z+ (HTML v1)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2502.17090", "title": "Some results on asymptotic versions of Mahler's problems", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Mahler's_3/2_problem", "title": "Mahler's 3/2 problem - Wikipedia", "type": "encyclopedia", "opened": true},
+    {"url": "https://vibemathed.com/problem/mahler-s-z-number-problem-in-its-generalized-form", "title": "Mahler's Z-number problem in its generalized form - VibeMathed", "type": "repository", "opened": true},
+    {"url": "https://vibemathed.com/methodology", "title": "VibeMathed methodology", "type": "repository", "opened": true},
+    {"url": "https://github.com/rwst/Confinement-Certificates", "title": "Confinement-Certificates (README)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/rwst/Confinement-Certificates/main/README.md", "title": "Confinement-Certificates README (raw)", "type": "repository", "opened": true},
+    {"url": "https://github.com/rwst/Confinement-Certificates/blob/main/PRIOR_ART.md", "title": "PRIOR_ART.md", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/rwst/Confinement-Certificates/main/PRIOR_ART.md", "title": "PRIOR_ART.md (raw)", "type": "repository", "opened": true},
+    {"url": "https://github.com/rwst/Confinement-Certificates/blob/main/paper2.pdf", "title": "Confinement schemas and the reach of block certificates for powers of rational numbers modulo one", "type": "preprint", "opened": false},
+    {"url": "https://github.com/rwst/Confinement-Certificates/blob/main/Challenge2.lean", "title": "Challenge2.lean", "type": "repository", "opened": true},
+    {"url": "https://github.com/rwst/Confinement-Certificates/blob/main/formalization.yaml", "title": "formalization.yaml", "type": "repository", "opened": true},
+    {"url": "https://www.researchgate.net/publication/414097146_Confinement_schemas_and_the_reach_of_block_certificates_for_powers_of_rational_numbers_modulo_one", "title": "Confinement schemas and the reach of block certificates for powers of rational numbers modulo one (ResearchGate)", "type": "preprint", "opened": false},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/pull/5524", "title": "fix(Wikipedia/Mahler32): Omega(3/2) > 1/2 implies Mahler's conjecture, not conversely", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures", "title": "google-deepmind/formal-conjectures", "type": "repository", "opened": false},
+    {"url": "https://github.com/mrconter1/vibemathed", "title": "vibemathed GitHub repository", "type": "repository", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Mahler's 3/2 problem Z-numbers arXiv 2411.03468 withdrawn",
+      "Mahler's problem Z-numbers 2025 2026 progress",
+      "Zp/q(s, s+t) window empty Lean Mahler ResearchGate preprint September 2026",
+      "Flatto Lagarias Pollington 31/81 window Mahler 3/2 Z-numbers",
+      "vibemathed.com what is it AI math registry",
+      "\"Z_{3/2}\" window length record 2026 Mahler",
+      "\"Challenge2.lean\" OR \"PRIOR_ART.md\" Mahler Z-number github",
+      "Dubickas 2019 window 31/81 3/2 fractional parts OR \"0.40722\"",
+      "\"Confinement-Certificates\" OR \"Ralf Stephan\" Mahler Z-number Tao blog review September 2026",
+      "\"Ω(3/2)\" lower bound Mahler Flatto Lagarias Pollington current best known 2026",
+      "google-deepmind formal-conjectures repository Mahler 3/2 problem Z-numbers",
+      "Mahler 3/2 problem \"Z-number\" OR \"Ω(3/2)\" new result 2024 2025 direct interval one-half"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2411.03468",
+      "arXiv PDF for 2502.17090 (asymptotic versions of Mahler's problems)",
+      "Mahler's 3/2 problem Wikipedia article (current, for lead/status check)",
+      "VibeMathed entry page and methodology page",
+      "GitHub repository rwst/Confinement-Certificates: README, PRIOR_ART.md, Challenge2.lean, formalization.yaml",
+      "ResearchGate preprint page (blocked, HTTP 403 -- automated-fetcher refusal, noted per Section 4)",
+      "google-deepmind/formal-conjectures PR #5524 and general web search on the repository",
+      "General web search for Terence Tao blog / expert digestion of the September 2026 result"
+    ],
+    "dead_ends": [
+      "ResearchGate preprint page returned HTTP 403 Forbidden to the fetch tool; relied on the GitHub-mirrored PDF metadata, PRIOR_ART.md, formalization.yaml and Challenge2.lean instead, none of which required ResearchGate access",
+      "Could not get plain-text extraction of paper2.pdf itself (binary PDF, tool could not extract text from the GitHub blob view); relied on Challenge2.lean's Lean-native restatement of the theorems instead, which gives exact statements",
+      "No expert digestion (Tao blog, Quanta, etc.) of the September 2026 Stephan preprint was found -- consistent with it being 10 days old and unpublished at the time of this search"
+    ]
+  },
+
+  "incomplete": "The full text of paper2.pdf (the September 2026 preprint's prose, abstract, and any acknowledgements section) could not be extracted directly -- only its Lean-formalized theorem statements (via Challenge2.lean) and its supporting PRIOR_ART.md/formalization.yaml metadata were read. This is unlikely to change the classification, since the AI-authorship attribution came from the authors' own formalization.yaml (a primary source) rather than from the paper prose, and the theorem statement's scope was confirmed directly from Challenge2.lean. ResearchGate blocked automated access (HTTP 403); no independent digestion of the September 2026 result exists yet given its recency.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

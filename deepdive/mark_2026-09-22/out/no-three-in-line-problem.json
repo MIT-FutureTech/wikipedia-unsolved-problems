@@ -1,0 +1,104 @@
+{
+  "key": "no-three-in-line-problem",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The known record for the maximum n on which 2n points can be placed with no three collinear was extended dramatically from n=52 (the state as of January 2024) to n=76, through a wave of classical SAT-solver and GPU-search results by Marijn Heule, Thomas Prellberg, and Mitchell Riley between September 2025 and August 2026; separately, two contributors used named AI chatbots (ChatGPT and Claude) to find additional (non-record, non-first) solutions for smaller, already-solved grid sizes, and one academic paper applied machine-learning methods (PatternBoost, PPO) to the problem at toy scales (n≤19) without matching or exceeding the classical frontier.",
+  "status_sources": [
+    "https://wwwhomes.uni-bielefeld.de/achim/no3in/readme.html",
+    "https://en.wikipedia.org/wiki/No-three-in-line_problem"
+  ],
+
+  "event": {
+    "date": "2026-08-10",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": ["https://wwwhomes.uni-bielefeld.de/achim/no3in/readme.html"]
+  },
+
+  "credited_humans": ["Marijn Heule", "Thomas Prellberg", "Mitchell Riley"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "On 24th July 2026 Jacob Davies from Alameda (California, USA) used the AI ChatGPT 5.6 Sol to construct 619 new solutions for n=21, 22, ..., 56, 57 all in symmetry classes iden or rot2. / On 17th August 2026 Aleksei Kudriashov from Nusa Dua (Bali, Indonesia) with the support from AI Claude from Anthropic found 9 new solutions all in symmetry class rot2.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["ChatGPT 5.6 Sol", "Claude"],
+    "sources": ["https://wwwhomes.uni-bielefeld.de/achim/no3in/readme.html"]
+  },
+
+  "counterexample": null,
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The bullet as worded is a record-type question ('how many points can be placed...'), so under §3.1 a record IS the question and any movement of the known-record n counts as `progress` (the general conjecture that 2n is not achievable for all large n remains open; the record is a lower-bound witness, not a resolution). The frozen January-2024 state of the art, per Flammenkamp's maintained records page (the standard reference cited by Wikipedia, MathWorld and others) and corroborated by a 2022 arXiv paper's statement that explicit 2n solutions were known 'for n up to 46 and n=48,50,52', was n=52. Starting in September 2025 this stalled record began moving again after a roughly two-decade quiet period (the page's own account places the last major finding in March 2004, an error correction, with nothing substantive until September 2025): Thomas Prellberg used constraint-satisfaction/CUDA GPU search to extend records through n=57 (Nov 2025), 58 (Oct 2025), 59-60 (Jan 2026); Mitchell Riley and Prellberg jointly found n=61-64, 66, 68 (Feb 2026); Marijn Heule, using 'a newly developed SAT solver', found n=65, 67, 69, 70, 71, 72, 73 and finally the current record n=76 (10 August 2026), with Prellberg independently reaching n=74 (20 July 2026) in between. None of this classical SAT/GPU-search work is AI under §6.2 — SAT solvers and CUDA brute-force search are explicitly excluded as 'computer-assisted' but not AI. Separately, two amateur contributors to the same page used named AI chatbots: Jacob Davies used 'the AI ChatGPT 5.6 Sol' to construct 619 solutions for n=21 through 57 (24 July 2026), and Aleksei Kudriashov used 'AI Claude from Anthropic' to find 9 new solutions for smaller n in symmetry class rot2 (17 August 2026). Critically, these are additional/alternative solutions for n values that were already solved (well below the n=76 frontier, and below even the pre-surge n=52 baseline in most cases) — they did not move any record and did not establish anything new about the problem's actual boundary of knowledge, so under §3.1's 'a search does not advance an existence/record question unless it IS the record' logic, and since these particular n were not themselves unresolved, they read as incidental hobbyist activity rather than mathematical progress; I have coded `ai_role: none` for the overall status-defining event because the record-moving result (n=76) involved no AI, and there is no single AI-attributable event that itself changed the state of the problem. A December 2025 arXiv preprint (Ramanathan et al., 'Three methods, one problem: Classical and AI approaches to no-three-in-line', arXiv:2512.11469) applied PatternBoost (transformer-based) and PPO (reinforcement learning) to the problem for the first time, but only reached provably-optimal-matching performance up to 14x14 (PatternBoost) and 10x10 (PPO) grids, far below the classical ILP baseline of 19x19 used for comparison in the same paper and orders of magnitude below the real research frontier of n=76 — the authors' own conclusion is that 'classical optimization remains essential for exact solutions while AI methods offer competitive performance on smaller instances.' This is a related/comparative study, not a case of the open problem being advanced, since it produced no new solutions beyond what classical methods already know for any n of research interest.",
+  "competing_reading": "One could argue this record deserves `ai_role: bound` on the grounds that AI systems (ChatGPT, Claude) are documented as having found additional solutions within the window, which is technically true and drawn from the authors'/contributors' own account on the canonical records page. Under a looser reading where any AI-attributed solution counts as AI touching the problem, one might set ai_role to bound or generated. I did not do this because those specific solutions did not move the bound (the record-defining quantity for this bullet) — they were solutions for already-solved, sub-frontier n — so classifying the decisive `progress` event (n=76, wholly non-AI) as AI-involved would misrepresent which event the status rests on. A separate, weaker record noting 'AI touched marginal/non-record activity on this problem, but not the event that defines its status' would also be defensible; if the harness wants any-AI-contact tracked regardless of whether it was record-moving, this problem should be flagged as a borderline/footnote case rather than a clean `none`.",
+  "what_would_settle_it": "Whether the Davies/Kudriashov AI-found solutions were in fact previously unknown for those specific n and symmetry classes (i.e., first solutions for a gap rather than merely additional/alternate solutions) would settle whether they count as any kind of progress at all; the current wording on the records page ('619 new solutions', '9 new solutes') suggests additional configurations for already-populated n, not first discoveries, but I could not verify this against the full solution-count history table for every n in that range.",
+  "confidence": "medium",
+
+  "sources": [
+    {
+      "url": "https://wwwhomes.uni-bielefeld.de/achim/no3in/readme.html",
+      "title": "No-Three-in-Line Problem (Achim Flammenkamp's maintained records page)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/No-three-in-line_problem",
+      "title": "No-three-in-line problem",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/w/index.php?title=No-three-in-line_problem&oldid=1199136318",
+      "title": "No-three-in-line problem (frozen January 2024 revision)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.11469",
+      "title": "Three methods, one problem: Classical and AI approaches to no-three-in-line",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2512.11469",
+      "title": "Three methods, one problem: Classical and AI approaches to no-three-in-line (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://epoch.ai/frontiermath/open-problems/no-three-in-line",
+      "title": "The No-Three-in-Line Problem | Epoch AI",
+      "type": "blog",
+      "opened": true
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "no-three-in-line problem record n=76 Heule 2026",
+      "\"no-three-in-line\" Wikipedia 2n points n=70 record",
+      "no-three-in-line problem Wikipedia January 2024 known n=52 record before Heule Prellberg",
+      "Flammenkamp no3in readme Jacob Davies ChatGPT 619 solutions"
+    ],
+    "places_checked": [
+      "Achim Flammenkamp's maintained no-three-in-line records page (canonical reference)",
+      "Wikipedia's current No-three-in-line problem article",
+      "Wikipedia's frozen 26 January 2024 revision (oldid 1199136318)",
+      "arXiv preprint 2512.11469 (abstract and PDF)",
+      "Epoch AI's FrontierMath open-problems page for this problem",
+      "General web search for corroboration of the n=76 record and AI-attributed entries"
+    ],
+    "dead_ends": [
+      "Attempted direct curl fetch of the raw HTML records page for byte-exact verification of AI mentions, blocked by sandbox approval; relied instead on three independent WebFetch passes with different literal-quoting prompts, which returned consistent verbatim text each time",
+      "WebFetch of the arXiv PDF could not extract clean full-text quotes of the AI-role conclusion sentence from the binary PDF encoding; relied on the abstract (fetched separately and cleanly) which contains the same substantive conclusion"
+    ]
+  },
+
+  "incomplete": "I was unable to independently confirm, beyond the records page's own wording, whether the Davies (ChatGPT) and Kudriashov (Claude) contributions were genuinely novel solutions versus reproductions of already-known configurations for those n; I also could not obtain a clean full-text quote from the arXiv paper's PDF (only its abstract, fetched separately) describing its AI-role conclusions verbatim beyond what the abstract itself states.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

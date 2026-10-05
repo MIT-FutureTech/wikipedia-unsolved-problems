@@ -1,0 +1,129 @@
+{
+  "key": "resolution-of-singularities",
+
+  "status": "open",
+  "no_change_found": false,
+  "outcome": "The core problem (existence of resolution of singularities for varieties of dimension ≥ 4 over fields of positive characteristic) remains open. The only substantive AI-related development in the window is an exploratory 2026 paper by Gergely Bérczi using DeepMind's AlphaEvolve to evolve candidate termination-invariant (\"ranking function\") constructions for a simplified toy model of the canonical blow-up process in dimension 4, characteristic 3; the paper states two conjectures, not a proof, and does not resolve any case of the actual geometric problem. A separate, unrelated 798-page arXiv preprint (2608.20066, Aug 2026) claims a full resolution in all dimensions and characteristics, but shows strong hallmarks of being an AI-generated, non-peer-reviewed, likely nonsensical text (invented unexplained terminology such as 'total-Hasse activity packets', 'paid quotients', 'displayed parents', 'terminal truth'; the listed author has a Princeton 'Complex Infrastructure Systems' affiliation, not a mathematics one; no expert digestion, citation, or discussion of it exists anywhere).",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Resolution_of_singularities",
+    "https://arxiv.org/abs/2602.06553",
+    "https://arxiv.org/html/2602.06553"
+  ],
+
+  "event": {
+    "date": "2026-02",
+    "precision": "month",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2602.06553", "https://arxiv.org/html/2602.06553"]
+  },
+
+  "credited_humans": ["Gergely Bérczi"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "\"the mathematical conclusions, conjectures, and counterexamples presented here arise from independent mathematical analysis\" ... \"this is a report ... describing a possible way to use AlphaEvolve as an experimental engine ... rather than as a finished mathematical theory\" — AlphaEvolve (using gemini-2.5-pro / gemini-3-pro) evolved three explicit candidate ranking functions inside a fixed evaluation harness (a toy canonical blow-up simulator with human-designed features and benchmarks); the author then analyzed the outputs and formulated the paper's two formal conjectures about a discretized five-component lexicographic ranking function satisfying a bounded-delay descent criterion.",
+    "formalisation_only": false,
+    "disclosed_cost": "Eleven experiments reported, with individual run durations ranging from 3 to 22 days (e.g. a first focused benchmark run of 26 hours and a discretization experiment of 24 hours).",
+    "systems": ["AlphaEvolve", "gemini-2.5-pro", "gemini-3-pro"],
+    "sources": ["https://arxiv.org/abs/2602.06553", "https://arxiv.org/html/2602.06553", "https://sites.google.com/view/gergely-berczi/mathai-projects"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [
+    {
+      "kind": "credibility",
+      "summary": "arXiv:2608.20066 (Chenxiao Tian, Aug 2026, 798 pages, 'Frobenius-Hasse Towers and Exceptional-History Descent') explicitly claims a full canonical strong embedded resolution and principalization construction over any perfect field of characteristic p>0 — i.e., a complete solution to the stated open problem. No expert digestion, review, citation, or discussion of this preprint could be found anywhere (no MathOverflow, blog, or forum commentary), it uses extensive invented terminology not found in the resolution-of-singularities literature ('total-Hasse activity packets', 'filtered coefficient cubes', 'semilinear Frobenius-Hasse sources', 'paid quotients', 'displayed parents', 'terminal truth', 'six-row defect calculus'), and the listed author's Princeton page (cis.princeton.edu) places them in a 'Complex Infrastructure Systems' lab, not a mathematics department, with no other mathematical publication record found. These are strong indicators of an AI-hallucinated or AI-generated preprint rather than genuine mathematics; it is treated here as uncredentialed noise rather than as a genuine claimed proof, and is not counted as 'claimed' status.",
+      "sources": ["https://arxiv.org/abs/2608.20066", "https://sites.google.com/view/positive-char-resolution"]
+    }
+  ],
+
+  "summary": "The bullet concerns resolution of singularities in positive characteristic, open (as of Jan 2024) for varieties of dimension ≥ 4 over fields of characteristic p>0 (dimension ≤3 was already settled: surfaces by Abhyankar 1956, threefolds by Cossart–Piltant 2008–2009). Wikipedia's current article still states the higher-dimensional case as open, and I found no genuine proof or digested partial result advancing the general higher-dimensional problem in the window. The one substantive, verifiable AI-related development is Gergely Bérczi's Feb 2026 preprint (arXiv:2602.06553), which used DeepMind's AlphaEvolve (an LLM-driven evolutionary code-search system, built on Gemini models) to search for termination/ranking-function invariants in a deliberately simplified toy model of the canonical blow-up process (dimension 4, characteristic 3, monic purely inseparable leading term). This is honestly and explicitly framed by the author as exploratory: AlphaEvolve produced candidate ranking-function code within a human-built simulator and evaluation harness; the author independently analyzed the results, found a counterexample to an initial 'perfect' candidate, and formulated two conjectures about a five-component discretized ranking function. No proof of any case of the actual geometric resolution problem resulted — this is progress on a research programme (evolving ranking-function candidates as a heuristic-discovery tool) rather than a solved case, so status is `progress` and `ai_role` is `bound` (an AI system contributed to narrowing/exploring the landscape of a still-open problem, not to settling any part of it). Separately, I encountered a much more dramatic-looking claim: arXiv:2608.20066 (Aug 2026), a 798-page preprint by 'Chenxiao Tian' claiming to fully solve the stated problem in all dimensions and characteristics via a byzantine apparatus of invented terminology. I judge this very likely to be an AI-generated (hallucinated or LLM-authored) paper rather than genuine mathematics: the prose is dense with meaningless-sounding coined jargon uncorrelated with the literature, no expert has engaged with or cited it, and the listed Princeton affiliation is to an infrastructure-systems lab rather than mathematics, with no other mathematical track record found for this name. Because no human expert has validated (or even engaged with) this claim, and because its authorship/provenance itself is suspect, I do not count it as a `claimed` resolution — I record it only in `disputes` as a credibility flag rather than let it drive the status field, consistent with §6.1's requirement that even `claimed` status rest on a serious, engaged-with claim. I also checked the RIMS Kyoto Univ. 2024 publication on embedded resolution of surface singularities in arbitrary characteristic; this is an expository/summary account of an already-published 2020/2021 result (arXiv:2011.14443) with no AI involvement, and not new progress in the window.",
+  "competing_reading": "One could argue arXiv:2608.20066 should be recorded as `claimed` with `ai_role` `generated`, since if genuine, it would fully resolve the conjecture and the writing style is consistent with an AI-generated proof attempt. I judge the evidence (invented terminology untethered to the literature, non-mathematical author affiliation, complete absence of any expert or community engagement even a year after typical circulation, and the sheer implausibility of a 798-page single-author solo resolution of a problem that has resisted the field for 60 years suddenly appearing with no preceding partial results from the same author) points toward this being unreliable noise rather than a genuine claim worth scoring, but I cannot rule out with certainty that it is a serious (if extremely dense) human-written attempt that simply hasn't been read yet.",
+  "what_would_settle_it": "Any expert commentary, referee report, or citation addressing arXiv:2608.20066's validity; confirmation or denial from the named author regarding their identity/field and whether an AI system was used to draft the manuscript; or a retraction/withdrawal notice on arXiv. For the Bérczi AlphaEvolve line of work, a follow-up paper proving the conjectures for the toy model, or extending results to genuine (non-toy) resolution invariants, would move the status toward `partial`.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Resolution_of_singularities", "title": "Resolution of singularities", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.20066", "title": "Resolution of Singularities in Positive Characteristic: Frobenius-Hasse Towers and Exceptional-History Descent", "type": "preprint", "opened": true},
+    {"url": "https://sites.google.com/view/positive-char-resolution", "title": "Resolution of Singularities in Positive Characteristic (program page)", "type": "blog", "opened": true},
+    {"url": "https://cis.princeton.edu/people/chenxiao-tian", "title": "Chenxiao Tian | Complex Infrastructure Systems", "type": "encyclopedia", "opened": false},
+    {"url": "https://pith.science/paper/2608.20066", "title": "Resolution of Singularities in Positive Characteristic... · Pith", "type": "blog", "opened": false},
+    {"url": "https://arxiv.org/abs/2602.06553", "title": "Evolving Ranking Functions for Canonical Blow-Ups in Positive Characteristic", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2602.06553", "title": "Evolving Ranking Functions for Canonical Blow-Ups in Positive Characteristic (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://sites.google.com/view/gergely-berczi/mathai-projects", "title": "Gergely Bérczi - Math&AI projects", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/2307.00252", "title": "An ML approach to resolution of singularities", "type": "preprint", "opened": false},
+    {"url": "https://ems.press/content/serial-article-files/48936", "title": "Resolving Surface Singularities in Positive Characteristic (Publ. RIMS Kyoto Univ. 60 (2024))", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/pdf/2011.14443", "title": "A New Proof for the Embedded Resolution of Surface Singularities in Arbitrary Characteristic", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/pdf/2503.17321", "title": "Resolution of singularities for the dynamical mathematician", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "resolution of singularities positive characteristic 2024 2025 proof",
+      "arXiv 2608.20066 Chenxiao Tian resolution singularities positive characteristic",
+      "\"Chenxiao Tian\" resolution singularities Princeton",
+      "arxiv 2608.20066 hoax retracted withdrawn AI generated",
+      "\"2608.20066\" OR \"Frobenius-Hasse Towers\" mathoverflow reddit debunked",
+      "Belotto da Silva Temkin Włodarczyk resolution singularities positive characteristic 2025",
+      "Gergely Bérczi AlphaEvolve resolution singularities positive characteristic",
+      "AlphaEvolve mathematics resolution of singularities DeepMind Bérczi",
+      "\"resolution of singularities\" positive characteristic Wikipedia solved open 2026",
+      "RIMS Kyoto 2024 embedded resolution surfaces positive characteristic arbitrary characteristic proof"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2608.20066 and 2602.06553",
+      "Chenxiao Tian's Google Sites program page",
+      "Princeton CIS Lab personnel page",
+      "Pith.science paper page (AI paper-analysis aggregator)",
+      "current live Wikipedia article 'Resolution of singularities'",
+      "Gergely Bérczi's Math&AI projects page",
+      "general web search for expert commentary / debunking of 2608.20066",
+      "RIMS Kyoto 2024 publication and its underlying 2011.14443 preprint"
+    ],
+    "dead_ends": [
+      "No MathOverflow, blog, or forum discussion of arXiv:2608.20066 could be found despite multiple targeted queries",
+      "Could not confirm the author identity/affiliation for arXiv:2608.20066 beyond the Princeton CIS Lab page, which does not match a mathematics research profile",
+      "SSRN mirror of 2608.20066 found but contains no additional review or commentary",
+      "Belotto da Silva/Temkin/Włodarczyk 2025 work located but concerns characteristic 0 (weighted blow-ups, foliations), not positive characteristic, so not relevant to this bullet"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass",
+      "field": "ai_role",
+      "from": "bound",
+      "to": "assisted",
+      "why": "`bound` is retired as an AI role at the reviewer's direction: it named the kind of result, which `status` already records, rather than what the AI did, so it conflated the two axes. Recoded by the 6.2 test of what the model produced. AlphaEvolve evolved the three explicit candidate ranking functions that appear in Berczi's paper, inside a harness the author designed, while the author states the conclusions 'arise from independent mathematical analysis'. Human-led with a model-produced component: `assisted`. Separate from this recode, and not changed here: the paper describes itself as a report on a possible method applied to a toy model of the canonical blow-up, 'rather than a finished mathematical theory', so whether it moves the stated problem at all, and so whether `progress` is right, is worth a second look."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson), drafted by Claude (claude-opus-5-5); OVERRULES the judging-pass calibration verdict (JUDGE.md, opus), which proposed `claimed`",
+      "field": "status",
+      "from": "progress",
+      "to": "open",
+      "why": "The second look the entry above asked for. Neither event can carry the status. Berczi's paper states two conjectures about a toy model of the canonical blow-up and 'does not resolve any case of the actual geometric problem': scope `none`. The judging pass, correctly, discarded it, but then rested the status on the 798-page arXiv:2608.20066, coding it `claimed` as merely doubtful. The record's own outcome describes that preprint as showing 'strong hallmarks of being an AI-generated, non-peer-reviewed, likely nonsensical text', with invented terminology ('total-Hasse activity packets', 'paid quotients', 'terminal truth'), an author affiliation outside mathematics, and no discussion anywhere. On one of the central open problems of algebraic geometry that is `not_credible` under JUDGE.md F5, several signals together, not a claim to count. With nothing surviving, the problem is `open`."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson), drafted by Claude (claude-opus-5-5)",
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "none",
+      "why": "Follows the status correction: with no event surviving, no AI role is credited. The AlphaEvolve quote stays in `ai` as evidence."
+    }
+  ]
+}

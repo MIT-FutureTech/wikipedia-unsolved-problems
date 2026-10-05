@@ -1,0 +1,74 @@
+{
+  "key": "lemoines-conjecture",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No credible resolution, partial case, or bound-moving result on Lemoine's conjecture was found since 26 January 2024; the one candidate found (a May 2026 Zenodo self-publication) is not a proof of the conjecture at all.",
+  "status_sources": [
+    "https://zenodo.org/records/19957584",
+    "https://en.wikipedia.org/wiki/Lemoine's_conjecture"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": null,
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The triage flagged a May 2026 Zenodo record, 'The Lemoine Predictive Theorem: A Machine-Verified Constructive Proof of Lemoine's Conjecture' (Jonathan Reed, DOI 10.5281/zenodo.19957584), as a possible resolution. I fetched the record directly, including its two attached Lean 4 source files (552 and 858 bytes) and the PDF. The Lean files do not contain a proof of Lemoine's conjecture: they define a recursive search function (`lemoine_search`) that, given a list of candidate primes, tries each one and returns it if N - 2*p_test is prime, otherwise recurses on a filtered sublist; the only thing proved is that this recursion terminates (`termination_by available.length`), via a bound on list length. There is no theorem stating or proving that the search succeeds for every odd N > 5, i.e. no statement of the form 'for all odd n > 5, lemoine_search n ... ≠ 0' or equivalent, let alone a proof of one. Calling this 'machine-verified' is true only in the vacuous sense that the termination obligation type-checks in Lean; it verifies nothing about the truth of the conjecture. The paper's framing ('Lemoine Predictive Process', 'ƒ(n)' pseudonym, 'dead ends are logically impossible' in prose with no corresponding formal statement) reads as a plausible-sounding but mathematically empty artifact. There is no arXiv posting, no journal, no institutional affiliation, no citing literature, and no independent digestion of any kind — I found zero secondary coverage of this record anywhere. The authors give no account of AI involvement in producing it (no acknowledgement, no methods statement naming a model), so under §6.2 there is no basis to code any ai_role other than 'none', regardless of how the artifact itself was likely produced. Separately, I checked the two other things that came up in general searches: (1) arXiv:2304.00024, which lifted empirical verification of the conjecture to 10^13 for all numbers of a certain form, was submitted 31 March 2023 (single version, no later revision) — this predates the window and, per §3.1, a verification-limit extension does not move an existence conjecture in any case, so it is irrelevant background, not open_stale-worthy new information. (2) arXiv:1709.05335 (Agama & Gensel, 'The Asymptotic Binary Goldbach and Lemoine Conjectures') is the paper Wikipedia's own article already describes as 'claimed [proved] in 2017... later found to be flawed'; it has been revised repeatedly (16 versions, most recently March-April 2026, with several revisions falling inside the window: v11-v12 in June-July 2024, v13-v16 in March-April 2026). Its abstract claims only an asymptotic version of the conjecture (a density/circle-of-partition argument), not a full proof, it carries an arXiv admin overlap note, and I found no expert digestion, journal acceptance, or any commentary establishing that the flaw previously identified was fixed in the newer versions. Even taking the newest revision at face value, an asymptotic result is at most a partial/progress-type claim about a case of the problem, and with no expert readthrough available I cannot respensibly code it above 'open' background noise; there is no dated, digested event to hang an 'event' record on, and doing so would overstate what is actually established. No AI involvement is mentioned in either paper. I searched MathWorld-style status, Terence Tao's blog/Mathstodon, Quanta, and general 2024-2026 proof-attempt queries and found nothing else pointing to Lemoine's conjecture specifically. On balance the honest classification is open / no_change_found, with the Zenodo item recorded as a checked dead end explicitly because it is exactly the kind of dramatic-sounding claim the triage was right to flag but which doesn't survive opening the actual attached files.",
+  "competing_reading": "One could argue the Agama-Gensel asymptotic result, if its 2024/2026 revisions are mathematically sound and if 'asymptotic version' is read as settling almost all cases (a density-one statement), constitutes a 'partial' result on a case of the conjecture, which would make status 'partial' with resolution_direction 'confirmed' and an event dated to the July 2024 or April 2026 revision. I did not adopt this reading because: (a) the same paper is already flagged by Wikipedia's own article as previously found flawed, and I found no independent confirmation that later revisions fixed the issue; (b) 'asymptotic' proofs of Goldbach-type statements are a distinct, much weaker claim than the conjecture itself (density-one is not 'every odd integer'), which is arguably a related/variant question under §3.1 rather than a case; and (c) there is no expert digestion of the current version, so even under a charitable reading this would only reach 'progress', not 'partial' with confidence. I flag this so a reviewer with access to a mathematician's assessment of the 2024-2026 revisions of arXiv:1709.05335 can override my classification if warranted.",
+  "what_would_settle_it": "An expert (or a clear published/blog digestion) reading the current v13-v16 text of arXiv:1709.05335 and stating whether the previously identified flaw in the Agama-Gensel argument was fixed, and whether the asymptotic result is a genuine partial case rather than a restatement of the earlier flawed claim; alternatively, any independent citation, review, or discussion of the May 2026 Zenodo record that I failed to find.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://zenodo.org/records/19957584", "title": "The Lemoine Predictive Theorem: A Machine-Verified Constructive Proof of Lemoine's Conjecture", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/19957584/files/lemoine_predictive_theorem.lean", "title": "lemoine_predictive_theorem.lean", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/19957584/files/lemoine_generalized_theorem.lean", "title": "lemoine_generalized_theorem.lean", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Lemoine's_conjecture", "title": "Lemoine's conjecture - Wikipedia", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2304.00024", "title": "Empirical verification of a new generalisation of Goldbach's conjecture up to 10^12 (or 10^13) for all coefficients <= 40", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2510.21870", "title": "Predicting the size ranking of minimal primes in the generalised Goldbach partitions", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1709.05335", "title": "The Asymptotic Binary Goldbach and Lemoine Conjectures", "type": "preprint", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Lemoine's conjecture proof 2024 2025 2026",
+      "Lemoine conjecture \"odd prime\" \"even semiprime\" verified",
+      "\"Jonathan\" Reed \"Lemoine Predictive\" zenodo",
+      "\"Lemoine Predictive Theorem\" Lean4",
+      "\"zenodo.org/records/19957584\" OR \"Lemoine Predictive\" debunk crank",
+      "Lemoine conjecture Tao blog Quanta 2024 2025 2026",
+      "Lemoine conjecture mathworld status",
+      "\"Agama\" \"Lemoine\" arxiv 2024 2025"
+    ],
+    "places_checked": [
+      "Zenodo record page and attached Lean 4 source files (fetched directly)",
+      "current Wikipedia article on Lemoine's conjecture",
+      "arXiv abstract/version-history pages for 2304.00024, 2510.21870, and 1709.05335",
+      "general web search for expert commentary (Tao's blog/Mathstodon, Quanta, MathWorld-style status pages)",
+      "general web search for independent coverage or citation of the Zenodo record"
+    ],
+    "dead_ends": [
+      "Zenodo 'Lemoine Predictive Theorem' record: opened the PDF and both Lean files directly; confirmed the Lean code proves only termination of a search procedure, not the conjecture itself, and found zero independent citations or commentary anywhere",
+      "arXiv:2304.00024 (10^13 verification): confirmed single-version submission dated 31 March 2023, predating the window, and in any case a verification-limit extension does not resolve an existence conjecture per the scope rule",
+      "arXiv:1709.05335 (Agama-Gensel): confirmed a 9-year, 16-revision history including revisions inside the window, but found no independent digestion of the current version and no fix confirmation for the flaw Wikipedia's article already notes",
+      "arXiv:2510.21870: read the abstract directly; concerns a different generalized-Goldbach ranking question with no stated connection to Lemoine's conjecture"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

@@ -1,0 +1,304 @@
+{
+  "key": "are-gamma-the-euler-mascheroni-constant-pi-e-pi",
+  "status": "open",
+  "no_change_found": false,
+  "outcome": "Zhi-Wei Sun posted a preprint (arXiv:2609.04176, 3 Sep 2026) claiming to prove Catalan's constant — one of the constants named in this bullet — is irrational, explicitly crediting AI both for the proof strategy and for the numerical verification; a note by Dane Wachs (arXiv:2609.22339, 16 Sep 2026) identifies a specific numerical gap in the key estimate (Theorem 9.1) and concludes the derivation does not justify the claim, so nothing is currently established either way. No other constant named in the bullet (γ, π+e, π−e, πe, π/e, π^e, π^√2, π^π, e^(π²), lnπ, 2^e, e^e, Khinchin's constant) has had its rationality/algebraicity status settled since 26 January 2024; a March 2026 formal-verification writeup claiming to prove γ irrational (Zenodo, Jonathan Reed) is self-published, unreviewed, and not corroborated anywhere else.",
+  "status_sources": [
+    "https://arxiv.org/abs/2609.04176",
+    "https://arxiv.org/html/2609.04176v1",
+    "https://arxiv.org/abs/2609.22339",
+    "https://github.com/chokmah-me/catalan-sun-lean"
+  ],
+  "event": {
+    "date": "2026-09-03",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2609.04176",
+      "https://arxiv.org/html/2609.04176v1"
+    ]
+  },
+  "credited_humans": [
+    "Zhi-Wei Sun"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "The author's many rounds of conversations with AI provide the basis of this paper. ... introducing 'weighted tails' made the proof practical and successful. ... The needed numerical data in the proof were produced by AI. The whole proof has passed the verification of Chatgpt 5.6 Solar.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "Chatgpt 5.6 Solar"
+    ],
+    "sources": [
+      "https://arxiv.org/html/2609.04176v1"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [
+    {
+      "kind": "correctness",
+      "summary": "Dane Wachs's note (arXiv:2609.22339, 16 Sep 2026) reports that the lower bound Sun's Theorem 9.1 derivation actually controls is roughly +1.49 to +1.79 B² at tested indices (also stated on the Lean repo as converging to about +1.86), while Sun's derivation claims the quantity is at most −0.00966 B² + o(B²) — the opposite sign of what the argument needs. Wachs also flags an index-shift slip in Theorem 2.1 (repairable) and a missing term from the prime 2's contribution in the main ledger (not obviously repairable). Wachs concludes: 'the published derivation does not justify the claimed estimate, so the proof of the main theorem is incomplete... Nothing is concluded about the irrationality of G.' As of this research, Sun has not posted a v2 or public response; the paper remains at v1 on arXiv.",
+      "sources": [
+        "https://arxiv.org/abs/2609.22339",
+        "https://github.com/chokmah-me/catalan-sun-lean"
+      ]
+    }
+  ],
+  "summary": "The bullet asks about the rationality/algebraic status and irrationality measure of a list of thirteen named constants: gamma, pi+e, pi-e, pi*e, pi/e, pi^e, pi^sqrt(2), pi^pi, e^(pi^2), ln(pi), 2^e, e^e, Catalan's constant, and Khinchin's constant. Of these, only Catalan's constant has seen a serious claimed development in the window: Zhi-Wei Sun (Nanjing University) posted arXiv:2609.04176 on 3 September 2026 claiming a full proof that Catalan's constant G is irrational, using a 'weighted tails' variant of the determinant-based methods used in the 2024 Calegari-Dimitrov-Tang irrationality proof for a different constant (L(2,chi_{-3})). Sun's own acknowledgements state plainly that AI was used for more than clerical support: 'many rounds of conversations with AI provide the basis of this paper,' an AI-suggested pivot ('weighted tails') is what made the proof 'practical and successful,' and the numerical data underlying the proof was AI-generated and AI-verified ('Chatgpt 5.6 Solar'). That is a first-person account of AI contributing to the mathematical content itself (not just formalisation or proofreading), which is why ai_role is coded assisted rather than none — though the humans (Sun) still designed and wrote the overall argument, so this is not generated. However, a follow-up note by Dane Wachs (arXiv:2609.22339, 16 September 2026) performs a numerical check of the central inequality in Sun's Theorem 9.1 and finds the quantity the proof needs to be negative is empirically positive (roughly +1.5 to +1.9 B² versus a claimed bound of about −0.01 B²), and separately flags a missing prime-2 contribution in the main ledger. A partial, independent Lean 4 formalization of Sun's paper (github.com/chokmah-me/catalan-sun-lean) corroborates this: it formalizes the paper's early structural lemmas but explicitly disclaims proving the main theorem, and its own README states the measured quantity converges to about +1.86, consistent with Wachs's finding and inconsistent with what Sun's argument requires. No rebuttal or revised version from Sun has appeared. Because a human expert (Wachs) has examined the argument and found it does not currently establish the claim, and no correction has restored it, the proof is best classified as claimed (a preprint claim, unresolved, credibly disputed) rather than resolved, and the direction is coded confirmed for the claimed result itself (Sun's stated conclusion agrees with the long-suspected truth that G is irrational) while noting the claim itself is presently unsubstantiated. None of the other twelve constants in the bullet show any change: gamma's irrationality remains completely open in the peer-reviewed literature (confirmed via mathworld, Wikipedia's Euler-Mascheroni-constant article, and 2025-2026 arXiv papers on related generalized constants, none of which claim to settle gamma itself); one Zenodo preprint (Jonathan Reed, April 2026) claims a Lean-checked proof of gamma's irrationality, but it is self-published on a non-peer-reviewed repository, has no visible engagement from the number theory community, and its 'trap criterion' argument echoes the same pattern (bold claim, machine-checked, unreviewed) that turned out to be premature for Catalan's constant — it does not meet the resolved bar (no expert digestion) and is not corroborated elsewhere, so it is not made the basis of any status change here. Khinchin's constant's irrationality is explicitly stated as still open by MathWorld, Wikipedia, and all located 2024-2026 papers. The pi/e-family algebraic constants (pi+e, pi-e, pi*e, pi/e, pi^e, pi^sqrt(2), pi^pi, e^(pi^2), ln(pi), 2^e, e^e) have no irrationality or transcendence proofs in the window; the closest related work is a June 2026 no-go/obstruction paper (Runlong Yu, arXiv:2606.17303) showing why Apery-type and hypergeometric certificate techniques cannot resolve the irrationality of e+pi — this is a negative methodological result about proof techniques, not a case or resolution of the stated question, so per §3.1 it does not change this bullet and is mentioned only for completeness. Irrationality-measure bounds for pi did move in the window (Zeilberger-Zudilin's 7.103205334137 improved slightly to 7.101862832357 by Yufei Bai, arXiv:2609.11276, September 2026), but the bullet's irrationality-measure sub-question is about the measures of gamma, Catalan's constant, Khinchin's constant, etc. as named — pi's irrationality measure is not itself one of the thirteen named constants in this specific bullet's list (pi is used only as a building block for pi+e, pi*e, etc., whose measures are not addressed by a pi-only bound), so this bound improvement is a related development but out of the literal scope of the bullet and is not used to change status; it is recorded here for transparency. Overall this bullet's status is driven entirely by the Catalan's constant sub-claim, coded claimed with ai_role assisted.",
+  "competing_reading": "One could argue the whole bullet should stay 'open' rather than 'claimed', on the view that Sun's proof has already been shown by Wachs's numerical check to fail, making it functionally indistinguishable from any other refuted/incorrect preprint that never should have moved the needle. Under that reading, an unrebutted but apparently-broken preprint is not really 'progress' worth a claimed status, and this would be closer to a progress/incident coding (an AI-linked claim that, on inspection, does not hold up) rather than claimed. I chose claimed over open or progress/incident because: (a) Sun has not withdrawn or corrected the paper, so it is not formally an incident/withdrawal; (b) the dispute (Wachs's note) is itself only a note, not a peer-reviewed refutation, and the field has not yet reached consensus; (c) the definition of claimed (\"experts have not yet digested\") fits a paper actively being checked and disputed better than open, which implies nothing happened. If Sun posts a corrected v2 that repairs Wachs's objection, or if the community consensus solidifies that the proof is unsalvageable, this record should be revisited: a solid rebuttal with no rescue would justify reclassifying as progress/incident dated to the claim.",
+  "what_would_settle_it": "A revised version of Sun's arXiv:2609.04176 (or a follow-up paper) that either repairs the Theorem 9.1 estimate Wachs disputes (with the prime-2 ledger term accounted for) and survives expert scrutiny — which would move this to resolved or at least keep it claimed with the dispute resolved in Sun's favor — or a definitive rebuttal/withdrawal confirming the gap is fatal, which would move this to progress with ai_role incident. Watching Sun's homepage and arXiv for a v2, and watching for citations/commentary from established Catalan's-constant experts (e.g., Calegari, Dimitrov, Tang, or Rivoal) would settle it either way.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2609.04176",
+      "title": "Catalan's constant is irrational",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.04176v1",
+      "title": "Catalan's constant is irrational (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.22339",
+      "title": "A note on a recent claimed proof of the irrationality of Catalan's constant",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.22339",
+      "title": "A note on a recent claimed proof of the irrationality of Catalan's constant (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/chokmah-me/catalan-sun-lean",
+      "title": "catalan-sun-lean: Lean 4 slice of arXiv:2609.04176v1 (Sun)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Catalan%27s_constant",
+      "title": "Catalan's constant",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/19612531",
+      "title": "A Formal Proof of the Irrationality of the Euler-Mascheroni Constant (𝛾)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.12123",
+      "title": "On the Algebraic Independence of a Set of Generalized Constants",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/html/2510.00315",
+      "title": "On the Uniqueness of Ein(1) among Linear Combinations of the Euler-Mascheroni and Euler-Gompertz Constants",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.01849",
+      "title": "Transcendence Results for Γ^(n)(1) and Related Sequences of Generalized Constants",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.14548",
+      "title": "Bessel Averaging, Fourier Decomposition, and the Value of the Borwein-Bailey-Girgensohn Series",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2603.14548",
+      "title": "Bessel Averaging, Fourier Decomposition, and the Value of the Borwein-Bailey-Girgensohn Series (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.11276",
+      "title": "The irrationality measure of pi is at most 7.101862832357...",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2606.17303",
+      "title": "Tail Criteria, No-Go Audits, and Apéry-Type Certificate Obstructions for the Irrationality of e+π",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/Euler-MascheroniConstant.html",
+      "title": "Euler-Mascheroni Constant -- from Wolfram MathWorld",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Khinchin's_constant",
+      "title": "Khinchin's constant - Wikipedia",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.15403",
+      "title": "The linear independence of 1, zeta(2), and L(2,chi_{-3})",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Zhi-Wei Sun Catalan's constant is irrational arxiv 2609.04176",
+      "Euler-Mascheroni constant gamma irrationality 2024 2025 2026 proof",
+      "Khinchin's constant irrationality proof 2024 2025 2026",
+      "irrationality measure pi e 2024 2025 2026 improved bound",
+      "irrationality measure of pi less than 3 unconditional March 2026 arxiv",
+      "gamma Euler-Mascheroni Euler-Gompertz constant at least one transcendental 2025 arxiv",
+      "\"2609.11276\" irrationality measure pi Zeilberger Zudilin September 2026",
+      "Carlos Lopez Zapata irrationality measure pi 2603.14548 retracted withdrawn error",
+      "Zhi-Wei Sun Catalan constant proof response Wachs error withdrawn v2",
+      "\"pi + e\" OR \"pi - e\" OR \"pi*e\" OR \"pi/e\" irrationality algebraic proof 2024 2025 2026",
+      "\"e^e\" OR \"2^e\" OR \"pi^pi\" OR \"pi^e\" transcendental algebraic irrationality proof 2024 2025 2026",
+      "\"ln pi\" OR \"log pi\" irrationality transcendence proof 2024 2025 2026 arxiv"
+    ],
+    "places_checked": [
+      "arXiv listings and abstract/HTML pages for the identified preprints",
+      "GitHub repository formalizing part of Sun's proof",
+      "Wikipedia's live Catalan's constant article",
+      "MathWorld pages for Euler-Mascheroni and Khinchin's constants",
+      "Zenodo repository for the gamma irrationality claim",
+      "Google/web search across multiple targeted queries per constant"
+    ],
+    "dead_ends": [
+      "Attempted to fetch Zhi-Wei Sun's homepage (maths.nju.edu.cn/~zwsun) directly to check for an author update or correction notice on the Catalan's constant paper; the connection was refused (ECONNREFUSED), so this could not be checked directly. Fell back to arXiv's own version history (only v1 exists) and secondary search results, which showed no news of a v2 or public retraction.",
+      "Searched for a direct rebuttal/response thread to Wachs's note beyond the note itself; found none, suggesting the dispute is very recent (within the past week of the check date) and not yet widely discussed.",
+      "Checked whether the March 2026 mu(pi)<3 characterization from an initial search summary was accurate; on inspecting the actual paper (arXiv:2603.14548) directly, it does not claim any new bound on mu(pi) at all — it only cites the pre-existing Zeilberger-Zudilin bound as background. This was a search-summary hallucination/misreading and is excluded from the record's substantive findings."
+    ]
+  },
+  "incomplete": "Could not directly access Zhi-Wei Sun's personal homepage to check for any author statement about the Wachs critique (site refused connection); relied on arXiv and secondary sources instead. Also did not exhaustively search for every one of the twelve non-Catalan constants individually beyond the queries listed, though the queries were broad enough to reasonably cover algebraic/irrationality status changes for all of them jointly.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "claimed",
+      "to": "open",
+      "why": "F6/F1/F2: the record's own dispute says Wachs found the key Theorem 9.1 quantity is numerically positive (+1.5 to +1.9 B²) where the proof needs it negative, corroborated by the Lean slice, and no answer from Sun, so the claim is knocked down; in any case one constant of fourteen is a case, not whole. The Reed gamma claim is not credible, and the pi bound is out of scope, so nothing survives."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "none",
+      "why": "F6/F8: the AI role belonged to Sun's knocked-down preprint, which cannot set the status; with no event surviving there is no AI credit."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "resolution_direction",
+      "from": "confirmed",
+      "to": null,
+      "why": "other: §4 step 6, an open status carries a null direction."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "sun-2026",
+        "what": "Zhi-Wei Sun claims a proof that Catalan's constant is irrational",
+        "date": "2026-09-03",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.04176",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Wachs (arXiv:2609.22339) shows the Theorem 9.1 quantity the proof needs to be negative is numerically about +1.5 to +1.9 B², plus a missing prime-2 term; an independent partial Lean slice measures ~+1.86. No response or v2 from Sun.",
+        "ai_role": "assisted",
+        "ai_basis": "The author's many rounds of conversations with AI provide the basis of this paper. ... The needed numerical data in the proof were produced by AI.",
+        "direction": "confirmed",
+        "is_counterexample": false
+      },
+      {
+        "id": "reed-2026",
+        "what": "Jonathan Reed Zenodo writeup claiming a Lean-checked proof that gamma is irrational",
+        "date": "2026-04",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://zenodo.org/records/19612531",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Landmark problem, self-published on Zenodo, no expert uptake in ~6 months, later 2025-2026 work still treats gamma's irrationality as open; rests only on a formal check (F10).",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": "confirmed",
+        "is_counterexample": false
+      },
+      {
+        "id": "bai-2026",
+        "what": "Bai lowers the irrationality-measure bound of pi to 7.1018...",
+        "date": "2026-09",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.11276",
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "yu-2026",
+        "what": "Yu's no-go result on Apery-type certificates for irrationality of e+pi",
+        "date": "2026-06",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/pdf/2606.17303",
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": null,
+    "derived": {
+      "status": "open",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [
+      "status",
+      "ai_role",
+      "resolution_direction"
+    ],
+    "doubts": "Sun's claim would have been a case (one of fourteen constants), never whole, so 'claimed' was wrong even before Wachs (F1/F2). Pi itself is not in the bullet's list, so Bai's bound is out of scope. If Sun posts a repaired v2 that survives scrutiny, this becomes partial with ai_role assisted.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  }
+}

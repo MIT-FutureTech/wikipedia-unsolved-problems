@@ -1,0 +1,102 @@
+{
+  "key": "hermites-problem",
+
+  "status": "open",
+  "no_change_found": false,
+  "outcome": "A single-author preprint (Ludovic Tagnon, 24 Aug 2026, arXiv:2608.23281, companion arXiv:2608.24750) claims to settle Karpenkov's Problem 4 — the complex (signature (1,1)) cubic case, the last open case of Hermite's problem for n=3 — via a deterministic sin^2-type algorithm with exact periodicity certificates verified on 205 sample polynomials and an exhaustive box search, plus a Lean 4 machine-checked instance for the plastic number field; this is a preprint with no expert digestion yet, so it counts as a claimed result on a case of the problem, not a resolution.",
+  "status_sources": [
+    "https://arxiv.org/abs/2608.23281",
+    "https://arxiv.org/html/2608.23281",
+    "https://arxiv.org/abs/2608.24750"
+  ],
+
+  "event": {
+    "date": "2026-08-24",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2608.23281"]
+  },
+
+  "credited_humans": ["Ludovic Tagnon"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "This research was AI-assisted. All computations were carried out under a fixed audit protocol: questions and thresholds fixed in advance, published fixtures reproduced before every run, independent recounts of every headline number, hash-chained manifests, and adversarial review of the manuscript itself. The protocol is documented in PROTOCOL.md inside the archive; the human author directed the work and takes responsibility for all claims.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": ["https://arxiv.org/abs/2608.23281", "https://arxiv.org/html/2608.23281"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "Hermite's problem (does every real number admit an assignment of an eventually-periodic integer sequence iff it is algebraic of degree n) was, as of January 2024, solved only for the totally-real cubic case (n=3) via Karpenkov's sin^2-algorithm (2022, pre-window). The remaining open case for n=3, the complex (signature (1,1)) cubics, is Karpenkov's own 'Problem 4'. On 24 August 2026, Ludovic Tagnon (sole author, Nancy, France) posted arXiv:2608.23281, 'A deterministic sin^2-type algorithm for complex cubic irrationalities with exact periodicity certificates', claiming a deterministic algorithm that implements Karpenkov's suggested analytic extension of the sin^2-algorithm to the (1,1) signature, proves a closed-form negativity lemma for the score function, and empirically/certifiably confirms eventual periodicity on 205 sampled complex cubic polynomials plus an exhaustive search over [-3,3]^3 (194/194 closing), with one field (the plastic number) machine-checked in Lean 4 'kernel-only'. A companion structural paper, arXiv:2608.24750 (25 Aug 2026, same sole author), proves finiteness and height-descent theorems supporting the algorithm. The paper's own abstract states 'The general periodicity problem remains open' -- it resolves a case (n=3, signature (1,1)), not the whole n=3 problem's general/all-n formulation, and it is not a resolution of Hermite's problem as stated in the Wikipedia bullet (which is about all natural numbers n). Per the scope rule (3.1) this is a case of the problem (restricting to n=3, and within that to one signature), so if accepted it would count as `partial` progress toward the n=3 case, not a resolution of the bullet as a whole. As of today (22 Sept 2026) this is under one month old, single-authored, with no journal acceptance, no digestion by an outside expert (e.g. Karpenkov himself, whose Problem 4 it purports to answer), and no citing/discussion found beyond the automated 'Pith' preprint-review platform, which is an automated (non-expert-human) review service, not a mathematician's digestion. The Lean 4 verification covers only one specific field instance (the plastic number), not the general algorithm's correctness, and the 205-sample and exhaustive-box verifications are described as computational/empirical certificates rather than a general proof that the algorithm terminates for all (1,1) cubics -- so even taking the paper at face value, it is an empirical/certificate-backed claim on a restricted domain, not a full proof of Problem 4. I therefore classify status as `claimed` (preprint, not yet expert-digested) rather than `resolved` or `partial`; because no case has actually been *settled* by expert consensus yet, `partial` would overstate certainty, though once/if experts digest it, downgrading to `partial` (a case of the n=3 problem settled) or keeping `claimed` upgraded to something else may be warranted. On AI: the paper states 'This research was AI-assisted' in a 'Reproducibility' section, but goes on to describe the AI's role only as running computations under a fixed, human-designed audit protocol, recounting headline numbers, and performing 'adversarial review of the manuscript' -- i.e., checking, auditing, and proofreading of work the human author designed and directed ('the human author directed the work and takes responsibility for all claims'). No specific AI system is named anywhere in either paper. Under the rules in 6.2, checking, auditing, proofreading and reviewing do not qualify as `assisted`, `generated`, or `bound` -- those require the AI to have produced part of the mathematics (an argument, construction, case, or bound) by the authors' own account, which this disclosure does not claim. I therefore code `ai_role` as `none`, while flagging in `competing_reading` that the vague, unnamed 'AI-assisted... computations' language leaves open the possibility that an AI system actually executed the search/verification computations that produced the periodicity certificates (arguably part of the mathematical result, not just proofreading it) -- if so this would lean toward `bound` or `assisted` rather than `none`. Given the disclosure names no system and explicitly frames the human as having 'directed the work,' `none` is the more defensible reading under the requirement that `assisted`/`generated` need a clear authorial statement that AI produced mathematics appearing in the result.",
+  "competing_reading": "If 'computations were carried out under a fixed audit protocol' by AI is read as the AI actually executing the search that produced the periodicity certificates on 205 polynomials and the exhaustive box search (i.e., generating the numerical/algebraic verification data that is part of the result), this could be coded `assisted` (AI produced part of the mathematics, specifically the verification computations) rather than `none`. The paper's phrasing is genuinely ambiguous between 'AI ran routine verification scripts' (non-qualifying) and 'AI executed the core computational search underlying the certificates' (arguably qualifying). No named system and no explicit statement of what specifically the AI computed versus what conventional code/CAS did tips me toward `none`, but a stricter reader could reasonably code this `assisted` or `bound`.",
+  "what_would_settle_it": "The archive's PROTOCOL.md (referenced but not fetched here) or a direct statement from the author about which specific AI system was used and for which specific computational or mathematical steps would resolve whether this is `none` or `assisted`/`bound`. Expert response from Oleg Karpenkov or another specialist confirming or disputing the periodicity certificates would resolve whether this remains `claimed` or should become `partial`/`resolved`.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2608.23281", "title": "A deterministic sin^2-type algorithm for complex cubic irrationalities with exact periodicity certificates", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.23281", "title": "A deterministic sin^2-type algorithm for complex cubic irrationalities with exact periodicity certificates (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.24750", "title": "A dual reformulation of the complex sin^2-algorithm: exact identities, descent, and finiteness", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.24750", "title": "A dual reformulation of the complex sin^2-algorithm: exact identities, descent, and finiteness (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2101.12627", "title": "On a periodic Jacobi-Perron type algorithm (Karpenkov)", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Hermite%27s_problem", "title": "Hermite's problem", "type": "encyclopedia", "opened": true},
+    {"url": "https://pith.science/paper/2608.23281", "title": "A deterministic sin^2-type algorithm for complex cubic irrationalities with exact periodicity certificates · Pith", "type": "blog", "opened": true},
+    {"url": "https://pith.science/", "title": "Pith - preprint review for science", "type": "blog", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "\"Hermite's problem\" cubic irrational periodic algorithm solved 2026",
+      "Ludovic Tagnon Hermite's problem Lean 4 sin^2 algorithm cubic",
+      "pith.science Ludovic Tagnon AI mathematics research agent",
+      "\"Karpenkov's Problem 4\" Hermite complex cubic signature (1,1) solved",
+      "Tagnon \"sin^2-algorithm\" complex cubic Hermite problem review Karpenkov response"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2608.23281 and 2608.24750",
+      "arXiv abstract for 2101.12627 (Karpenkov's earlier totally-real-case paper, for context)",
+      "Hermite's problem Wikipedia article (current, live version, for status/context only)",
+      "pith.science paper and citations pages (automated preprint-review platform hosting a page for this arXiv ID)",
+      "general web search for expert commentary, Karpenkov response, or citations of the new preprints"
+    ],
+    "dead_ends": [
+      "No expert blog (Tao, Karpenkov, numeration-theory blogs) discussion of the new preprints found",
+      "No journal acceptance or citation record found for either 2608.23281 or 2608.24750",
+      "pith.science 'citations' pages returned general AI-for-math survey papers, not a specific claim about this paper's production process beyond the paper's own self-disclosure"
+    ]
+  },
+
+  "incomplete": "Did not fetch the archive's PROTOCOL.md referenced in the paper (not on arXiv; would require locating an external data/code repository) which might clarify exactly what the AI-assisted computations entailed. Did not find any expert (human mathematician) response to or citation of these August 2026 preprints, consistent with their being under one month old at time of writing; this record may need revisiting once such a response appears.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass. Judged from this record's own findings; no new sources were opened",
+      "field": "status",
+      "from": "claimed",
+      "to": "open",
+      "why": "On the record's own reading, the preprint does not claim what `claimed` says it claims. Karpenkov's Problem 4 is a universal statement (the algorithm is eventually periodic for every complex cubic), and the evidence is certificates for 205 sampled polynomials, an exhaustive box [-3,3]^3, and one Lean-checked field; the abstract itself says 'the general periodicity problem remains open'. Checking finitely many instances of a universal claim is one more example, not a case settled: the same rule set `collatz-conjecture` to `open` (verification to 2^71). The companion paper's finiteness and height-descent theorems are supporting lemmas, not a bound on the stated quantity. Nothing else in the window qualifies. The paper stays in `outcome`, `event` and `summary` as evidence; a general termination proof, or Karpenkov's endorsement, would move this to `partial`."
+    },
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass",
+      "field": "resolution_direction",
+      "from": "confirmed",
+      "to": null,
+      "why": "Follows the status correction: an `open` problem has no direction."
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "key": "connes-embedding-problem",
+
+  "status": "open_stale",
+  "no_change_found": false,
+  "outcome": "The Connes embedding problem was resolved in the negative by the MIP*=RE result (Ji, Natarajan, Vidick, Wright, Yuen), first announced in January 2020 and published in a fixed form in Communications of the ACM in November 2021 — well before the 26 January 2024 frozen revision, so this is a stale entry on the list rather than a change in the window. Within the window, two further items appeared that bear on the problem but do not alter its already-settled status: a June 2024 paper by Goldbring and Hart gives an independent proof route to the same negative resolution via undecidability of the hyperfinite II₁ factor's universal theory, and a February 2025 preprint by Manzoor gives a simplified/independent construction of a non-Connes-embeddable tracial von Neumann algebra, though it still invokes MIP*=RE as an ingredient rather than avoiding it entirely. No AI system is involved anywhere in this history.",
+  "status_sources": [
+    "https://arxiv.org/abs/2001.04383",
+    "https://dl.acm.org/doi/abs/10.1145/3485628",
+    "https://en.wikipedia.org/wiki/Connes_embedding_problem"
+  ],
+
+  "event": {
+    "date": "2020-01-13",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": true,
+    "sources": [
+      "https://arxiv.org/abs/2001.04383",
+      "https://dl.acm.org/doi/abs/10.1145/3485628"
+    ]
+  },
+
+  "credited_humans": ["Zhengfeng Ji", "Anand Natarajan", "Thomas Vidick", "John Wright", "Henry Yuen"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "A type II₁ von Neumann factor (equivalently, via the Feb 2025 paper, the von Neumann algebra of an invariant random subgroup construction on non-abelian free groups) that does not embed into an ultrapower of the hyperfinite II₁ factor Rω, shown to exist via the MIP*=RE quantum complexity result rather than exhibited as a single explicit algebra.",
+    "explicit": false,
+    "verified_how": "Proved via the MIP*=RE theorem in complexity theory (a corrected version published Nov 2021 in Communications of the ACM after an error in an earlier ingredient was found and fixed in Sept 2020); Manzoor's Feb 2025 preprint gives an independent, more elementary construction still relying on MIP*=RE.",
+    "sources": [
+      "https://arxiv.org/abs/2001.04383",
+      "https://arxiv.org/abs/2502.06697",
+      "https://en.wikipedia.org/wiki/Connes_embedding_problem"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [],
+
+  "summary": "The Connes embedding problem was already resolved negatively before the window: Ji, Natarajan, Vidick, Wright, and Yuen's MIP*=RE result was first posted to arXiv on 13 January 2020 (arXiv:2001.04383), an error in an earlier ingredient was found and a corrected preprint posted in September 2020, and a broad outline appeared in Communications of the ACM in November 2021 (dl.acm.org/doi/10.1145/3485628). All of this predates the 26 January 2024 frozen Wikipedia revision, so the correct classification is open_stale: the list is stale on this entry, not that something changed in the window. I verified this directly from the arXiv abstract page (version history: v1 Jan 2020, v2 Sept 2020, v3 Nov 2022) and from the CACM publication record, matching the triage's finding. Within the window (26 Jan 2024 to present) two further items surfaced. First, Goldbring and Hart, 'The universal theory of the hyperfinite II₁ factor is not computable,' published in the Bulletin of Symbolic Logic in June 2024, gives an independent route to the same already-known negative resolution by showing the relevant first-order theory is undecidable (itself built on MIP*=RE) — this is a new proof technique for an old conclusion, not a change to the problem's status, and it settles nothing that was still open. Second, Aareyan Manzoor's 'There Is An Equivalence Relation Whose von Neumann Algebra Is Not Connes Embeddable' (arXiv:2502.06697, submitted Feb 2025, revised Apr 2026) gives a more elementary/independent construction of a non-embeddable algebra via invariant random subgroups of free groups, explicitly simplifying the reduction used in MIP*=RE — but the paper itself states plainly that it still uses MIP*=RE as an ingredient ('The landmark quantum complexity result MIP*=RE was used to prove the existence of a non Connes embeddable tracial von Neumann algebra'), so it is not an independent resolution avoiding the original proof, just a cleaner derivation of the same corollary. I also checked a June 2025 ICMAT interview with Gilles Pisier, who states that the MIP*=RE proof, coming from theoretical computer science, has still not been fully verified by analysts and that he is trying to find a purely analytic proof — this confirms the mathematical community still treats the CACM-published result as authoritative (i.e., 'resolved' rather than merely 'claimed') while independent verification work continues, and shows no sign this reopens the question. No AI system appears anywhere in this history: the MIP*=RE authors are five named human researchers with no computational or AI component to the proof itself (aside from ordinary use of complexity-theoretic and analytic techniques), Goldbring and Hart's paper is a human model-theoretic argument, and Manzoor's construction is likewise a human-authored mathematical argument with no stated AI assistance. A Google DeepMind 'formal-conjectures' GitHub issue (#1763) exists but is only a request to formalize the *statement* of the Connes embedding problem in Lean/mathlib — it is an open, unclaimed formalization task with no proof attached, and does not constitute AI involvement in any result.",
+  "competing_reading": "One could argue the Goldbring-Hart (June 2024) or Manzoor (Feb 2025) papers should be coded as `progress` within the window on the theory that they represent a genuinely new, independent within-window event even though the overall conjecture was already settled before 2024. I considered this but rejected it: per §6.1, `open_stale` is for problems settled before the frozen date, and per §3.1 the test is whether a result changes what a careful person would write in this bullet's entry — since the entry is simply 'is Connes' embedding conjecture true', and that was already answered negatively pre-2024, neither 2024/2025 paper changes the answer; they offer new proofs/simplified constructions of the same already-known fact. The stronger case for `progress` would be if one treated 'the community has now also verified/reproduced the result via an independent route' as itself informative (e.g. increasing confidence given Pisier's stated verification concerns) — but no source treats either 2024 or 2025 paper as a distinct resolution event or digestion milestone changing the status of the original claim.",
+  "what_would_settle_it": "A fully independent, expert-digested proof of the negative resolution that does not rely on MIP*=RE at all (Pisier describes exactly this as his goal, unachieved as of the June 2025 interview) would be the kind of event that could warrant a `progress` or renewed `claimed`/`resolved` entry distinct from the stale MIP*=RE-based resolution; no such proof has yet appeared.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2001.04383", "title": "MIP*=RE", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2001.04383", "title": "MIP*=RE (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://dl.acm.org/doi/abs/10.1145/3485628", "title": "MIP* = RE | Communications of the ACM", "type": "journal", "opened": true},
+    {"url": "https://arxiv.org/abs/2502.06697", "title": "There Is An Equivalence Relation Whose von Neumann Algebra Is Not Connes Embeddable", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Connes_embedding_problem", "title": "Connes embedding problem", "type": "encyclopedia", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/issues/1763", "title": "Connes Embedding Problem · Issue #1763 · google-deepmind/formal-conjectures", "type": "repository", "opened": true},
+    {"url": "https://www.icmat.es/news/interviews/05-06-25-en/", "title": "ICMAT interview with Gilles Pisier", "type": "news", "opened": true},
+    {"url": "https://www.cambridge.org/core/journals/bulletin-of-symbolic-logic/article/abs/universal-theory-of-the-hyperfinite-ii1-factor-is-not-computable/58AED5F57C778A768E3087C32EFD576E", "title": "The universal theory of the hyperfinite II₁ factor is not computable", "type": "journal", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Connes embedding problem disproved MIP*=RE",
+      "Connes embedding problem 2025 2026",
+      "Connes embedding problem resolved MIP*=RE Communications of the ACM digestion",
+      "Connes embedding problem 2024 2025 2026 progress",
+      "Goldbring Hart 2024 universal theory hyperfinite II1 factor not computable Connes embedding",
+      "\"Connes embedding\" AI Lean formalization proof 2025 2026"
+    ],
+    "places_checked": [
+      "arXiv abstract/version history for 2001.04383",
+      "arXiv abstract/version history for 2502.06697",
+      "Communications of the ACM (dl.acm.org) publication record",
+      "Wikipedia's own Connes embedding problem article (current live version, for context only, not as denominator)",
+      "Google DeepMind formal-conjectures GitHub repository issue tracker",
+      "ICMAT interview archive",
+      "General web search for Lean/AI formalization of this specific problem"
+    ],
+    "dead_ends": [
+      "Searched for AI/Lean formalization or proof of the Connes embedding problem specifically; found only an open, unclaimed formalization request (issue #1763) for the statement, no proof attempt, AI or otherwise",
+      "Searched broadly for 2024-2026 progress; the only within-window items found (Goldbring-Hart, Manzoor) are alternative proofs/constructions of the pre-2024 resolution, not new results changing the problem's status"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

@@ -1,0 +1,108 @@
+{
+  "key": "are-there-any-pairs-of-relatively-prime-amicable-numbers",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No progress on the mathematical question itself was found since 26 January 2024: the existence of a coprime (gcd=1) amicable pair remains unknown. Two pieces of activity touch the problem without changing it: (1) a February 2026 GitHub issue/PR in DeepMind's formal-conjectures repository formalizes the question as an open Lean statement (not a proof either way), with the Lean formalization itself assisted by an AI model; (2) a January 2026 arXiv paper formalizing amicable-number theory in Lean cites the same >10^65 computational non-existence bound without improving it or resolving the question.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Amicable_numbers",
+    "https://github.com/google-deepmind/formal-conjectures/issues/2244",
+    "https://arxiv.org/abs/2601.07444"
+  ],
+
+  "event": {
+    "date": "2026-02-10",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://github.com/google-deepmind/formal-conjectures/issues/2244",
+      "https://github.com/google-deepmind/formal-conjectures/pull/3531"
+    ]
+  },
+
+  "credited_humans": ["franzhusch"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "Formalization assisted by Claude Opus 4.6.",
+    "formalisation_only": true,
+    "disclosed_cost": null,
+    "systems": ["Claude Opus 4.6"],
+    "sources": ["https://github.com/google-deepmind/formal-conjectures/pull/3531"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "This is the general existence question 'are there any coprime amicable pairs?', which the frozen Wikipedia revision already stated as open with a computational lower bound (then >10^67 on the product; the current article states the same). Searching turned up two items of activity in the window, neither of which changes the mathematics: (1) GitHub issue #2244 in google-deepmind/formal-conjectures (opened 2026-02-10, closed via PR #3531) formalizes the question 'do there exist an amicable pair (a,b) with gcd(a,b)=1?' as a Lean conjecture statement — i.e. it states the open question in a proof assistant, it does not prove or disprove it. The PR's commit message says 'Formalization assisted by Claude Opus 4.6', but per the deep-dive rules a formalisation-only AI contribution is coded ai_role=none regardless of which model helped write the Lean statement, since no mathematics entered the result — the conjecture is still open before and after. (2) The January 2026 arXiv paper 'Formalization of Amicable Numbers Theory' (arXiv:2601.07444) also formalizes classical amicable-number results in Lean 4 and, in the course of that framework, restates the empirical computational bound (searches have found no coprime amicable pair below roughly 10^65) without proving non-existence or finding a coprime pair. Per section 3.1, an infinitude/existence question is only advanced by an answer, and neither item answers it — they restate and formalize the same open question the frozen revision already recorded. Wikipedia's live 'Amicable numbers' article, checked directly, still states 'It is not known whether a pair of coprime amicable numbers exists' with no citation newer than 1969-1970 Hagis papers. I therefore classify this as status=open with no_change_found=true. This aligns with the triage's 'none' verdict; I did not disagree with it, though I went further by opening the actual GitHub issue/PR and arXiv paper rather than just search snippets, and confirmed the AI-assistance detail (Claude Opus 4.6 assisting the Lean formalization) that the triage pass did not surface.",
+  "competing_reading": "One could argue the DeepMind formal-conjectures repository activity constitutes a form of 'progress' in the broad sense that the conjecture is now machine-formalized and thus more tractable for future automated theorem-proving attempts. But per the rubric, a bare Lean statement of an already-known-open question, with no proof attempt or bound movement, is not a change to the problem's status — it would need to actually attempt or claim a proof to register as `claimed` or `progress`. I also considered whether the AI-assisted formalization should count as `ai_role: assisted`, but the rules explicitly carve out formalisation-only contributions as `none`, so I coded it that way despite the presence of a named, quotable AI system.",
+  "what_would_settle_it": "Either an exhibited coprime amicable pair (settling it in the affirmative, likely via massive computational search or a novel construction) or a proof that gcd(a,b)=1 is impossible for an amicable pair (settling it in the negative). Short of that, a published improvement to the >10^65 (or >10^67 on the product) search bound would count as `progress`.",
+  "confidence": "high",
+
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Amicable_numbers",
+      "title": "Amicable numbers",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/issues/2244",
+      "title": "Relatively Prime Amicable Numbers · Issue #2244 · google-deepmind/formal-conjectures",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/pull/3531",
+      "title": "PR #3531 · google-deepmind/formal-conjectures",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.07444",
+      "title": "Formalization of Amicable Numbers Theory",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/issues/2241",
+      "title": "Amicable Numbers with Opposite Parity · Issue #2241 · google-deepmind/formal-conjectures",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "relatively prime amicable numbers coprime pair does exist",
+      "\"amicable numbers\" coprime relatively prime open problem 2024 2025",
+      "google-deepmind formal-conjectures \"Relatively Prime Amicable Numbers\"",
+      "amicable numbers Wikipedia unsolved problem coprime",
+      "\"amicable\" \"coprime\" proof 2026 disprove arxiv counterexample"
+    ],
+    "places_checked": [
+      "Wikipedia 'Amicable numbers' live article",
+      "arXiv listing/abstract for arXiv:2601.07444",
+      "google-deepmind/formal-conjectures GitHub issue #2244",
+      "google-deepmind/formal-conjectures GitHub PR #3531",
+      "general web search for any 2024-2026 proof, disproof, or bound improvement"
+    ],
+    "dead_ends": [
+      "Searched for a counterexample or proof announcement specifically dated 2024-2026; found only formalization/restatement activity, no mathematical progress",
+      "Checked whether the arXiv paper 2601.07444 improved the >10^65 search bound; it only cites the existing bound (attributed to Pedersen-style computational search) without extending it"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

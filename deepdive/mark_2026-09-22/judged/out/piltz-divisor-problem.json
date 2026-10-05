@@ -1,0 +1,270 @@
+{
+  "key": "piltz-divisor-problem",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The problem (determining the true order of the error term Δ_k(x) in the generalized/Piltz divisor problem) remains open for every k≥2, but several explicit-constant and exponent improvements were published within the window, most concretely Sebastian Tudzi's paper giving explicit numerical bounds |Δ₃(x)| < 2.968x^(2/3)log^(1/3)x and general-k bounds with explicit constants for k=4,5,6, first posted to arXiv 26 June 2025 and later published in the Ramanujan Journal (2026). No AI system was involved in any of the papers examined.",
+  "status_sources": [
+    "https://arxiv.org/abs/2506.21823",
+    "https://arxiv.org/html/2506.21823",
+    "https://teorth.github.io/expdb/blueprint/divisor-chapter.html"
+  ],
+  "event": {
+    "date": "2025-06-26",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2506.21823"
+    ]
+  },
+  "credited_humans": [
+    "Sebastian Tudzi"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [],
+  "summary": "The Piltz (generalized Dirichlet) divisor problem asks for the true order of Δ_k(x) = D_k(x) − xP_k(log x), the error term when d_k(n) (n written as a product of k factors) is summed up to x; for every k this remains open, since only upper bounds on the exponent α_k are known and the conjectured optimal value α_k = 1/2 − 1/(2k) has not been proven for any k≥2. Within the window (26 Jan 2024 to present) I found no resolution of the problem for any k, but several genuine incremental results narrowing/explicating known bounds. The clearest is Sebastian Tudzi, 'On the Generalised Divisor Problem' (arXiv:2506.21823, posted 26 June 2025, published in Ramanujan J. 70 (2026)), which via the Dirichlet convolution method gives an explicit numerical bound |Δ₃(x)| < 2.968·x^(2/3)(log x)^(1/3) for all x≥2 (improving prior explicit constants for k=3) and explicit constants for the general-k bound Δ_k(x) = O(x^((k-1)/k)(log x)^((k-1)(k-2)/(2k))) for k=4,5,6 with a recurrence for larger k. I read the arXiv HTML full text including the acknowledgements section, which thanks the author's supervisor Timothy S. Trudgian and several colleagues for discussion — no computational or AI tool is mentioned anywhere. I also checked two other leads the triage pass surfaced: (1) Minamide, Tanigawa and Watt, 'On the sum of Δ_k(n) in the Piltz divisor problem for k=3 and k=4' (arXiv:2412.11069, posted 15 Dec 2024, published Acta Arithmetica 216.4 (2024)) — this bounds the *summed* quantity Σ_{n≤x}Δ_k(n), a related but distinct object from Δ_k(x) itself; I judged this a case/adjacent result worth noting but it does not itself move the bound on Δ_k(x) as stated in the bullet, and its abstract shows no AI involvement. (2) A preprints.org manuscript ('On the Generalized Dirichlet Divisor Problem', May 2025) claimed by triage to give improved α_k bounds for 9≤k≤20 — this page returned HTTP 403 to automated fetch and I could not read it directly; Tao's expdb blueprint (teorth.github.io) corroborates that a 2025 result by 'Li' improves α_k for k in the 9–20 range (its Theorem 16.20), competing with earlier Trudgian–Yang bounds (Theorem 16.19, from arXiv:2306.05599, whose v1 predates the window (9 June 2023) but whose v3 was posted 15 July 2024, inside the window — I could not confirm from the abstract alone whether v3 added genuinely new results or was a revision of the same June-2023 result, so I am not resting the status on it). I also checked and ruled out two other candidate events as predating the window: Bellotti–Yang's large-k bound Δ_k(x) ≪ x^(1−1.889k^(−2/3)) (arXiv:2303.05028, posted 9 March 2023, journal-published in BLMS May 2024 — the journal date is not the event date per §6.3) and Li–Yang's α₂ ≤ 0.314483... (arXiv:2308.14859, posted 28 August 2023). Both predate 26 January 2024 and would be open_stale if they were the only evidence, but since the Tudzi 2025 result is a genuine in-window improvement, the overall status is 'progress' rather than 'open_stale'. I found no trace of AI/LLM involvement anywhere in this corner of analytic number theory: no papers, blog posts, or lab announcements connect the Piltz/generalized divisor problem to any AI system. This is consistent with the nature of the problem — it requires exponential-sum and zeta-moment estimation techniques that are far from current AI theorem-proving benchmarks (IMO-style problems, short combinatorial arguments), and no lab or Lean/AI project appears to have targeted it.",
+  "competing_reading": "One could argue the Tudzi paper's contribution is narrow enough (explicit constants for an already-known asymptotic exponent, not a new exponent) that it should be 'open' rather than 'progress' — the qualitative bound O(x^((k-1)/k)(log x)^(...)) for k≥4 was already the known form; what changed is the numerical constant λ_k. I classified it as 'progress' because bounding constants explicitly is itself the kind of incremental movement the triage/audit rules treat as counting (§3.1: 'a bound that moved a little... counts'), and because the k=3 case did tighten the known exponent-adjacent estimate with an explicit, checkable numerical inequality. A stricter reading limiting 'progress' to exponent (not just constant) improvements would instead call this 'open' with the Tudzi paper noted as a near-miss.",
+  "what_would_settle_it": "Reading the preprints.org manuscript directly (currently blocked by a 403) to see exactly which α_k values for 9≤k≤20 it improves and whether it substantively differs from the Trudgian–Yang and Li results already logged in Tao's expdb; and diffing arXiv:2306.05599 v1 (June 2023) against v3 (July 2024) to see whether the divisor-problem-relevant theorem was added or only revised in the window.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2506.21823",
+      "title": "On the Generalised Divisor Problem",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2506.21823",
+      "title": "On the Generalised Divisor Problem (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2506.21823",
+      "title": "On the Generalised Divisor Problem (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.11069",
+      "title": "On the sum of Δ_k(n) in the Piltz divisor problem for k=3 and k=4",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.preprints.org/manuscript/202505.1432/v2",
+      "title": "On the Generalized Dirichlet Divisor Problem",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2303.05028",
+      "title": "On the generalised Dirichlet divisor problem (Bellotti–Yang)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2308.14859",
+      "title": "An improvement on Gauss's Circle Problem and Dirichlet's Divisor Problem (Li–Yang)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2306.05599",
+      "title": "Toward optimal exponent pairs (Trudgian–Yang)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://teorth.github.io/expdb/blueprint/divisor-chapter.html",
+      "title": "The generalized Dirichlet divisor problem — Analytic Number Theory Exponent Database",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Divisor_summatory_function",
+      "title": "Divisor summatory function",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s11139-026-01422-5",
+      "title": "On the generalised divisor problem — Ramanujan Journal",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Piltz divisor problem Delta_k(x) exponent bound improved 2024 2025 2026",
+      "\"divisor problem\" AI large language model theorem proving number theory 2025",
+      "\"Piltz divisor problem\" wikipedia article 2026",
+      "Trudgian Yang generalized Dirichlet divisor problem alpha_k improved bound preprint 2025",
+      "Li 2025 generalized Dirichlet divisor problem alpha_k k=9 20 arxiv",
+      "Li Yang 2023 alpha_2 0.314483 divisor problem exponent pairs arxiv",
+      "\"generalized Dirichlet divisor problem\" preprints.org 2025 alpha_k improve Trudgian Yang author",
+      "\"On the generalised divisor problem\" Ramanujan Journal 2026 arxiv preprint Tudzi"
+    ],
+    "places_checked": [
+      "arXiv abstract/HTML pages for all candidate papers",
+      "Wikipedia 'Divisor summatory function' live article",
+      "Terence Tao's Analytic Number Theory Exponent Database (expdb) blueprint",
+      "General web search for AI/LLM involvement in divisor-problem-related number theory"
+    ],
+    "dead_ends": [
+      "preprints.org manuscript 202505.1432/v2 returned HTTP 403 to automated fetch; could not confirm its exact claims or dates directly, relied on expdb corroboration instead",
+      "Springer link for the Ramanujan Journal version of the Tudzi paper redirected to an authentication wall; relied on the arXiv version instead",
+      "Searches for AI/LLM involvement in this specific problem area turned up general LLM-theorem-proving survey papers (IMO problems, Erdős problems) with no connection to the Piltz/divisor problem"
+    ]
+  },
+  "incomplete": "Could not directly read the preprints.org manuscript (403 error) or the published Ramanujan Journal version (auth wall) — relied on the arXiv preprint of Tudzi's paper and Tao's expdb summary as corroboration instead. Did not diff arXiv:2306.05599 v1 vs v3 line-by-line to determine whether its July 2024 revision added new divisor-problem content within the window; it is not the basis for the status so this gap does not affect the classification, but it does affect the confidence.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "resolution_direction",
+      "from": "confirmed",
+      "to": null,
+      "why": "F14: the record itself says 'the problem ... remains open for every k≥2' and that Tudzi gives explicit constants for known bounds. That is a bound (status progress), and a progress row carries a null direction."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "progress",
+      "to": "progress",
+      "why": "F3: Tudzi only sharpens the constants in known bounds, and the record's competing_reading argues this might be 'open'. Kept, because the bullet asks about bounding Δ_k(x), and a smaller explicit constant bounds it more tightly. The expdb-corroborated Li 2025 α_k improvement for 9≤k≤20 is an after-snapshot bound as well."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "tudzi-2025",
+        "what": "Tudzi gives explicit constants: |Δ₃(x)| < 2.968x^(2/3)log^(1/3)x for x≥2, and explicit constants in the general-k O-bound for k=4,5,6",
+        "date": "2025-06-26",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2506.21823",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "li-2025-preprints-org",
+        "what": "Li (per Tao's expdb, Theorem 16.20) improves α_k for 9≤k≤20; preprints.org manuscript not opened",
+        "date": "2025-05",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://www.preprints.org/manuscript/202505.1432/v2",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "minamide-tanigawa-watt-2024",
+        "what": "Bounds on the summed quantity Σ_{n≤x}Δ_k(n) for k=3,4",
+        "date": "2024-12-15",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2412.11069",
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "trudgian-yang-2023",
+        "what": "Trudgian–Yang exponent-pair bounds on α_k; v3 in July 2024 not shown to contain new mathematics",
+        "date": "2023-06-09",
+        "precision": "day",
+        "after_snapshot": false,
+        "source": "https://arxiv.org/abs/2306.05599",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "bellotti-yang-2023",
+        "what": "Large-k bound Δ_k(x) ≪ x^(1−1.889k^(−2/3))",
+        "date": "2023-03-09",
+        "precision": "day",
+        "after_snapshot": false,
+        "source": "https://arxiv.org/abs/2303.05028",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "li-yang-2023",
+        "what": "α₂ ≤ 0.314483...",
+        "date": "2023-08-28",
+        "precision": "day",
+        "after_snapshot": false,
+        "source": "https://arxiv.org/abs/2308.14859",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "tudzi-2025",
+    "derived": {
+      "status": "progress",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [
+      "resolution_direction"
+    ],
+    "doubts": "The bullet asks for bounds on Δ_k(x), so explicit constants in known bounds count as movement, but the movement is small: the exponents did not change. The Li 2025 α_k improvement for 9≤k≤20, which the record knows only through expdb, is arguably the more substantive after-snapshot bound. Both are bounds and both carry ai_role none, so the codes are the same whichever one the status rests on.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "judge_problems": []
+}

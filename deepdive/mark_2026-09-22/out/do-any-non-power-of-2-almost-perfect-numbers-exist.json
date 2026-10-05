@@ -1,0 +1,114 @@
+{
+  "key": "do-any-non-power-of-2-almost-perfect-numbers-exist",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No result since 26 January 2024 changes the status of the conjecture; the only relevant events are (1) a 2025 paper by Jakimczuk that generalizes 'almost perfect' to an asymptotic condition σ(n)/n → β and is therefore a different, related problem, and (2) a February 2026 GitHub issue/PR in Google DeepMind's formal-conjectures repository that formalizes the open conjecture as an unproved Lean statement (`sorry`), not a proof.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Almost_perfect_number",
+    "https://github.com/google-deepmind/formal-conjectures/issues/2240"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": true,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": [
+      "https://github.com/google-deepmind/formal-conjectures/issues/2240"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The classical conjecture — that every almost perfect number (σ(n) = 2n − 1) is a power of 2 — remains open, and I found no result in the window (26 Jan 2024 – 22 Sep 2026) that settles it, settles a case of it, or moves a bound on it. The current Wikipedia article on almost perfect numbers still states only the pre-2024 constraint (an odd almost perfect number greater than 1 would need at least six prime factors, from Kishore 1978/1981) and contains no discussion of any post-2024 progress. Two items surfaced in searching deserve explicit mention because they are close to the topic but do not count as progress on this bullet. First, Rafael Jakimczuk's 'A Note about Almost Perfect Numbers' (ResearchGate, uploaded 4 September 2025) proves results about a generalized, asymptotic notion — for a real β > 1, infinitely many n with ω(n) arbitrarily large and σ(n)/n arbitrarily close to β, with β = 2 termed 'almost perfect' in his paper. This changes the defining condition from the exact σ(n) = 2n − 1 used in the Wikipedia bullet to an approximate ratio condition, so under §3.1 it is a related problem (a variant sharing the same name), not a case of the stated problem; it does not remove any territory from the original question of whether an exact non-power-of-2 solution exists. Second, a GitHub issue (#2240, opened 10 February 2026) and associated pull request in Google DeepMind's 'formal-conjectures' repository formalize the exact classical conjecture as a Lean 4 statement — `∃ n, AlmostPerfect n ∧ ¬∃ k, n = 2^k` — but the proof body is `sorry`, i.e., unproved; the issue itself records a 'formalizability rating of 0/5' meaning it was judged trivial to state, not solved. This is bookkeeping/dataset infrastructure (a benchmark of open conjectures for formal-proof tooling), not mathematical progress, and involves no AI-generated proof content — it is a formal restatement of the already-known open question. No other 2024–2026 arXiv paper on near-perfect, superperfet, or within-perfect numbers touches the exact classical almost-perfect-number question either; each addresses a differently-defined class of numbers. I therefore record status `open` with `no_change_found` true.",
+  "competing_reading": "One could argue the Jakimczuk paper is a genuine generalization whose β=2 case literally re-derives the classical almost-perfect condition in a limiting sense, so a skeptical reader might call it a weak form of 'partial' progress (e.g., existence of infinitely many n with σ(n)/n arbitrarily close to 2, though not equal). But the stated problem asks about exact equality σ(n) = 2n − 1, and 'arbitrarily close' does not restrict or settle any case of that exact equation — it is a different question about density/closeness rather than about the discrete equality, so I classify it as out of scope rather than partial.",
+  "what_would_settle_it": "A paper or announcement giving either (a) an explicit non-power-of-2 integer n with σ(n) = 2n − 1, proved by hand or verified by computer algebra, which would resolve the conjecture in the negative-existence sense (refuted, i.e., such numbers do exist), or (b) a proof that no such n exists, which would confirm the conjectured characterization. Absent either, a completed (non-`sorry`) Lean proof of the formal-conjectures statement, checked and reviewed, would also count, at minimum as `claimed` pending expert digestion.",
+  "confidence": "high",
+
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Almost_perfect_number",
+      "title": "Almost perfect number",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/issues/2240",
+      "title": "Non-Power-of-2 Almost Perfect Numbers Conjecture · Issue #2240 · google-deepmind/formal-conjectures",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1602.04248",
+      "title": "Some New Results On Even Almost Perfect Numbers Which Are Not Powers Of Two",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2406.06892v1",
+      "title": "On the Within-Perfect Numbers",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.researchgate.net/publication/395265203_A_Note_about_Almost_Perfect_Numbers",
+      "title": "A Note about Almost Perfect Numbers",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.academia.edu/3635731/The_Search_on_Almost_Perfect_Number_Other_than_2_k",
+      "title": "The Search on Almost Perfect Number Other than 2^k",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://mathworld.wolfram.com/AlmostPerfectNumber.html",
+      "title": "Almost Perfect Number -- from Wolfram MathWorld",
+      "type": "encyclopedia",
+      "opened": false
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "almost perfect number non power of 2 exist",
+      "\"almost perfect number\" 2024 2025 proof",
+      "\"almost perfect number\" arxiv 2024 OR 2025 OR 2026",
+      "Jakimczuk \"almost perfect\" sigma(n)/n definition generalization omega(n)",
+      "\"A Note about Almost Perfect Numbers\" researchgate 2025"
+    ],
+    "places_checked": [
+      "Wikipedia article 'Almost perfect number' (current version)",
+      "arXiv listing and search for math.NT papers mentioning almost perfect numbers, 2024-2026",
+      "Google DeepMind formal-conjectures GitHub repository issue and Lean source",
+      "ResearchGate for Jakimczuk 2025 paper",
+      "Wolfram MathWorld entry",
+      "General web search for recent proofs/announcements"
+    ],
+    "dead_ends": [
+      "ResearchGate page for Jakimczuk paper returned HTTP 403 on direct fetch; relied on search-result summary and title/definitions instead, noted as unopened in sources",
+      "Academia.edu PDF 'The Search on Almost Perfect Number Other than 2^k' appears to be an older/undated student paper, not opened, no evidence it is within the window",
+      "A GitHub repo 'vibemathing/problem-wikipedia-...' surfaced in search results appears to be another independent dataset-building project researching the same Wikipedia list; per instructions not to reuse other runs' research, this was deliberately not opened or used as a source"
+    ]
+  },
+
+  "incomplete": "The ResearchGate PDF for the Jakimczuk 2025 paper could not be fetched directly (403 Forbidden), so its classification as out-of-scope rests on the paper's stated definitions/abstract as reported by search results rather than a full read of the proof. This does not affect the overall conclusion since even under the more generous reading (asymptotic closeness), it does not settle the exact equality version of the problem.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

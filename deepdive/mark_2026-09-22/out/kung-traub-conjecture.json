@@ -1,0 +1,123 @@
+{
+  "key": "kung-traub-conjecture",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "Matthew J. Colbrook (University of Cambridge) posted a preprint, 'Adversarial Wronskians: A proof of the Kung–Traub conjecture,' to Zenodo around 19 September 2026, claiming to prove the full conjecture (that a deterministic stationary root-finding method without memory using at most n real scalar function/derivative evaluations per iteration cannot have local order exceeding 2^(n-1), with the bound attained by known Kung-Traub-type methods for n>=2), accompanied by a Lean 4 formalization. No independent expert review, journal acceptance, or public expert digestion of the argument has been found as of the time of this research (three days after posting), and the author's own repository states that independent replay verification of the Lean proof 'has not yet passed.'",
+  "status_sources": [
+    "https://zenodo.org/records/22850057",
+    "https://github.com/MColbrook/Kung-Traub_conjecture"
+  ],
+
+  "event": {
+    "date": "2026-09-19",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://zenodo.org/records/22850057",
+      "https://github.com/MColbrook/Kung-Traub_conjecture"
+    ]
+  },
+
+  "credited_humans": ["Matthew J. Colbrook"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "ChatGPT 6 assisted with the Lean formalization... ChatGPT 5.6 and 6 were also interactive aids for discussing and checking mathematical arguments... Matthew J. Colbrook reviewed and adopted the mathematical arguments, statements, and proofs and takes responsibility for the work.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["ChatGPT 6", "ChatGPT 5.6"],
+    "sources": [
+      "https://github.com/MColbrook/Kung-Traub_conjecture"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "The triage's `found` items pointed to two things, one of which does not actually concern this problem: the OpenProblemsInNLA GitHub issue #14 that triage cited is about a different problem (matrix inequality MI-04), not the Kung-Traub conjecture, and I disagree with the triage's implicit conflation of the two. The GitHub repository MColbrook/Kung-Traub_conjecture and its associated Zenodo preprint 'Adversarial Wronskians: A proof of the Kung-Traub conjecture' (Colbrook, posted ~19 September 2026, i.e. three days before this research) is a genuine and specific claim to resolve exactly this conjecture: it proves the upper bound 2^(n-1) on the local order of any deterministic, memoryless, stationary root-finder using at most n scalar evaluations, matching the order attained by known Kung-Traub-type (e.g. inverse Hermite) constructions, and extends the result to complex-valued derivative observations. It is accompanied by a Lean 4 formalization the author describes as having 'zero proof holes' in the core theorems, an axiom audit of 1,202 declarations, and 'Comparator' checks of 1,058 named theorems -- but the same README explicitly states that independent 'NanoDa replay' verification 'has not yet passed,' and that these mechanical checks 'do not establish novelty or independent mathematical peer review.' No journal acceptance, no expert blog digestion (nothing on Tao's blog or elsewhere), and no third-party mathematical review of the argument were found. Given the extreme freshness of the claim (surfacing literally days before this research was conducted) and the author's own caveats, this is classified `claimed` rather than `resolved`. On AI involvement: the repository states plainly that ChatGPT-6 assisted with the Lean formalization and that ChatGPT 5.6/6 served as 'interactive aids for discussing and checking mathematical arguments,' but that Colbrook 'reviewed and adopted the mathematical arguments, statements, and proofs and takes responsibility for the work' -- i.e., by the author's own account, the mathematics (the Wronskian-based lower-bound argument and the adversarial construction) originated with and was owned by the human author, and the AI's role was checking, discussion, and formalization support. Per the rules (§6.2), 'discussing and checking' with no claim that the AI produced mathematical content in the result is `none`, not `assisted`. During search I also encountered a GitHub repository ('vibemathing/problem-wikipedia-...') that describes itself, in its own words, as 'not mathematical evidence or a solved-result claim' and appears to be an unrelated research-automation/agent-harness scaffold; I disregarded it entirely as it is self-flagged as non-evidentiary and not a mathematical source. I also confirmed the n=2 case of the conjecture was already settled by Kung and Traub themselves in 1976 (pre-dating the frozen revision by decades, hence irrelevant to open_stale classification -- the general conjecture for n>=3 remained genuinely open going into 2024).",
+  "competing_reading": "One could argue the ChatGPT involvement in 'discussing and checking mathematical arguments' blurs toward `assisted` if it contributed any specific lemma or step content beyond verification -- the README's wording is not fully granular about what, if anything, ChatGPT suggested versus merely checked. However, absent a specific quote crediting the AI with producing an argument, construction, or case that appears in the final proof, `none` is the more defensible reading under the rule requiring the authors' own account of the AI producing part of the mathematics.",
+  "what_would_settle_it": "An expert digestion (a survey, a referee report, a blog post from a numerical-analysis or root-finding specialist, or journal acceptance) confirming or refuting the Wronskian-based lower bound argument; alternatively, a successful independent Lean replay (the author's own stated pending step) plus community scrutiny of the formalization would move this toward `resolved`. A more detailed methods section from Colbrook specifying exactly what content, if any, ChatGPT contributed to the mathematical argument (versus only formalization/checking) would sharpen the ai_role classification.",
+  "confidence": "medium",
+
+  "sources": [
+    {
+      "url": "https://github.com/MColbrook/Kung-Traub_conjecture",
+      "title": "Kung-Traub_conjecture: Formal Lean verification of the Kung-Traub conjecture",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/22850057",
+      "title": "Adversarial Wronskians: A proof of the Kung-Traub conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/ajt60gaibb/OpenProblemsInNLA/issues/14",
+      "title": "[MI-04] Independently reviewed resolution by Matthew J. Colbrook",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/vibemathing/problem-wikipedia-7545862924958eb5",
+      "title": "problem-wikipedia-7545862924958eb5 (self-described non-evidentiary research-automation scaffold)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.damtp.cam.ac.uk/user/mjc249/Publications.html",
+      "title": "Publications | Matthew Colbrook",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2503.18815",
+      "title": "On two families of iterative methods without memory",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "Kung-Traub conjecture proof Colbrook 2025",
+      "Kung-Traub conjecture resolved optimal order multipoint iteration",
+      "Kung-Traub conjecture proof Colbrook 2025 (repeat, general web)",
+      "\"Kung-Traub\" conjecture disproved counterexample weighting combination fourth-order",
+      "Colbrook \"Kung-Traub\" Wronskian arXiv 2026",
+      "Terence Tao OR Quanta Kung-Traub conjecture 2026",
+      "\"Kung-Traub\" conjecture m=3 order 5 counterexample year",
+      "\"weighting combination\" \"fourth-order\" \"Kung and Traub\" order five contradicts memory",
+      "Matthew Colbrook Kung-Traub conjecture ChatGPT Lean formalization September 2026",
+      "Kung-Traub conjecture n=2 case settled proven history m=2",
+      "Wikipedia Kung-Traub conjecture article"
+    ],
+    "places_checked": [
+      "GitHub repository MColbrook/Kung-Traub_conjecture (README fetched)",
+      "Zenodo record 22850057 (abstract/metadata fetched)",
+      "OpenProblemsInNLA GitHub issue #14 (fetched; found to be about a different problem)",
+      "General web search for expert digestion (Tao's blog, Quanta) -- none found",
+      "Colbrook's Cambridge publications page (fetch failed on TLS certificate error)",
+      "arXiv search for related/competing work on the conjecture"
+    ],
+    "dead_ends": [
+      "Colbrook's DAMTP Cambridge publications page could not be fetched (TLS certificate verification error); relied on Zenodo/GitHub primary sources instead",
+      "A web-search summary claimed a 'weighting combination of three fourth-order schemes achieving order five contradicts the conjecture,' but no dated, checkable primary source for this specific claim could be located, and it likely refers to methods 'with memory' which are outside the conjecture's explicit scope (methods 'without memory'); not used as a finding",
+      "A GitHub repo 'vibemathing/problem-wikipedia-...' surfaced in search but self-identifies as a non-mathematical research-automation harness and was excluded as evidence"
+    ]
+  },
+
+  "incomplete": "Could not fetch Colbrook's Cambridge faculty publications page directly (TLS error) to cross-check the preprint's listing/status there; relied on Zenodo and GitHub instead, which should be equivalent for dating and content purposes. Also could not verify the full Lean formalization code contents directly (only the README's self-description), so I cannot independently confirm the 'zero proof holes' claim beyond the author's own assertion.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false
+}

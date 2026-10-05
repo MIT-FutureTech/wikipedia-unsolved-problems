@@ -1,0 +1,73 @@
+{
+  "key": "sphere-packing",
+  "judgement": {
+    "events": [
+      {
+        "id": "cjms-2023",
+        "what": "Campos–Jenssen–Michelen–Sahasrabudhe lower bound of order n·log n·2^-n",
+        "date": "2023-12", "precision": "month", "after_snapshot": false,
+        "source": "https://arxiv.org/abs/2312.10026",
+        "scope": "bound", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "klartag-2025",
+        "what": "Klartag proves a lattice sphere-packing lower bound of order n²·2^-n",
+        "date": "2025-04-07", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2504.05042",
+        "scope": "bound", "verification": "digested", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "huawei-ucl-2025",
+        "what": "Bayesian optimisation + MCTS search for Cohn–Elkies three-point certificates gives new upper bounds in dimensions 4–16 (except 8)",
+        "date": "2025-12-04", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2512.04829",
+        "scope": "bound", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "assisted", "ai_basis": "Record: the team 'used a Bayesian-optimization-plus-Monte-Carlo-Tree-Search pipeline to search for polynomial pairs'; paper titled 'AI-Assisted Math Discovery in Sphere Packing'",
+        "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "astra-2026",
+        "what": "OpenAI Astra claims the exact asymptotic exponent of the Cohn–Elkies linear-programming bound",
+        "date": "2026-08-01", "precision": "day", "after_snapshot": true,
+        "source": "https://cdn.openai.com/pdf/ten-proofs-oai.pdf",
+        "scope": "bound", "verification": "unreviewed", "credibility": "doubtful",
+        "credibility_reason": "Primary manuscript never read by the researcher; unresolved priority dispute (Miller); Lee's digestion says he does not yet understand how the exponents match; rests on Lean check plus press. Also per F3 a result on the reach of the LP method is at most a bound, not a resolution.",
+        "ai_role": "generated", "ai_basis": "Astra ... produces the core insight and strategy for a proof; human mathematicians then write that strategy up",
+        "direction": null, "is_counterexample": false
+      }
+    ],
+    "rests_on": "klartag-2025",
+    "derived": { "status": "progress", "ai_role": "generated", "resolution_direction": null },
+    "changed": ["status", "resolution_direction", "event", "status_sources"],
+    "doubts": "Every post-snapshot event is a bound; none is whole, and the record itself says the core question is unresolved, so 'claimed' was F1/F3. Status tier is progress; Klartag (human, digested by Kalai) is the named anchor, but by §4 step 4 the ai_role is the strongest among same-tier bounds on different quantities, so Astra's 'generated' is kept if Astra's result is counted as a genuine upper-bound exponent improvement. If a later reader follows F3 strictly (a bound on the LP method only, scope none), ai_role would fall to Huawei's 'assisted' (itself borderline: BO/MCTS search may be read as non-AI computation per F9).",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {
+    "status": "progress",
+    "resolution_direction": null,
+    "event": {
+      "date": "2025-04-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "sources": ["https://arxiv.org/abs/2504.05042", "https://gilkalai.wordpress.com/2025/04/09/boaz-klartag-striking-new-lower-bounds-for-sphere-packing-in-high-dimensions/"]
+    },
+    "status_sources": [
+      "https://arxiv.org/abs/2504.05042",
+      "https://arxiv.org/abs/2512.04829",
+      "https://cdn.openai.com/pdf/ten-proofs-oai.pdf"
+    ]
+  },
+  "outcome_prefix": "Judged: the status rests on bound-level progress — Klartag's April 2025 n²·2^-n lattice lower bound, alongside AI-produced upper-bound work (Huawei/UCL, Astra) of the same tier; nothing settles the bullet.",
+  "corrections": [
+    { "field": "status", "from": "claimed", "to": "progress", "why": "F1/F3: the record's own summary says none of the events settles the general problem and calls Astra's result 'best read as progress'; all events are bounds (Astra's is a bound on the Cohn–Elkies method), so no event has scope whole." },
+    { "field": "resolution_direction", "from": "confirmed", "to": null, "why": "F14: progress rows carry null direction; nothing was settled." },
+    { "field": "event", "from": "Astra announcement 2026-08-01", "to": "Klartag preprint 2025-04-07", "why": "F8: Astra is an unreviewed, disputed, doubtful bound whose manuscript the researcher never read; Klartag's bound is the digested (Kalai blog) same-tier advance and is the natural anchor for a progress status." },
+    { "field": "status_sources", "from": "OpenAI-first list", "to": "Klartag, Huawei/UCL, Astra PDF", "why": "other: sources re-ordered to the bound events the progress status rests on." },
+    { "field": "ai_role", "from": "generated", "to": "generated", "why": "other: kept under §4 step 4 (Astra and Klartag move different quantities at the same tier). Doubt: if Astra's LP-method result is treated per F3 as not a bound on the problem, the role would be 'assisted' (Huawei/UCL) or arguably 'none'." }
+  ]
+}

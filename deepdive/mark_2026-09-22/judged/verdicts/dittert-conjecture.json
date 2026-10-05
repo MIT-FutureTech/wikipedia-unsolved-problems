@@ -1,0 +1,67 @@
+{
+  "key": "dittert-conjecture",
+  "judgement": {
+    "events": [
+      {
+        "id": "divya-somasundaram-2023",
+        "what": "Divya K.U. and Somasundaram prove the Dittert conjecture for n=4",
+        "date": "2023-12-01", "precision": "day", "after_snapshot": false,
+        "source": "https://arxiv.org/abs/2312.00464",
+        "scope": "case", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": "confirmed", "is_counterexample": false
+      },
+      {
+        "id": "pang-2026",
+        "what": "Pang proves the Dittert conjecture for every n>=17",
+        "date": "2026-06-01", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2606.01531",
+        "scope": "case", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": "confirmed", "is_counterexample": false
+      },
+      {
+        "id": "kafidov-2026",
+        "what": "Kafidov proves the Dittert conjecture for n=16, with strategy, key lemma and most text produced by GPT-5.6 Sol",
+        "date": "2026-07-21", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2607.19439",
+        "scope": "case", "verification": "unreviewed", "credibility": "doubtful",
+        "credibility_reason": "Automated reviewer (Pith, snippets only) flagged an unverified reliance on Hwang's Proposition 2.1(ii) in the equality case; not a knock-down, but unanswered and unreviewed by any human expert.",
+        "ai_role": "generated",
+        "ai_basis": "The proof strategy, the joint-deficit scaling lemma, and most of the original proof text were produced by OpenAI's GPT-5.6 Sol through ChatGPT in response to prompts from Boris Kafidov.",
+        "direction": "confirmed", "is_counterexample": false
+      },
+      {
+        "id": "li-xiong-yang-2026",
+        "what": "Li, Xiong, Yang give an SOS certificate (Lean-verified) re-proving n=4",
+        "date": "2026-08", "precision": "month", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2607.29191",
+        "scope": "none", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false
+      }
+    ],
+    "rests_on": "kafidov-2026",
+    "derived": { "status": "partial", "ai_role": "generated", "resolution_direction": "confirmed" },
+    "changed": ["credited_humans"],
+    "doubts": "Pang (n>=17, no AI) and Kafidov (n=16, AI-generated) are both case settlements at the partial tier and neither supersedes the other, so by step 4 ai_role takes the stronger role, generated. If the Kafidov paper fell, status would stay partial on Pang with ai_role none. The n=4 re-proof adds no new case. Dimensions 5-15 open.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "changes": {
+    "credited_humans": ["Zhekai Pang", "Boris Kafidov"]
+  },
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "credited_humans",
+      "from": ["Zhekai Pang", "Boris Kafidov", "Jinhui Li", "Beibei Xiong", "Zhengfeng Yang"],
+      "to": ["Zhekai Pang", "Boris Kafidov"],
+      "why": "other: Li/Xiong/Yang re-prove n=4, which the record says was already settled in Dec 2023; it settles no new case and cannot set the status, so its authors are not credited for it."
+    },
+    {
+      "field": "ai_role",
+      "from": "generated",
+      "to": "generated",
+      "why": "F8 check: the status rests jointly on Pang (n>=17, no AI) and Kafidov (n=16); both are partial-tier cases, neither supersedes the other, so step 4 gives the stronger role. The code holds only as long as Kafidov's paper stands, and Pith flagged an unanswered citation gap in its equality case."
+    }
+  ]
+}

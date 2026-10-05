@@ -1,0 +1,88 @@
+{
+  "key": "is-the-line-graph-of-a-non-word-representable-graph-always",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "A September 2025 arXiv preprint by Mozhui, Dwary and Krishna (IIT Guwahati) gives an explicit counterexample — the Mycielski graph of an odd cycle μ(C₂ₙ₊₁), n ≥ 2, which is non-word-representable but whose line graph is word-representable — answering the open question in the negative. The same paper also shows that an earlier claimed counterexample from 2021 (arXiv:2108.02363, predating the frozen revision) was wrong: its line graph is in fact non-word-representable, so the question was not actually settled in 2021 as that paper claimed.",
+  "status_sources": ["https://arxiv.org/abs/2509.03339", "https://arxiv.org/pdf/2509.03339"],
+
+  "event": {
+    "date": "2025-09-03",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2509.03339"]
+  },
+
+  "credited_humans": ["Khyodeno Mozhui", "Tithi Dwary", "K. V. Krishna"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "The Mycielski graph μ(C₂ₙ₊₁) of an odd cycle (for n ≥ 2): a non-word-representable, triangle-free graph whose line graph L(μ(C₂ₙ₊₁)) the authors prove is word-representable via an explicit semi-transitive orientation.",
+    "explicit": true,
+    "verified_how": "By hand: the authors construct an explicit semi-transitive orientation D of L(μ(C₂ₙ₊₁)), decomposing it into a bipartite part L(B₂ₙ₊₁) and a cycle part L(C₂ₙ₊₁), and prove by case analysis (Lemmas 3–4) that D is acyclic and shortcut-free, hence semi-transitive, hence the graph is word-representable (using the known equivalence of word-representability and semi-transitive orientability).",
+    "sources": ["https://arxiv.org/pdf/2509.03339"]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [
+    {
+      "kind": "priority/correctness",
+      "summary": "A 2021 preprint (Akbar, Akrobotu & Brewer, arXiv:2108.02363) had already claimed to answer this question in the negative, using an IBM CPLEX-based optimization framework on a graph they called 'A' (from a figure in Kitaev & Lozin's book), and stated in its conclusion that this 'settl[ed] the open question known for about a decade.' The 2025 paper by Mozhui, Dwary & Krishna directly disputes this: it proves that the graph A in fact contains the subgraph W₅′ as a subgraph, whose line graph L(W₅′) they prove (Theorem 2, by hand) is non-word-representable, and by hereditary closure of word-representability under induced subgraphs, this means L(A) cannot be word-representable either — contradicting the 2021 paper's Theorem 1. The 2025 paper concludes 'the problem remains open' as of the 2021 attempt and that their own Mycielski-graph construction is what 'settle[s] the problem.' The 2021 CPLEX-based claim therefore appears to have been a computational/methodological error (their optimization formulation, aimed at detecting a weaker '3-semi-transitive' property, evidently produced a false positive for full semi-transitivity), never corrected or withdrawn by its own authors, and (as far as could be determined) never formally peer-reviewed or published in a journal."
+    }
+  ],
+
+  "summary": "The triage record is essentially correct that a September 2025 preprint (arXiv:2509.03339, Mozhui, Dwary & Krishna) answers this Wikipedia bullet's exact question in the negative, but the full picture is more complicated than 'a new counterexample was found.' A 2021 preprint (arXiv:2108.02363, predating the frozen revision) had already published a claimed negative answer, using a CPLEX optimization solver to find a graph 'A' whose line graph it asserted was semi-transitive (hence word-representable) despite A itself being non-word-representable. That 2021 claim was never digested, cited approvingly, or published in a journal (it remains a single-version 2021 preprint, also apparently overlapping with a 2021 UT Dallas PhD thesis by one of its authors). The 2025 paper I read in full directly refutes the 2021 paper's claim: it proves by hand (Theorem 2, via an explicit semi-transitive-orientation argument) that L(A) is actually non-word-representable, because A contains an induced copy of a graph W5' whose line graph is non-word-representable, and word-representability is hereditary under induced subgraphs. Having shown the 2021 counterexample fails, the 2025 authors provide their own explicit counterexample — Mycielski graphs of odd cycles µ(C_{2n+1}) for n≥2 — and prove by hand (Lemmas 3 and 4, via a fully explicit semi-transitive orientation D) that their line graphs are word-representable. This is a rigorous, hand-verifiable combinatorial proof with no automated or AI component of any kind; the only computational tool anywhere in this problem's history is IBM's CPLEX solver in the superseded 2021 paper, which is classical numerical/combinatorial optimization software, not an AI system. I found no evidence the 2025 paper has yet been read/endorsed by an outside expert (no citations of it turn up, no journal listing, and the Wikipedia article 'Word-representable graph' as of my check has not been updated to reflect it), so per §6.1 it is classified as 'claimed' rather than 'resolved': a preprint whose argument is complete and appears correct to me on a careful read, but which no named expert has yet publicly reviewed. The status therefore rests on the 2025 event; the 2021 event is recorded as a dispute rather than as the resolving event, since it turns out to have been erroneous.",
+  "competing_reading": "One could argue the 2021 paper should itself be dated/counted as the resolving event, since it was the first to claim a negative answer to this exact Wikipedia bullet — but it predates the frozen revision's window anyway (2021 vs. the January 2024 cutoff), so even if I had found it correct it would only be relevant as 'open_stale' background, not as an event in-window. Since the 2021 claim in fact appears to be wrong (per the 2025 paper's Theorem 2 refutation), it does not even qualify as an 'open_stale' resolution; I've recorded it purely as a dispute. A second competing reading: since no expert has yet publicly vetted the 2025 paper, one could be more conservative and call status 'open' with 'no_change_found' false but treat the preprint as insufficient evidence of any change; I judge 'claimed' more appropriate since the preprint presents a complete, checkable, elementary combinatorial proof (which I read and found internally consistent) rather than a bare assertion.",
+  "what_would_settle_it": "A journal acceptance of arXiv:2509.03339, a citing survey or paper by an established expert in the area (e.g., Kitaev, Pyatkin, or Lozin, who wrote the foundational papers this preprint responds to) that endorses or engages with the Mycielski-graph counterexample, or an update to the Wikipedia 'Word-representable graph' article's open-problems section reflecting the resolution.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2509.03339", "title": "Line Graphs of Non-Word-Representable Graphs are Not Always Non-Word-Representable", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2509.03339", "title": "Line Graphs of Non-Word-Representable Graphs are Not Always Non-Word-Representable (full text)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2108.02363", "title": "On the Existence of Word-representable Line Graphs of Non-word-representable Graphs", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2108.02363", "title": "On the Existence of Word-representable Line Graphs of Non-word-representable Graphs (full text)", "type": "preprint", "opened": true},
+    {"url": "https://pith.science/paper/2509.03339", "title": "Pith review of arXiv:2509.03339", "type": "blog", "opened": false},
+    {"url": "https://www.iitg.ac.in/kvk/research.html", "title": "K. V. Krishna's Homepage: Research (publication list)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Word-representable_graph", "title": "Word-representable graph (Wikipedia article, current)", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "line graph of non-word-representable graph word-representable",
+      "word-representable graphs line graph conjecture 2025",
+      "Mozhui Dwary Krishna \"Line Graphs of Non-Word-Representable Graphs\" 2025",
+      "\"word-representable\" line graph open problem 2025 Kitaev survey",
+      "Khyodeno Mozhui K V Krishna word-representable graphs IIT Guwahati publications",
+      "\"2509.03339\" journal published OR accepted",
+      "\"non-word-representable\" line graph counterexample Mycielski 2025 arxiv referee",
+      "Kitaev Pyatkin \"Word-representable graphs: a survey\" 2025 2026 line graph open problem"
+    ],
+    "places_checked": [
+      "arXiv abstract and full PDF of 2509.03339",
+      "arXiv abstract and full PDF of 2108.02363 (pre-window paper the 2025 paper refutes)",
+      "K. V. Krishna's IITG homepage / publication list (checked for journal acceptance of 2509.03339 — not found)",
+      "Wikipedia 'Word-representable graph' article, current live version (open problems section)",
+      "pith.science review page for 2509.03339 (fetch returned no usable content)",
+      "General web search for citations, journal status, or expert commentary on 2509.03339"
+    ],
+    "dead_ends": [
+      "pith.science/paper/2509.03339 could not be usefully fetched (WebFetch returned an empty-content response on two attempts with different prompts)",
+      "No journal, conference, or DOI listing found for arXiv:2509.03339 as of search date; appears to remain a single-version (v1) preprint",
+      "No citing paper, survey, or expert blog post discussing or endorsing the 2025 preprint's result was found"
+    ]
+  },
+
+  "incomplete": "I could not get usable content out of the pith.science review page for the 2025 preprint (it may be an AI-generated paper summary rather than expert commentary regardless); this is a minor gap since I independently verified the paper's own claims by reading the full PDF text directly. I also could not verify beyond doubt that no other preprint or note quietly corrected/withdrew the 2021 paper's claim in the interim between 2021 and 2025 (e.g. via an arXiv comment) — I found no arXiv v2 for 2108.02363 and no separate erratum, so the 2021 claim appears to simply have stood, uncorrected, until the 2025 paper's refutation.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false
+}

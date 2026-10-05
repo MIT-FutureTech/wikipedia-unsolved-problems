@@ -1,0 +1,219 @@
+{
+ "key": "borsuks-problem",
+ "status": "progress",
+ "no_change_found": false,
+ "outcome": "The minimum dimension in which a counterexample to Borsuk's conjecture is known to exist was lowered from 64 to 63 via a 321-point three-distance configuration in R^63 (proving b(63) >= 65), first produced by Max Grinsztajn using GPT-5.5 Pro in May 2026, with the construction independently reproduced by two other parties (one, Yibo Ji using a different model, posted and then withdrew an arXiv writeup once priority was clarified); separately, a 2026 preprint lowered the upper bound on the Borsuk number in R^4 from 9 to 8 by ordinary human construction.",
+ "status_sources": [
+  "https://github.com/google-deepmind/formal-conjectures/pull/5265",
+  "https://arxiv.org/abs/2608.12561",
+  "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+  "https://en.wikipedia.org/wiki/Borsuk%27s_conjecture"
+ ],
+ "event": {
+  "date": "2026-05",
+  "precision": "month",
+  "kind": "repository",
+  "predates_frozen_revision": false,
+  "sources": [
+   "https://github.com/google-deepmind/formal-conjectures/pull/5265",
+   "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence"
+  ]
+ },
+ "credited_humans": [
+  "Max Grinsztajn"
+ ],
+ "ai_role": "generated",
+ "ai": {
+  "basis_quote": "The example and proof were generated entirely by ChatGPT using GPT 5.6 Sol. The author has personally verified the result and assumes responsibility for that verification, but claims no credit for the originality of the construction.",
+  "formalisation_only": false,
+  "disclosed_cost": null,
+  "systems": [
+   "GPT-5.5 Pro",
+   "GPT 5.6 Sol"
+  ],
+  "sources": [
+   "https://arxiv.org/abs/2608.12561",
+   "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+   "https://github.com/google-deepmind/formal-conjectures/pull/5265"
+  ]
+ },
+ "counterexample": {
+  "is_counterexample": true,
+  "object": "A 321-point three-distance configuration in R^63 (extending the Jenrich-Brouwer 320-point core with the G_2(4) Euclidean representation, plus one projected/rescaled point) that cannot be partitioned into 64 subsets of smaller diameter, proving b(63) >= 65",
+  "explicit": true,
+  "verified_how": "Verified by exact computation and formalised/checked into the Lean 'formal-conjectures' repository; the withdrawn arXiv writeup's author states personal verification of the construction",
+  "sources": [
+   "https://arxiv.org/abs/2608.12561",
+   "https://github.com/google-deepmind/formal-conjectures/pull/5265"
+  ]
+ },
+ "resolution_direction": null,
+ "disputes": [
+  {
+   "kind": "priority",
+   "summary": "The dimension-63 counterexample was apparently found independently by three parties in close succession: Max Grinsztajn (using GPT-5.5 Pro, credited as first, May 2026, per the formal-conjectures PR and the 'List of mathematical discoveries by artificial intelligence' Wikipedia article), a person/system referred to only as 'Konz', and Yibo Ji (using a different/later model, 'GPT 5.6 Sol', arXiv:2608.12561, submitted 12 Aug 2026). Ji's paper was withdrawn on 14 Aug 2026, two days after submission, apparently because the result had already been posted elsewhere (i.e., by Grinsztajn in May). I could not locate Grinsztajn's own primary write-up (blog post or repository) directly -- only secondary mentions of it in the formal-conjectures PR, a 'vibemathed' tracking-site PR, and the Wikipedia AI-discoveries list -- so I cannot fully verify the May 2026 date or the exact GPT-5.5 Pro attribution independent of these secondary compilations.",
+   "sources": [
+    "https://github.com/google-deepmind/formal-conjectures/pull/5265",
+    "https://arxiv.org/abs/2608.12561",
+    "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+    "https://github.com/mrconter1/vibemathed/pull/72"
+   ]
+  }
+ ],
+ "summary": "Borsuk's problem asks for upper and lower bounds on the number b(n) of smaller-diameter pieces needed to cover any bounded set in R^n. Two distinct things happened in the window. (1) On the 'how low can a counterexample dimension go' side (the problem is known false for large n since Kahn-Kalai 1993, with the record dimension falling over decades), the minimum known failing dimension moved from 64 (Jenrich-Brouwer, pre-2024) to 63, via a 321-point three-distance configuration proving b(63) >= 65. Multiple sources converge on this: the arXiv preprint 2608.12561 (author Yibo Ji, submitted 12 Aug 2026, withdrawn 14 Aug 2026) states in its own abstract that 'the example and proof were generated entirely by ChatGPT using GPT 5.6 Sol' and that the author 'personally verified the result' but 'claims no credit for the originality of the construction' -- language suggesting the construction was already known. The google-deepmind/formal-conjectures Lean repository PR #5265 independently corroborates this, crediting 'Grinsztajn's 321-point configuration (May 2026, verified by exact computation and found independently by Konz and by Ji)', and states the PR itself narrowed the open range in the Wikipedia article to '4 <= n <= 62'. Wikipedia's 'List of mathematical discoveries by artificial intelligence' article credits Max Grinsztajn, prompting GPT-5.5 Pro, in May 2026, as the original discoverer. Because this is an explicit, exhibited counterexample object (not merely a bound moved on a search), and the authors' own account attributes the construction's origination to the AI system with humans checking/verifying it, I coded ai_role as generated. I classified status as claimed rather than resolved: the result is machine-verified by exact computation and appears in a Lean formalisation repository, but I found no evidence of a traditional expert digestion (a refereed paper, a survey, or an expert's blog post working through the argument -- notably absent from Tao's blog, which I checked directly) -- only the repository/preprint layer and Wikipedia's own compilation articles, which are not themselves expert peer digestion. This is a case of the problem (settling the minimal-counterexample-dimension question is a restriction/instance of the general upper/lower-bound question Wikipedia's bullet poses), so it counts under the scope rule, though it improves a specific quantity (min. failing dimension) rather than resolving the general conjecture, hence resolution_direction 'confirmed' (the counterexample direction, extending the known-false region) rather than a full resolution. (2) Separately, on the upper-bound side for a specific dimension, arXiv (announced as 2605.19068 per the triage record, but the fetched page shows submission 18 May 2026) by Alexander Tolmachev and Vsevolod Voronov reduces the upper bound on the Borsuk number in R^4 from 9 (Lassak, 1982) to 8, via an ordinary human hand-constructed partition of variants of the truncated Lassak cover; I found no mention of any AI system in this paper, so this half of the finding is ai_role 'none' and status 'progress' considered alone -- but since it is a bound movement on a still-open dimension it does not change the overall 'claimed' status driven by the dimension-63 counterexample, which is the more significant event. I flag a genuine oddity for the record: my search tool's synthesized summaries repeatedly and confidently attributed the arXiv paper 2608.12561 to 'Max Grinsztajn' with model 'GPT-5.5 Pro' and a May 2026 date, when the primary source I fetched directly clearly shows the paper's actual author is Yibo Ji, its named model is 'GPT 5.6 Sol', and its submission date is 12 Aug 2026 (withdrawn 14 Aug 2026). This is documented in the disputes/competing_reading fields; I trusted the directly-fetched primary arXiv page over the search engine's summary, per instructions, but the underlying Grinsztajn/May-2026 claim itself rests only on secondary compilations (the Lean PR and the Wikipedia AI-discoveries list), not a primary source I could independently open, so some residual uncertainty about the precise first-discovery date and exact model name remains.",
+ "competing_reading": "If Grinsztajn's own primary account (a blog post or repository, which I could not locate or open directly) turns out not to substantiate the May 2026 date or the GPT-5.5 Pro attribution, the earliest verifiable primary-source event for the dimension-63 result would instead be Yibo Ji's arXiv:2608.12561 (12 Aug 2026, model 'GPT 5.6 Sol'), which was itself withdrawn -- in which case the event might be better classified as 'progress'/'incident' (a claim posted then withdrawn) rather than 'claimed', with the underlying mathematical fact of b(63)>=65 only resting on the Lean-formalised/exactly-verified construction in the formal-conjectures repository. It is also possible 'Konz' is the true first discoverer and Grinsztajn's priority, as recorded in secondary sources, is itself contested; I found no primary source resolving the three-way priority claim.",
+ "what_would_settle_it": "Locating Max Grinsztajn's own primary write-up (repository commit, blog post, or paper) with a verifiable timestamp and exact model-name quote, and/or an expert (non-repository, non-Wikipedia) digestion -- a journal paper, a survey, or a mathematician's blog post -- working through the dimension-63 construction, which would move the status from claimed toward resolved and would settle the priority dispute among Grinsztajn, Konz and Ji.",
+ "confidence": "medium",
+ "sources": [
+  {
+   "url": "https://arxiv.org/abs/2605.19068",
+   "title": "Reducing the upper bound for the Borsuk number in R^4 to 8",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/html/2605.19068",
+   "title": "Reducing the upper bound for the Borsuk number in R^4 to 8",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/abs/2608.12561",
+   "title": "An AI Generated Counterexample to Borsuk Problem in Dimension 63",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/abs/2608.12561v1",
+   "title": "An AI Generated Counterexample to Borsuk Problem in Dimension 63 (v1, version history)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/html/2608.12561",
+   "title": "An AI-Generated Counterexample to Borsuk's Problem in Dimension 63",
+   "type": "preprint",
+   "opened": false
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Borsuk%27s_conjecture",
+   "title": "Borsuk's conjecture - Wikipedia",
+   "type": "encyclopedia",
+   "opened": true
+  },
+  {
+   "url": "https://en.wikipedia.org/w/index.php?title=Borsuk%27s_conjecture&action=history",
+   "title": "Borsuk's conjecture - Revision history",
+   "type": "encyclopedia",
+   "opened": true
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+   "title": "List of mathematical discoveries by artificial intelligence",
+   "type": "encyclopedia",
+   "opened": true
+  },
+  {
+   "url": "https://github.com/google-deepmind/formal-conjectures/pull/5265",
+   "title": "feat(Wikipedia): Borsuk's conjecture",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://github.com/mrconter1/vibemathed/pull/72",
+   "title": "Four frontier scripts: Borsuk dimension, sphere-packing exponent, lonely runner, Multiway Cut",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://github.com/mrconter1/vibemathed/pull/73",
+   "title": "Release: deploy so the four new frontiers and this afternoon's decisions go live",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://terrytao.wordpress.com/",
+   "title": "What's new (Terence Tao's blog)",
+   "type": "blog",
+   "opened": true
+  },
+  {
+   "url": "https://gilkalai.wordpress.com/2023/12/04/progress-around-borsuks-problem/",
+   "title": "Progress Around Borsuk's Problem | Combinatorics and more",
+   "type": "blog",
+   "opened": false
+  },
+  {
+   "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v21i4p29/pdf/",
+   "title": "A 64-dimensional counterexample to Borsuk's conjecture (Jenrich)",
+   "type": "journal",
+   "opened": false
+  },
+  {
+   "url": "https://arxiv.org/abs/1308.0206",
+   "title": "A 64-dimensional two-distance counterexample to Borsuk's conjecture",
+   "type": "preprint",
+   "opened": false
+  }
+ ],
+ "search": {
+  "queries": [
+   "Borsuk number R^4 upper bound 8 2026 arxiv",
+   "Borsuk's conjecture new bound 2024 2025 2026",
+   "Borsuk problem Wikipedia dimension 4 upper bound history",
+   "Grinsztajn Borsuk 63 dimensions GPT-5.5 counterexample",
+   "\"321-point\" Borsuk three-distance configuration dimension 63",
+   "Grinsztajn Borsuk 63 arxiv 2608.12561 withdrawn retracted error",
+   "Jenrich Brouwer 320 point Borsuk counterexample dimension 64 2025 2026",
+   "Borsuk conjecture minimum counterexample dimension 63 64 record 2026",
+   "\"Yibo Ji\" Borsuk withdrawn \"already\" posted elsewhere prior",
+   "\"Grinsztajn\" Borsuk dimension 63 blog vibemathed",
+   "Grinsztajn github \"63-dimensional counterexample\" Borsuk repository",
+   "Grinsztajn Borsuk conjecture May 2026 blog post GPT-5.5 Pro dimension 63 announcement"
+  ],
+  "places_checked": [
+   "arXiv abstract and HTML pages for 2605.19068 and 2608.12561, including version history",
+   "live Wikipedia article 'Borsuk's conjecture' and its full revision history",
+   "Wikipedia's 'List of mathematical discoveries by artificial intelligence' article",
+   "google-deepmind/formal-conjectures GitHub PR #5265 (Lean formalisation)",
+   "mrconter1/vibemathed GitHub PRs #72 and #73 (a frontier-tracking site for AI math results)",
+   "Terence Tao's blog (terrytao.wordpress.com) - no mention found",
+   "Gil Kalai's blog search results (Progress Around Borsuk's Problem, pre-2024, not opened as out of window)",
+   "general web search for a primary Grinsztajn write-up - not located"
+  ],
+  "dead_ends": [
+   "Could not locate Max Grinsztajn's own primary account (blog/repo) directly; only secondary mentions in the Lean PR, the vibemathed tracker PRs, and Wikipedia's AI-discoveries list",
+   "Search-engine synthesis repeatedly misattributed arXiv:2608.12561 to 'Max Grinsztajn' and model 'GPT-5.5 Pro' with a May 2026 date, contradicted by the paper's own directly-fetched page (author Yibo Ji, model 'GPT 5.6 Sol', submitted 12 Aug 2026) -- resolved by trusting the primary source",
+   "No expert blog (Tao, Kalai) or journal digestion of the dimension-63 result was found as of the search date"
+  ]
+ },
+ "incomplete": "Could not directly access a primary Grinsztajn write-up to independently confirm the May 2026 date and exact GPT-5.5 Pro attribution; that attribution rests on the formal-conjectures PR and the Wikipedia AI-discoveries list, both secondary compilations rather than a primary source I opened myself. No expert (non-repository) digestion of the dimension-63 result was found.",
+ "triage_disagreement": true,
+ "triage_queries_replaced": true,
+ "corrections": [
+  {
+   "date": "2026-09-23",
+   "by": "post-hoc consistency pass, not the researching agent",
+   "field": "resolution_direction",
+   "from": "confirmed",
+   "to": "refuted",
+   "why": "The record exhibits a 321-point configuration in R^63 that contradicts Borsuk conjecture, so the direction cannot be `confirmed` (DEEP_DIVE.md 6.4). Left as `refuted` rather than `null`: the object contradicts the conjecture rather than only moving a bound."
+  },
+  {
+   "date": "2026-09-24",
+   "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass. Judged from this record's own findings; no new sources were opened",
+   "field": "status",
+   "from": "claimed",
+   "to": "progress",
+   "why": "SCOPE: `claimed` counted Borsuk's problem among resolutions (as a claimed refutation). But the conjecture was already refuted before the snapshot (Kahn-Kalai 1993, for large n), and the bullet asks for the bounds on b(n). What moved in the window is the smallest dimension with a known counterexample, from 64 to 63: a bound moved on a still-open question, which is `progress` under 6.1. The research rules fold 'how much was settled' and 'has an expert checked it' into one field, and the agent read an unreviewed result as `claimed`; that is the pattern this batch of corrections fixes. `ai_role` stays `generated`: GPT-5.5 Pro produced the configuration."
+  },
+  {
+   "date": "2026-09-24",
+   "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass",
+   "field": "resolution_direction",
+   "from": "refuted",
+   "to": null,
+   "why": "Follows the status correction, and supersedes the entry above. `refuted` is right for the configuration taken alone, which does contradict the conjecture in R^63, but the conjecture as a whole was refuted in 1993; what this row now records is the dimension bound moving, and a moved bound has no direction. `counterexample.is_counterexample` stays true, since the object is one."
+  }
+ ]
+}

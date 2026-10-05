@@ -1,0 +1,60 @@
+{
+  "key": "map-folding",
+  "judgement": {
+    "events": [
+      {
+        "id": "hogan-2025",
+        "what": "Hogan's mapFolding software computes a(19) and a(20) of OEIS A001415 (2 x n stamp foldings)",
+        "date": "2025-03-21", "precision": "day", "after_snapshot": true,
+        "source": "https://oeis.org/A001415",
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "hull-2025",
+        "what": "Hull, Ibrahim, Paltrowitz, Ter-Saakov and Wang give closed forms for stamp foldings with specific fixed mountain-valley assignments, plus bounds for others",
+        "date": "2025-03-31", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2503.23661",
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": "confirmed",
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "hull-2025",
+    "derived": { "status": "partial", "ai_role": "none", "resolution_direction": "confirmed" },
+    "changed": ["event", "credited_humans", "status_sources"],
+    "doubts": "The bullet is a vague bundle ('various problems'), so 'case' for the MV-restricted count is a judgement; one could read fixed-MV counting as a variant, which would make the status open. DMTCS publication taken from the record (journal page not opened). Direction 'confirmed' is weak: no conjecture was proved, only enumerations obtained.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {
+    "event": {
+      "date": "2025-03-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "sources": ["https://arxiv.org/abs/2503.23661", "https://dmtcs.episciences.org/16660"]
+    },
+    "credited_humans": ["Thomas C. Hull", "Adham Ibrahim", "Jacob Paltrowitz", "Natalya Ter-Saakov", "Grace Wang"],
+    "status_sources": ["https://arxiv.org/abs/2503.23661", "https://dmtcs.episciences.org/16660"]
+  },
+  "outcome_prefix": "Status rests on Hull, Ibrahim, Paltrowitz, Ter-Saakov and Wang (arXiv:2503.23661, 31 Mar 2025; DMTCS), which settles stamp-folding counts for specific fixed mountain-valley assignments; Hogan's new A001415 terms are finite instances and do not set the status.",
+  "corrections": [
+    { "field": "event", "from": "2025-03-21 repository (Hogan, OEIS A001415)", "to": "2025-03-31 preprint (arXiv:2503.23661)", "why": "F4/F8: two new terms a(19), a(20) of an infinite sequence are finitely many instances, not a settled case; the record's own competing_reading concedes this. The case-level event is the Hull et al. MV-assignment paper." },
+    { "field": "credited_humans", "from": "Hogan + Hull et al.", "to": "Hull, Ibrahim, Paltrowitz, Ter-Saakov, Wang", "why": "F8: credited humans must describe the event the status rests on; Hogan's instances are discarded." },
+    { "field": "status_sources", "from": "OEIS A001415, mapFolding repo, arXiv:2503.23661", "to": "arXiv:2503.23661, DMTCS 16660", "why": "F8: sources for the chosen event only." },
+    { "field": "status", "from": "partial", "to": "partial", "why": "other: kept, but rests on reading fixed-MV stamp folding as a case of the bullet's vague 'various problems'; if read as a variant the status would be open." }
+  ]
+}

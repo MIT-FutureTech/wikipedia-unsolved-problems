@@ -1,0 +1,107 @@
+{
+  "key": "does-a-moore-graph-with-girth-5-and-degree",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The existence question for the degree-57 Moore graph remains completely open, but two post-window results narrowed the space of possible constructions/automorphisms: Smith & Montemanni (2024, 2026) ruled out larger classes of symmetric candidate constructions via computer search, and Ishida (2026) proved any such graph's automorphism group must have odd order (no involutions).",
+  "status_sources": [
+    "https://www.mdpi.com/2075-1680/15/5/332",
+    "https://www.mdpi.com/2073-8994/16/12/1563",
+    "https://arxiv.org/abs/2606.29183",
+    "https://en.wikipedia.org/wiki/Moore_graph"
+  ],
+
+  "event": {
+    "date": "2026-06-28",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2606.29183"]
+  },
+
+  "credited_humans": ["Derek H. Smith", "Roberto Montemanni", "Yawara Ishida"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "The derivation given here uses neither the computer search nor the tabulated bounds [of previous analyses].",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": ["https://arxiv.org/html/2606.29183"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "This is the classic 'missing Moore graph' problem: does a Moore graph of diameter 2, girth 5, degree 57 (order 3250) exist? It has been open for over six decades and remains open today. Three lines of post-window work narrow the search without resolving it. (1) Smith & Montemanni, 'Potential Subgraphs of the Missing Moore Graph' (Symmetry, published online 2024-11-22), used Google OR-Tools' CP-SAT constraint solver — a classical constraint/SAT solver, not an AI system under these codes — to extend the known potential t-subgraphs (candidate local structures) from 15 to 20, assuming a cyclic group of permutations on the tree branches; this is a computational search extension, not a resolution of any case. (2) The same authors' follow-up, 'The Moore Graph of Diameter 2 and Degree 57 via Cyclic Derangements' (Axioms, submitted 2026-02-06, published 2026-05-01), proves that a construction of the graph using only a cyclic group of derangement permutations is impossible, closing off that entire restricted family of candidate constructions (a case/sub-family ruled out, hence partial progress, though the paper frames it as narrowing rather than settling anything about the general existence question — no counterexample or resolution results, so this is 'progress' rather than 'partial': the paper shows no such graph exists *of this restricted symmetric type*, which is arguably a partial resolution of a special-case non-existence, but since the general problem (as literally stated in the bullet, with no symmetry assumption) is untouched and the special case was itself invented by these researchers rather than being a natural 'restriction of the stated question' with independent interest, I read it as scope-narrowing progress; see competing_reading). No AI system is mentioned in either Smith/Montemanni paper. (3) Ishida, 'No involutions in the missing Moore graph' (arXiv 2606.29183, submitted 2026-06-28, revised 2026-07-08) proves algebraically (via a trace-rank identity from Brauer quotients of p-permutation lattices) that if the degree-57 Moore graph exists, its automorphism group has odd order — ruling out involutions. This is a genuine new structural constraint on any hypothetical solution, i.e. progress, not a case-restriction of the stated existence question itself (an automorphism-group constraint is a property any hypothetical graph would have to satisfy, not a restriction of the parameters in the question), so it is best classified as `progress` rather than `partial`. The author's affiliation is listed as 'A.I. System Research, Inc., Kyoto, Japan' — a company name containing 'A.I.' — but the paper itself explicitly disclaims computer or AI assistance: 'The derivation given here uses neither the computer search nor the tabulated bounds' of prior analyses. This is a pure algebraic/representation-theoretic proof; ai_role is `none`. Notably, a different 2026-06 preprint from the same research organization (Ryosuke Mizuno, 'A.I. System Research Co., Ltd.'), 'New lower bounds for the degree/diameter problem via interaction with a browser-accessible LLM' (arXiv 2606.15860), does describe substantial ChatGPT (gpt-5-5-pro) involvement in discovering new graph constructions — but that paper addresses different degree/diameter parameters (N(12,5) and N(16,5)), not the degree-57 girth-5 Moore graph, so it is a related-but-distinct problem under §3.1 and not counted here. I also checked Epoch AI's FrontierMath 'Open Problems' page, which lists the missing Moore graph explicitly as an AI benchmark target problem, but states no AI system has made any progress on it. Overall: real, human-driven mathematical progress narrowing the space of possible constructions and automorphism groups, but the core existence question is untouched, and no AI system is credited with any of it.",
+  "competing_reading": "The Smith & Montemanni 'Cyclic Derangements' non-existence result for the cyclic-group-only construction could instead be read as `partial` if one treats 'Moore graph of degree 57 constructible via a cyclic group of derangements' as a genuine case/sub-instance of the stated existence question (a restriction on the automorphism group, akin to restricting a variable). Under that reading, the correct classification would be `partial` with `resolution_direction: refuted` for that sub-case, since a class of constructions was proven impossible. I chose `progress` because the cyclic-derangement construction method is itself a technique invented by these researchers to search for the graph, not a natural sub-family carved out of the problem's own stated parameters (degree, girth, order), so ruling it out narrows the search space without settling any piece of the actual mathematical object described in the bullet. A careful reader could reasonably disagree and call it `partial`.",
+  "what_would_settle_it": "A full computational or algebraic proof (or explicit construction) resolving the existence question outright, or a case-restriction on the problem's own stated parameters (degree 57, girth 5) — as opposed to a restriction on the search method — being settled.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://www.mdpi.com/2075-1680/15/5/332", "title": "The Moore Graph of Diameter 2 and Degree 57 via Cyclic Derangements", "type": "journal", "opened": true},
+    {"url": "https://www.mdpi.com/2073-8994/16/12/1563", "title": "Potential Subgraphs of the Missing Moore Graph", "type": "journal", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.29183", "title": "No involutions in the missing Moore graph", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2606.29183", "title": "No involutions in the missing Moore graph (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2606.29183", "title": "No involutions in the missing Moore graph (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://pith.science/paper/2606.29183", "title": "No involutions in the missing Moore graph — Pith Review", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.15860", "title": "New lower bounds for the degree/diameter problem via interaction with a browser-accessible LLM", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2606.15860", "title": "New lower bounds for the degree/diameter problem via interaction with a browser-accessible LLM (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Moore_graph", "title": "Moore graph", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2210.09577", "title": "Existence of a Moore graph of degree 57 is still open", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2210.09577", "title": "Existence of a Moore graph of degree 57 is still open (PDF)", "type": "preprint", "opened": false},
+    {"url": "https://epoch.ai/frontiermath/open-problems/missing-moore-graph", "title": "The Missing Moore Graph — Epoch AI FrontierMath", "type": "blog", "opened": true},
+    {"url": "https://api.crossref.org/works/10.3390/axioms15050332", "title": "Crossref metadata for Axioms 15(5):332", "type": "repository", "opened": true},
+    {"url": "https://api.crossref.org/works/10.3390/sym16121563", "title": "Crossref metadata for Symmetry 16(12):1563", "type": "repository", "opened": true},
+    {"url": "https://doi.org/10.3390/axioms15050332", "title": "DOI resolver for Axioms 15(5):332", "type": "journal", "opened": true},
+    {"url": "https://elib.dlr.de/219938/1/axioms-14-00802-1.pdf", "title": "DLR-hosted copy of an unrelated Axioms paper (14, 00802)", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "\"Moore Graph of Diameter 2 and Degree 57 via Cyclic Derangements\" mdpi",
+      "\"Potential Subgraphs of the Missing Moore Graph\" CP-SAT solver 2024",
+      "Moore graph degree 57 2025 2026 progress cyclic derangements",
+      "arXiv 2606.29183 \"No involutions in the missing Moore graph\"",
+      "axioms-14-00802 Moore graph degree 57 elib.dlr.de",
+      "Moore graph 57 machine learning AI proof attempt neural network",
+      "\"missing Moore graph\" degree 57 2026 AlphaEvolve OR \"large language model\" OR \"AI\" proof",
+      "\"axioms\" mdpi \"cyclic derangements\" Moore graph 57 arxiv preprint",
+      "Moore graph degree 57 2024 2025 arxiv new result site:arxiv.org",
+      "doi.org/10.3390/axioms15050332 published date issue",
+      "\"Moore Graph of Diameter 2 and Degree 57 via Cyclic Derangements\" author",
+      "mdpi axioms 15 332 2026 Moore graph \"cyclic derangements\" abstract authors Kaski OR Royle OR Dalfo OR Fiol",
+      "\"Moore graph\" degree 57 girth 5 site:en.wikipedia.org unsolved problems mathematics",
+      "Hoffman-Singleton 57 conjecture solved disproved 2026"
+    ],
+    "places_checked": [
+      "arXiv listing/abstract pages for 2606.29183 and 2606.15860",
+      "MDPI Axioms and Symmetry journal pages (blocked by 403, worked around via search snippets and Crossref metadata)",
+      "Crossref API for both Smith & Montemanni papers",
+      "Wikipedia 'Moore graph' article (current version)",
+      "Epoch AI FrontierMath open-problems page",
+      "Open Problem Garden page (found in search, not separately opened)",
+      "General web search for AI/LLM involvement in Moore graph or Hoffman-Singleton work"
+    ],
+    "dead_ends": [
+      "MDPI pages for both Smith & Montemanni papers return HTTP 403 to automated fetchers; relied on search-engine snippets and Crossref metadata instead",
+      "elib.dlr.de PDF (axioms-14-00802) returned 401 Unauthorized and, on retry, was an unrelated Axioms paper, not about degree 57",
+      "arXiv PDF fetches for 2210.09577 and 2606.29183 returned undecoded binary/compressed streams via WebFetch; used the HTML rendering (arxiv.org/html/...) and search-engine summaries instead",
+      "Epoch AI FrontierMath page confirms the problem is used as an AI benchmark target but that no AI system has yet made progress on it",
+      "A same-research-group 2026 paper (Mizuno, arXiv 2606.15860) uses ChatGPT extensively but for different degree/diameter parameters (N(12,5), N(16,5)), not degree 57 — checked and excluded as out of scope under §3.1",
+      "2026 AI-related graph theory news (Hoffman-Singleton graph refuting Graffiti Conjecture 284; ChatGPT and Erdos Unit Distance conjecture) concern different problems that merely use the Hoffman-Singleton graph as a tool, not the degree-57 existence question"
+    ]
+  },
+
+  "incomplete": "I could not directly read the full text of the two MDPI papers (both blocked automated fetchers with HTTP 403); my characterization of their content and methodology rests on search-engine snippets, the triage's notes, and Crossref bibliographic metadata rather than a direct read of the paper bodies. I also could not decode the raw PDF text of arXiv 2210.09577 via WebFetch (binary/compressed stream), though its content was independently corroborated by multiple search summaries and is pre-window in any case. The classification of the 'Cyclic Derangements' paper as `progress` rather than `partial` is a judgment call flagged in `competing_reading`.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

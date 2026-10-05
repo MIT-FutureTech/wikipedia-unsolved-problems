@@ -1,0 +1,123 @@
+{
+  "key": "1-3-2-3-conjecture",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "Max Aires and Jeff Kahn (arXiv:2509.11549, September 2025, and arXiv:2510.26134) proved new asymptotic lower bounds on the balance constant delta(P) for posets of large or bounded width; the general conjecture remains open. [Hand-corrected 2026-09-24; the agent's original outcome follows.] The general 1/3-2/3 conjecture remains open, but a July 2026 solo preprint by Anish Gupta claims exhaustive computational verification of the (stronger) Gold Partition Conjecture, and hence the 1/3-2/3 conjecture, for all non-chain posets on at most 14 elements (extending the prior exhaustive frontier of 11-13 elements); separately, two 2025 preprints by Max Aires and Jeff Kahn prove new asymptotic lower bounds on the balance constant delta(P) for posets of large or bounded width, without settling the general conjecture.",
+  "status_sources": [
+    "https://arxiv.org/abs/2509.11549",
+    "https://arxiv.org/abs/2510.26134",
+    "https://arxiv.org/abs/2607.23926",
+    "https://arxiv.org/html/2607.23926v2",
+    "https://en.wikipedia.org/wiki/1/3%E2%80%932/3_conjecture"
+  ],
+
+  "event": {
+    "date": "2025-09",
+    "precision": "month",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2509.11549"]
+  },
+
+  "credited_humans": ["Max Aires", "Jeff Kahn"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "Anthropic Claude Code (Claude 5 family) and OpenAI Codex (GPT-5.6 family) were used extensively for software development and optimization, computational experiment design, literature discovery, and drafting and editing the manuscript.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["Anthropic Claude Code (Claude 5 family)", "OpenAI Codex (GPT-5.6 family)"],
+    "sources": ["https://arxiv.org/html/2607.23926v2"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": "Exhaustive exact-arithmetic census of all 1,338,193,159,771 unlabeled order-14 posets, each certified against Peczarski's Gold Partition criteria; no counterexample to the conjecture was found (the census result confirms the conjecture holds at this order, it does not refute anything).",
+    "sources": ["https://arxiv.org/html/2607.23926v2"]
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "Two lines of activity touch this problem's own quantity (the balance constant delta(P)) since the frozen revision, neither of which resolves the general conjecture. (1) Max Aires and Jeff Kahn, in two 2025 preprints (arXiv:2509.11549, Sept 2025, and arXiv:2510.26134, Oct 2025), prove new asymptotic lower bounds on delta(P) for posets of large width (delta(P) -> 1/2 as n -> infinity under width/minimal-element conditions, delta(P) >= 1/e - o(1) under weaker width conditions) and study a related Kahn-Saks variance question for bounded-width posets. I fetched both abstracts directly; neither paper mentions the 1/3-2/3 conjecture by name in the fetched abstract content, and I found no statement of AI involvement in either paper's abstract or from search results on their acknowledgements. These are asymptotic bound improvements on the conjecture's own constant for a restricted class (large/bounded width), so they are genuine cases/progress under Section 3.1, but they leave the general conjecture (which needs delta(P) >= 1/3 for ALL non-chain posets, including small-width, bounded-size ones near the known worst cases) untouched, so status does not move to partial/resolved from these alone. (2) A July 2026 solo preprint by independent researcher Anish Gupta (arXiv:2607.23926, v1 2026-07-27, v2 2026-07-30) reports an exhaustive computer census of all order-14 posets (1,338,193,159,771 isomorphism classes, 4,096-way sharded exact-integer computation), verifying Peczarski's Gold Partition Conjecture -- which implies the 1/3-2/3 conjecture -- through n=14, one order beyond the prior exhaustive frontier of n=13 (De Loof, De Baets, De Meyer 2010) and n=11 (Peczarski 2006). This is a genuine case of the universally-quantified conjecture (restricting to posets of size <=14), so it counts under Section 3.1, and it is the event the status rests on. However, it is a single-author preprint with no journal acceptance, no traced expert digestion (no MathOverflow thread, no blog commentary, no citing follow-up found), so per Section 6.1 it is `claimed` rather than `resolved`, notwithstanding the exact-arithmetic, no-floating-point, independently-recomputed-witness design that makes the computation itself easy to check. Crucially, the paper's own text states plainly that 'Anthropic Claude Code (Claude 5 family) and OpenAI Codex (GPT-5.6 family) were used extensively for software development and optimization, computational experiment design, literature discovery, and drafting and editing the manuscript' -- an explicit, first-person authorial disclosure, which is the required basis for an ai_role other than none. I classified this as assisted rather than none because 'computational experiment design' plausibly extends beyond mechanical coding/proofreading into the design of the verification approach itself (which sharding scheme, which independent-recomputation cross-checks to run), which is part of the mathematical/algorithmic content of the result, not merely code cleanup. Wikipedia's live article (checked for context, not as a substitute for primary sources) already cites this exact preprint for the '14 elements' claim, confirming the triage's find was on point.",
+  "competing_reading": "A stricter reading of ai_role would put this at none rather than assisted: the quoted acknowledgement bundles 'computational experiment design' together with mundane items (software development/optimization, literature discovery, drafting/editing), and it is possible the phrase means only that the AI suggested which computations to run or helped script experiments -- i.e., an accelerant for human-directed work -- rather than that it originated any part of the mathematical argument that appears in the paper (the Gold Partition certificates, the recurrence, the sharding correctness argument). Under Section 6.2's test ('what did the model produce that appears in the final result?'), if the answer is that the census algorithm, certificates, and recurrences were all human-designed and the AI only helped implement/optimize/debug them and write prose, the correct code is none, with formalisation_only false (since this isn't formalisation, it's an empirical census). I did not find a more granular breakdown (e.g., a per-contribution list) that would let me disambiguate assisted from none with confidence; I lean assisted because 'computational experiment design' is a mathematical-methodology phrase, not a coding phrase, but this is a judgment call.",
+  "what_would_settle_it": "The full paper text (methods/acknowledgements section, not just the abstract-page fetch) or the GitHub repository's commit history/documentation would show concretely which specific components (the sharding scheme, the independent witness-recomputation cross-check, the certificate logic itself) were AI-suggested versus human-designed, which would settle assisted vs. none. Separately, any MathOverflow/Peczarski/Kahn commentary on arXiv:2607.23926, or a published/refereed version, would let this move from claimed to resolved. For the general (all n) conjecture, only a full proof or an explicit counterexample at some finite n would change the status further.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2509.11549", "title": "Balancing Extensions in Posets of Large Width", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2510.26134", "title": "Variance vs. range for linear extensions, and balancing extensions in posets of bounded width", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.23926", "title": "The Gold Partition Conjecture Holds through Fourteen Elements", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.23926v1", "title": "The Gold Partition Conjecture Holds through Fourteen Elements (v1)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2607.23926v2", "title": "Balance Constants, Majority Cycles, and the Gold Partition Conjecture through Fourteen Elements (v2 full text)", "type": "preprint", "opened": true},
+    {"url": "https://pith.science/paper/2607.23926", "title": "Balance Constants, Majority Cycles, and the Gold Partition Conjecture through Fourteen Elements · Pith", "type": "news", "opened": false},
+    {"url": "https://pith.science/paper/2607.23926/integrity", "title": "Paper Integrity Record · Pith", "type": "news", "opened": false},
+    {"url": "https://github.com/agupta/gold-partition-conjecture", "title": "gold-partition-conjecture (GitHub repo)", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/1/3%E2%80%932/3_conjecture", "title": "1/3-2/3 conjecture (Wikipedia, live article)", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "\"1/3-2/3 conjecture\" 2024 2025 2026 proof solved poset",
+      "1/3-2/3 conjecture 13 elements computer verification brute force",
+      "Aires Kahn balance constant posets arxiv 2025 acknowledgements",
+      "1/3-2/3 conjecture verified 14 elements 2026 preprint",
+      "\"Gold Partition Conjecture\" \"fourteen elements\" Gupta Peczarski review discussion",
+      "Anish Gupta poset independent researcher arxiv Gold Partition",
+      "\"2607.23926\" OR \"Gold Partition Conjecture\" fourteen elements comment reaction mathoverflow"
+    ],
+    "places_checked": [
+      "arXiv abstract and full-text pages for 2509.11549, 2510.26134, 2607.23926 (v1 and v2)",
+      "live Wikipedia article on the 1/3-2/3 conjecture",
+      "pith.science paper and integrity pages for 2607.23926",
+      "GitHub repository referenced by the Gupta preprint",
+      "general web search for MathOverflow/expert commentary on the Gupta preprint"
+    ],
+    "dead_ends": [
+      "pith.science/paper/2607.23926/integrity fetch returned no content both times attempted",
+      "No MathOverflow thread, Terence Tao blog post, or Quanta/other digestion of arXiv:2607.23926 found; the paper is very recent (submitted 2026-07-27, v2 2026-07-30) and appears to have no traced expert digestion yet",
+      "Could not confirm whether the Aires-Kahn 2025 preprints (2509.11549, 2510.26134) mention the 1/3-2/3 conjecture by name anywhere in the full text, only fetched abstract-page content; full PDF text was not directly examined"
+    ]
+  },
+
+  "incomplete": "Did not read the full PDF text of the two Aires-Kahn 2025 preprints (only fetched abstract pages), so cannot fully rule out an AI-involvement disclosure buried in their acknowledgements, though none was found via search. Also could not load the pith.science integrity-record page content despite two attempts, so any independent-verification claims specific to that record are not incorporated.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass. Judged from this record's own findings; no new sources were opened",
+      "field": "status",
+      "from": "claimed",
+      "to": "progress",
+      "why": "SCOPE: `claimed` counted this among resolutions, but the record's own first sentence is 'The general 1/3-2/3 conjecture remains open'. The claimed event, Gupta's exhaustive census of posets on at most 14 elements, checks finitely many instances of a statement about all finite posets: one more example of a universal claim, which the Collatz correction (verification to 2^71) established is not movement. What remains is Aires-Kahn's asymptotic lower bounds on delta(P) for large- or bounded-width posets, a bound on the conjecture's own quantity for a restricted class, which is `progress` under 6.1. The research rules fold 'how much was settled' and 'has an expert checked it' into one field, and the agent read an unreviewed result as `claimed`; that is the pattern this batch of corrections fixes."
+    },
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass",
+      "field": "event",
+      "from": "2026-07-27 preprint, arXiv:2607.23926 (Gupta)",
+      "to": "2025-09 preprint, arXiv:2509.11549 (Aires-Kahn)",
+      "why": "Follows the status correction; `credited_humans` follows the event. Month precision, since the record gives only the month."
+    },
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass",
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "none",
+      "why": "`ai_role` describes the event the status rests on. Aires-Kahn carry no AI disclosure (the record checked their abstracts and search results; its `incomplete` notes the acknowledgements were not read in full). Gupta's Claude Code / Codex disclosure stays in `ai` as evidence."
+    },
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass",
+      "field": "resolution_direction",
+      "from": "confirmed",
+      "to": null,
+      "why": "A moved bound on an open problem has no direction."
+    }
+  ]
+}

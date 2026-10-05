@@ -1,0 +1,83 @@
+{
+  "key": "pierce-birkhoff-conjecture",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "A September 2026 preprint by Zehua Lai, Lek-Heng Lim, and Junyu Ren claims a counterexample disproving the general Pierce-Birkhoff conjecture (dimensions 5,6,7,22,24,30,72, likely all n≥3), found with assistance from a multi-agent, multi-model AI setup; a July 2025 preprint by Lai and Lim separately proved the conjecture true for the spline (hyperplane-partition) special case, a related but distinct problem.",
+  "status_sources": [
+    "https://arxiv.org/abs/2609.10420",
+    "https://arxiv.org/html/2609.10420",
+    "https://github.com/7pocheR/Pierce-Birkhoff"
+  ],
+
+  "event": {
+    "date": "2026-09-09",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2609.10420"]
+  },
+
+  "credited_humans": ["Zehua Lai", "Lek-Heng Lim", "Junyu Ren"],
+
+  "ai_role": "assisted",
+  "ai": {
+    "basis_quote": "The counterexample was found with the assistance of our multi-agent, multi-model setup that chains together GPT 5.6, GPT 6, Claude Opus 5, and Claude Fable 5.1. ... The counterexample in this article is notably not found with any single large language model (we tried doing so without success) but requires harnessing multiple systems ... The matrix-pair construction in dimension 72 and the argument excluding representations of arbitrary degree emerged from GPT investigations.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["GPT 5.6", "GPT 6", "Claude Opus 5", "Claude Fable 5.1"],
+    "sources": ["https://arxiv.org/abs/2609.10420", "https://arxiv.org/html/2609.10420"]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "A continuous, positively-homogeneous-of-degree-two, piecewise-quadratic function on the space of pairs of symmetric 5x5 matrices (realized as a 30-dimensional example), that is piecewise quadratic on a finite semialgebraic partition of R^n but cannot be written as a finite lattice (max-of-mins) combination of polynomials; the same construction is reported to generalize to n = 5, 6, 7, 22, 24, 72, and conjecturally to all n ≥ 3.",
+    "explicit": true,
+    "verified_how": "Authors report human expert checking of the main n=30 construction plus Lean formalization; the 5D/6D/7D constructions have human review 'ongoing' per the repository README, and no completed human review is claimed for the 8D construction.",
+    "sources": ["https://arxiv.org/abs/2609.10420", "https://github.com/7pocheR/Pierce-Birkhoff"]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [],
+
+  "summary": "Two arXiv preprints bear on this problem within the window. (1) arXiv:2507.07976 (Zehua Lai and Lek-Heng Lim, submitted 2025-07-10) proves the Pierce-Birkhoff conjecture holds for 'splines' — continuous piecewise polynomials on a hyperplane partition of R^n. This is a restriction of the general conjecture (hyperplane partitions are a special case of the semialgebraic partitions the general conjecture allows), so under §3.1 it is a genuine case of the stated problem, not a variant — but since a broader counterexample later appeared, the spline result is subsumed rather than being the operative event. No AI involvement is mentioned anywhere in that paper's text. (2) arXiv:2609.10420 (Lai, Lim, and Junyu Ren, submitted 2026-09-09) claims the general Pierce-Birkhoff conjecture, as stated on the Wikipedia bullet ('every piecewise-polynomial f:R^n→R is the maximum of a finite set of minimums of finite collections of polynomials'), is FALSE: they exhibit a continuous piecewise-quadratic counterexample on semialgebraic partitions (realized on pairs of symmetric 5x5 matrices, 30-dimensional) that cannot be written as such a lattice combination, and report the construction generalizes to several other dimensions and likely to all n≥3. This is squarely in-scope: it directly negates the stated conjecture, not a neighboring problem. The authors' own abstract and body text state the counterexample was found via a chained multi-agent, multi-model LLM setup (GPT 5.6, GPT 6, Claude Opus 5, Claude Fable 5.1), and explicitly that no single model succeeded — multiple systems working together were required, with specific pieces (the dimension-72 matrix-pair construction, an argument excluding arbitrary-degree representations) attributed to 'GPT investigations.' This satisfies the authors'-own-account bar for ai_role assisted (the AI produced pieces of the mathematics that appear in the final result; humans provided guidance, checked, and wrote the exposition) — the paper does not claim the AI single-handedly produced and the humans merely verified a complete proof, so I did not code this as 'generated'; see competing_reading. Because this preprint is only 13 days old at the time of this research (today is 2026-09-22) it has not yet been digested by a human expert in the traditional sense (no Tao blog post, no journal acceptance, no named-expert public verification found). A companion Lean-formalization repository (github.com/7pocheR/Pierce-Birkhoff) exists and its README states the main n=30 construction's proof 'has undergone careful human expert checking and is formalized in Lean,' while review of the 5D/6D/7D constructions is 'ongoing' and no claim of completed review is made for an 8D construction — this is short of full traditional digestion and I could not independently confirm the identity or independence of the 'human expert' checkers. I also found an automated review of the paper on 'Pith Review' (pith.science), a platform that itself describes its process as AI-assisted deep review 'overseen by humans' — this is not the kind of named human-expert digestion that would justify 'resolved,' so I classified status as 'claimed' rather than 'resolved.' No retraction, dispute, or priority conflict was found.",
+  "competing_reading": "One could argue the AI's role rises to 'generated' rather than 'assisted': the abstract's framing ('found with the assistance of') is the authors' own softening, but the body credits GPT investigations with producing the dimension-72 construction and the degree-exclusion argument outright, and states no single human-driven approach (implicitly) or single model sufficed — suggesting the mathematical content, not just the search process, came substantially from the AI systems, with humans mainly verifying, simplifying, and writing up. Conversely, one could also argue for 'open' rather than 'claimed' on grounds that a 13-day-old, not-yet-peer-reviewed preprint with only partial, unnamed 'human expert checking' should not move the needle on the conjecture's status at all until it survives scrutiny — but the rules define 'claimed' precisely for this situation, so I kept 'claimed.'",
+  "what_would_settle_it": "A public human-expert digestion (e.g. a specialist's blog post, MathOverflow consensus, or journal referee report) confirming or refuting the n=30 (or smaller) counterexample construction; identification of the 'human expert' checkers named in the Lean repository and confirmation they are independent of the authors; completion of the Lean formalization without 'sorry' for the smaller-dimension cases; and a clearer authorial statement on whether the AI systems produced the core mathematical construction versus merely searching a space of candidates the humans had already framed.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2609.10420", "title": "Pierce-Birkhoff conjecture is false", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.10420", "title": "Pierce-Birkhoff conjecture is false (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2507.07976", "title": "Pierce-Birkhoff conjecture is true for splines", "type": "preprint", "opened": true},
+    {"url": "https://github.com/7pocheR/Pierce-Birkhoff", "title": "Pierce-Birkhoff Lean formalization repository", "type": "repository", "opened": true},
+    {"url": "https://pith.science/paper/2609.10420", "title": "Pierce-Birkhoff conjecture is false · Pith Review", "type": "blog", "opened": true},
+    {"url": "https://pith.science/", "title": "Pith | pre-print review for science", "type": "blog", "opened": false},
+    {"url": "https://en.wikipedia.org/wiki/Pierce%E2%80%93Birkhoff_conjecture", "title": "Pierce–Birkhoff conjecture", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Pierce-Birkhoff conjecture false counterexample Lai Lim Ren 2026",
+      "Pierce-Birkhoff conjecture Tao blog OR Quanta OR \"counterexample\" reaction September 2026",
+      "\"Pierce-Birkhoff\" arxiv 2609.10420 review OR comment OR retraction OR dispute",
+      "\"Pith Review\" pith.science what is it automated AI review platform"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML full text for 2609.10420",
+      "arXiv abstract for 2507.07976",
+      "GitHub repository github.com/7pocheR/Pierce-Birkhoff (Lean formalization)",
+      "pith.science review of 2609.10420",
+      "Wikipedia article Pierce–Birkhoff conjecture (current live version, for lead-status check only)",
+      "General web search for Tao blog / Quanta / MathOverflow discussion"
+    ],
+    "dead_ends": [
+      "No Terence Tao blog post specific to Pierce-Birkhoff was found (a July 2026 Tao post found in search concerns the unrelated Jacobian conjecture counterexample)",
+      "No Quanta Magazine or mainstream science-press coverage found",
+      "No MathOverflow or peer-review journal record found for the September 2026 preprint given its recency"
+    ]
+  },
+
+  "incomplete": "I could not verify firsthand whether the Lean formalization in the GitHub repository is complete/sorry-free for the n=30 case, relying instead on the repository's own README summary via WebFetch rather than inspecting the Lean source files directly. I also could not identify who the unnamed 'human expert' checkers are or confirm their independence from the paper's authors. Given the preprint is only 13 days old, no independent human-expert digestion could be found regardless of how thoroughly I searched, which is expected for a result this fresh.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

@@ -1,0 +1,106 @@
+{
+  "key": "kobon-triangle-problem",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "Several specific cases of K(n) were newly resolved since January 2024 (K(11)=32 shown maximal, K(23)=161, K(27)=225 by Savchuk 2025; K(22)=143 and K(28)=238 by Liang, Liu & Zhang 2026), using SAT solving and a new parity-obstruction argument, but the general Kobon triangle problem (a formula or full characterization of K(n) for all n) remains open.",
+  "status_sources": [
+    "https://arxiv.org/abs/2507.07951",
+    "https://zenodo.org/records/20723644",
+    "https://en.wikipedia.org/wiki/Kobon_triangle_problem"
+  ],
+
+  "event": {
+    "date": "2026-06-17",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://zenodo.org/records/20723644",
+      "https://zenodo.org/records/20738675"
+    ]
+  },
+
+  "credited_humans": ["Pavlo Savchuk", "Ke Liang", "Youming Liu", "Yurui Zhang", "Alejandro Zarzuelo Urdiales", "Roman Parpalak", "Denis Utkin"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [
+    {
+      "kind": "priority/attribution",
+      "summary": "The exact value K(28)=238 (and K(22)=143) is credited in different places to different people. OEIS A006066 (as of this research) lists K(28) only as a lower bound '>=238' attributed to Zarzuelo, while a Zenodo preprint by Liang, Liu & Zhang (June 2026), 'Two New Exact Values for the Kobon Triangle Problem: K(28)=238 and K(22)=143,' claims the exact (matching upper and lower bound) result via a new local sign parity lemma plus SAT corroboration. Zarzuelo's own Lean repository (github.com/alejandrozu/kobon-proof) explicitly disclaims priority, stating its K(28)=238 witness is 'not a claim of first discovery,' consistent with Liang/Liu/Zhang being the source of the exact-value proof and Zarzuelo's repo reproducing/formalizing the lower-bound witness. A companion Zenodo note by Youming Liu on symmetries of n=28 configurations (records 20706766 and 21181834, June 2026) is closely related follow-up work.",
+      "sources": [
+        "https://oeis.org/A006066",
+        "https://zenodo.org/records/20723644",
+        "https://zenodo.org/records/20738675",
+        "https://github.com/alejandrozu/kobon-proof",
+        "https://zenodo.org/records/20706766"
+      ]
+    }
+  ],
+
+  "summary": "The Kobon triangle problem asks for K(n), the maximum number of non-overlapping triangles formed by n lines, for every n; the general problem (a full formula or characterization) remains open. Since 26 January 2024, several specific values were newly determined. Pavlo Savchuk's arXiv preprint 2507.07951 (submitted 10 July 2025), 'Constructing Optimal Kobon Triangle Arrangements via Table Encoding, SAT Solving, and Heuristic Straightening,' used the Kissat SAT solver plus a scipy-based heuristic straightening procedure to find new optimal arrangements for n=23 (K(23)=161) and n=27 (K(27)=225), and to prove that the long-conjectured-unreachable upper bound of 32 for n=11 is indeed unreachable, confirming K(11)=32 as maximal. Separately, a Zenodo-hosted preprint by Ke Liang, Youming Liu, and Yurui Zhang (17 June 2026), 'Two New Exact Values for the Kobon Triangle Problem: K(28)=238 and K(22)=143,' combined the classical Bartholdi-Blanc-Loisel upper bound with a newly devised 'local sign parity lemma' (a parity obstruction ruling out the BBL-maximal triangle count for n congruent to 4 mod 6) and an independent SAT computation to establish these two exact values rigorously, including a symmetry argument (elaborated in companion notes on Zenodo, records 20706766 and 21181834) showing any 28-line arrangement with 239 triangles would have to be completely asymmetric. Alejandro Zarzuelo Urdiales's Lean repository (github.com/alejandrozu/kobon-proof) independently reproduces a K(28)=238 witness with formal coordinate certificates but explicitly disclaims being the first to discover it, and OEIS A006066 (checked during this research) still lists K(28) as only a lower bound attributed to Zarzuelo, indicating some lag in cross-referencing between these near-simultaneous 2025-2026 results. None of the sources examined -- the Savchuk arXiv paper (full text checked for AI/ML mentions), the Liang/Liu/Zhang and companion Zenodo abstracts, the Zarzuelo Lean repository README and ledger files, or secondary web coverage -- mention any AI, machine learning, or large language model involvement; all methods described are classical (SAT solvers, scipy numerical optimization, combinatorial/parity arguments, and Lean formal verification of witnesses). Each of these results is a case of the problem (a specific n), settling territory but not resolving the general open problem, so status is 'partial' with direction 'confirmed' (each case matched or extended what was conjectured possible for that n, none refuted an expectation).",
+  "competing_reading": "One could argue this should be 'progress' rather than 'partial' since the general problem's asymptotic/formulaic status is unchanged and only isolated small-n values moved. However, per §6.1/§3.1, settling an exact case (a specific n, previously only bounded) counts as 'partial' rather than mere 'progress', since it removes territory (that n's value) from the open problem entirely, distinguishing it from a bound merely narrowing without closing. Also plausible: the K(28)=238 priority dispute could shift the recorded event date backward if Zarzuelo's repository predates the Liang/Liu/Zhang Zenodo posting -- the Zarzuelo repo's own commit history was not fully dated in this research, so the June 2026 date is anchored to the Liang/Liu/Zhang publication, which explicitly claims the exact-value proof.",
+  "what_would_settle_it": "Checking Zarzuelo's kobon-proof GitHub commit history for exact dates on the K(28)=238 witness, and reading the full Liang/Liu/Zhang Zenodo PDF (not just its abstract, which could not be parsed as text by available tools) to see whether it cites or credits Zarzuelo's earlier work, would settle both the priority question and confirm no AI acknowledgement exists in an unparsed methods/acknowledgements section.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2507.07951", "title": "Constructing Optimal Kobon Triangle Arrangements via Table Encoding, SAT Solving, and Heuristic Straightening", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2507.07951", "title": "Constructing Optimal Kobon Triangle Arrangements via Table Encoding, SAT Solving, and Heuristic Straightening (HTML full text)", "type": "preprint", "opened": true},
+    {"url": "https://zenodo.org/records/20723644", "title": "Two New Exact Values for the Kobon Triangle Problem: K(28) = 238 and K(22) = 143", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/20738675", "title": "Two New Exact Values for the Kobon Triangle Problem: K(28) = 238 and K(22) = 143 (record metadata/authors)", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/20706766", "title": "On the Symmetries of Optimal Kobon Triangle Configurations for n = 28", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/21181834", "title": "On the symmetries of optimal simple Kobon arrangements for n = 28", "type": "repository", "opened": false},
+    {"url": "https://github.com/alejandrozu/kobon-proof", "title": "kobon-proof: Lean proof of the even line kobon augmentation proposition", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Kobon_triangle_problem", "title": "Kobon triangle problem", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A006066", "title": "A006066 - OEIS", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/html/2604.22035v1", "title": "The 18·2^t+1 Triangle-Maximal Series of Straight Lines", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Kobon triangle problem new record proof 2025",
+      "Kobon triangle problem K(n) improved bound arXiv",
+      "Kobon triangle problem K(n) 2024 2025 new record SAT solver",
+      "Youming Liu Yurui Zhang Kobon triangle K(28) K(22) arxiv",
+      "Kobon triangle OEIS A006066 2025 2026",
+      "\"Kobon triangle\" arxiv Liu Zhang \"K(28) = 238\"",
+      "Alejandro Zarzuelo Urdiales Kobon triangle K(28) 238 lower bound arxiv",
+      "Parpalak Utkin \"Kobon\" triangle-maximal series straight lines 2026",
+      "Kobon triangle problem GPT Claude AI language model solve 2025 2026",
+      "Savchuk Kobon triangle acknowledgements ChatGPT Copilot code assistance"
+    ],
+    "places_checked": [
+      "arXiv (2507.07951 abstract and HTML full text)",
+      "Zenodo records 20723644, 20738675, 20706766",
+      "OEIS A006066",
+      "current (live) Wikipedia article on the Kobon triangle problem",
+      "GitHub repository alejandrozu/kobon-proof",
+      "general web search for AI/LLM involvement"
+    ],
+    "dead_ends": [
+      "Attempted to fetch the raw Zenodo PDF ('K28 and K22.pdf') directly to check acknowledgements section for AI mentions; the tool could not parse the compressed PDF stream, so acknowledgements text was not directly verified beyond the abstract",
+      "Could not confirm exact commit dates in the Zarzuelo GitHub repository to fully settle priority ordering against the Liang/Liu/Zhang Zenodo posting"
+    ]
+  },
+
+  "incomplete": "The acknowledgements/methods sections of the Liang, Liu & Zhang Zenodo PDF (K28 and K22.pdf) could not be read directly (WebFetch could not decode the PDF stream), so the absence of AI/LLM mentions there rests only on the abstract text, not the full paper. This is noted as a gap; confidence is set to medium rather than high for this reason, and because the K(28) priority chain (Zarzuelo vs. Liang/Liu/Zhang) was not fully dated from primary commit history.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

@@ -1,0 +1,89 @@
+{
+  "key": "singmasters-conjecture",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No genuine progress on Singmaster's conjecture itself has occurred since 26 January 2024; the only in-window activity found is a self-published, unreviewed Lean 4 deposit claiming a full resolution, whose own code contains no proof of the existential claim, and which bears the hallmarks of a templated/AI-generated hoax rather than mathematics.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Singmaster%27s_conjecture",
+    "https://zenodo.org/records/21660302",
+    "https://github.com/AEjonanonymous/Singmasters-Conjecture"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The last genuine mathematical progress on Singmaster's conjecture is the 2021 Matomäki–Radziwiłł–Shao–Tao–Teräväinen paper 'Singmaster's conjecture in the interior of Pascal's triangle' (arXiv:2106.03335, submitted 2021-06-07, published in the Quarterly Journal of Mathematics 73(3):1137–1177 in 2022), which bounds multiplicities in an interior region of the triangle to at most four (two per half) for sufficiently large entries. Both the preprint and the journal publication predate the frozen revision (2024-01-26) by roughly two to three years, so this is open_stale-relevant background, not an in-window event, and I did not record it as the decisive event since nothing changed status in the window. The current live Wikipedia article confirms the conjecture remains open, with the best unconditional bound still Daniel Kane's 2007 result, and no update reflecting any newer development. The one item that surfaced in the window is a Zenodo deposit dated 2026-07-29, 'Bounding Singmaster's Conjecture via Constructive Type Transformation in Lean 4' by an account calling itself 'Jonathan Reed'/'AEjonanonymous' on GitHub. I fetched the deposit, its PDF abstract, and the actual Lean 4 source file (SingmastersConjecture.lean, 5.0 kB). The abstract claims a 'complete, formally verified resolution' via a 14-stage 'type-safe data-flow pipeline', but the Lean file itself only *defines* a chain of Set/Nat.choose/Nat.factorization constructs and states a final proposition asserting existence of a universal bound M — it contains no proof term discharging that existential claim (i.e., it asserts the conjecture's content as a definition/statement, not a theorem with a completed proof). This is not merely unreviewed; on inspection it does not constitute a proof at all. Corroborating this, the same GitHub account/persona pattern has posted a series of near-identical, jargon-heavy 'resolutions' of other famous open problems (the Hodge conjecture via 'Mumford-Tate Weight Gradings', the Riemann Hypothesis via 'Spectral Rigidity', the Cook-Levin theorem) using the same templated title structure and rhetorical style, a strong signature of mass-produced, likely AI-generated pseudo-mathematics rather than a serious result by a working mathematician — no institutional affiliation, no prior publication record, and (per the deposit page) no peer review. Separately, I found an unrelated independent Lean formalization attempt at github.com/zjukop3/erdos702-singmaster, tied to a crowdsourced bounty program ('The Justin Sun Prize' / JSP-000702 award-claim issues on GitHub), but I could not retrieve its README content to determine whether it claims a full proof or only formalizes the known partial (2021) result; either way I found no evidence it has been vetted or accepted as a genuine resolution, and no expert digestion of it exists. Given all this, the correct classification is `open` with `no_change_found` true: no case, bound, or the full conjecture has genuinely moved since the frozen date. The July 2026 Zenodo item is best understood as an incident/hoax rather than a citable event, since even a `claimed`/`incident` status would require some real claim that was withdrawn or unresolved after being taken seriously by anyone — this was never taken seriously by any journal, blog, or named expert; it simply exists on a self-deposit platform. I therefore recorded no `event` and set `ai_role` to `none`, since there is no genuine mathematical content in the hoax deposit to attribute to an AI system with any authorial statement — I strongly suspect AI authorship of the fabricated jargon, but the coding rules require the *authors' own account* of AI use for an `assisted`/`generated` role, and no such statement exists (the deposit is anonymous and silent on tooling).",
+  "competing_reading": "One could argue the Zenodo deposit should be coded as `claimed` + `ai_role: generated`, treating it as an AI-produced claim that a person (or persona) is presenting as their own, on the theory that its jargon-salad style is itself circumstantial evidence of LLM authorship strong enough to code as fact. I did not take this reading because (a) the rules require the authors' own account of AI involvement, which is absent here — the deposit says nothing about how it was produced, and (b) more importantly, the artifact is not a proof at all (no proof term for the existential statement), so there is no mathematical content to credit to any author, human or AI — it fails the threshold for `claimed` (\"a preprint, announcement, or machine-checked certificate\") because there is no certificate: it was never machine-checked as claimed, since the file does not actually prove the stated theorem. Also plausible: the zjukop3 erdos702-singmaster repository could represent a legitimate independent formalization of the *known* 2021 interior-region result (a `partial`-worthy case if the formalization is faithful and correct) rather than a new claim; I could not confirm this because the README was not retrievable, so I left it out of the record rather than guess.",
+  "what_would_settle_it": "For the Zenodo/GitHub item: a compiled run of `SingmastersConjecture.lean` through `lake build` (or lean4 checker) confirming whether `singmasterConjectureBound` has an actual proof term versus being an unproved `def`/axiom, and any statement from 'Jonathan Reed' about tooling used. For zjukop3/erdos702-singmaster: the actual README and Erdos702.lean file contents, and the linked TheJustinSunPrize/awards issue's resolution (accepted/rejected/still open), to determine whether it claims anything beyond the known 2021 partial result and whether that claim has been vetted.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Singmaster%27s_conjecture", "title": "Singmaster's conjecture - Wikipedia", "type": "encyclopedia", "opened": true},
+    {"url": "https://zenodo.org/records/21660302", "title": "Bounding Singmaster's Conjecture via Constructive Type Transformation in Lean 4", "type": "preprint", "opened": true},
+    {"url": "https://github.com/AEjonanonymous/Singmasters-Conjecture", "title": "AEjonanonymous/Singmasters-Conjecture", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/AEjonanonymous/Singmasters-Conjecture/main/SingmastersConjecture.lean", "title": "SingmastersConjecture.lean", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2106.03335", "title": "Singmaster's conjecture in the interior of Pascal's triangle", "type": "preprint", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2021/06/07/singmasters-conjecture-in-the-interior-of-pascals-triangle/", "title": "Singmaster's conjecture in the interior of Pascal's triangle | What's new", "type": "blog", "opened": false},
+    {"url": "https://academic.oup.com/qjmath/article/73/3/1137/6563541", "title": "Singmaster's Conjecture In The Interior Of Pascal's Triangle | QJMath", "type": "journal", "opened": false},
+    {"url": "https://github.com/zjukop3/erdos702-singmaster", "title": "zjukop3/erdos702-singmaster", "type": "repository", "opened": true},
+    {"url": "https://www.openproblemgarden.org/op/singmasters_conjecture", "title": "Singmaster's conjecture | Open Problem Garden", "type": "encyclopedia", "opened": false},
+    {"url": "https://arxiv.org/pdf/2107.09107", "title": "Repetitions of multinomial coefficients and a generalization of Singmaster's conjecture", "type": "preprint", "opened": false},
+    {"url": "https://terrytao.wordpress.com/2026/03/29/mathematical-methods-and-human-thought-in-the-age-of-ai/", "title": "Mathematical methods and human thought in the age of AI | What's new", "type": "blog", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Singmaster's conjecture proof 2025 2026",
+      "\"Singmaster's conjecture\" arXiv 2024 2025 bound multiplicity",
+      "Matomaki Radziwill Shao Tao Teravainen Singmaster Annals Mathematics 2024",
+      "erdos702-singmaster zjukop3 README Lean formalization",
+      "Singmaster conjecture progress 2023 2024 2025 new bound number of appearances",
+      "\"Jonathan Reed\" Singmaster Lean 4 Zenodo mathematician",
+      "Singmaster conjecture Lean formalization sorry retracted hoax",
+      "\"JSP-000702\" Singmaster award claim zjukop3",
+      "Terence Tao Zenodo fake proof AI slop Lean hallucinated papers 2026"
+    ],
+    "places_checked": [
+      "Wikipedia article on Singmaster's conjecture (live)",
+      "arXiv abstract page for 2106.03335",
+      "Zenodo deposit 21660302 (PDF abstract, file listing)",
+      "Raw Lean 4 source file from AEjonanonymous/Singmasters-Conjecture GitHub repo",
+      "GitHub repo AEjonanonymous/Singmasters-Conjecture (README, metadata)",
+      "GitHub repo zjukop3/erdos702-singmaster (metadata only, README not retrievable)",
+      "Open Problem Garden entry",
+      "Terence Tao's blog (general AI-in-mathematics commentary, no Singmaster-specific hit)",
+      "General web search for any 2024-2026 arXiv preprint mentioning Singmaster's conjecture"
+    ],
+    "dead_ends": [
+      "GitHub README for zjukop3/erdos702-singmaster could not be fetched in full (page showed only file listing/metadata), so its precise claim (full proof vs. formalization of known partial result) remains unconfirmed",
+      "No TheJustinSunPrize/awards issue specific to JSP-000702 (Singmaster) was located to check acceptance/rejection status",
+      "Searched for any retraction/controversy discussion of the Zenodo deposit specifically; none found beyond my own inspection of the Lean file"
+    ]
+  },
+
+  "incomplete": "Could not retrieve the full README/contents of github.com/zjukop3/erdos702-singmaster or locate its corresponding JSP-000702 award-claim GitHub issue, so I cannot fully characterize that independent formalization effort's claim or status; it does not change the overall classification since no evidence anywhere shows a genuine resolution or expert-vetted progress in the window.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

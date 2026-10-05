@@ -1,0 +1,112 @@
+{
+  "key": "ibragimov-iosifescu-conjecture-for-mixing-sequences",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "On 5-6 September 2026, OpenAI's pre-release GPT-6 Astra autonomously constructed a stationary, phi-mixing, finite-second-moment sequence whose partial-sum variance diverges but a normalized-sum subsequence converges to zero rather than to N(0,1), refuting both Ibragimov's CLT conjecture and Iosifescu's weak invariance principle conjecture; the construction and its Lean 4 formalisation were posted to a public GitHub repository by Tom Adamczewski (an Epoch AI research engineer, not a probabilist) and remain explicitly unaudited by any outside expert as of 22 September 2026.",
+  "status_sources": [
+    "https://github.com/tadamcz/phi-mixing-clt",
+    "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture",
+    "https://en.wikipedia.org/wiki/Ibragimov%E2%80%93Iosifescu_conjecture_for_%CF%86-mixing_sequences",
+    "https://github.com/mrconter1/vibemathed/pull/39"
+  ],
+
+  "event": {
+    "date": "2026-09-05",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://github.com/tadamcz/phi-mixing-clt",
+      "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture"
+    ]
+  },
+
+  "credited_humans": ["Tom Adamczewski"],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "This entire repository was machine-written by AI assistants at the direction of Tom Adamczewski. The Lean proof itself was written by GPT-6 Astra. ... The counterexample construction and Lean disproof in this repository were obtained by GPT-6 Astra.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["GPT-6 Astra"],
+    "sources": [
+      "https://github.com/tadamcz/phi-mixing-clt",
+      "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "A strictly stationary, centered, phi-mixing real-valued process built from Gaussian-smoothed rare spikes plus a bounded nonlinear (causal) feedback correction, with finite second moments and partial-sum variance diverging to infinity, but with variance-normalized partial sums converging to zero in probability along a subsequence rather than to a standard normal law.",
+    "explicit": true,
+    "verified_how": "Formalised and type-checked in Lean 4 (reported 13,047 lines; kernel accepts using only the standard axioms propext, Classical.choice, Quot.sound; a `sorry` appears only in the conjecture-statement stub, not in the disproof itself). No independent human probabilist has yet reviewed the construction or the faithfulness of the formal definitions to the literature.",
+    "sources": [
+      "https://github.com/tadamcz/phi-mixing-clt",
+      "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [],
+
+  "summary": "The triage record treated this as fabricated/gamified content and stopped there, but on direct verification the underlying claim is real, current (well within the window), and substantive: a candidate counterexample to both halves of the Ibragimov-Iosifescu conjecture, built and Lean-formalised entirely by OpenAI's pre-release GPT-6 Astra model under the direction of Tom Adamczewski (an Epoch AI research engineer), posted to github.com/tadamcz/phi-mixing-clt around 5-6 September 2026 and catalogued on the 'VibeMathed' tracker (github.com/mrconter1/vibemathed, vibemathed.com), which is a genuine, methodologically transparent community database of AI-attributed math results rather than a hoax -- it explicitly labels this entry 'Candidate (review pending)' rather than 'Resolved'. The Lean proof is complete for the disproof itself (the only `sorry` is in the conjecture-statement stub, a standard formalisation convention, not a gap in the refutation), and an internal 'ANALYSIS.md' correctness audit endorses the formalisation's faithfulness to the literature with high confidence -- but that audit is itself an anonymised automated 'Scorer C / comparator' report bundled in the same repository, not a named independent human expert's review, and the repository and Wikipedia's own current article both state plainly that no probabilist outside the run has read the construction. Given the explicit 'unaudited'/'independent review pending' status repeated by every primary source (the repo, vibemathed.com, and the live Wikipedia article), and the complete absence of any arXiv preprint, journal submission, or named-expert commentary as of 22 September 2026 (17 days after the claim), this is classified `claimed` rather than `resolved`: a machine-checked, LLM-produced disproof that has not yet been digested by a human expert per Section 6.1's rule that a green Lean check alone is not sufficient. `ai_role` is `generated` because the authors' own account is unambiguous that GPT-6 Astra, not the human, produced the mathematical construction and its formal proof; Adamczewski's role was direction, infrastructure and posting.",
+  "competing_reading": "One could argue for `resolved` on the grounds that Lean's kernel check is itself a rigorous, mechanical verification requiring no human trust in the proof steps, so 'expert digestion' is arguably satisfied by the ANALYSIS.md correctness audit plus the kernel's soundness. Against this: the audit itself is unsigned and produced within the same AI-native pipeline (a 'Scorer' stage, not an identified mathematician), the formal statement's faithfulness to the 55-year-old informal conjecture has explicitly not been checked against the primary literature by an outside person, and Section 6.1 treats 'a machine proof whose only reader is the compiler' as insufficient for `resolved` even when the check is clean. I judge `claimed` is the better reading, but flag this as a close call given how thorough the self-audit is.",
+  "what_would_settle_it": "A named probability theorist (or a journal, or a widely-read expert blog such as Tao's) publicly reviewing the phi-mixing and stationarity formalisations against the Ibragimov/Iosifescu/Peligrad literature and either endorsing or refuting the construction; alternatively, an arXiv writeup of the natural-language argument that draws expert comment, or the Wikipedia article's own status line changing from 'candidate'/'pending' to an accepted resolution.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Ibragimov%E2%80%93Iosifescu_conjecture_for_%CF%86-mixing_sequences", "title": "Ibragimov–Iosifescu conjecture for φ-mixing sequences", "type": "encyclopedia", "opened": true},
+    {"url": "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture", "title": "The Ibragimov–Iosifescu conjecture for φ-mixing sequences · VibeMathed", "type": "repository", "opened": true},
+    {"url": "https://github.com/tadamcz/phi-mixing-clt", "title": "tadamcz/phi-mixing-clt", "type": "repository", "opened": true},
+    {"url": "https://github.com/mrconter1/vibemathed", "title": "mrconter1/vibemathed", "type": "repository", "opened": true},
+    {"url": "https://github.com/mrconter1/vibemathed/pull/39", "title": "Review of 6 September: eighteen submissions", "type": "repository", "opened": true},
+    {"url": "https://github.com/tadamcz/mean-value-problem", "title": "tadamcz/mean-value-problem (comparison case, same author/system)", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence", "title": "List of mathematical discoveries by artificial intelligence", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.sciencedirect.com/science/article/pii/030441499090008G", "title": "On Ibragimov–Iosifescu conjecture for φ-mixing sequences", "type": "journal", "opened": false},
+    {"url": "https://www.yottalabs.ai/post/gpt-6-release-date-rumors-what-is-known-2026", "title": "GPT-6 Astra: Release Date, Pricing, Benchmarks, and Rollout (2026)", "type": "news", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Ibragimov-Iosifescu conjecture phi-mixing sequences",
+      "\"Ibragimov\" \"Iosifescu\" conjecture phi-mixing 2024 2025 2026",
+      "vibemathed GPT-6 Astra Ibragimov Iosifescu Lean counterexample",
+      "tadamcz github Ibragimov Iosifescu counterexample repository",
+      "OpenAI GPT-6 Astra release date pre-release math",
+      "tadamcz phi-mixing-clt Challenge.lean sorry disproof",
+      "Ibragimov Iosifescu conjecture disproof expert review September 2026",
+      "\"phi-mixing\" Astra counterexample retracted withdrawn error",
+      "Tom Adamczewski mathematician probabilist independent verification",
+      "Ibragimov Iosifescu conjecture arxiv preprint 2026 probabilist verified"
+    ],
+    "places_checked": [
+      "Wikipedia article (live, for the AI-era status; frozen revision consulted via the extracted statement)",
+      "vibemathed.com problem page",
+      "github.com/tadamcz/phi-mixing-clt (README and ANALYSIS.md)",
+      "github.com/mrconter1/vibemathed (project README and PR #39)",
+      "List of mathematical discoveries by artificial intelligence (Wikipedia)",
+      "arXiv search for a preprint or writeup",
+      "General web search for retraction/withdrawal coverage"
+    ],
+    "dead_ends": [
+      "No arXiv preprint or journal submission found for the counterexample as of 2026-09-22",
+      "No named independent probabilist's commentary or blog post found endorsing or refuting the construction",
+      "Searches for a retraction or withdrawal turned up nothing; the claim appears to still be standing, just unaudited"
+    ]
+  },
+
+  "incomplete": "I could not directly inspect the raw Lean source files (Challenge.lean, submission/Spec.lean) beyond what WebFetch's summarization tool reported from GitHub's rendered pages, so line counts, exact axiom lists and the precise wording of the sorry stubs are as reported by that tool rather than independently re-verified byte-for-byte. I also could not find any coverage or reaction beyond the repository, vibemathed.com and the two Wikipedia articles themselves — no third-party mathematical blog or press coverage of this specific result was located, which is itself informative about how undigested the claim still is.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand review directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass. Judged from this record's own findings and general knowledge of the field; no new sources were opened",
+      "field": "status",
+      "from": "claimed",
+      "to": "claimed",
+      "why": "Reviewed and retained, WITH DOUBT OF A SPECIFIC KIND. Scope is right: the construction refutes both halves of the conjecture as stated. The risk is the formal statement, not the proof. Phi-mixing, stationarity and the normalisations have no standard Mathlib definitions, so they were written for this development, and a definition that is subtly weaker than the probabilists' makes a counterexample easy without touching the real conjecture. The only audit of that faithfulness is an automated report in the same repository, and the record says no probabilist outside the run has read the construction. It stays `claimed`; what would settle it is a person checking the Lean definitions of phi-mixing and of the CLT and invariance-principle conclusions against the literature."
+    }
+  ]
+}

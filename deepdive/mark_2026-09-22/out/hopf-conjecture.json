@@ -1,0 +1,161 @@
+{
+  "key": "hopf-conjecture",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "A preprint by Simon Brendle and Pei-Ken Hung (arXiv:2608.19068, posted 19 August 2026) claims to construct a Riemannian metric of everywhere positive sectional curvature on S^2 x S^2, which would refute the product form of the Hopf conjecture (that no product of two positive-dimensional closed manifolds admits positive sectional curvature). The claim is very recent, has not been digested by the expert community or accepted by a journal, and an AI research-verification tool flagged apparently unresolved gaps (a bug in the supporting Mathematica calculation and a gap in a uniform bound) within a day of posting.",
+  "status_sources": [
+    "https://arxiv.org/abs/2608.19068",
+    "https://arxiv.org/pdf/2608.19068",
+    "https://x.com/ben_golub/status/2090492235708064040"
+  ],
+
+  "event": {
+    "date": "2026-08-19",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2608.19068"]
+  },
+
+  "credited_humans": ["Simon Brendle", "Pei-Ken Hung"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "This preprint is causing a stir in math because the title refutes the famous Hopf conjecture. This thread reports on some flaws that @RefineDotInk says need to be resolved for the argument to be sound. It's also a demo of what Refine (an AI research verifier) can do. ... The first apparent problem is that a key reduction supporting the 'second order positivity' needed uses a calculation that rests on a bug in the Mathematica code. The second major issue claims a gap in a uniform bound, where the AI believes this gap can be closed but isn't confident enough to complete the argument and asks the authors to do so.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["Refine"],
+    "sources": ["https://x.com/ben_golub/status/2090492235708064040"]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "A metric of everywhere positive sectional curvature on S^2 x S^2, constructed as a third-order perturbation of a Cheeger-deformed ('Cheeger-Müter') metric on the standard product.",
+    "explicit": true,
+    "verified_how": "Claimed via an explicit analytic construction with symbolic-computation support in Mathematica (code attached to the arXiv submission); not yet independently verified by human experts, and an AI verifier (Refine) reported an apparent bug in the Mathematica calculation and an unresolved gap in a uniform bound shortly after posting.",
+    "sources": [
+      "https://arxiv.org/abs/2608.19068",
+      "https://x.com/ben_golub/status/2090492235708064040"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [
+    {
+      "kind": "correctness",
+      "summary": "An AI research-verification system (Refine, from RefineDotInk) publicly reported, about a day after the preprint appeared, that a key calculation supporting 'second order positivity' rests on a bug in the authors' Mathematica code, and that there is a gap in a uniform bound the AI could not close itself. The authors issued a v2 on 24 August 2026 described only as correcting 'typographical errors in the manuscript and in the Mathematica notebook' — it is unclear from available sources whether this addresses the substantive issues Refine raised, or only cosmetic ones.",
+      "sources": [
+        "https://x.com/ben_golub/status/2090492235708064040",
+        "https://arxiv.org/abs/2608.19068"
+      ]
+    }
+  ],
+
+  "summary": "The Wikipedia bullet covers 'the Hopf conjectures' (plural) on curvature and Euler characteristic of higher-dimensional Riemannian manifolds, which per the problem's own article and MathWorld comprises both a 'sign form' (positive sectional curvature on an even-dimensional closed manifold implies positive Euler characteristic) and a 'product form' (no product of two positive-dimensional closed manifolds admits everywhere positive sectional curvature — motivated by the fact that S^2 x S^2 has Euler characteristic 4 > 0, so the sign form alone would not rule it out). The sign form remains completely open in dimension >= 6 with no relevant results found in the window (only unrelated variant/case papers, e.g. Kennard-Mouillé-Nienhaus 2025 on positive second intermediate Ricci curvature with high-rank torus symmetry, and a curvature-operator-decomposition paper (arXiv:2507.15237) settling locally-conformally-flat and small-Weyl-curvature cases — both are restrictions/variants of the sign form, not resolutions of it). The one substantive, in-scope development is Brendle-Hung's August 2026 preprint (arXiv:2608.19068) claiming an explicit metric of positive sectional curvature on S^2 x S^2, which if correct refutes the product form outright (a genuine case of 'this problem', not a variant, since the product form is one of the two Hopf conjectures the bullet names) while leaving the sign form untouched. This is not yet resolved: there is no journal acceptance, no expert blog digestion (checked Terence Tao's blog, which has 2026 posts on other conjectures but none found on this one), and, notably, an AI verification tool (Refine) publicly identified apparently unresolved technical gaps (a bug underlying a key Mathematica-based calculation, and an unclosed gap in a uniform bound) within roughly a day of the preprint's posting. Only a minor v2 revision (typo fixes) has since appeared, so it is unclear the substantive issues were fixed. I classify status as 'claimed' (preprint with an unresolved correctness dispute, no expert digestion) rather than 'progress'/'incident', because the paper has not been withdrawn and the authors have not conceded the argument is broken — but I flag real uncertainty here. The AI role is coded 'incident' rather than 'assisted' or 'none': Refine is an AI system that produced a substantive technical finding (an identified bug and an identified gap) about the mathematical content of a claimed resolution, and that claim's correctness is now publicly disputed as a direct consequence of AI-driven checking — this is the pattern of an AI-associated claim/dispute, not merely AI-as-tool assistance to the authors (the authors' own Mathematica usage is computer algebra, not an AI system, and is not disclosed as AI-generated mathematics). I use 'incident' with reservations since the underlying human claim has not been withdrawn, only publicly disputed on correctness grounds by an AI verifier; see competing_reading.",
+  "competing_reading": "Two alternative readings are plausible. (1) Status: if the v2 revision (24 August 2026) in fact silently fixed the substantive gaps Refine flagged (not just typos, despite the changelog wording), the correct status could be 'claimed' moving toward 'resolved' pending expert digestion, with the Refine episode better treated as `progress`/an anecdote in summary rather than driving `ai_role`. Conversely, if the Refine-identified bug is fatal and unfixed, this may eventually resolve to `progress`/`incident` with `resolution_direction` null (the counterexample claim withdrawn), which would also change ai_role interpretation. (2) ai_role: one could argue for 'none' on grounds that Refine did not produce mathematics that appears 'in' any accepted result — it only critiqued an unverified claim, and the underlying construction is entirely human-and-Mathematica. I retained 'incident' because the guidance defines that code as 'an AI-produced claim that was announced or machine-verified, then withdrawn' or, by extension, publicly disputed via AI-driven verification with the claim's status left unresolved; but a stricter reading limiting 'incident' to claims of AI-generated proofs (as opposed to AI-generated critiques of human proofs) would push this toward 'none' with the Refine episode reported only as a dispute/summary note, not a role code.",
+  "what_would_settle_it": "Whether Brendle-Hung's construction is ultimately confirmed correct (via expert digestion, journal acceptance, or a further arXiv revision that explicitly addresses and resolves the Refine-flagged bug and uniform-bound gap) or withdrawn/found fatally flawed; and separately, an authoritative account (from the authors, from Refine/RefineDotInk, or from expert commentary) of whether the AI-identified issues were real, and whether v2's changes addressed them.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2608.19068", "title": "A metric on S^2 x S^2 with positive sectional curvature", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2608.19068", "title": "A metric on S^2 x S^2 with positive sectional curvature (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.19068", "title": "A metric on S^2 x S^2 with positive sectional curvature (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://x.com/ben_golub/status/2090492235708064040", "title": "Ben Golub on X: thread on Refine's analysis of the Brendle-Hung preprint", "type": "news", "opened": false},
+    {"url": "https://en.wikipedia.org/wiki/Hopf_conjecture", "title": "Hopf conjecture", "type": "encyclopedia", "opened": true},
+    {"url": "https://mathworld.wolfram.com/HopfConjecture.html", "title": "Hopf Conjecture -- from Wolfram MathWorld", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.quantumcalculus.org/the-hopf-conjectures/", "title": "The Hopf Conjectures - Quantum Calculus (Oliver Knill)", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/pdf/2507.16936", "title": "On Hopf's conjecture and positive second intermediate Ricci curvature", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2507.15237", "title": "Decomposition of the Curvature Operator and Applications to the Hopf Conjecture", "type": "preprint", "opened": true},
+    {"url": "https://www.emergentmind.com/papers/2608.19068", "title": "Positive Sectional Curvature on S^2 x S^2 (Emergent Mind digest)", "type": "blog", "opened": true},
+    {"url": "https://pith.science/paper/2608.22133", "title": "A Metric with Positive Sectional Curvature on S^2 x S^3 (Pith Review)", "type": "blog", "opened": false},
+    {"url": "https://terrytao.wordpress.com/2026/09/", "title": "Terence Tao, What's new, September 2026 archive", "type": "blog", "opened": true},
+    {"url": "https://en.wikipedia.org/w/index.php?title=List_of_unsolved_problems_in_mathematics&oldid=1199136318", "title": "List of unsolved problems in mathematics (frozen revision)", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Hopf conjecture curvature Euler characteristic 2024 2025 proof",
+      "\"Hopf conjecture\" sectional curvature Euler characteristic sign new result",
+      "Kennard Mouillé Nienhaus Hopf conjecture second intermediate Ricci curvature",
+      "Brendle Hung S2 x S2 positive sectional curvature Hopf conjecture disprove",
+      "\"2608.19068\" Brendle Hung arxiv",
+      "Brendle Hung positive curvature S2xS2 announcement Terence Tao blog",
+      "Brendle Hung positive curvature S2 x S2 MathOverflow reaction verified",
+      "\"S^2 x S^2\" positive curvature breakthrough 2026 differential geometry news",
+      "arxiv 2608.22133 S2 x S3 positive sectional curvature",
+      "Hopf product conjecture disproved Brendle Hung Quanta Magazine",
+      "Refine AI research verifier Brendle Hung Hopf conjecture flaw",
+      "\"PROOF OF THE HOPF CONJECTURE\" researchgate 2024",
+      "RefineDotInk Refine AI verifier mathematics preprint",
+      "Brendle Hung S2xS2 proof gap fixed retracted September 2026",
+      "Ben Golub thread Refine Hopf conjecture Brendle Hung full text",
+      "mathoverflow Brendle Hung S2 S2 positive curvature",
+      "\"Refine\" AI verifier bug Mathematica notebook Brendle Hung resolved authors response",
+      "Terence Tao Brendle Hung positive curvature blog September 2026",
+      "\"Brendle\" \"Hung\" S2xS2 correction erratum v3 arxiv"
+    ],
+    "places_checked": [
+      "arXiv abstract and full-text pages for 2608.19068 (v1, v2, submission history)",
+      "arXiv abstract/full text for 2507.16936 (Kennard-Mouillé-Nienhaus)",
+      "arXiv full text for 2507.15237 (curvature operator decomposition)",
+      "Wikipedia's live Hopf conjecture article",
+      "Wikipedia's frozen 26 Jan 2024 revision of List of unsolved problems in mathematics",
+      "MathWorld Hopf Conjecture page",
+      "Oliver Knill's Quantum Calculus blog page on the Hopf conjectures",
+      "Terence Tao's blog September 2026 archive",
+      "X/Twitter thread by Ben Golub reporting Refine's findings",
+      "Emergent Mind and Pith Review third-party paper digests",
+      "General web search for MathOverflow discussion, Quanta coverage, and any v3 correction/retraction"
+    ],
+    "dead_ends": [
+      "x.com/ben_golub/status/... returned HTTP 402 on direct fetch; relied on search-engine snippets/summaries of the thread instead, so the full thread text was not directly read",
+      "nitter.net mirror of the same tweet was unreachable (connection refused)",
+      "Direct guess at arXiv:2608.19068v3 returned 404 — only v1 and v2 exist as of the search date",
+      "SPP2026 blog post URL surfaced in search returned 404 on fetch",
+      "A distinct, unrelated 'PROOF OF THE HOPF CONJECTURE' ResearchGate item (dated Jan 2024, about tori without conjugate points, already resolved by Burago-Ivanov 1994) is a different 'Hopf conjecture' and was excluded as out of scope",
+      "An unrelated GitHub 'exotic-s2xs2' repository and several unrelated software-engineering GitHub issues surfaced under a search for 'S2xS2 proof gap' and were discarded as noise"
+    ]
+  },
+
+  "incomplete": "I was unable to directly read the full text of Ben Golub's X thread (paywalled/blocked); I relied on search-engine-generated summaries of it that were consistent across two independent queries, and I could not confirm whether the substantive Refine-flagged issues (as opposed to typos) were addressed in the 24 August 2026 v2 revision, since the changelog text only mentions typographical corrections. I also could not find any expert digestion (blog, journal, or MathOverflow consensus) of the Brendle-Hung claim as of the research date, which is expected given the claim is only about a month old.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": true,
+
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "human review, not the researching agent",
+      "field": "status",
+      "from": "claimed",
+      "to": "claimed",
+      "why": "Reviewed and retained. The Refine findings raised the question of whether this belongs in `progress`/`incident` instead. It does not: Brendle-Hung have not withdrawn arXiv:2608.19068 and have not conceded the argument, and the v2 of 24 August 2026 (described as typographical corrections to the manuscript and Mathematica notebook) leaves the claim standing. A claim publicly disputed on correctness grounds is still a claim. Revisit if the authors withdraw or concede, or if v2 is shown to have addressed the flagged bug and uniform-bound gap."
+    },
+    {
+      "date": "2026-09-24",
+      "by": "human review, not the researching agent",
+      "field": "ai_role",
+      "from": "incident",
+      "to": "incident",
+      "superseded_by": "the 2026-09-24 ai_role correction below, which changed it to `none`",
+      "why": "Reviewed and retained, with the reservation the researching agent already recorded. The code does not fit its own definition (`incident` = an AI-produced claim later withdrawn): the claim is human (Brendle-Hung, with Mathematica, which is computer algebra and not an AI system), the AI arrived afterwards from outside as a critic, and nothing has been withdrawn. `none` is defensible on DEEP_DIVE.md 6.2, which excludes checking. Retained because recoding to `none` would erase the only substantive AI event on this problem from the record. The consequence is handled downstream instead: `incident` is excluded from AI-involved counts, so this row does not enter any AI numerator. Note that it is also a counterexample row, so the exclusion moves it into the non-AI column of the counterexample split; applying the same rules to `bound` (see moving-sofa-problem), that split becomes 11/25 = 44% AI-credited against 8/34 = 24% without, rather than 12/27 = 44% against 7/32 = 22%."
+    },
+    {
+      "date": "2026-09-24",
+      "by": "hand correction by a human reviewer, not the researching agent and not any automated pass",
+      "field": "ai_role",
+      "from": "incident",
+      "to": "none",
+      "supersedes": "the 2026-09-24 ai_role entry above, which retained `incident` with reservations",
+      "why": "Overturning that retention. `incident` is defined in §6.1 and §6.2 as an AI-PRODUCED claim that was announced or machine-verified and then withdrawn, and neither half of that describes this row. The claim is human: Brendle and Hung constructed a metric of everywhere positive sectional curvature on S^2 x S^2, with Mathematica, which is computer algebra and not an AI system. Refine arrived from outside about a day later and ATTACKED the claim, reporting a bug under a key second-order-positivity calculation and an unclosed gap in a uniform bound. And nothing has been withdrawn: the preprint stands, the authors have not conceded, and the v2 of 24 August 2026 is described as typographical. An AI arguing that a human claim is WRONG is not AI involvement in producing it. §6.2 is explicit that using a model to check work is `none`, however substantive the check, and the researching agent's own `competing_reading` proposed `none` on exactly these grounds. STATUS IS UNCHANGED at `claimed`: a claim publicly disputed on correctness grounds is still a claim, and an AI attacking it does not make the row any different from any other contested claim. The Refine episode is not erased — it stays in `summary`, `disputes` and `ai.basis_quote` as evidence of what happened, and it is one of the more interesting things in this dataset; it simply stops being counted as an AI contribution to the Hopf conjecture. EFFECT ON THE NUMBERS: AI-involved resolutions fall from 27 of 59 to 26; because this row rests on an exhibited counterexample, it also moves a counterexample from the AI column to the human one, so the split in AUDIT.md §6 becomes 11 of 26 AI-involved (42%) against 8 of 33 without (24%), rather than 12 of 27 (44%) against 7 of 32 (22%). The direction of that finding is unchanged; the gap narrows from 2.0x to 1.75x. NOTE THE DEPARTURE: §6.1 and §6.2 as written offer no code for an AI that refereed someone else's mathematics, so this row is filed under `none` for want of anywhere better. That is a gap in the coding scheme, not a judgement that Refine did nothing."
+    },
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass. Judged from this record's own findings; no new sources were opened",
+      "field": "status",
+      "from": "claimed",
+      "to": "partial",
+      "why": "SCOPE: the entry above kept `claimed` because a disputed claim is still a claim, which stands. What it did not ask is how much the claim covers. The bullet names the Hopf conjectures, plural, and the record separates them: Brendle-Hung's metric on S^2 x S^2 would refute the product form and leaves the sign form 'completely open in dimension >= 6'. One of two listed conjectures settled is `partial` under 6.1, with `resolution_direction` staying `refuted`. The research rules fold 'how much was settled' and 'has an expert checked it' into one field, and `claimed` counted this row among resolutions; that is the pattern this batch of corrections fixes. The Refine dispute stays in `summary` and `disputes`."
+    }
+  ]
+}

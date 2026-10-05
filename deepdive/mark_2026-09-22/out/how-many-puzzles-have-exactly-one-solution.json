@@ -1,0 +1,80 @@
+{
+  "key": "how-many-puzzles-have-exactly-one-solution",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No result addressing the exact count of Sudoku puzzles with exactly one solution was found since 26 January 2024; only pre-window results (2005 grid enumeration, 2012 17-clue minimum, ~2013 Monte Carlo estimate of minimal-puzzle count) and post-window work on genuinely different questions (per-grid minimum-clue optimization, LLM solving benchmarks) exist.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The stated question is the exact enumeration of Sudoku puzzles (subsets of clues on a completed grid) that have exactly one solution. This is distinct from the much-studied minimum-clue problem (what is the fewest clues needed, resolved at 17 by McGuire, Tugemann and Civario in 2012 — before the window) and from the total-grid-count problem (6,670,903,752,021,072,936,960 completed grids, Felgenhauer and Jarvis, 2005 — before the window). The closest quantitative estimate of the actual count is a Monte Carlo estimate (~2013, predating the window) putting the number of minimal unique-solution puzzles at roughly 3.1055×10^37; I found no newer or more precise figure. I checked recent arXiv activity in this area: a 2023-submitted paper (published in Operations Research Letters, March 2024) on the 'Minimum Sudoku Clue Problem' formulates a bilevel optimization for the minimum clues needed to pin down a *given* grid — a related but distinct optimization question, not a count of puzzles with unique solutions, and its arXiv submission (2 May 2023) predates the window regardless. A July 2026 arXiv paper ('Sudoku Grids That Require Many Clues,' arXiv:2607.05728) proves lower bounds on clues needed for almost all grids — again the minimum-clue question, not the counting question, and it uses only classical algorithmic/combinatorial techniques with no AI. I also checked the AI-and-Sudoku intersection specifically: Sakana AI's 'Sudoku-Bench' (May 2025) and related LLM benchmarks test whether language models can *solve* individual Sudoku puzzles (a capability benchmark), which has no bearing on the mathematical enumeration question. The Mathematics of Sudoku Wikipedia article (checked as of today) still frames uniqueness only via the minimum-clue result and does not mention any resolution or new estimate of the exact count. No AI system appears anywhere near actual research on this specific counting question. I am satisfied this is a genuine 'nothing happened' case rather than a search failure: I searched the precise question phrasing, the standard-name variants (minimal Sudoku puzzle count, unique-solution puzzle enumeration), OEIS for a relevant sequence, and the AI/Sudoku intersection directly, and every hit resolved to either pre-window work or an off-scope variant.",
+  "competing_reading": "One could argue the March 2024 Operations Research Letters publication of the bilevel MSCP paper counts as a dated event in the window, since it appeared in a journal after 26 January 2024. But per §6.3, dating must use the first public written argument (the arXiv preprint, 2 May 2023), not the journal publication date, and in any case the paper addresses a different question (minimum clues for a fixed grid) rather than the count of puzzles with a unique solution, so it is out of scope under §3.1 as a related-but-different problem regardless of dating.",
+  "what_would_settle_it": "A paper or computation that produces an exact count (or a materially tighter/more rigorous estimate than the ~2013 Monte Carlo figure) of the number of subsets of a completed Sudoku grid (or of all grids) that admit exactly one completion, published or posted after 26 January 2024.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku", "title": "Mathematics of Sudoku", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2305.01697", "title": "How Many Clues To Give? A Bilevel Formulation For The Minimum Sudoku Clue Problem", "type": "preprint", "opened": true},
+    {"url": "https://www.sciencedirect.com/science/article/am/pii/S0167637724000415", "title": "How many clues to give? A bilevel formulation for the minimum Sudoku clue problem", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/html/2607.05728", "title": "Sudoku Grids That Require Many Clues", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/1201.0749", "title": "There is no 16-Clue Sudoku: Solving the Sudoku Minimum Number of Clues Problem", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/html/2505.16135v1", "title": "Sudoku-Bench: Evaluating creative reasoning with Sudoku variants", "type": "preprint", "opened": false},
+    {"url": "https://sakana.ai/sudoku-bench/", "title": "Sakana AI super-powers AI reasoning using Japan's own Sudoku Puzzles", "type": "blog", "opened": false},
+    {"url": "https://finalsudoku.com/blog/how-many-sudoku-solutions", "title": "How Many Solutions Can a Sudoku Puzzle Have?", "type": "blog", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "\"exactly one solution\" Sudoku puzzles counting problem 2024 2025",
+      "mathematics of Sudoku Wikipedia \"how many puzzles have exactly one solution\"",
+      "number of minimal Sudoku puzzles unique solution new result",
+      "\"minimal Sudoku puzzles\" count estimate 2024 arxiv Monte Carlo",
+      "bilevel formulation minimum Sudoku clue problem 2024 ScienceDirect",
+      "\"unique solution\" puzzle counting problem enumeration open problem 2025 AI",
+      "Sudoku enumeration AI large language model solve count 2025",
+      "OEIS number of Sudoku puzzles unique solution exact count sequence",
+      "\"puzzles have exactly one solution\" combinatorics open problem"
+    ],
+    "places_checked": [
+      "Mathematics of Sudoku Wikipedia article (current version)",
+      "arXiv listings/search for Sudoku minimum-clue and enumeration papers 2023-2026",
+      "OEIS-related web search for relevant sequences",
+      "General web search for AI/LLM + Sudoku enumeration intersection"
+    ],
+    "dead_ends": [
+      "Bilevel MSCP paper (arXiv 2305.01697 / Oper. Res. Lett. 2024) — addresses minimum clues for a given grid, not the count of unique-solution puzzles; also arXiv-dated before the window",
+      "\"Sudoku Grids That Require Many Clues\" (arXiv:2607.05728, July 2026) — proves clue lower bounds, not a puzzle count",
+      "Sudoku-Bench / Sakana AI (2025) — LLM solving-capability benchmark, unrelated to the enumeration question",
+      "~2013 Monte Carlo minimal-puzzle-count estimate (3.1055×10^37) — predates window, resurfaces in search results but is not new"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": true
+}

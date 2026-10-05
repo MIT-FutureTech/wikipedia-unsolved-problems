@@ -1,0 +1,114 @@
+{
+  "key": "agoh-giuga-conjecture",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The Agoh–Giuga conjecture itself (n prime iff pB_{p-1} ≡ -1 mod p) remains open, with no post-2024 change to the counterexample lower bound (still the 2013 Borwein–Maitland–Skerritt bound of 19,908 digits, itself pre-window). However, in 2026 an AI agent produced Lean-machine-checked proofs of two previously-open conjectures tightly bound up with the problem, listed on OEIS A309132 (the sequence whose 'a(n)=1 iff n prime' property is stated to be equivalent to Agoh-Giuga): (1) that this equivalence to Agoh-Giuga holds, and (2) that for composite n, a(n) is squarefree iff n is a Carmichael number (a 2019 Ordowski conjecture). Neither proof touches the truth value of Agoh-Giuga/A309132's primality conjecture itself, so the core problem is unmoved; the event is recorded as an instructive adjacent development.",
+  "status_sources": [
+    "https://oeis.org/A309132",
+    "https://arxiv.org/abs/2608.11941",
+    "https://mathworld.wolfram.com/AgohsConjecture.html",
+    "https://en.wikipedia.org/wiki/Agoh%E2%80%93Giuga_conjecture"
+  ],
+
+  "event": {
+    "date": "2026-08-12",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2608.11941",
+      "https://oeis.org/A309132"
+    ]
+  },
+
+  "credited_humans": ["Tom Adamczewski", "Tsoukalas et al. (benchmark/Lean formalization authors)", "Ralf Stephan (OEIS comment)", "Jonathan Sondow (2019, prior partial results)", "Thomas Ordowski (2019, original squarefree/Carmichael conjecture statement)"],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "The proof that n is Carmichael iff n is composite and a(n) is squarefree was achieved by an autonomous AI agent, see the Tsoukalas paper and the Lean proof. ... Combining both directions yields the Carmichael equivalence (Summary by Opus 4.7).",
+    "formalisation_only": false,
+    "disclosed_cost": "Paper's appendix records per-problem cost figures for this entry; WebFetch summaries of the PDF disagreed on the exact numbers across separate fetches (one pass reported $23 for the Agoh-Giuga-equivalence entry and $14 for the Carmichael/squarefree entry, both attributed to 'Claude Opus 4.8'; the OEIS comment itself credits a summary to 'Opus 4.7'). This inconsistency could not be resolved from a clean primary-text read of the PDF and is flagged as unverified rather than reported as fact.",
+    "systems": ["Claude Opus 4.8", "Claude Opus 4.7", "AlphaProof Nexus"],
+    "sources": [
+      "https://oeis.org/A309132",
+      "https://arxiv.org/abs/2608.11941",
+      "https://arxiv.org/html/2608.11941v2",
+      "https://arxiv.org/html/2608.11941v1"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "The frozen-revision statement of Agoh–Giuga is the primality biconditional pB_{p-1} ≡ -1 (mod p). This remains unproven and has no new counterexample-bound improvement since 26 January 2024 — the best bound (19,908 decimal digits / >10^19907, at least 4,771 prime factors) dates to Borwein, Maitland & Skerritt, 2013 (Zenodo record 10408952; also framed by some summaries as improving a 1996 bound), well before the window; the older Sorini 2001 figure of 10^36067 the triage found is likewise pre-window and in any case appears in some sources as a heuristic estimate rather than a rigorous bound, superseded by the 2013 rigorous result. In the window, the one genuine development is on OEIS sequence A309132, whose primality conjecture ('a(n)=1 iff n prime') is stated (informally, by Sondow/Ordowski circa 2019, and cited via Adamczewski 2026 on MathWorld) to be equivalent to Agoh-Giuga. As part of the 'OEIS Open' benchmark (Adamczewski, arXiv:2608.11941, submitted 12 Aug 2026, v2 13 Aug 2026), which tested language models against 492 previously-open OEIS conjectures formalized in Lean by Tsoukalas et al., an AI agent produced machine-checked Lean proofs of two claims tied to A309132: the equivalence-to-Agoh-Giuga framing, and the previously-conjectured (Ordowski, 2019) fact that for composite n, a(n) is squarefree iff n is a Carmichael number. Both are recorded on OEIS A309132 in a comment by Ralf Stephan dated 25 May 2026, crediting an 'autonomous AI agent' and a Lean proof, with a summary line crediting a Claude Opus variant. I treat this as `progress` rather than `partial`: the squarefree/Carmichael claim is a structural fact about A309132's denominators that narrows nothing about whether the Agoh-Giuga primality biconditional itself is true (a composite Agoh-Giuga counterexample was already known, pre-2024, to have to be a Carmichael number that is also a Giuga number — this is old Borwein-era knowledge; the new proof formalizes a related but not identical characterization of a(n)'s squarefreeness). Also, I could not independently verify with full confidence the exact AI model name and cost figures, because repeated attempts to read the arXiv PDF's raw text via WebFetch produced inconsistent numbers across passes (a symptom of that tool summarizing a dense compressed PDF rather than a clean extraction); I report what was found with that caveat rather than asserting a single number as fact. No arXiv preprint, journal paper, or lab announcement in the window claims to prove or refute Agoh-Giuga's core biconditional, or to improve the digit bound. Also noted in searching: two September 2025 Zenodo postings ('The Arithmetic Geometry of the Giuga Condition...') are self-labeled speculative AI-generated content ('a creative exploration of a concept with AI — it should not be taken as correct mathematics') and carry no mathematical weight; they are mentioned only because they surfaced in searches and could otherwise be mistaken for progress.",
+  "competing_reading": "One could argue the A309132 result is `partial` progress on Agoh-Giuga rather than merely `progress`/adjacent, on the grounds that A309132's conjecture is stated by mathematicians to be *equivalent* to Agoh-Giuga, so proving facts about A309132's structure is proving facts 'about' Agoh-Giuga by proxy. I did not adopt this reading because neither of the two things actually proved is the equivalence's non-trivial direction bearing on primality itself: proving 'this is equivalent to Agoh-Giuga' is a reformulation, not new information about which n satisfy it, and the Carmichael/squarefree fact narrows the composite side of a related sequence's structure without deciding a single new case of 'n prime iff pB_{p-1}≡-1 mod p'. If a reader takes the equivalence relation itself as sufficient to fold any A309132 progress into Agoh-Giuga's own record, `partial` with `resolution_direction: confirmed` would be defensible instead.",
+  "what_would_settle_it": "A primary, cleanly-extracted read of arXiv:2608.11941's full text and appendix table (rather than through a lossy PDF-to-text summarizer) to fix the exact system name, cost, and precise wording distinguishing what was newly proved versus previously known informally; and a statement from a number theorist on whether the A309132 Carmichael/squarefree proof is considered to bear on the Agoh-Giuga conjecture's open status.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Agoh%E2%80%93Giuga_conjecture", "title": "Agoh–Giuga conjecture", "type": "encyclopedia", "opened": true},
+    {"url": "https://mathworld.wolfram.com/AgohsConjecture.html", "title": "Agoh's Conjecture -- from Wolfram MathWorld", "type": "encyclopedia", "opened": true},
+    {"url": "https://mathworld.wolfram.com/GiugasConjecture.html", "title": "Giuga's Conjecture -- from Wolfram MathWorld", "type": "encyclopedia", "opened": false},
+    {"url": "https://zenodo.org/records/10408952", "title": "Computation of an Improved Lower Bound to Giuga's Primality Conjecture", "type": "preprint", "opened": true},
+    {"url": "https://zenodo.org/records/17088774", "title": "The Arithmetic Geometry of the Giuga Condition: A Comprehensive Derivation of Motivic Structure, Automorphic Realizations, and Operator Algebraic Models", "type": "preprint", "opened": true},
+    {"url": "https://zenodo.org/records/17074939", "title": "The Arithmetic Geometry of the Giuga Condition: Motivic Structure, Isomorphisms, and K-Theoretic Realization", "type": "preprint", "opened": true},
+    {"url": "https://oeis.org/A309132", "title": "OEIS A309132", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.11941", "title": "OEIS Open: How many conjectures can language models turn into theorems?", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.11941v1", "title": "OEIS Open: How many conjectures can language models turn into theorems? (v1 HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.11941v2", "title": "OEIS Open: How many conjectures can language models turn into theorems? (v2 HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2608.11941", "title": "OEIS Open: How many conjectures can language models turn into theorems? (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://github.com/3y3y3y-huaiji/lean4-carmichael", "title": "lean4-carmichael repository", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/pdf/2312.11661", "title": "Weighted Versions of the Arithmetic-Mean-Geometric Mean Inequality and Zaremba's Function", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2509.18383v1", "title": "Gödel Test: Can Large Language Models Solve Easy Conjectures?", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1106.1627", "title": "Retraction of 'Elementary proof of the Giuga-Agoh conjecture'", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Agoh-Giuga conjecture 2024 2025 proof counterexample",
+      "Giuga conjecture lower bound digits improved 2024 2025",
+      "\"Agoh-Giuga\" OR \"Giuga's conjecture\" arXiv 2024 2025",
+      "\"Giuga number\" counterexample \"19908\" OR \"19,908\" digits bound",
+      "Sorini 2001 Giuga conjecture 10^36067 bound digits 36067",
+      "Agoh-Giuga conjecture large language model AI Terence Tao",
+      "arxiv \"Giuga conjecture\" 2024",
+      "arxiv \"Giuga conjecture\" 2025",
+      "\"Giuga's conjecture\" proof retracted 2011",
+      "\"OEIS Open\" language models conjectures theorems \"Agoh\" OR \"Giuga\"",
+      "\"OEIS Open\" benchmark GitHub 492 conjectures list results resolved",
+      "\"A309132\" Carmichael squarefree proof AI agent Lean",
+      "Tsoukalas OEIS Open language models arXiv 2608.11941 AlphaProof",
+      "\"A309132\" OEIS Stephan 2026 comment autonomous AI agent",
+      "Jonathan Sondow Agoh-Giuga A309132 equivalence proof 2019",
+      "\"OEIS Open\" paper submission date August 2026 arxiv 2608.11941 abstract"
+    ],
+    "places_checked": [
+      "Wikipedia (Agoh–Giuga conjecture article, live)",
+      "MathWorld (Agoh's Conjecture, Giuga's Conjecture)",
+      "arXiv listings and the OEIS Open preprint (abs, v1 HTML, v2 HTML, PDF)",
+      "OEIS entry A309132 and its comments",
+      "Zenodo (Borwein-Maitland-Skerritt 2013 bound paper; two 2025 speculative Giuga-motive papers)",
+      "GitHub (lean4-carmichael repository referenced from OEIS)",
+      "General web search for retraction history and unrelated LLM-conjecture benchmark papers"
+    ],
+    "dead_ends": [
+      "Gödel Test paper (arXiv:2509.18383) — does not mention Agoh-Giuga, tests unrelated combinatorial-optimization conjectures",
+      "arXiv:2312.11661 (Zaremba's function paper) — surfaced in search but unrelated to Giuga",
+      "Two Zenodo 'Arithmetic Geometry of the Giuga Condition' papers — self-disclosed as non-rigorous AI speculative exploration, not real progress",
+      "lean4-carmichael GitHub repo — formalizes the smallest-Carmichael-number fact for Mathlib, distinct from and not directly the A309132 proof referenced in the OEIS comment; likely a different/related project, not verifiable as the exact repo behind the OEIS claim"
+    ]
+  },
+
+  "incomplete": "Could not obtain a clean, directly-extracted plain-text read of arXiv:2608.11941's PDF (repeated WebFetch passes returned inconsistent AI-system names and cost figures for the same table entries, apparently due to lossy summarization of a compressed PDF by the fetch tool's internal model). The qualitative facts (that an AI agent produced Lean-checked proofs of the two A309132-related claims, dated via OEIS comment to 25 May 2026 and paper submission 12 Aug 2026) are corroborated across multiple independent fetches and cross-referenced by MathWorld's own citation of 'Adamczewski 2026', so I report those with medium-high confidence, but the exact model version/tier and dollar costs are reported with an explicit caveat rather than as settled fact.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": true
+}

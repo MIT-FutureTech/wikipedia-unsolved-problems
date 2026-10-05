@@ -1,0 +1,90 @@
+{
+  "key": "collatz-conjecture",
+  "judgement": {
+    "events": [
+      {
+        "id": "kumar-lean-disproof-2026",
+        "what": "AI-assisted sorry-free Lean 'disproof' of Collatz, shown to exploit two kernel/checker soundness bugs",
+        "date": "2026-07-25", "precision": "day", "after_snapshot": true,
+        "source": "https://leodemoura.github.io/blog/2026-8-1-postmortem-for-kernel-soundness-bug-14576/",
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Reduced to a minimal proof of False on 2026-07-28 (Lean issue #14576); it exploited soundness bugs in Lean's kernel and in nanoda, and proves nothing about Collatz.",
+        "ai_role": "generated",
+        "ai_basis": "a sorry-free 'disproof' of the Collatz conjecture, produced with AI assistance",
+        "direction": "refuted",
+        "is_counterexample": false
+      },
+      {
+        "id": "barina-2-71-2025",
+        "what": "Barina extends computational verification to 2^71",
+        "date": "2025-05", "precision": "month", "after_snapshot": true,
+        "source": "https://www.fit.vut.cz/research/result/c197809/.en",
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "msharpe248-density-bound",
+        "what": "Solo GitHub project claims a Lean-4 kernel-checked improvement of the Krasikov-Lagarias density exponent from 0.84 to 0.8676 using 3^14 congruence classes",
+        "date": null, "precision": "unknown", "after_snapshot": true,
+        "source": "https://github.com/msharpe248/collatz",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Rests only on the author's own Lean build (F10: formal statement not checked against the density claim by any human); no arXiv posting, venue or third-party review. The method (scaling the known elimination argument) is plausible, so it is kept.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "chang-human-llm-2026",
+        "what": "Chang, 'Exploring Collatz Dynamics with Human-LLM Collaboration': a survey of proof obstacles, explicitly not a proof",
+        "date": "2026-03", "precision": "month", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2603.11066",
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "msharpe248-density-bound",
+    "derived": { "status": "progress", "ai_role": "none", "resolution_direction": null },
+    "changed": ["ai_role", "event", "credited_humans", "status_sources"],
+    "doubts": "The status is still 'progress', but it now rests on the msharpe248 density bound. That bound is unreviewed, rests only on a Lean build, and the record gives no date for it. The researcher put it inside the window, and I accepted that without checking. If the bound turns out to predate 2024-01-26 or is set aside, the status becomes 'open'. The Lean incident is knocked down and cannot set the status (F6). The researcher's 'incident' role and its 'withdrawn claim is still an event' rule do not apply under the current rules. The record gives the author's identity only as the GitHub handle msharpe248.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {
+    "ai_role": "none",
+    "event": {
+      "date": null,
+      "precision": "unknown",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "sources": ["https://github.com/msharpe248/collatz"]
+    },
+    "credited_humans": ["msharpe248 (GitHub handle; no full name in record)"],
+    "status_sources": ["https://github.com/msharpe248/collatz", "https://en.wikipedia.org/wiki/Collatz_conjecture"]
+  },
+  "outcome_prefix": "The status rests on an unreviewed, Lean-checked GitHub claim (msharpe248/collatz) that improves the Krasikov-Lagarias density exponent from 0.84 to 0.8676; the July 2026 AI Lean 'disproof' is knocked down and the 2^71 verification counts only as instances.",
+  "corrections": [
+    { "field": "event", "from": "2026-07-25 Lean 'disproof' repository", "to": "msharpe248/collatz density-bound repository", "why": "F6/F8: the record itself says the Lean 'disproof' exploited two soundness bugs and 'establishes nothing about the conjecture', so it is knocked down and cannot carry the status. The only surviving event is the density bound, which the record calls 'a genuine bound moved progress event if it holds up'. Barina's 2^71 is instances (F4)." },
+    { "field": "ai_role", "from": "incident", "to": "none", "why": "F8: the AI role must describe the event the status rests on. The record says 'No AI role is claimed for that bound-improvement work'. The basis_quote belongs to the knocked-down Lean event and is left in place as evidence." },
+    { "field": "credited_humans", "from": "[Ramana Kumar, Kiran Gopinathan, Leonardo de Moura]", "to": "[msharpe248]", "why": "F8: these names belong to the knocked-down Lean incident, not to the event the status rests on." },
+    { "field": "status_sources", "from": "Lean postmortem, Paulson, Wikipedia, FIT VUT, msharpe248", "to": "msharpe248, Wikipedia", "why": "F8: the status now rests on the density-bound repository." },
+    { "field": "status", "from": "progress", "to": "progress", "why": "F10: kept at 'progress', with doubt. The only surviving bound is unreviewed, checked only by its author's Lean build, and undated in the record. If it is set aside, the status becomes 'open'." }
+  ]
+}

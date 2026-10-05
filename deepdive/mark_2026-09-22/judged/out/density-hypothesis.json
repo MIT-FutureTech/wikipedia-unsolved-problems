@@ -1,0 +1,196 @@
+{
+  "key": "density-hypothesis",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The density hypothesis (A(σ) ≤ 2 for 1/2 ≤ σ ≤ 1) remains open, but the underlying zero-density bound moved for the first time in ~50-80 years: Guth and Maynard (arXiv:2405.20552, May 2024; now published Annals of Mathematics 203 (2026), no. 2) proved N(σ,T) ≤ T^(30(1-σ)/13+o(1)), lowering the classical supremum-type exponent from Huxley's 12/5=2.4 (1971) to 30/13≈2.31 in the range 1/2 ≤ σ ≤ 3/4, the first improvement on Ingham's 1940 bound there. Tao, Trudgian and Yang (arXiv:2501.16779, Jan 2025) subsequently obtained further zero-density improvements via a systematic, largely automated optimization over their newly built Analytic Number Theory Exponent Database (ANTEDB), without introducing new analytic inputs.",
+  "status_sources": [
+    "https://arxiv.org/abs/2405.20552",
+    "https://projecteuclid.org/journals/annals-of-mathematics/volume-203/issue-2/New-large-value-estimates-for-Dirichlet-polynomials/10.4007/annals.2026.203.2.6.short",
+    "https://terrytao.wordpress.com/2024/07/07/a-computation-outsourced-discussion-of-zero-density-theorems-for-the-riemann-zeta-function/",
+    "https://arxiv.org/abs/2501.16779",
+    "https://en.wikipedia.org/wiki/Density_hypothesis"
+  ],
+  "event": {
+    "date": "2024-05-31",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2405.20552",
+      "https://mathstodon.xyz/@tao/112557249982780815"
+    ]
+  },
+  "credited_humans": [
+    "Larry Guth",
+    "James Maynard",
+    "Terence Tao",
+    "Timothy Trudgian",
+    "Andrew Yang"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "In the longer term one could also imagine integrating the ANTEDB with other tools, such as Lean or AI systems, but for now we have focused primarily on collecting the data and optimizing the relations between the exponents.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": [
+      "https://terrytao.wordpress.com/2025/01/28/new-exponent-pairs-zero-density-estimates-and-zero-additive-energy-estimates-a-systematic-approach/"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [],
+  "summary": "Two results moved the density-hypothesis quantity A(σ) since the frozen revision, but neither settles the hypothesis, and neither involves AI. (1) Guth and Maynard, 'New large value estimates for Dirichlet polynomials' (arXiv:2405.20552, submitted 2024-05-31), proved a large-value estimate for Dirichlet polynomials that yields N(σ,T) ≤ T^(30(1-σ)/13+o(1)) for 1/2 ≤ σ ≤ 3/4, the first improvement on Ingham's 1940 exponent in that range in over 80 years, and the first lowering of Huxley's 1971-era supremum bound (12/5=2.4 → 30/13≈2.31) in roughly 50 years. This is expert-digested — Tao devoted a detailed blog post ('A computation-outsourced discussion...', 2024-07-07) to working through the proof, and the paper has since been formally published in the Annals of Mathematics (vol. 203, no. 2, 2026), so treating it as `resolved`-grade digestion is warranted; however the *problem itself* (density hypothesis, A(σ)≤2 for all σ) is not resolved by it, so `status` is `progress` rather than `resolved` or `partial` — the bound moved but no case of A(σ)≤2 was newly settled beyond what was already known via Ingham/Huxley/Bourgain style bounds in adjacent ranges. (2) Tao, Trudgian and Yang, 'New exponent pairs, zero density estimates, and zero additive energy estimates: a systematic approach' (arXiv:2501.16779, submitted 2025-01-28), built the Analytic Number Theory Exponent Database (ANTEDB) and ran computer-assisted (but non-AI) linear/systematic optimization over known exponent relations to further improve several zero-density and related exponents 'in a largely automated fashion (without introducing any substantial new inputs from analytic number theory).' This is explicitly a database/optimization search, not machine learning — the authors themselves note that integrating the ANTEDB with 'AI systems' is a stated *future* goal, not something used here. On AI involvement specifically: I found no AI system credited with producing any part of either paper's mathematics. The one AI-adjacent detail I found is incidental: in his July 2024 blog post explaining the Guth-Maynard proof to a general audience, Tao mentions using Python 'with AI assistance, for instance via Github Copilot' to generate constraint-optimization graphs for expository/illustrative purposes — this is Tao's own digestion aid, not part of Guth-Maynard's proof or result, so it does not change `ai_role` for the event, which is coded `none`. I also checked a July 2026 expository/survey paper (Turnage-Butterbaugh, arXiv:2607.04632, a JMM Current Events Bulletin companion piece) which discusses the Guth-Maynard breakthrough but adds no new result and mentions no AI. A September 2026 paper (arXiv:2609.17875, 'Zero-Density Concentration for Dirichlet Polynomials') appeared in search results but concerns a different notion (deterministic concentration of normalized zero density via Bohr lifts) and does not engage with or improve on the Guth-Maynard/density-hypothesis exponent A(σ), so I treat it as a dead end rather than a case of this problem.",
+  "competing_reading": "One could argue the Guth-Maynard result, now published in the Annals and thoroughly digested by Tao, plus its downstream consequences (improved short-interval prime results) constitute enough independent verification and importance to warrant a `partial` status if one reads the density hypothesis as a family of range-indexed sub-claims (A(σ)≤2 for each σ) and treats the newly-covered range as a 'case settled.' I did not take this reading because Guth-Maynard's bound (30/13≈2.31) is still strictly above the conjectured value of 2 for the range it covers — it improves the *known* exponent but does not establish A(σ)≤2 for any σ, so no case of the actual conjectured inequality was proved true or false. That keeps it as `progress` (a bound moved) rather than `partial` (a case settled), per §3.1's rule that record-type/bound-type problems move only when the record IS the question — here the question is an inequality, not yet met, so it stays open with only the surrounding bound narrowing.",
+  "what_would_settle_it": "A proof that A(σ) ≤ 2 for some specific σ in (1/2, 1) — i.e., an exponent bound at or below 2 in some range — would settle a genuine case of the density hypothesis (as opposed to merely tightening a bound still above 2). Full resolution requires A(σ) ≤ 2 for all σ in that range.",
+  "confidence": "high",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2405.20552",
+      "title": "New large value estimates for Dirichlet polynomials",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://projecteuclid.org/journals/annals-of-mathematics/volume-203/issue-2/New-large-value-estimates-for-Dirichlet-polynomials/10.4007/annals.2026.203.2.6.short",
+      "title": "New large value estimates for Dirichlet polynomials (Annals of Mathematics)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.16779",
+      "title": "New exponent pairs, zero density estimates, and zero additive energy estimates: a systematic approach",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2501.16779",
+      "title": "New exponent pairs, zero density estimates, and zero additive energy estimates: a systematic approach (PDF)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://terrytao.wordpress.com/2024/07/07/a-computation-outsourced-discussion-of-zero-density-theorems-for-the-riemann-zeta-function/",
+      "title": "A computation-outsourced discussion of zero density theorems for the Riemann zeta function",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://terrytao.wordpress.com/2025/01/28/new-exponent-pairs-zero-density-estimates-and-zero-additive-energy-estimates-a-systematic-approach/",
+      "title": "New exponent pairs, zero density estimates, and zero additive energy estimates: a systematic approach (blog)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Density_hypothesis",
+      "title": "Density hypothesis",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.04632",
+      "title": "A decades-long breakthrough in zero-density estimates and primes in short intervals",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.17875",
+      "title": "Zero-Density Concentration for Dirichlet Polynomials",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://mathstodon.xyz/@tao/112557249982780815",
+      "title": "Terence Tao: \"Guth and Maynard have managed...\"",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://teorth.github.io/expdb/",
+      "title": "Analytic Number Theory Exponent Database",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "density hypothesis Riemann zeta zero density theorem 2025 2026 improvement",
+      "Guth Maynard zero density estimate density hypothesis Lindelof AI machine learning",
+      "density hypothesis zero density exponent 2026 new record improvement Riemann zeta",
+      "Tao Trudgian Yang ANTEDB exponent database \"large language model\" OR AI OR automated proof",
+      "\"exponent database\" Tao Trudgian Yang acknowledgements \"Copilot\" OR \"GPT\" OR \"language model\" optimization",
+      "\"Guth\" \"Maynard\" large value estimates Dirichlet polynomials acknowledgements method AI"
+    ],
+    "places_checked": [
+      "arXiv abstracts/pages for 2405.20552, 2501.16779, 2607.04632, 2609.17875",
+      "Terence Tao's blog (two dedicated posts on this exact topic)",
+      "Wikipedia's live 'Density hypothesis' article",
+      "Annals of Mathematics / Project Euclid listing for the Guth-Maynard publication",
+      "ANTEDB project homepage",
+      "General web search for AI/Copilot/LLM mentions tied to either paper's acknowledgements"
+    ],
+    "dead_ends": [
+      "arXiv:2609.17875 ('Zero-Density Concentration for Dirichlet Polynomials') looked topically relevant from its title but concerns a different concentration phenomenon and does not engage with the density-hypothesis exponent; not counted",
+      "Could not render the ANTEDB paper's raw PDF text directly (binary/compressed), relied on Tao's blog exposition and abstract instead for methodology confirmation",
+      "No acknowledgements section of either primary paper explicitly discusses AI tool use; only Tao's own expository blog post admits incidental Copilot use for generating illustrative graphs, which is not part of the papers' mathematics"
+    ]
+  },
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [],
+  "judgement": {
+    "events": [
+      {
+        "id": "guth-maynard-2024",
+        "what": "Guth and Maynard prove N(σ,T) ≤ T^(30(1-σ)/13+o(1)), lowering the supremum zero-density exponent from 12/5 to 30/13",
+        "date": "2024-05-31",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2405.20552",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "tao-trudgian-yang-2025",
+        "what": "Tao, Trudgian and Yang obtain further zero-density exponent improvements by systematic (non-AI) optimisation over the ANTEDB",
+        "date": "2025-01-28",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2501.16779",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "guth-maynard-2024",
+    "derived": {
+      "status": "progress",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [],
+    "doubts": "Agree with the record. The density hypothesis asks A(σ) ≤ 2 on the whole range; both events lower exponents that stay above 2 where they apply, so they are bounds, not cases. Tao's Copilot use was for expository graphs in a blog post and the ANTEDB optimisation is computer-assisted, not AI (F9). The 'first improvement over Ingham' phrasing is the record's; not re-checked.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "judge_problems": []
+}

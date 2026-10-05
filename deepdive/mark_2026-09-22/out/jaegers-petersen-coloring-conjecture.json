@@ -1,0 +1,126 @@
+{
+  "key": "jaegers-petersen-coloring-conjecture",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "Jaeger's Petersen-coloring conjecture appears to have been refuted in 2026 via an explicit counterexample cascade: a 68-vertex example attributed to an AI system posted on X in July 2026, followed by Bryce Putman's two non-isomorphic 112-vertex counterexamples (SAT-solver certified) in August 2026, Jorik Jooken's human-checkable proof that the 112-vertex graph is a genuine counterexample, and a 52-vertex counterexample plus an infinite family from Goedgebeur, Jooken, Máčajová, Mattiolo, Mazzuoccolo and Ulyanov. None of this has yet received the kind of independent expert digestion (survey article, blog write-up by a recognized expert outside the immediate circle, or journal acceptance) that would justify 'resolved' rather than 'claimed', though a human-checkable proof and a purely theoretical proof (not just SAT certificates) exist alongside the computational ones.",
+  "status_sources": [
+    "https://arxiv.org/abs/2608.10012",
+    "https://arxiv.org/abs/2608.10028",
+    "https://arxiv.org/html/2608.10028"
+  ],
+
+  "event": {
+    "date": "2026-08-08",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2608.10012"
+    ]
+  },
+
+  "credited_humans": [
+    "Bryce Putman",
+    "Jorik Jooken",
+    "Jan Goedgebeur",
+    "Edita Máčajová",
+    "Davide Mattiolo",
+    "Giuseppe Mazzuoccolo",
+    "Nikolay Ulyanov"
+  ],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "OpenAI language-model systems were used extensively in the discovery, computational search, verification, and preparation of this work. [...] The author reviewed the final claims and artifacts and accepts responsibility for the contents.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["OpenAI language-model systems", "GPT-5.6 Sol Ultra"],
+    "sources": [
+      "https://arxiv.org/html/2608.10012",
+      "https://arxiv.org/html/2608.10028"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "An explicit, simple, bridgeless cubic graph on 112 vertices (Putman; two non-isomorphic instances) with no Petersen coloring and no normal 5-edge-coloring, built recursively from copies of a four-pole derived from the Petersen graph and a claw six-pole; independently, a 52-vertex counterexample and an infinite family of cyclically 4-edge-connected cubic graphs of even order ≥60 (Goedgebeur, Jooken, Máčajová, Mattiolo, Mazzuoccolo, Ulyanov); and a first 68-vertex example posted to X in July 2026 credited to an AI system.",
+    "explicit": true,
+    "verified_how": "Putman's 112-vertex graphs were verified UNSAT for both the Petersen-coloring and normal-5-edge-coloring SAT encodings using CaDiCaL 3.0.1, independently checked with drat-trim on the DRAT proofs. Jooken separately gave a short human-checkable case-analysis proof that the 112-vertex graph is a counterexample. The Goedgebeur et al. 52-vertex counterexamples come with a complete theoretical (non-computational) proof; their claim that no smaller counterexample exists below order 40 rests on computational (exhaustive) verification.",
+    "sources": [
+      "https://arxiv.org/abs/2608.10012",
+      "https://arxiv.org/html/2608.10012",
+      "https://arxiv.org/html/2608.10028",
+      "https://zenodo.org/records/21885893"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Multiple independent groups produced counterexamples within weeks of one another (an anonymous/AI-credited 68-vertex example on X in July 2026, Putman's 112-vertex graphs in early August 2026, and the Goedgebeur/Jooken/Máčajová/Mattiolo/Mazzuoccolo/Ulyanov 52-vertex graphs shortly after), and the later paper explicitly frames its own contribution as a smaller, theoretically-proved counterexample in contrast to the earlier computational ones — a priority/precedence structure rather than a clean single discovery.",
+      "sources": [
+        "https://arxiv.org/html/2608.10028",
+        "https://arxiv.org/abs/2608.10012"
+      ]
+    }
+  ],
+
+  "summary": "Multiple mutually corroborating sources (independent WebFetch reads of arXiv abstract and HTML pages, and web searches) converge on the same account: Jaeger's Petersen-coloring conjecture, open since 1988, was refuted in 2026 through a chain of explicit counterexamples. The first, on 68 vertices, was posted to X in July 2026 by the account @NeuralReformist11 and is credited in the introduction of arXiv:2608.10028 (quoted verbatim via WebFetch) to 'GPT-5.6 Sol Ultra' — i.e., an AI system, not a named human researcher. Bryce Putman then posted (arXiv:2608.10012, 8 Aug 2026) two non-isomorphic 112-vertex counterexamples verified via SAT solver (CaDiCaL) and drat-trim; this paper's own 'Computational provenance and responsibility' section states 'OpenAI language-model systems were used extensively in the discovery, computational search, verification, and preparation of this work,' with the author reviewing and taking responsibility for the final claims — i.e., an authors'-own-account of AI producing the actual counterexample, not merely assisting with peripheral tasks, which is why I coded this `generated` rather than `assisted`. Jorik Jooken then produced a human-checkable case-analysis proof that the 112-vertex graph is genuinely uncolorable (posted as a revision under the same arXiv number, 2608.10028, which was later expanded through v2/v3 into a six-author paper). That expanded paper (Goedgebeur, Jooken, Máčajová, Mattiolo, Mazzuoccolo, Ulyanov; v3 dated 11 Sep 2026) gives two 52-vertex counterexamples with a fully theoretical (non-SAT) proof, an infinite family for even orders ≥60, and a computational lower bound of 40 vertices for any counterexample. None of these papers has (as far as I can establish) yet been accepted at a journal or received a public expert digestion (Tao's blog, Quanta, a survey) — my search for such digestion returned nothing beyond the papers themselves and derivative aggregator pages (Zenodo cross-postings, an 'emergentmind' topic page, a 'Pith Review' page that returned no retrievable content). I therefore coded `status` as `claimed`, not `resolved`, despite the existence of both a SAT certificate and a from-scratch human proof, because the digestion bar in §6.1 requires an independent expert reading, which I could not confirm. I flag genuine concerns about this whole cluster that a careful reader should weigh: (1) the arXiv identifiers 2608.10012 and 2608.10028 use 4-digit sequence numbers, whereas other confirmed August-2026 arXiv IDs I found in the same searches (e.g. 2608.23459, 2608.21350) use the standard 5-digit zero-padded format that has been in place since 2015 — a genuine formatting anomaly I could not resolve; (2) one WebFetch call on arxiv:2608.10028 volunteered, unprompted, that the paper 'appears to be a future-dated preprint (2026), likely a test or fictional example'; (3) the identity of the human behind '@NeuralReformist11' and the existence of a model called 'GPT-5.6 Sol Ultra' could not be independently corroborated outside of the arXiv paper's own citation of the X post — I found no independent news coverage, no OpenAI announcement, and no archived copy of the X post itself. Against this, the papers' content was internally consistent across many independent fetches (author lists, dates, abstracts, methodology all matched on repeated retrieval), Zenodo records exist as companion artifacts with matching titles/dates, and House of Graphs entries (57278, 57280) are cited as hosting the graphs. On balance I judge this is real, very recent (within-window) work, but I am recording explicit uncertainty about the AI-attribution details rather than either suppressing them or overstating my confidence in them.",
+  "competing_reading": "It is possible the '68-vertex counterexample credited to GPT-5.6 Sol Ultra, posted by @NeuralReformist11' detail is itself an error or fabrication introduced somewhere in the tool chain (search engine or fetch summarizer) rather than genuine paper content, in which case the true AI role would be limited to Putman's own OpenAI-model disclosure (still `generated` by my reading) and the '68-vertex, AI-credited' claim should be discounted. I mitigated this by requesting verbatim quotes via WebFetch on the raw arXiv HTML twice, both of which reproduced the identical sentence, which is why I ultimately kept it in the record rather than omitting it — but I could not reach the underlying X post directly to confirm it exists as described.",
+  "what_would_settle_it": "Direct retrieval of the original @NeuralReformist11 X/Twitter post (or an archived/cached version) naming the model and showing the 68-vertex graph; confirmation of arXiv:2608.10012 and 2608.10028's identifier format against arXiv's own listing pages (which returned 404 when I tried to browse math.CO for August 2026 directly); and any subsequent journal acceptance, Terence Tao blog post, or Quanta Magazine coverage that would move the status from `claimed` to `resolved`.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2608.10012", "title": "A 112-Vertex Counterexample to the Petersen Coloring Conjecture", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.10012", "title": "A 112-Vertex Counterexample to the Petersen Coloring Conjecture", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.10028", "title": "Disproving the Petersen Coloring Conjecture: Theoretical Analysis and an Infinite Family of Counterexamples / A human-checkable proof of the 112-vertex counterexample to the Petersen coloring conjecture (same arXiv number, revised across versions)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.10028", "title": "Disproving the Petersen Coloring Conjecture: Theoretical Analysis and an Infinite Family of Counterexamples", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.10028v2", "title": "A human-checkable proof of the 112-vertex counterexample to the Petersen coloring conjecture", "type": "preprint", "opened": false},
+    {"url": "https://zenodo.org/records/21885893", "title": "A human-checkable proof of the 112-vertex counterexample to the Petersen coloring conjecture", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/22836612", "title": "Berge-Fulkerson Covers, Cycle Double Covers, Flows and Exact Normality Defects of the First Counterexamples to the Petersen Coloring Conjecture", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/22835152", "title": "Berge-Fulkerson Covers, Cycle Double Covers, Flows and Exact Normality Defects of the First Counterexamples to the Petersen Coloring Conjecture", "type": "repository", "opened": false},
+    {"url": "https://zenodo.org/records/22847193", "title": "Cyclically 4-Edge-Connected Cubic Graphs of Unbounded Petersen Defect", "type": "repository", "opened": false},
+    {"url": "https://pith.science/paper/2608.10012", "title": "A 112-Vertex Counterexample to the Petersen Coloring Conjecture · Pith Review", "type": "blog", "opened": true},
+    {"url": "https://www.emergentmind.com/topics/petersen-coloring-conjecture", "title": "Petersen Coloring Conjecture", "type": "encyclopedia", "opened": false},
+    {"url": "https://houseofgraphs.org/graphs/57278", "title": "House of Graphs entry 57278", "type": "repository", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Petersen coloring conjecture disproved counterexample 2026",
+      "Jaeger Petersen coloring conjecture arxiv 2026",
+      "68-vertex counterexample Petersen coloring conjecture announced X twitter July 2026",
+      "\"NeuralReformist11\" Petersen coloring",
+      "\"GPT-5.6\" Petersen coloring counterexample",
+      "68-vertex Petersen coloring conjecture counterexample AI language model",
+      "\"Petersen coloring\" GPT counterexample twitter X post July 2026 snark",
+      "Petersen coloring conjecture disproved Terence Tao OR Quanta Magazine 2026",
+      "68-vertex counterexample Petersen coloring withdrawn error retracted",
+      "arxiv 2608.10022 OR 2608.10015 OR 2608.10018 Jooken human-checkable Petersen",
+      "House of Graphs Petersen coloring conjecture counterexample 57278",
+      "arxiv 2608 identifier format August 2026 new submissions",
+      "\"2608.10012\" OR \"2608.10028\" site:arxiv.org",
+      "\"human-checkable proof\" \"112-vertex\" Jooken arxiv abstract number"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2608.10012 and 2608.10028 (multiple independent fetches)",
+      "Zenodo records for companion artifacts",
+      "General web search for expert digestion (Tao's blog, Quanta Magazine)",
+      "House of Graphs (via search, not direct fetch)",
+      "arXiv math.CO August 2026 listing (attempted direct browse — returned 404)",
+      "Pith Review aggregator page (fetch returned empty content)"
+    ],
+    "dead_ends": [
+      "Direct browse of https://arxiv.org/list/math.CO/2608 returned HTTP 404",
+      "https://pith.science/paper/2608.10012 returned no retrievable page content via WebFetch",
+      "Could not locate or independently confirm the original @NeuralReformist11 X post naming 'GPT-5.6 Sol Ultra'",
+      "Could not confirm whether arXiv identifiers with only 4-digit sequence numbers (vs. the 5-digit format seen elsewhere for the same month) are a genuine anomaly or an artifact of tool reporting"
+    ]
+  },
+
+  "incomplete": "I could not directly access the original social-media post crediting the 68-vertex counterexample to an AI system, nor independently confirm the arXiv identifier format anomaly, nor find independent expert digestion (blog/press coverage by a recognized mathematician, or journal acceptance) beyond the papers' own text and derivative repository/aggregator pages. Bash/curl direct access to arxiv.org was blocked by the sandbox permission system, limiting me to WebFetch/WebSearch tool summaries, which I cross-checked by requesting verbatim quotes multiple times but could not fully independently verify against raw HTML myself.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false
+}

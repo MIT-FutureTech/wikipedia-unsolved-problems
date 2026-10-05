@@ -1,0 +1,99 @@
+{
+  "key": "square-packing-in-a-square",
+  "judgement": {
+    "events": [
+      {
+        "id": "arslanov-bui-2025",
+        "what": "Arslanov and Bui identify an error in Chung-Graham's 2019 calculation of W_5, invalidating the claimed O(x^0.6) bound and reverting the rigorous bound to O(x^{(3+sqrt(2))/7} log x)",
+        "date": "2025", "precision": "year", "after_snapshot": true,
+        "source": "DOI 10.1007/s00454-025-00767-w",
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "bui-2025-good-squares",
+        "what": "Bui shows only 'good squares' need be considered for the Roth-Vaughan lower bound, simplifying its proof without changing the bound",
+        "date": "2025-04-13", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2504.09489",
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "bui-2025-upper",
+        "what": "Bui gives a new construction rigorously proving W(x)=O(x^0.6)",
+        "date": "2025-08-06", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2508.04603",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "mcclenagan-2024-thesis",
+        "what": "McClenagan independently proves W(x)=O(x^0.6) by a different construction (2024 UNBC master's thesis; arXiv writeup 2026-02-01)",
+        "date": "2024", "precision": "year", "after_snapshot": null,
+        "source": "https://arxiv.org/abs/2602.01484",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "bui-2025-upper",
+    "derived": {
+      "status": "progress",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": ["resolution_direction", "credited_humans"],
+    "doubts": "Whether this is movement at all is debatable: O(x^0.6) was the published, believed bound (Chung-Graham 2019) at the snapshot, so the 2025-26 work restores rather than advances the believed frontier; relative to the rigorously established bound after the 2025 erratum it is a moved bound, so progress is kept. McClenagan's thesis is dated only to 2024 and cannot be placed either side of 26 January 2024; a thesis approved by a committee would count as digested, but either way the tier is progress.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {
+    "resolution_direction": null,
+    "credited_humans": ["Hong Duc Bui", "Rory McClenagan"]
+  },
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "resolution_direction",
+      "from": "confirmed",
+      "to": null,
+      "why": "F14: the status is progress (a moved upper bound on a quantity whose growth rate stays open, as the summary itself says); progress rows carry null direction, and 'confirming' Chung-Graham's bound is not confirming an answer to the bullet."
+    },
+    {
+      "field": "credited_humans",
+      "from": ["Hong Duc Bui", "Rory McClenagan", "Marat Arslanov"],
+      "to": ["Hong Duc Bui", "Rory McClenagan"],
+      "why": "other: credited_humans describes the bound-moving event(s); Arslanov co-authored the erratum invalidating Chung-Graham, which moved no bound upward in knowledge and cannot set the status."
+    },
+    {
+      "field": "status",
+      "from": "progress",
+      "to": "progress",
+      "why": "other: kept, with doubt — the restored O(x^0.6) bound equals the bound believed at the snapshot (competing_reading), so the 'progress' is recovery of an invalidated published result; it is a moved bound only relative to the post-erratum rigorous state."
+    }
+  ]
+}

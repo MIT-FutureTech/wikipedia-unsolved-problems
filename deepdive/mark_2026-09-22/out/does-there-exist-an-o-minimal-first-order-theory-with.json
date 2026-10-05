@@ -1,0 +1,148 @@
+{
+  "key": "does-there-exist-an-o-minimal-first-order-theory-with",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "Two independent lines of work since the frozen revision bear on this question. A published arXiv preprint (Yayi Fu, April/August 2026) reduces o-minimality of a candidate trans-exponential expansion R_{an,exp,phi} to a conjectural 'many regular values' condition, without establishing it — genuinely conditional and not an answer. Separately, a private, hedged manuscript by Artem Chernikov ('A transexponential o-minimal structure (maybe)', v29, Sept 2026), whose proof the author reports was obtained using the AI system GPT-6 Astra, claims an unconditional existence proof (via an explicit Abel function) and has been formalized in Lean/Mathlib with zero `sorry`s and passing internal agent-led audits, but has had no completed independent human-expert review and is not a public/peer-reviewed paper.",
+  "status_sources": [
+    "https://github.com/archernikov/abel-formalization",
+    "https://arxiv.org/abs/2604.03477"
+  ],
+
+  "event": {
+    "date": "2026-09-07",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": ["https://github.com/archernikov/abel-formalization"]
+  },
+
+  "credited_humans": ["Artem Chernikov", "Yayi Fu"],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "The author reports that the new original proof in his private source manuscript was obtained using GPT6 Astra.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["GPT6 Astra", "gpt-6-astra", "gpt-5.6-sol"],
+    "sources": [
+      "https://github.com/archernikov/abel-formalization"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [
+    {
+      "kind": "priority/status",
+      "summary": "It is unclear whether the Chernikov manuscript's mathematical claim (unconditional existence of a trans-exponential o-minimal expansion via an explicit Abel function) is correct and accepted, versus the Fu preprint's more cautious, still-conditional approach to essentially the same construction (an analytic trans-exponential function added to R_{an,exp}). The manuscript's own title hedges with '(maybe)', and formalization.yaml explicitly states no independent human-expert review has been completed; the Lean audits are agent-led, not human-led. A registry submission ('Palomar', commit acf1a5a, Sept 21 2026) was pending verification as of the check date.",
+      "sources": [
+        "https://github.com/archernikov/abel-formalization",
+        "https://arxiv.org/abs/2604.03477"
+      ]
+    }
+  ],
+
+  "summary": "The Wikipedia bullet asks whether there exists an o-minimal first-order theory with a trans-exponential (rapid-growth) function — i.e., whether the real ordered field admits an o-minimal expansion containing a definable function growing faster than every finite iterate of exp. Two developments postdate the 26 Jan 2024 freeze. (1) Yayi Fu's arXiv preprint 'Towards Trans-Exponential O-minimal Expansion of (R,+,·,0,1<)' (v1 3 Apr 2026, v2 1 Aug 2026) adds an analytic trans-exponential function φ to R_{an,exp} and reduces o-minimality of the resulting structure to the existence of 'many' regular values for certain definable systems — a necessary condition the paper does not establish. This is real, on-target progress toward the question but explicitly conditional; no expert digestion, journal acceptance, or independent confirmation of the conjectural regularity condition was found. (2) A GitHub repository (archernikov/abel-formalization) formalizes a private, unpublished manuscript by Artem Chernikov (a genuine, established model theorist at UCLA/UMD) titled 'A transexponential o-minimal structure (maybe)' (version 29, 7 Sept 2026). This manuscript claims to construct an explicit Abel function A (analytic on (0,∞), A(1)=0, A(e^x-1)=A(x)+1) satisfying four hypotheses that yield an unconditional o-minimal expansion of the reals with a trans-exponential function — i.e., a full resolution of the existence question, in the affirmative. The repository's formalization.yaml states plainly that the author obtained this proof using the AI system GPT6 Astra, and that Lean formalization and its 'agent-led audits' were themselves also carried out by AI agents (named gpt-6-astra and gpt-5.6-sol) directed to iteratively implement and check the development; sorry_count is reported as 0, and the build passed internal audits rejecting non-standard axioms. Critically, formalization.yaml also states explicitly that 'no completed independent human-expert review has been reported,' the work is not on arXiv or in any journal, a 'careful human presentation' paper is described as still 'in preparation,' and a registry submission to something called 'Palomar' was pending verification as of 21 Sept 2026. I found no coverage of this claim on Tao's blog, Quanta, or any other expert-digestion outlet, and Chernikov's own UCLA and UMD faculty bibliography pages (dated as late as June 2026) do not list this manuscript. Given DEEP_DIVE.md's rule that a machine-checked certificate no expert has reviewed is `claimed` rather than `resolved`, and that a private, hedged, unpublished manuscript cannot be `resolved` however clean its internal audit, I classify this as `claimed`. The AI role for the Chernikov line is `generated`: by the author's own account, the AI system produced the mathematical proof (the Abel function construction and the argument establishing the stated hypotheses), and the author/formalization team checked it via Lean formalization. This is a materially different, and much stronger, claim than Fu's independent, non-AI, still-conditional preprint, which contributes no AI involvement I could find.",
+  "competing_reading": "One could argue the Chernikov claim should be `progress` rather than `claimed`, since it is not a peer-reviewed or even public-preprint result and its central mathematical content (existence of the required Abel function with all four hypotheses) has not been independently checked by any human mathematician — only by AI agents and a Lean kernel/'comparator' check whose soundness for this specific development is itself unverified by any named human expert. Conversely, one could argue for treating it as effectively `resolved` given zero-sorry Lean verification against Mathlib, since machine-checked Lean proofs are ordinarily very strong evidence; DEEP_DIVE.md, however, is explicit that a machine-checked certificate nobody but the compiler (or, here, AI-led audits) has reviewed remains `claimed`, so I kept that classification. It is also possible the manuscript's own hedge ('maybe') reflects the author's residual doubt about a subtle step, in which case even `claimed` may overstate confidence relative to the author's own view; I flagged this via the disputes field rather than downgrading further, since the repository firmly asserts the audits currently pass with no known gap.",
+  "what_would_settle_it": "Publication of Chernikov's 'careful human presentation' paper (described as in preparation) on arXiv or in a journal, together with an independent human expert (a model theorist, e.g. via a referee report, a blog digestion such as Tao's or a specialist o-minimality researcher) confirming the Abel-function construction and its four hypotheses, and independent (non-agent-directed) review of the Lean development and the 'Palomar' registry verification outcome. Absent that, continued silence from the model-theory community, or an explicit retraction/correction of the manuscript, would settle it the other way.",
+  "confidence": "medium",
+
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2604.03477",
+      "title": "Towards Trans-Exponential O-minimal Expansion of $(\\mathbb{R},+,\\cdot, 0, 1 <)$",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2604.03477",
+      "title": "Towards Trans-Exponential O-minimal Expansion of $(\\mathbb{R},+,\\cdot, 0, 1 <)$ (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/archernikov/abel-formalization",
+      "title": "abel-formalization: Mathlib-only Lean formalization of Abel functions, their existence, and a transexponential o-minimal expansion",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/archernikov/abel-formalization/blob/main/formalization.yaml",
+      "title": "formalization.yaml",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.math.ucla.edu/~chernikov/papers.html",
+      "title": "Artem Chernikov — Papers",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/O-minimal_theory",
+      "title": "O-minimal theory",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://pith.science/paper/2604.03477",
+      "title": "Towards Trans-Exponential O-minimal Expansion of (R,+,·,0,1<) · Pith",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://openai.com/index/gpt-6-astra/",
+      "title": "GPT-6 Astra: A new generation of intelligence | OpenAI",
+      "type": "press_release",
+      "opened": false
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "o-minimal structure trans-exponential function existence open problem 2024 2025 2026",
+      "\"trans-exponential\" o-minimal Wikipedia unsolved problem model theory",
+      "o-minimal expansion trans-exponential AI theorem proving Lean formalization",
+      "Artem Chernikov Abel function trans-exponential o-minimal GPT6 Astra",
+      "Chernikov \"transexponential o-minimal structure\" manuscript 2026",
+      "\"abel-formalization\" github trans-exponential o-minimal news",
+      "\"transexponential\" o-minimal structure resolved solved 2026 Tao blog",
+      "Chernikov \"GPT-6 Astra\" proof Abel function trans-exponential twitter mathstodon"
+    ],
+    "places_checked": [
+      "arXiv abstract and PDF for 2604.03477 (both versions)",
+      "GitHub repository archernikov/abel-formalization, including formalization.yaml",
+      "Artem Chernikov's UCLA faculty papers page",
+      "Wikipedia's O-minimal theory article",
+      "Pith.science paper tracking page for 2604.03477 (fetch returned empty content)",
+      "General web search for expert digestion (Tao's blog, Quanta) — none found"
+    ],
+    "dead_ends": [
+      "pith.science/paper/2604.03477 fetch returned no usable text",
+      "Direct PDF fetch of 2604.03477 returned only compressed/unreadable metadata, so theorem details for that paper were confirmed via the HTML abstract page instead",
+      "No Tao blog, Quanta, or other expert-digestion coverage of either the Fu preprint or the Chernikov manuscript/repo was located"
+    ]
+  },
+
+  "incomplete": "I could not obtain full readable text of the Fu preprint's PDF body (only the abstract and a WebFetch-summarized version), so I cannot quote its precise regular-values condition verbatim, only paraphrase it via secondary summarization. I also could not independently inspect the Lean source files or commit history of the abel-formalization repository beyond the README and formalization.yaml as summarized by WebFetch, so I cannot personally verify the 'sorry_count: 0' and audit-passing claims beyond what the repository states about itself.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": true,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand review directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass. Judged from this record's own findings; no new sources were opened",
+      "field": "status",
+      "from": "claimed",
+      "to": "claimed",
+      "why": "Reviewed and retained, WITH DOUBT. Scope is right: the manuscript claims an unconditional trans-exponential o-minimal expansion, a full affirmative answer. It was considered for the non-credible-claims batch and kept out of it: the author is an established model theorist and the development is a zero-sorry Lean/Mathlib formalisation that rejects non-standard axioms, which is real evidence unless the formal statement mistranslates the question. Against it: the manuscript is private, its own title says '(maybe)', the audits are agent-led, and no human expert has reviewed it. It stays `claimed`, the weakest of the retained claims; a public preprint or a human check of the formal statement would move it either way."
+    }
+  ]
+}

@@ -1,0 +1,87 @@
+{
+  "key": "zarankiewicz-problem",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The general Zarankiewicz problem remains open, but a cluster of results since November 2024 has moved specific Zarankiewicz numbers z(m,n;s,t): Davies, Gill & Horsley (arXiv 2411.18842, published Discrete Mathematics 349 (2026), art. 114924) improved upper bounds on z(m,n;s,t) via a strengthened linear program; and Bhan, Nobili & Langer (arXiv 2605.01120, May 2026) used an LLM-guided evolutionary search (OpenEvolve) to find matrix constructions that pin down three previously-unknown exact values (Z(11,21;3,3)=116, Z(11,22;3,3)=121, Z(12,22;3,3)=132), 41 new lower bounds, and 4 matched closed cases. Several further preprints (Aug-Sep 2026, by other independent authors) report additional exact-value determinations and bound improvements on z(m,n;3,3) and z(43;2) using purely classical/computational methods, with LLMs used only for writing/exploratory assistance or not at all. None of these results settle the general asymptotic conjecture z(n,n;s,t) = Θ(n^(2-1/s)); each moves specific finite instances.",
+  "status_sources": [
+    "https://arxiv.org/abs/2411.18842",
+    "https://www.sciencedirect.com/science/article/pii/S0012365X25005321",
+    "https://arxiv.org/abs/2605.01120",
+    "https://en.wikipedia.org/wiki/Zarankiewicz_problem"
+  ],
+
+  "event": {
+    "date": "2026-05-01",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2605.01120"]
+  },
+
+  "credited_humans": ["Jay Bhan", "Nicole Nobili", "Patrick Langer"],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "The results are obtained using OpenEvolve, an open-source evolutionary algorithm based on Large Language Models (LLMs) that iteratively improves algorithms for generating mathematical constructions by optimizing a reward signal tailored for this specific problem.",
+    "formalisation_only": false,
+    "disclosed_cost": "Approximately $15 to $30 per m×n parameter case, per the paper's cost analysis, with each search phase completing in around 10 minutes.",
+    "systems": ["Gemini 2.0 Flash", "Claude Sonnet 3.7", "Claude Opus 4.6"],
+    "sources": ["https://arxiv.org/abs/2605.01120", "https://arxiv.org/html/2605.01120"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": true,
+    "verified_how": "The LLM-generated matrix constructions (candidate extremal bipartite-graph/binary-matrix constructions) were checked programmatically against the K_{s,t}-free constraint and compared to known upper bounds; exact values were confirmed when a construction's edge count matched a previously established upper bound.",
+    "sources": ["https://arxiv.org/abs/2605.01120"]
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "The classical Zarankiewicz problem — the general question of z(m,n;s,t) — remains open, and no result since 26 January 2024 resolves it or the standard asymptotic conjecture z(n,n;s,t)=Θ(n^(2-1/s)). But this is a problem whose 'entry' is really a large family of specific extremal numbers, and several of those specific instances moved in the window. The clearest and most load-bearing change is Davies, Gill & Horsley's improved linear-programming upper bounds (arXiv 2411.18842, submitted 28 Nov 2024, published in Discrete Mathematics 349 (2026) — a purely classical, non-AI result, now expert-reviewed via journal publication). Independently, Bhan, Nobili & Langer (arXiv 2605.01120, submitted 1 May 2026, revised 7 May 2026) used OpenEvolve, an LLM-guided evolutionary program-search framework, to discover binary-matrix constructions that pin down three new exact Zarankiewicz values and 41 new lower bounds; by the authors' own account the LLMs (named as Gemini 2.0 Flash, Claude Sonnet 3.7, and — in later search phases — 'Claude Opus 4.6') proposed the constructions/generating programs, which were then verified deterministically (not by another LLM) against known upper bounds. This is coded ai_role 'generated' because the LLM produced the actual construction that appears in the result, with humans/code only checking it — not merely assisting, debugging or proofreading a human-authored construction. Status is 'progress' rather than 'resolved' or 'claimed' at the whole-record level because the overall problem is still open and no expert digestion of the May 2026 preprint has appeared; the specific closed cases it reports are best read as claimed-not-yet-digested exact values sitting inside an otherwise-open problem. A cluster of further Aug-Sep 2026 preprints (Saurabh 2608.26603, Afrasyab 2608.08154, Hou 2608.08549, Sadhu 2608.01606, Liu & Song 2609.07227) report further bound improvements or exact values on related z(m,n;3,3)/z(43;2) instances; most explicitly use classical/computational methods with no learned component, one (Afrasyab) discloses generic LLM (GPT) use for 'exploratory reasoning, implementation, verification, manuscript integration' — i.e. author-facing tooling, not a source of the mathematical content — which the rubric codes as ai_role none, and Liu & Song's paper concerns a related but distinct 'limited augmented Zarankiewicz number' tied to sums-of-squares rank of biquadratic forms rather than the classical bullet, so I treat that one as a related problem, not a case of this one.",
+  "competing_reading": "One could argue the whole record should be 'open' with no_change_found, since the Wikipedia bullet is phrased as the fully general question and none of these results touches its asymptotic form. I instead read finite exact-value/bound results on z(m,n;s,t) as genuine cases of the stated problem — restrictions to specific (m,n,s,t) — which per §3.1 count as partial/progress rather than being dismissed as a different problem, so 'progress' rather than 'open' is the more defensible code. A second uncertainty: WebFetch's extraction of the arXiv 2605.01120 text gave inconsistent detail across repeated fetches (once omitting named models entirely, twice reproducing an identical three-phase model schedule including 'Claude Opus 4.6', a tier name I cannot independently confirm exists) — I report the names as given because they recurred verbatim across independent fetches, but flag that this could be a fetch-tool artifact rather than the paper's actual text.",
+  "what_would_settle_it": "Direct access to the arXiv 2605.01120 PDF/LaTeX source (not mediated by a summarizing fetch tool) to confirm the exact model names and cost figures verbatim, and any subsequent expert commentary (e.g. a Discrete Mathematics or combinatorics-blog digestion) on whether the three new exact Zarankiewicz values have been independently verified.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2411.18842", "title": "Improved upper bounds on Zarankiewicz numbers", "type": "preprint", "opened": true},
+    {"url": "https://www.sciencedirect.com/science/article/pii/S0012365X25005321", "title": "Improved upper bounds on Zarankiewicz numbers", "type": "journal", "opened": true},
+    {"url": "https://arxiv.org/abs/2605.01120", "title": "New Bounds for Zarankiewicz Numbers via Reinforced LLM Evolutionary Search", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2605.01120", "title": "New Bounds for Zarankiewicz Numbers via Reinforced LLM Evolutionary Search", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2605.01120", "title": "New Bounds for Zarankiewicz Numbers via Reinforced LLM Evolutionary Search", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.07227", "title": "New Bounds for Limited Zarankiewicz Numbers from K_{5t} Blocks", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.01606", "title": "An improved upper bound for the Zarankiewicz number z(43;2)≤294 via structural rigidity", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.26603", "title": "Five improved lower bounds for Zarankiewicz numbers z(m,n;3,3)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.08154", "title": "Exact Zarankiewicz Values on Two Finite Frontier Slices", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.08549", "title": "Seven Exact Finite Zarankiewicz Numbers from a Single 13×18 Core", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Zarankiewicz_problem", "title": "Zarankiewicz problem", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Zarankiewicz problem Wikipedia article current z(m,n) resolved",
+      "arxiv 2605.01120 Zarankiewicz LLM evolutionary search",
+      "\"Bhan\" \"Nobili\" \"Langer\" Zarankiewicz LLM",
+      "Davies Gill Horsley Zarankiewicz numbers Discrete Mathematics 2026 published",
+      "Zarankiewicz numbers OpenEvolve Bhan Nobili Langer reaction mathematicians verified",
+      "Zarankiewicz problem survey Terence Tao blog 2026"
+    ],
+    "places_checked": [
+      "arXiv abstracts/HTML for all six triage-flagged papers plus follow-ups found via search",
+      "the current Zarankiewicz problem Wikipedia article",
+      "ScienceDirect journal record for the Davies-Gill-Horsley paper (blocked by 403, used secondary search results instead)",
+      "general web search for expert digestion (Terence Tao blog, mathematics community reaction)"
+    ],
+    "dead_ends": [
+      "sciencedirect.com article page returned HTTP 403 and could not be read directly; relied on search-result snippets and the arXiv preprint instead",
+      "no blog post, survey, or community digestion of the Bhan/Nobili/Langer LLM result was found beyond the preprint itself and secondary aggregator listings (awesomepapers.io, pith.science)"
+    ]
+  },
+
+  "incomplete": "I could not independently confirm the arXiv 2605.01120 paper's exact wording for its named AI systems (specifically 'Claude Opus 4.6') because WebFetch's page-extraction was inconsistent across calls and I lacked shell access to fetch the raw PDF/HTML text directly. The reported model names and cost figures are as consistently returned across two independent fetch attempts, but should be treated as medium- rather than high-confidence transcription of the source.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

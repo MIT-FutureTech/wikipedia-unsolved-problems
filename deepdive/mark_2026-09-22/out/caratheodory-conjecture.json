@@ -1,0 +1,115 @@
+{
+  "key": "caratheodory-conjecture",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "On 2026-08-19, Levent Alpöge announced an explicit C∞ (smooth) counterexample to the general Carathéodory conjecture — a smoothly embedded convex sphere with exactly one umbilic point of index 2 — via an X/Twitter post, with John-Paul Smith and Anthropic's Claude credited with checking the construction; a Lean formalization (8,013 lines, no sorry/axioms) exists but remains unmerged in the google-deepmind/formal-conjectures repository, with pull requests still marked draft and comments such as 'I'm currently checking this,' so no expert digestion or journal-level verification has yet been established.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Carath%C3%A9odory_conjecture",
+    "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+    "https://vibemathed.com/problem/mathbb-c-infty-caratheodory-conjecture",
+    "https://github.com/google-deepmind/formal-conjectures"
+  ],
+
+  "event": {
+    "date": "2026-08-19",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Carath%C3%A9odory_conjecture",
+      "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+      "https://vibemathed.com/problem/mathbb-c-infty-caratheodory-conjecture"
+    ]
+  },
+
+  "credited_humans": ["Levent Alpöge", "John-Paul Smith"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "Alpöge credited John-Paul Smith and Claude with checking the construction.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["Claude"],
+    "sources": [
+      "https://en.wikipedia.org/wiki/Carath%C3%A9odory_conjecture",
+      "https://vibemathed.com/problem/mathbb-c-infty-caratheodory-conjecture"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "An explicit support function g₂ of a smoothly (C∞) embedded convex two-sphere in R^3 with exactly one umbilic point, of index 2 — the topologically minimal count rather than the conjectured minimum of two.",
+    "explicit": true,
+    "verified_how": "Human-constructed explicit support function, checked by a named human collaborator (John-Paul Smith) and by Claude; a Lean formalization (8,013 lines, no 'sorry' or declared axioms) was produced but has not been merged into the main branch of the google-deepmind/formal-conjectures repository, and associated pull requests remain in draft with reviewer comments indicating the check is still in progress.",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Carath%C3%A9odory_conjecture",
+      "https://vibemathed.com/problem/mathbb-c-infty-caratheodory-conjecture",
+      "https://github.com/google-deepmind/formal-conjectures"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [
+    {
+      "kind": "scope/status",
+      "summary": "Brendan Guilfoyle and Wilhelm Klingenberg claim (2008, reaffirmed with further papers in 2025) to have proved the Carathéodory conjecture for surfaces of smoothness C^{3,α} (and, per Wikipedia's current article, for real-analytic surfaces per Hamburger 1940-41). The 2026 Alpöge counterexample is stated only for the strictly C∞ (smooth but not real-analytic, and below C^{3,α} in the relevant sense) category, so the two results are compatible rather than contradictory — the conjecture is claimed proved in the analytic/C^{3,α} regime and claimed false in the general smooth regime. Whether the Guilfoyle-Klingenberg proof itself is fully accepted by experts is a separate, longer-running dispute that predates the frozen revision and that this record does not attempt to adjudicate.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Carath%C3%A9odory_conjecture",
+        "https://arxiv.org/abs/0808.0851",
+        "https://arxiv.org/abs/2502.11716"
+      ]
+    }
+  ],
+
+  "summary": "Wikipedia's frozen (Jan 2024) wording of this bullet asks about 'any convex, closed, and twice-differentiable surface,' i.e. the general smooth case, which was open at the time modulo the disputed Guilfoyle-Klingenberg 2008 C^{3,α} proof. On 2026-08-19, Levent Alpöge (a mathematician who has since joined Anthropic) posted an explicit C∞ support function on X/Twitter giving a smoothly embedded convex sphere with a single umbilic point of index 2, directly refuting the conjecture in the C∞ category; per Wikipedia's current article on the conjecture and on Alpöge himself, he credited John-Paul Smith and Anthropic's Claude with 'checking the construction' — i.e., verifying a human-made construction rather than the AI producing the mathematics itself. A Lean formalization (8,013 lines, no sorry/axioms) was produced with help from Codex (OpenAI) for the formalization, but as of the check date it sits on an unmerged branch of google-deepmind/formal-conjectures, 11 commits diverged and 26 behind main, with draft pull requests and reviewer comments still saying the check is in progress; VibeMathed's own tracker labels the problem 'Candidate (review pending).' I found no expert digestion analogous to Terence Tao's write-up of Alpöge's earlier Jacobian-conjecture counterexample (Tao's post is explicitly about the Jacobian conjecture, not this one), and no journal acceptance or named-expert endorsement of the Carathéodory result. That combination — a clean explicit construction, informally checked by a named collaborator, with a Lean proof still unmerged and no independent expert digestion — is squarely 'claimed' rather than 'resolved.' Because the AI's documented role was checking/verifying a human construction rather than generating any of the mathematics that appears in the result, ai_role is 'none' under the rule that checking, proofreading or formalising does not count as AI involvement, however the announcement is publicized. This disagrees with the triage record's framing of the episode as straightforwardly 'AI-assisted,' so triage_disagreement is set.",
+  "competing_reading": "One could argue for ai_role 'assisted' on the theory that an AI system checking a hard, delicate smooth-geometry construction before public announcement is itself a meaningful contribution that shaped whether the result was published — i.e., the check was load-bearing for the claim reaching publication, even if it didn't produce the construction. But the rule in §6.2 is explicit that checking/verifying, however much work it does, is 'none,' and no source I found has the authors saying the model produced any part of the mathematics (the construction, the choice of g₂, the index computation) — only that it checked what Alpöge had already built. A separate competing reading on status: if the unmerged Lean proof and Smith's check are treated as sufficient 'expert' verification, one could argue for 'resolved' rather than 'claimed'; I did not take this reading because Smith's own review comments ('I'm currently checking this') indicate the check was still open, and no independent digestion or journal acceptance was found.",
+  "what_would_settle_it": "A merged, reviewed Lean proof in the formal-conjectures main branch; or a written expert digestion (Tao-style blog post, referee report, or journal acceptance) of Alpöge's construction; or public confirmation from John-Paul Smith or another named mathematician that the check is complete and the counterexample is correct.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Carath%C3%A9odory_conjecture", "title": "Carathéodory conjecture - Wikipedia", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge", "title": "Levent Alpöge - Wikipedia", "type": "encyclopedia", "opened": true},
+    {"url": "https://vibemathed.com/problem/mathbb-c-infty-caratheodory-conjecture", "title": "The C^∞ Carathéodory Conjecture on Umbilic Points · VibeMathed", "type": "blog", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures", "title": "google-deepmind/formal-conjectures", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2502.11716", "title": "The three obdurate conjectures of differential geometry", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/0808.0851", "title": "Proof of the Caratheodory Conjecture", "type": "preprint", "opened": false},
+    {"url": "https://theconversation.com/hello-there-the-jacobian-conjecture-is-false-thanx-why-a-tiny-social-media-post-has-mathematicians-rethinking-ai-283883", "title": "'hello there the jacobian conjecture is false thanx': why a tiny social media post has mathematicians rethinking AI", "type": "news", "opened": true},
+    {"url": "https://www.sciencedaily.com/releases/2026/08/260804034634.htm", "title": "Claude Fable 5 AI finds a tiny formula that topples an 87-year-old math conjecture | ScienceDaily", "type": "news", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/", "title": "A digestion of the Jacobian conjecture counterexample | What's new", "type": "blog", "opened": false},
+    {"url": "https://x.com/__alpoge__/status/2089971359921156203", "title": "Levent Alpöge X post announcing Carathéodory counterexample", "type": "press_release", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Levent Alpöge Carathéodory conjecture counterexample",
+      "Carathéodory conjecture umbilic points disproved 2026",
+      "\"three obdurate conjectures\" Guilfoyle Klingenberg Carathéodory",
+      "Alpöge Carathéodory conjecture arxiv preprint counterexample sphere",
+      "Alpöge Smith Carathéodory conjecture counterexample twitter X August 19 2026",
+      "Terence Tao Carathéodory conjecture counterexample blog digestion",
+      "Carathéodory conjecture counterexample September 2026 verified confirmed",
+      "\"formal-conjectures\" google deepmind Carathéodory umbilic Lean merged",
+      "Alpöge Carathéodory conjecture skepticism dispute mathematicians reaction",
+      "Alpöge Carathéodory conjecture umbilic point index 2 support function construction"
+    ],
+    "places_checked": [
+      "Wikipedia article on the Carathéodory conjecture (current, live)",
+      "Wikipedia article on Levent Alpöge (current, live)",
+      "VibeMathed problem tracker page for this exact conjecture",
+      "google-deepmind/formal-conjectures GitHub repository",
+      "General web search for expert digestion / mathematician reaction",
+      "arXiv abstract pages for the 2008 Guilfoyle-Klingenberg proof and the 2025 'three obdurate conjectures' paper",
+      "News coverage (ScienceDaily, The Conversation) of the related Jacobian-conjecture episode, checked for any Carathéodory cross-reference"
+    ],
+    "dead_ends": [
+      "The X/Twitter post itself returned HTTP 402 (paywalled) via WebFetch, so its exact wording was taken from secondary quotes in Wikipedia and VibeMathed rather than read directly",
+      "Terence Tao's blog digestion is specific to the Jacobian conjecture counterexample, not Carathéodory — searched explicitly for a Tao post on this conjecture and found none",
+      "No arXiv preprint specifically for the Carathéodory counterexample was located (the announcement appears to remain a social-media post plus unmerged Lean code rather than a preprint)"
+    ]
+  },
+
+  "incomplete": "I was not able to directly read the original X/Twitter post (paywalled) or inspect the actual unmerged Lean pull request/diff in the formal-conjectures repository beyond what secondary sources (Wikipedia, VibeMathed) reported about its state; my characterization of the Lean review status rests on those secondary accounts rather than firsthand inspection of the PR thread.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false
+}

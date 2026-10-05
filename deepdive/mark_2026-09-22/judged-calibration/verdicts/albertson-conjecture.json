@@ -1,0 +1,92 @@
+{
+  "key": "albertson-conjecture",
+  "judgement": {
+    "events": [
+      {
+        "id": "fox-pach-suk-2025",
+        "what": "Fox, Pach and Suk prove the conjecture for large k when the graph has at most 1.4(k-1) vertices",
+        "date": "2025", "precision": "year", "after_snapshot": true,
+        "source": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2025.50",
+        "scope": "case", "verification": "digested", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": "confirmed", "is_counterexample": false
+      },
+      {
+        "id": "cranston-2025",
+        "what": "Cranston proves the conjecture for r<=24",
+        "date": "2025-12-08", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2512.08020",
+        "scope": "case", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null, "direction": "confirmed", "is_counterexample": false
+      },
+      {
+        "id": "sadhu-v1-2026",
+        "what": "Sadhu v1 claims the conjecture for r<=26",
+        "date": "2026-09-01", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.01682v1",
+        "scope": "case", "verification": "unreviewed", "credibility": "doubtful",
+        "credibility_reason": "Same author and manuscript later ballooned to an all-r claim within twelve days; the r<=26 part is used by Cao & Mehat but not independently checked.",
+        "ai_role": "none", "ai_basis": null, "direction": "confirmed", "is_counterexample": false
+      },
+      {
+        "id": "sadhu-v2-2026",
+        "what": "Sadhu v2 claims a full proof for every r",
+        "date": "2026-09-13", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.01682",
+        "scope": "whole", "verification": "unreviewed", "credibility": "not_credible",
+        "credibility_reason": "F5: scope jump from r<=26 to all r in twelve days on a problem where full resolution would be a landmark; solo author; only automated (Pith) review; the concurrent Cao-Mehat r<=29 paper does not engage the all-r claim; method mixes certificate verification with an asymptotic regime that the prior literature only reached for restricted vertex counts.",
+        "ai_role": "none", "ai_basis": "ChatGPT (OpenAI) was used for literature-search, language-editing, and verification assistance.",
+        "direction": "confirmed", "is_counterexample": false
+      },
+      {
+        "id": "cao-mehat-2026",
+        "what": "Cao and Mehat prove the conjecture for r<=29, building on Cranston and Sadhu v1",
+        "date": "2026-09", "precision": "month", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.04771",
+        "scope": "case", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": "generative AI/LLMs were used 'substantially' for 'mathematical exploration, intermediate checking, and manuscript drafting'",
+        "direction": "confirmed", "is_counterexample": false
+      },
+      {
+        "id": "proofatlas",
+        "what": "ProofAtlas AI-agent workspace reports unaudited exclusions for r>=5442",
+        "date": "2026", "precision": "year", "after_snapshot": true,
+        "source": "https://www.proofatlas.ai/collaboration/albertson-conjecture/",
+        "scope": "none", "verification": "unreviewed", "credibility": "doubtful",
+        "credibility_reason": "Self-marked unreproduced, internal platform claims.",
+        "ai_role": "generated", "ai_basis": null, "direction": null, "is_counterexample": false
+      }
+    ],
+    "rests_on": "cao-mehat-2026",
+    "derived": { "status": "partial", "ai_role": "none", "resolution_direction": "confirmed" },
+    "changed": ["status", "event", "credited_humans", "status_sources"],
+    "doubts": "Sadhu v2 is set aside as not_credible chiefly on the scope-ballooning signal; it is only weeks old, so the no-uptake signal is weak. If a named expert endorses it, status becomes resolved. Cao-Mehat's 'mathematical exploration' LLM use could hide AI-produced content, but no specific piece is attributed to AI, so kept none. The r<=29 result partly relies on Sadhu v1's r<=26 step.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {
+    "status": "partial",
+    "event": {
+      "date": "2026-09",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "sources": ["https://arxiv.org/abs/2609.04771"]
+    },
+    "credited_humans": ["Sen Cao", "Sanjit Singh Mehat"],
+    "status_sources": [
+      "https://arxiv.org/html/2609.04771",
+      "https://arxiv.org/html/2512.08020",
+      "https://arxiv.org/abs/2609.01682"
+    ]
+  },
+  "outcome_prefix": "Judged: status rests on Cao & Mehat's September 2026 preprint proving Albertson's conjecture for chromatic number r<=29; Sadhu's all-r v2 claim is set aside as not credible.",
+  "corrections": [
+    { "field": "status", "from": "claimed", "to": "partial", "why": "F5: the record's own competing_reading notes Sadhu's scope 'ballooning within two weeks from r≤26 to all r', solo, only Pith-reviewed, and not engaged by the concurrent r≤29 paper; setting it aside leaves the r≤29 case extension as the furthest event." },
+    { "field": "event", "from": "Sadhu v2, 2026-09-13", "to": "Cao & Mehat, 2026-09", "why": "F8: status now rests on arXiv:2609.04771 (r≤29)." },
+    { "field": "credited_humans", "from": ["Ankan Sadhu"], "to": ["Sen Cao", "Sanjit Singh Mehat"], "why": "F8: follows the event the status rests on." },
+    { "field": "status_sources", "from": "Sadhu-led list", "to": "Cao-Mehat, Cranston, Sadhu", "why": "F8: follows the event the status rests on." },
+    { "field": "ai_role", "from": "none", "to": "none", "why": "F9: Cao & Mehat disclose substantial LLM use for 'mathematical exploration', but attribute no specific argument in the result to AI; kept none with doubt." }
+  ]
+}

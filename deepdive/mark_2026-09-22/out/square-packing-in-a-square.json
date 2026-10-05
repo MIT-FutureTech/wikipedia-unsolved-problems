@@ -1,0 +1,99 @@
+{
+  "key": "square-packing-in-a-square",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The problem (the asymptotic growth rate of wasted space W(x)) remains open, but the rigorously-established upper bound moved during the window: Chung and Graham's 2019 claim of W(x)=O(x^0.6) was discovered in 2025 (Arslanov & Bui) to contain a calculation error, temporarily reverting the proven state of the art to the weaker W(x)=O(x^{(3+sqrt(2))/7} log x); two independent papers then re-established W(x)=O(x^0.6) rigorously by new methods (Bui, Aug 2025; McClenagan, preprinted Feb 2026 from a 2024 thesis). A third paper (Bui, Apr 2025) simplified the Roth-Vaughan lower-bound proof technique without changing the bound. No AI system was involved in any of this work.",
+  "status_sources": [
+    "https://arxiv.org/abs/2508.04603",
+    "https://arxiv.org/html/2508.04603v2",
+    "https://arxiv.org/abs/2602.01484",
+    "https://arxiv.org/html/2602.01484",
+    "https://arxiv.org/abs/2504.09489",
+    "https://en.wikipedia.org/wiki/Square_packing"
+  ],
+
+  "event": {
+    "date": "2025-08-06",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2508.04603"]
+  },
+
+  "credited_humans": ["Hong Duc Bui", "Rory McClenagan", "Marat Arslanov"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Bui (arXiv:2508.04603, submitted 2025-08-06, v2 2026-03-15) and McClenagan (arXiv:2602.01484, submitted 2026-02-01) independently proved the same bound W(x)=O(x^{3/5}) (equivalently O(x^0.6)) by different constructions. McClenagan's result derives from his 2024 UNBC master's thesis (DOI 10.24124/2024/59553); the arXiv writeup itself states that 'since submission [of the thesis], a similar result by a different method was published in 2025 (arXiv:2508.04603 by Bui),' i.e. McClenagan's own account places his result first but its public arXiv posting second. I could not establish the exact month of the 2024 thesis defense/deposit, so I cannot determine whether the thesis itself was completed before or after the 26 January 2024 cutoff.",
+      "sources": [
+        "https://arxiv.org/abs/2602.01484",
+        "https://arxiv.org/html/2602.01484"
+      ]
+    }
+  ],
+
+  "summary": "The Wikipedia bullet as frozen on 26 Jan 2024 is bare ('what is the asymptotic growth rate of wasted space?'), with no bound cited. Checking the frozen revision confirms this. The problem itself -- the precise asymptotic growth rate of W(x) -- remains fully open; nothing in the window resolves it or narrows it to a single answer. What happened in the window concerns the best known *upper* bound, and it is more complicated than the triage summary suggested: Chung and Graham had claimed in a 2019 paper (Discrete & Comput. Geom. 64(3):690-699) that W(x)=O(x^0.6) (equivalently x^{3/5}), improving on Wang et al. (2016)'s O(x^0.625). As best I can tell from later sources, this claim was the believed state of the art as of January 2024. In 2025, Arslanov and Bui (Discrete & Comput. Geom., DOI 10.1007/s00454-025-00767-w) identified a technical error in Chung-Graham's calculation of a quantity W_5, invalidating the 2019 proof and reverting the rigorously-established bound to the earlier, weaker W(x)=O(x^{(3+sqrt(2))/7} log x) (Chung-Graham 2009). Two papers then closed this gap independently: Hong Duc Bui (arXiv:2508.04603, first submitted 2025-08-06) gave a new construction rigorously proving W(x)=O(x^0.6); Rory McClenagan (arXiv:2602.01484, submitted 2026-02-01, extracted from a 2024 master's thesis) gave a different construction (via 'stacks' of unit squares plus trapezoidal sub-packings) proving the same bound, explicitly framing the result as confirming that 'the bound claimed by Chung and Graham... is, in fact, correct, using a new algorithm.' A third paper, Bui (arXiv:2504.09489, submitted 2025-04-13, presented at CCCG 2025), proved that only 'good squares' (inclination <= 10^-10) need be considered when establishing the Roth-Vaughan lower bound W(x) not-in o(x^{1/2}), simplifying that proof's case analysis without changing the bound itself -- this is `progress` on proof technique, not a moved bound, and by itself would not change status. I read all three papers (HTML/PDF) in full or via careful extraction, including abstracts, introductions, and acknowledgements, and found no mention anywhere of AI, machine learning, neural networks, computer search, or automated/computer-assisted proof techniques; the acknowledgements in the two substantive papers thank a human proofreader and anonymous reviewers only. I classify the overall status as `progress` rather than `partial` or `resolved`: no case or sub-instance of the open growth-rate question was settled, and the open problem (the exact asymptotic rate) is untouched; what moved is the best known upper bound, which is exactly the `progress` category, and I use the Bui paper's 2025-08-06 submission as the dated event since it is the first public written argument re-establishing O(x^0.6) rigorously (McClenagan's underlying thesis may predate this, but I could not establish its month, and its own arXiv writeup postdates Bui's). `resolution_direction` is `confirmed` because the re-proof confirms (rather than refutes) the previously-believed-but-then-invalidated Chung-Graham bound.",
+  "competing_reading": "One could argue this is `open_stale`-adjacent: the O(x^0.6) bound was already the publicly believed state of the art before the frozen revision date, so the 2025-2026 papers merely repair a gap rather than advance genuinely new mathematics beyond what was already assumed true in January 2024. Under that reading the 'progress' is illusory -- the field is only catching back up to where everyone already thought it was. I did not adopt this reading because between the January 2019 claim and the 2025 papers there was a period (starting with the 2025 Arslanov-Bui erratum) where the rigorously-known bound was strictly worse than O(x^0.6), and restoring a result after a genuine, published invalidation is itself a real mathematical event (a new, different, correct proof was required, not a correction of the old one) rather than a non-event. A second, narrower competing reading: the Bui 'good squares' paper (2504.09489) could be read as `partial` if one considers the reduction to good-square packings itself a nontrivial partial characterization result rather than pure proof-simplification, but the paper's own framing ('allows the lower bound proof... to be simplified') supports treating it as technique-simplification, which does not by itself change `status`.",
+  "what_would_settle_it": "The exact month (or day) of deposit/defense of McClenagan's 2024 UNBC thesis (DOI 10.24124/2024/59553) would settle whether an argument for W(x)=O(x^0.6) existed publicly before or after 26 January 2024, which would matter if the thesis itself (as opposed to its 2026 arXiv writeup) counts as the first public written argument. It would not change the `progress` classification (the open problem itself is untouched either way) but could shift the `event` date earlier and add nuance to the `open_stale` question for the upper-bound sub-thread.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2508.04603", "title": "Square packing with O(x^0.6) wasted area", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2508.04603v2", "title": "Square packing with O(x^0.6) wasted area (HTML v2)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2602.01484", "title": "Optimally Packing a Large Square by Unit Squares", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2602.01484", "title": "Optimally Packing a Large Square by Unit Squares (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2602.01484", "title": "Optimally Packing a Large Square by Unit Squares (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2504.09489", "title": "Square Packing with Asymptotically Smallest Waste Only Needs Good Squares", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Squared_square", "title": "Squaring the square", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Square_packing", "title": "Square packing", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/w/index.php?title=List_of_unsolved_problems_in_mathematics&oldid=1199136318", "title": "List of unsolved problems in mathematics (frozen revision)", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "arxiv 2602.01484 McClenagan \"Optimally Packing a Large Square by Unit Squares\"",
+      "\"square packing in a square\" wasted space Erdos Graham Chung Graham asymptotic wikipedia",
+      "McClenagan \"Asymptotic square packing problems\" thesis University of Northern British Columbia 2024 date",
+      "\"59553\" OR \"Asymptotic square packing problems\" McClenagan UNBC thesis defense month 2024",
+      "Arslanov Bui error Chung Graham square packing wasted space 2025",
+      "\"square packing\" wikipedia \"Chung\" \"Graham\" 0.6 OR 3/5 wasted space \"2019\" OR \"2020\""
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML/PDF full text of 2508.04603 (Bui, upper bound)",
+      "arXiv abstract and HTML/PDF full text of 2602.01484 (McClenagan, upper bound)",
+      "arXiv abstract and full text of 2504.09489 (Bui, lower-bound proof simplification)",
+      "current Wikipedia article 'Square packing' (for baseline history and citations)",
+      "current Wikipedia article 'Squaring the square' (checked as a possible link target; irrelevant)",
+      "frozen Wikipedia revision oldid=1199136318 for the exact bullet wording",
+      "general web search for UNBC thesis defense date and DOI record"
+    ],
+    "dead_ends": [
+      "Could not find the specific month of McClenagan's 2024 UNBC thesis defense/deposit despite multiple targeted searches of UNBC pages and general web search; only the year (2024) and DOI (10.24124/2024/59553) are established.",
+      "PDF extraction of arxiv.org/pdf/2602.01484 was partially garbled by compression; cross-checked against the HTML version (arxiv.org/html/2602.01484) which extracted cleanly and was used as the authoritative source instead."
+    ]
+  },
+
+  "incomplete": "The exact month of McClenagan's 2024 thesis (as opposed to its 2026 arXiv writeup) could not be established, which leaves some residual uncertainty about the precise event date for the upper-bound restoration and about whether an even earlier (pre-2024) written argument for O(x^0.6) via McClenagan's method existed. This does not affect the `status` (progress) or `ai_role` (none) conclusions, both of which are well supported independent of this gap.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": true
+}

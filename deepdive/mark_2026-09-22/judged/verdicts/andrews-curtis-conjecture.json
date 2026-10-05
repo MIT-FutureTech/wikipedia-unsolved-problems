@@ -1,0 +1,98 @@
+{
+  "key": "andrews-curtis-conjecture",
+  "judgement": {
+    "events": [
+      {
+        "id": "shehper-2024-families",
+        "what": "Shehper et al. prove by hand that the infinite Miller-Schupp families MS(1,w) and MS(n, y^-1xyx^-1) are AC-trivial (Theorems 2-3, Corollary 9), after spotting patterns in classical greedy-search output",
+        "date": "2024-08-27", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2408.15332",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": "confirmed",
+        "is_counterexample": false
+      },
+      {
+        "id": "shehper-2024-ppo",
+        "what": "PPO agent finds AC-trivialization paths for two specific Miller-Schupp presentations that greedy search missed (Theorem 10)",
+        "date": "2024-08-27", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2408.15332",
+        "scope": "instances",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The best-performing PPO agent solved two new presentations of the Miller-Schupp series that the greedy search had failed to solve.",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "shehper-2024-ak3-stable",
+        "what": "AK(3) shown stably AC-trivial (stable Andrews-Curtis conjecture, with extra generator-relator pairs allowed); re-derived by Lisitsa with Prover9 (arXiv:2501.18601)",
+        "date": "2024-08-27", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2408.15332",
+        "scope": "variant",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "lisitsa-2024-ms",
+        "what": "Lisitsa finds non-stable AC-trivializations for MS_n(w*), n=3..8, with Prover9",
+        "date": "2024", "precision": "year", "after_snapshot": null,
+        "source": "https://www.sciencedirect.com/science/article/pii/S2666657X2400034X",
+        "scope": "instances",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "zhang-2025-neurips",
+        "what": "Zhang, Zhou, George, Gukov, Anandkumar: LLM+RL pipeline with Lean certifier trivializes 753 Miller-Schupp presentations",
+        "date": "2025", "precision": "year", "after_snapshot": true,
+        "source": "https://openreview.net/pdf?id=lt3Lpa4d2d",
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "shehper-2024-families",
+    "derived": {
+      "status": "partial",
+      "ai_role": "none",
+      "resolution_direction": "confirmed"
+    },
+    "changed": ["ai_role"],
+    "doubts": "Status rests on the human-proved infinite families. The PPO result (Theorem 10) and the 753-presentation workshop result are finitely many instances of a universal statement, so they cannot set the status, however cleanly the AI credit is attributed. Stable AK(3) is a variant. The families and the PPO theorem are in the same paper; the families theorems came from patterns in classical greedy search, which is not AI.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "changes": { "ai_role": "none" },
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "ai_role",
+      "from": "generated",
+      "to": "none",
+      "why": "F8/F4: the record says the 'partial' status comes from the infinite families MS(1,w) and MS(n, y^-1xyx^-1), 'proved by hand, after observing patterns surfaced by greedy search' (classical, not a learned model). The 'generated' credit belongs to Theorem 10, where PPO trivialized two individual presentations. That is scope 'instances' and cannot set the status. The basis_quote stays as evidence of that separate result."
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "key": "second-neighborhood-problem",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "The general conjecture remains open, but the minimum-out-degree threshold for which it is proved was pushed from 6 (Kaneko-Locke, 2001) to 7 by Sadhukhan, Sandeep and Sen (arXiv:2606.30588, June 2026), a genuine restriction/case of the stated problem; separately Huang and Peng (arXiv:2412.20234, Dec 2024) improved the best known universal constant factor to 0.715538, and a self-published preprint by Charles N. Glover (arXiv:2501.00614) claims a full proof but has not been accepted by the field, which continues to describe the conjecture as open as of mid-2026.",
+  "status_sources": [
+    "https://arxiv.org/abs/2606.30588",
+    "https://arxiv.org/abs/2412.20234",
+    "https://arxiv.org/abs/2607.18047"
+  ],
+
+  "event": {
+    "date": "2026-06-29",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2606.30588"]
+  },
+
+  "credited_humans": ["Arpan Sadhukhan", "R. B. Sandeep", "Sagnik Sen"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "The proof is partially computer-assisted: after a sequence of local reductions, the remaining finite obstruction models are eliminated by reproducible OR-Tools CP-SAT infeasibility checks.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": ["https://arxiv.org/abs/2606.30588"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [
+    {
+      "kind": "acceptance",
+      "summary": "Charles N. Glover's arXiv:2501.00614 claims a full constructive proof of the general conjecture via a self-invented 'Graph Level Order' (GLOVER) framework, first posted 31 Dec 2024 and revised through at least v14 (May 2026). It is self-published (personal site glovermethod.com, GitHub repo, 'AlphaXiv' posting), shows no sign of journal acceptance or expert digestion, and a later 2026 paper on the same conjecture (arXiv:2607.18047) explicitly states the general conjecture 'remains open for general oriented graphs' without flagging Glover's claim as a resolution. This is treated here as an unaccepted claim, not a resolution.",
+      "sources": [
+        "https://arxiv.org/abs/2501.00614",
+        "https://glovermethod.com/",
+        "https://github.com/Cgcharles7/ssnc",
+        "https://arxiv.org/abs/2607.18047"
+      ]
+    }
+  ],
+
+  "summary": "Three lines of genuine, in-scope progress on the second neighborhood problem occurred in the window. (1) Huang and Peng (arXiv:2412.20234, submitted 28 Dec 2024) proved every oriented graph has a vertex u with |N++(u)| ≥ 0.715538|N+(u)|, the first improvement to the universal constant bound in over two decades (previous best ~0.6839, Chen-Shen-Yuster). This is `progress`: the general conjecture (constant 1) is still open, but the approximation constant moved, which is the quantity the bullet is asking about. (2) Sadhukhan, Sandeep and Sen (arXiv:2606.30588, submitted 29 Jun 2026) proved the full conjecture (constant exactly 1) for oriented graphs with minimum out-degree equal to 7, extending the Kaneko-Locke (2001) result for out-degree ≤6 — a genuine restriction (case) of the stated problem, hence `partial` with direction `confirmed`. Their proof is 'partially computer-assisted' via OR-Tools CP-SAT infeasibility checks on finite obstruction models after local reductions — this is a constraint-satisfaction solver, not a machine-learning/AI system, so `ai_role` is `none` for this event. (3) Charles N. Glover's arXiv:2501.00614 (first posted 31 Dec 2024, now at v14, May 2026) claims a full proof of the general conjecture via a self-devised 'GLOVER' minimum-counterexample framework. This preprint shows the hallmarks of an unaccepted claim: extreme revision churn (14 versions over 17 months), self-publication on a personal site and GitHub rather than through a venue with expert referees, and — most tellingly — a subsequent 2026 arXiv paper on the same topic (2607.18047, 'Towards a strengthening of the second neighborhood conjecture') that still describes the general conjecture as open, with no acknowledgment of Glover's claim as resolving it. No expert digestion (Tao's blog, Quanta, a survey, or a published refutation) of Glover's claim was found either way. Since the overall record for this bullet should reflect the best-supported status across the found events, and the highest-confidence, expert-uncontested event is the out-degree-7 case proof, the record is classified `partial` (confirmed direction) rather than `claimed`/`resolved` on the strength of Glover's unaccepted claim alone; Glover's claim itself is recorded as a dispute rather than driving the status. No AI system (LLM or otherwise) was found credited by authors for producing any of the mathematics in any of these three results; the only computational tool disclosed is a classical constraint solver (OR-Tools CP-SAT), which the coding rules exclude from AI credit.",
+  "competing_reading": "One could argue the record should be `claimed` if Glover's arXiv:2501.00614 is read as the decisive event, since it purports to fully resolve the general conjecture (a stronger claim than the out-degree-7 case). Against this: the claim has had 17+ months and 14 revisions without visible expert acceptance, and a 2026 paper in the same subfield still calls the conjecture open, which is strong (if indirect) evidence the community has not accepted it. I weighted the accepted, narrower result (out-degree 7) as the status-defining event and demoted Glover's claim to a dispute; a stricter reading of `claimed` (\"a preprint... that experts have not yet digested\") could support listing Glover's paper as the primary `event` instead, with status `claimed`, while still keeping the out-degree-7 result as a secondary `partial` fact in the summary.",
+  "what_would_settle_it": "An expert digestion (a survey, a rebuttal, MathOverflow/blog discussion, or a journal referee report) explicitly addressing whether Glover's GLOVER proof is correct, or its formal withdrawal/retraction, would resolve whether this bullet should be `resolved`/`claimed` on that basis or continue to rest on the accepted partial results.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2412.20234", "title": "An improved bound on Seymour's second neighborhood conjecture", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2501.00614", "title": "A Minimum Counterexample Proof of the Seymour Second Neighborhood Conjecture via the Graph Level Order", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.30588", "title": "A proof of Seymour's second neighborhood conjecture for oriented graphs with minimum out-degree equal to 7", "type": "preprint", "opened": true},
+    {"url": "https://glovermethod.com/", "title": "Graph Level Order Algorithm", "type": "blog", "opened": true},
+    {"url": "https://github.com/Cgcharles7/ssnc", "title": "Cgcharles7/ssnc: My Constructive Proof of the Seymour Conjecture", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.18047", "title": "Towards a strengthening of the second neighborhood conjecture", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.11530", "title": "A dense-case theorem for Seymour's second neighborhood conjecture", "type": "preprint", "opened": false},
+    {"url": "https://onlinelibrary.wiley.com/doi/full/10.1002/rsa.21251", "title": "Seymour's second neighbourhood conjecture: random graphs and reductions", "type": "journal", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Seymour second neighborhood conjecture 2025 2026 proof resolved",
+      "\"second neighborhood conjecture\" arXiv 2026",
+      "Glover \"second neighborhood conjecture\" proof reddit mathoverflow skeptic wrong",
+      "Charles Glover second neighborhood conjecture AI ChatGPT Claude help proof",
+      "Huang Peng \"improved bound\" second neighborhood conjecture 0.715538 published",
+      "\"2501.00614\" GLOVER second neighborhood conjecture withdrawn error flaw",
+      "Seymour second neighborhood conjecture Terence Tao blog"
+    ],
+    "places_checked": [
+      "arXiv abstract pages for 2412.20234, 2501.00614, 2606.30588, 2607.18047",
+      "glovermethod.com (author's own site)",
+      "github.com/Cgcharles7/ssnc (author's proof repository)",
+      "general web search for expert commentary/digestion, MathOverflow, Tao's blog"
+    ],
+    "dead_ends": [
+      "No Terence Tao blog post found on this conjecture",
+      "No MathOverflow or Reddit discussion of the Glover proof's validity found",
+      "No explicit retraction or withdrawal notice found for arXiv:2501.00614 despite its 14 revisions"
+    ]
+  },
+
+  "incomplete": "Did not open the full PDF text of arXiv:2607.18047, arXiv:2608.11530, or the Wiley random-graphs paper beyond abstract-level fetches, and did not locate an independent expert assessment (positive or negative) of Glover's arXiv:2501.00614 proof attempt; its correctness/acceptance status is inferred indirectly from revision churn and self-publication venue plus a later paper's characterization of the conjecture as open, rather than from a direct refutation or endorsement.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

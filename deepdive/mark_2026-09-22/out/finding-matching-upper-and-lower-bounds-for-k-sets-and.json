@@ -1,0 +1,98 @@
+{
+  "key": "finding-matching-upper-and-lower-bounds-for-k-sets-and",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The core k-set problem (matching Dey's O(n(k+1)^(1/3)) upper bound with Tóth's Ω(n·2^√log k) lower bound for general k-sets) remains completely open with no movement since January 2024. However, several narrower bounds within its scope moved: Rubin (SODA 2024 / arXiv March 2024) improved the bound on halving hyperplanes in dimensions d≥5; Alonso, López and Rodrigo (Symmetry, July 2024) improved the additive constant in the best asymptotic upper bound for planar halving lines (even n) and for small n in [106,336]; and Rodrigo, López, Magistrali and Alonso (Axioms, January 2025) improved the lower bound on the maximum number of halving lines for specific odd point-set sizes (n=35,59,95,97), with a consequent effect on rectilinear crossing number bounds.",
+  "status_sources": [
+    "https://arxiv.org/abs/2403.00412",
+    "https://doi.org/10.3390/sym16070936",
+    "https://doi.org/10.3390/axioms14010062",
+    "https://en.wikipedia.org/wiki/K-set_(geometry)"
+  ],
+
+  "event": {
+    "date": "2024-03-01",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2403.00412"]
+  },
+
+  "credited_humans": ["Natan Rubin", "Estrella Alonso", "Mariló López", "Javier Rodrigo", "Danilo Magistrali"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "This Wikipedia bullet ('Finding matching upper and lower bounds for k-sets and halving lines') is the general open problem of closing the gap between Dey's 1998 upper bound O(n(k+1)^{1/3}) for the number of k-sets of an n-point planar set and the best known lower bound Ω(n·2^{c√log k}) (Tóth 1999/2001), together with the closely related halving-lines question of the maximum number of halving lines h(n). No paper found since 26 January 2024 closes or narrows this general asymptotic gap for k-sets in the plane. Three genuine but narrow pieces of progress occurred within scope: (1) Natan Rubin, 'Improved Bounds for Point Selections and Halving Hyperplanes in Higher Dimensions' (arXiv:2403.00412, submitted 2024-03-01, preliminary version at SODA 2024), which substantially improves the point-selection/halving-hyperplane bound in dimension d≥3 (particularly d≥5), a dramatic improvement over the 1991 Alon–Bárány–Füredi–Kleitman bound — this is the most significant single advance found and is squarely a case of the general 'k-sets/halving' bound-matching problem in higher dimensions, though the gap to matching lower bounds remains open. (2) Alonso, López and Rodrigo, 'An Improvement of the Upper Bound for the Number of Halving Lines of Planar Sets' (Symmetry 16(7):936, received 2024-05-31, published 2024-07-22), which improves the additive constant in the known asymptotic upper bound h(n) ≤ (29/8)^{1/3} n(n-1)^{1/3} for even n, and also for specific small n between 106 and 336, via a purely graph-theoretic degree-sum argument — no computational search or AI tool is mentioned in the paper. (3) Rodrigo, López, Magistrali and Alonso, 'An Improvement of the Lower Bound on the Maximum Number of Halving Lines for Sets in the Plane with an Odd Number of Points' (Axioms 14(1):62, published 2025-01-16), which exhibits improved explicit point configurations raising the known lower bound on halving lines for n=35, 59, 95, 97, with consequences for the rectilinear crossing number and (for n=35) halving pseudolines — again a human construction with no stated computational-search or AI methodology found in the accessible portions of the paper. I searched broadly for any AI involvement in k-set/halving-line research post-2024, including checking DeepMind's AlphaEvolve paper ('Mathematical exploration and discovery at scale', arXiv:2511.02864) and its full 67/68-problem repository (github.com/google-deepmind/alphaevolve_repository_of_problems) — the k-set/halving-lines problem is not among AlphaEvolve's problem list (closest neighbors are Szemerédi–Trotter constructions and equidistant-points-in-convex-polygons, which are distinct problems). No LLM-assisted or AI-generated result for this specific problem was found anywhere. All three results found are ordinary human mathematics (graph-theoretic arguments and explicit point-configuration constructions), with no disclosed use of computer search, computer algebra, or AI systems. Status is 'progress' because bounds moved (in a case/related-dimension sense and in the additive-constant/small-n sense) but the problem as generally stated remains open; resolution_direction is 'confirmed' in the loose sense that each result tightened bounds in the expected direction (no result went against conjectured behavior), though none settled a full case of the k(=n/2) matching-bounds question outright.",
+  "competing_reading": "One could argue the two MDPI papers (constant improvements and n-specific lower-bound improvements) are so narrow — improving an additive constant, or four specific point counts — that they are better read as 'no meaningful change' to the general bullet, which asks about matching asymptotic upper and lower bounds. Under a strict reading of §3.1 ('does this change what a careful person would write in this bullet's entry'), a careful person's account of the general k-set gap (the (k+1)^{1/3} vs 2^{√log k} asymptotic gap) is unchanged by any of these three results — none of them touches that asymptotic gap for the classical planar k-set problem itself. Rubin's higher-dimensional result is the strongest candidate for 'in scope' since it is explicitly about matching point-selection/halving-hyperplane bounds, generalizing the flat problem to d dimensions, but a strict reading could classify it as a related problem (higher-dimensional analogue) rather than a case of the 2D bullet. Under that stricter reading, status would arguably be 'open' with no_change_found true, since none of the results move the specific numbers Wikipedia's bullet is asking about (the classical 2D k-set gap). I chose 'progress' because the bullet as phrased ('finding matching upper and lower bounds for k-sets and halving lines', plural, general) plausibly covers exactly this family of incremental bound movements, and because halving lines is the n/2 case of k-sets explicitly named in the bullet.",
+  "what_would_settle_it": "A statement from an expert survey (e.g., an updated version of Jeff Erickson's or the CG open-problems project's account of k-sets/halving lines) on whether these three 2024-2025 results are considered to move the needle on the classical Wikipedia-stated problem, versus being incremental refinements orthogonal to the actual open asymptotic gap. Also, checking whether any later 2025-2026 paper closes or further narrows the general k-set asymptotic gap would resolve whether 'progress' remains the right classification going forward.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2403.00412", "title": "Improved Bounds for Point Selections and Halving Hyperplanes in Higher Dimensions", "type": "preprint", "opened": true},
+    {"url": "https://doi.org/10.3390/sym16070936", "title": "An Improvement of the Upper Bound for the Number of Halving Lines of Planar Sets", "type": "journal", "opened": true},
+    {"url": "https://oa.upm.es/89576/1/10302927.pdf", "title": "An Improvement of the Upper Bound for the Number of Halving Lines of Planar Sets (repository copy)", "type": "repository", "opened": true},
+    {"url": "https://doi.org/10.3390/axioms14010062", "title": "An Improvement of the Lower Bound on the Maximum Number of Halving Lines for Sets in the Plane with an Odd Number of Points", "type": "journal", "opened": false},
+    {"url": "https://www.researchgate.net/publication/388073951_An_Improvement_of_the_Lower_Bound_on_the_Maximum_Number_of_Halving_Lines_for_Sets_in_the_Plane_with_an_Odd_Number_of_Points", "title": "ResearchGate copy of the odd-n halving lines paper", "type": "repository", "opened": false},
+    {"url": "https://en.wikipedia.org/wiki/K-set_(geometry)", "title": "K-set (geometry)", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2511.02864", "title": "Mathematical exploration and discovery at scale (AlphaEvolve)", "type": "preprint", "opened": true},
+    {"url": "https://github.com/google-deepmind/alphaevolve_repository_of_problems", "title": "AlphaEvolve repository of problems", "type": "repository", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/", "title": "Terence Tao — Mathematical exploration and discovery at scale", "type": "blog", "opened": true},
+    {"url": "https://jeffe.cs.illinois.edu/open/ksets.html", "title": "Halving lines and k-sets (Jeff Erickson's open problems page)", "type": "encyclopedia", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "k-set problem halving lines upper bound conjecture 2024 2025 2026",
+      "\"halving lines\" arXiv 2025 improved bound",
+      "\"halving hyperplanes\" higher dimensions improved bounds arXiv 2403.00412",
+      "mdpi sym16070936 halving lines \"Received\" \"Published\" authors",
+      "mdpi axioms 14010062 halving lines odd points authors Aichholzer Garcia",
+      "\"halving lines\" 2026 new result improved upper bound k-set problem",
+      "k-set problem Toth lower bound n e sqrt(log n) improved 2025 2026",
+      "k-sets discrete geometry AI large language model proof 2025",
+      "DeepMind AlphaEvolve combinatorics geometry bounds discovered 2025 k-sets OR \"halving lines\" OR \"convex polygon\"",
+      "AlphaEvolve \"Mathematical exploration and discovery at scale\" 67 problems list appendix halving OR \"k-set\" OR \"convex\"",
+      "alphaevolve_repository_of_problems github \"halving\" OR \"k-set\" OR \"k-sets\"",
+      "\"k-sets\" upper bound Dey improved 2025 arXiv discrete computational geometry",
+      "\"halving lines\" OR \"k-set problem\" Terence Tao blog OR AlphaProof OR AlphaGeometry",
+      "rectilinear crossing number halving lines n=35 improved AI computer search construction"
+    ],
+    "places_checked": [
+      "arXiv (abstract and full text of 2403.00412)",
+      "MDPI Symmetry and Axioms journal pages (blocked by 403; used repository/researchgate mirrors and search-engine summaries instead)",
+      "UPM open-access repository (oa.upm.es) for full text of the Symmetry paper",
+      "Wikipedia's live K-set (geometry) article for current state and citations",
+      "AlphaEvolve paper (arXiv:2511.02864) and its full GitHub problem repository listing (68 problems / experiment directories)",
+      "Terence Tao's blog post on AlphaEvolve",
+      "General web search for any 2025-2026 arXiv papers narrowing the classical k-set asymptotic gap"
+    ],
+    "dead_ends": [
+      "MDPI direct pages (mdpi.com/2073-8994/16/7/936 and mdpi.com/2075-1680/14/1/62) returned HTTP 403 to the fetch tool; substituted the UPM repository PDF mirror and ResearchGate/search-engine summaries for the axioms paper, which could not be fully verified via direct read",
+      "Could not fetch the full text of arXiv:2511.02864 (AlphaEvolve paper) directly due to a size limit, but confirmed via its GitHub problem repository that k-sets/halving lines is not among the 67-68 problems it worked on",
+      "No 2025 or 2026 paper found that narrows the classical planar k-set asymptotic upper/lower bound gap itself (Dey vs Tóth); searches for this turned up only the pre-2024 history"
+    ]
+  },
+
+  "incomplete": "Could not directly read the full text of the Axioms 14(1):62 (2025) paper (MDPI page blocked, ResearchGate page blocked) to independently confirm the absence of computational/AI methodology; relied on search-engine-generated summaries and the triage's characterization for its content. Also could not fully verify by direct read that no computer search was used in either MDPI paper's construction of extremal point sets, though no source consulted mentioned one.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": true
+}

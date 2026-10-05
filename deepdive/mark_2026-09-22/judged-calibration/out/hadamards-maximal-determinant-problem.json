@@ -1,0 +1,213 @@
+{
+  "key": "hadamards-maximal-determinant-problem",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "A 2026 preprint from the Caltech Math-AI Lab reports new record lower bounds for the maximal {+1,-1}-matrix determinant at orders n=51, 107, 111, 115, and 119, improving previously recorded values by 0.44% to 3.1%; the general problem (largest determinant for arbitrary n) remains open.",
+  "status_sources": [
+    "https://arxiv.org/abs/2608.22518",
+    "https://arxiv.org/html/2608.22518"
+  ],
+  "event": {
+    "date": "2026-08-23",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2608.22518"
+    ]
+  },
+  "credited_humans": [
+    "Giorgi Butbaia",
+    "Pragatheeswaran Vipulanandan",
+    "Justin Tan",
+    "Xiaoyu Huang",
+    "Toby Saunders-A'Court",
+    "Lucas Fagan",
+    "Davide Passaro",
+    "Michele Tarquini",
+    "Sergei Gukov"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "The findings presented in this work grew out of research conducted at the Caltech Math–AI Lab, whose mission is to develop new AI systems and algorithms capable of performing effectively in sparse–reward, long-horizon environments.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "Caltech Math-AI Lab RL system (unnamed)"
+    ],
+    "sources": [
+      "https://arxiv.org/html/2608.22518",
+      "https://math-ai.caltech.edu/"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [],
+  "summary": "The Wikipedia bullet asks for the largest determinant of an n-by-n {+1,-1} matrix, a problem still open for general n. Within the window, the main development I could find is arXiv:2608.22518 (v1 submitted 2026-08-23, v2 revised 2026-08-31), 'New Records for the Hadamard Maximal Determinant Problem in Dimensions 51, 107, 111, 115, and 119,' by Butbaia, Vipulanandan, Tan, Huang, Saunders-A'Court, Fagan, Passaro, Tarquini, and Gukov. It reports improved lower-bound determinant records (construction certificates provided, and a companion GitHub repo github.com/Math-AI-Caltech/hadamard-maxdet gives the explicit matrices) for five specific orders, improving prior records by 0.44%-3.1%. This is a record-table advance, not a resolution of the general problem or of any of those orders (the true maximum at those orders is still unknown), so status is 'progress' with resolution_direction null and no counterexample. On AI involvement: the paper's introduction states the work 'grew out of research conducted at the Caltech Math-AI Lab,' whose explicit, self-described mission (per its own site) is building AI/RL systems for sparse-reward, long-horizon search problems, and whose site page credits this exact Hadamard result to its 'RL-based solvers for combinatorial challenges.' This matches the lab's established public track record (Gukov's group previously used hierarchical reinforcement learning to find long counterexample-disproving move sequences for the Andrews-Curtis conjecture, per Caltech's own news coverage). The paper itself does not spell out the algorithm in its body beyond this attribution sentence, and does not use words like 'neural network' or 'reinforcement learning' explicitly in the visible text I could retrieve, but the lab attribution combined with the lab's own explicit claim of authorship of an RL-based approach to this specific result is the authors' own account of how the search was conducted, so I coded ai_role as 'bound' (an AI/RL system moved a numeric bound on a problem that remains open) rather than 'generated' (no claim that the AI 'proved' anything or produced a full solution to the general problem) or 'none'. I also checked for other window-relevant events: a March 2025 paper by Nuñez Ponasso, 'Maximal determinants of matrices over the roots of unity' (arXiv:2503.11114, published in Linear Algebra and its Applications Oct 2025), generalizes the problem to l-th roots of unity; this is a related/variant problem (changing the entry set from {+1,-1} to roots of unity), not a case of the stated {+1,-1} bullet, so per §3.1 it is out of scope and not counted as a change to this problem. I found no resolution of the general conjecture, no settlement of the long-standing order-23 conjecture, and the current Wikipedia article's lead still describes the problem as open for general n with n=23 as the smallest fully open {+1,-1} case (no evidence that changed in the window).",
+  "competing_reading": "One could argue the paper's introduction sentence about the Math-AI Lab is too thin on its own to satisfy the 'authors' own account' bar for an AI-involvement code, since the paper's visible body text does not itself describe an RL algorithm, loss function, or training procedure — it only names the lab. Under a stricter reading requiring the paper itself (not the lab's separate website) to describe the mechanism, one might code this 'none' pending fuller documentation, treating the lab-website claim as third-party framing rather than the authors' own account within the paper. I lean toward 'bound' because the lab's own site is run by the same group and explicitly claims RL authorship of this specific result, but flag this as a real judgment call.",
+  "what_would_settle_it": "Access to the full paper's methods/acknowledgements section (the PDF text extraction failed) or the companion GitHub repo's code itself, which would likely state explicitly whether a reinforcement-learning search, a classical computational search, or some hybrid produced the reported matrices.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2608.22518",
+      "title": "New Records for the Hadamard Maximal Determinant Problem in Dimensions 51, 107, and 115",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.22518",
+      "title": "New Records for the Hadamard Maximal Determinant Problem in Dimensions 51, 107, 111, 115, and 119 (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.22518",
+      "title": "New Records for the Hadamard Maximal Determinant Problem (PDF)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/Math-AI-Caltech/hadamard-maxdet",
+      "title": "hadamard-maxdet: Code for reproducing matrices described in the paper",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://math-ai.caltech.edu/",
+      "title": "Caltech Math-AI Lab",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/22024187",
+      "title": "New Records for the Hadamard Maximal Determinant Problem in Dimensions 51, 107, and 115",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.pma.caltech.edu/news/ai-program-plays-the-long-game-to-solve-decades-old-math-problems",
+      "title": "AI Program Plays the Long Game to Solve Decades-Old Math Problems",
+      "type": "press_release",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.11114",
+      "title": "Maximal determinants of matrices over the roots of unity",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Hadamard%27s_maximal_determinant_problem",
+      "title": "Hadamard's maximal determinant problem",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/issues/1796",
+      "title": "Hadamard maximal determinant problem · Issue #1796",
+      "type": "repository",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "Hadamard maximal determinant problem new record 2024 2025 2026",
+      "\"maximal determinant\" Hadamard matrix order new lower bound arxiv 2025",
+      "Hadamard maximal determinant order 23 2024 2025 new bound",
+      "\"maximal determinant\" \"roots of unity\" Nunez Ponasso 2025",
+      "Caltech Math-AI Lab Gukov reinforcement learning combinatorics results 2026",
+      "Gukov Caltech \"Math-AI Lab\" reinforcement learning Hadamard determinant matrices",
+      "Butbaia Vipulanandan Tan Huang Gukov Hadamard determinant reinforcement learning"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML page for 2608.22518",
+      "arXiv PDF for 2608.22518 (failed to extract readable text)",
+      "GitHub repo Math-AI-Caltech/hadamard-maxdet",
+      "Caltech Math-AI Lab website",
+      "Zenodo record for the paper",
+      "Caltech PMA news article on Gukov's RL work (Andrews-Curtis)",
+      "Current Wikipedia article on Hadamard's maximal determinant problem",
+      "google-deepmind/formal-conjectures GitHub issue #1796"
+    ],
+    "dead_ends": [
+      "WebFetch on the raw PDF (arxiv.org/pdf/2608.22518) returned binary/unparseable content, could not extract the methods section directly",
+      "google-deepmind/formal-conjectures issue #1796 is about formalizing the upper-bound theorem, not about any new result on this problem"
+    ]
+  },
+  "incomplete": "Could not directly extract and quote the paper's methods/acknowledgements section from the PDF (fetch returned unparseable binary); relied on the HTML rendering's extracted introduction sentence and the lab's own website for the AI-methodology claim, which is a secondary paraphrase rather than a full primary read of the paper's methods section.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "bound",
+      "to": "none",
+      "why": "F9: 'bound' is not a valid AI-role value, and the only quote from the paper ('grew out of research conducted at the Caltech Math–AI Lab') does not say what any AI system produced. That is the thin-quote case. The record's own competing_reading notes the paper body never describes an RL algorithm, and the RL credit comes from the lab's website, not the paper. Coded on what the quote supports and flagged: upgrade to 'generated' or 'assisted' if the methods section confirms an RL system found the matrices."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "progress",
+      "to": "progress",
+      "why": "F3: kept. New record determinants at orders 51, 107, 111, 115 and 119 are lower bounds (per the record, 'the true maximum at those orders is still unknown'), not a determination of any value, so this is progress, not partial or resolved."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "butbaia-gukov-2026",
+        "what": "Butbaia, Vipulanandan, Tan, Huang, Saunders-A'Court, Fagan, Passaro, Tarquini and Gukov report new record lower bounds for the maximal {+1,-1} determinant at orders 51, 107, 111, 115 and 119, with explicit matrices in a companion repository",
+        "date": "2026-08-23",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2608.22518",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": "The findings presented in this work grew out of research conducted at the Caltech Math–AI Lab, whose mission is to develop new AI systems and algorithms capable of performing effectively in sparse–reward, long-horizon environments.",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "nunez-ponasso-2025",
+        "what": "Maximal determinants of matrices over the l-th roots of unity",
+        "date": "2025-03",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2503.11114",
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "butbaia-gukov-2026",
+    "derived": {
+      "status": "progress",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [
+      "ai_role"
+    ],
+    "doubts": "The AI role is the real question. The paper's own quoted sentence only says the work 'grew out of research' at an AI lab, which is the F9 thin-quote example verbatim and does not say a model produced the matrices. The record says the lab's website credits this result to 'RL-based solvers', but the researcher could not read the paper's methods section. If the paper or repository states that an RL system found the matrices, the right code is 'generated' (or 'assisted' if people refined the output). The status 'progress' is correct: record entries at five orders are bounds, and the true maxima there are still unknown.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  }
+}

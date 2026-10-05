@@ -1,0 +1,100 @@
+{
+  "key": "regularity-of-solutions-of-euler-equations",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "Chen and Hou gave a rigorous, expert-vetted, computer-assisted (non-AI) proof of finite-time singularity formation for the 3D axisymmetric incompressible Euler equations with smooth initial data in a smooth bounded domain (a genuine case of the stated problem, restricted to axisymmetric flow with a boundary); separately, in September 2026 a PINN-driven effort (Ganeshram, Duruisseaux, Anandkumar) produced a numerically certified candidate self-similar singular profile for the fully unforced, boundary-free 3D Euler equations on R^3 together with a conditional nonlinear-stability framework, but the authors themselves state the full rigorous certification is not yet complete, so the core unforced/unbounded problem remains open.",
+  "status_sources": [
+    "https://www.pnas.org/doi/10.1073/pnas.2500940122",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC12260595/",
+    "https://arxiv.org/html/2609.10867v1",
+    "https://arxiv.org/html/2609.10860"
+  ],
+
+  "event": {
+    "date": "2025-01-13",
+    "precision": "day",
+    "kind": "journal",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://www.pnas.org/doi/10.1073/pnas.2500940122",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12260595/"
+    ]
+  },
+
+  "credited_humans": ["Jiajie Chen", "Thomas Y. Hou"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "We track discretization and round-off errors for rigorous numerics. Discretization error is analyzed using numerical analysis, while round-off error is tracked via basic interval arithmetic.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": ["https://pmc.ncbi.nlm.nih.gov/articles/PMC12260595/"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "This bullet ('Regularity of solutions of Euler equations') maps most naturally to the classical open question of whether the 3D incompressible Euler equations can develop a finite-time singularity from smooth data on all of R^3 (or the torus) with no boundary and no forcing. Two genuinely distinct strands of work since 26 January 2024 bear on it, and neither is AI-free nor AI-central across the board. (1) Chen & Hou (received 13 Jan 2025, PNAS 122(27):e2500940122, published 8 Jul 2025 as a NAS Inaugural Article) give a rigorous computer-assisted proof — interval arithmetic and numerical PDE analysis, explicitly NOT machine learning — of finite-time, nearly self-similar blowup for the 3D AXISYMMETRIC Euler equations with smooth initial data in a smoothly bounded domain, with the singularity forming at a boundary stagnation point. This is a genuine case of the general problem (restricted to axisymmetric flow with a boundary) and has been vetted by PNAS peer review, so it counts as `partial` with `ai_role: none`. (2) A September 2025 DeepMind preprint ('Discovery of Unstable Singularities', arXiv:2509.14185, 17 Sep 2025) used physics-informed neural networks to numerically discover new families of unstable self-similar singularities for 3D Euler-with-boundary (axisymmetric), Boussinesq, IPM and the CCF model; the authors are explicit that this is numerical discovery, not proof, and that a companion rigorous computer-assisted proof is 'in preparation' only for the simplified CCF case. (3) Most directly on-point: in September 2026, Ganeshram, Duruisseaux and Anandkumar (arXiv:2609.10867, 9 Sep 2026) used a PINN to find a candidate self-similar singular profile for the fully UNFORCED, UNBOUNDED 3D Euler equations on R^3 (the classical case), certified numerically via splines and interval arithmetic to ~1e-5/1e-3 precision, with a companion paper (Duruisseaux, Ganeshram, George, Anandkumar, arXiv:2609.10860) laying out a stability framework that reduces the remaining nonlinear-stability proof to a finite list of estimates. Both papers are explicit and repeated that the result is CONDITIONAL: 'Conditional on rigorous certification of the estimates and constants... the framework closes the stability proof,' and 'An unconditional blowup result would additionally require a local well-posedness and continuation argument.' The authors state LLMs played only a limited supporting role (references, checking derivations, Lean formalisation assistance) — the PINN did the profile discovery, not an LLM. Because this central, most-relevant strand is explicitly not yet a completed proof, and no expert digestion (e.g. Tao) treats it as resolved, the unforced/unbounded case of the problem remains `open`; only the Chen-Hou boundary case is settled and expert-reviewed, giving overall status `partial`. I separately confirmed that two other September 2026 results in this space — Alpoge & Buckmaster's finite-time blowup with SMOOTH FORCING for 3D Euler (and IPM, Boussinesq), and OpenAI's claimed finite-time blowup with smooth forcing for Navier-Stokes — are about a genuinely different (forced) equation and are related problems under Sec 3.1, not cases of the unforced Euler regularity question in this bullet; I did not use them to determine status, though they are extremely AI-heavy (heavy LLM use for proof-writing/Lean formalisation in the Buckmaster/Alpoge case, and an OpenAI 'internal multiagent system' producing the entire 166-page Navier-Stokes paper end to end) and are the subject of an active, unresolved priority dispute reported by TechCrunch, MIT Technology Review, and Scientific American as of mid-September 2026.",
+  "competing_reading": "One could argue the bullet, as Wikipedia states it generically ('Regularity of solutions of Euler equations'), should be read broadly enough to fold in the Chen-Hou boundary/axisymmetric case as the dominant event and call the whole record `resolved` for that restricted but expert-vetted case, since it is the only fully non-conditional, peer-reviewed result in the window. I did not do this because the general 3D Euler regularity question (no boundary, no forcing) is what mathematicians and the Millennium-adjacent literature treat as 'the' open problem, and that piece is still explicitly conditional per the authors' own words in Sept 2026. A second competing reading: the Ganeshram/Duruisseaux/Anandkumar work could be scored `claimed` rather than `progress`, since it does assert a specific candidate singular profile with high numerical confidence; I chose `progress` because the authors themselves deny having a complete proof (no direction to resolve in either sense yet), which is a `progress`/`open` situation rather than a claim awaiting expert digestion of a completed argument.",
+  "what_would_settle_it": "Publication (or a widely-read, expert-digested preprint, e.g. covered on Tao's blog as verified rather than merely reported) of the completed, unconditional nonlinear-stability certification promised by Duruisseaux/Ganeshram/George/Anandkumar (arXiv:2609.10860) for the unforced R^3 Euler case, or any comparably rigorous unconditional resolution of the classical (unforced, unbounded) 3D Euler blow-up question.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://www.pnas.org/doi/10.1073/pnas.2500940122", "title": "Singularity formation in 3D Euler equations with smooth initial data and boundary", "type": "journal", "opened": true},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12260595/", "title": "Singularity formation in 3D Euler equations with smooth initial data and boundary (PMC)", "type": "journal", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Euler_equations_(fluid_dynamics)", "title": "Euler equations (fluid dynamics)", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/html/2509.14185v1", "title": "Discovery of Unstable Singularities", "type": "preprint", "opened": true},
+    {"url": "https://deepmind.google/blog/discovering-new-solutions-to-century-old-problems-in-fluid-dynamics/", "title": "Discovering new solutions to century-old problems in fluid dynamics", "type": "blog", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2026/09/10/stable-singularity-of-the-euler-equations-on-r3/", "title": "Stable singularity of the Euler equations on R^3 (guest post by Anima Anandkumar)", "type": "blog", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2026/09/07/finite-time-blowup-with-smooth-forcing-term-for-the-incompressible-porous-medium-boussinesq-and-incompressible-euler-equations/", "title": "Finite time blowup with smooth forcing term for the incompressible porous medium, Boussinesq, and incompressible Euler equations", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/html/2609.10867v1", "title": "Stable Singularity of the Euler Equations on R^3", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.10860", "title": "Stability Framework for the Singularity of the Euler Equations on R^3", "type": "preprint", "opened": true},
+    {"url": "https://navier-stokes.org/navier-stokes-problem-solved/", "title": "Is Navier-Stokes Solved? September 2026 Update", "type": "blog", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy", "title": "Navier–Stokes priority controversy", "type": "encyclopedia", "opened": true},
+    {"url": "https://openai.com/index/navier-stokes-solution/", "title": "On the Navier–Stokes Millennium Prize Problem", "type": "press_release", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Chen Hou PNAS 2025 singularity formation 3D Euler equations smooth initial data boundary",
+      "\"unstable singularities\" Euler DeepMind 2025 computer-assisted proof verification follow-up",
+      "Terence Tao blog \"unstable singularities\" DeepMind Euler PINN 2025",
+      "OpenAI Euler equations blowup singularity announcement September 2026",
+      "Anandkumar Alpoge Buckmaster Euler singularity arxiv September 2026",
+      "Ganeshram Duruisseaux Anandkumar \"Euler\" arxiv unforced unbounded blowup PINN September 2026",
+      "Alpoge Buckmaster finite time blowup forced Euler equations arxiv paper August 2026",
+      "Navier-Stokes priority controversy OpenAI Buckmaster Alpoge Millennium Prize Clay",
+      "OpenAI paper \"Finite Time Blowup for Navier-Stokes\" forcing term smooth compactly supported abstract",
+      "\"Euler equations\" Wikipedia \"existence and smoothness\" open problem article regularity list unsolved",
+      "\"Euler equations\" singularity unforced R^3 verification update September 2026 Tao",
+      "Ganeshram Anandkumar Euler singularity verified independently mathematicians reaction skepticism"
+    ],
+    "places_checked": [
+      "arXiv preprints (2509.14185, 2609.10867, 2609.10860)",
+      "PNAS / PMC journal record for Chen & Hou",
+      "Terence Tao's blog 'What's new' (two Sept 2026 posts)",
+      "DeepMind official blog",
+      "Wikipedia articles: Euler equations (fluid dynamics), Navier–Stokes priority controversy",
+      "navier-stokes.org status-tracking page",
+      "News coverage: TechCrunch, MIT Technology Review, Scientific American, Quanta Magazine (via search snippets)"
+    ],
+    "dead_ends": [
+      "openai.com/index/navier-stokes-solution/ returned HTTP 403 to the fetcher; relied on secondary reporting (TechCrunch, MIT Tech Review, kingy.ai, navier-stokes.org) instead, all of which quote or closely paraphrase the same claims",
+      "users.cms.caltech.edu Chen-Hou PDF mirror failed TLS certificate verification; relied on the PMC/PNAS versions instead, which were fully readable"
+    ]
+  },
+
+  "incomplete": "I did not independently verify the arXiv v1 submission timestamps beyond what the arXiv HTML pages themselves reported, and I did not read the full 166-page OpenAI Navier-Stokes paper or the Alpoge/Buckmaster forced-Euler preprints in detail since both are out of scope (forced equation, a related rather than the stated problem) and are covered here only for context in `summary`.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

@@ -1,0 +1,109 @@
+{
+  "key": "hadamard-conjecture",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "On 12 August 2026, Levent Alpöge announced (with collaborators Philippe Voinov and Saul Reynolds-Haertle, and using Anthropic's Claude) explicit Hadamard matrices for all twelve orders below 2000 for which none had previously been known: 668, 716, 892, 1132, 1244, 1388, 1436, 1676, 1772, 1916, 1948 and 1964. Order 668 had been the smallest open case since 2005 (Kharaghani and Tayfeh-Rezaie's 2004 resolution of order 428). Constructions now exist for every order below 2000 that is a multiple of 4, but the general conjecture (every k) remains open.",
+  "status_sources": [
+    "https://epoch.ai/frontiermath/open-problems/hadamard",
+    "https://theoremdb.org/statements/hadamard-order-668/",
+    "https://ion.nechita.net/posts/new-hadamard-matrices/",
+    "https://www.johndcook.com/blog/2026/08/13/constructing-hadamard-matrices/",
+    "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge"
+  ],
+
+  "event": {
+    "date": "2026-08-12",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://epoch.ai/frontiermath/open-problems/hadamard",
+      "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+      "https://www.johndcook.com/blog/2026/08/13/constructing-hadamard-matrices/"
+    ]
+  },
+
+  "credited_humans": ["Levent Alpöge", "Philippe Voinov", "Saul Reynolds-Haertle"],
+
+  "ai_role": "assisted",
+  "ai": {
+    "basis_quote": "A solution to this problem has been reported by a researcher from Anthropic, crediting a team of three humans and Claude. ... We have provisionally marked the problem as being solved by AI, though will revise this if further reports from the team indicate that humans contributed significantly to the core mathematical ideas.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["Claude"],
+    "sources": [
+      "https://epoch.ai/frontiermath/open-problems/hadamard",
+      "https://ion.nechita.net/posts/new-hadamard-matrices/"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": true,
+    "verified_how": "The construction is an explicit set of ±1 matrices; a reader (Ion Nechita) independently verified one by writing a short script checking entries are ±1 and that HH^T = nI, describing this as easy to do 'on his phone'.",
+    "sources": ["https://ion.nechita.net/posts/new-hadamard-matrices/"]
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "The credited byline is 'a team of three humans and Claude', but no formal writeup discloses the actual division of labor between the human mathematicians and the AI system. Epoch AI (FrontierMath) explicitly marked its classification of the order-668 case as 'solved by AI' as provisional, saying it will revise the call if further reporting shows the humans supplied the core mathematical ideas rather than mainly directing/checking the model. A secondary commentary piece (Aliteq) argues the 'AI solved it' framing is unsubstantiated marketing framing rather than a claim from the mathematicians themselves, since the announcement was made via an encoded/puzzle tweet rather than a paper, and 'nobody outside that three-person team knows how much of the actual mathematical insight came from Claude versus three very good mathematicians pointing a model at the right search space.'",
+      "sources": [
+        "https://epoch.ai/frontiermath/open-problems/hadamard",
+        "https://aliteq.com/claude-hadamard-matrix-668-proof-tweet-2026"
+      ]
+    }
+  ],
+
+  "summary": "The Hadamard conjecture itself ('for every k, a Hadamard matrix of order 4k exists') remains open in general. What changed since the frozen revision is a case of the conjecture: on 12 August 2026, Levent Alpöge, Philippe Voinov and Saul Reynolds-Haertle announced (via an unconventional, encoded post on X) explicit Hadamard matrices for the twelve orders below 2000 that had no previously known construction — most notably order 668, the smallest open case since 2004/2005. This removes a specific, previously-documented gap (668 through 1964) from the record of known orders, so it is scoped as a case of the problem rather than a variant, and is classified 'partial' rather than 'resolved' because the universal statement over all k is untouched. The result is directly checkable — Ion Nechita's blog post describes independently verifying one matrix by checking entries are ±1 and HH^T = nI with a short script — so there is no doubt about the mathematical correctness of the specific matrices, only about the division of labor behind finding them. On that latter point, the credit line is 'a team of three humans and Claude,' and Epoch AI's FrontierMath page provisionally marked the case 'solved by AI' while explicitly flagging that the classification could be revised if a fuller writeup shows humans supplied the core mathematical ideas. No paper or technical report has yet been published (as of search date, 22 September 2026); the only primary artifact is the original social-media post plus an unverified decoder for the encoded matrices. Given the credited byline names Claude alongside the three humans (rather than describing Claude purely as a checking/formalisation tool) and Epoch AI's own explicit 'solved by AI' provisional call, I coded ai_role as 'assisted' rather than 'none' or 'generated': 'assisted' fits because Claude is credited as a contributor to the construction alongside named humans, but I could not find a clear first-person authors' statement (e.g., a paper or a direct, unambiguous tweet quote from Alpöge) spelling out exactly what mathematics the model produced versus what the humans supplied, which is why I did not code 'generated'. X/Twitter access for the original announcement thread returned an HTTP 402 paywall error, which is a real limitation on directly quoting the primary post.",
+  "competing_reading": "A stricter reading of §6.2 ('assisted requires the authors' own account... not press coverage, not an inference from acknowledgements') could argue for 'none' as the safer default, since I was unable to fetch and quote the original X thread directly (paywalled) and am relying on secondary paraphrases of the credit line ('a team of three humans and Claude') rather than a first-person methodological account from Alpöge explaining what Claude specifically produced. Conversely, given that Epoch AI's own problem-tracking page (a fairly careful, AI-research-adjacent source in direct contact with the reporting researcher) explicitly frames this as an 'AI-solved' case pending correction, one could argue for 'generated' rather than 'assisted' if it later emerges Claude produced the matrices outright with humans only verifying. I judged 'assisted' as the more conservative middle reading given the acknowledged uncertainty on both sides.",
+  "what_would_settle_it": "A technical writeup or paper from Alpöge, Voinov and Reynolds-Haertle (or an interview/blog post in their own words) describing the actual construction method and explicitly stating what role Claude played versus the humans — e.g., did Claude propose the construction/search strategy, generate candidate matrices that were then filtered, or did the humans design the search and Claude merely execute compute-heavy steps. Also, formal publication (journal or refereed preprint) of the 12 new matrices, and any update to the Wikipedia Hadamard-matrix-related articles reflecting the new smallest open order below 2000 (now none, since all orders below 2000 divisible by 4 are covered) or above.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://epoch.ai/frontiermath/open-problems/hadamard", "title": "Hadamard Matrix of Order 668 | Epoch AI", "type": "blog", "opened": true},
+    {"url": "https://theoremdb.org/statements/hadamard-order-668/", "title": "[#P2520] A Hadamard matrix of order 668", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.johndcook.com/blog/2026/08/13/constructing-hadamard-matrices/", "title": "Constructing Hadamard matrices", "type": "blog", "opened": true},
+    {"url": "https://ion.nechita.net/posts/new-hadamard-matrices/", "title": "New Hadamard matrices | Ion Nechita", "type": "blog", "opened": true},
+    {"url": "https://aliteq.com/claude-hadamard-matrix-668-proof-tweet-2026", "title": "Claude and Anthropic Solve Hadamard Matrix Order 668 (2026 Math Breakthrough)", "type": "news", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge", "title": "Levent Alpöge - Wikipedia", "type": "encyclopedia", "opened": true},
+    {"url": "https://apieceofthepi.substack.com/p/hadamard-matrices", "title": "Hadamard matrices - by Richard Green", "type": "blog", "opened": true},
+    {"url": "https://x.com/sumeetrm/status/2087534215772479838", "title": "Sumeet Motwani on X re: Hadamard matrix order 668", "type": "news", "opened": false},
+    {"url": "https://ajc.maths.uq.edu.au/pdf/93/ajc_v93_p422.pdf", "title": "A 64-modular Hadamard matrix of order 668", "type": "journal", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Hadamard matrix order 668 constructed 2026 Claude Anthropic",
+      "Hadamard conjecture 12 open orders solved 2026",
+      "Levent Alpöge Hadamard matrix 668 announcement Twitter August 2026",
+      "\"Hadamard\" \"668\" arxiv 2026 Alpöge Voinov Reynolds-Haertle",
+      "Alpöge Hadamard matrix verified independently checked decoder script",
+      "Alpöge Voinov Reynolds-Haertle Hadamard matrix \"we used\" OR \"Claude produced\" OR \"generated by\"",
+      "Hadamard conjecture Wikipedia article 2026 order 668 update",
+      "Alpöge X thread Hadamard \"Claude\" quote how found construction method"
+    ],
+    "places_checked": [
+      "Epoch AI FrontierMath open-problems page",
+      "TheoremDB order-668 statement page",
+      "John D. Cook's blog",
+      "Ion Nechita's personal blog",
+      "Richard Green's 'A piece of the pi' substack",
+      "Levent Alpöge's Wikipedia biography",
+      "Aliteq news writeup",
+      "General web search for an arXiv paper or formal writeup"
+    ],
+    "dead_ends": [
+      "The original X/Twitter announcement thread (x.com/sumeetrm/status/2087534215772479838) returned HTTP 402 Payment Required and could not be fetched directly; relied on secondary paraphrases instead.",
+      "No arXiv preprint or journal paper by Alpöge/Voinov/Reynolds-Haertle describing the construction could be found as of the search date; two unrelated 2026 arXiv papers merely cite the announcement in passing.",
+      "A search-engine summary mentioning a 'Jacobian conjecture' breakthrough attributed to the same announcement (from a ScienceDaily-titled snippet about 'Claude Fable 5') appears to be a search-summarizer conflation with unrelated content and was not used as a source."
+    ]
+  },
+
+  "incomplete": "Could not access the original primary-source X/Twitter thread (paywalled), so all quotes about Claude's exact role rely on secondary sources (Epoch AI, Ion Nechita's blog, Aliteq) rather than a directly-fetched first-person statement. No formal paper or technical report from the authors has surfaced yet to clarify the division of labor between the humans and Claude.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

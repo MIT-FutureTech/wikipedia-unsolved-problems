@@ -1,0 +1,92 @@
+{
+  "key": "do-any-odd-perfect-numbers-exist",
+  "judgement": {
+    "events": [
+      {
+        "id": "zelinsky-2024",
+        "what": "Zelinsky proves new bounds on T(n) and H(n) for a hypothetical odd perfect number in terms of its smallest prime factor",
+        "date": "2024-02-22", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2402.14234",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "stone-2024",
+        "what": "Stone's improved upper bounds for odd perfect numbers depending on the number of distinct prime factors (Integers 24 (2024) #A114)",
+        "date": "2024-12", "precision": "month", "after_snapshot": true,
+        "source": "https://math.colgate.edu/~integers/y114/y114.pdf",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "mantovanelli-2026",
+        "what": "Mantovanelli claims no odd perfect number has smallest prime divisor q = 5, 7, 11, 13 or 17, via a finite reduction checked by a certificate release; explicitly leaves q = 3 and q >= 19 open",
+        "date": "2026-07-05", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2607.04365",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Single-author preprint claiming an unconditional result (e.g. no odd perfect number coprime to 3 with smallest prime 5) far beyond what is known, via a finite certificate reduction of a kind the problem has resisted; no expert uptake, though under three months have passed, too little for not_credible.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": "confirmed",
+        "is_counterexample": false
+      },
+      {
+        "id": "self-published-claims",
+        "what": "Self-published full nonexistence 'proofs' on academia.edu, ResearchGate, SSRN, Zenodo, and arXiv:2506.01830",
+        "date": null, "precision": null, "after_snapshot": null,
+        "source": "https://arxiv.org/abs/2506.01830",
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Non-reviewed venues, no uptake on a landmark problem, record's searches found no expert engagement; record did not read them in full.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": "confirmed",
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "mantovanelli-2026",
+    "derived": { "status": "partial", "ai_role": "none", "resolution_direction": "confirmed" },
+    "changed": ["status", "resolution_direction", "event", "credited_humans", "status_sources"],
+    "doubts": "The status now rests on a doubtful, unreviewed case claim. If Mantovanelli's preprint draws no uptake or is found to be wrong, the status falls back to progress (Zelinsky/Stone bounds). The record's researcher wrongly said an unreviewed case would be 'claimed' at best (F1); under §4 it is partial. The self-published whole-problem claims are dated only loosely in the record and are set aside.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": ["WebFetch https://arxiv.org/abs/2607.04365 (abstract)"]
+  },
+  "changes": {
+    "status": "partial",
+    "resolution_direction": "confirmed",
+    "event": {
+      "date": "2026-07-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "sources": ["https://arxiv.org/abs/2607.04365"]
+    },
+    "credited_humans": ["Marco Mantovanelli"],
+    "status_sources": ["https://arxiv.org/abs/2607.04365"]
+  },
+  "outcome_prefix": "Judged: the status rests on Mantovanelli's unreviewed July 2026 preprint (arXiv:2607.04365), which claims that no odd perfect number has smallest prime divisor 5, 7, 11, 13 or 17. That is a case of the bullet, and the claim is doubtful.",
+  "corrections": [
+    { "field": "status", "from": "progress", "to": "partial", "why": "F1: the record says 2607.04365 'claims to close minimal-prime branches q=5,7,11,13,17' and dismisses it because 'it would only be claimed status at best'. Its abstract states an unconditional closure of those branches, which is a case of the existence question. An unreviewed case that is not knocked down counts as partial, and it outranks the Zelinsky and Stone bounds." },
+    { "field": "resolution_direction", "from": null, "to": "confirmed", "why": "other: the event now relied on proves nonexistence in the settled cases, which is the expected answer." },
+    { "field": "event", "from": "2024-02-22 Zelinsky preprint", "to": "2026-07-05 Mantovanelli preprint", "why": "F8: the status must describe its furthest surviving event. That is the case claim, not the Zelinsky bound." },
+    { "field": "credited_humans", "from": ["Joshua Zelinsky", "Andrew Stone"], "to": ["Marco Mantovanelli"], "why": "F8: the credit follows the event the status rests on. The record names the single author as Marco Mantovanelli." },
+    { "field": "status_sources", "from": ["https://arxiv.org/abs/2402.14234", "https://math.colgate.edu/~integers/z59/z59.pdf", "https://math.colgate.edu/~integers/y114/y114.pdf"], "to": ["https://arxiv.org/abs/2607.04365"], "why": "F8: the source must match the new event." },
+    { "field": "ai_role", "from": "none", "to": "none", "why": "other: kept. The certificates are Python verifier scripts (F9: computer-assisted is not AI), and the record found no AI use in any event." }
+  ]
+}

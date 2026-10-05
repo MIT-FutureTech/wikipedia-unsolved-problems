@@ -1,0 +1,75 @@
+{
+  "key": "is-the-nim-sequence-of-grundys-game-eventually-periodic",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No progress on the periodicity question for Grundy's game specifically was found since 26 January 2024; the sequence remains computed to very large heap sizes with no periodicity detected, and the OEIS entry's most recent substantive activity (comments and code, March 2025) only clarifies the rules and adds a Python implementation rather than advancing the mathematics.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Grundy%27s_game",
+    "http://wwwhomes.uni-bielefeld.de/achim/grundy.html",
+    "https://oeis.org/A002188"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": null,
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "Grundy's game (splitting a heap into two unequal heaps; nim-sequence OEIS A002188) is a special case of the general open conjecture that every finite octal game has an eventually periodic Grundy sequence (Guy's conjecture). I searched for any 2024–2026 progress on Grundy's game itself and found none: Achim Flammenkamp's computation page (wwwhomes.uni-bielefeld.de/achim/grundy.html) still reports the heap-size search extending to G(284944236543), reached in a run completed 2012-11-25, with no periodicity found and no update to that computation since; the page's last-modified date (2021) also predates the window. The Wikipedia article on Grundy's game itself is unchanged in substance: it still cites the Flammenkamp computation of the first 235 'record' values and calls the question unsolved. The OEIS sequence A002188 shows recent edit activity — a clarifying comment from Allan C. Wechsler and a Python implementation from David Cleaver, both dated 2025-03-22 — but these do not extend the computed range or bear on periodicity; they only restate/clarify existing rules and add code for existing values (Cleaver's tables to n=200,000 already existed). I also checked the triage's lead, google-deepmind/formal-conjectures issue #3697 'Periodicity of finite octal games' — this is an open formalization request (filed 2026-04-05) asking someone to state Guy's general octal-game periodicity conjecture in Lean; it does not attempt or claim a proof, and it concerns the general conjecture across all octal games, not a resolution of Grundy's game's case. Even if it did produce a Lean formalization, a bare formal *statement* of a conjecture (as opposed to a proof) has no bearing on `status`. I also checked two RL/neural-network papers that surfaced in searches for 'impartial games' + AI — 'Impartial Games: A Challenge for Reinforcement Learning' (arXiv:2205.12787, Riis & Zhou, Machine Learning journal 2026) and 'Mastering NIM and Impartial Games with Weak Neural Networks' (arXiv:2411.06403, Riis) — both are about standard Nim as a testbed for AlphaZero-style self-play RL and its difficulty learning parity/Sprague-Grundy strategy; neither addresses Grundy's game or its periodicity conjecture, and the first paper's arXiv submission (May 2022) predates the window regardless, with the 2026 journal appearance being ordinary publication lag. No arXiv preprint, blog digestion (Tao, Quanta, etc.), or lab announcement addressing Grundy's game periodicity was found. Given the extensive prior computational search already covering heap sizes past 2.8×10^11 with no periodicity, and no new computational or theoretical effort found in the window, I am confident nothing changed for this specific problem.",
+  "competing_reading": "One could argue the DeepMind formal-conjectures issue represents 'AI-adjacent' activity worth noting even absent a resolution, since it is machine-conjecture infrastructure touching this exact question. But per the scope rules, a formalization request with no proof attempt is not an event that changes status, and per §6.2 a formalisation-only contribution (were one even completed) would be ai_role none in any case, so it does not change the record either way.",
+  "what_would_settle_it": "A proof (or disproof) of eventual periodicity for Grundy's game's nim-sequence, or a Lean-formalized proof (with expert review) via the formal-conjectures repository, or a Flammenkamp-style computational extension that finds an actual periodic tail (which would still only be suggestive, not a proof, given the conjecture is about all n).",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Grundy%27s_game", "title": "Grundy's game - Wikipedia", "type": "encyclopedia", "opened": true},
+    {"url": "http://wwwhomes.uni-bielefeld.de/achim/grundy.html", "title": "Grundy's Game (Achim Flammenkamp)", "type": "repository", "opened": true},
+    {"url": "https://oeis.org/A002188", "title": "A002188 - OEIS", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/issues/3697", "title": "Periodicity of finite octal games · Issue #3697 · google-deepmind/formal-conjectures", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/pdf/2604.03789", "title": "Automated Conjecture Resolution with Formal Verification", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2205.12787", "title": "Impartial Games: A Challenge for Reinforcement Learning", "type": "preprint", "opened": true},
+    {"url": "https://link.springer.com/article/10.1007/s10994-026-06996-1", "title": "Impartial Games: A Challenge for Reinforcement Learning | Machine Learning", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/pdf/2411.06403", "title": "Mastering NIM and Impartial Games with Weak Neural Networks", "type": "preprint", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Grundy's game nim-sequence eventually periodic 2024 2025 2026",
+      "Grundy's game octal game G(3,3) periodicity computed values Flammenkamp",
+      "\"Guy's conjecture\" octal games periodicity Lean formalization DeepMind",
+      "\"Grundy's game\" arXiv 2024 OR 2025 OR 2026 nim-sequence",
+      "OEIS A002188 Grundy's game update",
+      "\"Impartial Games\" reinforcement learning challenge Grundy paper Machine Learning journal 2026",
+      "arXiv reinforcement learning impartial games nim Grundy's game periodicity conjecture",
+      "Wikipedia \"Grundy's game\" article history 2024 2025 edit periodicity"
+    ],
+    "places_checked": [
+      "Wikipedia article on Grundy's game (current, for lead/status check only, not as the frozen revision)",
+      "Achim Flammenkamp's computation page (primary source for computed range)",
+      "OEIS A002188 (sequence, comments, and links)",
+      "google-deepmind/formal-conjectures GitHub issue tracker",
+      "arXiv listings/search for Grundy's game, octal games, and RL/impartial-games papers"
+    ],
+    "dead_ends": [
+      "arXiv:2604.03789 'Automated Conjecture Resolution with Formal Verification' — surfaced by search but does not mention Grundy's game or octal games at all",
+      "arXiv:2205.12787 and arXiv:2411.06403 — both about standard Nim and AlphaZero-style RL difficulties with parity, not Grundy's game or its periodicity conjecture",
+      "Springer journal page for the RL/Nim paper returned an authentication redirect; the same paper's arXiv version was read instead"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

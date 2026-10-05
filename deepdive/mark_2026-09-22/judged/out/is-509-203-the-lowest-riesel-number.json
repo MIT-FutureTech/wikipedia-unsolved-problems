@@ -1,0 +1,161 @@
+{
+  "key": "is-509-203-the-lowest-riesel-number",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "In August 2024, Ryan Propper (working within the PrimeGrid distributed-computing project) found that 107347 × 2^23427517 − 1 is prime, eliminating k = 107347 as a candidate for a Riesel number smaller than 509,203. This is a case-elimination on the exact problem stated (whether 509,203 is the lowest Riesel number), reducing the pool of unresolved k values below 509,203 from 42 to 41. The conjecture that 509,203 is the smallest Riesel number remains open, and multiple sources confirm the count has stayed at 41 as of mid-2026, indicating no further eliminations occurred in the window.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Riesel_number",
+    "http://www.prothsearch.com/rieselprob.html"
+  ],
+  "event": {
+    "date": "2024-08",
+    "precision": "month",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://en.wikipedia.org/wiki/Riesel_number"
+    ]
+  },
+  "credited_humans": [
+    "Ryan Propper"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": "107347 × 2^23427517 − 1, a 7,052,391-digit prime, showing k = 107347 is not a Riesel number and thus cannot be a counterexample to '509,203 is the lowest Riesel number' (it removes a candidate rather than exhibiting one)",
+    "explicit": true,
+    "verified_how": "Primality proved by Lucas–Lehmer–Riesel (LLR) test, standard for numbers of this form; distributed/verified through the PrimeGrid project infrastructure",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Riesel_number"
+    ]
+  },
+  "resolution_direction": null,
+  "disputes": [],
+  "summary": "The problem asks whether 509,203 is the lowest Riesel number (a k such that k·2^n − 1 is composite for all n ≥ 1). As of the frozen Wikipedia revision (26 Jan 2024), the list of candidate k values below 509,203 not yet ruled out stood at 42 (57 of the original 101 candidates had been eliminated by finding a prime k·2^n − 1 for that k, as of December 2022, with no elimination recorded between then and the freeze date). In August 2024, Ryan Propper — working within PrimeGrid, the distributed-computing project that coordinates this search — found 107347 × 2^23427517 − 1 to be prime, which is a 7,052,391-digit number. This eliminates k = 107347 from the candidate pool, since finding any prime of the form k·2^n − 1 proves k is not a Riesel number. This is squarely a case-elimination on the stated problem (§3.1): finding one more prime among the remaining candidates directly shrinks the set of numbers that could be a smaller Riesel number than 509,203, which is exactly what the bullet asks about. I classify this as 'partial' with direction 'confirmed' (the elimination is consistent with, and narrows in on, the conjecture that 509,203 is indeed the smallest). The list of 41 remaining unresolved k values (23669, 31859, 38473, 46663, 67117, 74699, 81041, 121889, 129007, 143047, 161669, 206231, 215443, 226153, 234343, 245561, 250027, 315929, 319511, 324011, 325123, 327671, 336839, 342847, 344759, 362609, 363343, 364903, 365159, 368411, 371893, 384539, 386801, 397027, 409753, 444637, 470173, 474491, 477583, 485557, 494743) has been reported consistently across sources from November 2024 through at least July 2026 (one search result cites 'as of July 29, 2026, there remain 41 uncertain candidates, and the coordinated search has currently reached n < 16984600'), which corroborates that no further eliminations occurred after the August 2024 one within this window — the underlying search (PrimeGrid's 'The Riesel Problem' subproject) has continued extending the tested range of n for the remaining k values without producing a new prime. On AI: this is a distributed-computing / GPU sieving and primality-testing effort (LLR/PRP testing, standard number-theoretic algorithms), and no source — Wikipedia's live article, PrimeGrid's project pages, or general search results on Propper's methods — mentions any AI or machine-learning system contributing to the search, sieving, or verification. Propper's other prime discoveries (Proth primes, etc.) are likewise attributed to conventional primality-testing software (LLR) run on CPU/GPU hardware. I therefore set ai_role to none.",
+  "competing_reading": "One could argue the conjecture ('509,203 is the lowest Riesel number') is only truly settled when it is proven — i.e., when all 41 remaining candidates are eliminated or a smaller Riesel number is found — and that a single elimination is too incremental to register as anything beyond background progress on an open problem, arguably better captured as 'progress' rather than 'partial'. However, per §3.1, a case of the problem (here, one specific k value being ruled out) counts as 'partial' regardless of size, since it changes what a careful person would write about which k values remain live candidates for beating 509,203. I have followed that instruction literally.",
+  "what_would_settle_it": "A proof (via exhaustive search or covering-set argument) that all 41 remaining k values are eliminated, or discovery of a Riesel number smaller than 509,203, would resolve the conjecture. Absent that, any future PrimeGrid/Propper/other announcement of a prime k·2^n − 1 for one of the 41 remaining k values would be a further 'partial' event to record separately.",
+  "confidence": "high",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Riesel_number",
+      "title": "Riesel number",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "http://www.prothsearch.com/rieselprob.html",
+      "title": "The Riesel Problem: Definition and Status",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://primegrid.fandom.com/wiki/The_Riesel_Problem",
+      "title": "The Riesel Problem | PrimeGrid Wiki | Fandom",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://www.rieselprime.de/ziki/Ryan_Propper",
+      "title": "Ryan Propper - Prime-Wiki",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://www.primegrid.com/download/trp-107347.pdf",
+      "title": "PrimeGrid's The Riesel Problem certificate for 107347",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Riesel problem status 2025 remaining k values eliminated PrimeGrid",
+      "\"Riesel Sieve\" OR \"Riesel problem\" 2025 prime found eliminate candidate",
+      "Ryan Propper Riesel prime 2025 2026",
+      "Ryan Propper prime discovery method GPU sieve algorithm AI",
+      "\"Riesel\" prime 2026 eliminated k= new discovery",
+      "mersenneforum Propper 107347 2^23427517 prime Riesel",
+      "PrimeGrid Riesel Problem TRP status 2025 candidates remaining",
+      "PrimeGrid TRP 107347 certificate pdf",
+      "\"509203\" Riesel number smallest 2025 OR 2026",
+      "largest known prime 2025 2026 Riesel k eliminate"
+    ],
+    "places_checked": [
+      "Wikipedia live article 'Riesel number' (fetched in full)",
+      "prothsearch.com Riesel problem status page (fetch blocked by TLS error; content triangulated via search snippets)",
+      "rieselprime.de / PrimeGrid wiki pages (returned HTTP 503; not directly readable, content triangulated via search)",
+      "PrimeGrid.com forum and download/certificate pages (404/402 errors on direct fetch)",
+      "General web search across multiple independent query phrasings for any 2025/2026 elimination or AI involvement"
+    ],
+    "dead_ends": [
+      "prothsearch.com/rieselprob.html — repeated TLS handshake failures on WebFetch, could not open directly",
+      "rieselprime.de/ziki/Ryan_Propper and rieselprime.de/ziki/Riesel_number — HTTP 503 Service Unavailable on WebFetch",
+      "primegrid.com/download/trp-107347.pdf — HTTP 404, certificate not at guessed URL",
+      "primegrid.fandom.com/wiki/The_Riesel_Problem — HTTP 402 Payment Required on WebFetch",
+      "Searches for 'AI' or 'machine learning' combined with Propper/Riesel/PrimeGrid returned no relevant hits, only unrelated GPU-sieve academic papers"
+    ]
+  },
+  "incomplete": "Several primary sources (prothsearch.com, rieselprime.de, PrimeGrid's own certificate PDFs and forum) could not be fetched directly due to TLS errors, HTTP 503, or 404/402 responses. I relied on the live Wikipedia article (fetched successfully and in full) plus multiple independent web-search aggregations that consistently corroborate the same August 2024 event and the same steady count of 41 remaining candidates through mid-2026, which gives good triangulated confidence despite not opening every primary source directly.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "partial",
+      "to": "progress",
+      "why": "F3/F4: the record says the elimination is 'reducing the pool of unresolved k values below 509,203 from 42 to 41' and that 'the conjecture ... remains open'. That moves a count on an open yes/no question. It is a bound, not the settling of a restriction of the bullet. The competing_reading made this point and rejected it only on a literal rule."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "resolution_direction",
+      "from": "confirmed",
+      "to": null,
+      "why": "F14: a progress row carries null direction. The record itself says the elimination is only 'consistent with' the conjecture, and nothing was settled."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "propper-107347-2024",
+        "what": "Propper (PrimeGrid) finds 107347 × 2^23427517 − 1 prime, eliminating k = 107347 and reducing the unresolved candidates below 509,203 from 42 to 41",
+        "date": "2024-08",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://en.wikipedia.org/wiki/Riesel_number",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "propper-107347-2024",
+    "derived": {
+      "status": "progress",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [
+      "status",
+      "resolution_direction"
+    ],
+    "doubts": "Scope is borderline between case and bound. The bullet asks one yes/no question: is any of the remaining k < 509,203 a Riesel number? Eliminating one of 42 candidates does not settle any named part or restriction of that question. It lowers the count of live candidates, a quantity on a question that stays open, like a smallest-known-dimension record. The record's own competing_reading makes this argument and then rejects it on a literal rule. If a later pass counts each eliminated candidate as a 'case', the status would go back to partial/confirmed.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "judge_problems": []
+}

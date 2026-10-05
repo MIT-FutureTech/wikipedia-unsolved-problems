@@ -1,0 +1,107 @@
+{
+  "key": "mean-value-problem",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "In a September 2026 autonomous evaluation run, a pre-release version of OpenAI's GPT-6 Astra produced a Lean 4-verified disproof of the K=1 case of Smale's mean value conjecture (the exact statement given in this bullet, which has no free K and thus asks for K=1), exhibiting a polynomial p with p(0)=0, p'(0)=1 for which no critical point c satisfies |p(0)-p(c)|/|0-c| ≤ |p'(0)|. The proof is machine-checked but has not yet been read or endorsed by a human expert in complex analysis, so it is best classified as claimed rather than resolved.",
+  "status_sources": [
+    "https://github.com/tadamcz/mean-value-problem",
+    "https://whataifound.org/",
+    "https://en.wikipedia.org/wiki/Mean_value_problem"
+  ],
+
+  "event": {
+    "date": "2026-09",
+    "precision": "month",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://github.com/tadamcz/mean-value-problem",
+      "https://epoch.ai/benchmarks"
+    ]
+  },
+
+  "credited_humans": ["Tom Adamczewski"],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "the Lean proof itself was written by GPT-6 Astra ... No human saw or steered the proof search. ... The proof was produced in the evaluation run wikipedia-vega-1000usd of Epoch AI's LeanOpenProblems harness (2026-09), in which a pre-release version of GPT-6 Astra attempted, autonomously and once each, all 222 research-open statements of the Wikipedia collection of Formal Conjectures under a budget of $1,000 and 96 hours of working time per statement.",
+    "formalisation_only": false,
+    "disclosed_cost": "Attempts used 0.19 million input, 4.2 million output, 64 million cache-read and 12.4 million cache-write tokens, costing $432 at GPT-6 Astra's standard rates (within a $1,000 / 96-hour budget for the run).",
+    "systems": ["GPT-6 Astra (pre-release)"],
+    "sources": [
+      "https://github.com/tadamcz/mean-value-problem",
+      "https://epoch.ai/benchmarks",
+      "https://whataifound.org/"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "A complex polynomial p of very large, unspecified degree with p(0)=0, p'(0)=1, such that |p(c)/c| > 1 at every critical point c of p — i.e. at z=0 no critical point c satisfies |p(0)-p(c)| ≤ |p'(0)||0-c|. Constructed non-constructively via analytic approximation, disk-exclusion arguments and perturbation theory rather than exhibited with explicit roots.",
+    "explicit": false,
+    "verified_how": "Machine-checked in Lean 4 (Mathlib), with the repository's 'Comparator' tool checking that the formalized challenge statement matches the informal one and that the proof depends only on standard axioms (propext, Quot.sound, Classical.choice).",
+    "sources": [
+      "https://github.com/tadamcz/mean-value-problem"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [],
+
+  "summary": "Wikipedia's frozen bullet states the mean value problem with no free constant, i.e. it asks exactly the K=1 case: does every degree-≥2 complex polynomial f admit a critical point c with |f(z)-f(c)| ≤ |f'(z)||z-c| for every z? Smale proved this holds with the constant 4 in place of 1, and K=1 (the sharp conjectured constant) remained open as of the frozen revision. In September 2026, Epoch AI ran its LeanOpenProblems harness (evaluation 'wikipedia-vega-1000usd') giving a pre-release build of OpenAI's GPT-6 Astra one autonomous, unsteered attempt at each of 222 open statements from a Wikipedia-derived collection in the 'Formal Conjectures' benchmark (arXiv:2605.13171, github.com/epoch-research/LeanOpenProblems), with a $1,000/96-hour budget per problem. For the mean value problem, the model produced a Lean 4-verified disproof of the K=1 case: a polynomial p with p(0)=0, p'(0)=1 at which every critical point c has |p(c)/c|>1, so the inequality fails at z=0 for K=1. This is published, with the Lean source, at github.com/tadamcz/mean-value-problem, directed by Tom Adamczewski, who states the repository was machine-written and that no human saw or steered the proof search. I independently confirmed: (1) GPT-6 Astra is a real OpenAI model released 2026-09-03/04 (multiple independent press sources: Al Jazeera, 9to5Mac, CNBC, OpenAI's own site and system card); (2) Epoch AI's LeanOpenProblems/Formal Conjectures infrastructure is real and documented in an arXiv paper and a GitHub org distinct from the tadamcz repo; (3) a sibling repository from the same evaluation run (tadamcz/koethe, disproving a case of the Köthe conjecture) corroborates that this was a batch run over many problems, not an isolated fabrication; (4) the registry whataifound.org, which specifically tracks AI mathematical claims, has an entry for this exact result and explicitly grades it 'Claimed' rather than 'Formally verified,' citing that it is 'days old at entry, unrefereed, with no expert in complex analysis on record as having read it,' that the witness polynomial has unspecified large degree and violates the bound only marginally (consistent with Smale's own K=4 bound), and that 'no third party has audited the statement against the literature.' Wikipedia's own live article header, by contrast, already reads 'disproved in 2026' and files the problem under solved problems — which is a stronger claim than the evidence I could verify supports, since a Lean type-check verifies internal consistency of the formalization, not that the formalization is a faithful rendering of Smale's informal conjecture (the repo itself flags that Lean's convention x/0=0 makes the formal statement 'if anything weaker' than the informal one, a discrepancy that if anything favors the disproof being valid, but one no complex-analysis expert has publicly signed off on). Given DEEP_DIVE.md §6.1's rule that a machine-checked certificate no expert has reviewed is 'claimed' rather than 'resolved' even when the check is clean, I classify this as claimed. Separately, and unconnected to any AI system, arXiv:2608.27047 (Oct 2026 preprint) proves the K=1 bound holds asymptotically for Schlicht-normalized polynomials with slowly decaying leading coefficients as degree d→∞ — a human-authored partial/asymptotic result on a restricted class, superseded in significance by the general disproof but worth noting as a second, independent line of work on the same problem in the window.",
+  "competing_reading": "One could argue this should be 'resolved' rather than 'claimed': Wikipedia's own live article now states the conjecture was 'disproved in 2026' and categorizes it as solved, and the proof is machine-checked against standard Lean/Mathlib axioms with a comparator tool verifying the formalization matches the informal statement, which is about as strong a guarantee as a proof-assistant check can offer for an unrefereed result. If one treats 'the Comparator confirmed the formalization is faithful' plus 'Wikipedia's own article treats it as solved' as sufficient digestion, 'resolved' would be defensible. I did not take this reading because no source I found shows a human complex-analysis expert who has actually read and endorsed the mathematical argument (as opposed to the machine check), and whataifound.org's registry — built specifically to track this class of claim — explicitly withholds 'Formally verified' status pending exactly that.",
+  "what_would_settle_it": "An expert digestion (a complex-analyst's blog post, a Terence Tao-style writeup, or peer-reviewed publication/proceedings acceptance) confirming the Lean formalization faithfully captures Smale's K=1 conjecture and that the counterexample construction is sound, which would move the status from claimed to resolved.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://github.com/tadamcz/mean-value-problem", "title": "mean-value-problem: Lean 4 disproof of Smale's mean value conjecture (K = 1), found by GPT-6 Astra", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Mean_value_problem", "title": "Mean value problem", "type": "encyclopedia", "opened": true},
+    {"url": "https://epoch.ai/benchmarks", "title": "AI Benchmarks & Capabilities | Epoch AI", "type": "blog", "opened": true},
+    {"url": "https://whataifound.org/", "title": "whataifound.org: What AI Has Actually Contributed | Registry of AI Scientific & Math Results", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.27047", "title": "Smale's Mean Value Conjecture and its Dual Conjecture for Complex Polynomials", "type": "preprint", "opened": true},
+    {"url": "https://github.com/tadamcz/koethe", "title": "koethe: Lean 4 disproof of the Köthe conjecture (Krempa's matrix form), found by GPT-6 Astra", "type": "repository", "opened": false},
+    {"url": "https://github.com/epoch-research/LeanOpenProblems", "title": "epoch-research/LeanOpenProblems", "type": "repository", "opened": false},
+    {"url": "https://en.wikipedia.org/wiki/GPT-6_Astra", "title": "GPT-6 Astra", "type": "encyclopedia", "opened": false},
+    {"url": "https://www.aljazeera.com/economy/2026/9/4/openai-unveils-gpt-6-astra-amid-rising-scrutiny-and-safety", "title": "OpenAI unveils GPT-6 Astra amid rising scrutiny and safety concerns", "type": "news", "opened": false},
+    {"url": "https://www.cnbc.com/2026/09/03/open-ai-astra-gpt-6-cyber.html", "title": "OpenAI announces rollout of GPT-6 Astra model", "type": "news", "opened": false},
+    {"url": "https://arxiv.org/html/2605.13171v1", "title": "Formal Conjectures: An Open and Evolving Benchmark for Verified Discovery in Mathematics", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Smale mean value conjecture solved disproved 2026",
+      "Epoch AI LeanOpenProblems \"GPT-6 Astra\" wikipedia-vega-1000usd",
+      "GPT-6 Astra OpenAI release September 2026",
+      "\"LeanOpenProblems\" Epoch AI Wikipedia Formal Conjectures benchmark",
+      "\"mean value problem\" Smale conjecture disproved discussion mathematicians reaction Tao",
+      "\"mean-value-problem\" OR \"Smale\" tadamcz GPT-6 Astra hoax skeptic verify independently"
+    ],
+    "places_checked": [
+      "GitHub repo tadamcz/mean-value-problem (README and Lean source)",
+      "Wikipedia's live 'Mean value problem' article",
+      "Epoch AI benchmarks page",
+      "whataifound.org registry entry for this claim",
+      "arXiv 2608.27047 (dual conjecture asymptotic result)",
+      "General web search for independent corroboration/skepticism of the GPT-6 Astra claim",
+      "Press coverage confirming GPT-6 Astra's existence and release date"
+    ],
+    "dead_ends": [
+      "Could not locate any complex-analysis expert's public writeup (blog, MathOverflow, journal) specifically endorsing or critiquing the mean-value-problem Lean proof itself, beyond the whataifound.org registry's summary grading."
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand review directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass. Judged from this record's own findings and general knowledge of the field; no new sources were opened",
+      "field": "status",
+      "from": "claimed",
+      "to": "claimed",
+      "why": "Reviewed and retained, WITH DOUBT OF A SPECIFIC KIND. Scope is right: the disproof targets K = 1, the exact statement in the bullet. The risk is not the proof but the statement it proves. The Lean check is clean, so if the formal statement matches Smale's conjecture the result stands; the usual failure for an unsteered model working from a formal-conjectures statement is a mistranslated hypothesis (quantifier order over critical points, the degree condition, or the normalisation), which a kernel cannot catch. That matters more here than usual, because numerical evidence strongly supports K = 1 in low degree, and no human complex analyst has read either the construction or the formal statement. It stays `claimed`; what would settle it is a person comparing the Lean statement against Smale's, line by line."
+    }
+  ]
+}

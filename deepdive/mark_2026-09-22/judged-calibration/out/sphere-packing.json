@@ -1,0 +1,330 @@
+{
+  "key": "sphere-packing",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "Judged: the status rests on bound-level progress — Klartag's April 2025 n²·2^-n lattice lower bound, alongside AI-produced upper-bound work (Huawei/UCL, Astra) of the same tier; nothing settles the bullet. [Judged 2026-09-28; the researcher's original outcome follows.] The general-dimension asymptotic sphere packing problem remains open, but several distinct results moved bounds since January 2024: Klartag (Apr 2025) proved a new lattice lower bound of order n²·2^-n (up from the Campos–Jenssen–Michelen–Sahasrabudhe n·log n·2^-n bound of Dec 2023, which itself predates the frozen revision); a Huawei Noah's Ark/UCL team (Dec 2025) used a Bayesian-optimization + Monte Carlo Tree Search pipeline to find new state-of-the-art upper bounds for dimensions 4-16 via the Cohn–Elkies three-point method; and OpenAI's internal 'Astra' model (Aug 2026) is claimed to have determined the exact asymptotic exponent of the Cohn–Elkies linear-programming bound, capping what that method can ever achieve — the first improvement to the general high-dimensional upper-bound exponent since 1978. None of the problem's core open question (the true asymptotic packing density in general dimension) has been resolved; the densest classification is 'claimed' because the most significant single result (Astra's Cohn-Elkies exponent) is Lean-verified and has an informal mathematician digestion (Seewoo Lee) but has not cleared traditional peer review, and is under an active, unresolved priority/attribution dispute.",
+  "status_sources": [
+    "https://arxiv.org/abs/2504.05042",
+    "https://arxiv.org/abs/2512.04829",
+    "https://cdn.openai.com/pdf/ten-proofs-oai.pdf"
+  ],
+  "event": {
+    "date": "2025-04-07",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2504.05042",
+      "https://gilkalai.wordpress.com/2025/04/09/boaz-klartag-striking-new-lower-bounds-for-sphere-packing-in-high-dimensions/"
+    ]
+  },
+  "credited_humans": [
+    "Boaz Klartag",
+    "Rasul Tutunov",
+    "Alexandre Maraval",
+    "Antoine Grosnit",
+    "Xihan Li",
+    "Jun Wang",
+    "Haitham Bou-Ammar"
+  ],
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "Astra works on the problem, sometimes for a long time, and produces the core insight and strategy for a proof; human mathematicians then write that strategy up as a traditional, readable manuscript, and the model translates the manuscript into the strict formal syntax of Lean.",
+    "formalisation_only": false,
+    "disclosed_cost": "OpenAI reported that finding all ten proofs (including this one) cost the equivalent of roughly $2,000 in AI usage fees, a figure that omits the cost of unsuccessful attempts and is not broken out per problem.",
+    "systems": [
+      "Astra"
+    ],
+    "sources": [
+      "https://betterstack.com/community/guides/ai/openai-astra/",
+      "https://www.scientificamerican.com/article/openai-cracks-the-hidden-math-that-keeps-your-texts-from-turning-to-gibberish/",
+      "https://openai.com/index/ten-advances-in-mathematics/"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Steven Miller (Yeshiva University) says Astra's sphere-packing (Cohn–Elkies exponent) proof reuses an argument from his own 2016 paper without adequate attribution; a similar unattributed-prior-work complaint was raised by Fournier-Facio (Cambridge) about a different one of the ten results (nonsofic groups). OpenAI's response: 'We take responsibility for the correctness of these results and are meeting the same standards generally expected of human mathematicians.' As of six weeks after release (per Scientific American, published in the Sept 2026 window), the dispute is unresolved and none of the ten results has cleared traditional peer review.",
+      "sources": [
+        "https://www.scientificamerican.com/article/openai-cracks-the-hidden-math-that-keeps-your-texts-from-turning-to-gibberish/",
+        "https://aiweekly.co/alerts/openais-astra-math-proofs-draw-research-misconduct-claims"
+      ]
+    }
+  ],
+  "summary": "Three separate, unrelated developments touch this bullet's asymptotic sphere-packing-density question since 26 January 2024, and none of them settles the general problem. (1) Boaz Klartag (arXiv:2504.05042, submitted 2025-04-07, v2 2026-01-25) proved a new lattice sphere-packing lower bound of order c·n²·2^-n via a 'stochastically evolving ellipsoid' construction, a quadratic-in-n improvement over the previous best construction (Campos–Jenssen–Michelen–Sahasrabudhe, arXiv:2312.10026, Dec 2023 — which itself predates the frozen revision and is not counted as an in-window event, though it is the baseline Klartag improves on). Gil Kalai's blog (2025-04-09) calls it 'an amazing breakthrough'; a Lean formalization of Klartag's result also appears to exist (per an issue on the leanprover/lean-eval-submissions repo), giving this piece close to 'resolved'-level digestion, though it is only a lower-bound improvement, not a resolution — classified as `progress` in isolation. No AI system produced this mathematics; it is pure human work by Klartag. (2) A Huawei Noah's Ark / UCL AI Centre team (arXiv:2512.04829, submitted 2025-12-04) used a Bayesian-optimization-plus-Monte-Carlo-Tree-Search pipeline to search for polynomial pairs in the Cohn–Elkies three-point semidefinite-programming method, reporting new state-of-the-art upper bounds on packing density for dimensions 4-16 (excluding 8). This is `ai_role: bound` in isolation — an AI system moved a numerical upper bound on a still-open problem, not a proof. (3) The most significant event, and the one this record's top-level fields describe, is OpenAI's internal 'Astra' model (announced 2026-08-01, in a 249-page manuscript plus Lean 4 certificates), which is claimed to have determined the *exact* asymptotic growth rate of the Cohn–Elkies linear-programming bound itself (exponent √(e/2π) ≈ matching an exponent decay rate), the first improvement to the general high-dimensional sphere-packing upper-bound exponent since 1978. This caps what the Cohn–Elkies method can ever prove, but is not itself a resolution of the sphere-packing problem (it supplies no new packing and does not pin down the true asymptotic density) — mathematically this is best read as `progress`/`claimed` on the upper-bound side rather than a full resolution. Authors' own account (via secondary reporting, since the primary PDF could not be parsed by the fetch tool) describes a pipeline where Astra 'produces the core insight and strategy for a proof,' humans write it up, and the model formalizes it in Lean — squarely `ai_role: generated` under §6.2, since the mathematics in the result originated from the model rather than from checking/proofreading a human argument. As of six weeks post-announcement, the claim has an informal mathematician digestion (Seewoo Lee spent two weeks reconstructing and explaining the proof, though his post explicitly says he does not yet understand how the upper- and lower-bound exponents match) but no traditional peer review, and is under an active, unresolved priority dispute with Steven Miller over uncredited prior work. This combination — Lean-checked, informally digested, not peer-reviewed, disputed — is exactly the profile of `claimed` rather than `resolved`. I also checked and excluded DeepMind's AlphaEvolve result (new kissing-number lower bound in dimension 11, 592→593, announced 2025) as out of scope: the kissing number problem is a related-but-distinct problem from sphere-packing density, with its own separate Wikipedia bullet, so under §3.1 it is a related problem rather than a case of this one.",
+  "competing_reading": "One could argue the overall record should be `progress` rather than `claimed`, on the view that the Astra result, however striking, is an upper bound on a bounding *method* rather than the packing problem itself, so the strongest single move is really Klartag's `progress`-level lower bound. I chose `claimed` because it is the most classification-relevant status the frozen bullet's asymptotic behavior has seen: the Cohn–Elkies exponent result is a genuine mathematical resolution of a sub-question (the ultimate power of the linear-programming method), it is the event with an actual (if incomplete) AI-authorship claim requiring adjudication under §6.2, and `claimed` still correctly signals 'not yet settled by peer review' rather than overclaiming `resolved`.",
+  "what_would_settle_it": "Either (a) a completed peer-reviewed publication or widely-accepted expert consensus (e.g., a second independent 'digestion' post or a journal referee report) on the Astra Cohn–Elkies exponent result, resolving the Miller priority dispute one way or the other, or (b) a genuine resolution of the asymptotic sphere-packing density itself (as opposed to a bound on a bounding method), which remains fully open.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2504.05042",
+      "title": "Lattice packing of spheres in high dimensions using a stochastically evolving ellipsoid",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://gilkalai.wordpress.com/2025/04/09/boaz-klartag-striking-new-lower-bounds-for-sphere-packing-in-high-dimensions/",
+      "title": "Bo'az Klartag: Striking new Lower Bounds for Sphere Packing in High Dimensions",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2312.10026",
+      "title": "A new lower bound for sphere packing",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://gilkalai.wordpress.com/2023/12/20/marcelo-campos-matthew-jenssen-marcus-michelen-and-and-julian-sahasrabudhe-striking-new-lower-bounds-for-sphere-packing-in-high-dimensions/",
+      "title": "Campos, Jenssen, Michelen, Sahasrabudhe: Striking new Lower Bounds for Sphere Packing in High Dimensions",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/html/2512.04829",
+      "title": "Model-Based and Sample-Efficient AI-Assisted Math Discovery in Sphere Packing",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://cdn.openai.com/pdf/ten-proofs-oai.pdf",
+      "title": "Ten Advances in Mathematics and Theoretical Computer Science",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://openai.com/index/ten-advances-in-mathematics/",
+      "title": "Ten advances in mathematics and theoretical computer science",
+      "type": "press_release",
+      "opened": false
+    },
+    {
+      "url": "https://thezvi.substack.com/p/openais-unreleased-model-astra-solves",
+      "title": "OpenAI's Unreleased Model Astra Solves Ten Major Open Problems",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://betterstack.com/community/guides/ai/openai-astra/",
+      "title": "OpenAI Astra: Ten Open Math Problems Solved with Machine-Checkable Proofs",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.scientificamerican.com/article/openai-cracks-the-hidden-math-that-keeps-your-texts-from-turning-to-gibberish/",
+      "title": "OpenAI cracks the hidden math that keeps your texts from turning to gibberish",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://aiweekly.co/alerts/openais-astra-math-proofs-draw-research-misconduct-claims",
+      "title": "OpenAI's Astra math proofs draw research misconduct claims",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/seewoo5/seewoo5.github.io/issues/85",
+      "title": "jekyll/update/2026/09/12/openai-sphere-packing-digest-part1",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://seewoo5.github.io/jekyll/update/2026/09/12/openai-sphere-packing-digest-part1.html",
+      "title": "Understanding Astra's result on high-dimensional sphere packing — Part 1: Digestion",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+      "title": "AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms",
+      "type": "press_release",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Sphere_packing",
+      "title": "Sphere packing",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.23468",
+      "title": "Progress in Formalizing Sphere Packing in Dimension 8",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/leanprover/lean-eval-submissions/issues/1720",
+      "title": "[submission] klartag_packing — Klartag's lattice sphere packings (discrete-chain route)",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "sphere packing density new bound 2024 2025 2026 dimension improvement",
+      "Michelen Sisask sphere packing lower bound 2024 log d improvement Rogers",
+      "\"AlphaEvolve\" sphere packing dimension 11",
+      "Klartag sphere packing Lean formalization 2026 verified",
+      "OpenAI Astra sphere packing asymptotic upper bound Cohn-Elkies 2026",
+      "Astra OpenAI sphere packing Cohn-Elkies verified error mathematician review",
+      "\"Ten Advances in Mathematics\" OpenAI Astra sphere packing Lean proof withdrawn error",
+      "seewoo5.github.io Astra sphere packing digestion blog post",
+      "\"ten advances in mathematics\" OpenAI Astra \"sphere packing\" quote autonomous human proof produced",
+      "Astra sphere packing credit dispute priority mathematician OpenAI September 2026",
+      "AlphaEvolve kissing number vs sphere packing density Wikipedia different problem",
+      "OpenAI Astra \"sphere packing\" proof produced by model quote press release exact wording"
+    ],
+    "places_checked": [
+      "arXiv abstracts/HTML for the two triage-flagged preprints",
+      "Gil Kalai's blog (Combinatorics and more)",
+      "Wikipedia's current Sphere packing article",
+      "OpenAI's own announcement page and PDF manuscript (PDF text extraction failed via WebFetch)",
+      "Secondary press coverage (Scientific American, The Zvi/Substack, Better Stack, aiweekly.co)",
+      "An independent mathematician's (Seewoo Lee) digestion blog post of the Astra proof",
+      "GitHub issue tracker for a Lean formalization of Klartag's result",
+      "DeepMind's AlphaEvolve blog post (to rule in/out the kissing-number result)"
+    ],
+    "dead_ends": [
+      "cdn.openai.com PDF manuscript would not decode as text via WebFetch (binary/compressed PDF stream) — relied on secondary reporting and the OpenAI announcement page instead",
+      "openai.com/index/ten-advances-in-mathematics/ returned HTTP 403 to WebFetch directly; content reconstructed via other outlets quoting it",
+      "seewoo5.github.io blog fetched successfully but is a personal digestion post, not a formal peer review, so does not fully resolve the resolved-vs-claimed question"
+    ]
+  },
+  "incomplete": "Could not directly read OpenAI's primary 249-page manuscript PDF (fetch tool failed to extract text from it) or the openai.com announcement page (403 error); relied on secondary press coverage and a mathematician's independent digestion blog for the exact framing of Astra's role and the disputed-attribution details. The exact numerical value of the Cohn-Elkies asymptotic exponent claimed is not independently double-checked by me against the primary source.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "claimed",
+      "to": "progress",
+      "why": "F1/F3: the record's own summary says none of the events settles the general problem and calls Astra's result 'best read as progress'; all events are bounds (Astra's is a bound on the Cohn–Elkies method), so no event has scope whole."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "resolution_direction",
+      "from": "confirmed",
+      "to": null,
+      "why": "F14: progress rows carry null direction; nothing was settled."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "event",
+      "from": "Astra announcement 2026-08-01",
+      "to": "Klartag preprint 2025-04-07",
+      "why": "F8: Astra is an unreviewed, disputed, doubtful bound whose manuscript the researcher never read; Klartag's bound is the digested (Kalai blog) same-tier advance and is the natural anchor for a progress status."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status_sources",
+      "from": "OpenAI-first list",
+      "to": "Klartag, Huawei/UCL, Astra PDF",
+      "why": "other: sources re-ordered to the bound events the progress status rests on."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "generated",
+      "to": "generated",
+      "why": "other: kept under §4 step 4 (Astra and Klartag move different quantities at the same tier). Doubt: if Astra's LP-method result is treated per F3 as not a bound on the problem, the role would be 'assisted' (Huawei/UCL) or arguably 'none'."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "cjms-2023",
+        "what": "Campos–Jenssen–Michelen–Sahasrabudhe lower bound of order n·log n·2^-n",
+        "date": "2023-12",
+        "precision": "month",
+        "after_snapshot": false,
+        "source": "https://arxiv.org/abs/2312.10026",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "klartag-2025",
+        "what": "Klartag proves a lattice sphere-packing lower bound of order n²·2^-n",
+        "date": "2025-04-07",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2504.05042",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "huawei-ucl-2025",
+        "what": "Bayesian optimisation + MCTS search for Cohn–Elkies three-point certificates gives new upper bounds in dimensions 4–16 (except 8)",
+        "date": "2025-12-04",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2512.04829",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "Record: the team 'used a Bayesian-optimization-plus-Monte-Carlo-Tree-Search pipeline to search for polynomial pairs'; paper titled 'AI-Assisted Math Discovery in Sphere Packing'",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "astra-2026",
+        "what": "OpenAI Astra claims the exact asymptotic exponent of the Cohn–Elkies linear-programming bound",
+        "date": "2026-08-01",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://cdn.openai.com/pdf/ten-proofs-oai.pdf",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Primary manuscript never read by the researcher; unresolved priority dispute (Miller); Lee's digestion says he does not yet understand how the exponents match; rests on Lean check plus press. Also per F3 a result on the reach of the LP method is at most a bound, not a resolution.",
+        "ai_role": "generated",
+        "ai_basis": "Astra ... produces the core insight and strategy for a proof; human mathematicians then write that strategy up",
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "klartag-2025",
+    "derived": {
+      "status": "progress",
+      "ai_role": "generated",
+      "resolution_direction": null
+    },
+    "changed": [
+      "status",
+      "resolution_direction",
+      "event",
+      "status_sources"
+    ],
+    "doubts": "Every post-snapshot event is a bound; none is whole, and the record itself says the core question is unresolved, so 'claimed' was F1/F3. Status tier is progress; Klartag (human, digested by Kalai) is the named anchor, but by §4 step 4 the ai_role is the strongest among same-tier bounds on different quantities, so Astra's 'generated' is kept if Astra's result is counted as a genuine upper-bound exponent improvement. If a later reader follows F3 strictly (a bound on the LP method only, scope none), ai_role would fall to Huawei's 'assisted' (itself borderline: BO/MCTS search may be read as non-AI computation per F9).",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  }
+}

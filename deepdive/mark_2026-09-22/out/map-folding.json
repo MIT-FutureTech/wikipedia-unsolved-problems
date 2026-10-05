@@ -1,0 +1,91 @@
+{
+  "key": "map-folding",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "No closed formula or general resolution of map/stamp folding counting was found, but two concrete pieces of progress occurred in the window: (1) Hunter Hogan's 'mapFolding' software computed two new exact terms (a(19), a(20)) of OEIS A001415 ('number of ways of folding a 2 x n strip of stamps'), a case of the map-folding counting problem, extending it beyond the previously known a(18); (2) Hull, Ibrahim, Paltrowitz, Ter-Saakov and Wang (arXiv:2503.23661, first posted 31 Mar 2025) settled a restricted case of the stamp-folding problem — foldings with a fixed mountain-valley crease assignment — giving closed forms for specific MV patterns and new upper/lower bounds for others. Both are genuine, verifiable movement on cases of the stated problem; neither is a resolution of the general open counting problem, and no AI system contributed to either.",
+  "status_sources": [
+    "https://oeis.org/A001415",
+    "https://github.com/hunterhogan/mapFolding",
+    "https://arxiv.org/abs/2503.23661"
+  ],
+
+  "event": {
+    "date": "2025-03-21",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": ["https://oeis.org/A001415", "https://github.com/hunterhogan/mapFolding"]
+  },
+
+  "credited_humans": ["Hunter Hogan", "Thomas C. Hull", "Adham Ibrahim", "Jacob Paltrowitz", "Natalya Ter-Saakov", "Grace Wang"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "Ironically, LLMs can't figure it out either because I guess my idea was novel.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": ["https://github.com/hunterhogan/mapFolding"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "The Wikipedia bullet 'Map folding – various problems in map folding and stamp folding' is a bundle of open counting problems (no known closed-form formula or polynomial-time algorithm for the number of ways to fold an n-stamp strip or an n x n map). Nothing in the window resolves the general problem — the current Wikipedia article on map folding (checked live only to confirm current framing, not as evidence of the window's events) still states no closed-form formula or polynomial-time algorithm is known. Two pieces of genuine, verifiable case-level progress occurred: (a) Hunter Hogan's open-source 'mapFolding' package (github.com/hunterhogan/mapFolding) computed OEIS A001415 a(19) and a(20) (2 x n stamp-strip foldings), credited in the OEIS extension line 'a(19)-a(20) from Hunter Hogan, Mar 21 2025' — this narrows a specific sub-case (the 2×n restriction) of the map-folding counting family by adding exact values, which is analogous to the record-extension caveat in §3.1 but here the sequence itself, not a search bound, is the object being extended, so I read it as `partial` progress on that 2×n case rather than mere record-keeping; the repository explicitly disclaims AI help ('Ironically, LLMs can't figure it out either because I guess my idea was novel'), indicating the author tried consulting an LLM and it was unhelpful, so ai_role is `none`. (b) Hull, Ibrahim, Paltrowitz, Ter-Saakov, and Wang, 'The Stamp Folding Problem From a Mountain-Valley Perspective: Enumerations and Bounds' (arXiv:2503.23661, v1 31 Mar 2025, published in DMTCS), restricts the classical stamp-folding count to foldings with a fixed mountain-valley assignment per crease — a genuine restriction/case per §3.1 — and proves closed forms for specific MV patterns (with a Catalan-number appearance) plus bounds for others; this is traditional pen-and-paper/computer-algebra combinatorics with no stated AI involvement of any kind. The triage's 'Sakai boundary-based counting approach (2026)' lead could not be located or verified anywhere — no author of that name, no matching paper, and no snippet reproducing it appeared in any search I ran; I treat it as unverifiable and do not rely on it. I found no claim, credible or otherwise, of an AI system generating, assisting, or bounding any map-folding or stamp-folding result in this window.",
+  "competing_reading": "One could argue the Hogan OEIS extension is closer to 'progress' (a record/table extension) than 'partial' (a case settled), per the record-extension caveat in §3.1 — the sequence for the 2×n restriction is being extended value-by-value rather than a new case-class being closed. I classify it as partial because A001415 catalogs a specific well-defined restricted sub-problem (2×n map folding) whose enumeration for n=19,20 is now exactly known, which is a settled case rather than a bound; but if one instead reads the whole A001415 sequence as an unbounded 'how far can we compute' exercise akin to a search-limit extension, `progress` would be the better code.",
+  "what_would_settle_it": "Whether OEIS regards A001415 as counting a well-posed restricted sub-problem (favoring `partial`) versus an open-ended computational frontier akin to a search bound (favoring `progress`) — this would be clarified by how the sequence's own literature (e.g., any accompanying paper) frames the 2×n case.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://oeis.org/A001415", "title": "OEIS A001415: Number of ways of folding a 2 X n strip of stamps", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A000136", "title": "OEIS A000136: Number of ways of folding a strip of n labeled stamps", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A001416", "title": "OEIS A001416", "type": "encyclopedia", "opened": true},
+    {"url": "https://github.com/hunterhogan/mapFolding", "title": "hunterhogan/mapFolding: Experiment by transforming algorithms for map folding, meanders, stamp folding, semi-meanders and optimizing the code.", "type": "repository", "opened": true},
+    {"url": "https://github.com/hunterhogan/mapFolding/blob/main/README.md", "title": "mapFolding README", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2503.23661", "title": "The Stamp Folding Problem From a Mountain-Valley Perspective: Enumerations and Bounds", "type": "preprint", "opened": true},
+    {"url": "https://dmtcs.episciences.org/16660", "title": "The Stamp Folding Problem From a Mountain-Valley Perspective (DMTCS)", "type": "journal", "opened": false},
+    {"url": "https://en.wikipedia.org/wiki/Map_folding", "title": "Map folding", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2402.14965", "title": "Folding polyominoes into cubes", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/html/2410.07666v1", "title": "Computational Complexities of Folding", "type": "preprint", "opened": false},
+    {"url": "https://pypi.org/project/mapFolding/", "title": "mapFolding · PyPI", "type": "repository", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "map folding number of ways proof arxiv 2024 2025",
+      "stamp folding Sakai boundary-based counting approach",
+      "\"map folding\" AlphaEvolve",
+      "map folding problem OEIS sequence update 2024 2025 2026",
+      "mapFolding python package new terms OEIS map folding",
+      "\"The Stamp Folding Problem From a Mountain-Valley Perspective\" Hull Ibrahim Paltrowitz arxiv",
+      "Aichholzer Lehner Lindorfer 2024 map folding stamp folding",
+      "Sakai \"stamp folding\" boundary counting recursive 2026",
+      "\"map folding\" OR \"stamp folding\" AI solved DeepMind OpenAI Claude proof 2025 2026"
+    ],
+    "places_checked": [
+      "OEIS A001415, A000136, A001416",
+      "Wikipedia 'Map folding' live article",
+      "arXiv listings and abstract pages for the mountain-valley stamp-folding paper",
+      "GitHub repository and README for hunterhogan/mapFolding",
+      "General web search for AI/lab involvement in map or stamp folding results"
+    ],
+    "dead_ends": [
+      "The triage's 'Sakai boundary-based counting approach (2026)' could not be located via any search; no matching author, paper, or snippet reproducing that description was found",
+      "\"map folding\" AlphaEvolve search returned only unrelated MAP-Elites algorithm references and physical map patents, no connection to the mathematical problem",
+      "Aichholzer/Lehner/Lindorfer 2024 paper 'Folding polyominoes into cubes' addresses a different, only loosely related folding problem (polyominoes into cubes), not the classical map/stamp folding count, and was not used as a basis for this record's classification"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": true,
+  "triage_queries_replaced": true
+}

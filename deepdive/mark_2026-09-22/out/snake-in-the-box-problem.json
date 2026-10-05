@@ -1,0 +1,129 @@
+{
+  "key": "snake-in-the-box-problem",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "Lower bounds on a(n), the longest induced path (snake) in the n-dimensional hypercube, were repeatedly improved for dimensions 9-17 during the window via heuristic/pruned search, most substantially by T. Ace (2025, dims 10-13), Orland, Fagan, Tarquini, Passaro, Manko, Heyes, Gruen, Butbaia, Tan and Gukov (arXiv:2607.15270, July 2026, dims 9-13), and Bernatonis (2026, dims 14-17); none of the sources located disclose any AI/ML method for the search itself.",
+  "status_sources": [
+    "https://arxiv.org/abs/2607.15270",
+    "https://arxiv.org/html/2607.15270v2",
+    "https://zenodo.org/records/17538015",
+    "https://minortriad.com/snake/",
+    "https://en.wikipedia.org/wiki/Snake-in-the-box"
+  ],
+
+  "event": {
+    "date": "2026-07-16",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2607.15270", "https://arxiv.org/html/2607.15270v2"]
+  },
+
+  "credited_humans": [
+    "Paul Orland", "Lucas Fagan", "Michele Tarquini", "Davide Passaro", "Maksymilian Manko",
+    "Elli Heyes", "Angus Gruen", "Giorgi Butbaia", "Justin Tan", "Sergei Gukov",
+    "Thomas E. Ace", "W. Echols", "Kristijonas Bernatonis"
+  ],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": [
+      "https://arxiv.org/html/2607.15270v2",
+      "https://github.com/Math-AI-Caltech/Snake-in-the-Box",
+      "https://zenodo.org/records/17538015",
+      "https://github.com/docxology/snake"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "For dimensions 9-13, the improved bounds are attributed to at least three independent, overlapping efforts within the window: T. Ace (Zenodo, Nov 2025, dims 10-13, values 732/1439/2854 for 11/12/13), the Orland et al. arXiv paper (July 2026, dims 9-13, values 191/379/746/1476/2924 for 9-13), and the live minortriad.com records table (checked 2026-09-22, showing still-higher values 191/379/750/1480/2934 for 9-13, apparently reflecting further post-paper updates credited informally to Ace/Echols collaboration). No single source resolves current priority/attribution cleanly, and the live table already supersedes the July 2026 preprint's own numbers.",
+      "sources": [
+        "https://zenodo.org/records/17538015",
+        "https://arxiv.org/html/2607.15270v2",
+        "https://minortriad.com/snake/"
+      ]
+    }
+  ],
+
+  "summary": "The problem asks for a(n), the length of the longest induced (snake) path in the n-dimensional hypercube graph Q_n, known exactly only for n≤8. Since 26 January 2024, no resolution of the general problem occurred (it remains open for all n≥9), but the best-known lower bounds moved several times, which is squarely within scope per §3.1 since the bullet's quantity (the record length itself) is what changed. In order: T. Ace published 'New Lower Bounds for Snake-in-the-Box in 10-, 11-, 12-, and 13-dimensional Hypercubes' on Zenodo (6 November 2025, DOI 10.5281/zenodo.17538015), reporting 732/1439/2854 for dimensions 11/12/13 using, per the abstract, 'simple heuristics' (a pruned breadth-first search per the companion GitHub tool docxology/snake) — no AI/ML disclosed. Then a ten-author paper from Sergei Gukov's Caltech group (Orland, Fagan, Tarquini, Passaro, Manko, Heyes, Gruen, Butbaia, Tan, Gukov), 'A Census of New Snake-in-the-Box Records' (arXiv:2607.15270, submitted 16 July 2026, revised 20 July 2026), reported new records in every dimension 9-13 (191/379/746/1476/2924), with a companion GitHub dataset (Math-AI-Caltech/Snake-in-the-Box). I read the paper's full HTML text directly (introduction, results, example, data, acknowledgements, and section list); it contains no methods/algorithm section at all describing how the authors found their snakes — it is a pure results 'census', citing predecessors' methods (genetic algorithms, evolutionary search, Monte Carlo tree search) but never stating its own. The acknowledgements credit DARPA, NSF, and a philanthropic gift, plus (per one fetch) Google Cloud TPUs and NVIDIA GPU compute grants — hardware normally used for training neural networks. This is suggestive given that several co-authors (Fagan, Tarquini, Manko, Gruen, Butbaia, Passaro, Gukov) are simultaneously authors of explicit reinforcement-learning-for-mathematics papers from the same lab in the same period (e.g. 'The Two-Hump Problem: Bridging the Difficulty Gap in Mathematical Reinforcement Learning', ICML 2026, on the Andrews-Curtis conjecture; 'RLGT: A reinforcement learning framework for extremal graph theory', on Ramsey/Turán problems) — but neither of those companion papers mentions the snake-in-the-box problem, and no source I found (paper text, GitHub READMEs for either Math-AI-Caltech/Snake-in-the-Box or Math-AI-Caltech/ACSolverX, alphaXiv digestion, Pith Review digestion) states or quotes that RL or any AI system was used for the snake search specifically. Meanwhile a separate 2026 paper by Kristijonas Bernatonis (Notre Dame) extended pruned-BFS heuristic records to dimensions 14-17 (5750/11249/21411/40835), again with no AI claimed. The live minortriad.com records table (T. Ace's own site, checked 2026-09-22) now shows even higher values for 11-13 (750/1480/2934) than the July 2026 paper, crediting continued 'sustained computational efforts of Ace and Echols' with no dates or method given in the FAQ. Wikipedia's own (non-frozen, current) Snake-in-the-box article, last touching this figure around 2026-07-23, cites minortriad.com for 191/379/746/1476/2932 and does not mention any of these researchers or any AI angle; its most recent methodologically-notable citation is a February 2023 AAAI paper (Dang, Bazgan, Cazenave, Chopin, Wuillemin, 'Warm-Starting Nested Rollout Policy Adaptation with Optimal Stopping') that did use a genuine RL-adjacent method (Nested Rollout Policy Adaptation) to improve snake-in-the-box bounds — but that result predates the window (Jan 2023) and is not counted here. Net: real, repeated, in-scope progress on the record bound (a(n) for n=9-17) occurred throughout the window, but the strongest textual evidence available describes it as heuristic/pruned search rather than AI, so ai_role is coded none under the rule that a role requires the authors' own account, which I could not find despite reading the primary paper directly and its surrounding ecosystem (GitHub, Zenodo, alphaXiv, Pith Review).",
+  "competing_reading": "The TPU/GPU acknowledgement in the Orland et al. paper, combined with the fact that several of its authors are core members of an AI-for-mathematics research program (RL for Andrews-Curtis and extremal graph theory) publishing in the same months, is real circumstantial evidence that the snake search itself may have used a learned (RL or neural) heuristic/policy rather than a purely hand-coded pruning rule. If an unlocated methods appendix, supplementary material, or follow-up blog post confirms this, the correct coding would likely be ai_role 'assisted' or 'bound' (a bound moved by AI search) rather than 'none'. I was unable to access the raw PDF (binary/compressed, not parseable by my tools) and could not find a separate methods writeup, so I am not confident this circumstantial reading is wrong.",
+  "what_would_settle_it": "A methods/supplementary section of arXiv:2607.15270 (or a talk, blog post, or code repository beyond the bare data-only Math-AI-Caltech/Snake-in-the-Box repo) that states in the authors' own words what search procedure produced the record snakes — specifically whether it involved a trained model (RL policy, neural network, or similar) versus a purely combinatorial/heuristic pruned search. Also, direct correspondence or a changelog on minortriad.com dating and crediting the current (750/1480/2934) records beyond the July 2026 paper's numbers.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2607.15270", "title": "A Census of New Snake-in-the-Box Records (abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2607.15270v2", "title": "A Census of New Snake-in-the-Box Records (HTML v2)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2607.15270v2", "title": "A Census of New Snake-in-the-Box Records (PDF)", "type": "preprint", "opened": false},
+    {"url": "https://github.com/docxology/snake", "title": "snake-in-the-box solver reaching bounds of 732/1439/2854", "type": "repository", "opened": true},
+    {"url": "https://github.com/Math-AI-Caltech/Snake-in-the-Box", "title": "Data for new snake-in-the-box records", "type": "repository", "opened": true},
+    {"url": "https://www.alphaxiv.org/abs/2607.15270", "title": "alphaXiv digestion of arXiv:2607.15270", "type": "blog", "opened": true},
+    {"url": "https://pith.science/paper/2607.15270", "title": "Pith Review of A Census of New Snake-in-the-Box Records", "type": "blog", "opened": true},
+    {"url": "https://minortriad.com/snake/faq.html", "title": "Snake-in-the-Box FAQ - minortriad", "type": "encyclopedia", "opened": true},
+    {"url": "https://minortriad.com/snake/", "title": "Snake-in-the-Box records table - minortriad", "type": "encyclopedia", "opened": true},
+    {"url": "https://zenodo.org/records/17538015", "title": "New Lower Bounds for Snake-in-the-Box in 10-, 11-, 12-, and 13-dimensional Hypercubes (T. Ace)", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/21728434", "title": "New Heuristic Snakes for the Snake-in-the-Box Problem via Pruned Breadth-First Search (Bernatonis)", "type": "repository", "opened": false},
+    {"url": "https://oeis.org/A000937", "title": "OEIS A000937", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Snake-in-the-box", "title": "Snake-in-the-box (current Wikipedia article)", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2602.17276", "title": "RLGT: A reinforcement learning framework for extremal graph theory", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.21611", "title": "The Two-Hump Problem: Bridging the Difficulty Gap in Mathematical Reinforcement Learning", "type": "preprint", "opened": false},
+    {"url": "https://github.com/Math-AI-Caltech/ACSolverX", "title": "Companion repository to The Two-Hump Problem", "type": "repository", "opened": false},
+    {"url": "https://durham-repository.worktribe.com/OutputFile/1605057", "title": "New Bounds for the Snake-in-the-Box Problem (Allison & Paulusma, 2016)", "type": "journal", "opened": false},
+    {"url": "https://ojs.aaai.org/index.php/AAAI/article/view/26459", "title": "Warm-Starting Nested Rollout Policy Adaptation with Optimal Stopping", "type": "journal", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "snake-in-the-box problem longest induced path hypercube 2025 record",
+      "\"snake-in-the-box\" new record dimension 2025 2026",
+      "\"snake-in-the-box\" record dimension 11 12 13 T. Ace 2025",
+      "Gukov Orland Fagan snake-in-the-box reinforcement learning AlphaEvolve method",
+      "\"Census of New Snake-in-the-Box Records\" reinforcement learning method blog",
+      "\"Math-AI-Caltech\" snake-in-the-box reinforcement learning arxiv",
+      "Gukov Heyes Gruen Butbaia reinforcement learning combinatorics discovery 2026",
+      "\"Two-Hump Problem\" Fagan Gukov snake-in-the-box ICML 2026",
+      "minortriad snake-in-the-box records dimension 11 12 13 September 2026 new record",
+      "Allison Paulusma \"New Bounds for the Snake-in-the-Box Problem\" Durham",
+      "\"T. Ace\" zenodo \"snake-in-the-box\" lower bounds 2025 method",
+      "snake-in-the-box dimension 14 15 16 17 new lower bound 2026",
+      "Dang \"Nested Rollout Policy Adaptation\" snake-in-the-box 2023"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2607.15270",
+      "GitHub repositories docxology/snake and Math-AI-Caltech/Snake-in-the-Box and Math-AI-Caltech/ACSolverX",
+      "Zenodo records for T. Ace and Bernatonis",
+      "minortriad.com records table and FAQ (the field's de facto live problem database)",
+      "OEIS A000937",
+      "current (non-frozen) Wikipedia article on Snake-in-the-box",
+      "alphaXiv and Pith Review digestions of the arXiv paper",
+      "arXiv listing for the ICML 'Two-Hump Problem' and 'RLGT' companion papers by overlapping authors",
+      "Durham University repository for the 2016 Allison/Paulusma paper (predates window, checked for completeness)",
+      "AAAI proceedings for the 2023 Dang et al. NRPA paper (predates window)"
+    ],
+    "dead_ends": [
+      "Direct PDF fetch of arXiv:2607.15270 returned only binary/compressed metadata, not readable text",
+      "Durham repository OutputFile URL returned HTTP 403 Forbidden",
+      "No blog post, talk, or supplementary methods writeup found describing the Orland et al. paper's actual search algorithm",
+      "OEIS A000937 has not been updated since 2015 and does not cover dimensions 9+"
+    ]
+  },
+
+  "incomplete": "I could not read the raw PDF of arXiv:2607.15270 (only the HTML rendering, which I confirmed has no methods section) and could not locate any supplementary material, talk, or blog post clarifying whether the TPU/GPU-supported search used a learned (AI) component. The ai_role='none' coding rests on the absence of any authorial claim of AI use despite thorough searching, not on a positive statement ruling it out; see competing_reading.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

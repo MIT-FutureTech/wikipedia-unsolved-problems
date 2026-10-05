@@ -1,0 +1,128 @@
+{
+  "key": "erdos-gyarfas-conjecture",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "Hegde, Sandeep and Shashank proved the conjecture for P13-free graphs (arXiv:2410.22842, first posted 2024-10-30), a case settlement; Carr's diameter-2 result is a second case. [Hand-corrected 2026-09-28; the agent's original outcome follows.] The general conjecture (every graph of minimum degree ≥3 contains a cycle of power-of-two length) remains open, but since the frozen revision several genuine advances have occurred: the conjecture was proved for P13-free graphs (Feb 2025) and for diameter-2 minimum-degree-3 graphs (Aug 2025/Jan 2026); and the best known lower bound on the order of a minimal counterexample was pushed from 17 to 24 (Sept 2026, with disclosed Claude assistance) and, for the cubic bipartite case, from 30 to 60 (Aug 2026, with disclosed ChatGPT/Codex assistance) via certified SAT/exhaustive computation.",
+  "status_sources": [
+    "https://arxiv.org/abs/2410.22842",
+    "https://arxiv.org/abs/2508.19302"
+  ],
+
+  "event": {
+    "date": "2024-10-30",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2410.22842"]
+  },
+
+  "credited_humans": ["Anand Shripad Hegde", "R. B. Sandeep", "P. Shashank"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "Computations were carried out with the assistance of an AI system (Claude); all results were independently re-verified as described in Section 8. [arXiv:2609.04686] / \"OpenAI ChatGPT materially assisted the initial research, including developing computational and structural approaches, portions of the incidence-based code and preliminary arguments, running and interpreting computations, and an initial literature audit. OpenAI Codex subsequently assisted with code and artifact auditing, reproducibility checks, additional verifiers and certificates, integration of the triangle-rooted method, and drafting and editing the manuscript and documentation.\" [arXiv:2608.02675]",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["Claude", "OpenAI ChatGPT", "OpenAI Codex"],
+    "sources": ["https://arxiv.org/html/2609.04686v1", "https://arxiv.org/html/2608.02675v1"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "The Erdős–Gyárfás conjecture (every graph of minimum degree ≥3 has a cycle whose length is a power of 2) remains open in general as of 2026-09-22. Since the frozen revision (2024-01-26), the conjecture has been confirmed for additional restricted graph classes: P13-free graphs (Hegde, Sandeep, Shashank, arXiv:2410.22842, first posted 2024-10-30, revised 2025-02-11, via a C++ backtracking/brute-force search, no AI disclosed), and graphs of diameter 2 with minimum degree ≥3 (Carr, arXiv:2508.19302, posted 2025-08-25, published 2026-01-30, no AI disclosed) — both are cases of the general conjecture under §3.1, so `partial` progress, confirming the conjecture on the restricted classes. Separately (and this is the more interesting AI-relevant thread), the literature on lower bounds for a minimal counterexample's order has moved substantially in 2026: arXiv:2609.04686 (Daniel Garcia, posted 2026-09-04) raises the general minimum-degree-3 bound from 17 to 24 vertices via a SAT-based exhaustive search certified by DRAT proofs, and explicitly states 'Computations were carried out with the assistance of an AI system (Claude); all results were independently re-verified' — the independent re-verification (two separate cycle-detection procedures, DRAT certification via drat-trim) means the mathematical certificate itself is machine-checkable and not merely an AI assertion, but Claude's assistance went into producing the computational/structural work, not just checking it, so I code this `bound`/AI-assisted rather than `none`. arXiv:2608.02675 (Julius Tranquilli, posted 2026-08-02) raises the cubic-bipartite bound from 30 to 60 vertices, with an explicit 'AI disclosure' section crediting OpenAI ChatGPT with 'developing computational and structural approaches, portions of the incidence-based code and preliminary arguments' and OpenAI Codex with code auditing and manuscript drafting — again the underlying claim rests on independently-checked certificates (two independently implemented C16 oracles plus a static witness certificate), but substantial mathematical/structural work was AI-assisted per the authors' own account. Both authors appear to be independent researchers (Tranquilli is a formal-methods/software engineer per his personal site and Google Scholar, not a professional mathematician) rather than academic specialists, which is itself notable: SAT-based bound-improvement work on this conjecture, previously the province of specialists (Royle & Markström ~2004), is now being done by AI-assisted individual researchers. None of these results settle the conjecture — they narrow where a counterexample could be, which per §3.1's rule for existence-type problems ('are there infinitely many X') would not normally count, but the bullet in question is specifically an existence/universal-quantifier statement, not a record-table question, so I classify the bound-improvement papers under `ai_role: bound` (an AI system moved a bound on a problem that is still open) while keeping overall `status: progress` rather than `partial`, since the decisive event I am dating (2609.04686) is a bound movement, not a case-settlement. The P13-free and diameter-2 results are real `partial`-type progress but are not the AI story here and are not disclosed as AI-assisted, so they support `status` moving off `open` independently of the AI angle. I checked erdosproblems.com's Problem #64 page, which confirms Liu–Montgomery's large-minimum-degree resolution (JAMS 2023) predates the window entirely and is not new. I also checked the Machine Intelligence Research Institute's May 2026 'The Erdős Proof and AI Capabilities' post, which discusses an OpenAI-internal model disproving the Erdős unit distance conjecture — unrelated to Erdős–Gyárfás, and not relevant here despite superficially similar naming.",
+  "competing_reading": "One could argue `status` should be `partial` rather than `progress`, treating the P13-free and diameter-2 results (each a genuine case of the general conjecture, confirming it) as the decisive events, with the AI-assisted bound papers relegated to a `progress` note in summary. I chose `progress` with the September 2026 bound paper as the decisive event because it is the most recent and, per the brief, the AI angle is the more analytically interesting thread; but a reader treating 'has a case been settled' as automatically taking precedence over 'has a bound moved' would file this as `partial` with `resolution_direction: confirmed` (for the P13-free/diameter-2 classes) and record the bound papers only in summary. Also debatable: whether Claude/ChatGPT's role in the bound papers rises to `assisted` (mathematics in the result) rather than `bound` — I used `bound` because the underlying open problem is still open and what moved is explicitly a numeric bound, matching §6.2's `bound` code more precisely than `assisted`, but the authors' language ('developing computational and structural approaches... preliminary arguments') sounds like it satisfies `assisted`'s bar too; the two codes are not mutually exclusive in the taxonomy's spirit and I picked `bound` as the more specific/informative code per the guidance that `bound` is for moving a number on a still-open problem.",
+  "what_would_settle_it": "A clearer breakdown from the authors (or a third-party digestion) of exactly which lines of code, which lemmas, or which parts of the 'window calculus' / 'triangle-rooted method' were AI-produced versus human-produced would resolve whether `bound` or `assisted` is the better fit. A future paper actually resolving the conjecture (or disproving it) would supersede this record entirely.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2410.22842", "title": "Erdős-Gyárfás conjecture on graphs without long induced paths", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2410.22842", "title": "Erdős-Gyárfás conjecture on graphs without long induced paths (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://www.sciencedirect.com/science/article/abs/pii/S0012365X24003066", "title": "The Erdős-Gyárfás conjecture holds for P10-free graphs", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/abs/2308.05675", "title": "Erdős-Gyárfás Conjecture for P10-free Graphs", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/2609.04686", "title": "Small graphs without power-of-two cycles: a lower bound of 24, a correction to a construction of Exoo, and explicit bounds for f(k)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.04686", "title": "Small graphs without power-of-two cycles (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.02675", "title": "A 60-Vertex Lower Bound for Cubic Bipartite Counterexamples to the Erdős–Gyárfás Conjecture", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.02675", "title": "A 60-Vertex Lower Bound (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2605.22844", "title": "Every Minimal Counterexample to the Erdős-Gyárfás Conjecture is Predominantly Cubic", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2605.22844", "title": "Every Minimal Counterexample... (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2508.19302", "title": "Cycles of Length 4 or 8 in Graphs with Diameter 2 and Minimum Degree at Least 3", "type": "preprint", "opened": true},
+    {"url": "https://github.com/ArjunBalaji79/erdos-gyarfas-min-degree-3", "title": "SAT verification of the Erdos-Gyarfas conjecture for minimum-degree-3 graphs", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Erd%C5%91s%E2%80%93Gy%C3%A1rf%C3%A1s_conjecture", "title": "Erdős–Gyárfás conjecture", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.erdosproblems.com/tags/graph%20theory", "title": "Erdős Problems — graph theory tag", "type": "encyclopedia", "opened": true},
+    {"url": "https://intelligence.org/2026/05/22/the-erdos-proof-and-ai-capabilities/", "title": "The Erdős Proof and AI Capabilities", "type": "blog", "opened": true},
+    {"url": "https://juliustranquilli.com/", "title": "Julius Tranquilli | Rust, IBC, and Formal Methods Engineer", "type": "blog", "opened": false},
+    {"url": "https://scholar.google.com/citations?user=9opnC2MAAAAJ&hl=en", "title": "Julius Tranquilli — Google Scholar", "type": "news", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Erdős–Gyárfás conjecture 2024 2025 2026 proof progress",
+      "\"Erdos-Gyarfas conjecture\" lower bound counterexample vertices SAT solver",
+      "\"Daniel Garcia\" independent researcher arxiv Erdos Gyarfas Claude AI",
+      "\"Julius Tranquilli\" mathematician arxiv",
+      "Liu Montgomery cycles length power of two large minimum degree Erdos Gyarfas year proved",
+      "\"Erdos-Gyarfas conjecture\" P10-free graphs Hu Shen 2024 submission date arxiv"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2410.22842, 2609.04686, 2608.02675, 2605.22844, 2508.19302, 2308.05675",
+      "Wikipedia article Erdős–Gyárfás conjecture (current live version)",
+      "erdosproblems.com Problem #64 entry",
+      "GitHub repo ArjunBalaji79/erdos-gyarfas-min-degree-3",
+      "Machine Intelligence Research Institute blog (May 2026 post, checked for relevance — found to concern a different Erdős conjecture)",
+      "Google Scholar / personal site for author identity checks (Julius Tranquilli)"
+    ],
+    "dead_ends": [
+      "sciencedirect.com article page returned HTTP 403, could not open directly; relied on arXiv preprint and secondary summaries instead",
+      "PDF fetches of 2609.04686 and 2608.02675 did not render readable text via WebFetch; fell back to the arXiv HTML (/html/) versions, which did render and contain the disclosure text quoted",
+      "MIRI blog post found by search does not actually concern the Erdős–Gyárfás conjecture (it's about the Erdős unit distance conjecture) — checked and ruled out rather than assumed relevant from the title"
+    ]
+  },
+
+  "incomplete": "I could not access the ScienceDirect page for the P10-free result directly (403 Forbidden) and relied on the arXiv preprint (2308.05675, posted 2023-08-10, predating the window) and secondary citations for its content and date. I also could not fully verify from primary text exactly which mathematical content (versus code/drafting) Claude and ChatGPT/Codex produced in the two bound papers beyond what the papers themselves disclose — the disclosures are somewhat vague about the line between 'developing structural approaches' and 'implementing/checking' them, which I've flagged in competing_reading.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass",
+      "field": "ai_role",
+      "from": "bound",
+      "to": "assisted",
+      "why": "`bound` is retired as an AI role at the reviewer's direction: it named the kind of result, a moved bound, which `status: progress` already records, rather than what the AI did, so it conflated the two axes. Recoded by the 6.2 test of what the model produced. The minimal-counterexample bound is human-led work in which, by the authors' own account, ChatGPT 'materially assisted the initial research, including developing computational and structural approaches, portions of the incidence-based code and preliminary arguments', with Claude carrying out computations. That is `assisted`, not `generated`: the authors direct the argument and a model contributed parts of it."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson), adopting the judging-pass calibration verdict (JUDGE.md, opus); drafted by Claude (claude-opus-5-5)",
+      "field": "status",
+      "from": "progress",
+      "to": "partial",
+      "why": "F4/F8: the minimal-counterexample order results (17 to 24, and 30 to 60 in the cubic bipartite case) are exhaustive checks of every graph up to n vertices, finitely many instances of a universal statement, not bounds, so they cannot set the status. The record itself calls the P13-free and diameter-2 results 'cases of the general conjecture'; a case settled is `partial`. The event moves to the P13-free paper, and `credited_humans` and `status_sources` follow it."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson), adopting the judging-pass calibration verdict (JUDGE.md, opus); drafted by Claude (claude-opus-5-5)",
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "none",
+      "why": "F8: the AI role describes the event the status rests on, and the record says the P13-free and diameter-2 papers disclose no AI. The Claude and ChatGPT/Codex disclosures belong to the instance-check papers and stay in `ai` as evidence. This supersedes the 2026-09-24 entry above, which recoded `bound` to `assisted` while the status still rested on those papers."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson), adopting the judging-pass calibration verdict (JUDGE.md, opus); drafted by Claude (claude-opus-5-5)",
+      "field": "resolution_direction",
+      "from": null,
+      "to": "confirmed",
+      "why": "A `partial` carries the direction of the settled case: the P13-free proof confirms the conjecture on that class."
+    }
+  ]
+}

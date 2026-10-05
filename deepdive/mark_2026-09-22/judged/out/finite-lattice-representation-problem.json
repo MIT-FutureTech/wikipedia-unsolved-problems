@@ -1,0 +1,249 @@
+{
+  "key": "finite-lattice-representation-problem",
+  "status": "open",
+  "no_change_found": false,
+  "outcome": "The general finite lattice representation problem (does every finite lattice occur as the congruence lattice of a finite algebra?) remains open, but the last outstanding case among lattices with at most seven elements — the lattice called L7 in DeMeo's 2012 thesis and L10 in the still-unpublished DeMeo–Freese–Jipsen manuscript 'Representing Finite Lattices as Congruence Lattices of Finite Algebras' — was closed in late August/September 2026: Chenxiao Tian posted a note (28 August 2026) representing it as the subgroup interval [S3, PSL(2,64)], which the DeMeo–Freese–Jipsen project team then independently verified by recomputation in GAP and by an independent isomorphism test in the agda-algebras library, and improved with a smaller representation as an interval in Sp(6,2) (index 34560, found by scanning GAP's TomLib).",
+  "status_sources": [
+    "https://github.com/UniversalAlgebra/fin-lat-rep/issues/33",
+    "https://github.com/UniversalAlgebra/fin-lat-rep-gap/pull/2",
+    "https://github.com/UniversalAlgebra/fin-lat-rep-gap/issues/1"
+  ],
+  "event": {
+    "date": "2026-08-28",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://github.com/UniversalAlgebra/fin-lat-rep/issues/33"
+    ]
+  },
+  "credited_humans": [
+    "Chenxiao Tian",
+    "William DeMeo",
+    "Ralph Freese",
+    "Peter Jipsen"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "Commit messages on the verification/tooling pull requests (fin-lat-rep PR #32, and per search results also fin-lat-rep-gap PR #2) read '🤖 AI-assisted development: Claude Opus 5 (Anthropic)' and, on an earlier commit, 'Claude Fable 5.1 and Claude Opus 5 (Anthropic)'; Copilot's automated code review flagged parser bugs, input-validation gaps and test-coverage issues on those same PRs, which the human author then fixed.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "Claude Opus 5",
+      "Claude Fable 5.1",
+      "Copilot"
+    ],
+    "sources": [
+      "https://github.com/UniversalAlgebra/fin-lat-rep/pull/32"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Tian's PSL(2,64)/S3 interval (index 43680) is the published discovery that closes the case, but the fin-lat-rep project subsequently found a smaller representation via Sp(6,2) acting on 34560 points. Issue #33 explicitly frames this as an open 'decision needed' about which representation should lead in the writeup and how credit should be split, and notes the minimal possible representation may still be far smaller (between 16 and 34560 elements).",
+      "sources": [
+        "https://github.com/UniversalAlgebra/fin-lat-rep/issues/33"
+      ]
+    }
+  ],
+  "summary": "The Wikipedia bullet asks the general question (posed by Grätzer–Schmidt in 1963 and shown by Pálfy–Pudlák in 1980 to be equivalent to a question about subgroup-lattice intervals in finite groups): is EVERY finite lattice a congruence lattice of a finite algebra? That general question is still open — no resolution, partial or otherwise, of the unrestricted conjecture was found. However, a well-documented and, on the evidence available, genuine case of the problem was settled within the window: DeMeo, Freese and Jipsen's manuscript on representing all lattices with at most seven elements had left exactly one lattice (L7/L10) without a known finite-algebra representation. On 28 August 2026, Chenxiao Tian (Princeton/Peking University) posted a seven-page note exhibiting that lattice as the subgroup interval [SL(2,2)≅S3, PSL(2,64)] (index 43680). The DeMeo–Freese–Jipsen project (GitHub org UniversalAlgebra, repos fin-lat-rep and fin-lat-rep-gap) independently verified this in GAP 4.15.1 by recomputing the interval from Tian's generating matrices, corroborating each lemma of the note (normalizer/centralizer computations, Dickson's classification of maximal subgroups of PSL(2,64), the incidence-count argument), and cross-checking with an independent isomorphism test in the agda-algebras library; they also found a smaller representation as an interval in Sp(6,2) (index 34560) by scanning all 414 tables of marks in GAP's TomLib. This closes the 'one possible exception' from the earlier (pre-2024) DeMeo–Freese–Jipsen work, so with this event every lattice of at most seven elements is now known to be a congruence lattice of a finite algebra — a genuine narrowing of the general open problem's territory, but a restriction (small lattices only) rather than a resolution, so it is classified 'partial' under §3.1's case-vs-variant rule, not 'resolved'. As for AI: no evidence was found that any AI system contributed to the actual mathematics — not to Tian's discovery of the PSL(2,64) representation, not to the group-theoretic verification argument, and not to the Sp(6,2) TomLib scan (performed by a GAP script, tomScan.g). The only AI involvement found is in software engineering: pull requests building the verification/checking infrastructure around this result (and around an unrelated pre-existing bug, algebra B28) carry commit-message credits '🤖 AI-assisted development: Claude Opus 5 (Anthropic)' and 'Claude Fable 5.1 and Claude Opus 5 (Anthropic)', and GitHub Copilot's automated code review flagged bugs in that tooling across several review rounds. This is AI assisting the authors write and debug verification code, not AI producing mathematical content that appears in the result, so ai_role is 'none' per §6.2's instruction that checking, debugging and tooling contributions do not count. This whole episode is extremely recent (weeks old at the time of this research, versus a 26 January 2024 window start) and lives entirely in GitHub issues/PRs of an in-progress manuscript rather than in a published or expert-surveyed venue; I could not find any independent digestion (blog commentary, MathOverflow, journal acceptance) beyond the project's own repositories, so confidence in the permanence/correctness of the classification is medium rather than high, though the verification was done by domain experts (the manuscript's own authors) using two independent methods, which is materially more scrutiny than a bare preprint.",
+  "competing_reading": "One could argue this event should be rated 'progress' rather than 'partial', on the theory that 'is every finite llattice representable' is functionally an existence/search question similar to the ones §3.1 says a record does not advance merely by narrowing where a counterexample could hide. But that carve-out is for statements like 'are there infinitely many X' where enumerating more X doesn't touch the question; here the case n≤7 is a genuine, exhaustively-defined restriction of the general universally-quantified conjecture ('does every finite lattice L satisfy...'), and settling it removes a specific, previously-open case from the domain — which is exactly what §3.1 defines as a case of the problem meriting 'partial'. A second competing reading is that this should not be recorded at all: the DeMeo-Freese-Jipsen 'one possible exception among ≤7-element lattices' framing is itself a narrower, self-posed sub-problem from their own paper, not a widely-recognized named open problem, so a stickler could call this a 'related' rather than a 'case' of the Wikipedia bullet. I judge it a case because the ≤7-element lattices are a literal, unconditional subset of 'every finite lattice', and DeMeo et al.'s earlier work was itself explicitly working on the Grätzer-Schmidt/Pálfy-Pudlák question restricted by size.",
+  "what_would_settle_it": "Publication of the updated DeMeo-Freese-Jipsen manuscript (or an arXiv posting of Tian's note itself, which I could not locate independently on arXiv) incorporating this result, and/or independent expert commentary (e.g., a survey, MathOverflow thread, or citation in a later paper) confirming the verification holds up, would move this from a well-verified but insular GitHub-hosted claim toward a fully digested result.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Finite_lattice_representation_problem",
+      "title": "Finite lattice representation problem",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "http://garden.irmacs.sfu.ca/op/finite_congruence_lattice_problem",
+      "title": "Finite Lattice Representation Problem | Open Problem Garden",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2303.00699",
+      "title": "An open problem on congruences of finite lattices (Grätzer)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/UniversalAlgebra/fin-lat-rep/issues/33",
+      "title": "[M3-1] Add a section on Tian's rep of L7",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/UniversalAlgebra/fin-lat-rep",
+      "title": "UniversalAlgebra/fin-lat-rep: resources for the finite lattice representations project",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/UniversalAlgebra/fin-lat-rep/issues",
+      "title": "Issues · UniversalAlgebra/fin-lat-rep",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/UniversalAlgebra/fin-lat-rep/pull/32",
+      "title": "Check the article's algebras against the lattices it draws (#29)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/UniversalAlgebra/fin-lat-rep-gap",
+      "title": "UniversalAlgebra/fin-lat-rep-gap: GAP programs for the article",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/UniversalAlgebra/fin-lat-rep-gap/pull/2",
+      "title": "fin-lat-rep-gap PR #2 (L10 representability docs and GAP programs)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/UniversalAlgebra/fin-lat-rep-gap/issues/1",
+      "title": "L7 is representable: docs and GAP programs #1",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://patch-diff.githubusercontent.com/raw/UniversalAlgebra/fin-lat-rep-gap/pull/2.diff",
+      "title": "Raw diff for fin-lat-rep-gap PR #2",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/Chenxiao-Tian/",
+      "title": "Chenxiao-Tian (GitHub profile)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.11454",
+      "title": "Accumulation points of congruence densities of finite lattices (Czédli)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.04321",
+      "title": "Lattices with congruence densities larger than 3/32 (Czédli)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1204.4305",
+      "title": "Congruence lattices of finite algebras (DeMeo)",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "finite lattice representation problem congruence lattice finite algebra solved 2024 2025",
+      "Grätzer-Schmidt problem congruence lattices finite algebras 2025",
+      "\"finite lattice\" \"congruence lattice\" open problem arxiv 2025",
+      "\"congruence lattice\" \"seven elements\" finite algebra UACalc GAP",
+      "DeMeo \"finite lattice representation problem\" seven element lattices",
+      "DeMeo \"Representing Finite Lattices as Congruence Lattices of Finite Algebras\" arxiv",
+      "\"fin-lat-rep\" github DeMeo Freese Jipsen \"one possible exception\" seven-element lattice paper submission date",
+      "\"agda-algebras\" FLRP pipeline fin-lat-rep isomorphism test",
+      "\"Chenxiao Tian\" mathematics lattice PSL2(64) OR \"PSL(2,64)\" note 2026",
+      "\"Chenxiao Tian\" arxiv OR preprint mathematics group theory 2026",
+      "\"L10-is-representable\" OR \"exceptional seven-element lattice\" Tian note pdf arxiv download",
+      "\"Chenxiao Tian\" note L10 lattice PSL2(64) AI Claude GPT assisted proof",
+      "\"finite lattice representation problem\" blog Tao OR \"Terence Tao\" OR mathoverflow 2026",
+      "arxiv DeMeo Freese Jipsen \"congruence lattices of finite algebras\" 2024 OR 2025 OR 2026"
+    ],
+    "places_checked": [
+      "Google web search (via WebSearch tool)",
+      "en.wikipedia.org/wiki/Finite_lattice_representation_problem (current live article)",
+      "Open Problem Garden",
+      "arXiv abstract pages and PDF text for candidate papers",
+      "GitHub repositories UniversalAlgebra/fin-lat-rep and UniversalAlgebra/fin-lat-rep-gap: README, issues, pull requests, raw diffs",
+      "GitHub profile of Chenxiao Tian"
+    ],
+    "dead_ends": [
+      "Could not locate Tian's note itself (PDF or arXiv posting) independently of the GitHub repositories that describe and verify it — searches for the author's name plus the group name did not surface a standalone preprint page",
+      "docs/L10-is-representable.md 404s on raw.githubusercontent.com/main, consistent with PR #2 (which adds it) not yet being merged; content was partially recovered via the PR's raw .diff endpoint instead",
+      "fin-lat-rep-gap/issues/1 shows no visible comments beyond the opening post via WebFetch, so any discussion of methodology there (if it exists) was not recoverable",
+      "gh CLI calls were blocked by the sandbox permission system in this run, so GitHub API access relied entirely on WebFetch against github.com HTML and the patch-diff.githubusercontent.com raw-diff endpoint"
+    ]
+  },
+  "incomplete": "I was unable to read Tian's original note directly (only secondary descriptions of it via the GitHub issue and verification PR), and could not retrieve the full comment thread on fin-lat-rep-gap issue #1 or the complete diff of docs/L10-is-representable.md due to tool/rendering limitations (JS-heavy GitHub pages and a blocked gh CLI). I also could not confirm whether Tian's note has since been posted to arXiv. These gaps affect confidence in fine details (e.g., whether Tian's own note discloses any tool use) but not the core classification, since the project's own verification documentation is a primary source for the mathematical claim itself.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": true,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "partial",
+      "to": "open",
+      "why": "F4: the record says the event closes 'the last outstanding case among lattices with at most seven elements'. That means one more explicit lattice has been shown to be representable, which finishes a finite census of a universal statement about all finite lattices. That is scope 'instances', which is discarded. Nothing had resolved the problem before the snapshot, so the status is open."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "resolution_direction",
+      "from": "confirmed",
+      "to": null,
+      "why": "F14: no surviving event, so the status is open and the direction is null."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "none",
+      "to": "none",
+      "why": "F9: the basis quote only shows AI helping build verification tooling (commit credits) and Copilot reviewing code. Neither produced any of the mathematics, so none stands."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "tian-2026",
+        "what": "Tian represents the last unrepresented lattice of at most seven elements (L7/L10) as the subgroup interval [S3, PSL(2,64)]; the DeMeo–Freese–Jipsen project recomputes it in GAP and finds a smaller Sp(6,2) representation",
+        "date": "2026-08-28",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://github.com/UniversalAlgebra/fin-lat-rep/issues/33",
+        "scope": "instances",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": null,
+    "derived": {
+      "status": "open",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [
+      "status",
+      "resolution_direction"
+    ],
+    "doubts": "The result itself looks sound: it is an explicit subgroup interval that GAP recomputed, and a smaller representation was found independently. The downgrade is about scope, not correctness. The bullet makes a universal claim about all finite lattices. Finishing the census of lattices with at most seven elements shows that finitely many specific lattices are representable, the same pattern as the F4 poset census. It is not a structural class or a parameter range proved by argument. Someone could still read 'all lattices with at most 7 elements' as a size-restricted case (the record's competing reading). If a later pass takes that view, the status would be partial/confirmed. The AI involvement was commit-message credits on verification tooling plus Copilot code review, so ai_role none is correct either way.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "judge_problems": []
+}

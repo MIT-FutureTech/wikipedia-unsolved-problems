@@ -1,0 +1,83 @@
+{
+  "key": "goodmans-conjecture",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No mathematical progress on Goodman's conjecture (general p-valent case, or any new special case) has appeared since 26 January 2024; the only in-window activity is a Lean formalization of the conjecture's statement (not a proof) in Google DeepMind's formal-conjectures repository, merged 13 September 2026.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Goodman%27s_conjecture",
+    "https://github.com/google-deepmind/formal-conjectures/issues/3477",
+    "https://github.com/google-deepmind/formal-conjectures/pull/4435"
+  ],
+
+  "event": {
+    "date": "2026-09-13",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://github.com/google-deepmind/formal-conjectures/pull/4435",
+      "https://github.com/google-deepmind/formal-conjectures/issues/3477"
+    ]
+  },
+
+  "credited_humans": ["him1411 (author of PR #4435)", "mo271 (reviewer)"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": true,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": [
+      "https://github.com/google-deepmind/formal-conjectures/pull/4435",
+      "https://github.com/google-deepmind/formal-conjectures/issues/3477"
+    ]
+  },
+
+  "counterexample": null,
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "This bullet (Wikipedia's 'Goodman's conjecture on the coefficients of multivalent functions') asks whether, for p-valent functions f(z) = z + Σ b_n z^n, |b_n| is bounded by a specific linear combination of the moduli of the first p coefficients. It remains open in general as of today. I searched arXiv, Google, and the current Wikipedia article and found nothing that changes the conjecture's status since 26 January 2024: no proof, disproof, new partial case, or moved bound. The only in-window activity found anywhere is a GitHub issue (#3477, opened 8 March 2026) in Google DeepMind's 'formal-conjectures' repository tracking a Lean formalization of the conjecture's *statement*, and the corresponding pull request (#4435), which was authored by a human contributor (him1411), reviewed by a human (mo271), and merged 13 September 2026. I fetched the PR directly: it adds definitions (IsPValent, coeff, goodmanBound) and one proven sanity lemma for the trivial p=1 case (which reduces to the long-known bound |b_n| <= n, not new information), while the conjecture itself is stated with the Lean placeholder `sorry` and explicitly marked 'research open' — i.e., no proof was produced, human or machine. There is no AI system named anywhere in the issue or PR as having produced any part of this formalization; it is ordinary human-authored Lean code contributed to a benchmark/collection repository, so ai_role is 'none' and formalisation_only is true (though even calling it 'formalisation_only' is generous, since only the statement, not a proof, was formalized). The pre-2024 partial results noted in the current Wikipedia article (true for p=2,3 for functions of form P∘φ; true for p-valent typically-real functions) are unchanged and are cited only for context, not as new events. Nothing found meets even the 'partial'/'progress' bar under §3.1, so status is 'open' with no_change_found true.",
+  "competing_reading": "One could argue the DeepMind formalization is itself a small, event-worthy incident (an AI-focused research group choosing this conjecture as a benchmark target), which might argue for 'progress' with ai_role 'none' just to record the activity. But per §3.1 and §6.1, formalizing an open conjecture's statement without proving anything is not a change to what a careful person would write in this bullet's entry, so I classified it as 'open'/no_change_found rather than 'progress'.",
+  "what_would_settle_it": "A preprint or repository commit that actually discharges the `sorry` in FormalConjectures' goodman_conjecture lemma (for any nontrivial p), or a traditional journal paper proving/disproving the general conjecture or a new nontrivial special case (p >= 4, or a broader function class than typically-real/P∘φ), dated after 26 January 2024.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Goodman%27s_conjecture", "title": "Goodman's conjecture - Wikipedia", "type": "encyclopedia", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/issues/3477", "title": "Goodman's conjecture on coefficients of p-valent functions · Issue #3477 · google-deepmind/formal-conjectures", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/pull/4435", "title": "PR #4435 · google-deepmind/formal-conjectures", "type": "repository", "opened": true},
+    {"url": "https://www.tandfonline.com/doi/abs/10.1080/17476939708815021", "title": "Goodman's conjectures on the coefficients of multivalent functions", "type": "journal", "opened": false},
+    {"url": "https://umj.imath.kiev.ua/index.php/umj/article/download/1575/557", "title": "N. L. Sharma, survey on Goodman's conjectures (UDC 517.5)", "type": "journal", "opened": false},
+    {"url": "https://ijnaa.semnan.ac.ir/article_10771.html", "title": "Maximal area integral problem for a family of multivalent functions of starlike type", "type": "journal", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Goodman's conjecture multivalent functions coefficients 2024 2025",
+      "\"Goodman conjecture\" p-valent functions proof disproof",
+      "Goodman conjecture DeepMind formal-conjectures Lean",
+      "\"Goodman's conjecture\" arXiv 2024",
+      "\"Goodman's conjecture\" arXiv 2025",
+      "Goodman conjecture typically real p-valent recent result bound coefficient",
+      "\"p-valent\" coefficient bound conjecture 2024 2025 complex analysis journal new result",
+      "Goodman conjecture multivalent starlike convex 2024 proof partial case"
+    ],
+    "places_checked": [
+      "arXiv (via web search, math.CV listings for 2024/2025)",
+      "Wikipedia article 'Goodman's conjecture' (current version)",
+      "Google DeepMind formal-conjectures GitHub repository (issue #3477 and PR #4435, opened directly)",
+      "General web search for recent complex analysis / p-valent coefficient results"
+    ],
+    "dead_ends": [
+      "arXiv paper 'A colorful Goodman-Pollack-Wenger theorem' — a different, unrelated Goodman (discrete geometry, transversal theorems), not this Goodman's conjecture",
+      "'Automated Conjecture Resolution with Formal Verification' and 'Formal Conjectures: An Open and Evolving Benchmark' arXiv papers — general papers about the formal-conjectures benchmark project; checked they don't single out Goodman's conjecture as solved"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

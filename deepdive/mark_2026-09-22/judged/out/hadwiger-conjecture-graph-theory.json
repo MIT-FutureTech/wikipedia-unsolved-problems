@@ -1,0 +1,282 @@
+{
+  "key": "hadwiger-conjecture-graph-theory",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "Judged: the status rests on Liu and Luo's September 2026 preprint proving chi = O(t log log log t) for K_t-minor-free graphs, the strongest bound in the record; it supersedes Lin's later, weaker AI-assisted O(t sqrt(log log t)) bound. [Judged 2026-09-28; the researcher's original outcome follows.] The general Hadwiger conjecture (every graph with no K_t minor is (t-1)-colorable) remains wide open for t>=7; no case beyond t=6 has been settled. What has moved since 26 January 2024 is the best-known asymptotic upper bound on the chromatic number of K_t-minor-free graphs, a weaker relaxation directly tied to the (still open) Linear Hadwiger Conjecture: Delcourt and Postle's O(t log log t) bound (arXiv v5 posted 2024-03-05, published in JAMS 2025) was subsequently improved to O(t (log log t)^6), then O(t (log log t)^5), then (Liu & Luo, Sept 2026) to O(t log log log t), and (Lin, Sept 2026) to O(t sqrt(log log t)) via a separate line of attack. This last paper, arXiv:2609.08713, discloses that its central proof idea was developed with AI assistance.",
+  "status_sources": [
+    "https://arxiv.org/abs/2108.01633",
+    "https://arxiv.org/pdf/2108.01633",
+    "https://arxiv.org/abs/2609.06867",
+    "https://arxiv.org/html/2609.08713",
+    "https://en.wikipedia.org/wiki/Hadwiger_conjecture_(graph_theory)"
+  ],
+  "event": {
+    "date": "2026-09",
+    "precision": "month",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2609.06867"
+    ]
+  },
+  "credited_humans": [
+    "Liu",
+    "Luo"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "The central proof idea in this manuscript was developed with the assistance of GPT 5.6 Sol and GPT 6 Astra. The author subsequently refined the idea and wrote the manuscript, using the same models to assist with language polishing.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "GPT 5.6 Sol",
+      "GPT 6 Astra"
+    ],
+    "sources": [
+      "https://arxiv.org/html/2609.08713",
+      "https://arxiv.org/html/2609.08713v1"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [],
+  "summary": "The stated Hadwiger conjecture (chromatic number k implies a K_k minor) is untouched since 2024: it is proved only for k<=6 (k=5,6 equivalent to the Four Color Theorem) and k=7 remains out of reach, confirmed by the current Wikipedia article and Seymour's survey. What did move in the window is the asymptotic upper bound on chromatic number for K_t-minor-free graphs, which bears on the Linear Hadwiger Conjecture (a strengthening asking whether the true bound is O(t)) rather than on the base conjecture's exact statement, but the bound itself is the quantity a careful reader would cite when asked 'what is currently known'. The chain runs: Kostochka/Thomason O(t sqrt(log t)) (1984) -> Norine-Postle-Song O(t (log t)^beta) (2019) -> Delcourt-Postle O(t log log t), final arXiv version 2024-03-05, JAMS 2025 -> two branches of further improvement in 2026: Liu & Luo's O(t log log log t) (no AI disclosed) and Lin's O(t sqrt(log log t)) via a 'star contraction' technique (arXiv:2609.08713, posted 2026-09-08), which explicitly discloses that 'the central proof idea in this manuscript was developed with the assistance of GPT 5.6 Sol and GPT 6 Astra,' verified by direct fetch of the paper's HTML render (arxiv.org/html/2609.08713 and the v1-suffixed URL, both returning the identical quote independently) and corroborated by a search-engine snippet quoting the same sentence. This is a genuine authorial claim that an AI system contributed the mathematical core of a bound improvement, not mere language polishing (the paper separately notes the same models were also used for language polishing, which is explicitly excluded from ai_role by the rules and would alone be 'none'). Because the bound-improvement is a single-author, non-digested arXiv preprint, and because it moves a bound on a problem that remains open rather than resolving any case of the stated conjecture, status is 'progress' and ai_role is 'bound'. I could not corroborate the model names 'GPT 5.6 Sol' and 'GPT 6 Astra' against any known OpenAI naming scheme as of my January 2026 knowledge cutoff; they may be codenames for research-preview or post-cutoff releases, or could conceivably be an artifact of how the paper's LaTeX macros render, so I flag this rather than assume it is either genuine or spurious. The odd Hadwiger conjecture disproof (Kuhn, Sauermann, Steiner, Wigderson, Dec 2025) and the dominating/co-claw/co-gem-free/independence-number-2 papers the triage found are all variants or restricted classes per the scope rule in SS3.1, not cases or the conjecture itself, and none disclose AI involvement in their proofs (checked the odd-Hadwiger disproof's abstract page directly; no acknowledgements section was visible).",
+  "competing_reading": "One could argue the O(t log log t)-type bound-chasing is a 'related problem' (Linear Hadwiger Conjecture, a strengthening with different hypotheses/goal: O(t) vs the general (t-1)-coloring statement) rather than the stated bullet, in which case status should revert to 'open' with no_change_found true, since nothing about the base conjecture (does chromatic number k force a K_k minor) has moved at all — it is exactly as open as in January 2024. Under that reading the AI-assisted bound paper would be beside the question entirely, the same way the odd-Hadwiger and restricted-class results are. I chose to treat the asymptotic-bound literature as within scope because Wikipedia's own article on this conjecture (and most treatments of 'progress on Hadwiger's conjecture') report exactly these O(t log log t)-type results as the state of the art, and because the bound is a direct, unconditional consequence of assuming the linear conjecture is false — i.e. it *is* what is currently provable about the general statement's chromatic-number consequence, not an unrelated variant with different hypotheses. But this is a genuine judgment call given SS3.1's warning that a conjecture 'with different hypotheses' is out of scope.",
+  "what_would_settle_it": "Whether Linear Hadwiger's Conjecture (or the O(t log log t)-family bounds derived toward it) is treated by domain experts as part of 'Hadwiger's conjecture' itself or as a distinct related problem would settle the scope question; a survey or the Wikipedia article's own framing of these results (which it does report under the conjecture's own page) is suggestive but not decisive. For the AI question, an independent digestion of arXiv:2609.08713 (peer review, or a well-known expert's blog commenting on it) would confirm whether the disclosed AI assistance is being taken seriously by the community, and clarify what 'GPT 5.6 Sol' and 'GPT 6 Astra' actually refer to.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Hadwiger_conjecture_(graph_theory)",
+      "title": "Hadwiger conjecture (graph theory)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2108.01633",
+      "title": "Reducing Linear Hadwiger's Conjecture to Coloring Small Graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2108.01633",
+      "title": "Reducing Linear Hadwiger's Conjecture to Coloring Small Graphs (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.06867",
+      "title": "Beyond halfway to Hadwiger's conjecture, again",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.08713",
+      "title": "Coloring Small K_t-Minor-Free Graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.08713v1",
+      "title": "Coloring Small K_t-Minor-Free Graphs (v1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.08713",
+      "title": "Coloring Small K_t-Minor-Free Graphs (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.08713",
+      "title": "Coloring Small K_t-Minor-Free Graphs (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.21222",
+      "title": "An O(t log t) Bound for k-Connected Subgraphs in Dense K_t-Minor-Free Graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.20392",
+      "title": "Disproof of the Odd Hadwiger Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2512.20392",
+      "title": "Disproof of the Odd Hadwiger Conjecture (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2512.17114",
+      "title": "Verifying Hadwiger's Conjecture for Examples of Graphs with alpha(G)=2",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/html/2510.12567v1",
+      "title": "Dominating Hadwiger's Conjecture holds for all 2K2-free graphs",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Hadwiger conjecture graph theory proof 2024 2025 2026",
+      "\"Hadwiger's conjecture\" arXiv 2025 progress clique minor",
+      "Hadwiger conjecture Wikipedia current status disproved",
+      "Postle \"log log\" bound K_t minor free chromatic number 2024 2025 improved",
+      "\"O(t(log log t)\" Hadwiger minor free chromatic bound 2024 arXiv improvement Postle",
+      "Xinheng Lin \"Coloring Small K_t-Minor-Free Graphs\" GPT Fuzhou",
+      "\"2609.08713\" Hadwiger arXiv"
+    ],
+    "places_checked": [
+      "current Wikipedia article en.wikipedia.org/wiki/Hadwiger_conjecture_(graph_theory)",
+      "arXiv listings/search for Hadwiger's conjecture 2024-2026",
+      "arXiv abstract and HTML-rendered full text for arXiv:2609.08713 (two independent fetches)",
+      "arXiv abstract for arXiv:2108.01633 (Delcourt-Postle) and its version history",
+      "arXiv abstract for arXiv:2609.06867 (Liu-Luo) and arXiv:2607.21222 (Lin, different paper)",
+      "arXiv abstract/PDF for arXiv:2512.20392 (odd Hadwiger disproof)"
+    ],
+    "dead_ends": [
+      "PDF fetches of 2108.01633 and 2609.08713 via WebFetch failed to parse binary/FlateDecode PDF content; used HTML-rendered arXiv pages instead, which succeeded",
+      "TheoremDB and MathWorld pages surfaced in search but were not needed once the Wikipedia article and primary arXiv sources gave a clear picture"
+    ]
+  },
+  "incomplete": "I could not independently confirm 'GPT 5.6 Sol' / 'GPT 6 Astra' as real, named OpenAI systems against any list current to my January 2026 knowledge cutoff; I corroborated the quote itself via two independent HTML fetches and a search snippet but could not access the raw arXiv HTML via direct curl (sandboxed, required approval I did not have) as a third independent channel, so I am relying entirely on the WebFetch tool's rendering, which carries some residual risk of a parsing artifact despite two consistent reproductions.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": true,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass",
+      "field": "ai_role",
+      "from": "bound",
+      "to": "assisted",
+      "why": "`bound` is retired as an AI role at the reviewer's direction: it named the kind of result, a moved bound, which `status: progress` already records, rather than what the AI did, so it conflated the two axes. Recoded by the 6.2 test of what the model produced. The author's own statement is 'The central proof idea in this manuscript was developed with the assistance of GPT 5.6 Sol and GPT 6 Astra. The author subsequently refined the idea and wrote the manuscript.' Human-led, with the models contributing to the central idea: `assisted`. `generated` would need the model to have produced the argument and the human only to have checked it, which 'developed with the assistance of' does not say."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "event",
+      "from": "Lin preprint arXiv:2609.08713, 2026-09-08",
+      "to": "Liu-Luo preprint arXiv:2609.06867, 2026-09",
+      "why": "F8: the record's outcome lists Liu & Luo's O(t log log log t) and Lin's O(t sqrt(log log t)). log log log t is asymptotically smaller than sqrt(log log t), and Liu-Luo's arXiv number is earlier, so Liu-Luo is the furthest bound and Lin's never set a record."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "credited_humans",
+      "from": [
+        "Xinheng Lin"
+      ],
+      "to": [
+        "Liu",
+        "Luo"
+      ],
+      "why": "F8: follows the status event. The record gives only surnames for Liu and Luo."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "none",
+      "why": "F8: the AI disclosure belongs to Lin's superseded bound. The record says Liu-Luo has 'no AI disclosed'. The basis_quote stays in place as evidence about Lin's paper. If Lin's result turns out to bound a different quantity, this should revert to assisted under step 4."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "delcourt-postle-2021",
+        "what": "Delcourt and Postle prove chi = O(t log log t) for K_t-minor-free graphs",
+        "date": "2021-08",
+        "precision": "month",
+        "after_snapshot": false,
+        "source": "https://arxiv.org/abs/2108.01633",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "liu-luo-2026",
+        "what": "Liu and Luo improve the bound to chi = O(t log log log t) for K_t-minor-free graphs",
+        "date": "2026-09",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.06867",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "lin-2026",
+        "what": "Lin proves chi = O(t sqrt(log log t)) for K_t-minor-free graphs via star contraction, with disclosed AI assistance on the central idea",
+        "date": "2026-09-08",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.08713",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "The central proof idea in this manuscript was developed with the assistance of GPT 5.6 Sol and GPT 6 Astra.",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "odd-hadwiger-disproof-2025",
+        "what": "Disproof of the Odd Hadwiger Conjecture",
+        "date": "2025-12",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2512.20392",
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "liu-luo-2026",
+    "derived": {
+      "status": "progress",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [
+      "ai_role",
+      "event",
+      "credited_humans"
+    ],
+    "doubts": "Status progress is kept: the upper bound on chi for K_t-minor-free graphs is the quantity the bullet's conjecture (chi <= t-1) bounds, so moving it is `bound`. The status event changes: by the record's own figures Liu-Luo's O(t log log log t) (arXiv 2609.06867, posted before Lin's 2609.08713) is asymptotically stronger than Lin's O(t sqrt(log log t)), since log log log t = o(sqrt(log log t)). Lin's AI-assisted bound therefore never held the record and is superseded (step 3). If Lin's paper actually bounds a different quantity (its title, 'Coloring Small K_t-Minor-Free Graphs', suggests it may target the small-graph colouring step of the Delcourt-Postle reduction), step 4 would apply and ai_role would revert to assisted; the record does not say this, so I judge on what it says. Liu-Luo's exact posting day is not in the record.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "judge_problems": []
+}

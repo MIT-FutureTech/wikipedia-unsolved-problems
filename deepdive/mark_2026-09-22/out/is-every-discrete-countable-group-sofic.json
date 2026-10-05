@@ -1,0 +1,109 @@
+{
+  "key": "is-every-discrete-countable-group-sofic",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "On 1 August 2026, OpenAI announced that its then-unreleased model 'Astra' produced an explicit construction of a non-sofic countable discrete group, together with a machine-checked Lean 4 formalization (reported 'sorry' count of zero), disproving the soficity conjecture (Gromov 1999 / Weiss 2000). The construction has been read informally by several group theorists who find it credible, but as of late September 2026 it has not been digested by a refereed journal process, and it is under active dispute over whether key ideas were taken from mathematicians' private, unpublished conversations with OpenAI's chatbots, and over inadequate citation of prior work (Thom-Kun 2019 expander-decomposition results). OpenAI revised its announcement's language after these objections but has not withdrawn the result.",
+  "status_sources": [
+    "https://openai.com/index/ten-advances-in-mathematics/",
+    "https://en.wikipedia.org/wiki/Sofic_group",
+    "https://pondero.ai/news/2026-08-02-openai-astra-math-proofs/",
+    "https://officechai.com/ai/mathematician-andreas-thom-questions-if-openai-used-his-chatgpt-chat-data-for-its-non-sofic-groups-proof/"
+  ],
+
+  "event": {
+    "date": "2026-08-01",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://openai.com/index/ten-advances-in-mathematics/",
+      "https://pondero.ai/news/2026-08-02-openai-astra-math-proofs/"
+    ]
+  },
+
+  "credited_humans": ["Mark Sellke", "Sébastien Bubeck"],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "the mathematical arguments 'originated with Astra' but ... 'OpenAI researchers then worked with the model to formalize them into publishable manuscripts' ... 'The precise division between what Astra contributed and what the research team contributed is not spelled out in the announcement.'",
+    "formalisation_only": false,
+    "disclosed_cost": "Total compute for all ten proofs reportedly cost approximately $2,000 at GPT-5.6 (Sol) API prices, according to OpenAI researcher Noam Brown, though this figure was described as deliberately conservative.",
+    "systems": ["Astra"],
+    "sources": [
+      "https://openai.com/index/ten-advances-in-mathematics/",
+      "https://pondero.ai/news/2026-08-02-openai-astra-math-proofs/",
+      "https://www.techtimes.com/articles/322710/20260802/openais-astra-solves-ten-decade-old-math-problems-machine-checkable-lean-proofs.htm"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "An explicit finitely generated countable discrete group constructed by Astra that is not sofic (a subgroup of a unit group of a group algebra over a free group, per secondary summaries), refuting the conjecture that every countable discrete group is sofic.",
+    "explicit": true,
+    "verified_how": "Machine-checked in Lean 4, with a reported zero 'sorry' count across all ten formalized results in OpenAI's published repository; informally read by several group theorists (Henry Bradford, Michael Chapman, Alon Dogon, Francesco Fournier-Facio) who have not disputed the mathematical validity, though its provenance and citation of prior work are disputed.",
+    "sources": [
+      "https://openai.com/index/ten-advances-in-mathematics/",
+      "https://pondero.ai/news/2026-08-02-openai-astra-math-proofs/",
+      "https://en.wikipedia.org/wiki/Sofic_group"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Andreas Thom (TU Dresden) publicly accused OpenAI in September 2026 of having derived key proof ideas from his and Gábor Kun's private, unpublished ChatGPT conversations about the 'extended/expander matching problem' relevant to soficity. OpenAI researcher Mark Sellke denied this ('that did not happen'), but Thom argued the denial addressed only direct access during proof-solving, not whether the conversations shaped training data; OpenAI has separately acknowledged (in a related dispute, Buckmaster/Alpöge) that it 'cannot rule out that de-identified data derived from usage of our products' influenced its models, a caveat not offered to Thom. A parallel attribution dispute arose over the announcement's insufficient citation of a 2019 Thom-Kun expander-decomposition paper and other prior literature (raised also by Francesco Fournier-Facio and Steven Miller); OpenAI revised its blog post's language (softening a claim that the problems had seen 'no progress for at least a decade') after correspondence, without withdrawing the mathematical result.",
+      "sources": [
+        "https://officechai.com/ai/mathematician-andreas-thom-questions-if-openai-used-his-chatgpt-chat-data-for-its-non-sofic-groups-proof/",
+        "https://hyper.ai/en/stories/2018557338526c61e583d6093a0c2e99",
+        "https://www.kucoin.com/news/flash/mathematician-accuses-openai-of-stealing-20-year-research-on-non-sofic-groups"
+      ]
+    }
+  ],
+
+  "summary": "The triage record is essentially correct: OpenAI's unreleased 'Astra' model, announced 1 August 2026, is credited with the first explicit construction of a non-sofic countable discrete group, directly refuting the conjecture (attributed to Gromov 1999 / Weiss 2000) that every countable discrete group is sofic — exactly the problem stated in this bullet, not a variant or restricted case. The proof ships as a Lean 4 formalization with a reported 'sorry' count of zero, and OpenAI's own account (echoed by tech press such as Pondero and TechTimes) states the mathematical arguments 'originated with Astra,' with OpenAI researchers (credited: Mark Sellke, Sébastien Bubeck) then working with the model to prepare the manuscript — meeting the bar for ai_role 'generated' since the authors' own account credits the model with producing the mathematics, not merely checking or formalizing human-derived arguments. However, I classify status as 'claimed' rather than 'resolved': although several named group theorists (Bradford, Chapman, Dogon, Fournier-Facio) have informally read the non-sofic-groups chapter without disputing its mathematical soundness, there is no report of a completed refereed-journal digestion, and — more importantly — the result is under live, unresolved dispute as of September 2026: Andreas Thom's accusation (published 9 September 2026) that the construction may have drawn on his and Gábor Kun's private, unpublished research shared in ChatGPT conversations, and a separate, partially-resolved dispute over inadequate citation of 2016/2019 prior work that led OpenAI to revise (but not retract) its announcement. A machine-checked Lean certificate with a clean compile is strong evidence the construction is internally consistent, but per the task's own rule a clean check is evidence about the Lean kernel, not a substitute for settled expert and provenance review, especially while a live priority dispute is unresolved. The Wikipedia sofic-group article itself now documents the announcement alongside these very originality concerns, which supports treating the matter as claimed-but-contested rather than fully settled. Two items surfaced by triage are not evidence for this event: arXiv:2511.06586 ('Surjunctivity does not characterize cosoficity of invariant random subgroups', Bowen-Chapman, submitted 10 Nov 2025) is a related-but-distinct problem about invariant random subgroups, predates the Astra announcement, and does not bear on the base conjecture; it is a related problem, not a case of this one. arXiv:2608.02025 (Fournier-Facio, 'A torsion-free non-sofic group', posted early August 2026) is a human-authored follow-up strengthening Astra's result to a torsion-free, finitely presented example — itself a case/refinement of the same now-refuted conjecture, credited entirely to a human author with no AI role claimed in that paper's acknowledgements, and thus not itself an AI-involvement event, though it corroborates that the base result is being built upon by human mathematicians rather than dismissed. The GitHub google-deepmind/formal-conjectures issue #2153 is merely a tracking issue inviting someone to formalize this specific conjecture in Mathlib (rated formalization difficulty 3.5/5, marked 'up for grabs') and as of inspection contains no completed Lean proof — it documents that a from-scratch independent Mathlib formalization has not happened, distinct from OpenAI's own separately-published Lean repository.",
+  "competing_reading": "One could argue for 'resolved' on the grounds that a Lean proof with zero 'sorry's is, per the task's own guidance, sometimes 'directly checkable by ... computer algebra' and that several named experts have read the chapter without objection to its mathematical content — the objections raised so far are about provenance/citation, not correctness. Under that reading the status would be 'resolved' with an ai_role note about the ongoing dispute recorded only in `disputes`. I did not adopt this reading because (a) 'reviewed informally by mathematicians who saw preprints' explicitly falls short of the 'resolved' bar's requirement of a digestion that works through the proof or acceptance by a journal of record, and (b) the live, unresolved priority dispute over the proof's origin bears on whether the published construction is what it claims to be, which is close enough to correctness-adjacent that treating it as fully settled seems premature.",
+  "what_would_settle_it": "A refereed journal acceptance or a detailed public expert digestion (e.g., a Terence Tao-style blog walkthrough or a Bourbaki-seminar-style writeup) of the non-sofic group construction that treats it as correct and original; alternatively, resolution of the Thom dispute (either an independent finding that no private research was used, or a correction/retraction) would remove the main cloud over 'resolved' status.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://openai.com/index/ten-advances-in-mathematics/", "title": "Ten advances in mathematics and theoretical computer science", "type": "press_release", "opened": false},
+    {"url": "https://en.wikipedia.org/wiki/Sofic_group", "title": "Sofic group", "type": "encyclopedia", "opened": true},
+    {"url": "https://pondero.ai/news/2026-08-02-openai-astra-math-proofs/", "title": "OpenAI reveals Astra through ten machine-verified open-problem proofs, headlined by first non-sofic group construction in 27 years", "type": "news", "opened": true},
+    {"url": "https://www.techtimes.com/articles/322710/20260802/openais-astra-solves-ten-decade-old-math-problems-machine-checkable-lean-proofs.htm", "title": "OpenAI's Astra Solves Ten Decade-Old Math Problems With Machine-Checkable Lean Proofs", "type": "news", "opened": false},
+    {"url": "https://officechai.com/ai/mathematician-andreas-thom-questions-if-openai-used-his-chatgpt-chat-data-for-its-non-sofic-groups-proof/", "title": "Mathematician Andreas Thom Questions If OpenAI Used His ChatGPT Chat Data For Its Non-Sofic Groups Proof", "type": "news", "opened": true},
+    {"url": "https://hyper.ai/en/stories/2018557338526c61e583d6093a0c2e99", "title": "OpenAI Researchers Solve Non-Sofic Groups Problem, Sparking Academic Debate", "type": "news", "opened": true},
+    {"url": "https://www.kucoin.com/news/flash/mathematician-accuses-openai-of-stealing-20-year-research-on-non-sofic-groups", "title": "Mathematician Accuses OpenAI of Stealing 20 Years of Research on Non-Sofic Groups", "type": "news", "opened": false},
+    {"url": "https://arxiv.org/abs/2511.06586v1", "title": "Surjunctivity does not characterize cosoficity of invariant random subgroups", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.02025v1", "title": "A torsion-free non-sofic group", "type": "preprint", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/issues/2153", "title": "Sofic Group Conjecture: Is every discrete, countable group sofic?", "type": "repository", "opened": true},
+    {"url": "https://www.nature.com/articles/d41586-026-02910-w", "title": "Who gets credit in the AI era? OpenAI maths bombshell sparks debate", "type": "news", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "non-sofic group Astra OpenAI Lean proof",
+      "sofic group conjecture disproved 2026",
+      "OpenAI Astra non-sofic group priority dispute unpublished research chatbot",
+      "OpenAI Astra \"non-sofic\" proof Lean quote \"the model\" produced construction",
+      "Astra non-sofic group result withdrawn retracted OR confirmed valid mathematicians September 2026"
+    ],
+    "places_checked": [
+      "Wikipedia 'Sofic group' live article",
+      "OpenAI's official announcement page (index/ten-advances-in-mathematics)",
+      "arXiv preprints 2511.06586 and 2608.02025 (opened directly)",
+      "GitHub google-deepmind/formal-conjectures issue #2153",
+      "General web search / tech press (Pondero, TechTimes, officechai, hyper.ai, KuCoin, Nature news)"
+    ],
+    "dead_ends": [
+      "https://openai.com/index/ten-advances-in-mathematics/ returned HTTP 403 to WebFetch directly; content recovered via search snippets and secondary reporting (Pondero, TechTimes) instead",
+      "https://www.nature.com/articles/d41586-026-02910-w redirected to a Nature login/paywall page and could not be read directly; relied on search-snippet summary and other secondary sources for the credit-dispute narrative",
+      "https://github.com/google-deepmind/formal-conjectures/issues/2153 initially returned 403 on direct WebFetch but a retry via WebFetch succeeded, confirming it is only a tracking/formalization-request issue with no completed proof"
+    ]
+  },
+
+  "incomplete": "I could not directly read OpenAI's own announcement page or the Nature news article (both blocked from direct fetch); their content is reconstructed from multiple independent secondary/press sources that quote or paraphrase them, which is a slightly weaker basis than reading the primary source directly. I also could not locate the original 249-page Astra manuscript itself to check its exact wording on authorship/provenance, relying instead on press paraphrase of it.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

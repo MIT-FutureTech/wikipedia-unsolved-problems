@@ -1,0 +1,116 @@
+{
+  "key": "pompeiu-problem",
+
+  "status": "resolved",
+  "no_change_found": false,
+  "outcome": "Two independent groups constructed noncircular planar domains that fail the Pompeiu property (and disprove the closely tied Schiffer conjecture in the plane): Colbrook & Stepaniants (arXiv:2608.01579, submitted 2026-08-03) via a rigorous computer-assisted (interval-arithmetic) construction, and Cao-Labora & de Dios Pont (arXiv:2608.05114, submitted 2026-08-05) via an independent bifurcation-theory argument yielding infinitely many such domains, machine-checked in Lean 4. The result refutes the classical planar Pompeiu conjecture as stated on the frozen Wikipedia revision.",
+  "status_sources": [
+    "https://arxiv.org/abs/2608.01579",
+    "https://arxiv.org/abs/2608.05114",
+    "https://github.com/jaumededios/Schiffer",
+    "https://www.math.princeton.edu/events/shortcake-counterexample-planar-pompeiu-and-schiffer-conjectures-2026-09-16t160000",
+    "https://en.wikipedia.org/wiki/Pompeiu_problem"
+  ],
+
+  "event": {
+    "date": "2026-08-03",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2608.01579"]
+  },
+
+  "credited_humans": [
+    "Matthew J. Colbrook",
+    "George Stepaniants",
+    "Gonzalo Cao-Labora",
+    "Jaume de Dios Pont"
+  ],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "Public entry points listed in the jaumededios/Schiffer README include a 'Machine-generated readable informalization of the Lean proof.'",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": [
+      "https://github.com/jaumededios/Schiffer",
+      "https://arxiv.org/abs/2608.01579",
+      "https://arxiv.org/html/2608.05114v1"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "A bounded, simply connected, noncircular domain with real-analytic (Jordan) boundary on which a Neumann eigenfunction is constant on the boundary, and (independently) an infinite family of N-fold symmetric non-disk planar domains from a bifurcation-theory construction; both fail the Pompeiu property and refute Schiffer's conjecture in the plane.",
+    "explicit": true,
+    "verified_how": "Colbrook & Stepaniants: rigorous computer-assisted proof using interval enclosures, a frozen numerical verifier, and a certificate checker (artifact on Zenodo, https://zenodo.org/records/21765287) establishing an exact zero of a cubic operator equation via positivity/monotonicity bounds — not machine-learning based. Cao-Labora & de Dios Pont: bifurcation-theory argument formalized and machine-checked in Lean 4 (https://github.com/jaumededios/Schiffer), stated to use no numerics.",
+    "sources": [
+      "https://arxiv.org/abs/2608.01579",
+      "https://zenodo.org/records/21765287",
+      "https://arxiv.org/html/2608.05114v1",
+      "https://github.com/jaumededios/Schiffer"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Two independent groups produced counterexamples within two days of each other (2026-08-03 and 2026-08-05); Colbrook & Stepaniants's preprint appeared first, but Cao-Labora & de Dios Pont describe theirs as an independent construction with a machine-checked (Lean 4) certificate, and produce infinitely many examples rather than a single one. Neither paper's abstract claims priority over the other, but both circulated on arXiv within the same week, so the historical record of who solved it 'first' may still be contested by the community.",
+      "sources": ["https://arxiv.org/abs/2608.01579", "https://arxiv.org/abs/2608.05114"]
+    }
+  ],
+
+  "summary": "As of the frozen January 2024 revision, the Pompeiu problem asked whether the disk is the only bounded simply connected (Lipschitz) domain for which some nonzero function's integral vanishes over every rigid-motion copy. This has since been refuted. On 2026-08-03, Colbrook & Stepaniants (arXiv:2608.01579) posted a rigorous computer-assisted construction of a noncircular real-analytic domain that is a counterexample to both the Schiffer conjecture and (via Green's identity, as stated in the paper) the classical planar Pompeiu conjecture; their verification uses interval arithmetic, positivity of linearization coefficients, and a frozen numerical certificate checker (Zenodo artifact, https://zenodo.org/records/21765287) — this is computer-assisted numerical analysis, not an AI/ML system, and I found no mention of any language model anywhere in the paper, abstract, or Zenodo record. Two days later, Cao-Labora & de Dios Pont (arXiv:2608.05114, 2026-08-05) posted an independent construction using bifurcation theory, producing infinitely many N-fold-symmetric non-disk counterexamples for large N; their construction was formalized and machine-checked in Lean 4 (github.com/jaumededios/Schiffer), which the repository states 'does not rely in any numerics.' I directly fetched the arXiv HTML of both papers and the GitHub README and found no acknowledgement, author statement, or acknowledgements section crediting GPT, Claude, or any other AI system with producing any part of the mathematics; a general WebSearch summary asserted that 'GPT-5.6 and Claude models' were used for numerical checks, proof drafts, and writing the Lean 4 verification, but I could not substantiate this claim against any primary source (the paper itself, its HTML, the GitHub repo, or the Zenodo record) — I treat this as an unverified/likely fabricated search synthesis and do not code it as AI involvement. The only confirmed AI-adjacent element is a 'machine-generated readable informalization of the Lean proof' listed as a public entry point in the GitHub README — this is a post-hoc exposition/readability aid describing an already-completed proof, not mathematics produced by an AI system, so it does not meet the bar for `assisted` (§6.2: formalising or explaining human-produced mathematics is `none`, and there is no authors' first-person quote crediting a model for the mathematics itself as required by §6.2). The current Wikipedia article (en.wikipedia.org/wiki/Pompeiu_problem) confirms both results and additionally cites a 'Google DeepMind, Formal Conjectures: Pompeiu Problem' reference; I confirmed the underlying reality — the DeepMind google-deepmind/formal-conjectures Lean repository contains a formalized *statement* of the Pompeiu/Schiffer problem which the Cao-Labora/de Dios Pont Lean proof is checked against — but this is DeepMind's benchmark formalizing the conjecture's statement for automated-proving benchmarks, not DeepMind or any AI system producing the resolving mathematics. A Princeton math department seminar was given by George Stepaniants on 2026-09-16 titled 'A Shortcake Counterexample to the Planar Pompeiu and Schiffer Conjectures,' which is solid evidence of expert engagement with (though not yet full digestion/consensus acceptance of) the result, consistent with `resolved` given the double independent construction, the rigorous computer-assisted certificate, and the machine-checked formal proof.",
+  "competing_reading": "One could argue for `claimed` rather than `resolved`, since neither paper has yet been through peer review or a full public expert digestion (e.g., no Tao blog post or comparable close reading was found), and the field is only about seven weeks old as of this research (2026-09-22). However, the combination of (a) two independent constructions using different methods reaching the same conclusion, (b) a machine-checked Lean 4 certificate for one of them, and (c) an invited seminar talk on the result at a major math department, together meet the `resolved` bar of 'directly checkable by hand or computer algebra' / expert engagement described in §6.1, even absent a journal publication.",
+  "what_would_settle_it": "A peer-reviewed publication, a Terence-Tao-style public digestion of either proof, or confirmation/refutation from the broader spectral-geometry community would settle the `resolved` vs `claimed` classification more firmly. Independently obtaining and reading the authors' actual acknowledgements sections (which I could not fully access in the arXiv HTML rendering for the Colbrook-Stepaniants paper) would help settle definitively whether any AI system was credited.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2608.01579", "title": "A computer-assisted counterexample to the planar Pompeiu and Schiffer conjectures", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.01579v1", "title": "A computer-assisted counterexample to the planar Pompeiu and Schiffer conjectures (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.05114", "title": "Counterexamples to Schiffer's Conjecture", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.05114v1", "title": "Counterexamples to Schiffer's Conjecture (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://github.com/jaumededios/Schiffer", "title": "Lean formalization and informal proof of a planar Schiffer counterexample", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/21765317", "title": "A computer-assisted counterexample to the planar Pompeiu and Schiffer conjectures (Zenodo)", "type": "repository", "opened": false},
+    {"url": "https://zenodo.org/records/21765287", "title": "Pompeiu-Schiffer validation certificate v1.0.0", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Pompeiu_problem", "title": "Pompeiu problem", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.math.princeton.edu/events/shortcake-counterexample-planar-pompeiu-and-schiffer-conjectures-2026-09-16t160000", "title": "A Shortcake Counterexample to the Planar Pompeiu and Schiffer Conjectures", "type": "news", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures", "title": "formal-conjectures: A collection of formalized statements of conjectures in Lean", "type": "repository", "opened": false},
+    {"url": "https://arxiv.org/pdf/2405.11700", "title": "On Pompeiu's-Schiffer's Conjectures from Shape Optimization", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/html/2608.08953", "title": "A computer-assisted counterexample to the planar Berenstein conjecture", "type": "preprint", "opened": false},
+    {"url": "https://jaume.dedios.cat/", "title": "Jaume de Dios Pont — personal site", "type": "blog", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Colbrook Stepaniants Pompeiu Schiffer conjecture counterexample computer-assisted",
+      "Cao-Labora de Dios Pont Pompeiu Schiffer Lean 4 counterexample GPT Claude",
+      "Terence Tao Pompeiu Schiffer conjecture counterexample blog 2026",
+      "\"jaumededios/Schiffer\" OR \"Cao-Labora\" \"de Dios Pont\" GPT-5.6 Claude acknowledgements Lean",
+      "\"Formal Conjectures\" DeepMind Pompeiu Schiffer Lean archive",
+      "\"formal-conjectures\" \"Pompeiu.lean\" OR \"Schiffer.lean\" github raw",
+      "google-deepmind formal-conjectures Pompeiu Schiffer github file"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML full text for 2608.01579 and 2608.05114",
+      "GitHub repository jaumededios/Schiffer (README)",
+      "Zenodo records 21765317, 21765287",
+      "current (live) Wikipedia article Pompeiu_problem, including its reference list",
+      "Princeton Math department seminar listing",
+      "Jaume de Dios Pont's personal website",
+      "google-deepmind/formal-conjectures repository (via search, not direct file fetch — GitHub code search required authentication and raw file paths I guessed returned 404)"
+    ],
+    "dead_ends": [
+      "Could not locate or fetch the specific .lean file path within google-deepmind/formal-conjectures corresponding to the Pompeiu/Schiffer statement (GitHub code search requires sign-in; guessed raw paths returned 404); relied on secondary confirmation via the jaumededios/Schiffer README and Wikipedia's citation instead.",
+      "Could not access GitHub API search (sandboxed curl request required approval that was not grantable in this pass).",
+      "arXiv/PDF fetch of 2405.11700 returned raw binary that could not be parsed for content; left as an unopened, unread source since it predates the resolution and appears to be a partial/shape-optimization approach rather than the resolving event.",
+      "Could not verify the WebSearch-reported claim that Cao-Labora & de Dios Pont's authors' account credits 'GPT-5.6 and Claude models' for numerical checks, proof drafts, and writing the Lean 4 verification — this did not appear in any primary source I fetched directly (paper HTML, GitHub README, Zenodo record), so it was not adopted."
+    ]
+  },
+
+  "incomplete": "I was unable to directly view the acknowledgements section of the Colbrook-Stepaniants paper (arXiv:2608.01579) if one exists outside the abstract/methodology text that WebFetch returned, and could not directly browse the google-deepmind/formal-conjectures repository's file tree due to GitHub search requiring authentication. Neither gap changes the status/ai_role conclusions, since no primary source found credits an AI system with producing the resolving mathematics, but a fuller read of those two sources could in principle surface additional detail.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

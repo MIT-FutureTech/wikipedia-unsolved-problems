@@ -1,0 +1,381 @@
+{
+  "key": "kissing-number-problem",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "Since 26 January 2024 the lower bounds on the kissing number have been improved in numerous dimensions outside {1,2,3,4,8,24} (10, 11, 12, 13, 14, 17-21, 25-31, 32-34, 37), by a mix of purely human constructions and AI-assisted searches; the problem itself (determining the exact kissing number in each such dimension) remains open in every one of these dimensions, so this is a cluster of bound-moving/partial-style events rather than a resolution.",
+  "status_sources": [
+    "https://arxiv.org/abs/2411.04916",
+    "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+    "https://arxiv.org/abs/2511.02864",
+    "https://www.aalto.fi/en/news/researcher-cracks-new-kissing-number-bounds-besting-ai-in-the-process",
+    "https://arxiv.org/abs/2511.13391",
+    "https://arxiv.org/abs/2609.21591",
+    "https://arxiv.org/abs/2606.18984",
+    "https://arxiv.org/abs/2609.09179",
+    "https://arxiv.org/abs/2603.10425",
+    "https://arxiv.org/abs/2608.13906"
+  ],
+  "event": {
+    "date": "2025-05",
+    "precision": "month",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+      "https://arxiv.org/abs/2511.02864"
+    ]
+  },
+  "credited_humans": [
+    "Henry Cohn",
+    "Anqi Li",
+    "Mikhail Ganzhinov",
+    "Patric Östergård",
+    "Terence Tao",
+    "Bogdan Georgiev",
+    "Javier Gómez-Serrano",
+    "Adam Zsolt Wagner",
+    "Rustem Takhanov",
+    "Stanislav Yun",
+    "Zhenisbek Assylbekov",
+    "Boon Suan Ho",
+    "William Echols",
+    "Chengdong Ma",
+    "Théo Tao Zhaowei",
+    "Pengyu Li",
+    "Minghao Liu",
+    "Haojun Chen",
+    "Zihao Mao",
+    "Bo Li",
+    "Yuan Cheng",
+    "Yuan Qi",
+    "Yaodong Yang"
+  ],
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "AlphaEvolve was able to improve on the lower bound for C(11), raising it from 592 to 593. ... we tasked AlphaEvolve to generate a fixed number of vectors, and we placed unit spheres in those directions at distance 2 from the origin.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "AlphaEvolve",
+      "PackingStar"
+    ],
+    "sources": [
+      "https://arxiv.org/abs/2511.02864",
+      "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+      "https://arxiv.org/abs/2511.13391",
+      "https://arxiv.org/abs/2609.21591"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "In dimension 11, AlphaEvolve's 593-point configuration (May 2025, reported in Tao et al., Nov 2025) currently exceeds Ganzhinov's independently, human-derived 592-point configuration (reported Oct 2025, from his doctoral thesis exploiting high symmetry). Aalto's press coverage explicitly frames this as 'human bests AI' in dimensions 10 and 14, while conceding AI still leads in dimension 11 as of the coverage date, with Ganzhinov's advisor suggesting the position could still change.",
+      "sources": [
+        "https://www.aalto.fi/en/news/researcher-cracks-new-kissing-number-bounds-besting-ai-in-the-process",
+        "https://arxiv.org/abs/2511.02864"
+      ]
+    }
+  ],
+  "summary": "The Wikipedia bullet covers the kissing number problem for every dimension other than 1, 2, 3, 4, 8 and 24, where the exact value is known. Since the 26 January 2024 snapshot, the best known lower bound has been improved in a substantial cluster of these dimensions by independent groups using a mix of pure mathematics and AI/RL search, but in no case has the exact kissing number been determined in a previously-unknown dimension, so the problem as a whole remains open and the correct status is 'progress' (a bound moved in many places) rather than 'resolved' or even 'partial' (no dimension's exact value was pinned down). Concretely: (1) Cohn and Li (arXiv:2411.04916, first posted 7 Nov 2024, still being revised as late as Sept 2026) improved lower bounds in dimensions 17-21 using a purely mathematical modification of Leech-lattice-derived sign patterns; no AI is mentioned. (2) Google DeepMind's AlphaEvolve, described by its own paper (Tao, Georgiev, Gómez-Serrano and Wagner, 'Mathematical exploration and discovery at scale', arXiv:2511.02864, posted Nov 2025) and DeepMind's own blog post (May 2025), generated a 593-point configuration in 11 dimensions, improving the bound from 592 to 593; the authors' own account is that AlphaEvolve 'generated' the vectors and the team then verified/exactified the near-optimal numerical solution via 'simple mathematical results' -- this is squarely AI-generated with human verification (ai_role: generated). (3) Aalto University's Mikhail Ganzhinov (PhD thesis, reported Oct 2025) independently found lower bounds of 510 (dim 10), 592 (dim 11) and 1932 (dim 14) using purely human, symmetry-exploiting methods -- explicitly covered in the press as 'besting AI' in two of the three dimensions, though one point behind AlphaEvolve in dimension 11. (4) A Peking-University-led team introduced 'PackingStar', a game-theoretic reinforcement-learning system (Ma et al., arXiv:2511.13391, posted Nov 2025), which produced new records/structures in dimensions 25-31 and broke a 1971-standing rational-configuration barrier in dimension 13 (1130 to 1146 points), described by the authors as the RL system's own discovery. (5) Takhanov, Yun and collaborators at Nazarbayev University then built on PackingStar's outputs: one paper (arXiv:2609.21591, posted 18 Sept 2026) explicitly states 'the reinforcement learning system PackingStar produced the records that serve as our starting points', with the authors adding three novel human geometric techniques (rigid block rotation, nonorthogonal diagonal deformation, partial SO(7) rotation) to push bounds further in dimensions 25-29 and 31 -- a genuine human+AI collaboration where the AI produced the base configuration and humans produced the mathematics that improved on it (ai_role: assisted for that paper, though the primary AlphaEvolve dim-11 event is coded generated). A companion paper (arXiv:2606.18984 / arXiv:2609.09179, Takhanov, Assylbekov, Yun, 2026) numerically found an 841-point configuration in dimension 12 (first improvement since 1971) via classical Riesz-energy optimization with no AI mentioned, later given quaternionic structure but still not a rigorous proof. (6) Boon Suan Ho (arXiv:2603.10425, March 2026) proved a new lower bound of 11948 in dimension 19 via pure combinatorial code construction, no AI. (7) William Echols (arXiv:2608.13906, Aug 2026) used classical tabu search (not AI/ML) to improve constant-weight codes, with corollary improvements to kissing-number lower bounds in dimensions 32, 33, 34 and 37. None of these results settle the kissing number in any of these dimensions exactly, so the problem (as Wikipedia states it, over 'dimensions other than 1,2,3,4,8,24') is unambiguously still open; what changed is that the frontier of best-known bounds moved substantially, with AI systems (AlphaEvolve, PackingStar) playing a documented, sometimes decisive, role in several of these improvements and a documented 'human beats AI' counter-narrative in others. I selected the primary dated event as AlphaEvolve's May 2025 dimension-11 result because it is the most expert-digested (published by Tao and collaborators, a leading mathematician), most widely reported, and most cleanly AI-attributed of the cluster; the other results are described in this summary rather than as separate top-level events, per the instruction to record only the decisive event and describe the rest here.",
+  "competing_reading": "One could argue this cluster of results should be split into multiple `partial` records (each dimension's bound is a 'case' of the general problem, restricting to a specific dimension) rather than a single `progress` record. I chose `progress` because no dimension's exact kissing number was pinned down -- only lower bounds moved -- and per §3.1, an existence/value question (what is the exact kissing number in dimension d?) is not advanced by tightening a bound, only by determining the exact value; since no such determination occurred in any dimension, `partial` (which requires a genuine case of the problem to be *settled*) does not apply, and `progress` (a bound moved) is the correct code. If a future reader believes a lower-bound improvement in a specific, previously-untouched dimension should count as 'settling' that dimension's sub-case in some weaker sense, this could be read as `partial` instead.",
+  "what_would_settle_it": "An exact determination of the kissing number in any dimension outside {1,2,3,4,8,24} (matching lower and upper bounds) would settle that dimension's case and justify `partial`; nothing in the current record reaches that bar, since all cited results are lower-bound improvements only.",
+  "confidence": "high",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2411.04916",
+      "title": "Improved kissing numbers in seventeen through twenty-one dimensions",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+      "title": "AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.aalto.fi/en/news/researcher-cracks-new-kissing-number-bounds-besting-ai-in-the-process",
+      "title": "Researcher cracks new 'kissing number' bounds — besting AI in the process",
+      "type": "press_release",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2511.13391",
+      "title": "Finding Kissing Numbers with Game-theoretic Reinforcement Learning",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.13391",
+      "title": "Finding Kissing Numbers with Game-theoretic Reinforcement Learning",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.21591",
+      "title": "New lower bounds for kissing numbers in dimensions 25–29 and 31",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.02864",
+      "title": "Mathematical exploration and discovery at scale",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2511.02864v1",
+      "title": "Mathematical exploration and discovery at scale",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.18984",
+      "title": "Structure of kissing arrangements in ℝ^12 and a place for the 841st sphere",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.09179",
+      "title": "A quaternionic construction behind 841-point kissing arrangement in ℝ^12",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.10425",
+      "title": "A new lower bound for the kissing number in 19 dimensions",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.13906",
+      "title": "New lower bounds for constant-weight codes via seeded bit-swap tabu search",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Kissing_number",
+      "title": "Kissing number",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.scmp.com/news/china/science/article/3343961/romance-between-scientists-and-ai-leads-progress-age-old-maths-problem",
+      "title": "'Romance' between scientists and AI leads to progress on age-old maths problem",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://www.popsci.com/science/human-outsmarts-ai-kissing-problem-math/",
+      "title": "Human outsmarts Google DeepMind AI, solving centuries-old 'kissing problem'",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://www.earth.com/science/human-mathematician-beats-ai-in-the-kissing-numbers-challenge/",
+      "title": "Human mathematician beats AI in the 'kissing numbers' challenge",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/",
+      "title": "Mathematical exploration and discovery at scale",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/CDM1619/PackingStar",
+      "title": "PackingStar GitHub repository",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://cohn.mit.edu/kissing-numbers/",
+      "title": "Kissing numbers - Henry Cohn",
+      "type": "encyclopedia",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "AlphaEvolve kissing number dimension 11 DeepMind",
+      "Ganzhinov kissing number Aalto dimension 10 11 14",
+      "PackingStar reinforcement learning kissing number lattice packing",
+      "AlphaEvolve technical report kissing number verified proof certificate",
+      "\"PackingStar\" kissing number dimensions bounds list arXiv paper",
+      "Terence Tao kissing number AlphaEvolve PackingStar blog",
+      "kissing number dimension 13 1130 rational barrier PackingStar",
+      "kissing number dimension 32 Echols tabu search 2026",
+      "kissing number dimension 12 19 2026 new lower bound arxiv"
+    ],
+    "places_checked": [
+      "arXiv (multiple listings and abstract/HTML pages)",
+      "DeepMind's own AlphaEvolve blog post",
+      "Terence Tao et al.'s AlphaEvolve paper (arXiv:2511.02864) and Tao's blog",
+      "Aalto University press release",
+      "Wikipedia's current 'Kissing number' article",
+      "South China Morning Post coverage of PackingStar",
+      "Henry Cohn's kissing-numbers bounds table page (referenced, not independently re-verified)"
+    ],
+    "dead_ends": [
+      "Ernest Davis's 'Some comments on AlphaEvolve' notes were surfaced in search but not opened; likely commentary rather than a primary source, judged unnecessary given the primary Tao et al. paper was already opened",
+      "IEEE Spectrum and VentureBeat AlphaEvolve pieces surfaced but not opened, since the DeepMind blog and Tao et al. paper are the primary sources for the same claim"
+    ]
+  },
+  "incomplete": "Did not independently re-verify Henry Cohn's live kissing-number bounds table (cohn.mit.edu) against every individual paper's claimed numeric bound, nor did I check arXiv version-history/withdrawal status for every one of the ~8 papers cited (only did so for Cohn-Li's 2411.04916). Given the volume of independent results in this cluster, it is possible one or two further dimension-specific improvements between Jan 2024 and Sept 2026 exist that were not surfaced by these searches; confidence is nonetheless high because the major, most-reported events (AlphaEvolve, PackingStar, Ganzhinov, Cohn-Li) were all independently confirmed from primary sources.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [],
+  "judgement": {
+    "events": [
+      {
+        "id": "cohn-li-2024",
+        "what": "Cohn and Li improve kissing-number lower bounds in dimensions 17-21",
+        "date": "2024-11-07",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2411.04916",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "alphaevolve-2025",
+        "what": "AlphaEvolve produces a 593-point kissing configuration in dimension 11 (592 -> 593)",
+        "date": "2025-05",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "AlphaEvolve was able to improve on the lower bound for C(11), raising it from 592 to 593. ... we tasked AlphaEvolve to generate a fixed number of vectors",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "ganzhinov-2025",
+        "what": "Ganzhinov's human symmetric constructions: 510 (dim 10), 592 (dim 11), 1932 (dim 14)",
+        "date": "2025-10",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://www.aalto.fi/en/news/researcher-cracks-new-kissing-number-bounds-besting-ai-in-the-process",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "packingstar-2025",
+        "what": "PackingStar RL system finds new configurations in dimensions 13 and 25-31",
+        "date": "2025-11",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2511.13391",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "described by the authors as the RL system's own discovery (record summary)",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "ho-2026",
+        "what": "Ho proves lower bound 11948 in dimension 19",
+        "date": "2026-03",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2603.10425",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "takhanov-12-2026",
+        "what": "Takhanov, Assylbekov, Yun find an 841-point configuration in dimension 12 numerically, later with quaternionic structure",
+        "date": "2026-06",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2606.18984",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Record says the configuration is numerical and 'still not a rigorous proof'.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "echols-2026",
+        "what": "Echols's tabu-search codes improve bounds in dimensions 32, 33, 34, 37",
+        "date": "2026-08",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2608.13906",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "takhanov-25-2026",
+        "what": "Takhanov, Yun et al. improve PackingStar's records in dimensions 25-29 and 31 with human geometric techniques",
+        "date": "2026-09-18",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.21591",
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "the reinforcement learning system PackingStar produced the records that serve as our starting points",
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "alphaevolve-2025",
+    "derived": {
+      "status": "progress",
+      "ai_role": "generated",
+      "resolution_direction": null
+    },
+    "changed": [],
+    "doubts": "Every event is a lower-bound improvement in some dimension; no dimension's exact value was determined, so all are 'bound' (the researcher's competing 'partial' reading is rightly rejected). Under step 4 the ai_role is the strongest among co-equal bound events; AlphaEvolve's dim-11 593 bound is still the record per the record's dispute entry, so 'generated' stands. Tao et al. is a preprint, not expert digestion, but the configuration is explicit and checkable.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "judge_problems": []
+}

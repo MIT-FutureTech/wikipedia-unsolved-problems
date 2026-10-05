@@ -1,0 +1,92 @@
+{
+  "key": "are-all-fermat-numbers-square-free",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No mathematical progress on the existence question was found since 26 January 2024; only routine discoveries of new prime factors of specific Fermat numbers occurred (e.g. Gary Gostin's November 27, 2025 discovery that 36812439837 · 2³¹⁴⁴ + 1 divides F(3135)), plus a bookkeeping fix to a Lean formalization of the statement, neither of which bears on whether any Fermat number is non-squarefree.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Fermat_number",
+    "http://www.prothsearch.com/fermat.html",
+    "https://www.primepuzzles.net/conjectures/conj_012.htm"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The question is whether any Fermat number 2^(2^n)+1 is non-squarefree (equivalently, whether all are squarefree). This remains completely open. The only developments since 26 January 2024 are: (1) continued, routine discovery of new (single, first-time) prime factors of specific large Fermat numbers via the Proth/PrimeGrid/GIMPS-adjacent distributed search community, tracked at prothsearch.com/fermat.html — e.g. a factor of F(251) found 2024-05-24, factors of F(7220), F(414677), F(5798447) found across late 2024 and January 2025, and Gary Gostin's discovery on 2025-11-27 that 36812439837·2^3144+1 divides F(3135); none of these is a repeated (square) factor, so none bears on squarefreeness — they only extend the known factorizations of individual Fermat numbers, which is a search over a different axis (§3.1: this is an infinitude/existence-type question, and finding more distinct factors doesn't narrow whether a repeated factor exists). (2) A GitHub issue (google-deepmind/formal-conjectures#5702, closed via PR #5735) noting that a Lean formalization of the Wikipedia statement had the polarity of the question backwards (the Lean lemma name asked whether all Fermat numbers ARE squarefree, using `sorry`, i.e. unproved, while Wikipedia asks whether a non-squarefree one EXISTS). This is a pure bookkeeping/naming correction in a conjecture-cataloguing library, not a mathematical result, a proof, or an AI-generated finding — the statement is still marked `sorry` (unproved) after the fix. I confirmed this by reading the issue text directly rather than relying on the triage's note. The Wikipedia article on Fermat numbers itself still lists this as an open problem, citing only Björn and Riesel's pre-2024 heuristic argument (based on modeling square factors as behaving 'randomly') that non-squarefree Fermat numbers are unlikely, which is not a proof and predates the window. I found no arXiv preprint, journal paper, announcement, or AI lab result of any kind addressing squarefreeness of Fermat numbers, and no claimed counterexample. This is a well-evidenced 'nothing happened' case, consistent with the triage's 'none' verdict.",
+  "competing_reading": "One could argue the steady stream of new-factor discoveries (a) constitutes 'progress' in a loose sense, since each new distinct prime factor found is one more factor confirmed to appear with multiplicity one, marginally narrowing where a repeated factor could be hiding within that specific Fermat number's factorization. But per §3.1, for an existence/infinitude-shaped question, narrowing where an answer could hide (or verifying more of a specific number's factorization) does not count as movement on the question itself, so I classified this as no_change_found rather than 'progress'. The GitHub issue could also be misread as evidence of a Lean formalization attempt at a proof; on inspection it is only a corrected problem statement, still unproved (`sorry`), so it does not change the classification.",
+  "what_would_settle_it": "A proof that all Fermat numbers are squarefree, or the discovery of a single Fermat number divisible by the square of a prime, would resolve this. A completed (non-sorry) Lean proof or disproof in the formal-conjectures repository, or a peer-reviewed/expert-digested paper making either claim, would also count.",
+  "confidence": "high",
+
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Fermat_number",
+      "title": "Fermat number",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "http://www.prothsearch.com/fermat.html",
+      "title": "Fermat factoring status",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/issues/5702",
+      "title": "Wikipedia/Fermat: `all_fermat_squarefree` reverses the answer: asks if all Fermat numbers are squarefree",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.primepuzzles.net/conjectures/conj_012.htm",
+      "title": "Conjecture 12. Are Mersenne and Fermat numbers square free?",
+      "type": "blog",
+      "opened": false
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "Fermat number squarefree 2024 2025 new prime factor",
+      "Fermat numbers Wikipedia squarefree conjecture",
+      "Gostin Fermat F3135 prime factor 2025",
+      "\"square-free\" Fermat number proof 2024 2025 2026 arxiv",
+      "non-squarefree Fermat number found counterexample"
+    ],
+    "places_checked": [
+      "Wikipedia article 'Fermat number' (current live version)",
+      "prothsearch.com Fermat factoring status page (via search snippet; direct fetch failed with a TLS error)",
+      "primepuzzles.net Conjecture 12 page (Mersenne/Fermat squarefree)",
+      "GitHub google-deepmind/formal-conjectures issue #5702 (opened and read in full)",
+      "General web/arXiv search for any 2024-2026 preprint on Fermat number squarefreeness"
+    ],
+    "dead_ends": [
+      "Direct WebFetch of http://www.prothsearch.com/fermat.html failed with a TLS/SSL internal error (OPENSSL_internal:TLSV1_ALERT_INTERNAL_ERROR); relied on search-engine snippets of this page instead, which corroborated the triage's Gostin/F(3135) finding and additional 2024-2025 factor discoveries (F(251), F(7220), F(414677), F(5798447)), none of which are repeated factors."
+    ]
+  },
+
+  "incomplete": "Could not directly fetch prothsearch.com/fermat.html due to a TLS error on the WebFetch tool; relied on search engine snippets of that page instead, which were consistent with the triage record and gave enough detail (specific new factors and dates) to be confident no squarefreeness-relevant event was missed there.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

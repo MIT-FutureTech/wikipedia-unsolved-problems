@@ -1,0 +1,77 @@
+{
+  "key": "thomson-problem",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No resolution, partial resolution, or moved bound on the stated problem (the minimum-energy configuration of n mutually-repelling particles on the unit sphere, for general or specific n) was found since 26 January 2024; work found in the window either studies variant domains (disk, spherical cap) or explores the local-minima/stationary-point landscape rather than the global minimum.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Thomson_problem"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": null,
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The Thomson problem asks for the minimum-energy configuration of n mutually-repelling charges on the unit sphere. Exact solutions remain known only for n=1-6,12 (per the current Wikipedia article, unchanged since before the window); for all other n the state of the art is numerically 'best known' configurations. I found no result since 26 January 2024 that resolves the general problem, proves a new exact case, or otherwise changes what the stated bullet would say. The closest candidates are: (1) 'Exploring the energy landscape of the Thomson problem: local minima and stationary states' (arXiv 2506.08398, June 2025, published Journal of Statistical Physics 2025) — this explicitly targets cataloguing local minima and stationary points for N up to ~150ish, not the global minimum, and uses only classical numerical optimization (Newton-conjugate-gradient, basin-hopping-style perturbation in Python/scipy/numba) with no AI/ML; (2) 'Thomson problem on a spherical cap' (arXiv 2508.17625, Aug 2025) — a genuinely different domain (a bounded cap with curvature and a border, interpolating between disk and sphere), makes no claim about the full-sphere problem, and uses only basin-hopping; (3) two 2025-2026 disk-confinement papers (arXiv 2609.20777, arXiv 2609.24722, and the 'pith.science' 2609.20777 listing) that report new record configurations for N up to 100,000 — but these are for charges confined to a flat disk, a different domain from the sphere, using quenched molecular dynamics, not AI; (4) 'Shannon Entropy as an Order Parameter for the Two-Dimensional Confined Coulomb Systems' (arXiv 2609.15428, Sept 2026) — this does include a genuine sphere dataset (N=5000, 7500, 10000, claimed as new largest-N sphere configurations), but it is an entropy/order-parameter analysis, not a Thomson-problem resolution, its large-N data for N up to 40886 is drawn from prior published (largely pre-2024) datasets, and no AI/ML method is described anywhere in the paper (classical basin-hopping/divide-and-conquer style methods are referenced). None of this work changes what a careful person would write in the bullet: the general n minimum-energy configuration is still open, no new n has been solved exactly, and no AI system has been applied to the problem itself. I also checked whether the AlphaEvolve mathematical-discovery paper (arXiv 2511.02864, Nov 2025, Georgiev/Gómez-Serrano/Tao/Wagner), which covers 67 geometry/combinatorics/number-theory problems including sphere-packing-adjacent questions, touches the Thomson problem — it does not mention it. Separately, 'Learning towards Minimum Hyperspherical Energy' (NeurIPS 2018, well before the window in any case) uses the Thomson problem as *inspiration* for a neural-network regularizer, i.e. math informing ML rather than AI solving the math problem, and is out of scope regardless of date.",
+  "competing_reading": "One could argue the large-N sphere dataset in arXiv 2609.15428 (N=5000-10000, described by its own authors and by Zenodo as 'never before achieved for the Thomson problem on a sphere') constitutes 'progress' in the loose sense of extending the range of numerically-known best-known configurations. But per §3.1, an existence/optimization record like this moves only where the record itself is the question; the Thomson problem as stated asks for the minimum-energy configuration (implicitly for general or specific n), not for a running list of largest-N numerical solutions, and improving numerical approximations for particular large n without proof of optimality does not settle a case of the stated problem. I classified this as no_change_found rather than `progress`, but flag it as the closest call in the record.",
+  "what_would_settle_it": "A rigorous proof of the optimal configuration for some previously-unsolved n (e.g. n=9 or n=11), or a resolution/disproof of a specific well-known conjectured configuration for a given large n, dated after 26 January 2024; or, for the AI question, an explicit authorial statement that a machine-learning/AI system (as opposed to classical numerical optimization, basin-hopping, or molecular dynamics) produced a new configuration or proof for the sphere Thomson problem.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Thomson_problem", "title": "Thomson problem", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/html/2506.08398", "title": "Exploring the energy landscape of the Thomson problem: local minima and stationary states", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2508.17625", "title": "Thomson problem on a spherical cap", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.20777v1", "title": "Global Minima of the Thomson Problem in a Disk: A Molecular Dynamics Approach with Fixed Border Charges", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.24722", "title": "Lowest-known Energy Configuration of N=100,000 Coulomb Charges in a Disk: Breaking the 10^5 Barrier", "type": "preprint", "opened": false},
+    {"url": "https://zenodo.org/records/22748040", "title": "Thomson Problem on a Sphere: Numerical Data", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.15428", "title": "Shannon Entropy as an Order Parameter for the Two-Dimensional Confined Coulomb Systems", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.15428", "title": "Shannon Entropy as an Order Parameter for the Two-Dimensional Confined Coulomb Systems (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2511.02864", "title": "Mathematical exploration and discovery at scale", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1805.09298", "title": "Learning towards Minimum Hyperspherical Energy", "type": "preprint", "opened": false},
+    {"url": "https://pith.science/paper/2609.20777", "title": "Global Minima of the Thomson Problem in a Disk", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Thomson problem minimum energy configuration sphere new result 2024 2025 2026",
+      "Thomson problem AI machine learning solved global minimum",
+      "\"Thomson problem\" arxiv 2025 2026 new record configuration N points sphere",
+      "\"Mathematical exploration and discovery at scale\" arxiv 2511.02864 Thomson",
+      "AlphaEvolve Thomson problem sphere charges",
+      "neural network deep learning Thomson problem sphere point configuration minimum energy",
+      "Thomson problem sphere N=5000 7500 10000 lowest known energy record 2024 2025",
+      "\"Thomson problem\" proof N=9 or N=11 solved sphere",
+      "\"Shannon Entropy as an Order Parameter\" Coulomb systems Thomson problem sphere disk arxiv",
+      "Thomson problem Wikipedia unsolved problem largest N solved analytically"
+    ],
+    "places_checked": [
+      "arXiv (via web search and direct fetch of preprint HTML/abstract pages)",
+      "Wikipedia's live Thomson problem article",
+      "Zenodo data repositories linked from recent preprints",
+      "General web search for AI/ML + Thomson problem crossover"
+    ],
+    "dead_ends": [
+      "AlphaEvolve mathematical-discovery paper (arXiv 2511.02864) checked directly for a Thomson problem mention — none found",
+      "Searched for AI/neural-network solutions to the sphere Thomson problem specifically — only found a 2018 (pre-window) paper using the Thomson problem as inspiration for a neural-net regularizer, which is out of scope",
+      "Disk-confinement papers (arXiv 2609.20777, 2609.24722) initially looked promising as 'Thomson problem' progress but confirmed to be a different domain (2D disk, not sphere)"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

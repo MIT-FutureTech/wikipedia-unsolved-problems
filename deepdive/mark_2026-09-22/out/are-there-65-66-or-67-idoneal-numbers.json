@@ -1,0 +1,87 @@
+{
+  "key": "are-there-65-66-or-67-idoneal-numbers",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No mathematical progress on the completeness question since 26 January 2024. The one apparently new item found — an OEIS comment dated 22 August 2026 attributing a bound of 7.75*10^19 to Elsenhans, Klüners, and Nicolae — traces back to arXiv:1803.02056, submitted 6 March 2018, well before the window; the 2026 OEIS edit is an editorial correction to the sequence's comment text, not a new result. A GitHub issue in Google DeepMind's formal-conjectures repository (opened 10 February 2026) formalizes the conjecture's *statement* in Lean but proves nothing and settles nothing.",
+  "status_sources": [
+    "https://oeis.org/A000926",
+    "https://arxiv.org/abs/1803.02056",
+    "https://en.wikipedia.org/wiki/Idoneal_number"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": true,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": [
+      "https://github.com/google-deepmind/formal-conjectures/issues/2242",
+      "https://github.com/google-deepmind/formal-conjectures"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "This problem asks whether Euler's list of 65 idoneal numbers is complete, or whether one or two more exist (Weinberger 1973 showed at most two more can exist, and the list is complete if GRH holds). I found no proof, disproof, new idoneal number, or improved unconditional bound published since 26 January 2024. Two items surfaced that looked promising on the surface but resolve to nothing new: (1) OEIS sequence A000926 (idoneal numbers) has a comment dated 22 August 2026, credited to David Radcliffe, giving a bound of 7.75*10^19 on any further term and attributing it to 'results of Elsenhans, Klüners, and Nicolae'; I traced this to arXiv:1803.02056 ('Imaginary quadratic number fields with class groups of small exponent'), submitted 6 March 2018 by Elsenhans, Klüners and Nicolae, which computes all discriminants D with |D| <= 3.1*10^20 and class-group exponent dividing 8 (idoneal numbers correspond to exponent <=2, a special case of this computation). The mathematics is from 2018; the only 2026 event is an OEIS editor correcting/clarifying the sequence's comment text (the OEIS page also shows an adjacent correction replacing an apparently erroneous 'at most two further terms' framing). This is not a new result and does not move the window. (2) A GitHub issue #2242 in google-deepmind/formal-conjectures, opened 10 February 2026, titled 'Idoneal Numbers Completeness Conjecture', formalizes the *statement* of the conjecture in Lean 4 for use as a benchmark item (formalizability rated 2/5, category 'research open'); no proof was attempted or claimed, and the repository's stated purpose is benchmarking automated formalization/theorem-proving tools, not solving conjectures — AlphaProof is mentioned only as a tool the maintainers use to check for misformalizations, not to produce mathematics. Since the conjecture's statement itself, not its truth, was formalized, and no argument was produced, this is formalisation_only with ai_role none and has no bearing on status. I also checked the Wikipedia idoneal-number article (no changes reported since 2011 citations), OEIS A000926 in full, and searched arXiv/web broadly for any 2024-2026 paper improving Weinberger's bound, disproving GRH-dependence, or exhibiting/ruling out a 66th idoneal number; nothing surfaced. I am satisfied this is a well-evidenced 'nothing happened' record.",
+  "competing_reading": "One could argue the OEIS comment update and the DeepMind formalization issue are worth recording as 'progress' in a loose sense, since both are dated within the window and both touch this exact problem. But the OEIS edit is bibliographic housekeeping citing eight-year-old mathematics, and the Lean issue formalizes a question without answering any part of it — neither changes what a careful person would write in this bullet's entry, so under the scope rule (§3.1) neither counts as a status-changing event, and I have coded both as background context rather than the record's event.",
+  "what_would_settle_it": "A published paper post-January-2024 that either exhibits/rules out a 66th or 67th idoneal number unconditionally, improves the unconditional bound below Weinberger's implied threshold in a way that changes the conjectured count, or a resolution of GRH itself. Alternatively, discovery of an arXiv preprint by Elsenhans/Klüners/Nicolae or others specifically dated 2024-2026 (rather than the 2018 paper) that I may have missed under a different title.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Idoneal_number", "title": "Idoneal number", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A000926", "title": "A000926 - OEIS", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/issues/2242", "title": "Idoneal Numbers Completeness Conjecture · Issue #2242 · google-deepmind/formal-conjectures", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures", "title": "google-deepmind/formal-conjectures", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/1803.02056", "title": "Imaginary quadratic number fields with class groups of small exponent", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2011.09401", "title": "Bounds on the largest prime factor of a negative discriminant with one class per genus", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2605.26020", "title": "Boundary CM points and class groups of small exponent", "type": "preprint", "opened": true},
+    {"url": "https://mast.queensu.ca/~kani/papers/idoneal-f.pdf", "title": "Idoneal Numbers and some Generalizations", "type": "preprint", "opened": false},
+    {"url": "https://magma.maths.usyd.edu.au/~watkins/papers/IDONcorr.pdf", "title": "The Idoneal Number Correspondence", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "idoneal numbers 65 66 67 proof 2024 2025 2026",
+      "\"idoneal numbers\" Euler numeri idonei new result arXiv",
+      "Weinberger idoneal numbers GRH disproof 2025",
+      "\"idoneal\" number 66th discovered OR disproved OR \"new idoneal\"",
+      "google-deepmind formal-conjectures idoneal Lean formalization",
+      "idoneal numbers arxiv 2024 2025 2026 new bound squarefree",
+      "Elsenhans Klüners Nicolae idoneal numbers bound",
+      "Elsenhans Klüners Nicolae \"one class per genus\" arxiv",
+      "Elsenhans Klüners Nicolae \"7.75\" idoneal OR discriminant OR \"class per genus\"",
+      "idoneal numbers OEIS Radcliffe correction Weinberger \"two further terms\" error"
+    ],
+    "places_checked": [
+      "Wikipedia idoneal number article",
+      "OEIS A000926 and its comments/history",
+      "arXiv search and listings for math.NT 2024-2026",
+      "GitHub google-deepmind/formal-conjectures repository and issue #2242",
+      "General web search for any 2024-2026 announcement of a 66th/67th idoneal number or GRH-independent resolution"
+    ],
+    "dead_ends": [
+      "arXiv:2011.09401 (Armitage, 2020) — related bound on largest prime factor of discriminants with one class per genus, but pre-window and not by Elsenhans/Klüners/Nicolae",
+      "arXiv:2605.26020 (Aiken, Ross, Shvydkoy, Xue, submitted 25 May 2026) — classifies discriminants with class groups of small exponent via CM points, but does not mention idoneal numbers, Weinberger's bound, or any new numeric bound relevant to this problem",
+      "arXiv:2003.08914 'Idoneal genera and K3 surfaces' — uses idoneal numbers in an unrelated geometric application, not a result on completeness"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

@@ -1,0 +1,86 @@
+{
+  "key": "opaque-forest-problem",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The lower bound on the length of the shortest opaque set for the unit square was improved by more than a factor of 3 (Kiderlen & Pausinger, arXiv:2509.08842, building on a stability observation of Steinerberger, arXiv:2501.01004), and a new explicit lower bound for the unit disc was derived in the same paper; the problem itself (finding the true shortest opaque forest for the square, disc, triangle, or general convex sets) remains open.",
+  "status_sources": [
+    "https://arxiv.org/abs/2509.08842",
+    "https://arxiv.org/abs/2501.01004",
+    "https://link.springer.com/article/10.1007/s10474-026-01606-x"
+  ],
+
+  "event": {
+    "date": "2025-09-05",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2509.08842"]
+  },
+
+  "credited_humans": ["Markus Kiderlen", "Florian Pausinger", "Stefan Steinerberger"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "Since the frozen revision (26 Jan 2024) the only substantive development on this exact problem — finding the shortest opaque set/forest for standard shapes such as the unit square, unit disc, and equilateral triangle — is a pair of connected results improving the *lower bound* on the length of such sets, which remains far short of resolving the problem. Stefan Steinerberger (arXiv:2501.01004, submitted 2 Jan 2025, published in Discrete & Computational Geometry, 2026) proved a stability version of Jones' 1962 inequality (L ≥ |∂Ω|/2), showing that if the excess length L − |∂Ω|/2 is small, an opaque set must be made of curves whose tangent directions closely track the boundary's. Markus Kiderlen and Florian Pausinger (arXiv:2509.08842, submitted 5 Sept 2025, v2 10 Dec 2025, published in Acta Mathematica Hungarica, 2026) used this stability result to sharpen the general method of Kawamura–Moriyama–Otachi–Pach, improving the explicit numerical lower bound for the unit square 'by more than a factor of 3' beyond the prior bound (previously ~2.00002 above the perimeter-halving value of 2), and derived a new explicit lower bound for the unit disc exploiting its symmetry. Neither paper touches the upper bound (the conjectured-optimal disconnected forest of length 2 + (1/2)√6 ≈ 2.639 for the square, or ≈4.7998 for the disc) nor settles any case; the square, disc, and triangle instances of the problem remain open, as does the general problem. This is squarely a bound moving on a problem that stays open, i.e. `progress`, not a resolution or even a settled case (`partial` would require an instance to close). A separate 2024–2025 preprint by Zhipeng Deng, 'A General Solution to Bellman's Lost-in-a-Forest Problem' (arXiv:2412.10686, Dec 2024, rev. June 2025), claims a general computational framework it says extends to 'the shortest opaque set problem,' but this is Bellman's lost-in-a-forest search problem (finding an escape path from an unknown forest shape), a related but distinct problem from the opaque-set/opaque-forest blocking problem; I did not find evidence its framework has produced any new bound or result specifically on opaque sets, so I treat it as a related problem rather than a case of this one and exclude it from the status-determining event. No source anywhere in this research — the two arXiv preprints, their published journal versions, the Wikipedia 'Opaque set' and 'Opaque forest problem' articles, or search results for AI/LLM involvement — mentions any AI system, machine-learning tool, or computer-assisted proof technique (SAT solvers, interval arithmetic, etc.) being used in obtaining these results; both papers are traditional human mathematical arguments. `ai_role` is therefore `none`.",
+  "competing_reading": "One could argue the Kiderlen–Pausinger unit-disc bound is a genuinely new result (not merely an improvement of an existing number, since no explicit disc bound existed before) and so might be read as `partial` progress specific to that shape rather than generic `progress`. I did not adopt this reading because the disc's *true* shortest opaque set is still entirely unknown — only a weak lower bound now exists where essentially none did before — so no case of the problem was settled, only the search space narrowed, consistent with `progress`. Also, the Wikipedia article now titled 'Opaque forest problem' (as opposed to 'Opaque set') appears to be a retitling/split of the article that existed under 'Opaque set' at the frozen revision; this is an encyclopedia-structure change unrelated to mathematical progress and I did not treat it as a finding.",
+  "what_would_settle_it": "A proof that the known upper-bound construction (length 2 + (1/2)√6 for the square, or the Makai disconnected barrier for the disc) is optimal, or any new construction beating those upper bounds, would move the status to `partial` (or `resolved` if it settled a full case with matching upper and lower bounds). Confirmation of what Deng's Bellman-forest framework has or has not produced for opaque sets specifically (e.g., a later paper applying it) would also be worth checking.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2509.08842", "title": "Explicit lower bounds for opaque sets of unit square and unit disc", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2509.08842", "title": "Explicit lower bounds for opaque sets of unit square and unit disc (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://link.springer.com/article/10.1007/s10474-026-01606-x", "title": "Explicit lower bounds for opaque sets of unit square and unit disc (Acta Mathematica Hungarica)", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/abs/2501.01004", "title": "A Stability Version of the Jones Opaque Set Inequality", "type": "preprint", "opened": true},
+    {"url": "https://link.springer.com/article/10.1007/s00454-026-00835-9", "title": "A Stability Version of the Jones Opaque Set Inequality (Discrete & Computational Geometry)", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/abs/2412.10686", "title": "A General Solution to Bellman's Lost-in-a-forest Problem", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2605.13449", "title": "Stability for barriers of n-dimensional convex bodies with surface area close to Jones' bound", "type": "preprint", "opened": false},
+    {"url": "https://en.wikipedia.org/wiki/Opaque_set", "title": "Opaque set", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Opaque_forest_problem", "title": "Opaque forest problem", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "opaque set problem 2025 lower bound square disc AI Claude GPT proof",
+      "\"opaque forest\" OR \"opaque set\" problem solved 2024 2025 2026",
+      "arxiv 2605.13449 Stability barriers n-dimensional convex bodies Jones bound",
+      "Kiderlen Pausinger \"explicit lower bounds\" opaque square disc \"2.00\" OR \"2.0002\" numeric bound",
+      "opaque forest problem AI large language model solved contribution",
+      "Steinerberger \"stability version\" Jones opaque set inequality acknowledgements method proof"
+    ],
+    "places_checked": [
+      "arXiv abstract and PDF pages for 2509.08842, 2501.01004, 2412.10686, 2605.13449",
+      "Wikipedia 'Opaque set' article (current)",
+      "Wikipedia 'Opaque forest problem' article (current)",
+      "Springer journal landing pages for both published versions",
+      "General web search for AI/LLM involvement in opaque set research"
+    ],
+    "dead_ends": [
+      "Springer article page for Kiderlen–Pausinger redirected to an authentication wall; relied on arXiv preprint + search-engine-reported journal metadata instead",
+      "PDF full-text fetch of 2509.08842 could not be parsed beyond metadata (binary/compressed stream); relied on abstract, comments field, and secondary summaries for numeric details",
+      "General web searches for 'AI' + 'opaque forest/set' returned only unrelated NLP papers with 'forest' or 'opaque' as incidental keywords (e.g. random forests, forestry LLMs), confirming no genuine AI connection rather than revealing one"
+    ]
+  },
+
+  "incomplete": "Could not fetch the full rendered text of arXiv:2509.08842 (only metadata/abstract and secondary summaries), so the exact new numerical lower-bound values for the square and disc are not independently confirmed beyond 'more than a factor of 3' improvement stated in the abstract; this does not affect the status/ai_role classification since no version of the paper anywhere mentions AI. Also did not verify whether Deng's Bellman-forest framework (arXiv:2412.10686) has since produced a published opaque-set-specific result, since it appears to be a related/distinct problem rather than a case of this one.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

@@ -1,0 +1,188 @@
+{
+  "key": "every-petersen-minor-free-bridgeless-graph-has-a-nowhere",
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "The general Tutte 4-flow conjecture (every bridgeless Petersen-minor-free graph has a nowhere-zero 4-flow) remains open, but two genuine sub-cases were settled in the window: (1) the cubic-graph restriction of the conjecture, equivalent to Tutte's three-edge-coloring conjecture, was completed by a July/August 2026 preprint proving the last outstanding 'apex' case (combined with the pre-2024 doublecross case), and (2) a July 2026 preprint proved the 4-flow property for the strictly smaller class of graphs excluding a proper minor of the Petersen graph (the P/e-minor-free case). Both are preprints, not yet digested by the expert community.",
+  "status_sources": [
+    "https://arxiv.org/abs/2608.22870",
+    "https://arxiv.org/html/2608.22870v1",
+    "https://arxiv.org/abs/2607.22267",
+    "https://arxiv.org/html/2607.22267v1",
+    "https://www.openproblemgarden.org/op/4_flow_conjecture"
+  ],
+  "event": {
+    "date": "2026-08-24",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2608.22870",
+      "https://arxiv.org/html/2608.22870v1"
+    ]
+  },
+  "credited_humans": [
+    "Yuta Inoue",
+    "Ken-ichi Kawarabayashi",
+    "Rintaro Matsuo",
+    "Atsuyuki Miyashita",
+    "Bojan Mohar",
+    "Tomohiro Sonobe",
+    "József Pintér"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "GitHub Copilot was used to assist in implementing parts of the authors' verification software. All generated code was reviewed by the authors. ... ChatGPT Pro and Gemini Deep Think were also used to assist with exposition and to review the consistency between the mathematical descriptions and the pseudocode. ... independent implementations were reconstructed by ChatGPT Pro and Claude Code, directly from the pseudocode ... without access to the authors' source code. Both independently reproduced the computational results required in this paper. These reconstructions are not part of the mathematical justification of the theorem, but provide additional evidence for the reproducibility of the computations.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "GitHub Copilot",
+      "ChatGPT Pro",
+      "Gemini Deep Think",
+      "Claude Code"
+    ],
+    "sources": [
+      "https://arxiv.org/html/2608.22870v1"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+  "disputes": [],
+  "summary": "The stated bullet is the general Tutte 4-flow conjecture: every bridgeless graph with no Petersen-graph minor has a nowhere-zero 4-flow. Both the arXiv preprint the openproblemgarden.org survey page (accessed 2026-09-22) confirm the general conjecture is still open. Within the 26 Jan 2024–present window, two case results were established, both remaining unread by the wider expert community. (a) Inoue, Kawarabayashi, Matsuo, Miyashita, Mohar & Sonobe, 'Three-edge-coloring apex cubic graphs' (arXiv:2608.22870, submitted 24 Aug 2026), prove the 'apex' case of the reduction Robertson–Seymour–Thomas set up for the cubic-graph restriction of the conjecture (which for cubic graphs is equivalent, via 3-edge-colorability, to Tutte's three-edge-coloring conjecture). The 'doublecross' case was already settled by Edwards–Sanders–Seymour–Thomas (2014/2016), which predates the window, so the only new event in the window is the apex case, completing the cubic special case. This is a genuine case of the bullet (cubic graphs are a restriction of 'bridgeless Petersen-minor-free graphs'), so it counts as `partial`, not a resolution of the general conjecture. The proof is computer-assisted (in the manner of the Four Color Theorem) and, as of this writing (~1 month after posting), has not been digested by an independent expert reviewer or accepted at a venue of record — an automated 'Pith Review' site flags that the computational/'cartwheel-search' part needs independent audit — so status is not yet `resolved`, though I am recording it as `partial` (a case was settled) rather than `claimed` because the case in question (cubic apex graphs) is itself fully specified and the reduction to it is an established, previously-published structural result; only the final case's verification is unreviewed. Readers should treat the cubic case as not-yet-fully-vetted. (b) Pintér, 'Nowhere-zero 4-flows in graphs excluding a proper minor of the Petersen graph' (arXiv:2607.22267, v1 24 Jul 2026, v2 9 Aug 2026), proves the 4-flow property for the class of graphs excluding P/e (Petersen graph with one edge contracted) as a minor. The paper's own introduction establishes that Q(=P/e)-minor-free graphs form a strictly smaller class than Petersen-minor-free graphs (Ex(Q) ⊊ ... in the minor order, i.e. excluding a minor of Petersen is a stronger restriction than excluding Petersen itself), so this is also a genuine, smaller case of the bullet, not a distinct/variant problem — I disagree with the triage's uncertainty on this point (see triage_disagreement). On AI: the apex-cubic paper explicitly discloses generative-AI use (GitHub Copilot for verification-software implementation, reviewed by the authors; ChatGPT Pro and Gemini Deep Think for exposition/consistency checking; and, notably, ChatGPT Pro and Claude Code used to independently reconstruct the verification code from pseudocode alone as a reproducibility check) — but the authors explicitly state these reconstructions 'are not part of the mathematical justification of the theorem.' No AI system produced any mathematics that appears in the theorem or proof; all AI use is checking/coding/exposition assistance, so ai_role is `none` per the rubric. The Pintér paper discloses using ChatGPT and Claude 'for literature research, editorial assistance, and help writing the accompanying code' for its finite (Python/Zenodo-archived) verification script — again none of this produced mathematics that appears in the result, so ai_role is `none` there as well.",
+  "competing_reading": "One could argue the apex-cubic result, since it completes an entire named sub-conjecture (Tutte's three-edge-coloring conjecture) rather than merely narrowing a search space, deserves `resolved` status for that sub-conjecture even though the parent bullet (the full 4-flow conjecture) stays `partial`/open. I did not adopt this because the schema's `status` field tracks the bullet as given, and because the proof is a very recent (Aug 2026), computer-assisted preprint with no located expert digestion yet — under §6.1 an unreviewed computer-assisted certificate should be `claimed` rather than `resolved` even when it fully settles a sub-conjecture. A stricter reading could therefore call the cubic-case event `claimed` rather than folding it into `partial`; I chose `partial` because a `partial` status is about the parent bullet only having a piece settled, and that piece (the cubic restriction) rests on a currently-unreviewed proof, which the summary flags explicitly.",
+  "what_would_settle_it": "An expert digestion (e.g. a referee report, a Robertson/Seymour/Thomas-adjacent commentary, or acceptance at a journal/conference of record) of arXiv:2608.22870's proof and its computer-assisted verification would move the cubic-graph case from an unreviewed preprint to a properly vetted result. For the general bullet itself, only a resolution of the full Petersen-minor-free case (not restricted to cubic or to Q-minor-free graphs) would move status past `partial`.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2608.22870",
+      "title": "Three-edge-coloring apex cubic graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.22870v1",
+      "title": "Three-edge-coloring apex cubic graphs (full text)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.22267",
+      "title": "Nowhere-zero 4-flows in graphs excluding a proper minor of the Petersen graph",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.22267v1",
+      "title": "Nowhere-zero 4-flows in graphs excluding the Petersen graph with one edge contracted (full text)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.openproblemgarden.org/op/4_flow_conjecture",
+      "title": "4-flow conjecture",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://pith.science/paper/2608.22870",
+      "title": "Three-edge-coloring apex cubic graphs · Pith Review",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1411.4352",
+      "title": "Three-edge-colouring doublecross cubic graphs",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://mathworld.wolfram.com/Tutte4-FlowConjecture.html",
+      "title": "Tutte 4-Flow Conjecture -- from Wolfram MathWorld",
+      "type": "encyclopedia",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Tutte's 4-flow conjecture Petersen minor free graph 2024 2025 2026 progress",
+      "\"Three-Edge-Coloring Apex Cubic Graphs\" Inoue Kawarabayashi Mohar arxiv",
+      "Tutte 3-edge-coloring conjecture cubic graphs proved 2026 snark Petersen",
+      "\"2608.22870\" OR \"apex cubic graphs\" Tutte three-edge-coloring blog Tao MathOverflow discussion",
+      "Tutte three-edge-coloring conjecture proof announcement Kawarabayashi Mohar reaction Tao blog",
+      "\"apex cubic graphs\" Tutte conjecture proof review digestion expert comment 2026",
+      "Edwards Sanders Seymour Thomas doublecross cubic graphs three-edge-coloring paper date",
+      "Tutte 4-flow conjecture Petersen graph Wikipedia 2026",
+      "wikipedia \"Tutte's conjectures\" three-edge-coloring 4-flow conjecture article"
+    ],
+    "places_checked": [
+      "arXiv abstract and full-text HTML for 2608.22870 and 2607.22267",
+      "openproblemgarden.org 4-flow conjecture page",
+      "Wolfram MathWorld Tutte 4-Flow Conjecture page",
+      "General web search for expert commentary (Tao blog, MathOverflow) on the apex-cubic-graphs preprint",
+      "Attempted fetch of en.wikipedia.org/wiki/Tutte's_conjectures (404; used search snippets instead)",
+      "Pith Review site (automated paper-review aggregator) for the apex-cubic paper"
+    ],
+    "dead_ends": [
+      "No Terence Tao blog post or MathOverflow thread found discussing arXiv:2608.22870 (paper is only ~1 month old at time of research)",
+      "Direct WebFetch of pith.science/paper/2608.22870 returned no retrievable content; relied on search-snippet summary of its assessment instead",
+      "Direct WebFetch of en.wikipedia.org/wiki/Tutte's_conjectures returned 404 (title/URL likely differs from search-suggested one); relied on search snippets and openproblemgarden.org as the encyclopedic status check instead"
+    ]
+  },
+  "incomplete": "Could not directly load a live Wikipedia article specifically titled 'Tutte's conjectures' (fetch 404'd) to see if it has been updated post-2024; relied on openproblemgarden.org and MathWorld as independent secondary status checks instead, which corroborate that the general conjecture is still listed open. Could not retrieve the Pith Review page's exact text directly (WebFetch returned empty); relied on a search-engine summary of its content for the caveat about needing independent audit. No expert digestion (blog, MathOverflow, journal acceptance) of either 2026 preprint was locatable, consistent with both being very recent.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false,
+  "corrections": [],
+  "judgement": {
+    "events": [
+      {
+        "id": "inoue-et-al-2026",
+        "what": "Inoue, Kawarabayashi, Matsuo, Miyashita, Mohar & Sonobe prove the apex case of three-edge-colouring cubic Petersen-minor-free graphs, completing (with the 2014/2016 doublecross case) the cubic restriction of the 4-flow conjecture",
+        "date": "2026-08-24",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2608.22870",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": "Copilot for verification software, ChatGPT Pro/Gemini for exposition and consistency review, ChatGPT Pro/Claude Code for independent reimplementation; 'not part of the mathematical justification of the theorem'",
+        "direction": "confirmed",
+        "is_counterexample": false
+      },
+      {
+        "id": "pinter-2026",
+        "what": "Pintér proves nowhere-zero 4-flows for bridgeless graphs excluding P/e as a minor (a subclass of Petersen-minor-free graphs)",
+        "date": "2026-07-24",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2607.22267",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": "ChatGPT and Claude used 'for literature research, editorial assistance, and help writing the accompanying code'",
+        "direction": "confirmed",
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "inoue-et-al-2026",
+    "derived": {
+      "status": "partial",
+      "ai_role": "none",
+      "resolution_direction": "confirmed"
+    },
+    "changed": [],
+    "doubts": "Both events are same-tier cases with ai_role none, so credited_humans listing authors of both is acceptable. The researcher's competing_reading suggesting 'claimed' reflects the F1 conflation; a case is partial regardless of verification. The apex proof is computer-assisted and unreviewed; the Pith Review caveat is automated and not a knock-down (F11).",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "judge_problems": []
+}

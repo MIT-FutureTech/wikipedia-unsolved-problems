@@ -1,0 +1,52 @@
+{
+  "key": "gilbert-pollack-conjecture-on-the-steiner-ratio-of-the",
+  "judgement": {
+    "events": [
+      {
+        "id": "ke-2026",
+        "what": "Ke, Huang, Shu, He, Gai & Wang raise the certified lower bound on the Euclidean Steiner ratio from 0.824168 to 0.8559 using LLM-generated geometric lemmas verified in Mathematica",
+        "date": "2026-01-29", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2601.22365",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "Rather than directly prompting LLMs to solve the conjecture, we task them with generating rule-constrained geometric lemmas implemented as executable code... more than 80% of LLM-proposed lemmas are effective.",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "savva-2026",
+        "what": "Savva's PR #159 to the optimizationproblems repo gives a 0.860 (43/50) certificate-layer lower bound, asterisked as conditional on the KHSHGW2026 lemma set",
+        "date": "2026-09-01", "precision": "day", "after_snapshot": true,
+        "source": "https://github.com/teorth/optimizationproblems/pull/159",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Explicitly conditional on lemmas the repository itself does not treat as fully certified; the maintainers present 0.8559 as the safe value and 0.860 as provisional.",
+        "ai_role": "generated",
+        "ai_basis": "software, analysis and paper produced by 'an AI system (Claude Fable 5, Anthropic) working under my direction'",
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "ke-2026",
+    "derived": { "status": "progress", "ai_role": "assisted", "resolution_direction": null },
+    "changed": [],
+    "doubts": "Both events are bounds on a question the bullet asks for exactly (the value √3/2), so status is progress and direction null. The status rests on the unconditional 0.8559 bound. Savva's 0.860 is conditional, so it does not cleanly supersede that bound. If a later reader counts it as the furthest bound, note that the PR's own wording (AI produced the software, analysis and paper under human direction) reads closer to 'generated' than 'assisted'. Neither result has been through expert or journal review. Mathematica checks each lemma, but that does not show the certificate framework as a whole is sound.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {},
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "assisted",
+      "why": "F8: kept 'assisted' because the status rests on Ke et al.'s unconditional 0.8559 bound, where the LLMs proposed lemmas that are in the certificate. The later 0.860 bound (PR #159) is conditional on the KHSHGW2026 lemmas and asterisked in the repo README. Its own text says the AI produced the software, analysis and paper, which would be 'generated' if that event were the one the status rests on."
+    }
+  ]
+}

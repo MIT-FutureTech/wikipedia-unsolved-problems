@@ -1,0 +1,109 @@
+{
+  "key": "kothe-conjecture",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "A counterexample to Köthe's conjecture (via Krempa's equivalent matrix form) was constructed in September 2026: the initial construction was found autonomously by a pre-release AI system, GPT-6 Astra, in an Epoch AI evaluation harness, then verified in Lean 4 and independently developed into a full mathematical exposition (over arbitrary countable fields, and answering a 1989 question of Rowen) by ring theorists Bernhard Böhmler and René Marczinzik; a second, independently constructed counterexample using a different (point-module) method was posted a week later by Greenfeld, King and Vendramin, with GPT-6 Astra credited with suggesting a key lemma. Neither paper has yet been digested by outside experts or accepted at a journal, so the conjecture is best classed as claimed rather than resolved.",
+  "status_sources": [
+    "https://arxiv.org/abs/2609.07996",
+    "https://arxiv.org/html/2609.07996",
+    "https://arxiv.org/abs/2609.15080",
+    "https://arxiv.org/html/2609.15080",
+    "https://github.com/tadamcz/koethe",
+    "https://en.wikipedia.org/wiki/K%C3%B6the_conjecture",
+    "https://vibemathed.com/problem/kothe-conjecture",
+    "https://aimath.robertj1.com/"
+  ],
+
+  "event": {
+    "date": "2026-09-07",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2609.07996"]
+  },
+
+  "credited_humans": ["Tom Adamczewski", "Bernhard Böhmler", "René Marczinzik"],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "The initial construction was found by GPT-6 Astra in an experiment run by the first author, Tom Adamczewski, whose contribution to this paper was limited to setting up and conducting this experiment. ... The model was given a Lean formalization of the matrix form of Köthe's conjecture and was asked to prove or disprove it.",
+    "formalisation_only": false,
+    "disclosed_cost": "The VibeMathed tracker (https://vibemathed.com/problem/kothe-conjecture) states the resolution cost $432 to generate; this figure comes from a third-party tracker, not the paper itself, so it is reported with lower confidence.",
+    "systems": ["GPT-6 Astra"],
+    "sources": [
+      "https://arxiv.org/html/2609.07996",
+      "https://github.com/tadamcz/koethe",
+      "https://vibemathed.com/problem/kothe-conjecture",
+      "https://aimath.robertj1.com/"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "A unital algebra R over the countable field ¬℉₂-bar (an algebraic closure/extension of GF(2)) built from three weighted backward shifts, containing a nil two-sided ideal I, together with an explicit 2×2 matrix with entries in I that is not nilpotent (equivalently has a nonzero eigenvalue) — a counterexample to Krempa's matrix-form equivalent of the Köthe conjecture, and hence to the conjecture itself.",
+    "explicit": true,
+    "verified_how": "Machine-checked in Lean 4 (Mathlib, Lean v4.28.0) with no 'sorry' and no axioms beyond propext, Quot.sound and Classical.choice, per the tadamcz/koethe repository; the mathematical argument was also independently written out and checked by hand by Böhmler and Marczinzik in the arXiv exposition, and a second, independently constructed counterexample (different method) was posted by Greenfeld, King and Vendramin.",
+    "sources": [
+      "https://github.com/tadamcz/koethe",
+      "https://arxiv.org/html/2609.07996",
+      "https://arxiv.org/html/2609.15080"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [],
+
+  "summary": "The triage record is essentially correct and, if anything, understated: not one but two independent counterexample constructions to the Köthe conjecture appeared in September 2026, both crediting the AI system GPT-6 Astra with a substantive role. The first (arXiv:2609.07996, submitted 2026-09-07, authors Adamczewski/Böhmler/Marczinzik) states plainly in its contribution statement that 'the initial construction was found by GPT-6 Astra' running autonomously (without human steering) in Epoch AI's LeanOpenProblems harness, given a Lean formalization of Krempa's matrix-form equivalent of the conjecture. This is 'generated' under the codes: the AI produced the mathematical construction (not just checked or tidied human work), and Böhmler and Marczinzik — established ring theorists with a prior joint publication record in this subfield (e.g. 'On a conjecture about Morita algebras', J. Algebra 2018) — independently reviewed it, developed it over arbitrary countable fields, and used it to answer a 1989 question of Rowen, taking 'full responsibility for the mathematical content.' A second paper (arXiv:2609.15080, submitted 2026-09-14, Greenfeld/King/Vendramin) gives an independently constructed counterexample via a different, point-module method, built on the authors' own prior program (with Easton and Ford) rather than on the first paper; it too credits GPT-6 Astra, but only with suggesting one key lemma (Lemma 4.2) and an earlier version of one technical notion, with the authors stating they checked and rewrote all AI-proposed material — that paper's own AI role is closer to 'assisted', though the overall event (disproof of the conjecture) is already established by the first, 'generated' paper. Krempa (1972) proved the matrix form genuinely equivalent to the original 1930 conjecture (sum of two nil left ideals is nil), so this is squarely a resolution of the stated problem, not a variant. I classify status as 'claimed' rather than 'resolved' because, despite the credibility of the co-authors and the Lean formalization (no 'sorry', standard axioms only), neither paper has yet been digested by an outside third party, accepted at a journal, or discussed in an expert venue like Terence Tao's blog or Quanta (searched, found nothing) — both preprints are only one to two weeks old as of the research date (2026-09-22). Third-party trackers (VibeMathed, an independent AI-math-claims index at aimath.robertj1.com) corroborate the timeline and note the second paper 'materially strengthens the mathematical verification' but likewise stop short of calling it fully vetted. The live Wikipedia article on the Köthe conjecture already states flatly that the conjecture 'was disproved' in 2026, which is a stronger claim than the evidence to date strictly supports under this project's resolved/claimed distinction, though it may well prove correct.",
+  "competing_reading": "A reasonable case exists for 'resolved' rather than 'claimed': Böhmler and Marczinzik are not disinterested outside referees, but they are named, credentialed ring theorists who independently redid and extended the mathematical argument themselves (not merely reading a machine transcript), and a second, methodologically independent construction from an unrelated group corroborates the same conclusion within a week. That combination — two independent expert-authored routes to the same disproof, one machine-checked — is arguably stronger evidence than the 'published verification by named experts' the resolved bar asks for, even without formal journal acceptance. If a reviewer weighs independent convergent construction over journal status, 'resolved' would be the call.",
+  "what_would_settle_it": "Journal acceptance or a citable referee report for either paper; an independent digestion by a ring theorist not among the authors (a blog post, a MathOverflow consensus, or a survey/expository note); or explicit endorsement in a venue like Tao's blog or Quanta. Any retraction or identified gap in either construction would instead move this toward 'progress'/'incident'.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2609.07996", "title": "A counterexample to Köthe's conjecture and a question of Rowen", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.07996", "title": "A counterexample to Köthe's conjecture and a question of Rowen (full text)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.15080", "title": "The Köthe conjecture via point modules", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.15080", "title": "The Köthe conjecture via point modules (full text)", "type": "preprint", "opened": true},
+    {"url": "https://github.com/tadamcz/koethe", "title": "Lean 4 disproof of the Köthe conjecture (Krempa's matrix form), found by GPT-6 Astra; Palomar submission repository", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/K%C3%B6the_conjecture", "title": "Köthe conjecture", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence", "title": "List of mathematical discoveries by artificial intelligence", "type": "encyclopedia", "opened": true},
+    {"url": "https://vibemathed.com/problem/kothe-conjecture", "title": "Köthe Conjecture · VibeMathed", "type": "blog", "opened": true},
+    {"url": "https://aimath.robertj1.com/", "title": "Open Math Problems Claimed to Be Solved with AI", "type": "blog", "opened": true},
+    {"url": "https://pith.science/paper/2609.07996", "title": "A counterexample to Köthe's conjecture and a question of Rowen · Pith Review", "type": "blog", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Köthe conjecture counterexample GPT-6 Astra Epoch AI",
+      "Köthe's conjecture disproved 2026 Adamczewski Böhmler Marczinzik",
+      "Köthe conjecture Terence Tao blog 2026",
+      "\"Köthe\" conjecture counterexample verified correct ring theorist review",
+      "Krempa matrix form Köthe conjecture equivalent nil ideal sum",
+      "Bernhard Böhmler Rene Marczinzik ring theory mathematician",
+      "Köthe conjecture disproof Quanta magazine news September 2026",
+      "Rowen question answer 1989 nil ideal Köthe",
+      "Köthe conjecture MathOverflow 2026 counterexample discussion",
+      "\"Köthe\" \"Astra\" mathematician reaction verified proof correct"
+    ],
+    "places_checked": [
+      "arXiv abstract and full-text pages for both preprints (2609.07996, 2609.15080)",
+      "GitHub repository tadamcz/koethe (Lean formalization)",
+      "live Wikipedia article on the Köthe conjecture",
+      "Wikipedia 'List of mathematical discoveries by artificial intelligence'",
+      "VibeMathed tracker entry for the Köthe conjecture",
+      "independent AI-math-claims index (aimath.robertj1.com)",
+      "Pith Review page for the arXiv paper (page returned empty content when fetched)",
+      "general web search for Terence Tao blog and Quanta Magazine coverage",
+      "general web search for MathOverflow discussion"
+    ],
+    "dead_ends": [
+      "pith.science/paper/2609.07996 returned no usable content on fetch (likely JS-rendered or blocked); relied on arXiv full text and other trackers instead",
+      "No Terence Tao blog post or Quanta Magazine article found specifically on this result as of 2026-09-22",
+      "No MathOverflow thread located specifically discussing the counterexample's correctness"
+    ]
+  },
+
+  "incomplete": "Could not access pith.science's rendered content directly (page fetch returned empty), so any review commentary it might host is not reflected here beyond its title. Could not find any independent (non-author, non-tracker) expert digestion — this may simply reflect the result's youth (2 weeks old) rather than a gap in the search.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

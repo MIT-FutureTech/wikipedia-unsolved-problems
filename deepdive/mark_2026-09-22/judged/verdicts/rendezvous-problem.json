@@ -1,0 +1,60 @@
+{
+  "key": "rendezvous-problem",
+  "judgement": {
+    "events": [
+      {
+        "id": "cfk-2026",
+        "what": "Cembrano, Fischer and Klimm construct an explicit symmetric strategy (FSD) with strictly smaller expected meeting time than the Anderson–Weber strategy for every n>=4 in symmetric rendezvous search on n locations",
+        "date": "2026-04-02",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2604.02058",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "cfk-2026",
+    "derived": {
+      "status": "progress",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": ["status", "resolution_direction", "counterexample.is_counterexample"],
+    "doubts": "The record itself says the Anderson–Weber conjecture (AW optimal for all n) was already refuted before the snapshot, for n=4, by arXiv:0912.0670 (2009). The 2026 paper therefore does not refute an open conjecture; it extends non-optimality to every n>=4 by exhibiting better strategies, i.e. new upper bounds on the optimal symmetric rendezvous time, while the optimal strategy/value for n>=4 and the line rendezvous value (4.1520–4.2574) stay open. This is the Borsuk pattern (F3). A reader who takes 'is AW optimal for n=5,6,…' as the bullet's open sub-question could call it `case`/partial/refuted; I judge the bullet 'Rendezvous problem' as asking for optimal strategies/values, which this does not determine. Pith Review is automated and counts for nothing (F11). No searches run.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {
+    "status": "progress",
+    "resolution_direction": null,
+    "counterexample.is_counterexample": false
+  },
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "status",
+      "from": "partial",
+      "to": "progress",
+      "why": "F3: the record says the Anderson–Weber conjecture was 'disproved specifically for n=4 by an earlier, pre-2024 paper' (arXiv:0912.0670), so no open sub-conjecture is settled in 2026. The FSD strategy beats AW for all n>=4, which lowers the known upper bound on optimal expected meeting time without determining the optimum (the bullet's question). That is a `bound` → progress. The earlier hand correction from claimed to partial rightly split scope from verification but still read this as a case settlement."
+    },
+    {
+      "field": "resolution_direction",
+      "from": "refuted",
+      "to": null,
+      "why": "F14: under §4 step 6 a progress row carries direction null."
+    },
+    {
+      "field": "counterexample.is_counterexample",
+      "from": true,
+      "to": false,
+      "why": "F3/F14: the conjecture the strategy contradicts was already refuted pre-snapshot (n=4, 2009), and the bullet asserts nothing that FSD contradicts. The strategy is an improved construction (a bound), not a counterexample to what the bullet asks."
+    }
+  ]
+}

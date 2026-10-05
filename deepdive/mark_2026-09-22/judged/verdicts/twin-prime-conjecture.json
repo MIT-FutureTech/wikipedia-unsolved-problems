@@ -1,0 +1,64 @@
+{
+  "key": "twin-prime-conjecture",
+  "judgement": {
+    "events": [
+      {
+        "id": "stadlmann-240",
+        "what": "Stadlmann proves H1 <= 240 by traditional methods",
+        "date": "2026-08-31", "precision": "day", "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2608.31126",
+        "scope": "bound", "verification": "unreviewed",
+        "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": null,
+        "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "kintali-236",
+        "what": "Kintali announces H1 <= 236 'with the help of AI' on X, no preprint",
+        "date": "2026-09-01", "precision": "day", "after_snapshot": true,
+        "source": "https://x.com/ShivaKintali/status/2095547543061135765",
+        "scope": "bound", "verification": "unreviewed",
+        "credibility": "doubtful", "credibility_reason": "Announcement only: no preprint, no named model, no argument available to check; superseded in any case.",
+        "ai_role": "assisted", "ai_basis": "I showed that H1 <= 236 with the help of AI, building on Julia Stadlmann's work",
+        "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "axiom-212",
+        "what": "Axiom Math team (Charton, Hong, Lau, Ono et al.) with AxiomProver Lean certificate: H1 <= 212",
+        "date": "2026-09", "precision": "month", "after_snapshot": true,
+        "source": "https://primegaps.axiommath.ai/",
+        "scope": "bound", "verification": "unreviewed",
+        "credibility": "credible", "credibility_reason": null,
+        "ai_role": "none", "ai_basis": "AxiomProver 'autonomously generated from natural-language specifications a Lean certificate'; mathematics credited to human co-authors (formalisation only)",
+        "direction": null, "is_counterexample": false
+      },
+      {
+        "id": "openai-186",
+        "what": "OpenAI paper: GPT-6 Astra proves H1 <= 186, with Lean formalisation conditional on three axioms",
+        "date": "2026-09-03", "precision": "day", "after_snapshot": true,
+        "source": "https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/short_gaps.pdf",
+        "scope": "bound", "verification": "unreviewed",
+        "credibility": "doubtful", "credibility_reason": "No independent human reading; Lean build conditional on three unproven axioms (cited Kloosterman bounds plus numerically-checked integral bounds) and ~10MB of unreviewed Lean (F10). No specific error identified.",
+        "ai_role": "generated", "ai_basis": "the OpenAI paper states the proof 'is due to GPT 6 Astra'",
+        "direction": null, "is_counterexample": false
+      }
+    ],
+    "rests_on": "openai-186",
+    "derived": { "status": "progress", "ai_role": "generated", "resolution_direction": null },
+    "changed": [],
+    "doubts": "All events are bounds on H1; the bullet (infinitely many twin primes) stays open, so progress is the ceiling. The status rests on the 186 bound, which supersedes 240/236/212 on the same quantity; it is unreviewed and its formal proof is conditional on axioms, so if it failed the row would fall back to Axiom's 212 (ai_role none, formalisation only) or Stadlmann's 240 (none). Record's early 'ai_role bound' rationale is obsolete; the 2026-09-24 correction to generated is right. The 212/186 ordering is unclear but irrelevant since 186 is the stronger bound. Unvetted 2025 full-proof preprints were rightly not counted.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {},
+  "outcome_prefix": null,
+  "corrections": [
+    {
+      "field": "ai_role",
+      "from": "generated",
+      "to": "generated",
+      "why": "F10: kept, but the event it rests on (GPT-6 Astra's H1 <= 186) has no independent human reading and its Lean formalisation is 'conditional on three unproven Lean axioms'; if it fails, the furthest surviving bound is Axiom's 212, whose AI contribution is formalisation only (none)."
+    }
+  ]
+}

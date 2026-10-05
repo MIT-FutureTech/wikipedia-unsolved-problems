@@ -1,0 +1,192 @@
+{
+ "key": "andrews-curtis-conjecture",
+ "status": "partial",
+ "no_change_found": false,
+ "outcome": "The general conjecture remains open, but since August 2024 a series of papers using reinforcement learning (PPO), classical greedy/priority search, LLM-guided theorem discovery, and automated theorem proving (Prover9) have eliminated many long-standing potential counterexamples from the Miller-Schupp and Akbulut-Kirby families by exhibiting explicit AC-trivialization sequences, and separately shown the Akbulut-Kirby AK(3) presentation stably AC-trivial (a related, weaker STABLE-AC-conjecture result, not a resolution of the original conjecture as stated).",
+ "status_sources": [
+  "https://arxiv.org/abs/2408.15332",
+  "https://arxiv.org/abs/2501.18601",
+  "https://www.sciencedirect.com/science/article/pii/S2666657X2400034X",
+  "https://openreview.net/pdf?id=lt3Lpa4d2d"
+ ],
+ "event": {
+  "date": "2024-08-27",
+  "precision": "day",
+  "kind": "preprint",
+  "predates_frozen_revision": false,
+  "sources": [
+   "https://arxiv.org/abs/2408.15332"
+  ]
+ },
+ "credited_humans": [
+  "Ali Shehper",
+  "Anibal M. Medina-Mardones",
+  "Lucas Fagan",
+  "Bartłomiej Lewandowski",
+  "Angus Gruen",
+  "Yang Qiu",
+  "Piotr Kucharski",
+  "Zhenghan Wang",
+  "Sergei Gukov"
+ ],
+ "ai_role": "generated",
+ "ai": {
+  "basis_quote": "The best-performing PPO agent solved two new presentations of the Miller-Schupp series that the greedy search had failed to solve.",
+  "formalisation_only": false,
+  "disclosed_cost": "this entire project was carried out using relatively modest computational resources that a small academic research group can easily afford",
+  "systems": [
+   "Proximal Policy Optimization (PPO) algorithm"
+  ],
+  "sources": [
+   "https://arxiv.org/abs/2408.15332",
+   "https://arxiv.org/html/2408.15332v2"
+  ]
+ },
+ "counterexample": {
+  "is_counterexample": false,
+  "object": null,
+  "explicit": false,
+  "verified_how": "The results eliminate specific presentations as potential counterexamples (i.e. confirm they ARE AC-trivial), rather than exhibiting a presentation that refutes the conjecture.",
+  "sources": [
+   "https://arxiv.org/abs/2408.15332"
+  ]
+ },
+ "resolution_direction": "confirmed",
+ "disputes": [
+  {
+   "kind": "priority",
+   "summary": "Alexei Lisitsa's automated-deduction paper (Jan 2025, arXiv:2501.18601) presents an independent re-derivation of the stable AC-triviality of AK(3), explicitly crediting Shehper et al. (Aug 2024) with the original result and framing his own contribution as an alternative, human/Prover9-based proof rather than a new discovery. No dispute over who was first, but worth noting the two results used entirely different methods (RL vs. classical first-order automated theorem proving) to reach compatible conclusions.",
+   "sources": [
+    "https://arxiv.org/abs/2501.18601"
+   ]
+  }
+ ],
+ "summary": "Wikipedia's bullet states the original (non-stable) Andrews-Curtis conjecture: every balanced presentation of the trivial group can be reduced to the trivial presentation by Nielsen transformations and conjugations of relators, with no extra generator/relator pairs allowed. Since the 26 January 2024 snapshot, the most substantial development is Shehper, Medina-Mardones, Fagan, Lewandowski, Gruen, Qiu, Kucharski, Wang and Gukov, 'What makes math problems hard for reinforcement learning: a case study' (arXiv:2408.15332, submitted 27 Aug 2024, revised 11 Feb 2025). Using a mix of classical greedy/priority search (not a learned model) and a PPO reinforcement-learning agent, they (a) proved by hand, after observing patterns surfaced by greedy search, that entire infinite families MS(1,w) and MS(n, y^-1xyx^-1) of Miller-Schupp presentations are AC-trivial (Theorems 2-3, Corollary 9) — genuine cases of the original conjecture settled, hence 'partial'; and (b) had their PPO agent directly discover AC-trivialization paths (lengths 205 and 1085, later shortened by removing trivial subsequences) for two specific Miller-Schupp presentations that classical greedy search had failed to solve (Theorem 10) — here the RL agent produced the mathematical object (the move sequence) itself, which the authors then verified and post-processed, making this ai_role 'generated' per §6.2's 'who did the mathematics' test. A companion result widely reported in press (Caltech news release, Aug 2024/Feb 2025; Scientific American) is that the Akbulut-Kirby AK(3) presentation — a roughly 40-year-old flagship potential counterexample — was shown 'stably' AC-trivial. Checking the primary paper directly: this is explicitly the STABLE Andrews-Curtis conjecture (which permits AC1-AC4 moves including adding/removing trivial generator-relator pairs), a related but distinct, weaker conjecture from the one in the Wikipedia bullet; the paper itself states AK(3) under the original, non-stabilized moves 'eludes all attempts at length reduction' and remains unresolved. Per §3.1 this stable-AK(3) result is a related problem, not a case of the stated conjecture, so it does not by itself move the bullet's status, though it is worth flagging as the single most publicized 'AI solves famous open problem' claim in this area and it is NOT actually a resolution of the bullet's conjecture. Alexei Lisitsa independently re-derived the same stable-AK(3) result using the classical first-order automated theorem prover Prover9 (arXiv:2501.18601, Jan 2025) — a non-AI, non-ML method (automated deduction, not machine learning) — and separately (ScienceDirect / Examples and Counterexamples, 2024) found new non-stable AC-trivializations for Miller-Schupp presentations MS_n(w*), n=3..8, again via Prover9, so 'ai_role: none' would apply to that specific paper's own new trivializations (they are not AI/ML-generated). A 2025 NeurIPS MATH-AI workshop paper by Zhang, Zhou, George, Gukov and Anandkumar ('AI-Driven Mathematical Discovery for the Andrews-Curtis Conjecture') extends the RL approach with an LLM-driven theorem-discovery loop and a deterministic Lean autoformalizer ('AC Certifier'), reporting 753 Miller-Schupp presentations solved/eliminated as counterexamples — this is a workshop paper, not yet digested by the wider expert community, so any status uplift from it would be 'claimed' rather than 'resolved'. Net effect: the overall Andrews-Curtis conjecture is still open, but a genuine, non-trivial slice of it (several infinite families and hundreds of individual Miller-Schupp presentations) has been settled in the confirming direction since the snapshot, with one theorem (Theorem 10 in the Aug 2024 paper) directly and explicitly credited by the authors to an RL agent's own search, satisfying the 'generated' bar under §6.2. I classify the overall status as 'partial' (a case/infinite-family of the problem settled, not the whole conjecture) with ai_role 'generated' anchored on that one clearly-attributed theorem, while noting in competing_reading that most of the total volume of eliminated presentations (753, and the hundreds solved by greedy search) either used non-AI classical search or an LLM+RL pipeline whose exact division of labor across those 753 cases I could not fully verify from the workshop paper alone.",
+ "competing_reading": "One could argue ai_role should be 'assisted' rather than 'generated' at the level of the overall body of progress, since the two headline infinite-family theorems (Theorems 2, 3, Corollary 9) were proved by hand after humans noticed patterns in classical (non-learned) greedy-search output, and the large majority of solved presentations (533 via greedy search, 753 via the later LLM+RL+autoformalizer pipeline) involve either no AI at all or an entangled LLM/RL/human pipeline whose individual attribution per-presentation isn't spelled out in the workshop abstract I could access. If one weights by volume of presentations resolved rather than by the cleanest single attributable theorem, 'assisted' or even a mixed classification might be more representative; I chose 'generated' because Theorem 10 is the one instance where the authors are unambiguous that the agent itself produced a witness (the move sequence) that a classical method had failed to find, which is the cleanest test case under §6.2, but a reader weighting the aggregate progress differently could reasonably disagree.",
+ "what_would_settle_it": "Full text access to the NeurIPS 2025 MATH-AI workshop paper (openreview id lt3Lpa4d2d) to see exactly which of the 753 Miller-Schupp eliminations were LLM/RL-'generated' versus human-guided, and to arXiv:2607.23611 (Machine-checkable equivalence certificates at the length-14 Andrews-Curtis frontier, Carreras, Jul 2026) to see whether any AC(3)-adjacent length-14 presentations previously only 'claimed' equivalent to AK(3) without a published path now have machine-checkable non-AI certificates that would shift some 'claimed' work to 'resolved'.",
+ "confidence": "medium",
+ "sources": [
+  {
+   "url": "https://arxiv.org/abs/2408.15332",
+   "title": "What makes math problems hard for reinforcement learning: a case study",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/html/2408.15332v2",
+   "title": "What makes math problems hard for reinforcement learning: a case study (HTML v2)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/pdf/2408.15332",
+   "title": "What makes math problems hard for reinforcement learning: a case study (PDF)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/abs/2501.18601",
+   "title": "Stable Andrews-Curtis trivialization of AK(3) revisited. A case study using automated deduction",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/html/2501.18601v1",
+   "title": "Stable Andrews-Curtis trivialization of AK(3) revisited (HTML)",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://www.sciencedirect.com/science/article/pii/S2666657X2400034X",
+   "title": "New Andrews–Curtis trivializations for Miller–Schupp group presentations",
+   "type": "journal",
+   "opened": false
+  },
+  {
+   "url": "https://www.caltech.edu/about/news/ai-program-plays-the-long-game-to-solve-decades-old-math-problems",
+   "title": "AI Program Plays the Long Game to Solve Decades-Old Math Problems",
+   "type": "press_release",
+   "opened": true
+  },
+  {
+   "url": "https://www.scientificamerican.com/article/how-this-ai-breakthrough-with-pure-mathematics-and-reinforcement-learning/",
+   "title": "How This AI Breakthrough with Pure Mathematics and Reinforcement Learning Could Help Predict Future Crises",
+   "type": "news",
+   "opened": true
+  },
+  {
+   "url": "https://openreview.net/pdf?id=lt3Lpa4d2d",
+   "title": "AI-Driven Mathematical Discovery for the Andrews–Curtis Conjecture",
+   "type": "preprint",
+   "opened": false
+  },
+  {
+   "url": "https://neurips.cc/virtual/2025/131071",
+   "title": "NeurIPS 2025 MATH-AI workshop listing: AI-Driven Mathematical Discovery for the Andrews-Curtis Conjecture",
+   "type": "encyclopedia",
+   "opened": true
+  },
+  {
+   "url": "https://bookstopology.substack.com/p/ai-driven-mathematical-discovery",
+   "title": "AI-Driven Mathematical Discovery: The Andrews–Curtis Conjecture (blog digest)",
+   "type": "blog",
+   "opened": true
+  },
+  {
+   "url": "https://arxiv.org/html/2607.23611",
+   "title": "Machine-checkable equivalence certificates at the length-14 Andrews–Curtis frontier",
+   "type": "preprint",
+   "opened": true
+  },
+  {
+   "url": "https://en.wikipedia.org/wiki/Andrews%E2%80%93Curtis_conjecture",
+   "title": "Andrews–Curtis conjecture (Wikipedia, current)",
+   "type": "encyclopedia",
+   "opened": true
+  },
+  {
+   "url": "https://github.com/google-deepmind/formal-conjectures/issues/2144",
+   "title": "Andrews–Curtis conjecture · Issue #2144 · google-deepmind/formal-conjectures",
+   "type": "repository",
+   "opened": true
+  },
+  {
+   "url": "https://github.com/shehper/AC-Solver",
+   "title": "AC-Solver GitHub repository (official code for the RL case study)",
+   "type": "repository",
+   "opened": false
+  }
+ ],
+ "search": {
+  "queries": [
+   "Andrews-Curtis conjecture DeepMind AK(3) 2024 reinforcement learning",
+   "Andrews-Curtis conjecture disproved counterexample",
+   "Shehper Medvedev Kim Ni Andrews-Curtis conjecture reinforcement learning arxiv 2024",
+   "\"What makes math problems hard for reinforcement learning\" Andrews-Curtis arxiv 2408.15332",
+   "Andrews-Curtis conjecture Wikipedia article current status 2025 2026",
+   "\"AK(3)\" stably trivializable first shown 2024 Shehper",
+   "\"New Andrews-Curtis trivializations for Miller-Schupp group presentations\" Lisitsa authors abstract",
+   "Andrews-Curtis conjecture reinforcement learning priority dispute Lisitsa DeepMind Caltech",
+   "\"AC Certifier\" autoformalizer Andrews-Curtis LLM Anandkumar Gukov NeurIPS 2025"
+  ],
+  "places_checked": [
+   "arXiv listings (abs and html/PDF versions) for 2408.15332, 2501.18601, 2607.23611",
+   "ScienceDirect journal page for Lisitsa's Miller-Schupp trivializations paper (blocked, HTTP 403)",
+   "Caltech news release",
+   "Scientific American article",
+   "NeurIPS 2025 virtual program listing and OpenReview PDF (partially blocked/inaccessible) for the LLM+RL+autoformalizer follow-up",
+   "Substack blog digest of the NeurIPS workshop paper",
+   "current (2026) Wikipedia article on the Andrews-Curtis conjecture",
+   "google-deepmind/formal-conjectures GitHub issue tracker (Lean formalization triage, not a mathematical result)",
+   "GitHub repo shehper/AC-Solver (not opened in full, referenced only)"
+  ],
+  "dead_ends": [
+   "ScienceDirect returned HTTP 403 for the Lisitsa Miller-Schupp paper; relied on SSRN/search-result abstract text and the University of Liverpool repository listing instead, so I did not personally open the full ScienceDirect PDF",
+   "OpenReview PDF for the NeurIPS workshop paper (lt3Lpa4d2d) returned only a browser-verification page, not the actual content; relied on the NeurIPS listing abstract and a secondary blog digest instead, so exact per-presentation AI attribution across the 753 solved cases is not independently confirmed from the primary source",
+   "The google-deepmind/formal-conjectures GitHub issue on Andrews-Curtis is an AI-generated Lean-formalizability triage note, not a mathematical contribution, and was correctly set aside as irrelevant to the status question"
+  ]
+ },
+ "incomplete": "Could not personally open the full text of the ScienceDirect (Lisitsa, Aug 2024) paper or the OpenReview PDF of the NeurIPS 2025 MATH-AI workshop paper (both blocked); relied on abstracts, secondary digests, and search-result summaries for those two sources. This affects mainly the precise per-case AI attribution within the 753-presentation NeurIPS workshop result, not the core Theorem 10 attribution from the primary Aug 2024 paper, which was verified directly from the arXiv HTML full text.",
+ "triage_disagreement": true,
+ "triage_queries_replaced": false
+}

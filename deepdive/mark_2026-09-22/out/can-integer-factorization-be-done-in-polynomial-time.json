@@ -1,0 +1,148 @@
+{
+  "key": "can-integer-factorization-be-done-in-polynomial-time",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "The question of whether integer factorization can be done in polynomial time on a classical computer remains open; no proof, disproof, or algorithmic breakthrough narrowing the question was found since 26 January 2024. The one notable event in the window — the September 2026 GNFS factorization of RSA-260 using an AI coding agent (Devin) for GPU implementation work — is a record factorization (largest number factored), not a change to the complexity of the problem, and the author explicitly states 'no algorithmic advancements' were made.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Integer_factorization",
+    "https://cognition.com/blog/factoring-rsa-260",
+    "https://blog.senthorus.ch/posts/rsa_260_factorization_cognition_explanation"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "No result changing this problem's status was found. The problem asks whether integer factorization can be solved in polynomial time on a classical computer; this remains open, with both the current (17 September 2026) revision of the Wikipedia article on integer factorization and multiple 2025-2026 sources confirming that 'no algorithm has been published that can factor all integers in polynomial time' and that existence/non-existence is unproven. I checked: (1) the triage's Zenodo find (Devashish Sonowal, 'Strongly polynomial-time integer factorization using Integer Linear Programming', 17 March 2025, DOI 10.5281/zenodo.15041136) — this is an unreviewed self-published preprint with restricted-access files, no citations, no journal acceptance, and no corroboration anywhere; it does not rise even to 'claimed' status in a way that has moved the needle on expert consensus, and per §6.1 a claimed status requires at minimum a manuscript that is actually circulating and being discussed, which this is not (it is dated 2025-03, within the window, but I record it only as a non-credible claim, not as an event the status rests on). (2) The most substantively AI-related event in the window is the September 2026 factorization of RSA-260 (an 862-bit / 260-digit semiprime), the largest number factored in the public RSA Factoring Challenge to date, reported by Eric Lu of Cognition, who used Cognition's 'Devin' AI coding agent to build a GPU-accelerated implementation of CADO-NFS (general number field sieve), totaling about 4,900 GPU-days. This is a genuine and interesting AI-adjacent event, but by the authors' own account it involved 'essentially no algorithmic advancements' — GNFS is still the same sub-exponential (not polynomial-time) classical algorithm, and Devin's role was GPU performance engineering (writing a GPU lattice siever 'glas', optimizing linear algebra and polynomial selection for GPU memory systems) under close human direction (3,328 messages across 192 sessions), not producing new mathematics. Per §3.1, a factoring record (one more number factored, or a record table extended) is exactly the kind of narrowing move that does not advance an existence/complexity question like this one — the question is answered only by a proof or disproof that factoring is or is not in P. (3) Deterministic factorization complexity improvements (Hittmeir's N^(2/9+o(1)), Harvey's N^(1/5+o(1)), and later log-log refinements) are also sub-exponential-but-not-polynomial results, and in any case predate the window (2019-2021). (4) No AI system (AlphaEvolve, LLM-based theorem provers, etc.) was found to have made any progress specific to the factoring complexity question — AlphaEvolve's number-theory successes (minimum overlap problem, kissing numbers, matrix multiplication) do not include factoring. (5) Quantum computing results (Shor's algorithm implementations/records) are out of scope since the stated question is specifically about classical polynomial-time algorithms, and quantum hardware in the window remains far too limited to factor cryptographically relevant numbers regardless. I am satisfied nothing has changed this problem's open status in the window.",
+  "competing_reading": "One could argue the RSA-260/Devin event deserves a `progress` status with `ai_role: bound`, on the theory that record factorizations are evidence about the practical difficulty landscape even though they don't touch the P-time question. I rejected this because §3.1 explicitly says a record table extended does not advance an existence/infinitude/complexity question — 'Are there infinitely many X' and 'is this problem in P' are the same shape of question, answered only by resolving the universal claim, not by moving the frontier of known instances. The Sonowal preprint could alternatively be coded `claimed` since a preprint exists dated within the window; I did not do so because §6.1's `claimed` bar (a preprint or announcement that experts have not yet digested, but which is nonetheless a real currency in the field) implies a claim in circulation, whereas this is an unreviewed, uncited, access-restricted self-publication with no traction — treating every unverifiable independent claim as `claimed` would make that status meaningless as a filter.",
+  "what_would_settle_it": "A peer-reviewed proof or disproof that FACTORING is or is not in P (or a widely-discussed preprint from a credible source making that claim, which would justify `claimed`); alternatively, evidence that the Sonowal preprint has been read, cited, or refuted by complexity theorists, which would change its evidentiary weight.",
+  "confidence": "high",
+
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Integer_factorization",
+      "title": "Integer factorization",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/15041136",
+      "title": "Strongly polynomial-time integer factorization using Integer Linear Programming",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://cognition.com/blog/factoring-rsa-260",
+      "title": "Factoring RSA-260",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://blog.senthorus.ch/posts/rsa_260_factorization_cognition_explanation",
+      "title": "Inside the RSA-260 Factorization: GPU-Accelerated GNFS and the Role of Devin",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://blog.senthorus.ch/posts/rsa_260_factorization",
+      "title": "RSA-260 Has Been Factored: What It Really Means for Modern Cryptography",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://postquantum.com/security-pqc/sa-260-factored-gpu-devin/",
+      "title": "RSA-260 Factored on GPUs With Code Built by Devin Agent",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://www.scientificamerican.com/article/whats-the-tech-behind-the-record-breaking-rsa-260-crack/",
+      "title": "What's the tech behind the record-breaking RSA-260 crack?",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Integer_factorization_records",
+      "title": "Integer factorization records",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2105.11105",
+      "title": "A log-log speedup for exponent one-fifth deterministic integer factorisation",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2507.07055",
+      "title": "Integer Factorization: Another perspective",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://deepmind.google/blog/alphaevolve-a-gemini-powered-coding-agent-for-designing-advanced-algorithms/",
+      "title": "AlphaEvolve: A Gemini-powered coding agent for designing advanced algorithms",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://www.mdpi.com/2227-7390/14/1/41",
+      "title": "From P ≟ NP to Practice: Description Complexity and Certificate-First Algorithm Discovery for Hard Problems",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "integer factorization polynomial time algorithm 2025 2026 proof",
+      "\"integer factorization\" P vs NP AI proof claim 2025",
+      "Sonowal strongly polynomial-time integer factorization ILP Zenodo",
+      "quantum factoring record 2025 2026 large number factored Shor's algorithm",
+      "deterministic integer factorization N^(1/5) algorithm 2025 improvement",
+      "\"integer factorization\" wikipedia unsolved problem 2025 update status",
+      "AI machine learning discovers factoring algorithm DeepMind OpenAI 2025 2026",
+      "RSA-260 factored September 2026 GNFS record",
+      "AlphaEvolve factoring algorithm number theory DeepMind",
+      "\"P versus NP\" factoring polynomial time complexity theory survey 2025 2026 open problem"
+    ],
+    "places_checked": [
+      "Wikipedia: Integer factorization (current revision, 17 Sept 2026)",
+      "Zenodo record 15041136 (Sonowal preprint)",
+      "Cognition blog post on RSA-260",
+      "Senthorus blog technical explanation of RSA-260/Devin",
+      "Google DeepMind AlphaEvolve blog and coverage",
+      "General web/arXiv search for factoring complexity results 2024-2026"
+    ],
+    "dead_ends": [
+      "Quantum factoring records (Shor's algorithm demonstrations, 8-bit replication paper) — out of scope, question is about classical polynomial-time algorithms",
+      "Ising-machine / QUBO-based factoring heuristics (Nov 2025) — heuristic physical/optimization approaches, not a classical polynomial-time algorithm or complexity result",
+      "Hittmeir/Harvey deterministic N^(1/5+o(1)) factoring line of work — real complexity improvement but sub-exponential, not polynomial, and dated 2019-2021, before the window"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

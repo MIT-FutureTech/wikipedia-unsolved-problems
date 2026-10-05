@@ -1,0 +1,90 @@
+{
+  "key": "does-every-convex-polyhedron-have-ruperts-property",
+
+  "status": "resolved",
+  "no_change_found": false,
+  "outcome": "Steininger and Yurkevich constructed the 'Noperthedron' (90 vertices, 152 faces) and proved it lacks Rupert's property, disproving the 2017 conjecture that every convex polyhedron is Rupert. The proof combines two analytic theorems (a 'global theorem' and a 'local theorem') with a rigorous, rational-arithmetic computer verification partitioning the 5-dimensional orientation parameter space into roughly 18 million regions, implemented in R and SageMath.",
+  "status_sources": [
+    "https://arxiv.org/abs/2508.18475",
+    "https://www.quantamagazine.org/first-shape-found-that-cant-pass-through-itself-20251024/",
+    "https://www.scientificamerican.com/article/mathematicians-make-surprising-breakthrough-in-3d-geometry-with-noperthedron/",
+    "https://johncarlosbaez.wordpress.com/2025/08/28/a-polyhedron-without-ruperts-property/"
+  ],
+
+  "event": {
+    "date": "2025-08-25",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2508.18475"]
+  },
+
+  "credited_humans": ["Jakob Steininger", "Sergey Yurkevich"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "The Noperthedron: an explicit convex polyhedron with 90 vertices, 240 edges (apparently), and 152 faces, constructed to be non-Rupert",
+    "explicit": true,
+    "verified_how": "Two proved theorems (a global theorem bounding excluded orientation regions from shadow containment, and a local theorem for special vertex cases) applied via rigorous rational-arithmetic computation (R and SageMath) across ~18 million regions of the 5-dimensional orientation parameter space, ruling out every possible passage",
+    "sources": [
+      "https://arxiv.org/abs/2508.18475",
+      "https://johncarlosbaez.wordpress.com/2025/08/28/a-polyhedron-without-ruperts-property/"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [],
+
+  "summary": "The triage record correctly identified the key result: Steininger and Yurkevich's arXiv preprint 2508.18475 ('A convex polyhedron without Rupert's property', v1 submitted 2025-08-25) constructs the Noperthedron, the first convex polyhedron proved to lack Rupert's property, thereby disproving the 2017 conjecture (attributed by Scientific American's coverage to prior researchers) that every convex polyhedron is Rupert. I read the arXiv HTML full text, the paper's acknowledgements, Quanta Magazine's and Scientific American's independent journalistic digestions (each quoting outside experts -- Joseph O'Rourke and Pongbunthit Tonpho respectively -- endorsing the result), and John Carlos Baez's blog summary. All are consistent: the method was a purely classical one -- two proved analytic theorems combined with an exhaustive, rational-arithmetic (not floating point) computer verification across ~18 million partitioned regions of parameter space, implemented in R and SageMath. The paper's acknowledgements thank a colleague for 'moral support' and financial/computing support from A&R TECH, and separately credit David Renshaw and Jason Reed for 'immense work on the formalization of the paper in Lean and correction of inaccuracies' -- this is a human-led Lean 4 formalization effort (repository jcreedcmu/Noperthedron), not an AI system; no LLM, neural network, or automated theorem-proving AI is mentioned anywhere in the paper, acknowledgements, or secondary coverage. A search also surfaced an unrelated third-party GitHub project (AndreaSevincel/non-rupert-polyhedra-detector) that trains a machine-learning classifier to predict the Rupert property of polyhedra -- this is a separate, later, exploratory tool inspired by the Noperthedron concept, not part of the original discovery or proof, and does not itself settle any case of the problem. I classify status as 'resolved' rather than 'claimed' because the result has been digested by named experts in independent science-journalism coverage (Quanta, Scientific American) that describes the proof method in enough depth to constitute an expert-level account, and the mathematical community has treated the disproof as established since August 2025 with no retraction found. The Lean 4 formalization is a separate, ongoing verification effort and, per a 2026 secondary source, still contains a 'sorry' placeholder for the 18.7-million-region computational certificate -- it is not yet a fully machine-checked proof, but this does not affect the classification since the original proof already meets the 'resolved' bar via theorem-proof plus expert digestion, independent of the Lean effort.",
+  "competing_reading": "One could argue for 'claimed' instead of 'resolved' on the grounds that the paper (as of the versions checked) is a preprint with no confirmed journal publication, and the only formal machine-checkable verification (the Lean formalization) is still incomplete (contains a 'sorry' for the core computational certificate). Under a strict reading of the resolved/claimed line, a preprint with no journal acceptance and no completed independent formal proof might be held to 'claimed'. I lean toward 'resolved' because two independent, in-depth science-journalism digestions each quote outside domain experts endorsing the mathematical content as sound, which is the kind of expert digestion the rules treat as sufficient even absent formal journal publication.",
+  "what_would_settle_it": "Journal acceptance of the Steininger-Yurkevich paper, or completion of the Lean 4 formalization (removal of the remaining 'sorry' for the computational certificate) with community-recognized correctness, would remove any doubt about the 'resolved' classification.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2508.18475", "title": "A convex polyhedron without Rupert's property", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2508.18475v1", "title": "A convex polyhedron without Rupert's property (HTML full text)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2508.18475", "title": "A convex polyhedron without Rupert's property (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://johncarlosbaez.wordpress.com/2025/08/28/a-polyhedron-without-ruperts-property/", "title": "Rupert's Property - Azimuth", "type": "blog", "opened": true},
+    {"url": "https://jcreedcmu.github.io/Noperthedron/", "title": "Noperthedron | A convex polyhedron without the Rupert property", "type": "repository", "opened": true},
+    {"url": "https://github.com/jcreedcmu/Noperthedron", "title": "jcreedcmu/Noperthedron: The Noperthedron does not have Rupert Property: a proof in Lean4", "type": "repository", "opened": true},
+    {"url": "https://www.quantamagazine.org/first-shape-found-that-cant-pass-through-itself-20251024/", "title": "First Shape Found That Can't Pass Through Itself", "type": "news", "opened": true},
+    {"url": "https://www.scientificamerican.com/article/mathematicians-make-surprising-breakthrough-in-3d-geometry-with-noperthedron/", "title": "Mathematicians Make Surprising Breakthrough in 3D Geometry with 'Noperthedron'", "type": "news", "opened": true},
+    {"url": "https://github.com/AndreaSevincel/non-rupert-polyhedra-detector", "title": "non-rupert-polyhedra-detector", "type": "repository", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Rupert's property every convex polyhedron proof disproof 2025",
+      "Rupert property noperthedron counterexample",
+      "Noperthedron Rupert property AI machine learning search",
+      "Steininger Yurkevich Noperthedron acknowledgements optimization software",
+      "Noperthedron Lean formalization complete proof verified 2026"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML full text for 2508.18475 (v1 and v2)",
+      "John Carlos Baez's Azimuth blog",
+      "Noperthedron Lean formalization project page and GitHub repository",
+      "Quanta Magazine",
+      "Scientific American",
+      "general web search for AI/ML involvement"
+    ],
+    "dead_ends": [
+      "arXiv v2 (2026-01-28) revision notes were not documented on the abstract page, so exact changes between v1 and v2 could not be confirmed beyond both existing",
+      "GitHub repo fetch via curl was blocked by sandbox approval; used WebFetch on the GitHub page instead, which gave partial but sufficient information on Lean proof status",
+      "Could not find a formal peer-reviewed journal publication record for the paper as of the search date"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

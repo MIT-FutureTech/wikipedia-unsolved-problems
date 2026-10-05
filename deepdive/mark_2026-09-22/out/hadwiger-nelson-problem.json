@@ -1,0 +1,138 @@
+{
+  "key": "hadwiger-nelson-problem",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "The chromatic number of the plane remains bounded between 5 and 7, unchanged since de Grey's 2018 lower bound and the classical hexagonal-tiling upper bound; no result in the window (26 Jan 2024 - present) altered this range for the problem as Wikipedia states it.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Hadwiger%E2%80%93Nelson_problem",
+    "https://arxiv.org/abs/1804.02385",
+    "https://www.semanticscholar.org/paper/Computing-Small-Unit-Distance-Graphs-with-Chromatic-Heule/0ac3b916447a9da6a12afe536a5561acb4dca5e5"
+  ],
+
+  "event": {
+    "date": null,
+    "precision": "year",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": []
+  },
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The Hadwiger-Nelson problem, as Wikipedia's frozen bullet states it, asks for the chromatic number χ(ℝ²) of the unit-distance graph of the plane. This has been bounded between 5 and 7 since Aubrey de Grey's 2018 lower-bound construction and the classical hexagonal-tiling upper bound of 7; the current Wikipedia article (fetched live) confirms this range is still open and unchanged, and no source found in this research reports any tightening of the 5-7 range within the window (26 Jan 2024 to today). The smallest known 5-chromatic unit-distance graph (the 509-vertex 'Parts graph') also predates the window (2020-2021); a 2026 Haugland result on a restricted (Moser-spindle-free) variant produced a 2131-vertex graph, which is a record for a different, more restricted question and does not improve the unrestricted 509-vertex record, so it is not a change to this problem either. Two lines of post-window work were flagged by triage and investigated in depth: (1) Matolcsi, Ruzsa, Varga and Zsamboki (arXiv 2311.10069, first posted 16 Nov 2023 but last revised 27 Mar 2025) proved the *fractional* chromatic number of the plane is at least 4; this is a distinct graph parameter from the integer chromatic number this bullet asks about (a fractional bound of 4 says nothing new about whether χ(ℝ²) is 5, 6 or 7, which was already known to be ≥5), so under §3.1 this is a related-but-different problem, not a case of this one, and it involves no AI (a purely human, combinatorial/group-theoretic proof). (2) Mundinger, Pokutta, Spiegel and Zimmer (arXiv 2404.05509, posted 8 Apr 2024, and its ICML 2025 companion arXiv 2501.18527) used a custom neural-network/'deep annealing' approach to find two new six-colorings of the plane for the *off-diagonal two-distance variant* of the problem (avoiding unit distance in five colors and a second distance d in a sixth), extending the known range of d from about [0.414,0.447] to [0.354,0.657] - the first improvement in ~30 years to that variant. This is again a distinct, restricted variant (a different problem posed over a different question - the two-distance coloring, not the plain chromatic number), so it is out of scope for this bullet under §3.1's case-vs-variant test, even though it is the one genuinely AI-flavored result found. Notably, even for its own (different) problem, the authors' own description - 'derived by formalizing colorings suggested by a custom machine learning approach' - places the neural network's contribution as suggesting candidate constructions that humans then formalized and verified, which is consistent with substantive assistance to that variant's result (were it in scope, it would likely code as assisted) rather than the network single-handedly generating a verified proof. A search also surfaced a May 2026 Zenodo preprint by an individual (Jonathan Reed) claiming to fully resolve χ(ℝ²)=7 via a Lean 4 'toroidal projection' argument; this is an unreviewed, non-credible submission with no expert digestion, no acceptance anywhere, and reasoning (mapping the plane to a torus to derive Euclidean coloring constraints) that does not hold up - it is not counted as any kind of event, claimed or otherwise, since it lacks even preprint-server-standard credibility and shows no sign of being taken seriously by anyone in the field. Taken together, the core bullet - χ(ℝ²) ∈ {5,6,7} - has seen no change in the window; the two adjacent bodies of work identified belong to different (fractional-chromatic-number and two-distance-variant) questions and are recorded here only for context.",
+  "competing_reading": "One could argue Wikipedia's own prose for this bullet is loose enough that 'the chromatic number of unit distance graphs' should be read broadly to include the fractional chromatic number or the two-distance variant, since both are discussed in the same literature and sometimes in the same papers/sections as the classical problem. Under that broader reading, the 2311.10069 fractional bound and the 2404.05509/2501.18527 ML-derived six-colorings would count as `partial` progress, and the two-distance-variant work would then carry an `ai_role` of `assisted` (based on the authors' own 'derived by formalizing colorings suggested by' language). I judged the narrower reading correct because the frozen statement explicitly names 'the chromatic number,' a specific, well-defined integer graph parameter that differs technically from its fractional relaxation, and because the two-distance problem is a named, distinct variant in the literature (not the plane's own unit-distance chromatic number) - restricting the question rather than merely rephrasing it moves outside the bullet's scope per §3.1.",
+  "what_would_settle_it": "A statement from Wikipedia's own editors or from a survey of the Hadwiger-Nelson literature explicitly treating the fractional chromatic number or the two-distance/off-diagonal variant as part of 'the' Hadwiger-Nelson problem (rather than as related-but-distinct questions) would justify reclassifying this as `partial` with `ai_role` `assisted`. Absent that, the narrower reading stands.",
+  "confidence": "high",
+
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Hadwiger%E2%80%93Nelson_problem",
+      "title": "Hadwiger-Nelson problem",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2311.10069",
+      "title": "The fractional chromatic number of the plane is at least 4",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.05509",
+      "title": "Extending the Continuum of Six-Colorings",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.pokutta.com/blog/research/2024/07/28/hadwiger-nelson.html",
+      "title": "Extending the Continuum of Six-Colorings",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.18527",
+      "title": "Neural Discovery in Mathematics: Do Machines Dream of Colored Planes?",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/20149767",
+      "title": "The Hadwiger-Nelson Problem: Formal Verification of the 7-Color Chromatic Number of the Plane via Toroidal Projection and the Irrationality of 2π",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.semanticscholar.org/paper/Computing-Small-Unit-Distance-Graphs-with-Chromatic-Heule/0ac3b916447a9da6a12afe536a5561acb4dca5e5",
+      "title": "Computing Small Unit-Distance Graphs with Chromatic Number 5",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://michaelnielsen.org/polymath/index.php?title=Hadwiger-Nelson_problem",
+      "title": "Hadwiger-Nelson problem - Polymath Wiki",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1804.02385",
+      "title": "The chromatic number of the plane is at least 5",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://mathworld.wolfram.com/Hadwiger-NelsonProblem.html",
+      "title": "Hadwiger-Nelson Problem -- from Wolfram MathWorld",
+      "type": "encyclopedia",
+      "opened": false
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "Hadwiger-Nelson problem chromatic number plane 2024 2025 2026 progress",
+      "\"fractional chromatic number of the plane\" \"at least 4\" arxiv 2311.10069",
+      "Mundinger Pokutta Spiegel Zimmer \"Extending the Continuum of Six-Colorings\" Hadwiger-Nelson machine learning",
+      "Hadwiger-Nelson problem Wikipedia article chromatic number plane current status",
+      "smallest unit-distance graph chromatic number 5 vertices reduction 2024 2025 509",
+      "Hadwiger-Nelson problem chromatic number plane new lower bound 6 OR upper bound improvement 2025 2026",
+      "\"chromatic number of the plane\" polymath project update 2025 2026"
+    ],
+    "places_checked": [
+      "current (live) Wikipedia article for Hadwiger-Nelson problem",
+      "arXiv listings/abstracts for 2311.10069, 2404.05509, 2501.18527, 2304.10163, 2404.14398, 2502.01958",
+      "Pokutta research blog",
+      "Polymath wiki page on the Hadwiger-Nelson problem",
+      "Semantic Scholar / arXiv record for the 509-vertex 5-chromatic graph work",
+      "Zenodo repository (found and assessed a non-credible 2026 claimed resolution)"
+    ],
+    "dead_ends": [
+      "Zenodo 'Formal Verification' preprint (Jonathan Reed, May 2026) claiming χ(ℝ²)=7 via Lean 4 and toroidal projection - checked and found non-credible, unreviewed, and reasoning does not hold up; not counted as an event",
+      "Search for any 2025-2026 improvement to the unrestricted 5-chromatic minimal-vertex record beyond the 509-vertex Parts graph - none found; a 2026 Haugland result only improves a restricted (Moser-spindle-free) sub-record to 2131 vertices, a different, narrower question"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

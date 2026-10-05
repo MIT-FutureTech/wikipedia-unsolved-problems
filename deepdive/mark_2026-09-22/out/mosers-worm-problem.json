@@ -1,0 +1,98 @@
+{
+  "key": "mosers-worm-problem",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "Two independent, unpublished 2026 preprints moved bounds on the area of a convex universal cover for Moser's worm problem: Ethan Keller (arXiv:2609.21968, Sept 18 2026) raised the convex lower bound to 0.239 and lowered the convex upper bound to 0.24633..., cutting the gap between previously refereed bounds by over 75%, with the full proof formalized and kernel-checked in Lean 4; Zhipeng Deng (arXiv:2609.04591, Sept 4 2026) separately claims a specific isosceles-triangle convex cover of area 0.257883595..., also Lean-formalized. The overall problem (exact minimum area) remains open, and neither preprint has yet received expert digestion or journal review.",
+  "status_sources": [
+    "https://arxiv.org/abs/2609.21968",
+    "https://arxiv.org/abs/2609.04591",
+    "https://en.wikipedia.org/wiki/Moser%27s_worm_problem"
+  ],
+
+  "event": {
+    "date": "2026-09-18",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2609.21968"]
+  },
+
+  "credited_humans": ["Ethan Keller", "Zhipeng Deng"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "Moser's worm problem — the exact minimum area of a region covering every unit-length plane curve — remains open. Wikipedia's live article (checked 2026-09-22) still lists the best refereed bounds as of the frozen revision's era: convex lower bound 0.232239 (Khandhawit, Pagonakis & Sriswasdi 2013), convex upper bound 0.270911861 (Wang 2006), and nonconvex upper bound 0.260437 (Norwood & Poole 2003) / the 30° sector result of Panraksa & Wichiramala (2021, area π/12≈0.2618, settling Wetzel's conjecture) — all predating the window. Since 26 January 2024, two new, apparently independent single-author preprints have appeared in September 2026 that would move the convex bounds if they hold up: (1) Ethan Keller, 'Improved bounds for universal convex covers of unit arcs' (arXiv:2609.21968, submitted 2026-09-18), claims 0.239 ≤ α ≤ 0.24633..., a combined lower+upper bound improvement cutting the previously refereed gap by over 75%, with the full proof Lean 4-formalized and kernel-verified, code/certificates on GitHub. (2) Zhipeng Deng, 'Balanced Support Calibrations for Moser's Worm Problem' (arXiv:2609.04591, submitted 2026-09-04), claims a specific isosceles-triangle convex cover of area 0.257883595..., also with Lean 4 code and a Python symbolic replay verifier; this is a weaker (larger-area) upper bound than Keller's and appears to be superseded by it, though the two use different constructions and neither paper is aware of / cites the other given their near-simultaneous posting. Deng has an earlier, related preprint (arXiv:2412.10686, 'A General Solution to Bellman's Lost-in-a-Forest Problem', Dec 2024) proposing a general optimization framework said to extend to Moser's worm problem, but that paper only sketches a methodology and claims no numeric bound on the worm problem itself. None of these three preprints has been digested by a named expert (no Terence Tao blog post, no Quanta Magazine coverage, no journal acceptance found), and neither Keller nor Deng has a discoverable academic footprint tied to this specific subfield (search for 'Zhipeng Deng' turns up several different researchers in unrelated fields; no institutional affiliation is listed on either paper). I found no evidence of AI system involvement in producing either result: neither abstract, comments field, nor (for Keller) the linked GitHub README mentions any AI/LLM tool; both papers use Lean 4 (a proof assistant, not an AI system) and, for Deng, a Python 'exact symbolic replay verifier' (deterministic symbolic/rational-arithmetic code, not machine learning). A search for adjacent AI-mathematics activity turned up a Quanta Magazine piece ('Why the Legendary Erdős Problems Are Falling to AI', Aug 2026) and a GitHub repo named 'clanker-solving-riemman-hypothesis-inator' (an LLM-agent scaffolding project using Claude and Codex) whose issue #142 asks an agent to reconstruct the 2013 Khandhawit–Pagonakis–Sriswasdi lower bound — but that repo explicitly states 'Scaffolding. No mathematical results yet,' and it is unconnected to either the Keller or Deng preprint. Because neither preprint is yet expert-digested, status is 'progress' rather than 'claimed'/'partial'/'resolved' — a bound on an open problem moved, but the problem itself (find the exact infimum area, convex or not) is unchanged and still open.",
+  "competing_reading": "One could argue Keller's result should be 'claimed' rather than 'progress', since it targets the specific numeric bound the Wikipedia bullet's framing implicitly tracks ('smallest area... that can cover every unit curve') and comes with a machine-checked Lean certificate. I classified it as 'progress' because (a) it is only days old at the time of this research, unpublished, and un-digested by any named expert, and (b) per §6.1 a Lean certificate with no expert reader is only enough for 'claimed', and even 'claimed' felt too strong given zero external commentary exists yet to confirm the certificate is sound (a Lean proof can compile while encoding the wrong statement). If independent verification or expert commentary surfaces, this should move to 'claimed'. Also, both preprints appearing within two weeks of each other and citing no common lineage raises a small possibility that one or both could be retracted or found flawed — worth flagging as an open risk rather than a settled improvement.",
+  "what_would_settle_it": "An expert digestion (blog post, Quanta piece, or referee report) confirming the Lean formalization in either arXiv:2609.21968 or arXiv:2609.04591 actually encodes the stated theorem and is sound; or a follow-up preprint citing and building on either result; or evidence that one/both have been withdrawn.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2609.21968", "title": "Improved bounds for universal convex covers of unit arcs", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.04591", "title": "Balanced Support Calibrations for Moser's Worm Problem: Exact Certificate and Bound of Triangular Cover", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.01393", "title": "Universal Triangle Covering Curve and Polygonal Chain: Escaping Forest and Fitting Worm", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2412.10686", "title": "A General Solution to Bellman's Lost-in-a-forest Problem", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Moser%27s_worm_problem", "title": "Moser's worm problem", "type": "encyclopedia", "opened": true},
+    {"url": "https://github.com/ethan-keller/moser-worm-improved-bounds", "title": "moser-worm-improved-bounds (GitHub repo for arXiv:2609.21968)", "type": "repository", "opened": true},
+    {"url": "https://pith.science/paper/2609.21968", "title": "Improved bounds for universal convex covers of unit arcs · Pith Review", "type": "blog", "opened": false},
+    {"url": "https://pith.science/paper/2609.04591", "title": "Balanced Support Calibrations for Moser's Worm Problem · Pith", "type": "blog", "opened": false},
+    {"url": "https://www.alphaxiv.org/@zhipeng-deng", "title": "Zhipeng Deng on alphaXiv", "type": "repository", "opened": true},
+    {"url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/142", "title": "Moser worm: independently reconstruct the published 0.232239 lower bound", "type": "repository", "opened": true},
+    {"url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator", "title": "clanker-solving-riemman-hypothesis-inator", "type": "repository", "opened": true},
+    {"url": "https://www.quantamagazine.org/why-the-legendary-erdos-problems-are-falling-to-ai-20260803/", "title": "Why the Legendary Erdős Problems Are Falling to AI", "type": "news", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Moser's worm problem 2024 2025 2026 new bound smallest universal cover",
+      "Moser worm problem AI proof arXiv 2609.04591",
+      "\"Moser's worm problem\" Lean formalization AI large language model 2026",
+      "Zhipeng Deng \"Moser's worm\" arxiv author",
+      "Zhipeng Deng Bellman lost in a forest problem general solution AI large language model",
+      "arxiv 2609.21968 \"universal convex covers\" author",
+      "Ethan Keller mathematician \"universal convex covers\" Moser worm",
+      "pith.science \"2609.21968\" review",
+      "pith.science \"2609.04591\" review",
+      "\"Zhipeng Deng\" mathematician independent researcher OR affiliation university",
+      "\"Zhipeng Deng\" Moser worm forest problem Claude GPT AI assisted",
+      "Moser worm problem Terence Tao blog OR Quanta Magazine 2024 2025",
+      "Moser's worm problem opaque set 2024 2025 progress solved"
+    ],
+    "places_checked": [
+      "arXiv abstracts and HTML full text for 2609.21968, 2609.04591, 2608.01393, 2412.10686",
+      "Wikipedia's live 'Moser's worm problem' article",
+      "GitHub repo/README for the Keller Lean formalization",
+      "alphaXiv author page for Zhipeng Deng",
+      "Web search for Terence Tao blog / Quanta Magazine coverage",
+      "Web search for AI/LLM involvement in either preprint",
+      "Web search for the authors' academic affiliations"
+    ],
+    "dead_ends": [
+      "pith.science review pages for both papers returned empty content via WebFetch (likely JS-rendered); search-engine snippets of those pages were used instead but yielded no additional detail on methodology or AI use",
+      "GitHub repo 'clanker-solving-riemman-hypothesis-inator' looked like a promising AI-agent lead given its issue referencing this problem's 2013 lower bound, but the repo explicitly has 'no mathematical results yet' and is unrelated to the actual bound-moving preprints",
+      "alphaXiv profile for 'Zhipeng Deng' resolved to a different person (medical AI researcher), not the geometry preprint author, despite matching name"
+    ]
+  },
+
+  "incomplete": "I could not obtain the actual rendered content of the two Pith Review pages (pith.science) via WebFetch — both returned empty content, likely because the site is JavaScript-rendered and the fetcher only sees an empty shell. Search-engine snippets partially substituted but may miss reviewer commentary on soundness or red flags. I also could not independently verify authorship/affiliation for Ethan Keller or confirm this Zhipeng Deng is a distinct individual from the several other same-named researchers found in unrelated fields (medical AI, aerospace engineering) — I judged from paper content and writing style that all three geometry preprints (2609.04591, 2608.01393, 2412.10686) share the same author based on shared terminology ('lost-in-a-forest', consistent isosceles-triangle framework) but did not find an ORCID or homepage to confirm this formally.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

@@ -1,0 +1,221 @@
+{
+  "key": "riemann-hypothesis",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The Riemann Hypothesis itself (do all nontrivial zeta zeros lie on the critical line) remains fully open. The tracked partial-progress quantity — the best unconditional lower bound on the proportion of nontrivial zeros known to lie on the critical line — was moved from 41.6%/41.7% (Bui-Milinovich-Pratt-Zaharescu-type results from 2020) to over 67.2% by an unreleased Anthropic Claude research model in August 2026, subsequently reproduced with an independent, simpler proof by Youness Lamzouri (arXiv:2609.02882, Sept 2026). Numerous other 2024-2026 preprints claim full proofs or disproofs of RH; none show any sign of community acceptance.",
+  "status_sources": [
+    "https://www.anthropic.com/research/riemann-zeta",
+    "https://arxiv.org/abs/2609.02882",
+    "https://arxiv.org/html/2609.02882v1"
+  ],
+  "event": {
+    "date": "2026-08-10",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://www.anthropic.com/research/riemann-zeta",
+      "https://mlq.ai/news/anthropic-says-an-unreleased-claude-raised-a-riemann-zeta-bound-to-672/"
+    ]
+  },
+  "credited_humans": [
+    "Levent Alpöge",
+    "Ralph Furman",
+    "Brian Conrey",
+    "Dan Goldston",
+    "Eric Easley",
+    "Youness Lamzouri"
+  ],
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "A proof of these results was very recently produced by an internal research version of Claude developed by Anthropic and subsequently verified by Alpöge and Furman.",
+    "formalisation_only": false,
+    "disclosed_cost": "Anthropic's own account of the run (per secondary reporting, not independently confirmed by me from a primary Anthropic source beyond the research page) describes roughly 31 million output tokens across two sessions, about 60 subagents, 2,400 shell commands, and 54 arXiv papers reviewed.",
+    "systems": [
+      "an internal research version of Claude",
+      "unreleased Claude"
+    ],
+    "sources": [
+      "https://arxiv.org/html/2609.02882v1",
+      "https://www.anthropic.com/research/riemann-zeta"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [],
+  "summary": "The Riemann Hypothesis as stated in this bullet — do all nontrivial zeros of zeta lie on the critical line — is unchanged and remains open; per §3.1 an existence/universal-statement question of this kind moves only when fully answered, and nothing in the window answers it. What did happen is a genuine, well-documented movement of a *tracked partial quantity*: the best known unconditional lower bound on the proportion of nontrivial zeros proved to lie on the critical line (and be simple). This bound stood at roughly 41.6%-41.7% since around 2020 (Bui-Milinovich-Pratt-Zaharescu-type work referenced by both Anthropic and Lamzouri) and was raised to over 67.2% in a paper produced, by the authors' own account, by an unreleased internal research version of Claude in July-August 2026, announced by Anthropic on 2026-08-10 (https://www.anthropic.com/research/riemann-zeta). The proof was reviewed by two Anthropic mathematicians (Levent Alpöge and Ralph Furman) and, per secondary reporting, examined favorably by external experts Brian Conrey and Dan Goldston; Claude also produced a Lean formalization of the key result with help from Anthropic's Eric Easley, which passed the Lean checker. This human-checked, AI-produced mathematics is what the `ai_role: bound` code is for: an AI system moved a bound on a problem (the proportion of zeros) that is still open, without the underlying Riemann Hypothesis itself being settled. I coded `ai_role` as `bound` rather than `generated` because the improved quantity is a partial/auxiliary result about the problem, not a resolution or counterexample to RH itself — `generated` and `assisted` describe roles in producing 'the mathematics that is in the result' for the problem as stated, and here the relevant 'result' for the RH bullet is null (no change). The Anthropic paper itself (title reported as 'More than two thirds of the zeros lie on the critical line') was not, as far as I could determine, submitted to or accepted by a journal as of my research (the PDF at the Anthropic CDN link was unreadable as raw text via WebFetch, so I relied on the arXiv record of Lamzouri's independent paper and secondary press coverage that quotes it directly). Lamzouri's independent, human-authored paper (arXiv:2609.02882, submitted 2026-09-02) reproduces and slightly extends the same bound (>67.25% simple-and-on-the-line, >83.62% distinct) with a different, Hilbert-space-based proof, explicitly crediting Claude's earlier result and its verification by Alpöge and Furman in its own text — this is the strongest primary-source confirmation I have of the AI claim, since it is a human mathematician's own written acknowledgement rather than only a press release. Separately, I checked several 2024-2026 preprints claiming to fully prove or disprove RH (e.g. arXiv:2404.06306 'Disproof of the Riemann Hypothesis', posted in math.GM — a non-refereed arXiv category — with three revisions through January 2025 and no evidence of acceptance or expert engagement; and other Zenodo/journal-mill postings such as the 'Most Definitive and Comprehensive Disproof Ever Constructed' piece). None of these show any sign of community acceptance, so they do not change the status. I did not find any withdrawal of the Claude/Anthropic bound result, so this is not coded as `incident`.",
+  "competing_reading": "One could argue this deserves `status: open` with `no_change_found: true`, treating the 41.6%→67.2% bound movement as beside the stated RH question entirely (a 'related quantity', not even a restriction/case of it, since 'the proportion of zeros on the line' is not itself the yes/no question posed). I chose `progress` instead because the rubric explicitly lists 'a bound that moved' as counting, and separately defines `ai_role: bound` for exactly 'an AI system moved a bound on a problem that is still open' — implying the intended reading is that such bound movements on RH's tracked quantities are in scope as `progress` events even though they don't touch the yes/no question itself. If a stricter reading is preferred, this record should be `open`/`no_change_found: true` with the same AI material moved into `summary` only.",
+  "what_would_settle_it": "Whether Anthropic's own paper (or a version of it) is submitted to and accepted by a journal or given a public expert digestion beyond the two internal mathematicians and two informally-consulted external readers; and whether the rubric's own maintainers intend 'a bound that moved' to include proportion-of-zeros results on RH specifically, versus reserving `progress`/`bound` for bounds that are themselves the stated question (per §3.1's constant/record-table carve-out).",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/html/2609.02882v1",
+      "title": "A new proof that more than 2/3 of the zeros of the Riemann zeta function are simple and on the critical line",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.02882",
+      "title": "A new proof that more than 2/3 of the zeros of the Riemann zeta function are simple and on the critical line",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.anthropic.com/research/riemann-zeta",
+      "title": "Claude's progress on the Riemann hypothesis",
+      "type": "press_release",
+      "opened": true
+    },
+    {
+      "url": "https://www-cdn.anthropic.com/564f962e60643842f5fcb4a17c9dbc8f608f1c37.pdf",
+      "title": "Anthropic paper PDF on Riemann zeta bound",
+      "type": "press_release",
+      "opened": false
+    },
+    {
+      "url": "https://mlq.ai/news/anthropic-says-an-unreleased-claude-raised-a-riemann-zeta-bound-to-672/",
+      "title": "Anthropic says an unreleased Claude raised a Riemann-zeta bound to 67.2%",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://xenospectrum.com/en/claude-riemann-zeta-critical-line-lower-bound/",
+      "title": "Anthropic's Latest AI Breaks Through the \"41% Wall\" on the Riemann Hypothesis",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.06306",
+      "title": "Disproof of the Riemann Hypothesis",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/19733292",
+      "title": "Riemann Hypothesis: The Most Definitive and Comprehensive Disproof Ever Constructed",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2511.20059",
+      "title": "Zeta Zeros on the Critical Line (Goldston and Suriajaya)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.04022",
+      "title": "The Riemann Hypothesis: Past, Present and a Letter Through Time (Connes)",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Riemann Hypothesis proof 2026 disproof claim status",
+      "Alpoge Furman Anthropic Claude Riemann zeta zeros proportion critical line",
+      "Anthropic Claude proof proportion zeros critical line Riemann August 2026",
+      "\"Anthropic\" Riemann zeta bound announcement date August 2026 paper \"Claude\" author"
+    ],
+    "places_checked": [
+      "arXiv (2609.02882, 2404.06306, and listed triage finds)",
+      "anthropic.com research page",
+      "General web/news search for disproof and status claims",
+      "Zenodo repository claim"
+    ],
+    "dead_ends": [
+      "Anthropic CDN PDF (www-cdn.anthropic.com/...pdf) could not be parsed as text by WebFetch — raw compressed PDF stream; relied on Anthropic's HTML research page and secondary press coverage quoting it instead",
+      "arXiv:2511.20059 (Goldston-Suriajaya) and arXiv:2602.04022 (Connes survey) not opened in full; titles suggest they are surveys/further technical work on the same proportion-of-zeros theme rather than a resolution of RH itself, so unlikely to change the classification, but not independently verified"
+    ]
+  },
+  "incomplete": "I did not open arXiv:2511.20059 (Goldston-Suriajaya) or arXiv:2602.04022 (Connes survey) in full, and could not get readable text from the Anthropic CDN PDF directly (relied on the HTML research page and secondary sources quoting the underlying paper). I also could not independently confirm the exact compute/token figures attributed to the Claude run beyond secondary press reporting, so `ai.disclosed_cost` is sourced from secondary reporting rather than a primary Anthropic statement I read directly.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass",
+      "field": "ai_role",
+      "from": "bound",
+      "to": "generated",
+      "why": "`bound` is retired as an AI role at the reviewer's direction: it named the kind of result, a moved bound, which `status: progress` already records, rather than what the AI did, so it conflated the two axes. Recoded by the 6.2 test of what the model produced: 'A proof of these results was very recently produced by an internal research version of Claude developed by Anthropic and subsequently verified by Alpoge and Furman.' The model produced the proof and people checked it, which is the definition of `generated`. The row still reads as progress, not a resolution: the Riemann Hypothesis is open and what moved is the proportion of zeros known to lie on the line."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "generated",
+      "to": "generated",
+      "why": "other: kept. The status rests on the Claude event ('A proof of these results was very recently produced by an internal research version of Claude ... verified by Alpöge and Furman'). Doubt: Lamzouri's later human paper (arXiv:2609.02882) proves a slightly larger constant (>67.25%); I read it as an independent reproduction crediting Claude, not a superseding bound under §4 step 3, but a stricter reader could make it the rests-on event with ai_role none."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "anthropic-claude-2026",
+        "what": "An internal research version of Claude produces a proof that more than 67.2% of nontrivial zeta zeros are simple and on the critical line (up from about 41.7%); verified by Alpöge and Furman",
+        "date": "2026-08-10",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://www.anthropic.com/research/riemann-zeta",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "A proof of these results was very recently produced by an internal research version of Claude developed by Anthropic and subsequently verified by Alpöge and Furman.",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "lamzouri-2026",
+        "what": "Lamzouri gives an independent human proof of the same >2/3 bound (>67.25% simple and on the line), crediting Claude's earlier result",
+        "date": "2026-09-02",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.02882",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "rh-disproof-claims-2024-2026",
+        "what": "Various preprints claiming full proofs or disproofs of RH (e.g. arXiv:2404.06306 in math.GM, a Zenodo 'most definitive disproof')",
+        "date": "2024",
+        "precision": "year",
+        "after_snapshot": null,
+        "source": "https://arxiv.org/abs/2404.06306",
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Landmark problem, no expert uptake, math.GM / Zenodo venues, repeated revisions; later work (Lamzouri, Anthropic) treats RH as open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "anthropic-claude-2026",
+    "derived": {
+      "status": "progress",
+      "ai_role": "generated",
+      "resolution_direction": null
+    },
+    "changed": [],
+    "doubts": "The bullet is the yes/no RH question; a proportion-of-zeros lower bound is a bound on a quantity whose value 100% is RH-adjacent, so `progress` is the right tier. Lamzouri's later human proof reproduces the same bound with a slightly higher constant; I treat it as a reproduction that confirms rather than supersedes the AI result (its title calls it 'a new proof'), so the AI role stays with the Claude event. Had Lamzouri's marginal improvement been counted as superseding, ai_role would be none. Verification of the Claude result by external experts Conrey and Goldston rests on secondary reporting only; Alpöge and Furman are Anthropic staff, but Lamzouri's independent proof is strong confirmation.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "judge_problems": []
+}

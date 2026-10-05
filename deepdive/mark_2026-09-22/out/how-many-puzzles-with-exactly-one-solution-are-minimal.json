@@ -1,0 +1,104 @@
+{
+  "key": "how-many-puzzles-with-exactly-one-solution-are-minimal",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "No exact count, new statistical estimate, or other advance on the number of minimal Sudoku puzzles was found since 26 January 2024; the question remains open, with the only quantitative estimate in the literature (Berthier, ~2011) predating the window by over a decade.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku",
+    "https://arxiv.org/pdf/1111.4083"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The question is how many minimal Sudoku puzzles (puzzles with exactly one solution from which no clue can be removed without losing uniqueness or a solution altogether) exist. The triage's top find, arXiv 2305.01697 ('How Many Clues To Give? A Bilevel Formulation For The Minimum Sudoku Clue Problem', Tjusila, Besançon, Turner, Koch, submitted 2 May 2023, published in Discrete Applied Mathematics 2024), is a related but different problem: given one fixed completed grid, what is the fewest clues in any puzzle whose unique solution is that grid (the Minimum Sudoku Clue Problem, MSCP). It solves 50 instances of that per-grid minimization to optimality via a bilevel program; it says nothing about the total count of minimal puzzles across all grids, and its 2023 submission date predates the window regardless. The other triage find, arXiv 2607.20669 ('Counting, Symmetries and Equivalence Classes of Sudoku Grids', submitted 22 July 2026), is also a related-but-different problem: it derives the 44 equivalence classes of the first band of complete grids via Burnside's Lemma, a question about symmetry classes of full solution grids, not about minimal puzzles at all. Neither is a case of the stated question under §3.1's scope rule (restricting vs. changing the question) — both change the question rather than restrict it. The one substantive quantitative answer that exists in the literature — Denis Berthier's statistical estimate of ~3.1055×10^37 total minimal puzzles and ~2.5477×10^25 non-isomorphic minimal puzzles (0.065% relative error) — comes from 'Unbiased Statistics of a CSP: A Controlled-Bias Generator', arXiv 1111.4083, submitted 17 November 2011. That is over 12 years before the frozen revision and is not a change in the window; no update, refinement, or exact enumeration of this estimate was found dated after 26 January 2024. The current Mathematics of Sudoku Wikipedia article, checked live, still gives no exact count and does not cite any newer work than Berthier's. Repeated targeted searches for 2024-2026 enumeration or new estimates of minimal Sudoku puzzle counts turned up nothing beyond the two related-problem papers above. The question is therefore still open, and nothing in the window changes what a careful person would write in this bullet.",
+  "competing_reading": "One could argue that arXiv 2305.01697's exact solution of 50 per-grid MSCP instances is a 'case' of the counting question in the loose sense that it pins down minimal-clue counts for specific grids. But the stated question is about counting *how many minimal puzzles exist* (a cardinality/enumeration question over the whole puzzle space), not about the minimum clue number for a given grid; solving MSCP for particular grids restricts a different question (minimum clues per grid) rather than restricting the stated one, and it predates the window in any case (submitted 2023). I judge this is a related problem, not a case, so it does not move the status from open.",
+  "what_would_settle_it": "A paper post-January-2024 giving either an exact enumeration of minimal 9x9 Sudoku puzzles, a rigorously bounded (non-statistical) count, or a materially revised statistical estimate superseding Berthier 2011 would settle this as at least 'progress' or 'partial'; nothing of that kind was found.",
+  "confidence": "medium",
+
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2305.01697",
+      "title": "How Many Clues To Give? A Bilevel Formulation For The Minimum Sudoku Clue Problem",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0167637724000415",
+      "title": "How many clues to give? A bilevel formulation for the minimum Sudoku clue problem (journal version, Discrete Applied Mathematics, 2024)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2607.20669",
+      "title": "Counting, Symmetries and Equivalence Classes of Sudoku Grids",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/1111.4083",
+      "title": "Unbiased Statistics of a CSP - A Controlled-Bias Generator",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku",
+      "title": "Mathematics of Sudoku",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/denis-berthier/Controlled-bias_Sudoku_generator_and_collection",
+      "title": "Controlled-bias Sudoku generator and collection (Denis Berthier)",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+
+  "search": {
+    "queries": [
+      "arxiv 2305.01697 minimal sudoku puzzles statistical estimate",
+      "\"minimal sudoku\" count enumeration exact number 2024 2025",
+      "\"3.10\" OR \"3.1055\" 10^37 minimal sudoku puzzles estimate Felgenhauer OR \"David Berthier\" OR McGuire",
+      "David Berthier \"unbiased statistics\" sudoku minimal puzzles paper year",
+      "\"minimal puzzles\" sudoku enumeration exact number proof 2024 2025 2026",
+      "how many minimal sudoku puzzles are there open problem count 2024"
+    ],
+    "places_checked": [
+      "arXiv listing/abstracts for the cited papers",
+      "Wikipedia 'Mathematics of Sudoku' article (live, for any newer citation)",
+      "General web search for 2024-2026 enumeration/estimate updates",
+      "GitHub repository for Berthier's controlled-bias generator (to confirm provenance/date of the 3.1055e37 figure)"
+    ],
+    "dead_ends": [
+      "arXiv 2305.01697 (MSCP bilevel formulation) — addresses a different, per-grid minimum-clue problem, not the count of minimal puzzles, and predates the window",
+      "arXiv 2607.20669 (equivalence classes of Sudoku grids via Burnside's Lemma) — about symmetry classes of complete grids, not minimal puzzles at all"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": true,
+  "triage_queries_replaced": true
+}

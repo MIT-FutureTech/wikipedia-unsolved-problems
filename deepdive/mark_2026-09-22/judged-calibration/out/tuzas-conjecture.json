@@ -1,0 +1,180 @@
+{
+  "key": "tuzas-conjecture",
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "Anish Gupta posted a preprint (arXiv:2608.06538, 6 Aug 2026) extending the proven case of Tuza's conjecture from graphs of maximum average degree less than 7 (Puleo 2015, covering max degree at most 6) to graphs of maximum degree at most 7, closing the gap left by 7-regular graphs; this is a case of the original conjecture, not a variant, but it is a fresh, unreviewed preprint from an independent researcher with no expert digestion, journal acceptance, or blog commentary found as of the check date.",
+  "status_sources": [
+    "https://arxiv.org/abs/2608.06538",
+    "https://arxiv.org/html/2608.06538v1",
+    "https://github.com/agupta/tuza-maximum-degree-seven"
+  ],
+  "event": {
+    "date": "2026-08-06",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2608.06538"
+    ]
+  },
+  "credited_humans": [
+    "Anish Gupta"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "Anthropic Claude Code (Claude 5 family) and OpenAI Codex (GPT-5.6 family) were used extensively for proof exploration, software development, exact computational checks, literature discovery, and drafting and editing the manuscript. The author selected the arguments and methods, checked the cited sources and reported computations, and takes full responsibility for the content. ... The certificates were originally found by an integer-constraint search; no property of that search is used, only its output, which is checked independently.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "Anthropic Claude Code (Claude 5 family)",
+      "OpenAI Codex (GPT-5.6 family)"
+    ],
+    "sources": [
+      "https://arxiv.org/html/2608.06538v1"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+  "disputes": [],
+  "summary": "The triage flagged arXiv:2608.06538 (Anish Gupta, submitted 6 Aug 2026), which extends the known case of Tuza's conjecture from Puleo's 2015 result (maximum average degree < 7, i.e. covering max degree ≤ 6) to graphs of maximum degree exactly 7 — closing the 7-regular gap. I read the arXiv abstract page and the full HTML text (v1), and the accompanying GitHub repository. This is a genuine case of the stated conjecture (a restriction to a bounded-degree class), so per §3.1 it counts, and I classify it as `partial` progress on the case, but the overall record status is `claimed` rather than `resolved` because no expert digestion, journal acceptance, or independent verification by named experts turned up in any search — the author is an independent researcher (contact details and an ORCID are given on the preprint) and the paper is six weeks old as of the 2026-09-22 check date with no blog commentary (checked Terence Tao–style discussion, found none) or citations yet. On the AI question: the paper's own acknowledgements state plainly that Claude Code and OpenAI Codex were used 'extensively' for 'proof exploration, software development, exact computational checks, literature discovery, and drafting and editing the manuscript,' but the same sentence states the author 'selected the arguments and methods' and 'takes full responsibility for the content.' Critically, the paper explicitly disclaims that the 1,144-certificate catalogue — the one piece of mathematics in the result that was machine-produced — came from AI: 'The certificates were originally found by an integer-constraint search; no property of that search is used, only its output, which is checked independently.' An integer-constraint search is a classical combinatorial-search technique, not an AI system, and its output is independently, exactly verified by Python code (not by an LLM). Per §6.2, uses of AI for exploration, drafting, literature search, and computational checking/verification are explicitly `none`-coded regardless of how extensively they were used, since none of that output is mathematics that appears in the final proof; the actual mathematical content (the reducible-pair argument and the certificate catalogue) was produced by the author's own theoretical work and a non-AI search procedure. I therefore code `ai_role` as `none`. I also found a second, independently in-scope but smaller preprint: Chahua & Gutierrez, 'On Tuza's Conjecture in Dense Graphs' (arXiv:2405.11409, submitted 18 May 2024), which proves the original conjecture for split graphs with minimum degree ≥ 3n/5 and for complete 4-partite graphs — also genuine cases of the stated conjecture, using a probabilistic argument with no AI mentioned. Since the Gupta result is later, larger in scope (an entire degree class rather than a special graph family), and is what the triage flagged, I use it as the decisive `event`; the Chahua–Gutierrez result is additional confirmatory evidence that the conjecture keeps advancing case-by-case with no AI involvement, and I mention it here rather than making it a separate record. I checked the live Tuza's conjecture Wikipedia article, which as of my check states the conjecture is still open and does not yet mention any 2024-2026 development (it is not kept current). The second triage `found` item (arXiv:2406.06501, hypergraph generalization) is a related-but-different problem (the Aharoni–Zerbib hypergraph generalization) and is correctly excluded from scope per the triage's own note; I confirm that exclusion.",
+  "competing_reading": "One could argue this should be `resolved` rather than `claimed` if one judges the paper's own from-scratch, independently-verifiable Python certificate checkers (with SHA256 checksums, `make check-full`) as equivalent to expert digestion, since anyone can mechanically re-verify the 1,144 certificates and the human-readable argument in Sections 1-8. But §6.1 requires either an expert digestion that works through the proof, journal acceptance, or a published verification by named experts — a reproducible computational check by the author's own tooling does not meet that bar, especially for a result this recent and from a researcher not previously established in this subfield. I judge `claimed` to be the correct, conservative reading given the six-week-old, un-digested status of the preprint.",
+  "what_would_settle_it": "A journal acceptance, a written expert digestion (e.g. on a graph-theory blog, MathOverflow, or by a named expert such as Puleo or Tuza specialists), or an independent group reproducing/checking the 1,144-certificate catalogue and the reducible-pair argument would move this to `resolved`. Absent that, continued silence for another several months while the paper is cited or discussed would still leave it `claimed`.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2608.06538",
+      "title": "Tuza's conjecture for graphs of maximum degree at most seven",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.06538v1",
+      "title": "Tuza's conjecture for graphs of maximum degree at most seven (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/agupta/tuza-maximum-degree-seven",
+      "title": "tuza-maximum-degree-seven (GitHub repository)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Tuza's_conjecture",
+      "title": "Tuza's conjecture",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.11409",
+      "title": "On Tuza's Conjecture in Dense Graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.06501",
+      "title": "New bounds on a generalization of Tuza's conjecture",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Tuza's conjecture 2024 2025 proof maximum degree",
+      "\"Tuza's conjecture\" disproved counterexample",
+      "arxiv 2608.06538 Tuza conjecture maximum degree seven",
+      "\"Tuza's conjecture\" 2024 progress bound planar graphs tripartite",
+      "Anish Gupta Tuza conjecture Terence Tao blog discussion",
+      "\"2608.06538\" version history revision withdrawn"
+    ],
+    "places_checked": [
+      "arXiv abstract and full-text HTML for 2608.06538",
+      "GitHub repository accompanying 2608.06538",
+      "live Wikipedia article on Tuza's conjecture",
+      "general web search for expert commentary/blog discussion of the Gupta result",
+      "arXiv abstract for 2405.11409 (Chahua & Gutierrez dense-graph result)",
+      "general web search for a disproof/counterexample to Tuza's conjecture"
+    ],
+    "dead_ends": [
+      "Search for arXiv version-history/withdrawal of 2608.06538 returned irrelevant Windows/Microsoft results, confirming no revision or retraction has been indexed",
+      "No Terence Tao or other named-expert blog discussion of the Gupta result found",
+      "Searched generally for a disproof of Tuza's conjecture (it remains open in general; only the Fano-plane/binary-matroid analogue fails, which is a different, matroid-generalized setting, not the graph conjecture)"
+    ]
+  },
+  "incomplete": null,
+  "triage_disagreement": true,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "status",
+      "from": "claimed",
+      "to": "partial",
+      "why": "F1: the record itself says the result is 'a case of the original conjecture' (maximum degree <= 7), which is scope case; case settlements are partial whatever their verification."
+    },
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "none",
+      "to": "none",
+      "why": "other: kept, with doubt; 'used extensively for proof exploration' is close to the line, but the quote says the author selected the arguments and the certificates came from a non-AI integer-constraint search, so it records no AI-produced mathematics in the result."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "gupta-2026",
+        "what": "Gupta proves Tuza's conjecture for graphs of maximum degree at most 7",
+        "date": "2026-08-06",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2608.06538",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": "Claude Code and Codex were used extensively for proof exploration, software development, exact computational checks, literature discovery, and drafting... The author selected the arguments and methods... The certificates were originally found by an integer-constraint search",
+        "direction": "confirmed",
+        "is_counterexample": false
+      },
+      {
+        "id": "chahua-gutierrez-2024",
+        "what": "Chahua & Gutierrez prove Tuza's conjecture for split graphs with minimum degree >= 3n/5 and complete 4-partite graphs",
+        "date": "2024-05-18",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2405.11409",
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": "confirmed",
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "gupta-2026",
+    "derived": {
+      "status": "partial",
+      "ai_role": "none",
+      "resolution_direction": "confirmed"
+    },
+    "changed": [
+      "status"
+    ],
+    "doubts": "AI role kept at none: the disclosure credits AI with 'proof exploration' used 'extensively', but states the author selected the arguments and the certificates came from an integer-constraint search, not an AI. If a later account shows a model produced part of the reducible-pair argument, this would become assisted. Both surviving events are cases with no AI, so tie-breaking does not matter.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  }
+}

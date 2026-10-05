@@ -1,0 +1,193 @@
+{
+  "key": "what-is-the-exact-value-of-landaus-constants-including",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The exact values of Bloch's constant and Landau's constant remain unknown, but both lower bounds moved: Frank Wikström (Lund University) posted two computer-assisted preprints in Aug/Sep 2026 improving the lower bound on Bloch's constant to B >= sqrt(3)/4 + 0.0153 (superseding Chen-Gauthier's sqrt(3)/4 + 2e-4 and Xiong's sqrt(3)/4 + 3e-4), and the lower bound on Landau's constant to L > 0.5100305329006052049176652 (superseding Chen-Shiba's 0.5 + 2e-8). Neither paper claims or approaches the exact value; both are preprints, not yet digested by outside experts.",
+  "status_sources": [
+    "https://arxiv.org/html/2608.17660",
+    "https://arxiv.org/abs/2608.17660",
+    "https://arxiv.org/html/2609.23236",
+    "https://arxiv.org/abs/2609.23236"
+  ],
+  "event": {
+    "date": "2026-08-18",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/html/2608.17660",
+      "https://arxiv.org/abs/2608.17660"
+    ]
+  },
+  "credited_humans": [
+    "Frank Wikström"
+  ],
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": "OpenAI Codex (GPT-5.6 Sol) as well as Anthropic Claude Code (Opus 5.0), both accessed August 2026, were used as interactive research assistants for mathematical brainstorming and proof auditing. The models assisted with numerical exploration as well as with developing the interval-arithmetic verification scripts. ... The author has reviewed all generated material, independently checked the arguments and computations, and takes full responsibility for the content.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [
+      "OpenAI Codex (GPT-5.6 Sol)",
+      "Anthropic Claude Code (Opus 5.0)"
+    ],
+    "sources": [
+      "https://arxiv.org/html/2608.17660"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [],
+  "summary": "Wikipedia's bullet asks for the exact value of Landau's and Bloch's constants; the triage record correctly identified the Bloch's constant preprint (arXiv:2608.17660, 'An improved lower bound for Bloch's constant', posted 18 Aug 2026) but had not read it. I opened it, plus a companion preprint by the same author, Frank Wikström of Lund University, on Landau's constant (arXiv:2609.23236, 'A computer-assisted lower bound for Landau's constant', posted 19 Sep 2026), which the triage pass missed entirely. Both improve lower bounds via rigorous computer-assisted proofs (Arb interval arithmetic at 40-80 decimal digits, verifying certificates independently of the floating-point LP solvers used only for discovery): B >= sqrt(3)/4 + 0.0153 = 0.448312701..., up from Chen-Gauthier's sqrt(3)/4 + 2e-4 and Xiong's sqrt(3)/4 + 3e-4 (both well before the frozen revision, so genuinely superseded within the window); and L > 0.5100305329006052049176652, up from Chen-Shiba's 0.5 + 2e-8. Neither result touches the exact value the bullet asks about -- both constants remain open, with the classical Ahlfors-Grunsky conjectured exact values (B ~ 0.47186, and the corresponding value for L) still unproven, as confirmed by the current Wikipedia article on Bloch's theorem (complex analysis), which does not yet reflect either 2026 preprint. Per Sec 3.1, an 'are there infinitely many X' or 'what is the exact value' question is not advanced by a bound moving unless the bound IS the question -- here Wikipedia's bullet is phrased as asking for the exact value, not for a record bound, so strictly the bound movement is adjacent rather than dispositive; but because Landau's/Bloch's constants are traditionally tracked via their best-known bounds in the literature (MathWorld, the Wikipedia article itself reports bounds as the state of the art), I classify this as progress rather than pure no_change_found, following the spirit of tracking the state of a constant-valued open problem. Both papers are single-author preprints with no expert digestion, journal acceptance, or independent verification by named experts found; I found no citations, blog digestions, or follow-up commentary on either as of 22 Sep 2026 (both are only weeks/days old). The AI disclosure in the Bloch's constant paper is explicit and unusually candid: two named systems (OpenAI Codex GPT-5.6 Sol, Anthropic Claude Opus 5.0) were used for 'mathematical brainstorming and proof auditing' and to help develop verification scripts, but the author states he independently reviewed, checked, and takes full responsibility for all content, and the actual mathematical certificates are re-derived and checked by a separate rigorous interval-arithmetic system independent of any AI or even the LP solver. This matches Sec 6.2's explicit list of non-qualifying AI uses (checking, proofreading, debugging, suggesting strategies) rather than 'assisted' (authors would need to say the AI produced part of the mathematics itself, which this disclosure does not say). The Landau's constant companion paper (2609.23236) discloses no AI use at all in the sections I could access. I could not extract a clean acknowledgements section from the Landau's constant paper's HTML/PDF; my search for one returned only metadata, so I cannot rule out an AI disclosure there, though none was surfaced by two separate fetch attempts.",
+  "competing_reading": "One could argue this should be 'open' with no_change_found true, since the bullet's literal question (the *exact value*) has not moved even slightly -- a lower bound moving does not narrow where the exact value could be in the way an existence question would be narrowed by ruling out cases, and Sec 3.1 is explicit that record/bound movements only count when the bound itself IS the question. Landau's and Bloch's constants are not phrased in Wikipedia's bullet as 'what is the best known bound' but as 'what is the exact value', which under a strict reading is unmoved. I lean 'progress' because the literature and Wikipedia's own article for this problem present these constants primarily through their best-known bounds (there is no other quantitative sense in which 'progress' on an unknown exact constant can be measured short of resolving it), but a stricter reader could reasonably mark this 'open'/no_change_found.",
+  "what_would_settle_it": "Either the exact values are proven (matching or refuting the Ahlfors-Grunsky conjectured closed forms), which would move this to resolved/claimed with a direction; or clarity on whether Wikipedia's phrasing intends 'exact value' literally (favoring open/no_change_found) versus tracking best-known bounds (favoring progress) would remove the ambiguity in competing_reading.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/html/2608.17660",
+      "title": "An improved lower bound for Bloch's constant",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.17660",
+      "title": "An improved lower bound for Bloch's constant (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.23236",
+      "title": "A computer-assisted lower bound for Landau's constant",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.23236",
+      "title": "A computer-assisted lower bound for Landau's constant (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.17660",
+      "title": "An improved lower bound for Bloch's constant (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/21975862",
+      "title": "Code and rigorous certificates for 'An improved lower bound for Bloch's constant'",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://zenodo.org/records/22849858",
+      "title": "Certificate archive for: A computer-assisted lower bound for Landau's constant",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Bloch%27s_theorem_(complex_analysis)",
+      "title": "Bloch's theorem (complex analysis)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/LandauConstant.html",
+      "title": "Landau Constant -- from Wolfram MathWorld",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://www.semanticscholar.org/paper/On-Bloch%E2%80%99s-constant-Chen-Gauthier/a44de14559f1942016c7be4d63ddea7ec08ec46a",
+      "title": "On Bloch's constant (Chen-Gauthier)",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "\"Bloch's constant\" improved lower bound arxiv 2025 2026",
+      "Landau's constant exact value 2024 2025 progress",
+      "Wikstrom \"Bloch's constant\" Chen Gauthier Xiong lower bound history 0.5 improvement",
+      "\"Bloch's constant\" Wikström 2026 Terence Tao OR blog OR digestion citation"
+    ],
+    "places_checked": [
+      "arXiv listing/preprints for both papers (abstract, HTML, PDF)",
+      "Wikipedia article 'Bloch's theorem (complex analysis)'",
+      "Zenodo code/certificate repositories linked from both papers",
+      "General web search for expert digestion, blog commentary, or citations of either preprint",
+      "General web search for MathWorld/Wolfram entries on Landau's constant"
+    ],
+    "dead_ends": [
+      "Could not extract a clean, complete acknowledgements section from arXiv:2609.23236 (Landau's constant paper) via WebFetch on either the abstract or PDF; two attempts returned only metadata/abstract, not the full text, so an AI disclosure there (if any) could not be confirmed or ruled out",
+      "No expert digestion (Tao blog, Quanta, etc.) found for either preprint as of 2026-09-22 -- both are very recent (weeks to days old)"
+    ]
+  },
+  "incomplete": "Could not fully verify the acknowledgements/AI-disclosure section of the companion Landau's constant preprint (2609.23236) due to PDF/HTML extraction limits; treated as ai_role none based on absence of any disclosure found, but this is not as fully verified as the Bloch's constant paper's explicit disclosure.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": true,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "none",
+      "to": "none",
+      "why": "F9: kept. The Bloch paper's disclosure says the models were used for 'brainstorming and proof auditing' and 'assisted with numerical exploration as well as with developing the interval-arithmetic verification scripts' — strategy, checking and tooling, not a stated contribution to the bound itself. Doubt: numerical exploration may have located the certificate, and the Landau paper's acknowledgements were never fully extracted (record 'incomplete' field)."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "wikstrom-bloch-2026",
+        "what": "Wikström gives a computer-assisted (Arb interval arithmetic) lower bound B >= sqrt(3)/4 + 0.0153 for Bloch's constant, improving Chen-Gauthier and Xiong",
+        "date": "2026-08-18",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2608.17660",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": "OpenAI Codex (GPT-5.6 Sol) as well as Anthropic Claude Code (Opus 5.0) ... were used as interactive research assistants for mathematical brainstorming and proof auditing. The models assisted with numerical exploration as well as with developing the interval-arithmetic verification scripts.",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "wikstrom-landau-2026",
+        "what": "Wikström gives a computer-assisted lower bound L > 0.5100305329006052049176652 for Landau's constant, improving Chen-Shiba's 0.5 + 2e-8",
+        "date": "2026-09-19",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.23236",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "wikstrom-bloch-2026",
+    "derived": {
+      "status": "progress",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": [],
+    "doubts": "Both events are bounds on constants whose exact values the bullet asks for; under JUDGE.md a bound on an asked-for value is scope 'bound' -> progress, so the researcher's worry about 'open' is resolved in favour of progress. The two bounds move different constants and share the top tier (Step 4); both roles are none, so the choice of rests_on does not affect codes. AI role for the Bloch paper is borderline: 'numerical exploration' and help developing the verification scripts could mean the models contributed to finding the certificate, but the quote does not say a model produced any part of the bound, and the certificates are checked by interval arithmetic; coded none. The Landau paper's acknowledgements were not fully read, so an undisclosed-in-record AI contribution there cannot be ruled out.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "searches": []
+  },
+  "judge_problems": []
+}

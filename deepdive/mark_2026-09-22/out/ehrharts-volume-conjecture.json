@@ -1,0 +1,97 @@
+{
+  "key": "ehrharts-volume-conjecture",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "OpenAI announced on 1 August 2026 that its unreleased Astra model proved the inequality part of the conjecture (Vol(K) ≤ (n+1)^n/n! in every dimension), formalized in Lean 4 with zero 'sorry' goals; a separate preprint (Jihao Liu, arXiv 2608.01040, 2 August 2026) proved the equality/characterization case, also disclosed as AI-generated. Neither has been digested by human experts through a full manuscript read-through or journal acceptance: an independent human audit of OpenAI's ten results (Sienicki & Sienicki, arXiv 2608.14673) singles out this chapter as the weakest, requesting 'major revision' of 'compressed analytic arguments', and notes the equality-case follow-up does not itself verify the inequality proof.",
+  "status_sources": [
+    "https://openai.com/index/ten-advances-in-mathematics/",
+    "https://arxiv.org/abs/2608.14673",
+    "https://arxiv.org/abs/2608.01040",
+    "https://en.wikipedia.org/wiki/Ehrhart%27s_volume_conjecture"
+  ],
+
+  "event": {
+    "date": "2026-08-01",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://openai.com/index/ten-advances-in-mathematics/",
+      "https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/"
+    ]
+  },
+
+  "credited_humans": [],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "OpenAI: Astra (an internal, unreleased model) produced the proof of the inequality part in every dimension, formally verified in Lean 4 with a 'sorry' count of zero. Separately, arXiv:2608.01040 (Jihao Liu, equality case) states in its abstract: 'The main result of this paper is obtained by generative AI, particularly GPT-5.6-sol, Fable 5, and the Danus system,' and describes the work as 'AI generated with essential human strategical idea input' and 'Human verified.'",
+    "formalisation_only": false,
+    "disclosed_cost": "OpenAI estimated roughly $2,000 in token cost (at internal 'Sol' API rates) to find all ten solutions, of which this problem was one.",
+    "systems": ["Astra", "GPT-5.6-sol", "Fable 5", "the Danus system"],
+    "sources": [
+      "https://openai.com/index/ten-advances-in-mathematics/",
+      "https://arxiv.org/abs/2608.01040",
+      "https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "Two AI-generated preprint/announcement results appeared within a day of each other in early August 2026, together covering both halves of Ehrhart's volume conjecture. (1) OpenAI's 'Ten advances in mathematics and theoretical computer science' (1 Aug 2026, openai.com and a 249-page PDF manuscript, plus a GitHub Lean-certificate repo openai/ten-proofs) states its internal, unreleased 'Astra' model produced a proof of the inequality Vol(K) ≤ (n+1)^n/n! in every dimension, with the argument formalized in Lean 4 and the repo's 'sorry' count at zero. This is a lab announcement and a compiler check, not an expert-reviewed proof, and Wikipedia's own article (fetched directly) flags the citation as needing secondary-source verification. (2) A same-week arXiv preprint by Jihao Liu (2608.01040, submitted 2 Aug 2026, v2 6 Aug 2026) proves the equality/characterization case — every extremal body is a unimodular image of the standard simplex — explicitly stating in its own abstract that 'the main result of this paper is obtained by generative AI, particularly GPT-5.6-sol, Fable 5, and the Danus system,' with human strategic input and human verification of the AI output. Neither result had gone through peer review as of the sources found. The most useful independent check found is an arXiv human-audit paper (Sienicki & Sienicki, 'A Human Audit of OpenAI's AI-Generated Mathematical Proofs', 2608.14673, v1 3 Aug 2026), which reviewed 18 chapter-specific reviews of OpenAI's ten claimed results: it reports no confirmed substantive mathematical error survives in any principal result examined, but singles out Chapter 8 (Ehrhart) as carrying 'the strongest reservation' among the ten, with a specialist reviewer requesting 'major revision of compressed analytic arguments' and noting that Liu's equality-case work 'does not verify the analytic inequality proof.' Given (a) no journal acceptance, (b) no full human read-through that resolves the specialist's reservations about Chapter 8's compressed analytic passages, and (c) the model itself (Astra) being unreleased and unavailable for outside testing, this is classified 'claimed' rather than 'resolved': a preprint/announcement plus a Lean certificate that experts have not yet fully digested, with one specialist review actively flagging a gap. Both AI systems named produced the actual mathematical content of their respective results (per the sources' own framing), giving ai_role 'generated' for the overall event; I record all four systems named across the two sources ('Astra' for the inequality, 'GPT-5.6-sol', 'Fable 5', and 'the Danus system' for the equality case) rather than picking one, per §6.5's instruction to record exactly as named. resolution_direction is 'confirmed' because both results prove what was conjectured (the stated sharp bound and its equality characterization), not a refutation.",
+  "competing_reading": "One could argue the inequality half deserves 'resolved' rather than 'claimed', since Lean's kernel accepted the formal proof and a 'sorry' count of zero is a strong, mechanically-checkable signal, arguably satisfying part of §6.1's 'directly checkable by hand or computer algebra' clause. I did not take this reading because §6.1 explicitly warns that 'a machine-checked certificate no expert has reviewed is claimed, however clean the check' (soundness-bug risk), and because the one specialist review that has actually engaged with the human-readable argument (via the Sienicki audit) found it wanting and asked for major revision — i.e., the compiler and a human reviewer disagree on confidence, which is exactly the situation the rule is designed to keep out of 'resolved'. A second competing reading concerns scope: the inequality and equality halves are two logically separate propositions (⊆ and ⊇ of the extremal condition), and one could treat them as two separate events; I treated them as a single combined event/status because Wikipedia's own frozen bullet states the conjecture as one upper-bound claim and the two 2026 papers explicitly present themselves as two halves of the same conjecture.",
+  "what_would_settle_it": "A published expert digestion (journal acceptance, a detailed blog post by a specialist in Ehrhart theory / convex geometry working through the analytic argument, or a revised OpenAI manuscript addressing the Sienicki audit's Chapter 8 concerns) would move the inequality part to 'resolved'. Independent reproduction or a second, unrelated proof of the inequality (analogous to how Liu's paper independently handles equality) would also strengthen the case. Absent that, the current best-supported status is 'claimed'.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://openai.com/index/ten-advances-in-mathematics/", "title": "Ten advances in mathematics and theoretical computer science", "type": "press_release", "opened": false},
+    {"url": "https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/", "title": "OpenAI's Astra solves 10 long-open math problems and publishes the proofs", "type": "news", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.01040", "title": "The equality case of Ehrhart's volume conjecture", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Ehrhart%27s_volume_conjecture", "title": "Ehrhart's volume conjecture", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.14673", "title": "A Human Audit of OpenAI's AI-Generated Mathematical Proofs", "type": "preprint", "opened": true},
+    {"url": "https://github.com/openai/ten-proofs", "title": "openai/ten-proofs: Lean certificates accompanying ten proofs", "type": "repository", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Ehrhart's volume conjecture proof solved",
+      "Ehrhart conjecture lattice point centroid 2025 arXiv",
+      "\"Ehrhart's volume conjecture\" Wikipedia OpenAI proof",
+      "\"Ehrhart's volume conjecture\" OpenAI Astra proof 2026",
+      "arxiv 2608.01040 Ehrhart equality case",
+      "A Human Audit OpenAI AI-Generated Mathematical Proofs arxiv 2608.14673 authors",
+      "Ehrhart volume conjecture Astra proof expert review Terence Tao verified",
+      "OpenAI Astra ten advances mathematics August 2026 Lean proof unreleased model",
+      "Astra OpenAI Ehrhart volume conjecture chapter proof verification specialist reviewer",
+      "Ehrhart volume conjecture Astra Chapter 8 error gap correction September 2026",
+      "\"Ehrhart\" Astra proof Lean formalization \"sorry\" chapter 8 dimension every"
+    ],
+    "places_checked": [
+      "OpenAI's announcement page (openai.com/index/ten-advances-in-mathematics)",
+      "arXiv abstract/HTML for the equality-case preprint (2608.01040, both v1 and v2 noted)",
+      "arXiv abstract/HTML for the independent human-audit preprint (2608.14673)",
+      "The live Wikipedia article on Ehrhart's volume conjecture, including raw wikitext",
+      "SiliconANGLE news coverage",
+      "OpenAI's GitHub repository of Lean certificates (openai/ten-proofs)",
+      "General web search for later corrections/updates through September 2026"
+    ],
+    "dead_ends": [
+      "OpenAI's own site returned HTTP 403 to direct fetch; relied on WebSearch snippets and secondary news coverage (SiliconANGLE, the-decoder, implicator.ai, pondero.ai) instead, and note this per the instructions on inaccessible sources.",
+      "Searched specifically for a September 2026 correction or resolution of the Sienicki audit's Chapter 8 concerns; found none — the most recent relevant dated material is from early August 2026."
+    ]
+  },
+
+  "incomplete": "Could not directly fetch openai.com or the underlying 249-page PDF manuscript (both blocked automated fetches); relied on the Wikipedia article's direct quotation of the OpenAI claim plus independent news coverage (SiliconANGLE) and the independent arXiv audit paper, which I could fetch directly. This is sufficient to establish the claim and its verification status but means I have not personally read OpenAI's full technical chapter on Ehrhart's volume conjecture.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

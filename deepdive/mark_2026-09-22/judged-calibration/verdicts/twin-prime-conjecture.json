@@ -1,0 +1,25 @@
+{
+  "key": "twin-prime-conjecture",
+  "judgement": {
+    "events": [
+      {"id": "stadlmann-240", "what": "Stadlmann proves H1 <= 240", "date": "2026-08-31", "precision": "day", "after_snapshot": true, "source": "https://arxiv.org/abs/2608.31126", "scope": "bound", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null, "ai_role": "none", "ai_basis": null, "direction": null, "is_counterexample": false},
+      {"id": "kintali-236", "what": "Kintali announces H1 <= 236 'with the help of AI' on X, no preprint", "date": "2026-09-01", "precision": "day", "after_snapshot": true, "source": "https://x.com/ShivaKintali/status/2095547543061135765", "scope": "bound", "verification": "unreviewed", "credibility": "doubtful", "credibility_reason": "Announcement only, no preprint or written argument; superseded anyway.", "ai_role": "assisted", "ai_basis": "I showed that H1 <= 236 with the help of AI, building on Julia Stadlmann's work", "direction": null, "is_counterexample": false},
+      {"id": "axiom-212", "what": "Axiom Math: H1 <= 212, mathematics credited to human co-authors, AxiomProver generated the Lean certificate", "date": "2026-09", "precision": "month", "after_snapshot": true, "source": "https://primegaps.axiommath.ai/", "scope": "bound", "verification": "unreviewed", "credibility": "credible", "credibility_reason": null, "ai_role": "none", "ai_basis": "AxiomProver 'autonomously generated from natural-language specifications a Lean certificate' — formalisation only", "direction": null, "is_counterexample": false},
+      {"id": "openai-186", "what": "OpenAI paper: GPT-6 Astra proves H1 <= 186, Lean formalisation conditional on three axioms", "date": "2026-09-03", "precision": "day", "after_snapshot": true, "source": "https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/short_gaps.pdf", "scope": "bound", "verification": "unreviewed", "credibility": "doubtful", "credibility_reason": "No independent human review; Lean build rests on three unproven axioms (Kloosterman bounds cited, integral bounds only numerically checked); researcher could not read the PDF directly.", "ai_role": "generated", "ai_basis": "the OpenAI paper states the proof 'is due to GPT 6 Astra'", "direction": null, "is_counterexample": false}
+    ],
+    "rests_on": "openai-186",
+    "derived": {"status": "progress", "ai_role": "generated", "resolution_direction": null},
+    "changed": ["ai_role"],
+    "doubts": "All four bounds are unreviewed; 186 supersedes the others only if it holds. If 186 fell, status stays progress but rests on axiom-212 (ai_role none). credited_humans lists humans from other events (Stadlmann, Kintali, Axiom co-authors), not the 186 authors; left unchanged since the record does not name the OpenAI paper's human authors.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {"ai_role": "generated"},
+  "outcome_prefix": null,
+  "corrections": [
+    {"field": "ai_role", "from": "bound", "to": "generated", "why": "other: 'bound' is not a valid ai_role; scope is already carried by status=progress. The event rests on the OpenAI 186 paper, which by its own account states the proof 'is due to GPT 6 Astra' (ai.basis_quote), so the role is generated."},
+    {"field": "status", "from": "progress", "to": "progress", "why": "F3: all events move H1, a bound on an open conjecture; kept progress. Doubt: the 186 bound is unreviewed and its Lean check depends on three unproven axioms (F10)."},
+    {"field": "credited_humans", "from": "[Stadlmann, Kintali, Charton, Hong, Lau, Ono]", "to": "[Stadlmann, Kintali, Charton, Hong, Lau, Ono]", "why": "F8: these names belong to the 240, 236 and 212 events, not the 186 event the status rests on; the record gives no human authors for the OpenAI paper, so left unchanged rather than invent names."}
+  ]
+}

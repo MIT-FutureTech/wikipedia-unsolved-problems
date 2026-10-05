@@ -1,0 +1,104 @@
+{
+  "key": "degree-diameter-problem",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "A June 2026 solo-author preprint (Ryosuke Mizuno, arXiv:2606.15860) reports improved lower bounds for two specific cases of the degree/diameter problem: N(12,5) >= 34,992 (up from the prior record 29,621) and N(16,5) >= 147,456 (up from 132,496), with the constructions explicitly credited to a dialogue with ChatGPT; the paper has not yet received an expert digestion or journal acceptance, though the community-maintained record table has already adopted the new values.",
+  "status_sources": [
+    "https://arxiv.org/abs/2606.15860",
+    "https://arxiv.org/html/2606.15860",
+    "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+  ],
+
+  "event": {
+    "date": "2026-06-14",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2606.15860", "https://arxiv.org/html/2606.15860"]
+  },
+
+  "credited_humans": ["Ryosuke Mizuno"],
+
+  "ai_role": "assisted",
+  "ai": {
+    "basis_quote": "explicit graphs, using a construction discovered through interaction with ChatGPT via its standard web interface ... ChatGPT was used as an interactive discovery engine. The author checked the mathematical claims, code, certificates, citations, final manuscript, and takes responsibility for contents. ... In Round 036 the LLM produced the initial 132-vertex controller combined with a universal chart on F_4^5, yielding N(16,5) >= 135,168. ... In Round 050, a 144-vertex exact-NB-5 controller was obtained from a 6-vertex 4-regular multibase and C4 x C6 voltage coverage. ... The search was conducted without an external orchestration layer around ChatGPT: no custom agent framework, automated evaluator-driven search loop, problem-specific search engine, or formal proof assistant was set up in advance by the author.",
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": ["ChatGPT"],
+    "sources": ["https://arxiv.org/abs/2606.15860", "https://arxiv.org/html/2606.15860"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": null,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The degree/diameter problem (given max degree d and diameter k, find the largest possible graph N(d,k)) is a live-record problem: most (d,k) pairs have no known optimal value, only improving lower-bound constructions tracked in a community table (Comellas's Degree-Diameter Table). Since the 26 January 2024 freeze, the only event I could establish as squarely within scope and within the window is Ryosuke Mizuno's arXiv:2606.15860 (submitted 14 June 2026, v1, no later revision found), which gives explicit 12-regular and 16-regular graphs of diameter 5 improving N(12,5) from 29,621 to 34,992 and N(16,5) from 132,496 to 147,456. This is squarely a 'record' case under this problem's own rule in §3.1 (an existence/infinitude question is not moved by one more example, but here the bullet's quantity IS the record itself, so a bigger explicit construction is a genuine advance on the stated question, classified as `partial` in spirit though because status also has to reflect review state I used `claimed`: the result is a case of the problem settled favorably but not yet digested by named experts or accepted to a journal — Google Scholar/arXiv show only the single v1 preprint, no journal venue, no blog digestion (searches for Terence Tao, Quanta, and general expert reaction turned up nothing about this specific paper — Tao's public ChatGPT-assisted work is a different, unrelated paper on Lebesgue constants). The Comellas maintained table (web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html), which is the closest thing to an authoritative problem database for this exact quantity, has already updated to show 34,992 and 147,456 as the current entries as of my check (September 2026), which is meaningful community acceptance of the numeric record even without formal peer review; I weighted this together with the single-preprint status and settled on `claimed` over `resolved` because no named expert's independent digestion of the *proof/certificate* was found, only table adoption of the resulting numbers. On the AI side, the paper's own account (quoted in ai.basis_quote) is unusually explicit and mechanistic: the author describes a ~6-day, ~50-round dialogue with ChatGPT's standard web interface (no agent harness, no evaluator loop, no proof assistant) in which the human intervened only at a 'meta-level' (asking for novelty, abstraction, justification) while the LLM produced the actual combinatorial objects (a 'controller' route/chart construction using voltage graph coverage over finite fields) that became the final graphs, cases of the mathematics that end up in the certified result. The human's own contribution was steering the search direction and stopping criteria, and then independently verifying the resulting construction via three levels of computational certificate checks (voltage coverage, edge-list/generation consistency, and an independent diameter computation via igraph). Because the mathematics-that-ends-up-in-the-result (the specific graph construction) is authored-by-account to the LLM, while the human did not supply candidate components and instead verified/directed, I classified this `assisted` rather than `generated`: the paper frames the arrangement as a guided/interactive human-steered search rather than the LLM autonomously generating a finished, human-checked-only proof object, and the human's verification work is substantial and integral, not incidental proofreading. I also searched broadly for any other AI-relevant activity on this problem in the window (FunSearch-style program search, other LLM claims, withdrawn claims) and found none: FunSearch (DeepMind, 2023) is mentioned by Mizuno only as a contrast/related-work citation for a different AI methodology (evaluator-in-the-loop program search), not as itself having produced degree-diameter results, and I found no record of it being applied to this problem. I did not find any resolution of the general problem (which remains almost entirely open outside small/special cases), nor any withdrawal of the Mizuno claim.",
+  "competing_reading": "One could argue this deserves `partial` rather than `claimed`, since a specific case (N(12,5) and N(16,5)) was genuinely settled in the 'a bigger explicit lower-bound construction now exists and is the current record' sense, and `partial` requires only that a case be settled, which arguably tracks the mathematics better than the 'has an expert reviewed it' axis that `claimed` vs `resolved` is about. I resolved this by treating `claimed`/`resolved` as an orthogonal review-status axis (per §6.1's own framing: 'resolved versus claimed turns on whether a human expert has read the argument') that takes priority when a result is this fresh and unreviewed, rather than `partial`, which I read as reserved for cases that are unambiguously settled and simply narrower in scope than the parent conjecture (which doesn't cleanly apply to a 'produce the largest known example' record-type bullet). A reader could reasonably prefer `partial` instead, or could argue this is `progress` (a bound moved) rather than a settled case at all, since neither N(12,5) nor N(16,5) has a matching upper bound proof — only the lower-bound record moved, and the exact value of N(12,5) or N(16,5) remains completely open. That `progress` reading is also defensible: nothing about the maximum possible size was 'decided' either way, only a better example was exhibited.",
+  "what_would_settle_it": "An independent expert re-verification or acceptance of the Mizuno construction (e.g., journal publication, a survey or table maintainer's written endorsement beyond just updating the number, or a follow-up paper citing and checking it) would move this from `claimed` toward `resolved`; conversely a retraction or a found error in the certificate would move it to `progress`/`incident`. Also worth checking periodically: whether Comellas's own survey/table publishes an accompanying citation note (rather than just an updated number) that would count as a expert-authored acknowledgment of the result.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2606.15860", "title": "New lower bounds for the degree/diameter problem via interaction with a browser-accessible LLM", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2606.15860", "title": "New lower bounds for the degree/diameter problem via interaction with a browser-accessible LLM (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html", "title": "The (Degree, Diameter) Problem for Graphs", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Degree_diameter_problem", "title": "Degree diameter problem", "type": "encyclopedia", "opened": true},
+    {"url": "https://leapsinbounds.org/constants/degree-diameter-12-5/", "title": "Degree-diameter problem N(12,5) - Leaps in Bounds", "type": "repository", "opened": true},
+    {"url": "https://ajc.maths.uq.edu.au/pdf/41/ajc_v41_p063.pdf", "title": "New record graphs in the degree-diameter problem (Loz & Sirán, 2008)", "type": "journal", "opened": false},
+    {"url": "https://github.com/google-deepmind/funsearch", "title": "FunSearch GitHub repository", "type": "repository", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "degree diameter problem new largest graph record 2025",
+      "degree diameter problem improved bound 2025 arXiv",
+      "degree diameter problem record table 2024 2025 2026 new lower bound Cayley graph",
+      "\"degree diameter problem\" AI OR \"large language model\" 2024 2025 bound record graph",
+      "FunSearch degree diameter problem graph construction DeepMind",
+      "\"New record graphs in the degree-diameter problem\" Australasian Journal Combinatorics volume 41",
+      "Mizuno degree diameter ChatGPT paper review expert reaction Terence Tao blog"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2606.15860",
+      "Comellas maintained degree-diameter record table (web.mat.upc.edu)",
+      "Wikipedia article 'Degree diameter problem' (live version, for lead/body content only, not as the frozen source)",
+      "Leaps in Bounds constant tracker page for N(12,5)",
+      "General web search for expert digestion, Tao blog, Quanta coverage, retraction/withdrawal signals",
+      "FunSearch GitHub / general coverage, to rule out an earlier AI result on this exact problem"
+    ],
+    "dead_ends": [
+      "Loz & Sirán 2008 AJC paper (ajc_v41_p063.pdf) surfaced in search but is a 2008 result, outside the window, and PDF content could not be fetched as text — confirmed via search snippet metadata only that it predates the window and is irrelevant",
+      "arXiv ID initially mis-typed as 2506.15860 by the fetch tool, returning an unrelated graph-layout paper; corrected to 2606.15860 (matches the June 2026 date and topic) and re-fetched successfully",
+      "leapsinbounds.org page appears to show a stale cached value (29,621) for N(12,5), predating the Mizuno update; not a contradiction, just a caching lag, and not used as authoritative over the arXiv paper and Comellas table"
+    ]
+  },
+
+  "incomplete": "I could not access the full arXiv PDF/HTML with complete certainty of every quoted round-by-round detail (relied on a fetch-tool summarization of the paper rather than a full manual read-through of all ~50 rounds of dialogue transcript referenced in the paper), and I found no secondary/expert digestion of this specific paper (no Tao blog post, no Quanta piece, no journal acceptance) despite searching — it is possible a digestion exists that my searches missed, which would push the status toward `resolved`.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass. Judged from this record's own findings; no new sources were opened",
+      "field": "status",
+      "from": "claimed",
+      "to": "progress",
+      "why": "SCOPE: `claimed` counted this among resolutions, but Mizuno's paper improves two lower bounds, N(12,5) and N(16,5), in a problem where almost every value is unknown and records are routinely beaten. A record moved is a bound moved, `progress` under 6.1, not a claimed resolution; the record's competing_reading raises the same point. The research rules fold 'how much was settled' and 'has an expert checked it' into one field, and the agent read an unreviewed result as `claimed`; that is the pattern this batch of corrections fixes. `ai_role` stays `assisted`."
+    },
+    {
+      "date": "2026-09-24",
+      "by": "hand correction directed by a human reviewer (Alex Fogelson) and drafted on that instruction by Claude (claude-opus-5-5); not the researching agent and not any automated pass",
+      "field": "resolution_direction",
+      "from": "confirmed",
+      "to": null,
+      "why": "A moved bound has no direction."
+    }
+  ]
+}

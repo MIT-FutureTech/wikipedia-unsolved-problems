@@ -1,0 +1,105 @@
+{
+  "key": "given-the-width-of-a-tic-tac-toe-board-what-is",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The lower bound on HJ(3,3) — the Hales-Jewett number giving the smallest dimension in which a width-3 (3-in-a-row) n-dimensional tic-tac-toe board cannot end in a draw, hence guarantees X a winning strategy by strategy-stealing — moved twice in 2026: from the pre-existing van der Waerden-derived bound of 13 to 14 (Conlon, Farnsworth, Robertson, SAT-solver search), then superseded by a much stronger bound of 22 (Mouhib, Halbeisen, symmetric-coloring SAT search). The problem itself — the exact smallest dimension — remains open.",
+  "status_sources": [
+    "https://arxiv.org/abs/2606.22155",
+    "https://arxiv.org/html/2606.22155",
+    "https://arxiv.org/abs/2607.18111",
+    "https://arxiv.org/html/2607.18111"
+  ],
+
+  "event": {
+    "date": "2026-06-20",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2606.22155"
+    ]
+  },
+
+  "credited_humans": ["Younes Mouhib", "Lorenz Halbeisen", "Nathan Conlon", "Nayda Farnsworth", "Aaron Robertson"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": "Conlon/Farnsworth/Robertson report the SAT search required 8831 CPU hours (about 367 days), distributed across 15 cores, supported by Colgate University Research Computing and the Colgate Supercomputer.",
+    "systems": [],
+    "sources": [
+      "https://arxiv.org/html/2606.22155",
+      "https://arxiv.org/html/2607.18111"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Conlon, Farnsworth and Robertson's paper (arXiv:2607.18111, v1 submitted 2026-07-20) proves HJ(3;3)>=14 using a SAT-solver-based extension of van der Waerden constructions, but its Remark 9 explicitly notes that concurrent/prior work by Mouhib and Halbeisen (arXiv:2606.22155, v1 submitted 2026-06-20, one month earlier) already proved the much stronger HJ(3,3)>=22 using symmetric colorings, and that this was announced at Rutgers' Experimental Math Seminar before their own paper's results were presented. The two results are not in tension mathematically (22 is simply a better bound than 14), but the near-simultaneous, partly overlapping announcements are worth recording as a priority/overlap situation rather than two independent unrelated advances.",
+      "sources": [
+        "https://arxiv.org/html/2607.18111",
+        "https://arxiv.org/abs/2606.22155"
+      ]
+    }
+  ],
+
+  "summary": "The Wikipedia bullet asks: given the width of a tic-tac-toe board (i.e. the winning line length t), what is the smallest dimension n such that X is guaranteed a win — this is the n-in-a-row generalization tied to the Hales-Jewett theorem, since a coloring-free (draw-free) dimension implies a first-player win by strategy-stealing. For the classical width t=3 (three-in-a-row, as in ordinary tic-tac-toe), this is the Hales-Jewett number HJ(3,3) (using 3 colors/players' turn-parity coloring convention as in the cited literature) or more precisely the 3-color Hales-Jewett number relevant to the 2-player draw-avoidance question. Before the frozen revision date, the best known lower bound on HJ(3,3) stood at 13, obtained via classical van der Waerden number constructions (per arXiv:2607.18111's own account of 'Corollary 7'); no exact value is known and none has ever been computed for HJ(3,3). In the window, two SAT-solver-based preprints appeared in mid-2026: Mouhib and Halbeisen (arXiv:2606.22155, submitted 2026-06-20) proved HJ(3,3)>=22 (and HJ(4,2)>=14) via coordinate-symmetric colorings reduced to a polynomial-size constraint-satisfaction problem, certified by an explicit, hand-auditable table of under 600 cells; and independently, Conlon, Farnsworth and Robertson (arXiv:2607.18111, submitted 2026-07-20) proved HJ(3;3)>=14 via a SAT-solver-extended van der Waerden construction (using CryptoMiniSat and Kissat, ~8831 CPU-hours), while explicitly acknowledging in Remark 9 that Mouhib and Halbeisen's concurrent/earlier-announced result already superseded their bound. Both papers rely exclusively on SAT solvers and exhaustive/constraint-based verification — no AI or machine-learning system (neural network, LLM, MCTS-guided solver such as AlphaMapleSAT, or similar) is used or mentioned anywhere in either paper; per DEEP_DIVE.md's own rule, SAT solvers and certified constraint search do not count as AI systems. I searched specifically for AI/ML tool usage (e.g. AlphaMapleSAT, which exists and has been used for related Ramsey/van der Waerden-type SAT problems) and found no evidence it, or any comparable AI-assisted SAT solver, was used for HJ(3,3) or HJ(4,2) in either 2026 paper. The problem — the exact minimal dimension for X's guaranteed win at width 3 — remains open; what moved is a lower bound, which is the correct classification as `progress` (an existence-type record like this only 'moves' the problem when the exact value or a matching upper bound is found, not when a bound is pushed further, per DEEP_DIVE §3.1's rule on records versus the underlying question — though here it is explicitly the bound itself, not a proxy record, that is asked about implicitly via HJ; I classify it as progress on the underlying Hales-Jewett dimension question, which the bullet is ultimately about).",
+  "competing_reading": "One could argue this bullet is really an infinitude/exact-value question (\"what is the smallest dimension\") and that moving a lower bound is analogous to the disallowed case in DEEP_DIVE §3.1 of 'a record extended' not counting as progress on an existence question. However, that rule is aimed at record/witness constructions for existence questions (e.g. largest known prime), not at bounds on a well-defined finite quantity (HJ(3,3) is known to be finite and exact by the Hales-Jewett theorem itself); narrowing the interval in which that finite number must lie is direct, quantitative progress on the question asked, unlike, e.g., merely exhibiting one more example. I therefore classify as `progress` rather than leaving as strictly `open` with no_change_found, but flag this as the closest judgment call in the record.",
+  "what_would_settle_it": "An exact determination of HJ(3,3) (matching upper and lower bounds), or an explicit winning strategy construction for X at a specific dimension n together with a proof that no strategy (or draw) exists at n-1, would settle the underlying bullet. Short of that, any further published bound (lower or upper) narrowing the interval would be the next relevant event to check for.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Nd_game", "title": "Nd game", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.18111", "title": "On Hales-Jewett and Related Numbers", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2607.18111", "title": "On Hales-Jewett and Related Numbers (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.22155", "title": "Improved Lower Bounds for the Hales-Jewett Numbers via Symmetric Colorings", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2606.22155", "title": "Lower Bounds for the Hales-Jewett Numbers via Symmetric and One-Weight Colorings (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2606.22155", "title": "Improved Lower Bounds for the Hales-Jewett Numbers via Symmetric Colorings (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://sites.math.rutgers.edu/~zeilberg/expmath/farnsworth26.pdf", "title": "A Computational Approach to Improving Bounds on the Hales-Jewett Numbers (Rutgers Experimental Math Seminar slides/notes)", "type": "preprint", "opened": true},
+    {"url": "https://njfarnsworth.github.io/", "title": "Nayda Farnsworth personal site", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.02226", "title": "One-Weight Colorings, the Symmetric Class, and Lower Bounds for Hales-Jewett Numbers", "type": "preprint", "opened": false},
+    {"url": "https://cs.uwaterloo.ca/~cbright/reports/alphamaplesat.pdf", "title": "AlphaMapleSAT: An MCTS-based Cube-and-Conquer SAT Solver for Hard Combinatorial Problems", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Hales-Jewett number tic-tac-toe HJ(3,3) dimension winning strategy 2026",
+      "arxiv 2607.18111 Hales-Jewett related numbers",
+      "arxiv 2606.22155 improved lower bounds Hales-Jewett symmetric colorings",
+      "HJ(3,3) Hales-Jewett number lower bound history 13 before 2024",
+      "Farnsworth Hales-Jewett HJ(3,3) 14 SAT solver 2024 2025 date",
+      "\"HJ-SAT\" GitHub Farnsworth Hales-Jewett repository",
+      "Hales-Jewett number HJ(3,3) upper bound exact value determined",
+      "AlphaMapleSAT Hales-Jewett number combinatorics reinforcement learning"
+    ],
+    "places_checked": [
+      "Wikipedia Nd game article",
+      "arXiv abstract and HTML full text of 2607.18111",
+      "arXiv abstract and HTML full text of 2606.22155",
+      "Rutgers Experimental Math Seminar (Farnsworth slides, PDF corrupted/unreadable in fetch)",
+      "Farnsworth's personal academic website",
+      "General web search for AI/ML SAT-solver tools (AlphaMapleSAT) applied to Hales-Jewett numbers"
+    ],
+    "dead_ends": [
+      "pith.science review pages for both papers returned empty content on fetch and could not be used",
+      "The Farnsworth Rutgers seminar PDF fetched as corrupted binary and could not be read directly; relied on arXiv paper's own Remark 9 account of it instead",
+      "AlphaMapleSAT was investigated as a plausible AI-assisted SAT solver that has been applied to related Ramsey-type problems, but no evidence found that it (or any AI/ML tool) was used for HJ(3,3) or HJ(4,2) specifically"
+    ]
+  },
+
+  "incomplete": "Could not directly read the Rutgers Experimental Math Seminar PDF (fetch returned corrupted/binary content), so the exact date and content of the earlier Farnsworth announcement referenced in Remark 9 of arXiv:2607.18111 is known only second-hand via that paper's own account, not verified from the primary seminar source itself. The pith.science review pages for both papers also failed to return content. Neither gap changes the classification, since both arXiv papers' own full texts were read directly and are sufficient to establish the status, dating, and absence of AI involvement.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

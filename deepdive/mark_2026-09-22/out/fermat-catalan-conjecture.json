@@ -1,0 +1,85 @@
+{
+  "key": "fermat-catalan-conjecture",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "Preda Mihăilescu (preprint, 22 Sep 2025) proved via a cyclotomic argument (Stickelberger ideal, Jacobi sums) that the equation (x^p+y^p)/(x+y) = p^e z^q has no solutions in coprime integers for p>3, q distinct odd primes, and states as a direct corollary that the classical Fermat-Catalan equation x^p+y^p=z^q has no solutions for that signature family — settling one infinite family of exponent triples (p,p,q), p>3, q an odd prime ≠ p. The general finiteness conjecture remains open. Separately, a December 2024 survey (Ratcliffe–Grechuk, published in Expositiones Mathematicae 2025) reports that Sikora's computational search of the classical Fermat-Catalan equation was extended to cover all coprime solutions with z^r ≤ 2^100, still finding only the same ten known solutions; this narrows where an eleventh solution could hide but does not itself settle the existence question (per the rule that a record/search-bound extension does not count as progress on a 'finitely many / are there more' question unless the record itself is the object of the bullet).",
+  "status_sources": [
+    "https://arxiv.org/abs/2509.18275",
+    "https://arxiv.org/html/2509.18275v1"
+  ],
+
+  "event": {
+    "date": "2025-09-22",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2509.18275", "https://arxiv.org/html/2509.18275v1"]
+  },
+
+  "credited_humans": ["Preda Mihăilescu"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": ["https://arxiv.org/html/2509.18275v1"]
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "The triage's `none` verdict correctly identified that no proof or disproof of the general finiteness conjecture, and no new qualifying solution, has appeared since 26 January 2024 — the conjecture as a whole is exactly as open as it was. But the triage mischaracterized Mihăilescu's September 2025 paper as 'unrelated cyclotomic work... on a different variant equation,' which I disagree with (triage_disagreement). Reading the paper directly (arXiv:2509.18275, HTML version), its Theorem 1 explicitly states two things in sequence: (1) the 'strong' quotient equation (x^p+y^p)/(x+y)=p^e z^q has no coprime solutions for p>3, q distinct odd primes, and (2) 'In particular, the Fermat-Catalan equation ... has no solutions with distinct odd primes p,q and p>3.' That second clause is a direct statement about the classical equation a^m+b^n=c^k with (m,n,k)=(p,p,q) — a restriction of the problem to a specific infinite family of exponent triples, which is a case of the stated problem under §3.1, not a variant with changed hypotheses (the object equation, coprimality condition, and exponent inequality 1/p+1/p+1/q<1 for p>3,q≥5 are all exactly the Fermat-Catalan setup). This is exactly the shape of result the deep-dive rules count as `partial`: a slice of the exponent-triple space is now provably solution-free, narrowing (removing territory from) the general conjecture, even though the conjecture as a whole stays open. Separately, the Ratcliffe–Grechuk survey (Dec 2024, revised Apr 2025, published in Expositiones Mathematicae) extended Sikora's exhaustive computational search to z^r ≤ 2^100, confirming no solutions beyond the known ten in that range and naming (2,5,7) and (3,5,7) as the smallest open signatures — this is real computational work but, per §3.1's rule for existence/infinitude questions, a larger search bound narrows where a counterexample could hide without answering whether one exists, so on its own it would not move status past `open`; it is reported here as context for the `partial` finding, not as an independent basis for it. No AI or machine-learning system appears in either paper: Mihăilescu's acknowledgements name only human colleagues and students, and both papers' computational work (ALICE HPC / University at Buffalo cluster) is exhaustive integer search, not a learned model. I also checked Sikora's October 2024 paper (arXiv:2410.21552), which proposes conjectural product-generalizations of Fermat-Catalan/Tijdeman-Zagier rather than proving anything about the classical equation itself — that one is correctly a variant, not a case, and contributes nothing to status. Anthropic's 2026 formalization of Fermat's Last Theorem in Lean is an unrelated problem (fixed equal exponents m=n=k, no coprime a,b,c<1 inequality structure) and does not bear on this record.",
+  "competing_reading": "One could argue the Mihăilescu result is 'about' the strong/quotient equation and only mentions the classical Fermat-Catalan equation as an aside ('in particular'), so it might be read as a related/variant result rather than a case of the stated problem, especially since the paper's title and main technical machinery target the quotient form. Under that reading the correct status would remain `open` with `no_change_found` true (aside from the stale search-bound extension). I do not adopt this reading because Theorem 1 states the classical-equation non-existence result explicitly and unconditionally for that exponent family, and the deep-dive rule for a 'case' is about restricting the stated question, which is exactly what fixing (m,n,k)=(p,p,q), p>3 does — the route to the result (via the quotient identity) does not change what the result claims about the original equation.",
+  "what_would_settle_it": "Expert digestion or journal acceptance of Mihăilescu's preprint would move this specific case from a preprint-only partial toward a firmly established partial result (it does not need 'resolved' since it only ever settles a case, not the whole conjecture). Any future paper explicitly extending or contradicting the (p,p,q) family result, or a full proof/disproof of the general finiteness conjecture, would supersede this record.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2509.18275", "title": "The strong Fermat-Catalan Equation", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2509.18275v1", "title": "The strong Fermat-Catalan Equation (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2509.18275", "title": "The strong Fermat-Catalan Equation (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2412.11933", "title": "Generalised Fermat equation: a survey of solved cases", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2412.11933", "title": "Generalised Fermat equation: a survey of solved cases (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2412.11933", "title": "Generalised Fermat equation: a survey of solved cases (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2410.21552", "title": "Fermat-Catalan and Tijdeman-Zagier conjectures for products", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2410.21552", "title": "Fermat-Catalan and Tijdeman-Zagier conjectures for products (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Fermat%E2%80%93Catalan_conjecture", "title": "Fermat–Catalan conjecture", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.anthropic.com/research/formalizing-fermats-last-theorem", "title": "Formalizing Fermat's Last Theorem", "type": "press_release", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "Fermat-Catalan conjecture 2024 2025 new solution",
+      "generalized Fermat equation survey 2412.11933",
+      "Fermat-Catalan conjecture Wikipedia article",
+      "Sikora 2024 generalization Fermat-Catalan Tijdeman-Zagier products arxiv 2410.21552",
+      "\"Fermat-Catalan\" 2026 proof progress theorem",
+      "Fermat-Catalan conjecture AI large language model proof attempt",
+      "Mihailescu \"Strong Fermat-Catalan\" cyclotomic 2025 2026 review"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2509.18275, 2412.11933, 2410.21552",
+      "current (2026) Wikipedia article for Fermat–Catalan conjecture",
+      "general web search for AI/LLM involvement in Fermat-Catalan work",
+      "general web search for any 2025/2026 proof or progress announcements"
+    ],
+    "dead_ends": [
+      "arXiv PDF fetches of 2412.11933 and 2509.18275 returned raw/binary content and had to be re-fetched via the arxiv.org/html/ mirror to get readable text",
+      "Anthropic's Fermat's Last Theorem formalization initially looked relevant by name association but is a distinct, unrelated equation (equal exponents, no coprime-triple/1/m+1/n+1/k<1 structure)"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": true,
+  "triage_queries_replaced": false
+}

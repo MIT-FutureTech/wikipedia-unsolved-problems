@@ -1,0 +1,114 @@
+{
+  "key": "hadwiger-conjecture-graph-theory",
+  "judgement": {
+    "events": [
+      {
+        "id": "delcourt-postle-2021",
+        "what": "Delcourt and Postle prove chi = O(t log log t) for K_t-minor-free graphs",
+        "date": "2021-08",
+        "precision": "month",
+        "after_snapshot": false,
+        "source": "https://arxiv.org/abs/2108.01633",
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "liu-luo-2026",
+        "what": "Liu and Luo improve the bound to chi = O(t log log log t) for K_t-minor-free graphs",
+        "date": "2026-09",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.06867",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "lin-2026",
+        "what": "Lin proves chi = O(t sqrt(log log t)) for K_t-minor-free graphs via star contraction, with disclosed AI assistance on the central idea",
+        "date": "2026-09-08",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2609.08713",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "The central proof idea in this manuscript was developed with the assistance of GPT 5.6 Sol and GPT 6 Astra.",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "odd-hadwiger-disproof-2025",
+        "what": "Disproof of the Odd Hadwiger Conjecture",
+        "date": "2025-12",
+        "precision": "month",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2512.20392",
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "liu-luo-2026",
+    "derived": {
+      "status": "progress",
+      "ai_role": "none",
+      "resolution_direction": null
+    },
+    "changed": ["ai_role", "event", "credited_humans"],
+    "doubts": "Status progress is kept: the upper bound on chi for K_t-minor-free graphs is the quantity the bullet's conjecture (chi <= t-1) bounds, so moving it is `bound`. The status event changes: by the record's own figures Liu-Luo's O(t log log log t) (arXiv 2609.06867, posted before Lin's 2609.08713) is asymptotically stronger than Lin's O(t sqrt(log log t)), since log log log t = o(sqrt(log log t)). Lin's AI-assisted bound therefore never held the record and is superseded (step 3). If Lin's paper actually bounds a different quantity (its title, 'Coloring Small K_t-Minor-Free Graphs', suggests it may target the small-graph colouring step of the Delcourt-Postle reduction), step 4 would apply and ai_role would revert to assisted; the record does not say this, so I judge on what it says. Liu-Luo's exact posting day is not in the record.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "changes": {
+    "ai_role": "none",
+    "event": {
+      "date": "2026-09",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "sources": ["https://arxiv.org/abs/2609.06867"]
+    },
+    "credited_humans": ["Liu", "Luo"]
+  },
+  "outcome_prefix": "Judged: the status rests on Liu and Luo's September 2026 preprint proving chi = O(t log log log t) for K_t-minor-free graphs, the strongest bound in the record; it supersedes Lin's later, weaker AI-assisted O(t sqrt(log log t)) bound.",
+  "corrections": [
+    {
+      "field": "event",
+      "from": "Lin preprint arXiv:2609.08713, 2026-09-08",
+      "to": "Liu-Luo preprint arXiv:2609.06867, 2026-09",
+      "why": "F8: the record's outcome lists Liu & Luo's O(t log log log t) and Lin's O(t sqrt(log log t)). log log log t is asymptotically smaller than sqrt(log log t), and Liu-Luo's arXiv number is earlier, so Liu-Luo is the furthest bound and Lin's never set a record."
+    },
+    {
+      "field": "credited_humans",
+      "from": ["Xinheng Lin"],
+      "to": ["Liu", "Luo"],
+      "why": "F8: follows the status event. The record gives only surnames for Liu and Luo."
+    },
+    {
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "none",
+      "why": "F8: the AI disclosure belongs to Lin's superseded bound. The record says Liu-Luo has 'no AI disclosed'. The basis_quote stays in place as evidence about Lin's paper. If Lin's result turns out to bound a different quantity, this should revert to assisted under step 4."
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "key": "gilbert-pollack-conjecture-on-the-steiner-ratio-of-the",
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "The conjecture itself remains open, but the best proven lower bound on the Steiner ratio moved twice: from 0.824168 (Chung & Graham, 1985) to a certified 0.8559 (Ke, Huang, Shu, He, Gai & Wang, arXiv 2601.22365, posted 29 Jan 2026), using an LLM-driven system to generate geometric lemmas verified by computer algebra, and then to a further, asterisked 0.860 (= 43/50) certificate-layer bound (J. Savva, PR merged into Terence Tao's optimizationproblems repo, 1 Sep 2026) that is conditional on unproven lemmas from the first paper and was itself produced largely by an AI system (Claude Fable 5) under human direction.",
+  "status_sources": [
+    "https://arxiv.org/abs/2601.22365",
+    "https://arxiv.org/html/2601.22365",
+    "https://github.com/teorth/optimizationproblems/pull/159",
+    "https://github.com/teorth/optimizationproblems/blob/main/README.md",
+    "https://github.com/teorth/optimizationproblems/blob/main/constants/43a.md"
+  ],
+  "event": {
+    "date": "2026-01-29",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://arxiv.org/abs/2601.22365",
+      "https://arxiv.org/html/2601.22365"
+    ]
+  },
+  "credited_humans": [
+    "Yisi Ke",
+    "Tianyu Huang",
+    "Yankai Shu",
+    "Di He",
+    "Jingchu Gai",
+    "Liwei Wang",
+    "J. Savva"
+  ],
+  "ai_role": "assisted",
+  "ai": {
+    "basis_quote": "Rather than directly prompting LLMs to solve the conjecture, we task them with generating rule-constrained geometric lemmas implemented as executable code... The LLM acts solely as a reasoning engine, offloading all validation tasks to Mathematica to perform exact computations... more than 80% of LLM-proposed lemmas are effective.",
+    "formalisation_only": false,
+    "disclosed_cost": "Approximately 0.5M tokens (~35K per round) and 4.6 hours of reasoning across the run; total monetary cost of 'just a few hundred dollars' (Ke et al., arXiv 2601.22365). The Savva follow-up (GitHub PR #159) discloses no separate token/compute cost figure.",
+    "systems": [
+      "GPT-5",
+      "Gemini 3 Pro",
+      "Claude Fable 5"
+    ],
+    "sources": [
+      "https://arxiv.org/html/2601.22365",
+      "https://github.com/teorth/optimizationproblems/pull/159"
+    ]
+  },
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+  "disputes": [],
+  "summary": "The Gilbert-Pollak/Steiner-ratio conjecture (Steiner ratio = √3/2 ≈ 0.86603) remains open: no proof or disproof has appeared in the window, and Wikipedia's dedicated 'Gilbert–Pollak conjecture' article (checked live) still describes it as unproven, still referencing the retracted 1990 Du-Hwang PNAS proof (found to have a serious gap) and the follow-on Rubinstein-Weng work that inherits the same gap — all pre-2024 history, not counted here. What did happen in-window is movement on the best certified *lower bound* for the ratio, which had sat at ~0.824168 (Chung & Graham, 1985) for roughly four decades. On 29 Jan 2026, Ke et al. (arXiv:2601.22365, 'Towards Solving the Gilbert-Pollak Conjecture via Large Language Models') reported a system in which GPT-5 and Gemini 3 Pro generate candidate geometric lemmas as executable code, which are then validated deterministically in Mathematica; a layer of these machine-checked lemmas supports a certified new lower bound of 0.8559. The authors are explicit that the LLMs only propose lemmas (mathematical content that ends up in the certificate) while all verification is symbolic/exact — this is authors'-own-account AI involvement in producing part of the mathematics in the result, so ai_role is 'assisted' rather than 'generated' (the humans/algebra system, not the LLM, established correctness, and the LLM did not produce the whole proof/bound autonomously) and not 'bound'-only since the lemmas are genuine mathematical content, not just a numeric improvement produced by search. A second event, a GitHub pull request (#159) to Terence Tao's 'optimizationproblems' repository merged 1 Sep 2026, pushes the bound further to 0.860 (exact 43/50) via an independently-built, clean-room certificate layer verifying over 1.1 billion regions; but this second bound is explicitly asterisked in the repo's README and constants/43a.md as 'conditional on the lemma set of KHSHGW2026' (i.e., it inherits the first paper's not-fully-independently-vetted lemmas), so the repo itself treats 0.8559 as the safely certified value and 0.860 as provisional. The PR's own text states the software, analysis and paper were produced by 'an AI system (Claude Fable 5, Anthropic) working under my [Savva's] direction' — again an authors'-own-account claim of AI producing mathematics-bearing artifacts (the verification software and analysis), so this too is coded 'assisted' under the human submitter's direction rather than 'generated'. Neither event resolves any case of the conjecture in either direction (the ratio itself is still unknown, bounded strictly below the conjectured value), so resolution_direction is null and status is 'progress' (a bound moved on a problem that remains open), per §6.1/§6.4. I treat this as a single record with two AI systems groups reported (Ke et al.'s GPT-5/Gemini 3 Pro, and Savva's Claude Fable 5) since both are genuine in-window bound-moving events on the same problem; per the instructions I did not invent a second record for the second event.",
+  "competing_reading": "One could argue the Ke et al. LLM contribution is better coded 'bound' rather than 'assisted', since ultimately what changed is a numeric constant on an open problem and the LLM's lemmas are themselves just inputs to a numerical/algebraic certificate rather than a human-legible proof step. I judged 'assisted' more faithful because the authors' own account frames the LLM as generating actual geometric lemmas (mathematical content, not merely search over parameters), and 80%+ of proposed lemmas were usable — closer to 'the model produced part of the argument' than to 'the model tuned a bound'. Similarly, one could read the 0.860 PR as 'incident' if one considers the conditional/asterisked bound to have been effectively later disowned by the repository maintainers as not fully certified — but the README does not withdraw it, it merely annotates it as conditional, so I kept it as 'progress' rather than 'incident'.",
+  "what_would_settle_it": "Whether a later paper proves the KHSHGW2026 lemma set unconditionally (which would de-asterisk the 0.860 bound), and whether any subsequent work pushes the certified bound closer to √3/2 or, in the other direction, produces an actual proof or disproof of the full conjecture.",
+  "confidence": "medium",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2601.22365",
+      "title": "Towards Solving the Gilbert-Pollak Conjecture via Large Language Models",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2601.22365",
+      "title": "Towards Solving the Gilbert-Pollak Conjecture via Large Language Models (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2601.22365",
+      "title": "Towards Solving the Gilbert-Pollak Conjecture via Large Language Models (PDF)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/teorth/optimizationproblems/pull/159",
+      "title": "Problem 43 (Steiner ratio): certificate-layer lower bound 0.860",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/teorth/optimizationproblems/blob/main/README.md",
+      "title": "optimizationproblems README",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/teorth/optimizationproblems/blob/main/constants/43a.md",
+      "title": "Gilbert-Pollak conjecture (Steiner ratio) constant entry",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Gilbert%E2%80%93Pollak_conjecture",
+      "title": "Gilbert–Pollak conjecture - Wikipedia",
+      "type": "encyclopedia",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "Gilbert-Pollak conjecture Steiner ratio 2024 2025 2026 proof progress",
+      "\"optimizationproblems\" teorth Steiner ratio 0.8559 KHSHGW2026",
+      "arxiv 2601.22365 Gilbert-Pollak submission date January 2026"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML/PDF full text of 2601.22365",
+      "Terence Tao's optimizationproblems GitHub repo (README, constants/43a.md, PR #159)",
+      "English Wikipedia article 'Gilbert–Pollak conjecture' (live, for cross-check against the frozen list bullet)",
+      "General web search for 2024-2026 progress/proof announcements"
+    ],
+    "dead_ends": [
+      "Searched for any full proof or disproof announced 2024-2026; none found beyond the two lower-bound results",
+      "Checked whether the 1990 Du-Hwang / Rubinstein-Weng proof saga had any in-window resolution; it did not — still described as an open gap"
+    ]
+  },
+  "incomplete": "Could not directly read the full arXiv PDF body (object streams were compressed/non-extractable in one fetch), so some paper details (exact affiliations, full acknowledgements) rely on the HTML rendering and secondary summaries rather than a complete manual read of the PDF; the core claims (bound value, LLM role, model names, token/compute cost) were nonetheless corroborated across the abstract, HTML full text, and the GitHub repo's citation of the same paper, so I am reasonably confident in them.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false,
+  "corrections": [
+    {
+      "date": "2026-09-28",
+      "by": "judging pass (JUDGE.md), opus; not the researching agent and not a human reviewer",
+      "field": "ai_role",
+      "from": "assisted",
+      "to": "assisted",
+      "why": "F8: kept 'assisted' because the status rests on Ke et al.'s unconditional 0.8559 bound, where the LLMs proposed lemmas that are in the certificate. The later 0.860 bound (PR #159) is conditional on the KHSHGW2026 lemmas and asterisked in the repo README. Its own text says the AI produced the software, analysis and paper, which would be 'generated' if that event were the one the status rests on."
+    }
+  ],
+  "judgement": {
+    "events": [
+      {
+        "id": "ke-2026",
+        "what": "Ke, Huang, Shu, He, Gai & Wang raise the certified lower bound on the Euclidean Steiner ratio from 0.824168 to 0.8559 using LLM-generated geometric lemmas verified in Mathematica",
+        "date": "2026-01-29",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://arxiv.org/abs/2601.22365",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "Rather than directly prompting LLMs to solve the conjecture, we task them with generating rule-constrained geometric lemmas implemented as executable code... more than 80% of LLM-proposed lemmas are effective.",
+        "direction": null,
+        "is_counterexample": false
+      },
+      {
+        "id": "savva-2026",
+        "what": "Savva's PR #159 to the optimizationproblems repo gives a 0.860 (43/50) certificate-layer lower bound, asterisked as conditional on the KHSHGW2026 lemma set",
+        "date": "2026-09-01",
+        "precision": "day",
+        "after_snapshot": true,
+        "source": "https://github.com/teorth/optimizationproblems/pull/159",
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Explicitly conditional on lemmas the repository itself does not treat as fully certified; the maintainers present 0.8559 as the safe value and 0.860 as provisional.",
+        "ai_role": "generated",
+        "ai_basis": "software, analysis and paper produced by 'an AI system (Claude Fable 5, Anthropic) working under my direction'",
+        "direction": null,
+        "is_counterexample": false
+      }
+    ],
+    "rests_on": "ke-2026",
+    "derived": {
+      "status": "progress",
+      "ai_role": "assisted",
+      "resolution_direction": null
+    },
+    "changed": [],
+    "doubts": "Both events are bounds on a question the bullet asks for exactly (the value √3/2), so status is progress and direction null. The status rests on the unconditional 0.8559 bound. Savva's 0.860 is conditional, so it does not cleanly supersede that bound. If a later reader counts it as the furthest bound, note that the PR's own wording (AI produced the software, analysis and paper under human direction) reads closer to 'generated' than 'assisted'. Neither result has been through expert or journal review. Mathematica checks each lemma, but that does not show the certificate framework as a whole is sound.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "searches": []
+  },
+  "judge_problems": []
+}

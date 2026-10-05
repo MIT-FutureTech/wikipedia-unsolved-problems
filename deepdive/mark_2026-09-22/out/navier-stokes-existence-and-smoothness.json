@@ -1,0 +1,119 @@
+{
+  "key": "navier-stokes-existence-and-smoothness",
+
+  "status": "claimed",
+  "no_change_found": false,
+  "outcome": "On 2026-09-08 OpenAI announced that an internal (unreleased) AI system, coordinating roughly 10,000 concurrent agents over 88 hours, produced a proof — with an accompanying Lean formalization built afterward by GPT-6 Astra over 17 more hours — that a forced, initially smooth, finite-energy 3D Navier-Stokes flow can develop a finite-time singularity. This is a counterexample to smoothness/global existence only for the forced equations; the Clay Millennium Prize problem as officially stated (Fefferman's 2000 description) concerns the unforced/source-free case, so OpenAI explicitly did not claim the prize and the Clay Institute has kept the problem's status as 'active' rather than resolved. The result has not yet been digested or verified by the mathematical community: a joint guest post on Terence Tao's blog (De Toffoli & Duede, 2026-09-12) explicitly declines to certify it as an 'intelligible' mathematical proof, and NPR (2026-09-22) reports mathematicians still have not extracted understanding from it. A separate, human-led line of work by Tristan Buckmaster (NYU) and Levent Alpöge (Anthropic), building on Córdoba and Martínez-Zoroa's earlier results, produced closely related (but not identical) finite-time blowup results for the Euler, Boussinesq and porous-medium equations around the same time (posted/announced 2026-09-07, per Tao's blog), using LLMs (both Anthropic's and OpenAI's) heavily to help write up arguments the humans devised; this touched but did not itself resolve the Navier-Stokes existence/smoothness question. A public priority dispute broke out between the two camps over alleged leakage of methods.",
+  "status_sources": [
+    "https://openai.com/index/navier-stokes-solution/",
+    "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+    "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness",
+    "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy",
+    "https://terrytao.wordpress.com/2026/09/12/after-math/"
+  ],
+
+  "event": {
+    "date": "2026-09-08",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "sources": [
+      "https://openai.com/index/navier-stokes-solution/",
+      "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+      "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy"
+    ]
+  },
+
+  "credited_humans": [],
+
+  "ai_role": "generated",
+  "ai": {
+    "basis_quote": "an internal model that is significantly more capable than GPT-6 Astra [produced the proof, coordinating roughly 10,000 agents over 88 hours]; GPT-6 Astra was then used to formalize and verify the proof in Lean over a further 17 hours.",
+    "formalisation_only": false,
+    "disclosed_cost": "OpenAI disclosed roughly 2.7-4.9 million inter-agent messages and approximately 130-300 billion output tokens for the effort; secondary reporting (e.g. Latent Space) estimates the compute cost at over $40 million.",
+    "systems": ["an OpenAI internal model significantly more capable than GPT-6 Astra", "GPT-6 Astra"],
+    "sources": [
+      "https://openai.com/index/navier-stokes-solution/",
+      "https://x.com/OpenAI/status/2097374640582668336",
+      "https://www.techmeme.com/260908/p28",
+      "https://www.latent.space/p/ainews-openai-reports-navier-stokes"
+    ]
+  },
+
+  "counterexample": {
+    "is_counterexample": true,
+    "object": "A forced (smooth external forcing), initially smooth, finite-energy solution of the 3D incompressible Navier-Stokes equations on the whole space that develops a singularity in finite time.",
+    "explicit": true,
+    "verified_how": "Formally checked in the Lean proof assistant (kernel-level type checking); the underlying informal manuscript (166 pages) has not undergone independent human peer review or expert digestion as of this record's date.",
+    "sources": [
+      "https://openai.com/index/navier-stokes-solution/",
+      "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness"
+    ]
+  },
+  "resolution_direction": "refuted",
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Tristan Buckmaster (NYU) publicly alleged, in a statement posted roughly 12 hours before OpenAI's announcement, that OpenAI became aware of his and Levent Alpöge's (Anthropic) unpublished progress on the same underlying strategy (building on Córdoba and Martínez-Zoroa's work) via leaked or de-identified data, and adopted a similar method for the full Navier-Stokes case. OpenAI (via Sébastien Bubeck) denied direct access to their proofs or prompts, said its model solved the related Euler problem by 'significantly different' methods, but did not deny that its Navier-Stokes solution followed a similar strategy. Charles Fefferman, author of the official Clay problem statement, credited Córdoba and Martínez-Zoroa as the 'heroes' whose techniques underlie both efforts. Twenty-five Fields Medalists (including Tao and Scholze) issued a joint letter on 2026-09-11, 'A Severe Misalignment of AI in Mathematics,' criticizing the framing of unsolved problems as AI benchmarks and the erosion of attribution norms. The dispute over data usage and credit remains unresolved.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy",
+        "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/",
+        "https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/",
+        "https://terrytao.wordpress.com/2026/09/07/finite-time-blowup-with-smooth-forcing-term-for-the-incompressible-porous-medium-boussinesq-and-incompressible-euler-equations/"
+      ]
+    }
+  ],
+
+  "summary": "OpenAI's 2026-09-08 announcement is a machine-produced (and Lean-formalized) proof of a counterexample to global smoothness/existence for the *forced* 3D Navier-Stokes equations — a related but not identical problem to the Clay Institute's official (unforced) Millennium Prize statement, which Wikipedia's frozen bullet points to. Because the problem as officially posed by Fefferman concerns the source-free (unforced) equations, and OpenAI itself says it is not claiming the prize, this is scoped as a case/near-neighbor result that bears directly on the stated existence-and-smoothness question in its forced variant rather than a full resolution of the frozen bullet. I classify status as `claimed` rather than `resolved`: the Lean kernel check gives logical certainty of internal consistency, but no human expert has yet published a digestion of the 166-page informal manuscript, and a guest post on Terence Tao's blog (De Toffoli & Duede, 2026-09-12) explicitly argues the community cannot yet call it an 'intelligible' mathematical proof; NPR (2026-09-22) reports mathematicians have extracted little insight so far. `ai_role` is `generated` because OpenAI's own account states an internal model (not GPT-6 Astra itself, but an unreleased more-capable model) produced the mathematics via a multi-agent process, with GPT-6 Astra doing only the subsequent Lean formalization; humans verified/reviewed the output but did not produce the mathematical content. Separately, a human-led effort (Buckmaster/Alpöge, building on Córdoba/Martínez-Zoroa) used LLMs heavily to help write up genuinely human-devised arguments for closely related equations (Euler, Boussinesq, porous medium) — that work is `assisted`-flavored AI use but did not itself settle the Navier-Stokes bullet, so I did not create a second status-bearing event for it; it is recorded in `disputes`/`summary` instead. A sharp, unresolved priority dispute and a 25-Fields-Medalist open letter followed, underscoring that no consensus verification exists yet.",
+  "competing_reading": "One could argue the frozen bullet ('Navier–Stokes existence and smoothness') is broad enough, as commonly discussed in popular and even some technical accounts, to cover the forced variant loosely referred to as 'the Navier-Stokes problem,' in which case this would be `resolved` or at least a full case-settlement (`partial` with `confirmed`... but actually `refuted`, since existence/smoothness fails) rather than merely `claimed`. However, the officially cited problem description (Fefferman, 2000) that Wikipedia's article itself points to is specifically about the unforced equations, and OpenAI's own framing (not claiming the Clay Prize) supports keeping this scoped as directly on-point but not fully resolving, and as not-yet-expert-verified.",
+  "what_would_settle_it": "A peer-reviewed publication or a widely-endorsed expert digestion (e.g., a detailed post by Tao, Buckmaster, Fefferman, or a Clay Institute-commissioned review) confirming the OpenAI manuscript's correctness and significance would move this to `resolved` (for the forced-flow case) or at minimum settle the `claimed` vs `resolved` distinction; resolution of the unforced case (which nobody claims yet) would be what actually closes the frozen bullet.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://openai.com/index/navier-stokes-solution/", "title": "On the Navier–Stokes Millennium Prize Problem", "type": "press_release", "opened": true},
+    {"url": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/", "title": "AI Has Solved One of Math's $1 Million Millennium Prize Problems", "type": "news", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness", "title": "Navier–Stokes existence and smoothness", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy", "title": "Navier–Stokes priority controversy", "type": "encyclopedia", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2026/09/07/finite-time-blowup-with-smooth-forcing-term-for-the-incompressible-porous-medium-boussinesq-and-incompressible-euler-equations/", "title": "Finite time blowup with smooth forcing term for the incompressible porous medium, Boussinesq, and incompressible Euler equations", "type": "blog", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2026/09/12/after-math/", "title": "After Math (guest post by De Toffoli & Duede)", "type": "blog", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2026/09/11/a-severe-misalignment-of-ai-in-mathematics/", "title": "A Severe Misalignment of AI in Mathematics", "type": "blog", "opened": false},
+    {"url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/", "title": "OpenAI fought dirty on career-making math problem, says NYU mathematician", "type": "news", "opened": false},
+    {"url": "https://x.com/OpenAI/status/2097374640582668336", "title": "OpenAI announcement tweet on Navier-Stokes solution", "type": "press_release", "opened": false},
+    {"url": "https://www.techmeme.com/260908/p28", "title": "Techmeme summary of OpenAI Navier-Stokes announcement", "type": "news", "opened": false},
+    {"url": "https://www.latent.space/p/ainews-openai-reports-navier-stokes", "title": "AINews: OpenAI reports Navier-Stokes singularity find", "type": "blog", "opened": false},
+    {"url": "https://arxiv.org/pdf/2604.09949", "title": "Vorticity-Response Blowup in Axisymmetric Models (arXiv:2604.09949)", "type": "preprint", "opened": true},
+    {"url": "https://www.npr.org/2026/09/22/nx-s1-5968588/openai-navier-stokes-problem-mathematicians-learn-little", "title": "AI solved one of math's hardest problems. Humanity learned nothing (so far)", "type": "news", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "OpenAI Navier-Stokes singularity Lean proof September 2026 \"10,000 agents\"",
+      "Buckmaster Alpöge Anthropic Navier-Stokes Euler equations September 2026",
+      "Terence Tao Navier-Stokes OpenAI singularity September 2026 blog",
+      "\"On the Navier–Stokes Millennium Prize Problem\" OpenAI announcement quote \"we did not\" claim",
+      "Fields Medalists open letter \"Severe Misalignment\" AI mathematics September 2026",
+      "OpenAI navier-stokes-solution \"GPT\" OR \"internal model\" basis quote formalize Lean proof produced",
+      "OpenAI Navier-Stokes tweet \"significantly more capable than GPT-6 Astra\" agents name internal model"
+    ],
+    "places_checked": [
+      "OpenAI's own announcement page (fetch blocked by 403, content reconstructed via search snippets and secondary reporting quoting it directly)",
+      "Quanta Magazine coverage",
+      "Terence Tao's blog (three separate posts: the Buckmaster/Alpöge announcement, the Fields Medalist letter, and the De Toffoli/Duede guest post)",
+      "Wikipedia's live 'Navier–Stokes existence and smoothness' article (for context only, not as a source of the frozen denominator)",
+      "Wikipedia's 'Navier–Stokes priority controversy' article (a new article created in response to this event)",
+      "NPR coverage from 2026-09-22 (most recent digestion found)",
+      "TechCrunch, Scientific American, Techmeme, Latent Space secondary coverage",
+      "arXiv PDF fetch of the paper cited by triage as possibly related (found unrelated to the OpenAI/Buckmaster work)"
+    ],
+    "dead_ends": [
+      "OpenAI's own site (openai.com/index/navier-stokes-solution/) returned HTTP 403 to direct fetch; relied on multiple secondary sources quoting it verbatim instead",
+      "arXiv:2604.09949 (flagged by triage) turned out to be an unrelated single-author paper ('Vorticity-Response Blowup in Axisymmetric Models' by Rishad Shahmurov) with no AI-assistance disclosure and no connection to the September 2026 events; not used to support any classification here",
+      "Could not directly verify the internal OpenAI model's proper name — OpenAI has not disclosed one publicly as of this research"
+    ]
+  },
+
+  "incomplete": "Could not directly fetch OpenAI's own announcement page (403 Forbidden to automated fetch); relied on secondary sources that quote it directly and consistently, including a screenshot-quality quote of OpenAI's own tweet. Also did not independently verify the Lean formalization compiles (relying on OpenAI's and secondary reporting's characterization that it does). The situation is fast-moving (announcement was 2 weeks before this research date) and further developments (peer review, retraction, resolution of the priority dispute) are plausible after this record is written.",
+  "triage_disagreement": true,
+  "triage_queries_replaced": false
+}

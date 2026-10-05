@@ -1,0 +1,83 @@
+{
+  "key": "determine-growth-rate-of-r-k-n-see-szemeredis-theorem",
+
+  "status": "progress",
+  "no_change_found": false,
+  "outcome": "For k≥5, Leng, Sah and Sawhney proved r_k(N) ≪ N·exp(-(log log N)^{c_k}) for some c_k>0, the first improvement to the upper bound on r_k(N) for k≥5 since Gowers's 2001 bound; the exact growth rate remains unknown and the problem is still open.",
+  "status_sources": [
+    "https://arxiv.org/abs/2402.17995",
+    "https://www.quantamagazine.org/grad-students-find-inevitable-patterns-in-big-sets-of-numbers-20240805/"
+  ],
+
+  "event": {
+    "date": "2024-02-28",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2402.17995"]
+  },
+
+  "credited_humans": ["James Leng", "Ashwin Sah", "Mehtaab Sawhney"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "This bullet asks for the growth rate of r_k(N), the size of the largest subset of {1,...,N} with no k-term arithmetic progression — a quantity for which the exact asymptotic order is unknown for every k≥3, so by the special carve-out in §3.1 ('a bullet asking for ... the value of a constant/record'), any bound improvement on this quantity is itself a change to what the bullet's entry would say, not a mere restriction of the question. The decisive event in the window is Leng, Sah and Sawhney's arXiv:2402.17995 ('Improved Bounds for Szemerédi's Theorem'), first posted 2024-02-28 (v2 2024-02-29), proving that for all k≥5 there is c_k>0 with r_k(N) ≪ N·exp(-(log log N)^{c_k}). This is the first improvement to the k≥5 upper bound since Gowers's 2001 result r_k(N) < N/(log log N)^{c_k}, and it was digested by experts: Quanta Magazine's 2024-08-05 feature quotes Ben Green (Oxford) calling it 'phenomenally impressive' and the authors' advisor Yufei Zhao calling it 'a huge achievement.' I classify this as `resolved`-adjacent but coded `progress` rather than `resolved` or `partial`, because the problem itself (determine the true growth rate) remains open — only the known bound moved; no case of the full problem was settled and no journal acceptance was found (as of this search the paper is still an arXiv preprint, not yet listed as journal-published). I found no involvement of any AI system in this work: the paper's own text (as much as could be extracted), the Quanta article, and general search turned up nothing about AI/ML/LLM assistance — this appears to be entirely human mathematical work built on companion paper arXiv:2402.17994 (quasipolynomial Gowers inverse theorem bounds) and prior work of Green, Tao and Ziegler. Separately, for k=3, Bloom and Sisask's r_3(N) bound (arXiv:2302.07211, originally 2023, revised to v3 in 2025-05) predates the window for its core result and is not treated as a fresh event; I found one small 2026 arXiv computational note (2606.04016, solo author Mehmet Ergezer) reporting a SAT/ILP/Lean computational search supporting the specific value r_3(212)=43, but this is a single finite-N computational data point, not a growth-rate bound, and its abstract discloses no AI involvement either — I judged it out of scope for this bullet (it doesn't move an asymptotic growth-rate bound) and did not use it as the basis for status or dating.",
+  "competing_reading": "One could argue this bullet, being an open-ended 'determine the growth rate' request rather than a bullet explicitly asking for a record/constant value, should be treated like an ordinary existence/infinitude question where narrowing an unknown quantity doesn't count as a change (per the general rule in §3.1) — under that stricter reading the correct status would be `open` with `no_change_found` true, since no one has determined the actual growth rate, only moved a bound. I judged the growth-rate/bound exception in §3.1 ('a bullet asking for a largest known object or the value of a constant') to apply here because r_k(N)'s asymptotic order is precisely a 'value of a function/constant' the bullet asks to pin down, and bound movements are the only kind of progress that can ever occur on such a bullet before full resolution.",
+  "what_would_settle_it": "A published statement (or triage-level consensus) clarifying whether 'determine growth rate of X' bullets are to be scored like record/constant bullets (any bound movement counts) or like existence/infinitude bullets (only full resolution counts) would remove this ambiguity.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2402.17995", "title": "Improved Bounds for Szemerédi's Theorem", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2402.17995", "title": "Improved Bounds for Szemerédi's Theorem (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://www.quantamagazine.org/grad-students-find-inevitable-patterns-in-big-sets-of-numbers-20240805/", "title": "Grad Students Find Inevitable Patterns in Big Sets of Numbers", "type": "news", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Szemer%C3%A9di%27s_theorem", "title": "Szemerédi's theorem", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2302.07211", "title": "The Kelley–Meka bounds for sets free of three-term arithmetic progressions", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.04016", "title": "Witness-split + window-cardinality refinement for r₃(N): architecture, empirical results, and a structural hard pocket", "type": "preprint", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "r_k(N) Szemerédi theorem growth rate bound 2024 2025 2026 improved",
+      "\"r_3(N)\" OR \"r_4(N)\" bound improvement 2025 2026 arXiv Kelley Meka Bloom Sisask",
+      "Szemerédi theorem bound AI large language model proof 2025",
+      "Leng Sah Sawhney \"Improved Bounds for Szemerédi's Theorem\" published journal accepted",
+      "Gowers blog Leng Sah Sawhney Szemerédi bound k=5 discussion",
+      "\"r_k(N)\" Szemerédi improved bound 2026 new paper k≥5"
+    ],
+    "places_checked": [
+      "arXiv abstract and PDF for 2402.17995",
+      "arXiv abstract for 2302.07211 (Bloom-Sisask exposition of Kelley-Meka, incl. version history)",
+      "current Wikipedia article on Szemerédi's theorem",
+      "Quanta Magazine feature on the Leng-Sah-Sawhney result",
+      "general web search for any 2025/2026 superseding bound for k≥5",
+      "general web search for AI/LLM involvement in Szemerédi-theorem-related results",
+      "arXiv 2606.04016 (2026 computational note on r_3(212))"
+    ],
+    "dead_ends": [
+      "Searched for a Terence Tao or Gowers blog post specifically discussing the Leng-Sah-Sawhney result; none found (Tao's tag page for Szemerédi's theorem was surfaced but not a dedicated post on this result)",
+      "Could not fully decode the arXiv PDF's acknowledgements section for 2402.17995 via fetch tool (binary/compressed stream); relied on abstract, secondary Quanta coverage, and absence of any AI-related search hits instead"
+    ]
+  },
+
+  "incomplete": "Could not directly read the acknowledgements section of the Leng-Sah-Sawhney PDF (extraction tool could not decode it) to make a completely exhaustive check for any acknowledged tool use; based the ai_role:none conclusion on the abstract, all secondary expert coverage (Quanta), and the total absence of any AI-related hits across multiple targeted searches.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

@@ -1,0 +1,81 @@
+{
+  "key": "grahams-pebbling-conjecture",
+
+  "status": "partial",
+  "no_change_found": false,
+  "outcome": "A November 2024 preprint by Pulaj, Wood, and Yerger introduces a bilevel-optimization method for computing pebbling numbers and uses it to algorithmically verify that the pebbling numbers of all products of 8-vertex Lemke graphs are consistent with Graham's conjecture, under the restriction that pebbling configurations are supported on at most four vertices. This settles a genuine (restricted) case of the conjecture for the leading candidate counterexample family, but does not resolve the conjecture, and full (unrestricted) configurations on these same graph products remain computationally unverified.",
+  "status_sources": ["https://arxiv.org/abs/2411.19314"],
+
+  "event": {
+    "date": "2024-11-28",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "sources": ["https://arxiv.org/abs/2411.19314"]
+  },
+
+  "credited_humans": ["Jonad Pulaj", "Kenan Wood", "Carl Yerger"],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": "confirmed",
+
+  "disputes": [],
+
+  "summary": "Graham's pebbling conjecture (pebbling number of a Cartesian product of graphs is at most the product of the two pebbling numbers) remains open in general. The only development inside the window (26 Jan 2024 to present) is Pulaj, Wood & Yerger, 'Bilevel Programming for Pebbling Numbers of Lemke Graph Products' (arXiv:2411.19314, submitted 28 Nov 2024, single version, no later resubmission found). Products of Lemke graphs are the leading candidate family for a counterexample to the conjecture (confirmed via WebSearch of the pebbling literature, e.g. the ResearchGate entry 'Lemke graphs and Graham's pebbling conjecture' and prior integer-programming work by the same/adjacent authors). The 2024 paper introduces a genuinely new computational method (bilevel optimization rather than the group's earlier MILP weight-function approach from Dec 2023, arXiv:2312.12618, which predates the window) and uses it to show that for every product of two 8-vertex Lemke graphs, all pebbling configurations supported on at most 4 vertices obey the conjectured bound. Per the abstract itself ('with the added assumption that pebbles can only be placed on a set of at most four vertices'), this is an explicit restriction on the configurations considered, not merely a computational-budget caveat on an otherwise exhaustive check — the true pebbling number requires checking configurations over all subsets of vertices (up to 8 in this case), so the full 8-vertex Lemke-square case is not yet completely settled by this paper. Under §3.1, this is a genuine narrowing of the case being checked (a restriction on configuration support), so it counts as a case of the problem settled, not a mere variant — hence 'partial' rather than 'no_change_found'. Direction is 'confirmed' because the restricted case came out consistent with (not violating) Graham's conjecture. No AI system of any kind (LLM, evolutionary code search such as AlphaEvolve/FunSearch, or any ML system) appears anywhere in this paper or its methodology; the search for AI angles (AlphaEvolve, FunSearch, LLM applications to graph theory/pebbling) turned up nothing connecting to this problem, and a 2025 survey on computer-assisted graph theory (arXiv:2508.20825) was checked but its accessible content did not surface a Graham's-conjecture-specific AI discussion. A secondary search result claimed the paper was 'accepted to SoCG 2025,' but attempting to verify this via a review-aggregator page (pith.science) returned no content, and SoCG (Symposium on Computational Geometry) is a mismatched venue for this pebbling-theory result, so this claim is unverified and not relied upon for the status; it is noted here only as a discrepancy worth flagging, not adopted. No other arXiv paper, digestion, or Wikipedia update on Graham's pebbling conjecture was found in the window; the current Wikipedia article was checked and states the conjecture 'remains unsolved,' citing only pre-2024 special-case results, consistent with the paper not yet being widely digested as fully resolving anything beyond the stated restricted case.",
+  "competing_reading": "One could argue this is not a 'case of the problem' worth a partial-status upgrade, but merely a computational search restricted for tractability reasons (i.e., closer to a bound-tightening or negative-search-extension, which per §3.1 would not count, since existence/universal statements are not advanced by a search verified to a larger but still bounded scope). Under that reading the correct status would be 'open' with no_change_found false but no status change, since the restriction to ≤4-vertex-supported configurations does not by itself remove any determinate 'territory' from the space of all configurations the conjecture must hold for on this graph family — it only checks a subset of a subset. However, the paper explicitly frames the ≤4-vertex restriction as a defined sub-problem ('the added assumption') within which the result is a complete, exhaustive, universally-quantified verification (for ALL products of 8-vertex Lemke graphs, for ALL configurations on ≤4 vertices, the bound holds) — this is a genuine restricted case, not a partial search of an unrestricted one, which is why 'partial' was chosen.",
+  "what_would_settle_it": "A published/digested follow-up removing the 4-vertex restriction (i.e., a full, unrestricted verification of Graham's conjecture for all products of 8-vertex Lemke graphs, or a definitive counterexample among them) would settle whether this restricted result generalizes. Locating any independent confirmation or refutation of the claimed SoCG 2025 acceptance would also clarify whether the paper has since received expert digestion beyond preprint status.",
+  "confidence": "medium",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2411.19314", "title": "Bilevel Programming for Pebbling Numbers of Lemke Graph Products", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2411.19314", "title": "Bilevel Programming for Pebbling Numbers of Lemke Graph Products (PDF)", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Graham%27s_pebbling_conjecture", "title": "Graham's pebbling conjecture", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2312.12618", "title": "Automating Weight Function Generation in Graph Pebbling", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2508.20825", "title": "Computer-assisted graph theory: a survey", "type": "preprint", "opened": true},
+    {"url": "https://pith.science/paper/2411.19314", "title": "Pith Review page for 2411.19314", "type": "blog", "opened": true},
+    {"url": "https://www.researchgate.net/publication/310591207_Lemke_graphs_and_Graham's_pebbling_conjecture", "title": "Lemke graphs and Graham's pebbling conjecture", "type": "journal", "opened": false},
+    {"url": "https://en.wikipedia.org/wiki/AlphaEvolve", "title": "AlphaEvolve", "type": "encyclopedia", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Graham's pebbling conjecture 2024 2025 2026 proof disproof counterexample",
+      "\"pebbling number\" Cartesian product Graham conjecture Lemke graph counterexample Bunde Chambers Wyels",
+      "\"pebbling number\" AlphaEvolve OR FunSearch OR \"large language model\" graph theory conjecture 2025",
+      "\"Graham's conjecture\" pebbling 2025 2026 new result arxiv",
+      "Pulaj Wood Yerger pebbling Lemke 2025"
+    ],
+    "places_checked": [
+      "arXiv abstract and PDF for 2411.19314",
+      "arXiv abstract and PDF for 2312.12618 (predates window, checked for AI/context only)",
+      "arXiv survey 2508.20825 on computer-assisted graph theory",
+      "current Wikipedia article on Graham's pebbling conjecture",
+      "pith.science review aggregator page for 2411.19314",
+      "general web search for any 2025/2026 follow-up papers by the same authors or others on this conjecture"
+    ],
+    "dead_ends": [
+      "arxiv.org/a/yerger_c_1 author listing page returned 404",
+      "pith.science/paper/2411.19314 returned no readable content when fetched",
+      "claim that the paper was 'accepted to SoCG 2025' could not be verified from any primary source and is a venue mismatch (SoCG is computational geometry); not relied upon"
+    ]
+  },
+
+  "incomplete": "Could not verify the claimed SoCG 2025 acceptance of arXiv:2411.19314 (venue seems mismatched for this topic); could not fetch a fully readable/uncompressed version of the arXiv PDF's later sections (fetched via automated HTML/PDF conversion, which garbled some content), though the abstract and key claim were obtained verbatim and cross-checked against secondary summaries. No second, independent expert digestion of this specific paper (e.g., a survey or blog post discussing it in depth) was located.",
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}

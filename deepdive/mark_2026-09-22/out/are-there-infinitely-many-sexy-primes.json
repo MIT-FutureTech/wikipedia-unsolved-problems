@@ -1,0 +1,80 @@
+{
+  "key": "are-there-infinitely-many-sexy-primes",
+
+  "status": "open",
+  "no_change_found": true,
+  "outcome": "The sexy prime conjecture (infinitely many prime pairs differing by 6) remains completely open; no source claims a proof, disproof, or any result that narrows this specific case, despite a burst of activity in the adjacent bounded-gaps-between-primes problem during August-September 2026.",
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Sexy_primes",
+    "https://en.wikipedia.org/wiki/Polignac's_conjecture"
+  ],
+
+  "event": null,
+
+  "credited_humans": [],
+
+  "ai_role": "none",
+  "ai": {
+    "basis_quote": null,
+    "formalisation_only": false,
+    "disclosed_cost": null,
+    "systems": [],
+    "sources": []
+  },
+
+  "counterexample": {
+    "is_counterexample": false,
+    "object": null,
+    "explicit": false,
+    "verified_how": null,
+    "sources": []
+  },
+  "resolution_direction": null,
+
+  "disputes": [],
+
+  "summary": "The sexy prime conjecture asks whether there are infinitely many prime pairs (p, p+6). As of the frozen revision, the only known route to it was the Polymath group's 2014 result that the generalized Elliott-Halberstam conjecture (GEH) implies infinitely many consecutive prime pairs differing by at most 6 (i.e. twin, cousin, or sexy primes) -- but GEH itself remains unproven, and no unconditional route reaches a gap as small as 6. I confirmed via the current Sexy primes and Polignac's conjecture Wikipedia articles that this is still exactly the state of the art: no proof, disproof, or narrowing of this specific case has occurred since 26 January 2024. Separately, I checked a recent flurry of activity on the *general* bounded-gaps-between-primes problem (the 'H1' constant, i.e. liminf of gaps between consecutive primes), since this is the natural place a case-6 result would show up. In this window: Polymath8b's H1<=246 (2014) stood until an OpenAI-credited result (dated around 30 August 2026, cdn.openai.com/pdf/.../short_gaps.pdf and the openai/PrimeGaps186 GitHub repo) claimed H1<=186 via a Lean formalization that is explicitly conditional on three unproven input axioms and contains three acknowledged theorem placeholders -- i.e. an unverified, incomplete, conditional claim, not a checked proof. Days later, Julia Stadlmann (human mathematician) posted an unconditional H1<=240 (arXiv 2608.31126, ~31 August 2026), and a further unconditional H1<=212 followed around 3 September 2026. None of these -- OpenAI's conditional 186, Stadlmann's 240, or the 212 result -- come remotely close to gap=6, and per the task's own scope rule an 'are there infinitely many X' question is not advanced by narrowing a bound unless the bound itself is the question asked; here the question is specifically about gap 6, and the general H1 constant is a different (much weaker, much larger) quantity. I therefore classify this as no_change_found: true. The OpenAI H1<=186 episode is itself an interesting AI-adjacent incident (an AI-attributed, Lean-formalized but axiom-conditional and admittedly incomplete claim, quickly overtaken by an unconditional human proof of a weaker bound) but it is not a result on this problem and I have not recorded it as an event here, since the sexy-prime bullet itself saw no movement at all.",
+  "competing_reading": "One could argue that any tightening of the general bounded-gaps record is 'progress toward' sexy primes in a loose colloquial sense, since sexy primes are the case gap=6 of the same underlying liminf quantity. But per the task's rule, a case is only advanced when the specific case itself is settled or the general result's scope actually reaches it; H1<=186 (or 212, or 240) says nothing about whether gap-6 pairs are infinite, only that *some* gap <=186 recurs infinitely often. This is a related/general problem, not a narrowing of the sexy-prime case, so I did not code it as partial or progress.",
+  "what_would_settle_it": "A proof (conditional or unconditional) that liminf of prime gaps is <=6, or a direct resolution of the sexy prime conjecture itself, or a proof of the generalized Elliott-Halberstam conjecture (which the 2014 Polymath result shows would suffice), or a disproof/counterexample showing only finitely many sexy prime pairs exist.",
+  "confidence": "high",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Sexy_primes", "title": "Sexy primes", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Polignac's_conjecture", "title": "Polignac's conjecture", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.alphaxiv.org/abs/2608.31126", "title": "Bounded gaps between primes (Stadlmann, H1<=240)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/2608.31126", "title": "Bounded gaps between primes", "type": "preprint", "opened": false},
+    {"url": "https://cdn.openai.com/pdf/51126fac-1b68-4128-9666-c908bcc16033/short_gaps.pdf", "title": "Improved short gaps between primes (OpenAI)", "type": "press_release", "opened": true},
+    {"url": "https://github.com/openai/PrimeGaps186", "title": "PrimeGaps186: Conditional Lean formalization and numerical certificate for prime gaps at most 186", "type": "repository", "opened": true},
+    {"url": "https://traictory.com/news/2026-09-01-gpt-5-6-prime-gap-math-proofs", "title": "GPT-5.6 claims a prime-gap record. Who checks the proof?", "type": "news", "opened": false},
+    {"url": "https://x.com/thomasfbloom/status/2094748658629513665", "title": "Thomas Bloom on X: Julia Stadlmann H1<=240 announcement", "type": "news", "opened": false},
+    {"url": "https://vibemathed.com/problem/bounded-prime-gaps-at-most-212", "title": "A new bound for small gaps between primes: H_1 <= 212", "type": "blog", "opened": false},
+    {"url": "https://arxiv.org/abs/2511.14810", "title": "A Generalized Elliott-Halberstam Conjecture Implying the Twin Prime Hypothesis", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "\"sexy primes\" infinitely many conjecture 2024 2025 2026",
+      "bounded gaps between primes 2025 2026 record improved H1 Maynard Polymath",
+      "prime gap 6 conjecture proof AI",
+      "Stadlmann H1 240 bounded gaps between primes preprint arxiv date",
+      "\"H1 <= 186\" OR \"H_1 \\le 186\" bounded gaps between primes 2026",
+      "Elliott-Halberstam conjecture generalized proof 2025 2026 resolved"
+    ],
+    "places_checked": [
+      "Wikipedia: Sexy primes article",
+      "Wikipedia: Polignac's conjecture article",
+      "arXiv listings for bounded gaps between primes (2026)",
+      "OpenAI PDF announcements (short_gaps.pdf, long_gaps.pdf)",
+      "GitHub openai/PrimeGaps186 repository",
+      "General web search for sexy prime conjecture status and generalized Elliott-Halberstam progress"
+    ],
+    "dead_ends": [
+      "OpenAI's H1<=186 Lean formalization looked initially like it could be a major AI-generated proof event, but it is explicitly conditional on three unproven axioms with acknowledged placeholder theorems, and in any case addresses a general constant (186) nowhere near gap=6, so it does not bear on this problem",
+      "The November 2025 'Generalized Elliott-Halberstam Conjecture for Shifted Convolutions' preprint proposes a new conjecture implying twin primes, but does not prove the original or generalized EH conjecture, so the 2014 Polymath conditional route to sexy primes remains unresolved"
+    ]
+  },
+
+  "incomplete": null,
+  "triage_disagreement": false,
+  "triage_queries_replaced": false
+}
