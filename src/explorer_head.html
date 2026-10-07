@@ -65,6 +65,10 @@ header{padding:30px 32px 0;background:var(--canvas-deep);color:var(--canvas-ink)
 .brand{display:block;align-self:flex-end;line-height:0;opacity:.92}
 .brand:hover{opacity:1}
 .brand img{height:76px;width:auto;display:block}
+.newsbox{align-self:flex-end;max-width:290px;border:1px solid var(--bright-red);border-radius:5px;background:rgba(255,20,35,.09);padding:10px 12px;color:var(--canvas-ink-2);font-size:12.5px;line-height:1.5}
+.newsbox b{display:block;margin-bottom:4px;color:var(--canvas-ink);font-weight:600;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
+.newsbox a{color:var(--canvas-ink)}
+.newsbox a:hover{color:var(--bright-red)}
 /* the dropdown is pushed to the foot of the masthead so it lines up with the tab bar below it */
 .scope{margin-top:auto}
 .masthead{max-width:1400px;margin:0 auto;padding-bottom:20px;display:flex;gap:32px;align-items:flex-start;justify-content:space-between}
@@ -78,7 +82,8 @@ header{padding:30px 32px 0;background:var(--canvas-deep);color:var(--canvas-ink)
 .scope select:focus-visible{outline:2px solid var(--bright-red);outline-offset:1px}
 .scope select option{background:var(--canvas,#1a1a1a);color:var(--canvas-ink)}
 @media (max-width:820px){.masthead{flex-direction:column;gap:18px}.scope{flex-direction:row;flex-wrap:wrap;align-items:center;max-width:none}.scope select{width:auto}
-  .rightcol{align-self:stretch;flex-direction:row;align-items:center;justify-content:space-between;gap:16px}.brand{align-self:center}.brand img{height:50px}.scope{margin-top:0}}
+  .rightcol{align-self:stretch;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}.brand{align-self:center}.brand img{height:50px}.scope{margin-top:0}
+  .newsbox{order:3;width:100%;max-width:none;align-self:stretch}}
 h1{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:500;font-size:46px;line-height:1.06;margin:0;letter-spacing:-.014em;text-wrap:balance;color:var(--canvas-ink)}
 h1 em{font-style:italic;font-weight:300}
 h1 .beta{font-family:system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;vertical-align:super;margin-left:10px;padding:2px 6px;border:1px solid var(--bright-red);border-radius:3px;color:var(--bright-red)}
@@ -309,12 +314,13 @@ footer p{max-width:80ch}
       <h1>Wikipedia Unsolved Problems Tracker<span class="beta">Beta</span></h1>
       <p class="tagline">A controlled baseline of <span id="n-corpus">467</span> diverse problems to calibrate the unprecedented progress of AI in mathematics.</p>
       <p class="subcopy">AI progress in mathematics has been absolutely extraordinary. In a little over a year, frontier models went from barely achieving gold medals at the International Math Olympiad to a claimed resolution of the Navier–Stokes Millennium problem, one of the holy grails of mathematics.</p>
-      <p class="subcopy">Given this rapid rate of progress, it's critical to determine if AI is merely conquering &ldquo;AI shaped&rdquo; problems, or truly conquering mathematics altogether, replacing human insight.</p>
+      <p class="subcopy">Given this rapid rate of progress, it's critical to determine if AI is merely conquering &ldquo;AI shaped&rdquo; problems, or truly conquering mathematics altogether, replacing the role of human insight in proof generation.</p>
       <p class="subcopy">Measuring this is difficult, since frontier labs don't report failures on open problems, only successes. We need a large, diverse set of open problems which are, with high probability, important to their fields. For this, we argue Wikipedia&rsquo;s public <a href="https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics" target="_blank" rel="noopener"><i>List of unsolved problems in mathematics</i></a>, snapshotted in January 2024, provides a particularly robust sample.</p>
       <p class="caveat">The dataset is in beta, and was generated using LLMs and has not been reviewed by mathematicians. See <a href="#" data-goto="about">About the Data</a> for more limitations and planned adjustments.</p>
     </div>
     <div class="rightcol">
       <a class="brand" href="https://futuretech.mit.edu" target="_blank" rel="noopener"><img src="__LOGO__" alt="MIT FutureTech — Innovations that Shape the World" width="1200" height="306"></a>
+      <div class="newsbox"><b>Note</b>One day after this was launched, OpenAI released nearly <a href="https://github.com/openai/math/tree/main/" target="_blank" rel="noopener">722 manuscripts</a>, each making progress on an open problem. We are working on integrating these results ASAP. To a first approximation, it seems 30&ndash;40 additional problems on this list were resolved.</div>
       <div class="scope" id="scope"></div>
     </div>
   </div>
