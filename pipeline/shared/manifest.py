@@ -55,8 +55,11 @@ def record(root, version, stage, script, model=None, effort=None, parallel=None,
         prompt=(dict(path=os.path.relpath(prompt_path, root), sha256=_sha256(prompt_path))
                 if prompt_path else None),
         git=dict(commit=_git(root, 'rev-parse', 'HEAD'),
-                 # A dirty tree means the commit does not describe what ran; the hashes above do.
-                 dirty=bool(_git(root, 'status', '--porcelain'))),
+                 # Scoped to pipeline/, because a run writes into data/ and that would otherwise
+                 # mark every script after the first one dirty. What matters here is whether the
+                 # commit describes the code that ran; the outputs changing is the point.
+                 # True means it does not, and the hashes above are what pin the run down.
+                 dirty=bool(_git(root, 'status', '--porcelain', '--', 'pipeline'))),
         selection=selection or {},
         counts=counts or {},
         **(extra or {}),
