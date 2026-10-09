@@ -32,6 +32,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 # record carries are these two.
 KINDS = ('preprint', 'announcement', 'repository', 'journal', 'conference')
 CONFIDENCE = ('high', 'medium', 'low')
+MIN_QUERIES = 8                                           # DEEP_DIVE.md §4
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--version', required=True, metavar='NAME',
@@ -48,6 +49,8 @@ ap.add_argument('--sample', type=int, metavar='N',
                      'key order is alphabetical and clusters a trial into a handful of fields')
 ap.add_argument('--seed', type=int, default=1,
                 help='seed for --sample, so the same trial can be repeated or extended')
+ap.add_argument('--subscription', action='store_true',
+                help='bill the Claude Code subscription instead of the API key in .secrets.json')
 ap.add_argument('--only', nargs='+', metavar='KEY', help='run only these keys')
 ap.add_argument('--check', action='store_true', help='validate and collect, run nothing')
 args = ap.parse_args()
@@ -92,7 +95,7 @@ def done(key):
 
 
 def environment():
-    """The API key from .secrets.json, and nothing inherited.
+    """The API key from .secrets.json, and nothing inherited — or, with --subscription, no key at all.
 
     The inherited CLAUDE_*/ANTHROPIC_* vars are dropped so the launching shell cannot change the
     run's behaviour — CLAUDE_EFFORT in particular would otherwise override --effort.
@@ -101,6 +104,19 @@ def environment():
     to curl, which is sandboxed. In the retired triage pass that produced 175 evidence-free records
     before it was caught.
     """
+    if args.subscription:
+        # As judge.py does: strip every key and refuse if project settings could supply one, so a
+        # run that says it used the subscription cannot have billed the key.
+        env = {k: v for k, v in os.environ.items()
+               if not k.startswith('ANTHROPIC') and not (k.startswith('CLAUDE') and k != 'CLAUDE_CONFIG_DIR')}
+        assert not any('API_KEY' in k or 'AUTH_TOKEN' in k for k in env), 'an API key variable survived'
+        for name in ('settings.json', 'settings.local.json'):
+            path = os.path.join(ROOT, '.claude', name)
+            if os.path.exists(path):
+                s = json.load(open(path))
+                if s.get('apiKeyHelper') or any(k.startswith('ANTHROPIC') for k in (s.get('env') or {})):
+                    sys.exit(f'{os.path.relpath(path, ROOT)} could supply an API key — refusing to run')
+        return env
     env = {k: v for k, v in os.environ.items()
            if not k.startswith('CLAUDE') and not k.startswith('ANTHROPIC')}
     secrets = os.path.join(ROOT, '.secrets.json')
@@ -213,8 +229,11 @@ def check(keys):
             bad.append(f'{key}: record key is {r.get("key")!r}')
         if r.get('confidence') not in CONFIDENCE:
             bad.append(f'{key}: confidence {r.get("confidence")!r}')
-        if not (r.get('search') or {}).get('queries'):
+        queries = (r.get('search') or {}).get('queries') or []
+        if not queries:
             bad.append(f'{key}: no queries recorded')
+        elif len(queries) < MIN_QUERIES:
+            bad.append(f'{key}: {len(queries)} queries, below the {MIN_QUERIES} §4 asks for')
         if not r.get('summary'):
             bad.append(f'{key}: no summary')
         # §5.1: one answer for the problem, written before any event was weighed. Per-event copies
@@ -342,6 +361,7 @@ if not args.check:
                     selection=dict(only=args.only, limit=args.limit, sample=args.sample,
                                    seed=args.seed if args.sample else None),
                     counts=dict(problems=len(ALL), recorded=sum(1 for k in ALL if done(k)), ran=len(todo)),
-                    started=STARTED)
+                    started=STARTED,
+                    extra=dict(billing='subscription' if args.subscription else 'api_key'))
 
 sys.exit(1 if check(selected) else 0)

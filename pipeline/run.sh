@@ -14,7 +14,7 @@
 #                                                 titles, and the years Wikipedia states outright. The
 #                                                 index of slugs is written first, into data/<version>/,
 #                                                 because every later stage keys off it
-#   research  stage_2_research_each_problem/      one agent per problem — BILLS AN API KEY
+#   research  stage_2_research_each_problem/      one agent per problem — BILLS AN API KEY unless --subscription
 #   judge     stage_3_judge_the_records/          one agent per record — Claude Code subscription
 #   years     stage_4_date_each_problem/          agents, only for problems the scrape could not
 #                                                 date. OPTIONAL: the merge reads year_scraped.json
@@ -33,10 +33,11 @@
 # the same command again retries only what failed.
 set -e
 
-VERSION= STAGE= DRY= ONLY= LIMIT= CHECK= SAMPLE= SEED= FORCE=
+VERSION= STAGE= DRY= ONLY= LIMIT= CHECK= SAMPLE= SEED= FORCE= SUBSCRIPTION=
 while [ $# -gt 0 ]; do
   case "$1" in
     --version) VERSION=$2; shift 2 ;;
+    --subscription) SUBSCRIPTION=1; shift ;;
     --stage)   STAGE=$2; shift 2 ;;
     --limit)   LIMIT=$2; shift 2 ;;
     --check)   CHECK=1; shift ;;
@@ -61,6 +62,7 @@ usage() {
   echo "       --only and --limit apply to: research judge years  (--only also: merge)" >&2
   echo "       --check  re-validates and re-collects without running an agent: research judge years" >&2
   echo "       --sample N [--seed S]  research only: N problems drawn across the whole list" >&2
+  echo "       --subscription  research only: bill the Claude Code subscription, not the API key" >&2
   echo "       --force  years only: research again although year_posed.json is cached" >&2
 }
 [ -n "$VERSION" ] || { echo "no --version" >&2; usage; exit 2; }
@@ -70,6 +72,8 @@ cd "$(dirname "$0")/.."
 
 # --only and --limit are forwarded, so refuse them where the stage's scripts do not take them
 # rather than silently dropping a filter the caller believed was applied.
+[ -n "$SUBSCRIPTION" ] && [ "$STAGE" != research ] && {
+  echo "--subscription applies to the research stage; judge always uses the subscription" >&2; exit 2; }
 case "$STAGE" in
   research) ;;
   judge)
@@ -105,6 +109,7 @@ run() {
   [ -n "$SAMPLE" ] && set -- "$@" --sample "$SAMPLE"
   [ -n "$SEED" ]   && set -- "$@" --seed "$SEED"
   [ -n "$FORCE" ]  && set -- "$@" --force
+  [ -n "$SUBSCRIPTION" ] && set -- "$@" --subscription
   echo "+ python3 $script $*"
   [ -n "$DRY" ] || python3 "$script" "$@"
 }

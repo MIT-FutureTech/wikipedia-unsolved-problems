@@ -82,6 +82,10 @@ You are not asked to resolve which side a borderline case falls on. You are aske
 
 **Open every source.** A search snippet is not a source; if you did not open the page, say so. **Read past the abstract** — a paper's abstract may not disclose AI involvement that its contribution statement or acknowledgements state plainly.
 
+**Search for AI involvement separately.** AI results often appear first outside the literature — in a lab's announcement, a post on X, or a tracker of AI results — where a search for the mathematics will not reach them. So for every problem, whatever else you find, search explicitly for AI involvement in it: the problem's name with AI terms, and the places such results are announced and collected. What you find there is a lead, not a source: follow it to the authors' own account (§5.4).
+
+**Run at least eight searches**, and make them cover: the problem's name alone and under any other names; the name with words a result would use (proof, counterexample, disproved, solved, new bound); recent work in the area, whether or not it names the problem; and the AI search above. Open what they turn up — a search whose results you did not read is not a search.
+
 **A problem may not have its own article, and its link may go somewhere else.** Some bullets link only a background topic, a related theorem, or the biography of the person the problem is named after. Researching that article tells you nothing. Always search the problem's own name too.
 
 Some publisher and lab sites refuse automated fetchers and return an error. That is not a dead link: note it, fall back to secondary reports, and say in `summary` that you did.
@@ -93,7 +97,7 @@ For most problems the correct answer is that nothing has happened, and a dataset
 A record that finds nothing still has to carry evidence:
 
 - `nothing_found` true, and an empty `events` array
-- the searches you actually ran, verbatim
+- the searches you actually ran, verbatim, including the AI search §4 requires
 - where you looked — the arXiv listing, the Wikipedia article, Google Scholar, the relevant survey, any problem database covering the area
 - any dead end you checked that plausibly could have held something
 - your honest `confidence` that nothing escaped you

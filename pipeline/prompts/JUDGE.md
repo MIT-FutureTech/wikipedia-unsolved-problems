@@ -32,11 +32,7 @@ The fields each question leans on:
 
 If `nothing_found` is true, and `events` is empty, the researcher looked and found nothing. That is a finding, not a gap. Read `search` for what was run and satisfy yourself it was real; with no events to answer for, there is nothing else to do, and the harness records the problem as open.
 
-
-CLAUDE UPDATE THE PARAGRAPH BELOW, THIS IS CONFUSION.
-
-
-The `competing_reading` field is where the researcher put its doubts, and `what_would_settle_it` names the evidence it wanted. Read both closely: in most of the records later corrected on the first run, the correct answer was sitting in `competing_reading`, argued and then rejected.
+`competing_reading` is the researcher's strongest case for reading the evidence differently, and `what_would_settle_it` names the evidence it could not get. Weigh both before you answer: a reading the researcher argued and rejected may still be the right one.
 
 ---
 
