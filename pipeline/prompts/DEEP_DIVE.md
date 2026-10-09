@@ -84,7 +84,7 @@ You are not asked to resolve which side a borderline case falls on. You are aske
 
 **Search for AI involvement separately.** AI results often appear first outside the literature — in a lab's announcement, a post on X, or a tracker of AI results — where a search for the mathematics will not reach them. So for every problem, whatever else you find, search explicitly for AI involvement in it: the problem's name with AI terms, and the places such results are announced and collected. What you find there is a lead, not a source: follow it to the authors' own account (§5.4).
 
-**Run at least eight searches**, and make them cover: the problem's name alone and under any other names; the name with words a result would use (proof, counterexample, disproved, solved, new bound); recent work in the area, whether or not it names the problem; and the AI search above. Open what they turn up — a search whose results you did not read is not a search.
+**Run at least as many searches as your task names**, and make them cover: the problem's name alone and under any other names; the name with words a result would use (proof, counterexample, disproved, solved, new bound); recent work in the area, whether or not it names the problem; and the AI search above. Open what they turn up — a search whose results you did not read is not a search.
 
 **A problem may not have its own article, and its link may go somewhere else.** Some bullets link only a background topic, a related theorem, or the biography of the person the problem is named after. Researching that article tells you nothing. Always search the problem's own name too.
 
@@ -100,7 +100,7 @@ A record that finds nothing still has to carry evidence:
 - the searches you actually ran, verbatim, including the AI search §4 requires
 - where you looked — the arXiv listing, the Wikipedia article, Google Scholar, the relevant survey, any problem database covering the area
 - any dead end you checked that plausibly could have held something
-- your honest `confidence` that nothing escaped you
+- what you could not check, in `incomplete`
 - a `summary` paragraph saying why you are satisfied nothing has happened
 
 A well-evidenced "nothing happened" is as valuable as a resolution.
@@ -275,7 +275,6 @@ One JSON object for the one problem you were given. Write it to the output path 
   "summary": "One paragraph: what was found and from which sources. Where a call was close, both readings.",
   "competing_reading": "The strongest case for reading the evidence differently.",
   "what_would_settle_it": "The evidence that would resolve the ambiguity.",
-  "confidence": "high",                // high | medium | low — how likely a more thorough search would change this record (§8)
 
   // ---- every link you opened. Which answer each supports is recorded above; do not restate it.
   "sources": [{
@@ -316,7 +315,6 @@ If one of these looks obviously wrong in passing — a model credited that could
 
 ## 8. Coverage and honesty
 
-- **Do not silently narrow the work.** If you cannot research this problem to the standard above — a source you could not reach, a language you cannot read, a paywall — deliver the record with what you have, set `confidence` low, and say plainly what you could not do. A record that names its gap is usable; one that implies a completeness it does not have is not.
-- **`confidence` says how likely a more thorough search would change your record.** `high`: you read the primary source for every event, you checked the sources §4 lists that apply to this problem, and nothing in `incomplete` could add an event or change one. `medium`: something you could not do — an unopened paper, an unread revision, an unconfirmed date — could plausibly change an event, and you name it in `incomplete`. `low`: an event rests on snippets or second-hand summaries, or you could not reach the sources §4 lists. `medium` is not a default: if you cannot name what would change your record, it is `high`.
+- **Do not silently narrow the work.** If you cannot research this problem to the standard above — a source you could not reach, a language you cannot read, a paywall — deliver the record with what you have, and say plainly in `incomplete` what you could not do. A record that names its gap is usable; one that implies a completeness it does not have is not.
 - **Do not let time pressure lower the bar.** A fast pass that records no event without recording what was searched produces exactly the failure §4.1 exists to prevent: a denominator that looks complete and is empty.
 - **One problem is the whole job.** There is no batch to get through and no quota to hit, so the pressure that makes a researcher skim does not apply. Spend the effort this problem needs.

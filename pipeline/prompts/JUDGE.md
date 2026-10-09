@@ -206,7 +206,7 @@ The case worth stating twice: a theorem about how far a proof *method* can reach
 
 **F15. The record may be about a different problem.** Some entries on the list link a background topic, a related theorem or a namesake's biography instead of the problem, and a record built on the linked article answers the wrong question. Model names are ordinary words and given names too: Claude Berge, Claude Shannon and Claude Chevalley are not models.
 
-**F16. The record may have nothing behind it.** Some first-run records were written with web search silently broken. The record shows it: empty `search.queries`, sources with `opened` false, a filled-in `incomplete`, a `confidence` of `low`. Where there is no real search, or the central claim rests only on unopened snippets, do not judge the claim — set `insufficient_evidence` true and say in `doubts` what is missing.
+**F16. The record may have nothing behind it.** Some first-run records were written with web search silently broken. The record shows it: empty `search.queries`, sources with `opened` false, a filled-in `incomplete`. Where there is no real search, or the central claim rests only on unopened snippets, do not judge the claim — set `insufficient_evidence` true and say in `doubts` what is missing.
 
 ---
 

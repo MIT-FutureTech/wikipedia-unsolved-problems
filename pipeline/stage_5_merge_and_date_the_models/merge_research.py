@@ -204,7 +204,7 @@ def finding(r):
         counterexample=bool(ce.get('is_counterexample')),
         note=r.get('summary') or '',
         competing_reading=r.get('competing_reading'),
-        confidence=r.get('confidence'),
+        confidence=(r.get('judgement') or {}).get('confidence'),   # the judge's; research no longer gives one
         sources=r.get('status_sources') or [],
         no_change_found=bool(r.get('no_change_found')),
         corrections=r.get('corrections') or [],

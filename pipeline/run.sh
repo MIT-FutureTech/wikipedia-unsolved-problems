@@ -33,11 +33,14 @@
 # the same command again retries only what failed.
 set -e
 
-VERSION= STAGE= DRY= ONLY= LIMIT= CHECK= SAMPLE= SEED= FORCE= SUBSCRIPTION=
+VERSION= STAGE= DRY= ONLY= LIMIT= CHECK= SAMPLE= SEED= FORCE= SUBSCRIPTION= MODEL= EFFORT= MINQ=
 while [ $# -gt 0 ]; do
   case "$1" in
     --version) VERSION=$2; shift 2 ;;
     --subscription) SUBSCRIPTION=1; shift ;;
+    --model)   MODEL=$2; shift 2 ;;
+    --effort)  EFFORT=$2; shift 2 ;;
+    --min-queries) MINQ=$2; shift 2 ;;
     --stage)   STAGE=$2; shift 2 ;;
     --limit)   LIMIT=$2; shift 2 ;;
     --check)   CHECK=1; shift ;;
@@ -63,6 +66,8 @@ usage() {
   echo "       --check  re-validates and re-collects without running an agent: research judge years" >&2
   echo "       --sample N [--seed S]  research only: N problems drawn across the whole list" >&2
   echo "       --subscription  research only: bill the Claude Code subscription, not the API key" >&2
+  echo "       --model ID --effort LEVEL  research and judge: override the script's pinned model and effort" >&2
+  echo "       --min-queries N  research only: the search floor each agent is given (default 8)" >&2
   echo "       --force  years only: research again although year_posed.json is cached" >&2
 }
 [ -n "$VERSION" ] || { echo "no --version" >&2; usage; exit 2; }
@@ -74,6 +79,10 @@ cd "$(dirname "$0")/.."
 # rather than silently dropping a filter the caller believed was applied.
 [ -n "$SUBSCRIPTION" ] && [ "$STAGE" != research ] && {
   echo "--subscription applies to the research stage; judge always uses the subscription" >&2; exit 2; }
+[ -n "$MINQ" ] && [ "$STAGE" != research ] && {
+  echo "--min-queries applies to the research stage only" >&2; exit 2; }
+[ -n "$MODEL$EFFORT" ] && [ "$STAGE" != research ] && [ "$STAGE" != judge ] && {
+  echo "--model and --effort apply to the research and judge stages only" >&2; exit 2; }
 case "$STAGE" in
   research) ;;
   judge)
@@ -110,6 +119,9 @@ run() {
   [ -n "$SEED" ]   && set -- "$@" --seed "$SEED"
   [ -n "$FORCE" ]  && set -- "$@" --force
   [ -n "$SUBSCRIPTION" ] && set -- "$@" --subscription
+  [ -n "$MODEL" ]  && set -- "$@" --model "$MODEL"
+  [ -n "$EFFORT" ] && set -- "$@" --effort "$EFFORT"
+  [ -n "$MINQ" ]   && set -- "$@" --min-queries "$MINQ"
   echo "+ python3 $script $*"
   [ -n "$DRY" ] || python3 "$script" "$@"
 }

@@ -19,7 +19,7 @@ That folder is the same one build.py writes the finished dataset to: one run, on
   python3 pipeline/stage_2_research_each_problem/deep_dive.py --version mark_2026-09-22 --only kakeya-conjecture
   python3 pipeline/stage_2_research_each_problem/deep_dive.py --version mark_2026-09-22 --check      # validate, run nothing
 """
-import argparse, collections, concurrent.futures, json, os, random, re, subprocess, sys, threading
+import argparse, concurrent.futures, json, os, random, re, subprocess, sys, threading
 
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared'))
@@ -28,11 +28,9 @@ from wikitext import parse_problem_keys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # The deep dive emits no codes of its own: `status`, `ai_role` and `resolution_direction` are the
-# judging pass's, derived from these findings (DEEP_DIVE.md §7.1). The only closed vocabularies a
-# record carries are these two.
+# judging pass's, derived from these findings (DEEP_DIVE.md §7.1). The only closed vocabulary a
+# record carries is this one.
 KINDS = ('preprint', 'announcement', 'repository', 'journal', 'conference')
-CONFIDENCE = ('high', 'medium', 'low')
-MIN_QUERIES = 8                                           # DEEP_DIVE.md §4
 
 ap = argparse.ArgumentParser()
 ap.add_argument('--version', required=True, metavar='NAME',
@@ -49,6 +47,9 @@ ap.add_argument('--sample', type=int, metavar='N',
                      'key order is alphabetical and clusters a trial into a handful of fields')
 ap.add_argument('--seed', type=int, default=1,
                 help='seed for --sample, so the same trial can be repeated or extended')
+ap.add_argument('--min-queries', type=int, default=8, metavar='N',
+                help='the search floor DEEP_DIVE.md §4 asks for, given to each agent in its task so the '
+                     'prompt file stays the same across trials; recorded in the manifest')
 ap.add_argument('--subscription', action='store_true',
                 help='bill the Claude Code subscription instead of the API key in .secrets.json')
 ap.add_argument('--only', nargs='+', metavar='KEY', help='run only these keys')
@@ -81,7 +82,8 @@ def prompt(p):
         lines.append(f"- **subfield**: {p['subfield']}")
     if p['parent']:
         lines.append(f"- **parent**: sub of `{p['parent']}` — {p['parent_statement']}")
-    lines += ['', f"Write the record to `{record(p['key'])}` and nothing else."]
+    lines += ['', f"Run at least {args.min_queries} searches (DEEP_DIVE.md §4).",
+              '', f"Write the record to `{record(p['key'])}` and nothing else."]
     return '\n'.join(lines)
 
 
@@ -227,13 +229,11 @@ def check(keys):
             continue
         if r.get('key') != key:
             bad.append(f'{key}: record key is {r.get("key")!r}')
-        if r.get('confidence') not in CONFIDENCE:
-            bad.append(f'{key}: confidence {r.get("confidence")!r}')
         queries = (r.get('search') or {}).get('queries') or []
         if not queries:
             bad.append(f'{key}: no queries recorded')
-        elif len(queries) < MIN_QUERIES:
-            bad.append(f'{key}: {len(queries)} queries, below the {MIN_QUERIES} §4 asks for')
+        elif len(queries) < args.min_queries:
+            bad.append(f'{key}: {len(queries)} queries, below the {args.min_queries} asked for')
         if not r.get('summary'):
             bad.append(f'{key}: no summary')
         # §5.1: one answer for the problem, written before any event was weighed. Per-event copies
@@ -286,12 +286,10 @@ def check(keys):
     evs = sum(len(r.get('events') or []) for r in records)
     named = sum(1 for r in records
                 if any((e.get('ai') or {}).get('systems') for e in (r.get('events') or [])))
-    conf = collections.Counter(r.get('confidence') for r in records)
     print(f'\n{len(records)} records validated of {len(ALL)} problems')
     print(f'  events:     {evs} across {len(records) - quiet} records,'
           f' {quiet} reporting nothing found')
     print(f'  ai:         {named} records name at least one system')
-    print('  confidence: ' + '  '.join(f'{k}={conf[k]}' for k in CONFIDENCE if conf[k]))
     for b in bad:
         print('  ' + b)
     os.makedirs(BASE, exist_ok=True)
@@ -362,6 +360,7 @@ if not args.check:
                                    seed=args.seed if args.sample else None),
                     counts=dict(problems=len(ALL), recorded=sum(1 for k in ALL if done(k)), ran=len(todo)),
                     started=STARTED,
-                    extra=dict(billing='subscription' if args.subscription else 'api_key'))
+                    extra=dict(billing='subscription' if args.subscription else 'api_key',
+                               min_queries=args.min_queries))
 
 sys.exit(1 if check(selected) else 0)
