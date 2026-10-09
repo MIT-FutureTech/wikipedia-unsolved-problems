@@ -159,6 +159,8 @@ At the other end, where the authors credit a model with the idea the proof turns
 
 **Every system you put in `ai.systems` needs the authors' own account of what it did** — not press coverage, not an inference from the acknowledgements. Quote their sentence in `basis_quote` and give its URL; where nothing is quotable, say so in `summary` rather than reasoning from circumstance. Sources say "assisted" and "with the help of" for everything from writing the proof to fixing the LaTeX, so record what the quote literally says and no more. A human first author settles nothing: where the authors say the model produced the proof and they verified it, record that.
 
+**One system per entry.** Where one statement credits several systems together, give each its own entry and repeat the quote in each. Record a system only where the source names it; where the authors say only "AI models", say so in `summary` rather than supplying names from elsewhere on the page.
+
 **"Computer-assisted" usually does not mean AI.** SAT solvers, computer algebra, exhaustive search and certified interval arithmetic are not AI systems. Read far enough to know which you have, and say which.
 
 **Name each system exactly as the source names it**, including the tier or version, because a later pass matches these strings to labs and release dates:
@@ -251,7 +253,7 @@ One JSON object for the one problem you were given. Write it to the output path 
     "ai": {
       "none_found": false,             // true only where no system was involved at all, even peripherally
       "systems": [{
-        "name": "…",                   // exactly as the source names it (§5.4)
+        "name": "…",                   // one system, exactly as the source names it (§5.4)
         "what_it_did": "What this system produced, in the authors' words where possible",
         "basis_quote": "The authors' own sentence",
         "quote_url": "https://…"
@@ -269,7 +271,7 @@ One JSON object for the one problem you were given. Write it to the output path 
   "summary": "One paragraph: what was found and from which sources. Where a call was close, both readings.",
   "competing_reading": "The strongest case for reading the evidence differently.",
   "what_would_settle_it": "The evidence that would resolve the ambiguity.",
-  "confidence": "high",                // high | medium | low — about your search, not about the mathematics
+  "confidence": "high",                // high | medium | low — how likely a more thorough search would change this record (§8)
 
   // ---- every link you opened. Which answer each supports is recorded above; do not restate it.
   "sources": [{
@@ -311,6 +313,6 @@ If one of these looks obviously wrong in passing — a model credited that could
 ## 8. Coverage and honesty
 
 - **Do not silently narrow the work.** If you cannot research this problem to the standard above — a source you could not reach, a language you cannot read, a paywall — deliver the record with what you have, set `confidence` low, and say plainly what you could not do. A record that names its gap is usable; one that implies a completeness it does not have is not.
-- **`low` confidence is a real answer.** On the previous run nobody ever used it, which made the field worthless. If your search left you genuinely unsure, say so.
+- **`confidence` says how likely a more thorough search would change your record.** `high`: you read the primary source for every event, you checked the sources §4 lists that apply to this problem, and nothing in `incomplete` could add an event or change one. `medium`: something you could not do — an unopened paper, an unread revision, an unconfirmed date — could plausibly change an event, and you name it in `incomplete`. `low`: an event rests on snippets or second-hand summaries, or you could not reach the sources §4 lists. `medium` is not a default: if you cannot name what would change your record, it is `high`.
 - **Do not let time pressure lower the bar.** A fast pass that records no event without recording what was searched produces exactly the failure §4.1 exists to prevent: a denominator that looks complete and is empty.
 - **One problem is the whole job.** There is no batch to get through and no quota to hit, so the pressure that makes a researcher skim does not apply. Spend the effort this problem needs.

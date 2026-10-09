@@ -144,7 +144,7 @@ def prompt(p, r):
               '  "events": [{                     // one row per event in the record, in its order,',
               '                                   // including ones you discard and ones before the snapshot',
               '    "id": "<the record\'s event id>",',
-              '    "after_snapshot": true,        // your reading of the date, not the record\'s flag',
+              '    "after_snapshot": true,        // true | false | null where the date cannot be placed (Q1)',
               f'    "scope": …,                    // {" | ".join(SCOPES)}',
               f'    "verification": …,             // {" | ".join(VERIFICATIONS)}',
               f'    "credibility": …,              // {" | ".join(CREDIBILITIES)}',
@@ -220,11 +220,12 @@ def derive(rows, events):
     verdicts already on disk, without running an agent again.
     """
     live = {r.get('id'): t for r in rows if (t := tier_of(r))}
-    after = {i: t for i, t in live.items()
-             if next((r for r in rows if r.get('id') == i), {}).get('after_snapshot')}
+    placed = {r.get('id'): r.get('after_snapshot') for r in rows}
+    # An undatable event (after_snapshot null) is in neither set, so it can set neither status.
+    after = {i: t for i, t in live.items() if placed.get(i) is True}
 
     if not after:                                        # step 5
-        stale = any(t == 'resolved' for i, t in live.items() if i not in after)
+        stale = any(t == 'resolved' for i, t in live.items() if placed.get(i) is False)
         return dict(status='open_stale' if stale else 'open', rests_on=None,
                     ai_role='none', resolution_direction=None, object_role=None,
                     ai_systems_credited=[])
@@ -233,6 +234,9 @@ def derive(rows, events):
     winners = [i for i, t in after.items() if t == best]
     # Ties break on the record's date: the first event to reach the top tier is when the problem
     # moved. Missing dates sort last so a dated event is always preferred.
+    # TODO: compare by precision, not as strings. '2026-07' sorts before '2026-07-03' though it may be
+    # later, and a year-precision date with a placeholder month sorts as that month. Dates that
+    # cannot be ordered at their shared precision should count as a tie, not as earlier.
     rests_on = min(winners, key=lambda i: str((events.get(i) or {}).get('date') or '9999'))
     row = next(r for r in rows if r.get('id') == rests_on)
     # Step 4: AI counts if any event at the top tier was AI, whichever one step 3 rested on.
@@ -325,7 +329,7 @@ def validate(original, v):
             bad.append(f'{at}: direction {e.get("direction")!r}')
         elif e.get('object_role') == 'counterexample' and e.get('direction') == 'confirmed':
             bad.append(f'{at}: counterexample answered confirmed (F14)')
-        if not isinstance(e.get('after_snapshot'), bool):
+        if 'after_snapshot' not in e or not (e['after_snapshot'] is None or isinstance(e['after_snapshot'], bool)):
             bad.append(f'{at}: after_snapshot {e.get("after_snapshot")!r}')
     # Every event answered, and nothing invented.
     in_record = {e.get('id') for e in (original.get('events') or [])}

@@ -49,7 +49,7 @@ For every event in the record, we ask six questions. To reiterate, we aren't ask
 The record's `events` array is that list, one entry per preprint, announcement, repository, formalisation or published paper bearing on this problem. Each carries a `date` — the **first public written argument**, not a journal date and not a revision date — with its `precision` and a `predates_frozen_revision` flag (indicating if the event happened before the January 2024 list). Check each date against `revisions` and `what_happened` rather than taking the flag on trust, and say for each whether it falls before or after 26 January 2024.
 
 - A revision is not a new event unless the record shows it contains new mathematics. A 2022 preprint re-posted in 2025 with "minor changes" is a 2022 event; `revisions` is where the record says which it is.
-- A year-only date of 2024 cannot be placed either side of 26 January. Say so; do not guess.
+- A year-only date of 2024 cannot be placed either side of 26 January. Answer `after_snapshot` null; do not guess. Null is for a date that cannot be placed, not for one you are unsure of.
 - The array is the researcher's division of the evidence, not gospel. Two entries describing one event, or one entry bundling two, both happen: work from what the evidence shows and say so.
 
 ### Q2. Scope — how much of *this problem* does the event settle?
@@ -152,7 +152,7 @@ This ordering is why a later human proof buries an earlier AI bound on the same 
 
 **Step 4 — same tier, AI counts if any of it was AI.** Where several events share the top tier (two different bounds moved, two different cases settled), the problem's `ai_role` is the strongest among them, whichever of them step 3 rested on. So AI credit is never lost to a tiebreak: answer each event's role from its own quote and the arithmetic will not drop it.
 
-**Step 5 — nothing left.** If no event after the snapshot survives, the problem is `open_stale` where some event *before* the snapshot tiers as `resolved`, and `open` otherwise. A pre-snapshot partial result or claim is a note on a problem still open, not `open_stale`. This is why pre-snapshot events get the full six answers like any other: the difference between `open` and `open_stale` is computed from them.
+**Step 5 — nothing left.** If no event after the snapshot survives, the problem is `open_stale` where some event *before* the snapshot tiers as `resolved`, and `open` otherwise. A pre-snapshot partial result or claim is a note on a problem still open, not `open_stale`. This is why pre-snapshot events get the full six answers like any other: the difference between `open` and `open_stale` is computed from them. An event whose date you answered null counts in neither step 3 nor this one; it stays in the record with its answers.
 
 **Step 6 — direction.** `resolved`, `claimed` and `partial` carry the direction of the event the status rests on. `progress`, `open` and `open_stale` carry `null`, whatever you answered for the individual events.
 
@@ -229,7 +229,8 @@ The case worth stating twice: a theorem about how far a proof *method* can reach
   // auditable, and the pre-snapshot rows are what separate `open` from `open_stale`.
   "events": [{
     "id": "broe-2026",                 // the record's own event id, copied
-    "after_snapshot": true,            // your reading of the date (Q1), not the record's flag
+    "after_snapshot": true,            // true | false | null — your reading of the date (Q1), not the
+                                       // record's flag; null only where the date cannot be placed
     "scope": "case",                   // whole | case | bound | instances | variant | none
     "verification": "unreviewed",      // digested | checkable | unreviewed
     "credibility": "credible",         // credible | doubtful | not_credible | knocked_down
@@ -245,13 +246,15 @@ The case worth stating twice: a theorem about how far a proof *method* can reach
   "why": "One paragraph: how you answered the events that matter and what made the close calls go the way they did. Not which event wins — that is not your question.",
   "doubts": "Anything a later reader should know that none of the answers above carries. null where none.",
   "insufficient_evidence": false,      // true where the record could not be judged (F16)
-  "confidence": "high"                 // high | medium | low — about your answers, not the mathematics
+  "confidence": "high"                 // high | medium | low — about your answers, not the mathematics (below)
 }
 ```
 
 **Never add a fact that is not in front of you.** Every name, date, identifier and source in your verdict must appear in the record or in a page you opened in this run. Where the record gives only surnames, give only surnames; where it gives only a month, give only the month. A gap is honest; a plausible first name is fabrication.
 
 **Never discard evidence.** An event that §3 step 1 will set aside still gets its row, carrying the answer that sets it aside. Where you doubt a quote the researcher relied on, say so in `doubts` and answer on what the quote supports — the quote stays in the record either way, and nothing you return removes anything from it.
+
+**`confidence` says how firmly the record supports your answers.** `high`: every answer follows from what the record says. `medium`: at least one answer was a close call, and `doubts` names it. `low`: an answer depends on something the record does not say. `medium` is not a default: if you cannot name the close call, it is `high`.
 
 ### Before you return, check
 
