@@ -92,8 +92,22 @@ def record(key):
 
 
 def done(key):
+    """A record counts only if it parses, so a run that wrote broken JSON is retried on resume."""
     path = os.path.join(OUT, key + '.json')
-    return os.path.exists(path) and os.path.getsize(path) > 0
+    if not (os.path.exists(path) and os.path.getsize(path) > 0):
+        return False
+    try:
+        json.load(open(path, encoding='utf-8'))
+        return True
+    except ValueError:
+        return False
+
+
+def set_aside(key):
+    """Move an unparseable record into logs/, so the retry writes fresh and the judge never sees it."""
+    path = os.path.join(OUT, key + '.json')
+    if os.path.exists(path) and not done(key):
+        os.replace(path, os.path.join(LOGS, key + '.invalid.json'))
 
 
 def environment():
@@ -143,6 +157,7 @@ CHILDREN_LOCK = threading.Lock()
 def run_one(p):
     if STOP.is_set():
         return p['key'], None                      # never started
+    set_aside(p['key'])
     log = open(os.path.join(LOGS, p['key'] + '.log'), 'w')
     proc = subprocess.Popen(['claude', '-p', prompt(p),
                              '--append-system-prompt', INSTRUCTIONS,
@@ -217,9 +232,10 @@ def check(keys):
     the prompt requires, or rests on a link it does not list.
     """
     records, bad = [], []
-    present = sorted(k for k in ALL if done(k))
+    present = sorted(k for k in keys if done(k))
     for key in sorted(set(keys) - set(present)):
-        bad.append(f'{key}: no record')
+        bad.append(f'{key}: ' + ('unreadable JSON, retried on the next run'
+                                 if os.path.exists(os.path.join(OUT, key + '.json')) else 'no record'))
     for key in present:
         path = os.path.join(OUT, key + '.json')
         try:
@@ -286,13 +302,16 @@ def check(keys):
     evs = sum(len(r.get('events') or []) for r in records)
     named = sum(1 for r in records
                 if any((e.get('ai') or {}).get('systems') for e in (r.get('events') or [])))
-    print(f'\n{len(records)} records validated of {len(ALL)} problems')
+    print(f'\n{len(records)} records validated of the {len(keys)} in this run')
     print(f'  events:     {evs} across {len(records) - quiet} records,'
           f' {quiet} reporting nothing found')
     print(f'  ai:         {named} records name at least one system')
     for b in bad:
         print('  ' + b)
     os.makedirs(BASE, exist_ok=True)
+    # The collected file holds every readable record, whatever this run was scoped to, so an
+    # --only or --sample run never shrinks it.
+    records = [json.load(open(os.path.join(OUT, k + '.json'), encoding='utf-8')) for k in sorted(ALL) if done(k)]
     json.dump(records, open(os.path.join(BASE, 'deepdive.json'), 'w'), indent=1, ensure_ascii=False)
     print('-> ' + os.path.relpath(os.path.join(BASE, 'deepdive.json'), ROOT))
     return bad
@@ -315,26 +334,31 @@ def say(line):
     RUN_LOG.flush()
 
 
+if args.sample and args.limit:
+    sys.exit('--sample and --limit both choose how many to run; pass one')
+# `scope` is what this invocation is about: the run draws from it and the check validates it, so a
+# sample is never reported against the 400-odd problems it deliberately left out.
+scope = selected
+if args.only:
+    if bad := set(args.only) - set(ALL):
+        sys.exit('no such key: ' + ', '.join(sorted(bad)))
+    scope = sorted(args.only)
+elif args.sample:
+    # Sample the whole list, not just what is outstanding, so that resuming an interrupted
+    # sample picks up the same problems rather than drawing a fresh set from the remainder.
+    drawn = sorted(selected)
+    random.Random(args.seed).shuffle(drawn)
+    scope = sorted(drawn[:args.sample])
+
 if not args.check:
     ENV = environment()
-    todo = [k for k in selected if not done(k)]
-    if args.only:
-        todo = [k for k in args.only if k in ALL]
-        if bad := set(args.only) - set(todo):
-            sys.exit('no such key: ' + ', '.join(sorted(bad)))
-    if args.sample and args.limit:
-        sys.exit('--sample and --limit both choose how many to run; pass one')
+    # --only reruns its keys even when they are recorded; everything else resumes.
+    todo = list(scope) if args.only else [k for k in scope if not done(k)]
     if args.sample:
-        # Sample the whole list, not just what is outstanding, so that resuming an interrupted
-        # sample picks up the same problems rather than drawing a fresh set from the remainder.
-        drawn = sorted(selected)
-        random.Random(args.seed).shuffle(drawn)
-        drawn = set(drawn[:args.sample])
-        todo = [k for k in todo if k in drawn]
         say(f'sample of {args.sample} (seed {args.seed}) from {len(selected)} problems')
     if args.limit:
         todo = todo[:args.limit]
-    say(f'{len(selected)} problems, {len(selected) - len(todo)} already recorded')
+    say(f'{len(scope)} problems, {sum(1 for k in scope if done(k))} already recorded')
     say(f'{len(todo)} to run now, {args.parallel} at a time, model {args.model}')
     STARTED = manifest.now()
     pool = concurrent.futures.ThreadPoolExecutor(args.parallel)
@@ -363,4 +387,4 @@ if not args.check:
                     extra=dict(billing='subscription' if args.subscription else 'api_key',
                                min_queries=args.min_queries))
 
-sys.exit(1 if check(selected) else 0)
+sys.exit(1 if check(scope) else 0)

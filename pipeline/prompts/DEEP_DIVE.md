@@ -109,7 +109,7 @@ A well-evidenced "nothing happened" is as valuable as a resolution.
 
 ## 5. What to establish
 
-Everything here is about an **event**: a preprint, announcement, repository posting, formalisation or published paper bearing on this problem. Record each one separately, including the ones you expect to be discounted — a withdrawn claim, a result on a neighbouring problem, a search to 10¹⁸. A discarded event with a reason is evidence; a missing one is a hole.
+Everything here is about an **event**: a preprint, announcement, repository posting, formalisation or published paper bearing on this problem. Record each one separately, including the ones you expect to be discounted — a withdrawn claim, a result on a neighbouring problem, a search to 10¹⁸. A discarded event with a reason is evidence; a missing one is a hole. This holds however old the work is. If you find that the problem was solved at some point, even decades ago, record the solution as an event. Mentioning it only in `summary` is not enough, because the problem's status is worked out from the events, not from the summary. Give every event a date, even if you can only find the year.
 
 ### 5.1 What happened, when, and what it establishes
 
