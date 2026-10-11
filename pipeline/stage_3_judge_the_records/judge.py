@@ -120,8 +120,16 @@ def verdict_path(key):
 
 
 def done(key):
+    """A verdict counts only if it parses and answers every event, so a skipped event is retried."""
     p = verdict_path(key)
-    return os.path.exists(p) and os.path.getsize(p) > 0
+    if not (os.path.exists(p) and os.path.getsize(p) > 0):
+        return False
+    try:
+        v = json.load(open(p, encoding='utf-8'))
+    except ValueError:
+        return False
+    want = {e.get('id') for e in (ORIG.get(key, {}).get('events') or [])}
+    return want <= {e.get('id') for e in (v.get('events') or [])}
 
 
 def prompt(p, r):
@@ -345,7 +353,8 @@ def write_copies(keys):
     """(Re)build every copy with a verdict on disk, and report what failed validation."""
     report, changed = [], collections.Counter()
     for key in keys:
-        if not done(key):
+        # Any verdict on disk, complete or not, so an incomplete one is still built and reported.
+        if not os.path.exists(verdict_path(key)):
             continue
         try:
             v = json.load(open(verdict_path(key), encoding='utf-8'))
@@ -417,7 +426,10 @@ CHILDREN, CHILDREN_LOCK = set(), threading.Lock()
 def run_one(key):
     if STOP.is_set():
         return key, None
-    log = open(os.path.join(LOGS, key + '.log'), 'w')
+    # Appended, not overwritten: a retry must not erase why the attempt before it failed.
+    log = open(os.path.join(LOGS, key + '.log'), 'a')
+    log.write(f'\n===== attempt started {manifest.now()} =====\n')
+    log.flush()
     proc = subprocess.Popen(['claude', '-p', prompt(ALL[key], ORIG[key]),
                              '--append-system-prompt', INSTRUCTIONS,
                              '--model', args.model,
@@ -476,26 +488,33 @@ if not args.check:
     print(f'{len(keys)} records in {label}; {len(todo)} to judge now, {args.parallel} at a time, '
           f'model {args.model}, effort {args.effort}', flush=True)
     STARTED = manifest.now()
+    failed = []
+
+    def record_run(interrupted=False):
+        # What produced these verdicts. Written on an interrupt too, so none go unaccounted for.
+        manifest.record(ROOT, args.version, 'judge', os.path.abspath(__file__),
+                        args.model, args.effort, args.parallel,
+                        prompt_path=os.path.join(ROOT, 'pipeline', 'prompts', 'JUDGE.md'),
+                        selection=dict(only=args.only, limit=args.limit, set=args.set, calibrate=args.calibrate),
+                        counts=dict(records=len(keys), verdicts=sum(1 for k in keys if done(k)),
+                                    ran=len(todo), failed=len(failed)),
+                        started=STARTED, extra=dict(failed=failed, interrupted=interrupted))
+
     pool = concurrent.futures.ThreadPoolExecutor(args.parallel)
     try:
         for i, (key, ok) in enumerate(pool.map(run_one, todo), 1):
             if ok is not None:
+                if not ok:
+                    failed.append(key)
                 print(f'{i:4}/{len(todo)}  {"ok  " if ok else "FAIL"}  {key}', flush=True)
     except KeyboardInterrupt:
         print('\ninterrupted — stopping agents in flight; rerun the same command to resume')
         stop_everything()
         pool.shutdown(wait=True, cancel_futures=True)
+        record_run(interrupted=True)
         sys.exit(130)
     finally:
         pool.shutdown(wait=True)
-
-if not args.check:
-    # What produced these records: the exact model, the prompt's hash, the commit, the counts.
-    manifest.record(ROOT, args.version, 'judge', os.path.abspath(__file__),
-                    args.model, args.effort, args.parallel,
-                    prompt_path=os.path.join(ROOT, 'pipeline', 'prompts', 'JUDGE.md'),
-                    selection=dict(only=args.only, limit=args.limit, set=args.set, calibrate=args.calibrate),
-                    counts=dict(records=len(keys), verdicts=sum(1 for k in keys if done(k)), ran=len(todo)),
-                    started=STARTED)
+    record_run()
 
 sys.exit(1 if write_copies(keys) else 0)

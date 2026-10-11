@@ -158,7 +158,10 @@ def run_one(p):
     if STOP.is_set():
         return p['key'], None                      # never started
     set_aside(p['key'])
-    log = open(os.path.join(LOGS, p['key'] + '.log'), 'w')
+    # Appended, not overwritten: a retry must not erase why the attempt before it failed.
+    log = open(os.path.join(LOGS, p['key'] + '.log'), 'a')
+    log.write(f'\n===== attempt started {manifest.now()} =====\n')
+    log.flush()
     proc = subprocess.Popen(['claude', '-p', prompt(p),
                              '--append-system-prompt', INSTRUCTIONS,
                              '--model', args.model,
@@ -361,30 +364,38 @@ if not args.check:
     say(f'{len(scope)} problems, {sum(1 for k in scope if done(k))} already recorded')
     say(f'{len(todo)} to run now, {args.parallel} at a time, model {args.model}')
     STARTED = manifest.now()
+    failed = []
+
+    def record_run(interrupted=False):
+        # What produced these records: the exact model, the prompt's hash, the commit, the counts.
+        # Written on an interrupt too, so records from a run that was stopped are never unaccounted for.
+        manifest.record(ROOT, args.version, 'research', os.path.abspath(__file__),
+                        args.model, args.effort, args.parallel,
+                        prompt_path=os.path.join(ROOT, 'pipeline', 'prompts', 'DEEP_DIVE.md'),
+                        selection=dict(only=args.only, limit=args.limit, sample=args.sample,
+                                       seed=args.seed if args.sample else None),
+                        counts=dict(problems=len(ALL), recorded=sum(1 for k in ALL if done(k)),
+                                    ran=len(todo), failed=len(failed)),
+                        started=STARTED,
+                        extra=dict(billing='subscription' if args.subscription else 'api_key',
+                                   min_queries=args.min_queries, failed=failed, interrupted=interrupted))
+
     pool = concurrent.futures.ThreadPoolExecutor(args.parallel)
     try:
         for i, (key, ok) in enumerate(pool.map(run_one, [ALL[k] for k in todo]), 1):
             if ok is None:
                 continue                           # skipped after the interrupt
+            if not ok:
+                failed.append(key)
             say(f'{i:4}/{len(todo)}  {"ok  " if ok else "FAIL"}  {key}')
     except KeyboardInterrupt:
         say('\ninterrupted — stopping agents in flight; rerun the same command to resume')
         stop_everything()
         pool.shutdown(wait=True, cancel_futures=True)
+        record_run(interrupted=True)
         sys.exit(130)
     finally:
         pool.shutdown(wait=True)
-
-if not args.check:
-    # What produced these records: the exact model, the prompt's hash, the commit, the counts.
-    manifest.record(ROOT, args.version, 'research', os.path.abspath(__file__),
-                    args.model, args.effort, args.parallel,
-                    prompt_path=os.path.join(ROOT, 'pipeline', 'prompts', 'DEEP_DIVE.md'),
-                    selection=dict(only=args.only, limit=args.limit, sample=args.sample,
-                                   seed=args.seed if args.sample else None),
-                    counts=dict(problems=len(ALL), recorded=sum(1 for k in ALL if done(k)), ran=len(todo)),
-                    started=STARTED,
-                    extra=dict(billing='subscription' if args.subscription else 'api_key',
-                               min_queries=args.min_queries))
+    record_run()
 
 sys.exit(1 if check(scope) else 0)
