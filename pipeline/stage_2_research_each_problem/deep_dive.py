@@ -23,7 +23,7 @@ import argparse, concurrent.futures, json, os, random, re, subprocess, sys, thre
 
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared'))
-import manifest
+import limits, manifest
 from wikitext import parse_problem_keys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -150,6 +150,7 @@ def environment():
 # that never saw the signal. STOP makes each worker refuse to start, and CHILDREN lets us end
 # the ones already talking to the API.
 STOP = threading.Event()
+LIMITED = {}                                       # key -> the usage-limit message that stopped it
 CHILDREN = set()
 CHILDREN_LOCK = threading.Lock()
 
@@ -177,7 +178,11 @@ def run_one(p):
         with CHILDREN_LOCK:
             CHILDREN.discard(proc)
         log.close()
-    return p['key'], done(p['key'])
+    ok = done(p['key'])
+    if not ok and (msg := limits.limit_message(os.path.join(LOGS, p['key'] + '.log'))):
+        LIMITED[p['key']] = msg
+        STOP.set()                                 # launch nothing more; it would fail the same way
+    return p['key'], ok
 
 
 def stop_everything():
@@ -375,16 +380,24 @@ if not args.check:
                         selection=dict(only=args.only, limit=args.limit, sample=args.sample,
                                        seed=args.seed if args.sample else None),
                         counts=dict(problems=len(ALL), recorded=sum(1 for k in ALL if done(k)),
-                                    ran=len(todo), failed=len(failed)),
+                                    ran=len(todo) - len(skipped), failed=len(failed),
+                                    limited=len(LIMITED), not_started=len(skipped)),
                         started=STARTED,
                         extra=dict(billing='subscription' if args.subscription else 'api_key',
-                                   min_queries=args.min_queries, failed=failed, interrupted=interrupted))
+                                   min_queries=args.min_queries, failed=failed, interrupted=interrupted,
+                                   limited=sorted(LIMITED),
+                                   limit_message=next(iter(LIMITED.values()), None)))
 
+    skipped = []
     pool = concurrent.futures.ThreadPoolExecutor(args.parallel)
     try:
         for i, (key, ok) in enumerate(pool.map(run_one, [ALL[k] for k in todo]), 1):
             if ok is None:
-                continue                           # skipped after the interrupt
+                skipped.append(key)                # never started: interrupted, or the limit was hit
+                continue
+            if key in LIMITED:
+                say(f'{i:4}/{len(todo)}  LIMIT {key}')
+                continue
             if not ok:
                 failed.append(key)
             say(f'{i:4}/{len(todo)}  {"ok  " if ok else "FAIL"}  {key}')
@@ -396,6 +409,9 @@ if not args.check:
         sys.exit(130)
     finally:
         pool.shutdown(wait=True)
+    if LIMITED:
+        say(f'\nstopped at the usage limit ({next(iter(LIMITED.values()))}): {len(LIMITED)} hit it, '
+            f'{len(skipped)} not started. Rerun the same command after the reset to resume.')
     record_run()
 
 sys.exit(1 if check(scope) else 0)
