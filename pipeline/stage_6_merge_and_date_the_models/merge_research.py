@@ -310,8 +310,11 @@ moved = {k: v for d in (by_statement, by_name) for k, v in d.items() if v['statu
 out = dict(
     by_statement=by_statement, by_name=by_name,
     groupings=sorted(GROUPINGS.values()),
+    # Every model credited anywhere: on a problem's one credit, or on any of its events, since the
+    # site's charts count events and each needs its system's release date.
     models={m: dict(MODELS[m], **RELEASES.get(m, {}))
-            for m in sorted({m for v in list(by_statement.values()) + list(by_name.values()) for m in v['ai_models']})},
+            for m in sorted({m for v in list(by_statement.values()) + list(by_name.values())
+                             for m in v['ai_models'] + [x for e in v.get('events') or [] for x in e['ai_models']]})},
     meta=dict(version=VERSION, revision=args.revision, n_records=n,
               n_placed=len(by_statement) + len(by_name), n_moved=len(moved),
               unplaced=unplaced, unknown_systems=dict(unknown_systems),

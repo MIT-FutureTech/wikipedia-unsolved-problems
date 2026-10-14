@@ -19,6 +19,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared'))
 import limits, manifest
+from model_aliases import UNVERSIONED
 ap = argparse.ArgumentParser()
 ap.add_argument('--version', required=True, metavar='NAME',
                 help='the dataset version to work in: data/<NAME>/ — e.g. mark_2026-09-22')
@@ -129,7 +130,13 @@ def models():
     r = json.load(open(path, encoding='utf-8'))
     n = collections.Counter(m for v in list(r['by_statement'].values()) + list(r['by_name'].values())
                             for m in v['ai_models'])
-    return {m: dict(v, n_problems=n[m]) for m, v in r['models'].items()}
+    # Not dated, so their release stays null:
+    #   `unnamed model`   the placeholder for "an AI, no name given"; not a product at all
+    #   UNVERSIONED       a product named without a version ("Claude", "ChatGPT", "Codex"): the
+    #                     source does not say which model was used, so any launch date would be a
+    #                     guess about something the source never stated
+    return {m: dict(v, n_problems=n[m]) for m, v in r['models'].items()
+            if m != 'unnamed model' and m not in UNVERSIONED}
 
 
 def environment():
