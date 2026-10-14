@@ -261,7 +261,10 @@ for r in records:
                  status_note=st['note'], status_sources=st['sources'],
                  resolution_direction=st['direction'], research_key=st['key'],
                  confidence=st['confidence'], counterexample=st['counterexample'],
-                 corrections=st.get('corrections') or [])
+                 corrections=st.get('corrections') or [],
+                 # Each surviving event with the judge's answers: the site's charts apply their own
+                 # rules to these (merge_research.py, events_of), rather than to the one status.
+                 events=st.get('events') or [])
         r['ai_models'] = st['ai_models']
         r['predates_availability'], r['predates_models'] = predates(st)
         r['ai_model_families'] = sorted({MODEL_FAMILY[m] for m in st['ai_models'] if MODEL_FAMILY.get(m)})
@@ -277,7 +280,7 @@ for r in records:
                  ai_involvement='none', ai_systems=[], ai_system=None, status_note='', status_sources=[],
                  resolution_direction=None, research_key=None, confidence=None, counterexample=False,
                  corrections=[], month_resolved=None, month_approx=False,
-                 predates_availability=None, predates_models=[])
+                 predates_availability=None, predates_models=[], events=[])
     # A correction whose `from` equals its `to` records a reviewed-and-retained call, not a change.
     # Corrections by the judging pass are an automated model's, not a human's, so they are flagged apart.
     real = [c for c in r['corrections'] if c.get('from') != c.get('to')]

@@ -40,6 +40,21 @@ MODELS = {
     'GPT-5.6 Sol Pro':    dict(lab='OpenAI', family='GPT-5.6',   kind='tier',     release=None),
     'GPT-5.6 Sol Ultra':  dict(lab='OpenAI', family='GPT-5.6',   kind='tier',     release=None),
     'GPT-6 Astra':        dict(lab='OpenAI', family='GPT-6',     kind='shipped',  release=None),
+    'GPT-6 Astra Pro':    dict(lab='OpenAI', family='GPT-6',     kind='tier',     release=None),
+    'GPT-6 Astra Ultra':  dict(lab='OpenAI', family='GPT-6',     kind='tier',     release=None),
+    'GPT-6 Pro':          dict(lab='OpenAI', family='GPT-6',     kind='tier',     release=None),
+    'GPT-6 Sol':          dict(lab='OpenAI', family='GPT-6',     kind='shipped',  release=None),
+    'GPT-6.1 Sol':        dict(lab='OpenAI', family='GPT-6',     kind='shipped',  release=None),
+    'GPT-5.5':            dict(lab='OpenAI', family='GPT-5.5',   kind='shipped',  release=None),
+    'GPT-5.4':            dict(lab='OpenAI', family='GPT-5.4',   kind='shipped',  release=None),
+    'GPT-5.4 Pro':        dict(lab='OpenAI', family='GPT-5.4',   kind='tier',     release=None),
+    'GPT-5.4 Thinking':   dict(lab='OpenAI', family='GPT-5.4',   kind='tier',     release=None),
+    'GPT-5.3':            dict(lab='OpenAI', family='GPT-5.3',   kind='shipped',  release=None),
+    'GPT-5.2':            dict(lab='OpenAI', family='GPT-5.2',   kind='shipped',  release=None),
+    'GPT-5.2 Pro':        dict(lab='OpenAI', family='GPT-5.2',   kind='tier',     release=None),
+    'GPT-5.1':            dict(lab='OpenAI', family='GPT-5.1',   kind='shipped',  release=None),
+    'GPT-4o':             dict(lab='OpenAI', family='GPT-4',     kind='shipped',  release=None),
+    'GPT-4':              dict(lab='OpenAI', family='GPT-4',     kind='shipped',  release=None),
     'ChatGPT':            dict(lab='OpenAI', family='ChatGPT',   kind='harness',  release=None),
     'Codex':              dict(lab='OpenAI', family='Codex',     kind='harness',  release=None),
     'gpt-oss-120b':       dict(lab='OpenAI', family='gpt-oss',   kind='shipped',  release=None),
@@ -55,6 +70,11 @@ MODELS = {
     'Claude Opus 4.7':    dict(lab='Anthropic', family='Opus 4',  kind='shipped', release=None),
     'Claude Opus 4.8':    dict(lab='Anthropic', family='Opus 4',  kind='shipped', release=None),
     'Claude Opus 5':      dict(lab='Anthropic', family='Opus 5',  kind='shipped', release=None),
+    'Claude Opus 5.5':    dict(lab='Anthropic', family='Opus 5',  kind='shipped', release=None),
+    'Claude Opus 4.5':    dict(lab='Anthropic', family='Opus 4',  kind='shipped', release=None),
+    'Claude Sonnet 5':    dict(lab='Anthropic', family='Sonnet 5', kind='shipped', release=None),
+    'Claude Sonnet 5.5':  dict(lab='Anthropic', family='Sonnet 5', kind='shipped', release=None),
+    'Claude Mythos':      dict(lab='Anthropic', family='Mythos',  kind='unnamed', release=None),  # version not given
     'Claude Sonnet 3.7':  dict(lab='Anthropic', family='Sonnet 3', kind='shipped', release=None),
     'Anthropic internal model': dict(lab='Anthropic', family=None, kind='internal', release=None),
 
@@ -68,6 +88,16 @@ MODELS = {
     'Gemini Deep Think':  dict(lab='Google DeepMind', family='Gemini',   kind='tier',    release=None),
     'AlphaEvolve':        dict(lab='Google DeepMind', family=None, kind='harness', release=None),
     'AlphaProof Nexus':   dict(lab='Google DeepMind', family=None, kind='harness', release=None),
+    'AlphaProof':         dict(lab='Google DeepMind', family=None, kind='harness', release=None),
+
+    # --- other labs
+    'Kimi K3':            dict(lab='Moonshot AI', family='Kimi', kind='shipped', release=None),
+    'Kimi':               dict(lab='Moonshot AI', family='Kimi', kind='unnamed', release=None),
+    'DeepSeek-V4 Pro':    dict(lab='DeepSeek',    family='DeepSeek-V4', kind='shipped', release=None),
+    'DeepSeek-R1':        dict(lab='DeepSeek',    family='DeepSeek-R1', kind='shipped', release=None),
+    'DeepSeek':           dict(lab='DeepSeek',    family='DeepSeek', kind='unnamed', release=None),
+    'Mistral Large':      dict(lab='Mistral AI',  family='Mistral', kind='shipped', release=None),
+    'Seed-Prover 1.5':    dict(lab='ByteDance Seed', family='Seed-Prover', kind='harness', release=None),
 
     # --- xAI, Microsoft
     'Grok 4.6':           dict(lab='xAI',       family='Grok 4', kind='shipped', release=None),
@@ -86,13 +116,26 @@ MODELS = {
     'the Danus system':   dict(lab='Peking University (Liu et al.)', family=None, kind='harness', release=None),
     'EinsteinArena':      dict(lab='Together AI', family=None, kind='harness', release=None),
     'Caltech RL system':  dict(lab='Caltech Math-AI Lab', family=None, kind='internal', release=None),
+    # Named in one or two records with no owner stated; labs left None until a source names one.
+    'KataGo':             dict(lab=None, family=None, kind='harness', release=None),   # open-source Go engine
+    'OpenEvolve':         dict(lab=None, family=None, kind='harness', release=None),   # open-source AlphaEvolve-style
+    'Rethlas':            dict(lab=None, family=None, kind='harness', release=None),   # REVIEW: owner unknown
+    'Odin':               dict(lab=None, family=None, kind='harness', release=None),   # "Odin Automatic AI Research Agent"
+    'Aster':              dict(lab=None, family=None, kind='harness', release=None),   # REVIEW: owner unknown
+    'MILO':               dict(lab=None, family=None, kind='harness', release=None),   # REVIEW: owner unknown
+    'Qiushi Engine':      dict(lab=None, family=None, kind='harness', release=None),   # REVIEW: owner unknown
+    'agent-afk':          dict(lab=None, family=None, kind='harness', release=None),   # REVIEW: owner unknown
+    'Archivara':          dict(lab=None, family=None, kind='harness', release=None),   # REVIEW: owner unknown
+    'Archon':             dict(lab=None, family=None, kind='harness', release=None),   # REVIEW: owner unknown
+    'Dabrowski agents':   dict(lab=None, family=None, kind='harness', release=None),   # "A. Dabrowski's AI agents"
     'unnamed model':      dict(lab=None, family=None, kind='unnamed', release=None),
 }
 
 # Product and family names that pin down no version. build.py shows them as "<name> (unknown
 # version)" everywhere a reader sees them, so an unqualified "Claude" is not read as one model.
 # The canonical keys stay as they are, since release_dates.json is keyed on them.
-UNVERSIONED = {'Claude', 'ChatGPT', 'Codex', 'Claude Code', 'Gemini', 'Grok', 'GitHub Copilot'}
+UNVERSIONED = {'Claude', 'ChatGPT', 'Codex', 'Claude Code', 'Gemini', 'Grok', 'GitHub Copilot',
+               'Claude Mythos', 'Kimi', 'DeepSeek'}
 
 ALIASES = {
     # OpenAI — GPT-5.6 Sol and its tiers
@@ -157,4 +200,112 @@ ALIASES = {
     'Proximal Policy Optimization (PPO) algorithm': None,
     'piecewise linear neural networks': None,
     'physics-informed machine learning': None,
+
+    # ---- Added for will-2026-10-10-haiku: every credited name in that run's judged records.
+    # OpenAI's internal model, however a source words it. Most come from the openai/math release.
+    'an unreleased internal OpenAI model': 'OpenAI internal model',
+    'unreleased internal OpenAI model': 'OpenAI internal model',
+    'an internal OpenAI model': 'OpenAI internal model', 'internal OpenAI model': 'OpenAI internal model',
+    'an internal model at OpenAI': 'OpenAI internal model',
+    'an internal OpenAI model (not named in any source read)': 'OpenAI internal model',
+    'an internal OpenAI model (unnamed; described as a multi-agent system)': 'OpenAI internal model',
+    "an internal OpenAI model (not named in any source read; described as 'an unreleased internal OpenAI model')": 'OpenAI internal model',
+    'OpenAI-generated (no model name given in the companion abstract; OpenAI announcement names none)': 'OpenAI internal model',
+    'OpenAI': 'OpenAI internal model',                                       # REVIEW: lab name only
+    # OpenAI — GPT-6 and its tiers
+    'GPT-6 Sol': 'GPT-6 Sol', 'GPT-6.1 Sol': 'GPT-6.1 Sol', 'gpt-6.1-sol': 'GPT-6.1 Sol',
+    'ChatGPT Astra': 'GPT-6 Astra', 'ChatGPT 6 Astra': 'GPT-6 Astra', 'ChatGPT-6 Astra': 'GPT-6 Astra',
+    'GPT-6 Astra (OpenAI)': 'GPT-6 Astra', 'GPT-6-Astra': 'GPT-6 Astra', 'OpenAI GPT-6 Astra': 'GPT-6 Astra',
+    "OpenAI's GPT-6 Astra model": 'GPT-6 Astra', 'GPT Astra 6': 'GPT-6 Astra',
+    'ChatGPT Astra (`gpt-6-astra`)': 'GPT-6 Astra', 'OpenAI reasoning model (ChatGPT, Astra)': 'GPT-6 Astra',
+    'GPT-6': 'GPT-6 Astra', 'GPT6': 'GPT-6 Astra', 'ChatGPT (GPT-6)': 'GPT-6 Astra',   # REVIEW, as 'ChatGPT 6'
+    'Astra Pro': 'GPT-6 Astra Pro', 'GPT-6-Astra Pro': 'GPT-6 Astra Pro',
+    'ChatGPT 6 Astra Ultra': 'GPT-6 Astra Ultra',
+    'GPT-6 Pro': 'GPT-6 Pro', 'ChatGPT Pro 6': 'GPT-6 Pro',                  # REVIEW: Pro of which GPT-6
+    # OpenAI — GPT-5.6 Sol and its tiers
+    'ChatGPT-5.6 Sol': 'GPT-5.6 Sol', 'ChatGPT-5.6-Sol': 'GPT-5.6 Sol', "OpenAI's GPT-5.6 Sol": 'GPT-5.6 Sol',
+    "OpenAI's GPT-5.6-sol": 'GPT-5.6 Sol', 'GPT-5.6 Sol in ChatGPT': 'GPT-5.6 Sol',
+    'ChatGPT using GPT-5.6 Sol': 'GPT-5.6 Sol', 'GPT 5.6 Sol (OpenAI)': 'GPT-5.6 Sol',
+    'ChatGPT 5.6 Sol High': 'GPT-5.6 Sol',                                   # "High" is an effort setting
+    'GPT-5.6': 'GPT-5.6 Sol', "OpenAI's GPT-5.6": 'GPT-5.6 Sol',             # REVIEW: tier unstated, as 'GPT 5.6'
+    'Sol': 'GPT-5.6 Sol',                                                    # REVIEW: could be GPT-6 Sol
+    'ChatGPT 4.6 Sol': 'GPT-5.6 Sol',                                        # REVIEW: no 4.6 Sol exists; a typo
+    'ChatGPT-5.6 Sol Pro': 'GPT-5.6 Sol Pro', 'OpenAI’s ChatGPT 5.6 Sol Pro': 'GPT-5.6 Sol Pro',
+    "OpenAI's ChatGPT-5.6 Sol Pro": 'GPT-5.6 Sol Pro', 'ChatGPT 5.6 Pro': 'GPT-5.6 Sol Pro',
+    'OpenAI GPT-5.6 Pro': 'GPT-5.6 Sol Pro',
+    'ChatGPT 5.6 Pro/Sol': 'GPT-5.6 Sol Pro',                                # REVIEW: names two tiers
+    # OpenAI — GPT-5.5 and earlier
+    'ChatGPT 5.5 Pro': 'GPT-5.5 Pro', 'ChatGPT-5.5-Pro': 'GPT-5.5 Pro', 'GPT-5.5-pro': 'GPT-5.5 Pro',
+    'GPT-5.5-Pro': 'GPT-5.5 Pro', 'gpt-5-5-pro': 'GPT-5.5 Pro', 'GPT-5.5 Pro model': 'GPT-5.5 Pro',
+    'GPT-5.5': 'GPT-5.5', 'ChatGPT 5.5': 'GPT-5.5',
+    'GPT-5.4': 'GPT-5.4', 'GPT-5.4 Pro': 'GPT-5.4 Pro', 'GPT-5.4-Pro': 'GPT-5.4 Pro', 'ChatGPT-5.4 Pro': 'GPT-5.4 Pro',
+    'GPT-5.4 Thinking': 'GPT-5.4 Thinking', 'GPT 5.4 Thinking (OpenAI)': 'GPT-5.4 Thinking',
+    'ChatGPT, version 5.3': 'GPT-5.3',
+    'GPT-5.2': 'GPT-5.2', 'GPT 5.2 Pro': 'GPT-5.2 Pro', 'ChatGPT 5.1': 'GPT-5.1',
+    'Chat GPT-5': 'GPT-5', 'OpenAI language models (GPT-5 family)': 'GPT-5',   # REVIEW: family only
+    'GPT-4o': 'GPT-4o', 'GPT-4': 'GPT-4',
+    'OpenAI gpt-oss-120b': 'gpt-oss-120b',
+    'GPT': 'ChatGPT', 'GPT Pro': 'ChatGPT',                                  # REVIEW: no version
+    "OpenAI's ChatGPT, including its Codex tools": 'ChatGPT',
+    'Codex (OpenAI)': 'Codex', 'OpenAI Codex using GPT-6 Astra': 'Codex', 'OpenAI Codex using GPT-6.1 sol': 'Codex',
+    'OpenAI Codex (GPT-5.2, extra-high reasoning effort)': 'Codex',
+    # Anthropic
+    'Claude Opus 5.5': 'Claude Opus 5.5', "Anthropic's Claude Opus 5.5": 'Claude Opus 5.5',
+    'Claude Sonnet 5.5': 'Claude Sonnet 5.5', 'Claude Sonnet 5 model, accessed via claude.ai': 'Claude Sonnet 5',
+    'Claude Opus 4.5': 'Claude Opus 4.5', 'Opus 5': 'Claude Opus 5', "Anthropic's Claude Opus 5": 'Claude Opus 5',
+    "Anthropic's Claude Fable 5.1": 'Claude Fable 5.1',
+    'Claude Opus 4.8, Anthropic': 'Claude Opus 4.8', 'Claude (Anthropic, Version: Claude Opus 4.8)': 'Claude Opus 4.8',
+    'Claude (Anthropic, claude-opus-4-7)': 'Claude Opus 4.7',
+    'Claude 4.6 (Anthropic)': 'Claude Opus 4.6',                             # REVIEW: tier unstated
+    'Fable 5 model series': 'Claude Fable 5',
+    "Anthropic's Claude, Fable 5 model series (as named in the acknowledgements)": 'Claude Fable 5',
+    'Fable': 'Claude Fable 5',                                               # REVIEW: version unstated
+    'Claude Mythos': 'Claude Mythos',
+    'Anthropic Claude': 'Claude', "Anthropic's Claude": 'Claude', 'Claude, Anthropic': 'Claude',
+    'Claude Opus': 'Claude', 'Opus model series': 'Claude', 'Claude 4.5': 'Claude',   # REVIEW: no version
+    "Anthropic's Claude, Opus model series (as named in the acknowledgements)": 'Claude',
+    "Anthropic's Claude, principally the Fable 5 and Opus model series": 'Claude',   # names two
+    'Anthropic Claude (Opus 4.5 and 4.6)': 'Claude',                         # names two
+    'Claude 5.5 Fable': 'Claude Fable 5',                                    # no Fable 5.5 exists
+    'Claude Code (Anthropic)': 'Claude Code',
+    'Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code harness': 'Claude Code',
+    'an unreleased research version of Claude': 'Anthropic internal model',
+    'An unreleased research version of Claude': 'Anthropic internal model',
+    'unreleased research version of Claude': 'Anthropic internal model',
+    'internal research version of Claude developed by Anthropic': 'Anthropic internal model',
+    'Claude (internal Anthropic model)': 'Anthropic internal model',
+    # Google
+    'Gemini 2.5 Pro': 'Gemini 2.5 Pro', 'Gemini 3.1': 'Gemini 3.1 Pro',      # REVIEW: tier unstated
+    'Gemini 3 Deep Think': 'Gemini Deep Think', 'Gemini DeepThink': 'Gemini Deep Think', 'Deep Think': 'Gemini Deep Think',
+    'AlphaProof': 'AlphaProof', "AlphaProof Nexus 'full-featured' agent (Agent (D))": 'AlphaProof Nexus',
+    # other labs
+    'Kimi K3': 'Kimi K3', 'Kimi (Moonshot AI)': 'Kimi',
+    'DeepSeek-V4-pro': 'DeepSeek-V4 Pro', 'DeepSeek Chat': 'DeepSeek',
+    'DeepSeek application and its Deep Thinking feature (R1)': 'DeepSeek-R1',
+    'Mistral Large': 'Mistral Large', 'Grok (xAI)': 'Grok', 'Seed-Prover 1.5': 'Seed-Prover 1.5',
+    'KataGo': 'KataGo', 'OpenEvolve': 'OpenEvolve', 'Rethlas': 'Rethlas',
+    'Odin Automatic AI Research Agent': 'Odin', 'Aster': 'Aster', 'MILO': 'MILO',
+    'Qiushi Engine': 'Qiushi Engine', 'agent-afk': 'agent-afk', 'Archivara': 'Archivara', 'Archon': 'Archon',
+    "A. Dabrowski's AI agents": 'Dabrowski agents',
+    # credited as AI but naming no system or lab
+    'an internal frontier model': 'unnamed model',                           # REVIEW: lab not stated
+    'an internal AI system': 'unnamed model', 'an advanced AI model': 'unnamed model',
+    'LLMs': 'unnamed model', 'large language models': 'unnamed model', 'a large language model': 'unnamed model',
+    'a large language model (unnamed; the author declines to identify it)': 'unnamed model',
+    # Methods, not systems: kept in the record as evidence, dropped from the model counts.
+    'reinforcement learning agent': None, 'a reinforcement learning agent': None, 'PPO agent': None,
+    'PPO as implemented in stable-baselines3': None, 'Trust region policy optimization (TRPO)': None,
+    'physics-informed neural networks (PINNs)': None, 'physics-informed neural network (PINN)': None,
+    'custom machine learning approach': None, 'neural networks': None, 'transformer neural networks': None,
+    'transformers (with reinforcement learning)': None,
+    'transformer neural networks with local search in the PatternBoost framework': None,
+    'Hopper algorithm (the authors\' own; no named model)': None,
+    'unnamed Bayesian optimisation with Monte Carlo Tree Search framework (no model or lab system named in the abstract)': None,
+    "reinforcement-learning policy (authors' own; GNN and autoregressive transformer decoder trained with PPO and GRPO fine-tuning; no named model)": None,
+    'neural Lyapunov function (neural network trained by the authors, with symbolic regression)': None,
+    'sequence-to-sequence transformers (symbolic transformers, trained by the authors)': None,
+    # the long forms of three names above, exactly as the records give them
+    'Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI (no model version stated)': 'Claude Code',
+    'OpenAI-generated (no model name given in the companion abstract; OpenAI announcement not readable)': 'OpenAI internal model',
+    "an internal OpenAI model (not named in any source read; described as 'an unreleased internal OpenAI model' in secondary coverage and as 'an internal frontier model' in a quoted OpenAI post, per an aggregator)": 'OpenAI internal model',
 }

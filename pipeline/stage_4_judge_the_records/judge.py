@@ -28,6 +28,7 @@ import argparse, collections, concurrent.futures, copy, datetime, json, os, subp
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared'))
 import limits, manifest
+from tiers import TIERS, tier_of                    # JUDGE.md §3 steps 1-2, shared with the merge
 from wikitext import parse_problem_keys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -42,9 +43,6 @@ CREDIBILITIES = ('credible', 'doubtful', 'not_credible', 'knocked_down')
 CONFIDENCE = ('high', 'medium', 'low')
 OBJECT_ROLES = ('counterexample', 'witness', None)
 # §3 step 1: an event answered this way never sets the status.
-DISCARD_SCOPE = ('instances', 'variant', 'none')
-DISCARD_CREDIBILITY = ('not_credible', 'knocked_down')
-TIERS = ('progress', 'partial', 'claimed', 'resolved')      # ascending, for §3 step 3
 # A record can no longer be selected by its status, because it has none. What it does have is
 # events or not: `quiet` is the nothing_found set, which JUDGE.md still asks a judge to look at so
 # that a broken search is not mistaken for a quiet problem.
@@ -213,16 +211,6 @@ def put(r, path, value):
 
 
 AI_STRENGTH = {'none': 0, 'assisted': 1, 'generated': 2}
-
-
-def tier_of(row):
-    """JUDGE.md §3 steps 1-2: the tier an answered event earns, or None where step 1 discards it."""
-    if row.get('scope') in DISCARD_SCOPE or row.get('credibility') in DISCARD_CREDIBILITY:
-        return None
-    scope, verified = row.get('scope'), row.get('verification')
-    if scope == 'whole':
-        return 'resolved' if verified in ('digested', 'checkable') else 'claimed'
-    return {'case': 'partial', 'bound': 'progress'}.get(scope)
 
 
 def derive(rows, events):
@@ -509,7 +497,8 @@ if not args.check:
         manifest.record(ROOT, args.version, 'judge', os.path.abspath(__file__),
                         args.model, args.effort, args.parallel,
                         prompt_path=os.path.join(ROOT, 'pipeline', 'prompts', 'JUDGE.md'),
-                        selection=dict(only=args.only, limit=args.limit, set=args.set, calibrate=args.calibrate),
+                        selection=dict(only=args.only, limit=args.limit, set=args.set, calibrate=args.calibrate,
+                                       records=args.records),
                         counts=dict(records=len(keys), verdicts=sum(1 for k in keys if done(k)),
                                     ran=len(todo) - len(skipped), failed=len(failed),
                                     limited=len(LIMITED), not_started=len(skipped)),

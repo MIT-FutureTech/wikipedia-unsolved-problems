@@ -68,7 +68,7 @@ usage() {
   echo "       --only and --limit apply to: research judge years  (--only also: merge)" >&2
   echo "       --check  re-validates and re-collects without running an agent: research judge years" >&2
   echo "       --sample N [--seed S]  research only: N problems drawn across the whole list" >&2
-  echo "       --subscription  research only: bill the Claude Code subscription, not the API key" >&2
+  echo "       --subscription  research and merge: bill the Claude Code subscription, not the API key" >&2
   echo "       --model ID --effort LEVEL  research and judge: override the script's pinned model and effort" >&2
   echo "       --parallel N  research and judge: agents at once (defaults: research 4, judge 8)" >&2
   echo "       --min-queries N  research only: the search floor each agent is given (default 8)" >&2
@@ -81,8 +81,8 @@ cd "$(dirname "$0")/.."
 
 # --only and --limit are forwarded, so refuse them where the stage's scripts do not take them
 # rather than silently dropping a filter the caller believed was applied.
-[ -n "$SUBSCRIPTION" ] && [ "$STAGE" != research ] && {
-  echo "--subscription applies to the research stage; judge always uses the subscription" >&2; exit 2; }
+[ -n "$SUBSCRIPTION" ] && [ "$STAGE" != research ] && [ "$STAGE" != merge ] && {
+  echo "--subscription applies to research and merge (its release-date step); judge always uses the subscription" >&2; exit 2; }
 [ -n "$MINQ" ] && [ "$STAGE" != research ] && {
   echo "--min-queries applies to the research stage only" >&2; exit 2; }
 [ -n "$MODEL$EFFORT$PARALLEL" ] && [ "$STAGE" != research ] && [ "$STAGE" != judge ] && {

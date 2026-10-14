@@ -29,6 +29,35 @@ const AI_ORDER = ['generated', 'assisted', 'incident', 'none'];
 const AI_STACK = ['none', 'incident', 'assisted', 'generated'];
 const AI_LABEL = { generated: 'AI-generated', assisted: 'AI-assisted', incident: 'AI claim retracted', none: 'No AI involvement' };
 const aiTouched = p => p.ai_involvement && p.ai_involvement !== 'none';
+
+/* ---- Per-chart rules. Each chart answers its own question from a problem's events (p.events:
+   every event that survives JUDGE.md §3 step 1, with the judge's answers), instead of from one
+   status per problem. The rules live here, beside the charts that use them. */
+const sinceSnapshot = p => (p.events || []).filter(e => e.after_snapshot === true);
+// Dates compare as strings, so '2026-07' sorts before '2026-07-03'; a missing date sorts last.
+const byDate = (a, b) => String(a.date || '9999').localeCompare(String(b.date || '9999'));
+// Resolutions: the first event after the snapshot that settles the whole problem, either way. It
+// sets the problem's resolution date and its credit.
+const firstResolution = p => sinceSnapshot(p).filter(e => e.tier === 'resolved' || e.tier === 'claimed').sort(byDate)[0] || null;
+// "Accepted" when any whole-problem event has been checked (digested or directly checkable).
+const resolutionAccepted = p => sinceSnapshot(p).some(e => e.tier === 'resolved');
+// Progress: every surviving event after the snapshot counts. A problem is AI-only when every one of
+// them was AI-generated, human when none involved AI, and otherwise AI-assisted or both: some AI
+// help on an event, or AI and human events side by side.
+// 'both' (AI and human events side by side) is kept apart from 'assisted' (every event involved
+// AI, at least one only as help) so a chart can draw it distinctly; both count as involving AI.
+const PROGRESS_LABEL = { generated: 'entirely by AI', assisted: 'AI-assisted', both: 'by AI and humans both', none: 'without AI' };
+const progressCredit = p => {
+  const ev = sinceSnapshot(p);
+  if (!ev.length) return null;
+  const ai = ev.filter(e => e.ai && e.ai !== 'none');
+  if (!ai.length) return 'none';
+  if (ai.length < ev.length) return 'both';
+  return ai.every(e => e.ai === 'generated') ? 'generated' : 'assisted';
+};
+// A hatched swatch: the band's colour striped with the panel's, so a mixed band reads as the same
+// family as its solid neighbour but visibly not the same thing. Used in legends and tooltips.
+const hatchCSS = c => `repeating-linear-gradient(45deg,${c} 0 2.5px,var(--panel) 2.5px 4px)`;
 const state = { q: '', fields: new Set(), y0: null, y1: null, noyear: true, scope: 'all', lists: new Set(), status: new Set(), ai: new Set(), models: new Set(), tab: 'attribution', aMode: 'count', cMode: 'count', view: 'cards', sort: 'page', open: new Set(), sortCol: 'id', sortAsc: true };
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
@@ -103,7 +132,7 @@ function barRow(label, groups, opts = {}) {
   const segs = groups.filter(g => g.n).map(g => {
     const pct = 100 * g.n / denom;
     const tip = `<b>${label} · ${g.label}</b><br>${g.n} of ${total} (${Math.round(100 * g.n / (total || 1))}%)` + (opts.noNames ? '' : `<br><span style="opacity:.75">${esc(names(g.ps))}</span>`);
-    return `<i style="width:${pct}%;background:${g.color}" data-tip="${attr(tip)}">${pct >= 11 && g.n > 1 ? `<b>${g.n}</b>` : ''}</i>`;
+    return `<i style="width:${pct}%;background:${g.hatch ? hatchCSS(g.color) : g.color}" data-tip="${attr(tip)}">${pct >= 11 && g.n > 1 ? `<b>${g.n}</b>` : ''}</i>`;
   }).join('');
   const rowTip = `<b>${label}</b>: ${total}<br>` + groups.filter(g => g.n).map(g => `${g.label}: ${g.n}`).join('<br>');
   return `<div class="brow"${opts.gapAfter ? ' style="margin-bottom:15px"' : ''}><span class="lab" style="width:${opts.labW || 168}px" data-tip="${attr(rowTip)}">${esc(label)}</span><span class="track">${outline}${segs}</span><span class="n" data-tip="${attr(rowTip)}">${opts.nText || total}</span></div>`;
@@ -126,7 +155,11 @@ const aiGroups3 = ps => ATTR.map(([k, , color]) => ({ label: ATTR_LABEL[k], colo
 
 
 /* ---- cumulative stacked area, monthly steps ---- */
-const MONTHS_AXIS = (() => { const out = []; for (let y = 2024; y <= 2026; y++) for (let m = 1; m <= 12; m++) { if (y === 2026 && m > 9) break; out.push(`${y}-${String(m).padStart(2, '0')}`); } return out; })();
+// The axis runs from January 2024 to the latest dated event in the data (never before September
+// 2026), so a release dated after the last chart was drawn is not silently cut off the end.
+const LAST_MONTH = PROBLEMS.flatMap(p => (p.events || []).filter(e => e.after_snapshot === true && e.precision !== 'year')
+  .map(e => String(e.date || '').slice(0, 7))).filter(s => /^\d{4}-\d{2}$/.test(s)).reduce((a, b) => (b > a ? b : a), '2026-09');
+const MONTHS_AXIS = (() => { const out = []; for (let y = 2024, m = 1; ; m++) { if (m > 12) { m = 1; y++; } const s = `${y}-${String(m).padStart(2, '0')}`; out.push(s); if (s >= LAST_MONTH) break; } return out; })();
 const monthLabel = s => ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'][+s.slice(5) - 1] + ' ' + s.slice(0, 4);
 
 const pctOf = v => (100 * v / DATA.length);
@@ -139,9 +172,11 @@ function cumulativeChart(svgSel, legSel, tipSel, rows, bands, opts = {}) {
   const MS = MONTHS_AXIS, n = MS.length;
   // the extra 16px on the left is the rotated axis title, which names what the height measures
   const W = 560, H = 250, m = { l: (state.cMode === 'count' ? 34 : 42) + 16, r: 12, t: 12, b: 26 };
-  const inWin = rows.filter(p => p.month_resolved && p.month_resolved >= MS[0] && p.month_resolved <= MS[n - 1]);
+  // Each chart says which date places a problem (opts.monthOf); by default the one-status month.
+  const monthOf = opts.monthOf || (p => p.month_resolved);
+  const inWin = rows.filter(p => monthOf(p) && monthOf(p) >= MS[0] && monthOf(p) <= MS[n - 1]);
   const early = rows.length - inWin.length;
-  const cum = bands.map(b => { let c = 0; return MS.map(mm => { c += inWin.filter(p => p.month_resolved === mm && b.test(p)).length; return c; }); });
+  const cum = bands.map(b => { let c = 0; return MS.map(mm => { c += inWin.filter(p => monthOf(p) === mm && b.test(p)).length; return c; }); });
   const totals = cum.map(c => c[n - 1]);
   const grand = totals.reduce((s, v) => s + v, 0) || 1;
   const monthTot = MS.map((_, i) => cum.reduce((s, c) => s + c[i], 0));
@@ -179,15 +214,16 @@ function cumulativeChart(svgSel, legSel, tipSel, rows, bands, opts = {}) {
       if (!cum[k][i]) continue;
       const top = cum.slice(0, k + 1).reduce((s, c) => s + c[i], 0) * unit(i);
       const bot = cum.slice(0, k).reduce((s, c) => s + c[i], 0) * unit(i);
-      areas += `<rect x="${bx}" y="${y(top)}" width="${barW}" height="${Math.max(0, y(bot) - y(top))}" fill="${bands[k].color}" opacity="${bands[k].opacity ?? 0.9}"/>`;
+      const fill = bands[k].hatch ? `url(#${svgSel.slice(1)}-hatch-${k})` : bands[k].color;
+      areas += `<rect x="${bx}" y="${y(top)}" width="${barW}" height="${Math.max(0, y(bot) - y(top))}" fill="${fill}" opacity="${bands[k].opacity ?? 0.9}"/>`;
     }
   }
   let hits = '';
   for (let i = 0; i < n; i++) {
     const tot = cum.reduce((s, c) => s + c[i], 0);
-    const sw = c => `<span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${c};margin-right:5px"></span>`;
+    const sw = b => `<span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:${b.hatch ? hatchCSS(b.color) : b.color};margin-right:5px"></span>`;
     const pctTo = v => tot ? Math.round(100 * v / tot) + '%' : '—';
-    const lines = bands.map((b, k) => `${sw(b.color)}${b.label}: ${cum[k][i]}${norm ? ` (${pctTo(cum[k][i])})` : state.cMode === 'share' ? ` (${fmtPct(cum[k][i])})` : ''}`).join('<br>');
+    const lines = bands.map((b, k) => `${sw(b)}${b.label}: ${cum[k][i]}${norm ? ` (${pctTo(cum[k][i])})` : state.cMode === 'share' ? ` (${fmtPct(cum[k][i])})` : ''}`).join('<br>');
     const tip = `<b>${monthLabel(MS[i])}</b> · ${tot} to date${norm ? ' — shares of that running total' : state.cMode === 'share' ? ` — ${fmtPct(tot)} of all ${DATA.length}` : ''}<br>${lines}`;
     hits += `<rect x="${x(i)}" y="${m.t}" width="${bw}" height="${ih}" fill="transparent" data-tip="${attr(tip)}"/>`;
   }
@@ -198,8 +234,11 @@ function cumulativeChart(svgSel, legSel, tipSel, rows, bands, opts = {}) {
   const yTitle = opts.yLabel
     ? `<text class="axtitle" transform="rotate(-90)" x="${-(m.t + ih / 2)}" y="11" text-anchor="middle">${esc(opts.yLabel)}</text>` : '';
   const svg = $(svgSel); svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.style.width = '100%'; svg.style.height = 'auto';
-  svg.innerHTML = `${g}${areas}${hits}<line x1="${m.l}" x2="${W - m.r}" y1="${y(0)}" y2="${y(0)}" stroke="var(--line)"/>${ax}${yTitle}`;
-  $(legSel).innerHTML = bands.map((b, k) => totals[k] ? `<span data-tip="${attr(`<b>${b.label}</b><br>${totals[k]} of the ${grand} shown · ${fmtPct(totals[k])} of all ${DATA.length} problems`)}"><i style="background:${b.color};opacity:${b.opacity ?? 0.9}"></i>${b.label} <span class="mono" style="color:var(--ink-3)">${state.cMode === 'share' ? fmtPct(totals[k]) : totals[k]}</span></span>` : '').join('');
+  // One diagonal-stripe pattern per hatched band, in that band's colour over the panel's.
+  const defs = bands.map((b, k) => b.hatch
+    ? `<pattern id="${svgSel.slice(1)}-hatch-${k}" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="rotate(45)"><rect width="4" height="4" fill="${b.color}"/><rect width="1.4" height="4" fill="var(--panel)"/></pattern>` : '').join('');
+  svg.innerHTML = `<defs>${defs}</defs>${g}${areas}${hits}<line x1="${m.l}" x2="${W - m.r}" y1="${y(0)}" y2="${y(0)}" stroke="var(--line)"/>${ax}${yTitle}`;
+  $(legSel).innerHTML = bands.map((b, k) => totals[k] ? `<span data-tip="${attr(`<b>${b.label}</b><br>${totals[k]} of the ${grand} shown · ${fmtPct(totals[k])} of all ${DATA.length} problems`)}"><i style="background:${b.hatch ? hatchCSS(b.color) : b.color};opacity:${b.opacity ?? 0.9}"></i>${b.label} <span class="mono" style="color:var(--ink-3)">${state.cMode === 'share' ? fmtPct(totals[k]) : totals[k]}</span></span>` : '').join('');
   attachTip(svg, $(tipSel)); attachTip($(legSel), $(tipSel));
   return { grand, early, totals };
 }
@@ -310,24 +349,26 @@ function renderAttribution() {
   const progAll = DATA.filter(p => ['resolved', 'claimed', 'partial', 'progress'].includes(p.status) && !retracted(p));
   const pct = (a, b) => `${Math.round(100 * a / b)}%`;
   const tile = (v, u, l, extra) => `<div class="stat"><div class="v"><span>${v}</span><span class="u">${u}</span></div>${extra || ''}<div class="l">${l}</div></div>`;
+  // The tiles use the per-chart rules above: a resolution is credited by the first event that
+  // settled the problem, and progress counts every event, with mixed problems shown as such.
+  const firsts = DATA.map(p => [p, firstResolution(p)]).filter(([, e]) => e);
+  const firstAI = firsts.filter(([, e]) => e.ai !== 'none');
+  const moved = DATA.map(p => progressCredit(p)).filter(Boolean);
+  const nMoved = k => moved.filter(c => c === k).length;
   $('#a-stats').innerHTML = [
     tile(DATA.length, 'open problems', 'listed by Wikipedia in January 2024'),
-    // "resolved" is in quotes because most of these are not: only the `resolved` rows have been
-    // digested by experts, and the `claimed` majority are preprints and announcements nobody has
+    // "resolved" is in quotes because most of these are not: only those with a checked
+    // whole-problem event are accepted, and the rest are preprints and announcements nobody has
     // checked. The subtitle gives the split.
-    tile(rc.length, 'problems “resolved”', `${rc.filter(p => p.status === 'resolved').length} accepted, ${rc.filter(p => p.status === 'claimed').length} still contested`),
-    tile(pct(rc.filter(aiTouched).length, rc.length), 'involved an AI system',
-      `of the ${rc.length} resolutions`,
-      `<div class="v v2"><span class="n2">${pct(rc.filter(p => p.ai_involvement === 'generated').length, rc.length)}</span><span class="u">done entirely by AI</span></div>`),
-    tile(progAll.length, 'saw any progress', `${pct(progAll.filter(aiTouched).length, progAll.length)} of them involved an AI system`),
+    tile(firsts.length, 'problems “resolved”', `${firsts.filter(([p]) => resolutionAccepted(p)).length} accepted, ${firsts.filter(([p]) => !resolutionAccepted(p)).length} still contested`),
+    tile(pct(firstAI.length, firsts.length), 'involved an AI system',
+      `of the ${firsts.length} resolutions, credited by the first event to settle each`,
+      `<div class="v v2"><span class="n2">${pct(firsts.filter(([, e]) => e.ai === 'generated').length, firsts.length)}</span><span class="u">done entirely by AI</span></div>`),
+    tile(moved.length, 'saw any progress',
+      `${pct(nMoved('generated'), moved.length)} ${PROGRESS_LABEL.generated}, ${pct(nMoved('assisted') + nMoved('both'), moved.length)} AI-assisted or by AI and humans both`),
   ].join('');
 
 
-  const bandsFor = (prefix, extra = () => true, opacity) =>
-    ATTR.map(([k, lab, color]) => ({ key: `${prefix}-${k}`, label: prefix ? `${prefix}, ${lab}` : lab[0].toUpperCase() + lab.slice(1), color, opacity, test: p => extra(p) && attrOf(p) === k }));
-
-  const rowsA = DATA.filter(isRes);
-  const rowsB = DATA.filter(p => isRes(p) || ['partial', 'progress'].includes(p.status));
   // The two panels used to share one axis, which drew the 30 resolutions as a sliver beside the
   // 158 progressed problems. Each now scales to its own total, rounded up for headroom, so the
   // panels are read against their axes rather than against each other.
@@ -337,44 +378,64 @@ function renderAttribution() {
   const yLabel = what => state.cMode === 'count' ? `Number of Problems ${what}`
     : state.cMode === 'share' ? `Percent of All Problems ${what}`
       : `Portion of Problems ${what}, to Date`;
-  cumulativeChart('#svg-cum-a', '#leg-cum-a', '#tip-c1', rowsA, bandsFor(''), { yMax: niceMax(rowsA.length), yLabel: yLabel('Resolved') });
-  cumulativeChart('#svg-cum-b', '#leg-cum-b', '#tip-c2', rowsB,
-    [...bandsFor('Resolved', isRes, .95), ...bandsFor('Progress', p => !isRes(p), .5)],
-    { yMax: rowsB.length, yLabel: yLabel('Materially Advanced') });
+  // Chart 2 uses the rule of the tiles: a problem enters on the date of the first event to settle
+  // it, in the colour of that event's AI role. A year-only date places it nowhere on a month axis.
+  const resA = DATA.filter(p => firstResolution(p));
+  const ROLE_TO_ATTR = { generated: 'ai', assisted: 'with', none: 'human' };
+  const resBands = ATTR.map(([k, lab, color]) => ({ key: `-${k}`, label: lab[0].toUpperCase() + lab.slice(1), color,
+    test: p => ROLE_TO_ATTR[firstResolution(p).ai] === k }));
+  const firstMonth = p => { const e = firstResolution(p); return e.precision === 'year' ? null : String(e.date || '').slice(0, 7) || null; };
+  cumulativeChart('#svg-cum-a', '#leg-cum-a', '#tip-c1', resA, resBands,
+    { yMax: niceMax(resA.length), yLabel: yLabel('Resolved'), monthOf: firstMonth });
+  // Chart 3 uses the progress rule of the tiles: every relevant event counts, and a problem is AI
+  // only, AI-assisted or both, or human by all of them together. It enters on the date of its
+  // first relevant event. Resolved problems (chart 2's set) are shaded darker within each colour.
+  const movedB = DATA.filter(p => progressCredit(p));
+  // 'both' sits between human and AI-assisted, in the assisted colour but hatched.
+  const CREDIT = [['none', 'human only', AIC.none, false], ['both', 'AI and human both', AIC.assisted, true],
+    ['assisted', 'AI-assisted', AIC.assisted, false], ['generated', 'AI only', AIC.generated, false]];
+  const progBands = (prefix, extra, opacity) => CREDIT.map(([k, lab, color, hatch]) =>
+    ({ key: `${prefix}-${k}`, label: `${prefix}, ${lab}`, color, hatch, opacity, test: p => extra(p) && progressCredit(p) === k }));
+  const firstMoved = p => { const e = sinceSnapshot(p).sort(byDate)[0]; return !e || e.precision === 'year' ? null : String(e.date || '').slice(0, 7) || null; };
+  cumulativeChart('#svg-cum-b', '#leg-cum-b', '#tip-c2', movedB,
+    [...progBands('Resolved', p => !!firstResolution(p), .95), ...progBands('Progress', p => !firstResolution(p), .5)],
+    { yMax: niceMax(movedB.length), yLabel: yLabel('Materially Advanced'), monthOf: firstMoved });
 
   const share = state.aMode === 'share';
   // Four rows, by what has happened to the problem. `open_stale` is left out: those were settled
   // before the snapshot, so they are neither movement nor an open problem. `partial` and
   // `progress` are one row, because the split between them is about the kind of advance, which is
   // not what this chart is asking.
+  // Each row counts problems, by the rule of the chart above it: a resolved or claimed problem is
+  // credited by the first event that settled it (charts 1 and 2), and a problem that only moved is
+  // credited by all its relevant events (chart 3), so it can be AI and human both.
+  const settledBefore = p => !sinceSnapshot(p).length && (p.events || []).some(e => e.after_snapshot === false && e.tier === 'resolved');
   const STATUS_ROWS = [
-    ['Resolved', p => p.status === 'resolved'],
-    ['Resolution claimed', p => p.status === 'claimed'],
-    ['Progress of some kind', p => ['partial', 'progress'].includes(p.status)],
-    ['Still open', p => p.status === 'open'],
+    ['Resolved', p => firstResolution(p) && resolutionAccepted(p), 'first'],
+    ['Resolution claimed', p => firstResolution(p) && !resolutionAccepted(p), 'first'],
+    ['Progress of some kind', p => !firstResolution(p) && progressCredit(p), 'progress'],
+    // Settled before the snapshot is neither movement nor an open problem, so it is left out.
+    ['Still open', p => !progressCredit(p) && !settledBefore(p), 'open'],
   ];
-  // Every problem in a row must land in a band, so unlike the charts above nothing can be dropped.
-  // `incident` therefore falls back to `human`: a retracted claim left the problem exactly where it
-  // was, so no AI contribution stands.
-  const bandOf = p => attrOf(p) ?? 'human';
   const OPEN_C = 'var(--st-open)';
+  // [key, label, colour, hatched]: the same four kinds of credit as chart 3, in the same order.
+  const KINDS = [['none', AI_LABEL.none, AIC.none, false], ['both', 'AI and human both', AIC.assisted, true],
+    ['assisted', AI_LABEL.assisted, AIC.assisted, false], ['generated', AI_LABEL.generated, AIC.generated, false]];
+  const kindOf = (p, rule) => rule === 'first' ? (firstResolution(p).ai || 'none') : progressCredit(p);
   const maxTotal = Math.max(...STATUS_ROWS.map(([, f]) => DATA.filter(f).length));
-  $('#a-status-bars').innerHTML = STATUS_ROWS.map(([label, f]) => {
+  $('#a-status-bars').innerHTML = STATUS_ROWS.map(([label, f, rule]) => {
     const ps = DATA.filter(f); if (!ps.length) return '';
     // A still-open problem has not been solved by anyone, so it does not share the colour of work
-    // finished without AI — it gets its own, and the row reads as one flat band.
-    const isOpen = label === 'Still open';
-    const g = ATTR.map(([k, , color]) => ({
-      label: isOpen ? 'Not yet solved' : AI_LABEL[k === 'human' ? 'none' : k === 'with' ? 'assisted' : 'generated'],
-      color: isOpen ? OPEN_C : color,
-      n: ps.filter(p => bandOf(p) === k).length,
-      ps: ps.filter(p => bandOf(p) === k),
-    }));
+    // finished without AI: it gets its own, and the row reads as one flat band.
+    const g = rule === 'open'
+      ? [{ label: 'Not yet solved', color: OPEN_C, n: ps.length, ps }]
+      : KINDS.map(([k, lab, color, hatch]) => ({ label: lab, color, hatch, n: ps.filter(p => kindOf(p, rule) === k).length, ps: ps.filter(p => kindOf(p, rule) === k) }));
     return barRow(label, g, { denom: share ? ps.length : maxTotal, nText: `${ps.length}`, noNames: true });
   }).join('');
-  const LEG = [...ATTR.map(([k, , color]) => [AI_LABEL[k === 'human' ? 'none' : k === 'with' ? 'assisted' : 'generated'], color, DATA.filter(p => p.status !== 'open' && bandOf(p) === k).length]),
-    ['Not yet solved', OPEN_C, DATA.filter(p => p.status === 'open').length]];
-  $('#a-legend').innerHTML = LEG.map(([lab, color, n]) => `<span data-tip="${attr(`<b>${esc(lab)}</b><br>${n} problems`)}"><i style="background:${color}"></i>${esc(lab)}</span>`).join('');
+  const LEG = [...KINDS.map(([k, lab, color, hatch]) => [lab, color, hatch,
+    STATUS_ROWS.filter(([, , r]) => r !== 'open').reduce((s, [, f, r]) => s + DATA.filter(p => f(p) && kindOf(p, r) === k).length, 0)]),
+    ['Not yet solved', OPEN_C, false, DATA.filter(STATUS_ROWS[3][1]).length]];
+  $('#a-legend').innerHTML = LEG.filter(([, , , n]) => n).map(([lab, color, hatch, n]) => `<span data-tip="${attr(`<b>${esc(lab)}</b><br>${n} problems`)}"><i style="background:${hatch ? hatchCSS(color) : color}"></i>${esc(lab)}</span>`).join('');
   attachTip($('#a-status'), $('#tip-a1'));
 
 

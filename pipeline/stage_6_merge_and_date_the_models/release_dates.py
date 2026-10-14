@@ -18,7 +18,7 @@ import argparse, collections, concurrent.futures, json, os, re, subprocess, sys,
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared'))
-import manifest
+import limits, manifest
 ap = argparse.ArgumentParser()
 ap.add_argument('--version', required=True, metavar='NAME',
                 help='the dataset version to work in: data/<NAME>/ — e.g. mark_2026-09-22')
@@ -26,6 +26,8 @@ ap.add_argument('--parallel', type=int, default=4)
 ap.add_argument('--model', default='claude-haiku-4-5-20251001',
                 help='exact model id, never an alias: an alias resolves to a different model over time, and a trial that records one cannot be read back')
 ap.add_argument('--effort', default='low', help='pinned so the run does not inherit the shell')
+ap.add_argument('--subscription', action='store_true',
+                help='bill the Claude Code subscription instead of the API key in .secrets.json')
 ap.add_argument('--only', nargs='+', metavar='MODEL', help='run only these canonical model names')
 ap.add_argument('--check', action='store_true', help='validate and collect, run nothing')
 args = ap.parse_args()
@@ -131,6 +133,20 @@ def models():
 
 
 def environment():
+    """The API key from .secrets.json and nothing inherited, or with --subscription no key at all."""
+    if args.subscription:
+        # As judge.py does: strip every key and refuse if project settings could supply one, so a
+        # run that says it used the subscription cannot have billed the key.
+        env = {k: v for k, v in os.environ.items()
+               if not k.startswith('ANTHROPIC') and not (k.startswith('CLAUDE') and k != 'CLAUDE_CONFIG_DIR')}
+        assert not any('API_KEY' in k or 'AUTH_TOKEN' in k for k in env), 'an API key variable survived'
+        for name in ('settings.json', 'settings.local.json'):
+            path = os.path.join(ROOT, '.claude', name)
+            if os.path.exists(path):
+                s = json.load(open(path))
+                if s.get('apiKeyHelper') or any(k.startswith('ANTHROPIC') for k in (s.get('env') or {})):
+                    sys.exit(f'{os.path.relpath(path, ROOT)} could supply an API key — refusing to run')
+        return env
     env = {k: v for k, v in os.environ.items()
            if not k.startswith('CLAUDE') and not k.startswith('ANTHROPIC')}
     secrets = os.path.join(ROOT, '.secrets.json')
@@ -144,6 +160,7 @@ def environment():
 
 
 STOP = threading.Event()
+LIMITED = {}                                           # model -> the usage-limit message that stopped it
 CHILDREN, LOCK = set(), threading.Lock()
 
 
@@ -151,7 +168,10 @@ def run_one(job):
     m, meta = job
     if STOP.is_set():
         return m, None
-    log = open(os.path.join(LOGS, slug(m) + '.log'), 'w')
+    log_path = os.path.join(LOGS, slug(m) + '.log')
+    log = open(log_path, 'a')                          # appended, so a retry keeps the last failure
+    log.write(f'\n===== attempt started {manifest.now()} =====\n')
+    log.flush()
     proc = subprocess.Popen(['claude', '-p', prompt(m, meta, record(m)),
                              '--append-system-prompt', SYSTEM,
                              '--model', args.model, '--effort', args.effort,
@@ -166,7 +186,11 @@ def run_one(job):
         with LOCK:
             CHILDREN.discard(proc)
         log.close()
-    return m, done(m)
+    ok = done(m)
+    if not ok and (msg := limits.limit_message(log_path)):
+        LIMITED[m] = msg
+        STOP.set()                                     # launch nothing more; it would fail the same way
+    return m, ok
 
 
 def check(all_models):
@@ -225,7 +249,7 @@ if not args.check:
     try:
         for i, (m, ok) in enumerate(pool.map(run_one, [(m, ALL[m]) for m in todo]), 1):
             if ok is not None:
-                print(f'{i:3}/{len(todo)}  {"ok  " if ok else "FAIL"}  {m}', flush=True)
+                print(f'{i:3}/{len(todo)}  {"LIMIT" if m in LIMITED else "ok  " if ok else "FAIL"}  {m}', flush=True)
     except KeyboardInterrupt:
         print('\ninterrupted — rerun the same command to resume')
         STOP.set()
@@ -237,6 +261,9 @@ if not args.check:
         sys.exit(130)
     finally:
         pool.shutdown(wait=True)
+    if LIMITED:
+        print(f'\nstopped at the usage limit ({next(iter(LIMITED.values()))}). '
+              'Rerun the same command after the reset to resume.', flush=True)
 
 if not args.check:
     # What produced these records: the exact model, the prompt's hash, the commit, the counts.
@@ -245,6 +272,8 @@ if not args.check:
                     prompt_path=None,
                     selection=dict(only=args.only),
                     counts=dict(models=len(ALL), ran=len(todo)),
-                    started=STARTED)
+                    started=STARTED,
+                    extra=dict(billing='subscription' if args.subscription else 'api_key',
+                               limited=sorted(LIMITED), limit_message=next(iter(LIMITED.values()), None)))
 
 sys.exit(1 if check(sorted(ALL)) else 0)

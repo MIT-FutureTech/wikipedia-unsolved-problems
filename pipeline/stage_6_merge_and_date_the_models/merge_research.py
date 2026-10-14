@@ -24,6 +24,7 @@ sys.path.insert(0, os.path.join(
 import manifest
 from join_map import BY_NAME
 from model_aliases import MODELS, ALIASES
+from tiers import tier_of
 from wikitext import parse_problem_keys, strip_wiki
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -193,6 +194,40 @@ def month_of(event):
     return date[:7]
 
 
+def events_of(r):
+    """Every event that survives JUDGE.md §3 step 1, with the judge's answers beside it.
+
+    The site's charts each count events their own way (the first resolution, any progress, each
+    credited system), so they need the events themselves rather than one status per problem. This
+    passes them through and decides nothing: the only rule applied is the shared tier definition.
+    Discarded events (variants, instances, the not credible) are left out; they set no chart.
+    """
+    rows = {x.get('id'): x for x in ((r.get('judgement') or {}).get('events') or [])}
+    out = []
+    for ev in r.get('events') or []:
+        row = rows.get(ev.get('id'))
+        if not row or not (tier := tier_of(row)):
+            continue
+        role = row.get('ai_role') or 'none'
+        names = row.get('ai_systems_credited') or [] if role != 'none' else []
+        mc = ev.get('machine_checked')
+        out.append(dict(
+            id=ev.get('id'),
+            date=ev.get('date'), precision=ev.get('precision'),
+            after_snapshot=row.get('after_snapshot'),
+            tier=tier, scope=row.get('scope'), verification=row.get('verification'),
+            credibility=row.get('credibility'),
+            ai=role,
+            ai_systems=names,
+            ai_models=[ALIASES[n.strip()] for n in names if ALIASES.get(n.strip())],
+            direction=row.get('direction'), object_role=row.get('object_role'),
+            lean=bool(isinstance(mc, dict) and mc.get('system')),
+            origin=(ev.get('origin') or {}).get('stage') or 'research',
+            source=next((s.get('url') if isinstance(s, dict) else s for s in ev.get('sources') or []), None),
+        ))
+    return out
+
+
 def finding(r):
     """The record in the shape build.py expects, plus the fields the site shows."""
     ev = r.get('event') or {}
@@ -220,6 +255,7 @@ def finding(r):
                  if (s.get('url') if isinstance(s, dict) else s)],
         no_change_found=bool(r.get('no_change_found')),
         corrections=r.get('corrections') or [],
+        events=events_of(r),
         key=r['key'],
     )
 
@@ -313,7 +349,7 @@ manifest.record(ROOT, VERSION, 'merge', os.path.abspath(__file__),
                             moved=len(moved), unplaced=len(unplaced),
                             unknown_systems=len(unknown_systems),
                             sources=dict(source)),
-                extra=dict(wrote='research.json', revision=args.revision,
+                extra=dict(wrote='research.json', revision=args.revision, records=args.records,
                            preview=bool(allowed), allowed_rejected=allowed), started=STARTED)
 if allowed:
     print(f'\nPREVIEW: {len(allowed)} flagged judged copies were used anyway (--allow-rejected). '
