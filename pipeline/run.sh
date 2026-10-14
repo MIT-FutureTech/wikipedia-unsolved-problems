@@ -15,15 +15,17 @@
 #                                                 index of slugs is written first, into data/<version>/,
 #                                                 because every later stage keys off it
 #   research  stage_2_research_each_problem/      one agent per problem — BILLS AN API KEY unless --subscription
-#   judge     stage_3_judge_the_records/          one agent per record — Claude Code subscription
-#   years     stage_4_date_each_problem/          agents, only for problems the scrape could not
+#   openai    stage_3_check_the_openai_repository/ the openai/math manuscripts, read from a pinned
+#                                                 clone, turned into events beside the research ones
+#   judge     stage_4_judge_the_records/          one agent per record — Claude Code subscription
+#   years     stage_5_date_each_problem/          agents, only for problems the scrape could not
 #                                                 date. OPTIONAL: the merge reads year_scraped.json
 #                                                 directly, so skipping this stage keeps every year
 #                                                 the fetch stage already found for free and loses
 #                                                 only the researched ones.
-#   merge     stage_5_merge_and_date_the_models/  merge, then date the models, then merge again
-#   build     stage_6_build_the_dataset/          the dataset files and the standalone site
-#   publish   stage_7_publish_the_site/           force-pushes a branch; never run by a flag
+#   merge     stage_6_merge_and_date_the_models/  merge, then date the models, then merge again
+#   build     stage_7_build_the_dataset/          the dataset files and the standalone site
+#   publish   stage_8_publish_the_site/           force-pushes a branch; never run by a flag
 #
 # `merge` runs three commands because they are a cycle: release_dates.py reads the model list out
 # of research.json, and merge_research.py reads the dates back in. The first merge tolerates the
@@ -62,7 +64,7 @@ done
 
 usage() {
   echo "usage: pipeline/run.sh --version NAME --stage STAGE [--only KEY...] [--limit N] [-n]" >&2
-  echo "       stages: fetch research judge years merge build" >&2
+  echo "       stages: fetch research openai judge years merge build" >&2
   echo "       --only and --limit apply to: research judge years  (--only also: merge)" >&2
   echo "       --check  re-validates and re-collects without running an agent: research judge years" >&2
   echo "       --sample N [--seed S]  research only: N problems drawn across the whole list" >&2
@@ -96,14 +98,14 @@ case "$STAGE" in
     [ -n "$CHECK" ] && { echo "--check does not apply to the merge stage: merge_research.py has no such mode." >&2
                          echo "to re-collect the release dates without agents, run release_dates.py --check directly" >&2
                          exit 2; } ;;
-  fetch|build)
+  fetch|openai|build)
     [ -n "$SAMPLE" ] && { echo "--sample does not apply to the $STAGE stage" >&2; exit 2; }
     [ -n "$ONLY" ]  && { echo "--only does not apply to the $STAGE stage: it works on the whole list" >&2; exit 2; }
     [ -n "$LIMIT" ] && { echo "--limit does not apply to the $STAGE stage: it works on the whole list" >&2; exit 2; }
     [ -n "$CHECK" ] && { echo "--check does not apply to the $STAGE stage" >&2; exit 2; } ;;
   publish)
     echo "the publish stage force-pushes a branch, so it is not run from here." >&2
-    echo "look at what build produced, then: pipeline/stage_7_publish_the_site/publish.sh [remote]" >&2
+    echo "look at what build produced, then: pipeline/stage_8_publish_the_site/publish.sh [remote]" >&2
     exit 2 ;;
   *) echo "unknown stage: $STAGE" >&2; usage; exit 2 ;;
 esac
@@ -145,25 +147,28 @@ case "$STAGE" in
     run_plain pipeline/stage_1_fetch_the_frozen_list/scrape_years.py --version "$VERSION" ;;
   research)
     run pipeline/stage_2_research_each_problem/deep_dive.py ;;
+  openai)
+    run_plain pipeline/stage_3_check_the_openai_repository/index.py --version "$VERSION" ;;
   judge)
-    run pipeline/stage_3_judge_the_records/judge.py ;;
+    run pipeline/stage_4_judge_the_records/judge.py ;;
   years)
-    run pipeline/stage_4_date_each_problem/year_posed.py ;;
+    run pipeline/stage_5_date_each_problem/year_posed.py ;;
   merge)
-    run_plain pipeline/stage_5_merge_and_date_the_models/merge_research.py --version "$VERSION"
-    run      pipeline/stage_5_merge_and_date_the_models/release_dates.py
-    run_plain pipeline/stage_5_merge_and_date_the_models/merge_research.py --version "$VERSION" ;;
+    run_plain pipeline/stage_6_merge_and_date_the_models/merge_research.py --version "$VERSION"
+    run      pipeline/stage_6_merge_and_date_the_models/release_dates.py
+    run_plain pipeline/stage_6_merge_and_date_the_models/merge_research.py --version "$VERSION" ;;
   build)
-    run_plain pipeline/stage_6_build_the_dataset/build.py --version "$VERSION" ;;
+    run_plain pipeline/stage_7_build_the_dataset/build.py --version "$VERSION" ;;
 esac
 
 case "$STAGE" in
   fetch)    NEXT="research" ;;
-  research) NEXT="judge" ;;
+  research) NEXT="openai, then judge" ;;
+  openai)   NEXT="judge" ;;
   judge)    NEXT="years, then merge" ;;
   years)    NEXT="merge" ;;
   merge)    NEXT="build" ;;
-  build)    NEXT="review data/$VERSION/ and site/, then pipeline/stage_7_publish_the_site/publish.sh" ;;
+  build)    NEXT="review data/$VERSION/ and site/, then pipeline/stage_8_publish_the_site/publish.sh" ;;
 esac
 echo
 echo "$STAGE done. Next: $NEXT"

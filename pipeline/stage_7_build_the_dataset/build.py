@@ -9,7 +9,11 @@ RESEARCH = None      # loaded below, once DATA_DIR is known
 _ap = argparse.ArgumentParser()
 _ap.add_argument('--version', required=True, metavar='NAME',
                  help='the dataset version to work in: data/<NAME>/ — e.g. mark_2026-09-22')
-VERSION = _ap.parse_args().version
+_ap.add_argument('--site-dir', metavar='DIR',
+                 help='write data.js and the page here instead of site/, e.g. to preview a trial '
+                      'without touching the published files; the page sources are still read from site/')
+_args = _ap.parse_args()
+VERSION = _args.version
 STARTED = manifest.now()
 # The agent pass wrote its records 22-24 Sep 2026; the last hand corrections landed 28 Sep. This is
 # the later date, so it is the date every status on the site was last reviewed.
@@ -19,10 +23,10 @@ DATA_DIR = os.path.join(ROOT, 'data', VERSION)
 P = lambda name: os.path.join(DATA_DIR, name)
 
 # The research: one record per problem from pipeline/stage_2_research_each_problem/deep_dive.py, merged and normalised by
-# pipeline/stage_5_merge_and_date_the_models/merge_research.py. Keyed by statement text, with the five Millennium problems keyed by
+# pipeline/stage_6_merge_and_date_the_models/merge_research.py. Keyed by statement text, with the five Millennium problems keyed by
 # build's own record name (see pipeline/shared/join_map.py).
 if not os.path.exists(P('research.json')):
-    raise SystemExit('no research.json — run pipeline/stage_5_merge_and_date_the_models/merge_research.py first')
+    raise SystemExit('no research.json — run pipeline/stage_6_merge_and_date_the_models/merge_research.py first')
 RESEARCH = json.load(open(P('research.json'), encoding='utf-8'))
 S_BY_STATEMENT, S_BY_NAME = RESEARCH['by_statement'], RESEARCH['by_name']
 # Bullets the article uses as headings for the problems beneath them — not problems, and not
@@ -394,7 +398,7 @@ meta = dict(source='Wikipedia, "List of unsolved problems in mathematics"', revi
             n_unsolved=len(PROBLEMS), n_bullets=len(records), n_groupings=len(records) - len(PROBLEMS),
             n_solved=len(solved),
             fields=sorted({r['field'] for r in records}),
-            notes=['year_introduced is not on the Wikipedia list. It was established by a pass of its own: read mechanically off the linked article where the infobox or lead states it (pipeline/stage_1_fetch_the_frozen_list/scrape_years.py, year_source "Wikipedia infobox" or "Wikipedia article lead"), otherwise researched one problem per agent run against the literature (pipeline/stage_4_date_each_problem/year_posed.py, year_source "mathematical literature (sourced)"), with a quote recorded in year_note. A problem whose year no source states carries none. The mechanical read has known false positives where a dating verb sits beside a year that is not the posing year — the Collatz article\'s "Lagarias stated in 2010" dated it to 2010 — so treat "Wikipedia article lead" years as the weakest of the three.',
+            notes=['year_introduced is not on the Wikipedia list. It was established by a pass of its own: read mechanically off the linked article where the infobox or lead states it (pipeline/stage_1_fetch_the_frozen_list/scrape_years.py, year_source "Wikipedia infobox" or "Wikipedia article lead"), otherwise researched one problem per agent run against the literature (pipeline/stage_5_date_each_problem/year_posed.py, year_source "mathematical literature (sourced)"), with a quote recorded in year_note. A problem whose year no source states carries none. The mechanical read has known false positives where a dating verb sits beside a year that is not the posing year — the Collatz article\'s "Lagarias stated in 2010" dated it to 2010 — so treat "Wikipedia article lead" years as the weakest of the three.',
                    'The problem list reflects the 26 Jan 2024 revision; status fields describe what has happened since.',
                    'The page has 467 bullets, ten of which are headings the article uses to group the problems beneath them (Sudoku, Chess, Go, Landau\'s problems, Kaplansky\'s conjectures and five others). They carry is_grouping=true, were never researched, and are excluded from every count: the denominator is 457 problems.',
                    'The six Millennium Prize Problems appear in the page introduction rather than the field lists and were added as records 463–467.',
@@ -425,7 +429,7 @@ for r in records:
     r['ai_system'] = '; '.join(dict.fromkeys(shown_raw(s) for s in r['ai_systems'])) or None
 model_releases = {shown(m): v for m, v in model_releases.items()}
 LAB_OF_MODEL.update({shown(m): LAB_OF_MODEL[m] for m in UNVERSIONED if m in LAB_OF_MODEL})
-meta['notes'].append('ai_model_releases.release is the public release date and preview_date the private preview where there was one; `available` is the earlier of the two and is what predates_availability compares a result against. release_confidence: sourced = a quoted source for that system; tier = a reasoning tier carrying its base model\'s dates; none_exists = an internal build, harness or product line with no release; unresearched = no source found; unversioned = a product or family name that pins down no model (shown as "(unknown version)"), so it carries no date. Dates were researched one system per agent run (pipeline/stage_5_merge_and_date_the_models/release_dates.py); labs come from pipeline/shared/model_aliases.py.')
+meta['notes'].append('ai_model_releases.release is the public release date and preview_date the private preview where there was one; `available` is the earlier of the two and is what predates_availability compares a result against. release_confidence: sourced = a quoted source for that system; tier = a reasoning tier carrying its base model\'s dates; none_exists = an internal build, harness or product line with no release; unresearched = no source found; unversioned = a product or family name that pins down no model (shown as "(unknown version)"), so it carries no date. Dates were researched one system per agent run (pipeline/stage_6_merge_and_date_the_models/release_dates.py); labs come from pipeline/shared/model_aliases.py.')
 meta['notes'].append('predates_availability is true where a problem\'s result appeared before a model credited on it was available to anyone, comparing at the precision the result\'s date carries. predates_models names which ones.')
 
 json.dump(dict(meta=meta, problems=records, solved_since_1995=solved, ai_model_releases=model_releases), open(P('unsolved_problems_db.json'), 'w'), indent=1, ensure_ascii=False)
@@ -507,9 +511,11 @@ print('no month:', miss)
 # site/ holds both the sources (explorer_head.html, explorer_app.js, logo.b64) and what this
 # writes (data.js, unsolved_problems_explorer.html).
 SITE_DIR = os.path.join(ROOT, 'site')
+OUT_SITE = os.path.abspath(_args.site_dir) if _args.site_dir else SITE_DIR
+os.makedirs(OUT_SITE, exist_ok=True)
 compact = lambda o: json.dumps(o, ensure_ascii=False, separators=(',', ':'))
 data_js = 'const ALL_DATA=' + compact(records) + ';\nconst SOLVED=' + compact(solved) + ';\nconst MODEL_RELEASES=' + compact(model_releases) + ';\n'
-open(os.path.join(SITE_DIR, 'data.js'), 'w', encoding='utf-8').write(data_js)
+open(os.path.join(OUT_SITE, 'data.js'), 'w', encoding='utf-8').write(data_js)
 head = open(os.path.join(SITE_DIR, 'explorer_head.html'), encoding='utf-8').read()
 # The page is standalone — no server, no network — so the masthead logo is inlined as a data URI.
 # site/logo.b64 is a web-sized copy of site/logos/MIT FutureTech logo.png, generated once;
@@ -522,8 +528,9 @@ head = head.replace('__STATUS_CHECKED__', f'{_d.day} {_d.strftime("%B")} {_d.yea
 app = open(os.path.join(SITE_DIR, 'explorer_app.js'), encoding='utf-8').read()
 explorer = head + '<script>\n' + data_js + app + '</script>\n'
 standalone = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">\n' + explorer + '</html>\n'
-open(os.path.join(SITE_DIR, 'unsolved_problems_explorer.html'), 'w', encoding='utf-8').write(standalone)
-print('wrote', DATA_DIR, 'site/data.js, site/unsolved_problems_explorer.html')
+open(os.path.join(OUT_SITE, 'unsolved_problems_explorer.html'), 'w', encoding='utf-8').write(standalone)
+site_rel = os.path.relpath(OUT_SITE, ROOT)
+print('wrote', DATA_DIR, f'{site_rel}/data.js, {site_rel}/unsolved_problems_explorer.html')
 
 manifest.record(ROOT, VERSION, 'build', os.path.abspath(__file__),
                 counts=dict(problems=len(records),
@@ -531,5 +538,5 @@ manifest.record(ROOT, VERSION, 'build', os.path.abspath(__file__),
                             with_ai=sum(1 for r in records if r['ai_involvement'] != 'none')),
                 extra=dict(status_checked=STATUS_CHECKED,
                            wrote=['unsolved_problems_db.json', 'unsolved_problems.csv',
-                                  'unsolved_problems.sqlite', 'site/data.js',
-                                  'site/unsolved_problems_explorer.html']), started=STARTED)
+                                  'unsolved_problems.sqlite', f'{site_rel}/data.js',
+                                  f'{site_rel}/unsolved_problems_explorer.html']), started=STARTED)

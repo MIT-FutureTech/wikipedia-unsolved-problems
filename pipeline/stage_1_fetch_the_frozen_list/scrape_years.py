@@ -8,7 +8,7 @@ the two places the encyclopedia states a date plainly:
   lead      "conjectured by Ott-Heinrich Keller in 1939", "posed in 1955", "a 1966 problem of ..."
 
 Nothing is guessed. A problem whose article states no year simply gets no entry, and is left for
-pipeline/stage_4_date_each_problem/year_posed.py to research. Writes data/<VERSION>/year_scraped.json.
+pipeline/stage_5_date_each_problem/year_posed.py to research. Writes data/<VERSION>/year_scraped.json.
 
 Run: python3 pipeline/stage_1_fetch_the_frozen_list/scrape_years.py   (network; ~10 API calls for ~300 titles)
 """

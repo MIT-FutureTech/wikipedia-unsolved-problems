@@ -13,10 +13,10 @@ A problem with no sourced year gets none. The dataset treats a missing year as a
 omits the age charts rather than drawing them over a partial corpus, so a null costs nothing and a
 wrong year costs a reader's trust.
 
-  python3 pipeline/stage_4_date_each_problem/year_posed.py                  # all outstanding, 8 at a time
-  python3 pipeline/stage_4_date_each_problem/year_posed.py --limit 20       # a pilot
-  python3 pipeline/stage_4_date_each_problem/year_posed.py --only kakeya-conjecture
-  python3 pipeline/stage_4_date_each_problem/year_posed.py --check          # validate and collect, run nothing
+  python3 pipeline/stage_5_date_each_problem/year_posed.py                  # all outstanding, 8 at a time
+  python3 pipeline/stage_5_date_each_problem/year_posed.py --limit 20       # a pilot
+  python3 pipeline/stage_5_date_each_problem/year_posed.py --only kakeya-conjecture
+  python3 pipeline/stage_5_date_each_problem/year_posed.py --check          # validate and collect, run nothing
 """
 import argparse, collections, concurrent.futures, json, os, re, subprocess, sys, threading
 

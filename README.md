@@ -36,6 +36,8 @@ the ones after them are worthless until you have read what the one before produc
     pipeline/run.sh --version $V --stage fetch      # network; the slugs, the frozen list,
                                                    # the Jan-2024 titles, the scraped years
     pipeline/run.sh --version $V --stage research   # one agent per problem — BILLS AN API KEY
+                                                   # unless --subscription
+    pipeline/run.sh --version $V --stage openai     # the openai/math manuscripts, as events
     pipeline/run.sh --version $V --stage judge      # one agent per record — subscription
     pipeline/run.sh --version $V --stage years      # agents; optional, and cached once run
     pipeline/run.sh --version $V --stage merge      # merge, date the models, merge again
@@ -61,7 +63,7 @@ prompt's hash, the commit — to `data/<version>/manifests/<stage>.json`.
 ## Publishing
 
     pipeline/run.sh --version $V --stage build
-    pipeline/stage_7_publish_the_site/publish.sh [remote]   # -> gh-pages, as index.html
+    pipeline/stage_8_publish_the_site/publish.sh [remote]   # -> gh-pages, as index.html
 
 ## Layout
 

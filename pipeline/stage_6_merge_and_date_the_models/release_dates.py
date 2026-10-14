@@ -9,9 +9,9 @@ which is a finding about pre-release and internal runs. A date wrong by a month 
 that into an ordinary post-release use, so the prompt refuses an unsourced date and the validator
 drops any record without a quote and a URL.
 
-  python3 pipeline/stage_5_merge_and_date_the_models/release_dates.py               # all outstanding, 4 at a time
-  python3 pipeline/stage_5_merge_and_date_the_models/release_dates.py --only "GPT-6 Astra"
-  python3 pipeline/stage_5_merge_and_date_the_models/release_dates.py --check       # validate and collect, run nothing
+  python3 pipeline/stage_6_merge_and_date_the_models/release_dates.py               # all outstanding, 4 at a time
+  python3 pipeline/stage_6_merge_and_date_the_models/release_dates.py --only "GPT-6 Astra"
+  python3 pipeline/stage_6_merge_and_date_the_models/release_dates.py --check       # validate and collect, run nothing
 """
 import argparse, collections, concurrent.futures, json, os, re, subprocess, sys, threading
 
@@ -123,7 +123,7 @@ def models():
     """The canonical models research.json credits, with their lab, kind and problem count."""
     path = os.path.join(DATA, 'research.json')
     if not os.path.exists(path):
-        sys.exit('no research.json — run pipeline/stage_5_merge_and_date_the_models/merge_research.py first')
+        sys.exit('no research.json — run pipeline/stage_6_merge_and_date_the_models/merge_research.py first')
     r = json.load(open(path, encoding='utf-8'))
     n = collections.Counter(m for v in list(r['by_statement'].values()) + list(r['by_name'].values())
                             for m in v['ai_models'])

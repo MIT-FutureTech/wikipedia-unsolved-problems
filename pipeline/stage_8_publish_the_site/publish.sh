@@ -1,12 +1,12 @@
 #!/bin/sh
 # Rebuild the gh-pages branch from the standalone explorer and push it. The branch holds exactly
 # two files — index.html and .nojekyll — and is rewritten, not appended to, so none of main's
-# history or data/ ever reaches the published repo. Run pipeline/stage_6_build_the_dataset/build.py first.
+# history or data/ ever reaches the published repo. Run pipeline/stage_7_build_the_dataset/build.py first.
 #
-# Usage: pipeline/stage_7_publish_the_site/publish.sh [remote]   (default: origin)
+# Usage: pipeline/stage_8_publish_the_site/publish.sh [remote]   (default: origin)
 # Publishing the site from a public repo while this one stays private means adding a second remote
 # — say `git remote add site git@github.com:<you>/<public-repo>.git` — and running
-# `pipeline/stage_7_publish_the_site/publish.sh site`. Only the two files above are ever sent to it.
+# `pipeline/stage_8_publish_the_site/publish.sh site`. Only the two files above are ever sent to it.
 set -e
 REMOTE=${1:-origin}
 cd "$(dirname "$0")/../.."

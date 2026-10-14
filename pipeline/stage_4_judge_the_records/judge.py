@@ -18,10 +18,10 @@ each call uses the logged-in account (deep_dive.py bills an API key instead).
 codes the *research* pass used to emit. A v2 record has no codes to correct, so there is no
 baseline; recalibrating would need human-written verdicts to score against.
 
-  python3 pipeline/stage_3_judge_the_records/judge.py --version mark_2026-09-22 --limit 5
-  python3 pipeline/stage_3_judge_the_records/judge.py --version mark_2026-09-22 --set events
-  python3 pipeline/stage_3_judge_the_records/judge.py --version mark_2026-09-22 --only tate-conjecture
-  python3 pipeline/stage_3_judge_the_records/judge.py --version mark_2026-09-22 --check          # rebuild copies, run nothing
+  python3 pipeline/stage_4_judge_the_records/judge.py --version mark_2026-09-22 --limit 5
+  python3 pipeline/stage_4_judge_the_records/judge.py --version mark_2026-09-22 --set events
+  python3 pipeline/stage_4_judge_the_records/judge.py --version mark_2026-09-22 --only tate-conjecture
+  python3 pipeline/stage_4_judge_the_records/judge.py --version mark_2026-09-22 --check          # rebuild copies, run nothing
 """
 import argparse, collections, concurrent.futures, copy, datetime, json, os, subprocess, sys, threading
 
@@ -235,7 +235,7 @@ def derive(rows, events):
     if not after:                                        # step 5
         stale = any(t == 'resolved' for i, t in live.items() if placed.get(i) is False)
         return dict(status='open_stale' if stale else 'open', rests_on=None,
-                    ai_role='none', resolution_direction=None, object_role=None,
+                    ai_role='none', ai_from=None, resolution_direction=None, object_role=None,
                     ai_systems_credited=[])
 
     best = max(after.values(), key=TIERS.index)          # step 3
@@ -250,11 +250,13 @@ def derive(rows, events):
     # Step 4: AI counts if any event at the top tier was AI, whichever one step 3 rested on.
     ai_role = max((next(r for r in rows if r.get('id') == i).get('ai_role') or 'none'
                    for i in winners), key=lambda a: AI_STRENGTH.get(a, 0))
-    credited = next((next(r for r in rows if r.get('id') == i).get('ai_systems_credited') or []
-                     for i in winners
-                     if (next(r for r in rows if r.get('id') == i).get('ai_role') or 'none') == ai_role
-                     and ai_role != 'none'), [])
-    return dict(status=best, rests_on=rests_on, ai_role=ai_role,
+    # The AI credit comes from a top-tier event that carries it, which need not be the one the
+    # status rests on; ai_from names it, so its systems and quote are looked up in the right place.
+    ai_from = next((i for i in winners
+                    if (next(r for r in rows if r.get('id') == i).get('ai_role') or 'none') == ai_role
+                    and ai_role != 'none'), None)
+    credited = (next(r for r in rows if r.get('id') == ai_from).get('ai_systems_credited') or []) if ai_from else []
+    return dict(status=best, rests_on=rests_on, ai_role=ai_role, ai_from=ai_from,
                 # step 6: only a settled tier carries a direction
                 resolution_direction=row.get('direction') if best in ('resolved', 'claimed', 'partial') else None,
                 object_role=row.get('object_role'),
@@ -274,9 +276,10 @@ def build(key, original, v):
 
     d = derive(rows, events)
     if v.get('insufficient_evidence'):                   # F16 overrides everything
-        d = dict(status='open', rests_on=None, ai_role='none', resolution_direction=None,
+        d = dict(status='open', rests_on=None, ai_role='none', ai_from=None, resolution_direction=None,
                  object_role=None, ai_systems_credited=[])
     ev = events.get(d['rests_on']) or {}
+    ai_ev = events.get(d['ai_from']) or {}               # where the AI credit came from (step 4)
 
     c['status'] = d['status']
     c['ai_role'] = d['ai_role']
@@ -290,15 +293,16 @@ def build(key, original, v):
     c['event'] = ev or None                              # singular: the shape merge_research.py reads
     c['credited_humans'] = ev.get('people') or []
     c['status_sources'] = ev.get('sources') or []
-    recorded = {sy.get('name'): sy for sy in ((ev.get('ai') or {}).get('systems') or [])}
+    recorded = {sy.get('name'): sy for sy in ((ai_ev.get('ai') or {}).get('systems') or [])}
     credited = [n for n in d['ai_systems_credited']]
     for n in credited:
         if n not in recorded:
-            bad.append(f'{n!r} credited on {d["rests_on"]}, which does not record it')
+            bad.append(f'{n!r} credited on {d["ai_from"]}, which does not record it')
     c['ai'] = {'systems': credited,
+               'from_event': d['ai_from'],               # may differ from rests_on, by step 4
                'basis_quote': next((recorded[n].get('basis_quote') for n in credited if n in recorded), None),
                'none_found': (ev.get('ai') or {}).get('none_found'),
-               'disclosed_cost': (ev.get('ai') or {}).get('disclosed_cost')}
+               'disclosed_cost': (ai_ev.get('ai') or {}).get('disclosed_cost')}
     if d['ai_role'] != 'none' and not c['ai']['basis_quote']:
         bad.append(f'derived ai_role {d["ai_role"]} with no basis_quote behind it')
 

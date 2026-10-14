@@ -15,7 +15,7 @@ Writes data/<VERSION>/research.json:
   models        canonical model -> lab, family, kind, release
   meta          version, counts, and every problem the merge could not place
 
-Run: python3 pipeline/stage_5_merge_and_date_the_models/merge_research.py
+Run: python3 pipeline/stage_6_merge_and_date_the_models/merge_research.py
 """
 import argparse, collections, json, os, re, sys
 
@@ -31,13 +31,17 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--version', required=True, metavar='NAME',
                 help='the dataset version to work in: data/<NAME>/ — e.g. mark_2026-09-22')
 ap.add_argument('--revision', default='2024-01')
+ap.add_argument('--allow-rejected', action='store_true',
+                help='PREVIEW ONLY: use a judged copy the validator flagged, with its derived codes, '
+                     'instead of refusing the merge. Every one is printed and listed in the manifest; '
+                     'never publish a dataset built this way')
 args = ap.parse_args()
 STARTED = manifest.now()
 VERSION = args.version
 
 OUT_DIR = os.path.join(ROOT, 'data', VERSION)
 RECORDS = os.path.join(OUT_DIR, 'deepdive', 'out')
-# The judging pass (pipeline/stage_3_judge_the_records/judge.py) writes corrected copies here. Where one exists it replaces the
+# The judging pass (pipeline/stage_4_judge_the_records/judge.py) writes corrected copies here. Where one exists it replaces the
 # research record, unless a human has since overruled the judge on that record, which the live
 # record says in a correction whose `by` contains OVERRULES.
 JUDGED = os.path.join(OUT_DIR, 'deepdive', 'judged', 'out')
@@ -64,7 +68,10 @@ def load_record(f):
     problems = judged.get('judge_problems', ['not validated'])
     if problems:
         return judged, f'JUDGE REJECTED: {problems[0]}'
-    missing = [k for k in NEEDS if judged.get(k) is None]
+    # JUDGE.md §3 step 6: only a resolution carries a direction. A partial result, a moved bound or
+    # a stale entry has none by design, so its absence there is not a hole.
+    needs = NEEDS if judged.get('status') in ('resolved', 'claimed') else ('status', 'ai_role')
+    missing = [k for k in needs if judged.get(k) is None]
     if missing and judged.get('status') != 'open':
         return judged, f'judged copy has no {missing[0]}'
     return judged, 'judged'
@@ -121,7 +128,7 @@ def release_dates():
 def years_posed():
     """key -> the year-posed finding, or {} if that pass has not run.
 
-    One file, written by pipeline/stage_4_date_each_problem/year_posed.py, holding both sources:
+    One file, written by pipeline/stage_5_date_each_problem/year_posed.py, holding both sources:
     `scrape` where the year was read mechanically off the article by scrape_years.py, `agent` where
     it was researched. That script treats the file as a cache and will not rebuild it without
     --force, so running its stage on an existing trial costs nothing.
@@ -205,7 +212,9 @@ def finding(r):
         note=r.get('summary') or '',
         competing_reading=r.get('competing_reading'),
         confidence=(r.get('judgement') or {}).get('confidence'),   # the judge's; research no longer gives one
-        sources=r.get('status_sources') or [],
+        # The schema has an event's sources as URLs; some records give {"url": …} objects instead.
+        sources=[s.get('url') if isinstance(s, dict) else s for s in r.get('status_sources') or []
+                 if (s.get('url') if isinstance(s, dict) else s)],
         no_change_found=bool(r.get('no_change_found')),
         corrections=r.get('corrections') or [],
         key=r['key'],
@@ -221,12 +230,16 @@ if not os.path.isdir(RECORDS):
     sys.exit(f'no records in {os.path.relpath(RECORDS, ROOT)} — run pipeline/stage_2_research_each_problem/deep_dive.py first')
 
 by_statement, by_name, unplaced, unknown_systems, unusable = {}, {}, [], collections.Counter(), []
-n, source = 0, collections.Counter()
+n, source, allowed = 0, collections.Counter(), []
 for f in sorted(os.listdir(RECORDS)):
     if not f.endswith('.json'):
         continue
     r, src = load_record(f)
     key = r.get('key') or f[:-5]
+    # A flagged copy still has derived codes; --allow-rejected lets a preview use them, loudly.
+    if args.allow_rejected and src.startswith('JUDGE REJECTED') and r.get('status'):
+        allowed.append(f'{key}: {src}')
+        src = 'judged'
     source['judged' if src in ('judged', 'overruled') else 'unusable'] += 1
     if src not in ('judged', 'overruled'):
         unusable.append(f'{key}: {src}')
@@ -252,7 +265,7 @@ if unusable:
         print(f'  … and {len(unusable) - 20} more', file=sys.stderr)
     sys.exit('\nrefusing to write research.json: a problem with no judged codes would be built as '
              '`open`, which the dataset cannot tell apart from a researched `open`. Judge them '
-             '(pipeline/stage_3_judge_the_records/judge.py), or delete the records you are abandoning so the gap is explicit.')
+             '(pipeline/stage_4_judge_the_records/judge.py), or delete the records you are abandoning so the gap is explicit.')
 
 moved = {k: v for d in (by_statement, by_name) for k, v in d.items() if v['status'] != 'open'}
 out = dict(
@@ -297,4 +310,10 @@ manifest.record(ROOT, VERSION, 'merge', os.path.abspath(__file__),
                             moved=len(moved), unplaced=len(unplaced),
                             unknown_systems=len(unknown_systems),
                             sources=dict(source)),
-                extra=dict(wrote='research.json', revision=args.revision), started=STARTED)
+                extra=dict(wrote='research.json', revision=args.revision,
+                           preview=bool(allowed), allowed_rejected=allowed), started=STARTED)
+if allowed:
+    print(f'\nPREVIEW: {len(allowed)} flagged judged copies were used anyway (--allow-rejected). '
+          'Do not publish this build:')
+    for line in allowed:
+        print('  ' + line)
