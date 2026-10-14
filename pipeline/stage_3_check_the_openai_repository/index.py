@@ -23,7 +23,7 @@ Clone once, outside version control (sources/ is gitignored), with its history b
 
   python3 pipeline/stage_3_check_the_openai_repository/index.py --version will-2026-10-10-haiku
 """
-import argparse, json, os, re, subprocess, sys
+import argparse, html, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared'))
@@ -68,8 +68,8 @@ def plain(s):
     """CONTENTS.md prose with the HTML stripped; inline LaTeX is kept as written."""
     s = re.sub(r'<sub>(.*?)</sub>', r'_\1', s)
     s = re.sub(r'<sup>(.*?)</sup>', r'^\1', s)
-    s = re.sub(r'<[^>]+>', '', s).replace('&emsp;', '').replace('&nbsp;', ' ')
-    return re.sub(r'\s+', ' ', s).strip()
+    s = re.sub(r'<[^>]+>', '', s).replace('&emsp;', '')
+    return re.sub(r'\s+', ' ', html.unescape(s)).strip()
 
 
 # ---- when each folder first went public: the earliest commit whose tree contains it
@@ -170,6 +170,7 @@ ai = dict(
     procedure=quote(r'The vast majority of results were obtained [^\n]*?model\.'),
     exceptions=quote(r'Exceptions to this fixed procedure include [^\n]*?\.(?= |\n)'),
     human_edited=quote(r'Additionally, the writeup [^\n]*?readability\.'),
+    compute=quote(r'On average, each result used [^\n]*?model\.'),
     url=f'{REPO_URL}/blob/{COMMIT}/README.md',
 )
 missing = [k for k, v in ai.items() if not v]
