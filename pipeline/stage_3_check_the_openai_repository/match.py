@@ -224,6 +224,10 @@ def run_one(item):
     i, batch = item
     if STOP.is_set():
         return i, None                                  # never started
+    # An incomplete answer from a previous attempt is moved into logs/, so the retry writes a
+    # fresh file instead of tripping over the old one, and the old one is kept to look at.
+    if os.path.exists(answer_path(i)):
+        os.replace(answer_path(i), os.path.join(LOGS, f'batch-{i:03d}.incomplete-{manifest.now()[:19]}.json'))
     log_path = os.path.join(LOGS, f'batch-{i:03d}.log')
     log = open(log_path, 'a')                           # appended, so a retry keeps the last failure
     log.write(f'\n===== attempt started {manifest.now()} =====\n')
