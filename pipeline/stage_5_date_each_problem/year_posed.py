@@ -18,11 +18,11 @@ wrong year costs a reader's trust.
   python3 pipeline/stage_5_date_each_problem/year_posed.py --only kakeya-conjecture
   python3 pipeline/stage_5_date_each_problem/year_posed.py --check          # validate and collect, run nothing
 """
-import argparse, collections, concurrent.futures, json, os, re, subprocess, sys, threading
+import argparse, collections, concurrent.futures, hashlib, json, os, re, subprocess, sys, threading
 
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared'))
-import manifest
+import limits, manifest
 from wikitext import parse_problem_keys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -31,9 +31,12 @@ ap.add_argument('--version', required=True, metavar='NAME',
                 help='the dataset version to work in: data/<NAME>/ — e.g. mark_2026-09-22')
 ap.add_argument('--revision', default='2024-01')
 ap.add_argument('--parallel', type=int, default=8)
-ap.add_argument('--model', default='claude-haiku-4-5-20251001',
-                help='exact model id, never an alias: an alias resolves to a different model over time, and a trial that records one cannot be read back')
-ap.add_argument('--effort', default='low', help='pinned so the run does not inherit the shell')
+ap.add_argument('--model', default='claude-haiku-5-5',
+                help='exact model id, never an alias: an alias resolves to a different model over time, and a trial that records one cannot be read back. '
+                     'Haiku 5.5, not 4.5: 4.5 ignores --effort and does not reason, and a literature year needs judging which paper first asked')
+ap.add_argument('--effort', default='high', help='pinned so the run does not inherit the shell')
+ap.add_argument('--subscription', action='store_true',
+                help='bill the Claude Code subscription instead of the API key in .secrets.json')
 ap.add_argument('--limit', type=int, help='run only the first N outstanding problems')
 ap.add_argument('--only', nargs='+', metavar='KEY')
 ap.add_argument('--check', action='store_true', help='validate and collect, run nothing')
@@ -148,6 +151,20 @@ def scraped():
 
 
 def environment():
+    """The API key from .secrets.json and nothing inherited, or with --subscription no key at all."""
+    if args.subscription:
+        # As judge.py does: strip every key and refuse if project settings could supply one, so a
+        # run that says it used the subscription cannot have billed the key.
+        env = {k: v for k, v in os.environ.items()
+               if not k.startswith('ANTHROPIC') and not (k.startswith('CLAUDE') and k != 'CLAUDE_CONFIG_DIR')}
+        assert not any('API_KEY' in k or 'AUTH_TOKEN' in k for k in env), 'an API key variable survived'
+        for name in ('settings.json', 'settings.local.json'):
+            path = os.path.join(ROOT, '.claude', name)
+            if os.path.exists(path):
+                s = json.load(open(path))
+                if s.get('apiKeyHelper') or any(k.startswith('ANTHROPIC') for k in (s.get('env') or {})):
+                    sys.exit(f'{os.path.relpath(path, ROOT)} could supply an API key — refusing to run')
+        return env
     env = {k: v for k, v in os.environ.items()
            if not k.startswith('CLAUDE') and not k.startswith('ANTHROPIC')}
     secrets = os.path.join(ROOT, '.secrets.json')
@@ -161,13 +178,17 @@ def environment():
 
 
 STOP = threading.Event()
+LIMITED = {}                                          # key -> the usage-limit message that stopped it
 CHILDREN, LOCK = set(), threading.Lock()
 
 
 def run_one(p):
     if STOP.is_set():
         return p['key'], None
-    log = open(os.path.join(LOGS, p['key'] + '.log'), 'w')
+    log_path = os.path.join(LOGS, p['key'] + '.log')
+    log = open(log_path, 'a')                         # appended, so a retry keeps the last failure
+    log.write(f'\n===== attempt started {manifest.now()} =====\n')
+    log.flush()
     proc = subprocess.Popen(['claude', '-p', prompt(p, record(p['key'])),
                              '--append-system-prompt', SYSTEM,
                              '--model', args.model, '--effort', args.effort,
@@ -182,7 +203,11 @@ def run_one(p):
         with LOCK:
             CHILDREN.discard(proc)
         log.close()
-    return p['key'], done(p['key'])
+    ok = done(p['key'])
+    if not ok and (msg := limits.limit_message(log_path)):
+        LIMITED[p['key']] = msg
+        STOP.set()                                    # launch nothing more; it would fail the same way
+    return p['key'], ok
 
 
 def check(keys):
@@ -258,10 +283,33 @@ if not args.check:
     print(f'{len(ALL)} problems; {len(SCRAPED)} already dated from their article; '
           f'{len(todo)} to run now, {args.parallel} at a time, model {args.model}')
     STARTED = manifest.now()
+    failed, skipped = [], []
+
+    def record_run(interrupted=False):
+        # What produced these records: the exact model, the prompt's hash, the commit, the counts.
+        # The prompt lives in this script, not a file, so its hash is taken of the text itself.
+        manifest.record(ROOT, args.version, 'years', os.path.abspath(__file__),
+                        args.model, args.effort, args.parallel,
+                        prompt_path=None,
+                        selection=dict(only=args.only, limit=args.limit, force=args.force),
+                        counts=dict(problems=len(ALL), scraped=len(SCRAPED), ran=len(todo) - len(skipped),
+                                    failed=len(failed), limited=len(LIMITED), not_started=len(skipped)),
+                        started=STARTED,
+                        extra=dict(billing='subscription' if args.subscription else 'api_key',
+                                   prompt_sha256=hashlib.sha256(SYSTEM.encode()).hexdigest()[:16],
+                                   failed=failed, limited=sorted(LIMITED), interrupted=interrupted,
+                                   limit_message=next(iter(LIMITED.values()), None)))
+
     pool = concurrent.futures.ThreadPoolExecutor(args.parallel)
     try:
         for i, (k, ok) in enumerate(pool.map(run_one, [ALL[k] for k in todo]), 1):
-            if ok is not None:
+            if ok is None:
+                skipped.append(k)
+            elif k in LIMITED:
+                print(f'{i:4}/{len(todo)}  LIMIT {k}', flush=True)
+            else:
+                if not ok:
+                    failed.append(k)
                 print(f'{i:4}/{len(todo)}  {"ok  " if ok else "FAIL"}  {k}', flush=True)
     except KeyboardInterrupt:
         print('\ninterrupted — rerun the same command to resume')
@@ -271,17 +319,13 @@ if not args.check:
         for p in procs:
             p.terminate()
         pool.shutdown(wait=True, cancel_futures=True)
+        record_run(interrupted=True)
         sys.exit(130)
     finally:
         pool.shutdown(wait=True)
-
-if not args.check:
-    # What produced these records: the exact model, the prompt's hash, the commit, the counts.
-    manifest.record(ROOT, args.version, 'years', os.path.abspath(__file__),
-                    args.model, args.effort, args.parallel,
-                    prompt_path=None,
-                    selection=dict(only=args.only, limit=args.limit),
-                    counts=dict(problems=len(ALL), scraped=len(SCRAPED), ran=len(todo)),
-                    started=STARTED)
+    if LIMITED:
+        print(f'\nstopped at the usage limit ({next(iter(LIMITED.values()))}). '
+              'Rerun the same command after the reset to resume.', flush=True)
+    record_run()
 
 sys.exit(1 if check(sorted(ALL)) else 0)
