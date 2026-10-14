@@ -17,7 +17,7 @@ Writes data/<VERSION>/research.json:
 
 Run: python3 pipeline/stage_6_merge_and_date_the_models/merge_research.py
 """
-import argparse, collections, json, os, re, sys
+import argparse, collections, datetime, json, os, re, sys
 
 sys.path.insert(0, os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared'))
@@ -124,6 +124,15 @@ def release_dates():
             base = out[r['base_model']]
             r['release'], r['preview_date'] = base['release'], base['preview_date']
             r['inherited_from'] = r['base_model']
+    # TENTATIVE (see TODO.md): OpenAI's internal model has no public release, so it sits nowhere on a
+    # release timeline. It is placed, provisionally, on the day after GPT-6 Astra's release, the
+    # latest model it is described against, and marked `tentative` so no reader takes it as sourced.
+    astra = (out.get('GPT-6 Astra') or {}).get('release')
+    if astra and len(astra) == 10 and not (out.get('OpenAI internal model') or {}).get('release'):
+        day_after = (datetime.date.fromisoformat(astra) + datetime.timedelta(days=1)).isoformat()
+        out.setdefault('OpenAI internal model', {}).update(
+            release=day_after, preview_date=None, release_basis='tentative', release_url=None,
+            tentative_note='no public release; placed provisionally on the day after GPT-6 Astra')
     for r in out.values():
         r['available'] = r.get('preview_date') or r.get('release')
     return out

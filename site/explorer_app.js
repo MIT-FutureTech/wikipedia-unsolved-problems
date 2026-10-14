@@ -68,7 +68,9 @@ const MODEL_ORDER = (() => { const c = {}; DATA.forEach(p => p.ai_models.forEach
 // is read from there rather than guessed. An earlier version pattern-matched the model's name and
 // fell back to 'other', which put every system outside OpenAI/Anthropic/DeepMind — xAI, Together
 // AI, Axiom Math, the university harnesses — into one unlabelled bucket.
-const LAB_OF = (() => { const m = {}; MODEL_ORDER.forEach(mm => m[mm] = (MODEL_RELEASES[mm] || {}).lab || 'unattributed'); return m; })();
+// Every system in MODEL_RELEASES, not only those a problem headlines, since the systems chart now
+// counts credits on any event.
+const LAB_OF = (() => { const m = {}; [...MODEL_ORDER, ...Object.keys(MODEL_RELEASES)].forEach(mm => m[mm] = (MODEL_RELEASES[mm] || {}).lab || 'unattributed'); return m; })();
 // The three frontier labs get their own heading; everything else — one or two systems each, from
 // universities, smaller labs and academic groups — is grouped under Other rather than producing a
 // heading per system. The real lab is still on the record and in MODEL_RELEASES.
@@ -132,7 +134,7 @@ function barRow(label, groups, opts = {}) {
   const segs = groups.filter(g => g.n).map(g => {
     const pct = 100 * g.n / denom;
     const tip = `<b>${label} · ${g.label}</b><br>${g.n} of ${total} (${Math.round(100 * g.n / (total || 1))}%)` + (opts.noNames ? '' : `<br><span style="opacity:.75">${esc(names(g.ps))}</span>`);
-    return `<i style="width:${pct}%;background:${g.hatch ? hatchCSS(g.color) : g.color}" data-tip="${attr(tip)}">${pct >= 11 && g.n > 1 ? `<b>${g.n}</b>` : ''}</i>`;
+    return `<i style="width:${pct}%;background:${g.hatch ? hatchCSS(g.color) : g.color}${g.opacity != null ? `;opacity:${g.opacity}` : ''}" data-tip="${attr(tip)}">${pct >= 11 && g.n > 1 ? `<b>${g.n}</b>` : ''}</i>`;
   }).join('');
   const rowTip = `<b>${label}</b>: ${total}<br>` + groups.filter(g => g.n).map(g => `${g.label}: ${g.n}`).join('<br>');
   return `<div class="brow"${opts.gapAfter ? ' style="margin-bottom:15px"' : ''}><span class="lab" style="width:${opts.labW || 168}px" data-tip="${attr(rowTip)}">${esc(label)}</span><span class="track">${outline}${segs}</span><span class="n" data-tip="${attr(rowTip)}">${opts.nText || total}</span></div>`;
@@ -255,13 +257,17 @@ function releaseChart() {
   // `incident` is left out: a retracted claim is not a contribution, and stacking it on a model's
   // bar would read as work that system did.
   const kinds = AI_ORDER.filter(k => !['none', 'incident'].includes(k)).map(k => ({ key: k, label: AI_LABEL[k], color: AIC[k] }));
-  const withCounts = m => { const ps = DATA.filter(p => p.ai_models.includes(m)); return Object.fromEntries(kinds.map(k => [k.key, ps.filter(p => p.ai_involvement === k.key)])); };
+  // Chart 5 uses the resolution rule of charts 1 and 2: a problem is counted under the systems
+  // credited on the first event that settled it, by that event's AI role. Problems whose first
+  // resolution involved no AI are not on this chart.
+  const aiFirst = DATA.map(p => [p, firstResolution(p)]).filter(([, e]) => e && e.ai !== 'none');
+  const withCounts = m => { const ps = aiFirst.filter(([, e]) => (e.ai_models || []).includes(m));
+    return Object.fromEntries(kinds.map(k => [k.key, ps.filter(([, e]) => e.ai === k.key).map(([p]) => p)])); };
   const total = d => kinds.reduce((s, k) => s + d[k.key].length, 0);
   const all = Object.entries(MODEL_RELEASES).map(([model, v]) => ({ model, ...v, ...withCounts(model) })).filter(d => total(d) > 0);
   // `available` is the private preview where a system had one, otherwise the public release —
   // the same date predates_availability compares a result against, so the chart and the flag agree.
   const items = all.filter(d => d.available).sort((a, b) => a.available.localeCompare(b.available) || a.model.localeCompare(b.model));
-  const undated = all.filter(d => !d.available).sort((a, b) => total(b) - total(a));
   const svg = $('#svg-release');
 
   if (!items.length) { svg.innerHTML = ''; $('#leg-release').innerHTML = ''; $('#release-note').textContent = 'No released model in this corpus is credited on a problem.'; return; }
@@ -333,9 +339,13 @@ function releaseChart() {
 
   // Only two things a reader needs: which systems are missing from the axis, and which date each
   // bar sits on when a system has more than one.
+  // Resolutions the chart cannot place: their first resolution credits no system with a date
+  // (an internal model, an unversioned product name, or an AI the source did not name).
+  const datedModel = m => (MODEL_RELEASES[m] || {}).available;
+  const offChart = aiFirst.filter(([, e]) => !(e.ai_models || []).some(datedModel));
   $('#release-note').innerHTML =
-    `A bar sits at the month a system first became <b>available</b> to the people who used it: the private preview where there was one, otherwise the public release. A problem credited to systems that arrived in different months appears once under each of them, so the bars sum to more than the number of problems.` +
-    (undated.length ? ` ${undated.length} system${undated.length > 1 ? 's are' : ' is'} not on the chart at all, having no release or preview date to place ${undated.length > 1 ? 'them' : 'it'}.` : '');
+    `Each resolution that involved AI is counted under the systems credited on the first event to settle the problem. A bar sits at the month a system first became <b>available</b> to the people who used it: the private preview where there was one, otherwise the public release. A resolution credited to systems that arrived in different months appears once under each of them, so the bars sum to more than the number of problems.` +
+    (offChart.length ? ` <b>${offChart.length} of the ${aiFirst.length}</b> AI resolutions are not on the chart: the systems credited have no public release date (an internal model such as OpenAI's), name no version, or are not named at all.` : '');
   attachTip(svg, $('#tip-a3')); attachTip($('#leg-release'), $('#tip-a3'));
 }
 
@@ -441,16 +451,36 @@ function renderAttribution() {
 
   releaseChart();
 
-  const maxM = Math.max(1, ...MODEL_ORDER.map(modelCount));
-  // `unnamed model` is the placeholder for a credit no source attaches a name to. It is a real
-  // credit and stays in the data and in the Explore filter, but it is not a system, so it gets no
-  // bar here; the note under the chart says how many problems it accounts for.
+  // Chart 6 counts problems, not events: a problem appears under a system if that system is credited
+  // on any of its relevant events. The shading follows the system's own contribution: darker where
+  // it was credited on an event settling the whole problem (resolved or claimed), lighter where its
+  // credits were only partial results or bounds. Within that, the strongest role it had on those
+  // events (generated over assisted).
+  // `unnamed model` is the placeholder for a credit no source attaches a name to: it stays in the
+  // data and the Explore filter, but it is not a system, so it gets no bar here.
   const named = m => m !== 'unnamed model';
-  $('#a-model-bars').innerHTML = LAB_ORDER.filter(l => MODEL_ORDER.some(m => named(m) && GROUP_OF(m) === l)).map(l => {
-    const ms = MODEL_ORDER.filter(m => named(m) && GROUP_OF(m) === l);
-    const labN = DATA.filter(p => p.ai_models.some(m => named(m) && GROUP_OF(m) === l)).length;
+  const WHOLE = e => e.tier === 'resolved' || e.tier === 'claimed';
+  const creditsOf = p => { const out = new Map();             // model -> { resolved, role }
+    sinceSnapshot(p).forEach(e => { if (!e.ai || e.ai === 'none') return;
+      (e.ai_models || []).forEach(m => {
+        const cur = out.get(m), res = WHOLE(e);
+        if (!cur || (res && !cur.resolved)) out.set(m, { resolved: res, role: e.ai });   // a resolution outranks progress
+        else if (res === cur.resolved && e.ai === 'generated') cur.role = 'generated';  // then generated outranks assisted
+      }); });
+    return out; };
+  const credits = DATA.map(p => ({ p, c: creditsOf(p) })).filter(x => x.c.size);
+  const problemsUnder = m => credits.filter(x => x.c.has(m));
+  const ORDER6 = [...new Set(credits.flatMap(x => [...x.c.keys()]))].filter(named)
+    .sort((a, b) => problemsUnder(b).length - problemsUnder(a).length || a.localeCompare(b));
+  const maxM = Math.max(1, ...ORDER6.map(m => problemsUnder(m).length));
+  const SEGS6 = [[true, 'generated'], [true, 'assisted'], [false, 'generated'], [false, 'assisted']];
+  const segsFor = m => SEGS6.map(([res, k]) => { const ps = problemsUnder(m).filter(x => x.c.get(m).resolved === res && x.c.get(m).role === k).map(x => x.p);
+    return { label: `${res ? 'Credited on a resolution' : 'Credited on progress'}, ${AI_LABEL[k]}`, color: AIC[k], opacity: res ? 0.95 : 0.5, n: ps.length, ps }; });
+  $('#a-model-bars').innerHTML = LAB_ORDER.filter(l => ORDER6.some(m => GROUP_OF(m) === l)).map(l => {
+    const ms = ORDER6.filter(m => GROUP_OF(m) === l);
+    const labN = credits.filter(x => [...x.c.keys()].some(m => named(m) && GROUP_OF(m) === l)).length;
     return `<div class="labgroup">${esc(l)} <span class="mono" style="letter-spacing:0;text-transform:none">${labN} problem${labN > 1 ? 's' : ''}</span></div>` +
-      ms.map(m => { const ps = DATA.filter(p => p.ai_models.includes(m)); return barRow(m, aiGroups(ps), { denom: maxM, labW: 150 }); }).join('');
+      ms.map(m => barRow(m, segsFor(m), { denom: maxM, labW: 150 })).join('');
   }).join('');
   attachTip($('#a-models'), $('#tip-a2'));
 
