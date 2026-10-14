@@ -31,6 +31,9 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--version', required=True, metavar='NAME',
                 help='the dataset version to work in: data/<NAME>/ — e.g. mark_2026-09-22')
 ap.add_argument('--revision', default='2024-01')
+ap.add_argument('--records', default='out', metavar='SET',
+                help="which records to merge: 'out' (research, judged/) or 'combined' "
+                     "(research plus the OpenAI stage, judged-combined/)")
 ap.add_argument('--allow-rejected', action='store_true',
                 help='PREVIEW ONLY: use a judged copy the validator flagged, with its derived codes, '
                      'instead of refusing the merge. Every one is printed and listed in the manifest; '
@@ -40,11 +43,11 @@ STARTED = manifest.now()
 VERSION = args.version
 
 OUT_DIR = os.path.join(ROOT, 'data', VERSION)
-RECORDS = os.path.join(OUT_DIR, 'deepdive', 'out')
+RECORDS = os.path.join(OUT_DIR, 'deepdive', args.records)
 # The judging pass (pipeline/stage_4_judge_the_records/judge.py) writes corrected copies here. Where one exists it replaces the
 # research record, unless a human has since overruled the judge on that record, which the live
 # record says in a correction whose `by` contains OVERRULES.
-JUDGED = os.path.join(OUT_DIR, 'deepdive', 'judged', 'out')
+JUDGED = os.path.join(OUT_DIR, 'deepdive', 'judged' if args.records == 'out' else f'judged-{args.records}', 'out')
 
 
 # A research record carries findings and no codes (DEEP_DIVE.md §7), so only the judging pass can

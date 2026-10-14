@@ -65,11 +65,15 @@ ap.add_argument('--effort', default='low', help='pinned so the run does not inhe
 ap.add_argument('--limit', type=int, help='run only the first N outstanding records')
 ap.add_argument('--only', nargs='+', metavar='KEY')
 ap.add_argument('--check', action='store_true', help='rebuild copies from existing verdicts and validate, run nothing')
+ap.add_argument('--records', default='out', metavar='SET',
+                help="which records under deepdive/ to judge: 'out' (the research records, judged into "
+                     "judged/) or 'combined' (research plus the OpenAI stage, judged into judged-combined/)")
 args = ap.parse_args()
 
 RUN = os.path.join(ROOT, 'data', args.version, 'deepdive')
-RECORDS = os.path.join(RUN, 'out')
-BASE = os.path.join(RUN, 'judged-calibration' if args.calibrate else 'judged')
+RECORDS = os.path.join(RUN, args.records)
+BASE = os.path.join(RUN, 'judged-calibration' if args.calibrate
+                    else 'judged' if args.records == 'out' else f'judged-{args.records}')
 if not os.path.isdir(RECORDS):
     sys.exit(f'no records in data/{args.version}/deepdive/out/ — run pipeline/stage_2_research_each_problem/deep_dive.py first, '
              'or check the name against the folders under data/')
@@ -120,7 +124,8 @@ def verdict_path(key):
 
 
 def done(key):
-    """A verdict counts only if it parses and answers every event, so a skipped event is retried."""
+    """A verdict counts only if it parses and answers exactly the record's events: a skipped event
+    is retried, and so is a verdict left over from a record that has since lost an event."""
     p = verdict_path(key)
     if not (os.path.exists(p) and os.path.getsize(p) > 0):
         return False
@@ -129,7 +134,7 @@ def done(key):
     except ValueError:
         return False
     want = {e.get('id') for e in (ORIG.get(key, {}).get('events') or [])}
-    return want <= {e.get('id') for e in (v.get('events') or [])}
+    return want == {e.get('id') for e in (v.get('events') or [])}
 
 
 def prompt(p, r):
