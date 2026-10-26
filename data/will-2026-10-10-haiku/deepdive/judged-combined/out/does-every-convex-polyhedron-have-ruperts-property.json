@@ -1,0 +1,1361 @@
+{
+  "key": "does-every-convex-polyhedron-have-ruperts-property",
+  "nothing_found": false,
+  "outcome": "Answered in the negative in August 2025 (arXiv:2508.18475, v1 25 Aug 2025): Steininger and Yurkevich exhibit the Noperthedron, a point-symmetric convex polyhedron with 90 vertices, and prove it does not have Rupert's property, so not every convex polyhedron has it. This is the only event I found that bears on the universal question since 26 Jan 2024; it has no journal publication in the sources I could reach, rests on a computer-assisted case analysis, and has two Lean formalizations.",
+  "problem_asks": "(a) For every convex polyhedron P in three-dimensional Euclidean space (no restriction on size, face count or symmetry). (b) P has Rupert's property, meaning that a hole can be cut through P so that a copy of P, of the same or larger size, can pass through it (Wikipedia's lead definition; the research papers use a straight hole and identical copies). A 'yes' answer needs (b) for all P. A single convex polyhedron without (b) answers 'no'. Nothing else is asked.",
+  "events": [
+    {
+      "id": "noperthedron-2025",
+      "what_happened": "Jakob Steininger and Sergey Yurkevich posted 'A convex polyhedron without Rupert's property' (arXiv:2508.18475; math.MG, cs.CG, math.CO). They construct the Noperthedron, a point-symmetric convex polyhedron with 90 vertices, 240 edges and 152 faces (150 triangles and two regular pentadecagons, per Quanta and Wikipedia), and prove that it does not have Rupert's property (Theorem 1: 'The Noperthedron does not have Rupert's property'). The 2017 question they answer is attributed in the paper to 'the authors of [4]' (identified as Jerrard, Wetzel and Yuan by the Gosain and Grimmer paper, which quotes it as Conjecture 1.1: every convex polyhedron in R3 is Rupert). The same paper also constructs a polyhedron that is Rupert but not 'locally Rupert' (the Ruperthedron, per a search summary). Press: Quanta (Erica Klarreich, 24 Oct 2025); John Baez's Azimuth blog (28 Aug 2025).",
+      "date": "2025-08-25",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 25 Aug 2025 (arXiv abs: 'Mon, 25 Aug 2025 20:40:00 UTC'); v2 28 Jan 2026 (current; arXiv abs: 'Wed, 28 Jan 2026 18:50:04 UTC'). Differences found: v1 Lemma 33 lacked an assumption; footnote in v2: 'In a first version of this manuscript we were lacking this assumption and we thank David Renshaw for pointing it out.' v2 acknowledgements thank David Renshaw and Jason Reed for formalizing the paper in Lean and for correcting several inaccuracies of the first version; v1 acknowledgements do not mention Lean. Wikipedia's article notes the disproof (lead, 'until late 2025'). Search summaries gave other version dates (30 Jan 2026, 29 Oct 2025); I used the arXiv abstract page.",
+      "delivers": "Refutes the universal claim: exhibits one convex polyhedron (the Noperthedron) with no Rupert passage, i.e. no straight hole through it admits an identical copy of it (the paper's Definition 3 uses rotations and orthogonal projections with no scaling, so the theorem is about identical copies). Restrictions: the Noperthedron is point-symmetric and the paper's Definition 3 is stated for point-symmetric convex polyhedra; the Lean repository's module structure (Rupert/Equivalences) suggests the paper's characterization is shown equivalent to the general IsRupert, which I did not check. Scope note (my reduction, not stated in the paper): Wikipedia's definition allows same-or-larger copies. If a copy nu*P with nu >= 1 passes through a hole in P, then with P centred at an interior point P is contained in nu*P, so P passes through the same hole. So the identical-copy theorem also gives the same-or-larger negative answer.",
+      "remains": "Nothing of the question remains open once this event is accepted: the universal claim is refuted by one polyhedron. Not addressed by this paper: which other convex polyhedra lack the property. Conjectured non-Rupert solids named in Steininger and Yurkevich's 2023 paper (rhombicosidodecahedron, snub dodecahedron, snub cube, per Gosain and Grimmer's quotation of their Conjecture 3.3) are not settled here; a search summary reports the Noperthedron paper says its methods do not settle the rhombicosidodecahedron (I did not verify this in the paper text).",
+      "checked_by": [
+        {
+          "who": "David Renshaw",
+          "qualification": "Author of the Lean 4 package 'rupert' (Reservoir handle dwrensha; the link from handle to this David Renshaw comes from a search summary, not the page). The paper's acknowledgements and footnote name him.",
+          "what_they_did": "Formalized the paper in Lean (per the paper's v2 acknowledgements, with Jason Reed) and identified the missing assumption in Lemma 33 of the first version (paper footnote). This is the one documented case of a human finding a gap in the argument.",
+          "where": "https://arxiv.org/html/2508.18475v2 ; https://reservoir.lean-lang.org/@dwrensha/rupert",
+          "automated": false
+        },
+        {
+          "who": "Jason Reed",
+          "qualification": "Not established by the sources; named in the paper's acknowledgements.",
+          "what_they_did": "Named in v2 acknowledgements as having formalized the paper in Lean and corrected inaccuracies of the first version. The details of his contribution are not in the sources I read.",
+          "where": "https://arxiv.org/html/2508.18475v2",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "13.5 months since v1 (25 Aug 2025) and 8.5 months since v2 (28 Jan 2026), as of 11 Oct 2026. No journal publication found; the arXiv abstract page lists no journal reference. Public reactions found (Baez blog; Quanta quotes from Joseph O'Rourke and Benjamin Grimmer) are reactions, not checks: none of them says they worked through the proof. O'Rourke: 'The natural conjecture has been proved false.' Grimmer describes running his own search on the rhombicosidodecahedron.",
+      "machine_checked": {
+        "system": "Lean 4 (independent formalizations; see events lean-jcreedcmu-noperthedron and lean-dwrensha-rupert). SageMath rational verification of the solution tree (about 30 hours per v1 section 7), with the search tree itself generated by floating-point R code that the paper says is not part of the proof.",
+        "sorry_free": true,
+        "url": "https://github.com/jcreedcmu/Noperthedron"
+      },
+      "directly_checkable": "The vertices are explicit: orbits of three rational points under a 30-element rotation group (v1 section 1). The polyhedron can therefore be written down. The non-Rupert claim cannot be checked by hand: it rests on a solution tree of 585,200 interior nodes and 18,115,245 leaves (17,492,530 closed by the global theorem and 622,715 by the local theorem; v1 section 7). The leaf checks are rational versions of both theorems, run in SageMath.",
+      "doubts": "(1) v1 lacked an assumption in Lemma 33 (footnote in v2, crediting David Renshaw). Fixed in v2 as far as the sources show; I did not compare the v1 and v2 proofs of Lemma 33 myself. (2) The case analysis is computer-generated: the solution tree was generated with floating-point R code, and rigour depends on the rational verification in SageMath and the Lean checks. (3) A later paper still treats the question as open and does not cite this paper: Gosain and Grimmer, arXiv:2509.08190 (v1 9 Sep 2025, about two weeks after v1 of this paper), states Conjecture 1.1 ('every convex polyhedron in R3 is Rupert') and says it 'remains open whether every polyhedron in three dimensions is Rupert'. No text or bibliography mention of the Noperthedron appears in their v1 full text as fetched.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Negative. The problem asks whether every convex polyhedron has the property; this paper exhibits a convex polyhedron that does not. It answers the 'every' in the negative and says nothing about polyhedra other than the Noperthedron.",
+      "object": "The Noperthedron: a point-symmetric convex polyhedron with 90 vertices, 240 edges and 152 faces. Its vertices are explicit (orbits of three rational points under a 30-element rotation group). What it shows: no straight hole through it admits an identical copy of it (Theorem 1). The construction is explicit; the non-existence of passages is shown by a computer-assisted exhaustive case split over the 18,115,245 leaves of a search tree, checked in exact arithmetic (SageMath) and formalized in Lean.",
+      "people": [
+        "Jakob Steininger (Statistics Austria, per Quanta)",
+        "Sergey Yurkevich (A&R TECH, per Quanta)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": "v1 acknowledgements: the second author thanks Matthias Auchmann and A&R TECH 'for financial support as well as some computing resources'. No compute quantity given. (Lean repository README gives run times for checking, not for the paper.)",
+        "sources": [
+          "https://arxiv.org/html/2508.18475v2",
+          "https://arxiv.org/html/2508.18475v1",
+          "https://github.com/jcreedcmu/Noperthedron",
+          "https://www.quantamagazine.org/first-shape-found-that-cant-pass-through-itself-20251024/"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2508.18475",
+          "title": "A convex polyhedron without Rupert's property (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2508.18475v1",
+          "title": "A convex polyhedron without Rupert's property (v1 HTML; first 100,000 characters read in two passes; the final part is truncated in my reads)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2508.18475v2",
+          "title": "A convex polyhedron without Rupert's property (v2 HTML; acknowledgements, Definition 3, Theorem 1, Lemma 33 footnote, sections 5.2 to 7.1 read)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/pdf/2508.18475",
+          "title": "A convex polyhedron without Rupert's property (PDF; returned compressed binary, unreadable)",
+          "type": "preprint",
+          "opened": false
+        },
+        {
+          "url": "https://www.quantamagazine.org/first-shape-found-that-cant-pass-through-itself-20251024/",
+          "title": "First Shape Found That Can't Pass Through Itself (Quanta Magazine, Erica Klarreich, 24 Oct 2025)",
+          "type": "news",
+          "opened": true
+        },
+        {
+          "url": "https://johncarlosbaez.wordpress.com/2025/08/28/a-polyhedron-without-ruperts-property/",
+          "title": "A polyhedron without Ruperts property (Azimuth, John Baez, 28 Aug 2025)",
+          "type": "blog",
+          "opened": true
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Prince_Rupert's_cube",
+          "title": "Prince Rupert's cube (Wikipedia; last edited 29 Sep 2026 per footer)",
+          "type": "encyclopedia",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "lean-jcreedcmu-noperthedron",
+      "what_happened": "Lean 4 repository jcreedcmu/Noperthedron (description: 'The Noperthedron does not have Rupert Property: a proof in Lean4'; README: 'This project formalizes the main result of' arXiv:2508.18475). Latest commit c883154 builds on Lean v4.34.0; Reservoir shows last update 9 Oct 2026; 1,163 commits. Files: NoperthedronIsNotRupert.lean states 'valid_table_implies_exists_not_rupert (vtab : Solution.ValidTable) : ExistsNonRupertPolyhedron' and '#print axioms' shows only propext, Classical.choice, Quot.sound. MainTheorem.lean states ExistsNonRupertPolyhedron (there is a finite vertex set with nonempty-interior convex hull that is not IsRupert) with no hypothesis, and imports the table machinery. ProofOfMainTheoremWithHole.lean takes a ValidTable as an argument. README: the proof 'given existence of a valid solution table'; the table ships as solution_tree_v8.zip (git-lfs); a kernel-only check takes about 70 minutes on 16 cores; a native_decide version about 2.5 minutes; a native executable about 30 seconds. Files I fetched contain no 'sorry' or 'admit' (counted through the fetch tool). The directory listing has no ComputationalStep.lean, so the search-summary claim that the proof depends on sorry through that file is wrong. Not inspected: IsRupert's definition, Checker/ and SolutionTable.lean, and whether MainTheorem supplies the ValidTable from the shipped table.",
+      "date": null,
+      "precision": null,
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Repository with 1,163 commits and multiple toolchain versions; the first public date is not established from the sources. Paper v2 (28 Jan 2026) already credits Lean formalization by Renshaw and Reed, so a Lean formalization existed by that date; whether this repository is that work is not established.",
+      "delivers": "A Lean 4 check of the Noperthedron non-Rupert claim (same object as noperthedron-2025), conditional on a ValidTable input whose existence is the computational step. Restriction: whether the Lean IsRupert definition matches the paper's identical-copy definition was not checked.",
+      "remains": "Nothing of the question beyond the Noperthedron.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": {
+        "system": "Lean 4 (toolchain v4.34.0 per latest commit)",
+        "sorry_free": true,
+        "url": "https://github.com/jcreedcmu/Noperthedron"
+      },
+      "directly_checkable": null,
+      "doubts": "The chain depends on the ValidTable computation: the kernel-only check of the shipped table takes about 70 minutes; the native_decide variant (2.5 minutes) relies on the Lean native compiler, which is part of the trusted base. The author's identity is not established by the sources (handle jcreedcmu only). I did not check that MainTheorem's ValidTable is built from solution_tree_v8.zip in-kernel rather than assumed.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Negative (same as noperthedron-2025): a formal check of the refutation of 'every convex polyhedron has Rupert's property'.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/jcreedcmu/Noperthedron",
+          "https://raw.githubusercontent.com/jcreedcmu/Noperthedron/main/README.md"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://reservoir.lean-lang.org/@jcreedcmu/Noperthedron",
+          "title": "Reservoir: jcreedcmu/Noperthedron",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://github.com/jcreedcmu/Noperthedron",
+          "title": "jcreedcmu/Noperthedron (GitHub)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://github.com/jcreedcmu/Noperthedron/tree/main/Noperthedron",
+          "title": "Noperthedron/ file listing",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/jcreedcmu/Noperthedron/main/README.md",
+          "title": "README.md (raw)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/jcreedcmu/Noperthedron/main/Noperthedron/NoperthedronIsNotRupert.lean",
+          "title": "NoperthedronIsNotRupert.lean (raw)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/jcreedcmu/Noperthedron/main/Noperthedron/ProofOfMainTheoremWithHole.lean",
+          "title": "ProofOfMainTheoremWithHole.lean (raw)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://raw.githubusercontent.com/jcreedcmu/Noperthedron/main/Noperthedron/MainTheorem.lean",
+          "title": "MainTheorem.lean (raw)",
+          "type": "repository",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "lean-dwrensha-rupert",
+      "what_happened": "Lean 4 repository dwrensha/Rupert.lean (Reservoir package 'rupert'; description: 'Formalization of the Rupert Problem for convex polyhedra'; 248 commits). README lists main results: the cube, the tetrahedron, the triakis tetrahedron, and 'Nopert #214' (Rupert/Nopert214.lean). A 'Related Projects' section says a separate Noperthedron project is working to formalize the non-Rupert proof. A search summary calls the project work in progress (not confirmed on the page). Paper v2 credits David Renshaw and Jason Reed with formalizing the paper in Lean. I did not open Nopert214.lean, so I have not established whether it contains the Noperthedron proof or any sorry.",
+      "date": null,
+      "precision": null,
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Not established.",
+      "delivers": "Not established for this question: the Nopert #214 file was not opened.",
+      "remains": "All of it, as far as I checked.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "None found beyond the unopened Nopert #214 file.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not established.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/dwrensha/Rupert.lean"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://github.com/dwrensha/Rupert.lean",
+          "title": "dwrensha/Rupert.lean (GitHub)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://reservoir.lean-lang.org/@dwrensha/rupert",
+          "title": "Reservoir: dwrensha/rupert (search snippet; page not fetched)",
+          "type": "repository",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "zeng-stellated-tetrahedron-2026",
+      "what_happened": "Tony Zeng, 'A stellated tetrahedron that is probably not Rupert' (arXiv:2604.26531; math.MG, cs.CG, math.CO). Proposes searching for the simplest non-Rupert convex polyhedron; defines a convex polyhedron as the convex hull of a finite set of points in convex position. Studies the stellated tetrahedron P11/20 (convex by construction; Figure 3 caption: 'We conjecture this convex polyhedron to not be Rupert'). Reports no Rupert passage for 88% of an encoding of SO(3) x SO(3) under the standard measure, using linear programming (the paper uses an LP solver and the shapely package). States 'Nevertheless, we conjecture that this stellated tetrahedron is not Rupert.' The abstract says the work 'provide[s] numerical evidence'. Cites Steininger and Yurkevich as having 'recently constructed a convex polyhedron which is not Rupert'.",
+      "date": "2026-04-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (arXiv abstract page).",
+      "delivers": "Numerical evidence and a conjecture that one specific convex polyhedron, P11/20, is not Rupert. Not a proof: the paper says it has no local theory and so cannot show the full non-Rupert claim. If established, it would be a second convex polyhedron without the property; it would not change the Noperthedron result.",
+      "remains": "Whether P11/20 has the property is open on this paper's account. The universal question is already answered negatively by the Noperthedron, so this event bears only on the status of P11/20.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5.5 months (as of 11 Oct 2026); no engagement found in my searches",
+      "machine_checked": null,
+      "directly_checkable": "The polyhedron is defined by its vertex set (a stellated tetrahedron as a convex hull); the 88% figure comes from an LP computation over a parametrized family of orientations, not from a closed argument.",
+      "doubts": "The paper calls its result numerical evidence; the title says 'probably'; the 88% figure leaves about 12% of the encoded orientations unaccounted for in the text I read; the paper says it lacks a local theory.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Would cut against the universal claim if established. As written it is a conjecture supported by numerical evidence.",
+      "object": "P11/20, a stellated tetrahedron presented as a convex polyhedron (convex hull of its vertices). The paper claims numerically that for about 88% of an encoded parameter space of orientations there is no Rupert passage; the claim that P11/20 is not Rupert is conjectural.",
+      "people": [
+        "Tony Zeng"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2604.26531"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2604.26531",
+          "title": "A stellated tetrahedron that is probably not Rupert (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2604.26531",
+          "title": "A stellated tetrahedron that is probably not Rupert (HTML)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "oliveira-khovanova-shpilman-lonely-solids-2026",
+      "what_happened": "Ivo Fagundes David de Oliveira, Tanya Khovanova and Yogev Shpilman, 'Lonely Solids' (arXiv; v1 submitted 18 Jun 2026; math.HO; MSC 52A15, 00A08). Two convex solids are friends if each can pass through a suitable hole in the other; a solid is lonely if it has no friends, including itself. Results: a convex solid is lonely iff it has constant width; every non-constant-width convex solid has a simple friend (an arbitrarily long, arbitrarily thin rectangular cuboid); any two such solids are connected by a chain of at most three handshakes. The paper cites the Noperthedron as Rupert-failing ('the noperthedron is not a friend of itself') and the Noperthedron paper as bibliography [5].",
+      "date": "2026-06-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "A characterization of friendship among convex solids. On my reading of the definitions, a constant-width convex solid has no self-friendship and so lacks the Rupert property; the paper does not present constant-width polyhedra, and I did not verify whether any convex polyhedron has constant width. The paper does not address whether every convex polyhedron is Rupert.",
+      "remains": "The universal question for polyhedra is untouched by this paper.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 4 months (as of 11 Oct 2026); I did not run a search specific to this paper's reception",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring. It uses the Noperthedron as a non-self-friendly example and characterizes a different relation. It does not cut the polyhedral question.",
+      "object": null,
+      "people": [
+        "Ivo Fagundes David de Oliveira",
+        "Tanya Khovanova",
+        "Yogev Shpilman"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2606.26135"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2606.26135",
+          "title": "Lonely Solids (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2606.26135",
+          "title": "Lonely Solids (HTML; full text read for AI terms, none found)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "satheeskumar-benoit-nieuwland-2026",
+      "what_happened": "Kavin Satheeskumar and Liam Benoit, 'On Nieuwland Numbers and Polar Duality' (arXiv:2608.14912; math.MG; MSC 52B10). The Nieuwland number of P is the largest nu with nu*P passing through P. Abstract: they reduce passage of P through Q to a feasibility problem over a quadratic constraint set; prove that the Nieuwland number of the octahedron is 3 sqrt(2)/4; and show the Nieuwland number of a convex polytope can be computed by polynomially many semialgebraic optimization problems in a fixed number of variables. Theorem 10 gives a dual-passage condition; Theorem 14 gives equality of the cube and octahedron Nieuwland numbers; Theorem 18 is the polynomial-time algorithm. The bibliography cites the Noperthedron paper as [10] and the 2023 Steininger–Yurkevich Math. Comput. paper as [9].",
+      "date": "2026-08-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (arXiv abstract page).",
+      "delivers": "Nieuwland number of the octahedron = 3 sqrt(2)/4 (equal to the cube's), via a duality argument, plus a polynomial-time algorithm for Nieuwland numbers of convex 3-polytopes. Concerns the largest passing scale, not whether every convex polyhedron has the property (the octahedron is already known to be Rupert).",
+      "remains": "The universal question is untouched.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 2 months (as of 11 Oct 2026); not searched for reception",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring. It settles a passage-scale constant for the octahedron, not the existence question for all convex polyhedra.",
+      "object": null,
+      "people": [
+        "Kavin Satheeskumar",
+        "Liam Benoit"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.14912"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2608.14912",
+          "title": "On Nieuwland Numbers and Polar Duality (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2608.14912",
+          "title": "On Nieuwland Numbers and Polar Duality (HTML; acknowledgements and theorems read)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "steininger-yurkevich-nieuwland-octahedron-2026",
+      "what_happened": "Jakob Steininger and Sergey Yurkevich, 'The Nieuwland number of the Octahedron' (arXiv:2609.10788; math.MG; MSC 52B10, 52A40). Theorem 1: the Nieuwland number of the octahedron is 3 sqrt(2)/4 (approximately 1.06). Also an elementary proof that Rupert's problem for the octahedron has no solution whose outer projection is a hexagon. The introduction says the authors wrote while [SB26] (the Satheeskumar–Benoit paper) appeared on arXiv and that their proof takes a different route without the cube's solution. The introduction uses the convention 'nu(P) > 1 if and only if P has Rupert's property'. AI statement (quoted through the fetch tool, which returned the sentence in three pieces; not checked against the PDF): 'All ideas in this work and its write-up are human; Gemini Flash 3.7 helped generating Figure 1 and the TikZ graphics shown in the second proof of Lemma 3, Claude Fable 5 corrected several typos in the manuscript and pointed out some inaccuracies in its early version.' Acknowledgements also: 'The second author thanks Matthias Auchmann and A&R TECH for the support.'",
+      "date": "2026-09-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, submitted 9 Sep 2026 19:51:31 UTC (arXiv abstract page). A search summary gave 11 Sep 2026; I used the arXiv page.",
+      "delivers": "nu(octahedron) = 3 sqrt(2)/4, and no hexagonal-outer-projection solution for the octahedron's Rupert problem. Convention note: the authors' 'Rupert' is the strict condition nu > 1, unlike the Noperthedron paper's identical-copy definition and Wikipedia's same-or-larger one. Not a bearing on the universal question.",
+      "remains": "The universal question is untouched.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 1 month (as of 11 Oct 2026); not searched for reception",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring. It fixes a passage-scale constant for the octahedron, which is already known to be Rupert.",
+      "object": null,
+      "people": [
+        "Jakob Steininger",
+        "Sergey Yurkevich"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.10788"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.10788",
+          "title": "The Nieuwland number of the Octahedron (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2609.10788",
+          "title": "The Nieuwland number of the Octahedron (HTML; acknowledgements and AI statement read through the fetch tool)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "gosain-grimmer-2025",
+      "what_happened": "Raj Gosain and Benjamin Grimmer, 'Some New Insights from Highly Optimized Polyhedral Passages' (arXiv:2509.08190; math.OC, math.MG; v1 only, 9 Sep 2025). Custom subgradient method for numerical optimization of passage quality for a given polyhedron; improves best-known passages for more than half of the Platonic, Archimedean and Catalan solids and numerous Johnson solids; three Archimedean and two Catalan solids remain open. Abstract: 'It remains open whether every polyhedron in three dimensions is Rupert'; results give 'further negative evidence against the conjecture that all polyhedrons are Rupert'. The full text states Conjecture 1.1 (from Jerrard et al.): 'Every convex polyhedron in R3 is Rupert.' The full text does not cite or mention the Noperthedron (checked on the v1 HTML).",
+      "date": "2025-09-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "Numerical improvements to passage quality for known Rupert solids. It does not establish or refute the universal claim.",
+      "remains": "The universal claim, which the paper treats as open.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 13 months (as of 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A later paper (posted about two weeks after v1 of the Noperthedron paper) describes the question as open and does not cite the Noperthedron. I did not check later versions of this paper.",
+      "later_work_cites_it": false,
+      "withdrawn": null,
+      "direction": "Neutral on the question: it reports numerical evidence against the conjecture and treats the question as open.",
+      "object": null,
+      "people": [
+        "Raj Gosain",
+        "Benjamin Grimmer"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2509.08190v1"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2509.08190",
+          "title": "Some New Insights from Highly Optimized Polyhedral Passages (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2509.08190v1",
+          "title": "Some New Insights from Highly Optimized Polyhedral Passages (HTML; full text read for citations and AI terms)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "murphy-snub-cube-video-2025",
+      "what_happened": "Tom Murphy VII, YouTube video 'Rupert's Snub Cube and other Math Holes' (16 Sep 2025, as cited by Wikipedia's article on Murphy). I did not open the video. Wikipedia reports that Murphy's computer searches for a Rupert passage through the snub cube failed and that he then worked on a proof that the snub cube has the 'nopert' property. No completed proof of that was found in the sources I could open. Murphy coined 'nopert'. Quanta reports he constructed hundreds of millions of shapes.",
+      "date": "2025-09-16",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Not established. Content not opened. The only snub-cube claim I could find is a reported failed search and an unfinished proof attempt.",
+      "remains": "The snub cube's status for this question, as far as I can establish.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Only the Wikipedia description is available. No claimed proof I could open.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown (unopened).",
+      "object": null,
+      "people": [
+        "Tom Murphy VII"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Tom_Murphy_VII",
+          "title": "Tom Murphy VII (Wikipedia; cites the 16 Sep 2025 video)",
+          "type": "encyclopedia",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "jerrard-wetzel-yuan-2017",
+      "what_happened": "Richard Jerrard, John Wetzel and Liping Yuan, 'Platonic passages', Mathematics Magazine 90(2):87–98 (2017), per a search snippet (MAA page returned 429; not opened). Per search snippets, extends Rupert passages to the dodecahedron and icosahedron, with Scriba (1968) having handled the tetrahedron and octahedron. The full text of Gosain and Grimmer attributes Conjecture 1.1 ('every convex polyhedron in R3 is Rupert') to Jerrard et al. Scott's 2022 paper calls the universal statement an open conjecture.",
+      "date": "2017",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "A 2007 conference abstract with the same title is listed by a search snippet.",
+      "delivers": "Positive instances only: the five Platonic solids are Rupert (cube by Wallis, tetrahedron and octahedron by Scriba, dodecahedron and icosahedron here, per snippets). Poses the universal conjecture (a search snippet says 'hesitantly').",
+      "remains": "The universal claim.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Posed the conjecture that the answer is yes. Only positive instances.",
+      "object": null,
+      "people": [
+        "Richard Jerrard",
+        "John Wetzel",
+        "Liping Yuan"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2509.08190v1"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/html/2509.08190v1",
+          "title": "Gosain & Grimmer (HTML; attributes Conjecture 1.1 to Jerrard et al.)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://www.maa.org/node/859580",
+          "title": "MAA item for 'Platonic passages' (HTTP 429; not opened)",
+          "type": "journal",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "scriba-1968",
+      "what_happened": "Christoph Scriba (1968) proved that the tetrahedron and octahedron have the Rupert property, per Quanta (search snippet) and Fredriksson's and Jerrard's accounts as reported in search snippets. Not opened.",
+      "date": "1968",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Two Platonic solids are Rupert. Positive instances only.",
+      "remains": "The universal claim.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Positive instances only.",
+      "object": null,
+      "people": [
+        "Christoph Scriba"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        {
+          "url": "https://www.quantamagazine.org/first-shape-found-that-cant-pass-through-itself-20251024/",
+          "title": "Quanta (mentions Scriba 1968 in a search snippet; the fetched article did not confirm it)",
+          "type": "news",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "scott-2022",
+      "what_happened": "Evan Scott, 'Two Sufficient Conditions for a Polyhedron to be (Locally) Rupert' (arXiv:2208.12912; math.MG, math.GT; v1 27 Aug 2022 only). Gives two sufficient conditions for a polyhedron to be Rupert, based on local passages, and explicitly aims at 'an open conjecture that every convex polyhedron is Rupert'. Proves the property only for polyhedra meeting the conditions.",
+      "date": "2022-08-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only.",
+      "delivers": "Sufficient conditions for (local) Rupertness; a class of polyhedra, not all convex polyhedra. Named classes not given in the abstract.",
+      "remains": "The universal claim.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive, for a class only.",
+      "object": null,
+      "people": [
+        "Evan Scott"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2208.12912"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2208.12912",
+          "title": "Two Sufficient Conditions for a Polyhedron to be (Locally) Rupert (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "fredriksson-2022",
+      "what_happened": "Albin Fredriksson, 'Optimizing for the Rupert property' (arXiv:2210.00601; math.OC, math.CO, math.MG; v1 2 Oct 2022, v2 6 Oct 2023). Nonlinear optimization validates previously known Rupert results (5 Platonic, 10 of 13 Archimedean, 9 of 13 Catalan, 82 of 92 Johnson solids) and shows 2 additional Catalan solids (triakis tetrahedron, pentagonal icositetrahedron) and 5 additional Johnson solids are Rupert.",
+      "date": "2022-10-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 6 Oct 2023.",
+      "delivers": "Positive instances for listed solid families only. The paper does not address all convex polyhedra.",
+      "remains": "The universal claim.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive, for named families only.",
+      "object": null,
+      "people": [
+        "Albin Fredriksson"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2210.00601"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2210.00601",
+          "title": "Optimizing for the Rupert property (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "steininger-yurkevich-algorithmic-2023",
+      "what_happened": "Jakob Steininger and Sergey Yurkevich, 'An algorithmic approach to Rupert's problem', Mathematics of Computation 92(342), pp. 1905–1929 (journal year 2023 per the AMS listing snippet; the AMS page returned 403 and was not opened; Gosain and Grimmer's bibliography dates it 2021). Per the AMS snippet: Rupert's problem is algorithmically decidable for polyhedra with algebraic coordinates; a probabilistic algorithm efficiently proves a polyhedron Rupert; confirms the property for known Platonic and Archimedean solids and proves it for one more Archimedean solid; improves almost all known Nieuwland numbers; conjectures from statistical evidence that the rhombicosidodecahedron is not Rupert. Per the full text of Gosain and Grimmer (quoting Steininger and Yurkevich): the randomized computer search proved the truncated icosidodecahedron Rupert; the technique resolved 9 of 13 Catalan solids; Conjecture 3.3: the rhombicosidodecahedron, snub dodecahedron and snub cube are not Rupert. (A search summary says the extra Archimedean solid is the icosidodecahedron; the full-text quotation says truncated icosidodecahedron; I did not resolve the conflict.)",
+      "date": "2021",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Journal year 2023 (AMS snippet); preprint date and arXiv identifier not established. A search summary gave arXiv:2103.01808, but that ID resolves to an unrelated paper (quantum synchronization by Buca, Booker and Jaksch), so I discarded it.",
+      "delivers": "Positive instances and decidability for algebraic-coordinate polyhedra. Conjectures non-Rupertness for three Archimedean solids (rhombicosidodecahedron, snub dodecahedron, snub cube) without proof. Does not decide the universal claim.",
+      "remains": "The universal claim; the three conjectured non-Rupert solids remain conjectural in this source.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Positive instances and an algorithm; conjectures non-Rupertness of three Archimedean solids.",
+      "object": null,
+      "people": [
+        "Jakob Steininger",
+        "Sergey Yurkevich"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2509.08190v1"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.ams.org/journals/mcom/2023-92-342/S0025-5718-2023-03831-5",
+          "title": "An algorithmic approach to Rupert's problem (AMS page; HTTP 403, not opened; abstract from search snippet)",
+          "type": "journal",
+          "opened": false
+        },
+        {
+          "url": "https://arxiv.org/html/2509.08190v1",
+          "title": "Gosain & Grimmer (HTML; quotes Steininger–Yurkevich results and Conjecture 3.3)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    }
+  ],
+  "disputes": [],
+  "summary": "The question was answered negatively in August 2025. Steininger and Yurkevich (arXiv:2508.18475, v1 25 Aug 2025, v2 28 Jan 2026) construct the Noperthedron, a point-symmetric convex polyhedron with 90 vertices, and prove that it does not have Rupert's property (Theorem 1). Wikipedia's lead and Quanta (24 Oct 2025) report the same, and the Wikipedia article was revised 29 Sep 2026. The result is inside the window and is the only event I found that bears on the universal claim. Its support is computational: a solution tree of 18,115,245 leaves, generated in floating-point R and checked in exact arithmetic in SageMath (about 30 hours). Two Lean 4 projects formalize it (jcreedcmu/Noperthedron, whose files I read contain no sorry and whose main theorem depends on a ValidTable input that the README says is checked from a shipped table; and dwrensha/Rupert.lean, whose Nopert #214 file I did not open). Human engagement is thin: the only documented gap was in v1 Lemma 33, found by David Renshaw and fixed in v2, which acknowledges Renshaw and Jason Reed for the Lean formalization. Quanta and Baez report the result and quote reactions but do not say anyone checked the proof. I found no journal publication. The AI search (OpenAI, DeepMind, Anthropic, Gemini, Claude, AlphaEvolve and tracker queries) found no AI involvement in this result: the paper's acknowledgements name no system, and neither Lean repository mentions AI. The only AI statement among the related papers is in the Steininger–Yurkevich octahedron paper (9 Sep 2026). It credits Gemini Flash 3.7 with help on Figure 1 and TikZ graphics, and Claude Fable 5 with fixing typos and pointing out inaccuracies in an early version, and says 'All ideas in this work and its write-up are human'. I did not put these in ai.systems because the involvement stopped at figures and proofreading, and the paper concerns the octahedron's Nieuwland number, not this question. Other events: Zeng (29 Apr 2026) gives numerical evidence and a conjecture that the stellated tetrahedron P11/20 is not Rupert, with no proof; Gosain and Grimmer (9 Sep 2025) still describe the question as open and do not cite the Noperthedron; Lonely Solids (18 Jun 2026) and Satheeskumar–Benoit (14 Aug 2026) cite the Noperthedron. Satheeskumar–Benoit prove the octahedron's Nieuwland number is 3 sqrt(2)/4 and the octahedron paper proves the same; these concern passage scale for a polyhedron already known to be Rupert. Scope: the paper's Definition 3 uses identical copies and no scaling, while Wikipedia says 'same or larger'. My reduction is that a larger passing copy yields an identical passage through the same hole when the copy is centred on an interior point, so the identical-copy theorem also gives the negative answer for Wikipedia's definition. The paper states Definition 3 only for point-symmetric polyhedra, which the Noperthedron is. The 2023 Steininger–Yurkevich paper and the 2017 Jerrard–Wetzel–Yuan source are reached through snippets or the citing paper's text; I did not open them. A Murphy lead about a 'nopert' snub cube is unverified; I found no completed proof.",
+  "competing_reading": "A strict standard of 'settled' would count this as claimed rather than settled. The argument is computer-assisted, has one revised gap (v1 Lemma 33), has no journal publication, and its formal checks are partial (I did not inspect IsRupert, the table module, or Nopert #214). Against that: the formal checks, the revision history and the rational SageMath verification together make a refutation by a single explicit polyhedron hard to dispute. On scope, a reader using the strict-increase convention of the Nieuwland papers (nu > 1) would still get a negative answer, because the absence of identical passages implies the absence of larger ones.",
+  "what_would_settle_it": "(1) A journal publication, or a written human verification of the 18-million-leaf case analysis. (2) Confirmation that the Lean IsRupert definition matches the paper's identical-copy definition, and that MainTheorem builds its ValidTable in-kernel from the shipped table. (3) The Nopert #214 file in dwrensha/Rupert.lean, checked for sorry. (4) The full v2 text, sections 8 and 9 and the bibliography, which I did not reach. (5) Whether the rhombicosidodecahedron, snub dodecahedron or snub cube are settled later, which would matter only for further counterexamples.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2508.18475",
+      "title": "A convex polyhedron without Rupert's property (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2508.18475v1",
+      "title": "A convex polyhedron without Rupert's property (v1 HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2508.18475v2",
+      "title": "A convex polyhedron without Rupert's property (v2 HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2508.18475",
+      "title": "A convex polyhedron without Rupert's property (PDF; binary, unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.quantamagazine.org/first-shape-found-that-cant-pass-through-itself-20251024/",
+      "title": "First Shape Found That Can't Pass Through Itself (Quanta Magazine, 24 Oct 2025)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://johncarlosbaez.wordpress.com/2025/08/28/a-polyhedron-without-ruperts-property/",
+      "title": "A polyhedron without Ruperts property (Azimuth, 28 Aug 2025)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Prince_Rupert's_cube",
+      "title": "Prince Rupert's cube (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Tom_Murphy_VII",
+      "title": "Tom Murphy VII (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/jcreedcmu/Noperthedron",
+      "title": "jcreedcmu/Noperthedron (GitHub)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jcreedcmu/Noperthedron/main/README.md",
+      "title": "jcreedcmu/Noperthedron README (raw)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/jcreedcmu/Noperthedron/tree/main/Noperthedron",
+      "title": "jcreedcmu/Noperthedron Noperthedron/ listing",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jcreedcmu/Noperthedron/main/Noperthedron/NoperthedronIsNotRupert.lean",
+      "title": "NoperthedronIsNotRupert.lean (raw)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jcreedcmu/Noperthedron/main/Noperthedron/ProofOfMainTheoremWithHole.lean",
+      "title": "ProofOfMainTheoremWithHole.lean (raw)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/jcreedcmu/Noperthedron/main/Noperthedron/MainTheorem.lean",
+      "title": "MainTheorem.lean (raw)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://reservoir.lean-lang.org/@jcreedcmu/Noperthedron",
+      "title": "Reservoir: jcreedcmu/Noperthedron",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://reservoir.lean-lang.org/@dwrensha/rupert",
+      "title": "Reservoir: dwrensha/rupert (search snippet only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/dwrensha/Rupert.lean",
+      "title": "dwrensha/Rupert.lean (GitHub)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/Jakob256/Rupert",
+      "title": "Jakob256/Rupert (authors' code repository; README read, no code files)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.26531",
+      "title": "A stellated tetrahedron that is probably not Rupert (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2604.26531",
+      "title": "A stellated tetrahedron that is probably not Rupert (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.26135",
+      "title": "Lonely Solids (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2606.26135",
+      "title": "Lonely Solids (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.14912",
+      "title": "On Nieuwland Numbers and Polar Duality (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.14912",
+      "title": "On Nieuwland Numbers and Polar Duality (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.10788",
+      "title": "The Nieuwland number of the Octahedron (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.10788",
+      "title": "The Nieuwland number of the Octahedron (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.08190",
+      "title": "Some New Insights from Highly Optimized Polyhedral Passages (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2509.08190v1",
+      "title": "Some New Insights from Highly Optimized Polyhedral Passages (HTML v1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2208.12912",
+      "title": "Two Sufficient Conditions for a Polyhedron to be (Locally) Rupert (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2210.00601",
+      "title": "Optimizing for the Rupert property (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.ams.org/journals/mcom/2023-92-342/S0025-5718-2023-03831-5",
+      "title": "An algorithmic approach to Rupert's problem (AMS; HTTP 403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.maa.org/node/859580",
+      "title": "Platonic passages (MAA; HTTP 429)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.themoonlight.io/review/a-convex-polyhedron-without-ruperts-property",
+      "title": "The Moonlight: AI-generated literature review of the Noperthedron paper (HTTP 429; not opened; described by search snippets only)",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.01808",
+      "title": "Wrong ID from a search summary: resolves to 'Algebraic Theory of Quantum Synchronization and Limit Cycles under Dissipation' (not the Rupert paper)",
+      "type": "preprint",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "Rupert property convex polyhedra every convex polyhedron Rupert's property 2025",
+      "Rupert's problem Steininger Yurkevich proof every convex polyhedron",
+      "Prince Rupert's cube problem Nieuwland constant new result 2026",
+      "Noperthedron Rupert property Steininger Yurkevich",
+      "Rupert problem AI language model proof convex polyhedron GPT Claude Gemini",
+      "Noperthedron AI-assisted proof LLM",
+      "Rupert property AlphaEvolve OR \"AI\" polyhedron passage hole Rupert new result",
+      "Noperthedron",
+      "Rupert's problem Lean formalization dwrensha rupert sorry",
+      "\"Rupert but not locally Rupert\" polyhedron",
+      "Steininger Yurkevich Rupert 2026",
+      "Rupert property polyhedron arXiv 2026 new results passage",
+      "\"Ruperthedron\"",
+      "Nopert SIGBOVIK 2025 Tom Murphy Rupert",
+      "Jerrard Wetzel Yuan Platonic passages Rupert 2017 conjecture convex polyhedra",
+      "An algorithmic approach to Rupert's problem Steininger Yurkevich arXiv",
+      "Rupert's problem Quanta Magazine polyhedron pass through itself",
+      "Renshaw Reed Lean formalization Noperthedron Rupert",
+      "\"Claude Fable 5\" mathematics proof acknowledgement typos",
+      "\"Gemini Flash 3.7\" mathematics figure TikZ paper",
+      "Rupert polyhedron passage large language model discovered AI mathematics",
+      "Noperthedron verification independent check computer proof doubt",
+      "Rupert property open problem 2026 rhombicosidodecahedron icosidodecahedron status",
+      "Nieuwland number octahedron Steininger Yurkevich AI acknowledgement Quanta",
+      "David Renshaw Lean 4 formalization Rupert polyhedron",
+      "Tony Zeng stellated tetrahedron Rupert arXiv",
+      "Terence Tao Rupert property polyhedron blog",
+      "Sergey Yurkevich A&R TECH mathematician polyhedron",
+      "Noperthedron Wikipedia Prince Rupert's cube article 2025 convex polyhedron not Rupert",
+      "Rupert property convex polyhedron conjecture disproved Matroid Union OR Mathstodon OR blog 2025",
+      "\"Rupert\" polyhedron \"Nieuwland\" 2026 arXiv new bound passage",
+      "Noperthedron OpenAI DeepMind Anthropic announcement polyhedron Rupert",
+      "AI mathematics results tracker Rupert property convex polyhedron",
+      "snub cube not Rupert nopert proof Tom Murphy VII"
+    ],
+    "places_checked": [
+      "arXiv: 2508.18475 (abstract page, v1 and v2 HTML, PDF unreadable); 2509.08190; 2604.26531; 2606.26135; 2608.14912; 2609.10788; 2208.12912; 2210.00601; 2103.01808 (wrong ID, resolved to an unrelated paper)",
+      "Quanta Magazine article (24 Oct 2025)",
+      "John Baez's Azimuth blog (28 Aug 2025)",
+      "Wikipedia: Prince Rupert's cube; Tom Murphy VII",
+      "GitHub: jcreedcmu/Noperthedron (README, Noperthedron/ listing, MainTheorem.lean, NoperthedronIsNotRupert.lean, ProofOfMainTheoremWithHole.lean); dwrensha/Rupert.lean; Jakob256/Rupert",
+      "Lean Reservoir: jcreedcmu/Noperthedron; dwrensha/rupert (search snippet only)",
+      "AMS (Math. Comput. 2023) page: 403; MAA 'Platonic passages' page: 429; The Moonlight review page: 429",
+      "AI lab and tracker searches: OpenAI, Google DeepMind, Anthropic, AlphaEvolve, Gemini and Claude model names, AI results trackers; no AI involvement found in the Noperthedron result"
+    ],
+    "dead_ends": [
+      "AMS page for the 2023 Steininger–Yurkevich paper returned 403; abstract taken from a search snippet.",
+      "MAA page for Jerrard–Wetzel–Yuan returned 429; attribution taken from search snippets and from Gosain & Grimmer's text.",
+      "The Moonlight review pages returned 429 (twice); not used as evidence.",
+      "arXiv 2103.01808, given as the 2021 Steininger–Yurkevich preprint by a search summary, resolves to an unrelated quantum-synchronization paper.",
+      "arXiv PDF of 2508.18475 returned compressed binary; only the HTML versions were usable.",
+      "A search summary said the Noperthedron Lean proof depends on sorry through ComputationalStep.lean; the file does not exist in the repository listing (raw URL returned 404), and the files that exist contain no sorry.",
+      "Search for Renshaw and Reed returned unrelated people; Reed's identity and qualification were not found.",
+      "Search for 'Ruperthedron' returned unrelated pharmacology results; the name appears only in a search summary of the paper, not in the text I read.",
+      "Searches for Terence Tao and the Matroid Union turned up no post on this result.",
+      "Search for Sergey Yurkevich's affiliation returned a LinkedIn profile that I could not link to the paper's author.",
+      "Gemini Flash 3.7 TikZ search found only model specification pages, no paper using the model for figures.",
+      "Claude Fable 5 search surfaced press reports of an AI-credited counterexample to the Jacobian conjecture. That is a different Wikipedia problem and is not researched here.",
+      "The Murphy YouTube video (16 Sep 2025) and the 'ldct/Noperthedron' repository (search snippet, last push 17 Feb 2026) were not opened.",
+      "Press (Scientific American, Mancunion, Earth.com, feedbagel, Intellectually Curious podcast, a Russian and a Polish news item) was not used; the Intellectually Curious episode is AI-generated per its own description.",
+      "Search summaries gave conflicting dates for arXiv v2 (30 Jan 2026 and 29 Oct 2025); I used the arXiv abstract page (28 Jan 2026) and did not use the other two."
+    ]
+  },
+  "incomplete": "(1) Full v2 text beyond section 7.1 (sections 8 and 9, the Open Problems section and the bibliography) was not reached: the fetch tool returned headings only for the last part. v1 was read only as far as section 7. (2) The main paper's PDF was unreadable, so the scope reduction for Wikipedia's same-or-larger definition is my own argument, not the paper's. (3) Lean: the IsRupert definition, the Checker and SolutionTable modules, and whether MainTheorem builds the ValidTable in-kernel from solution_tree_v8.zip were not inspected. The sorry count is from the fetch tool's reading of three files, not a build. (4) dwrensha/Rupert.lean's Nopert #214 file was not opened. (5) The 2023 Steininger–Yurkevich paper (AMS) and the 2017 Jerrard–Wetzel–Yuan paper (MAA) were not opened; the 2021 date for the preprint is inferred from the Gosain & Grimmer bibliography and is not established. (6) The Murphy video and the 'nopert' snub cube claim were not opened; no completed proof was found. (7) The Moonlight review was not read. (8) The stellated tetrahedron paper's full computational sections and the rhombicosidodecahedron conjecture status in the Noperthedron paper were not verified against the paper text. (9) Receptions of the 2026 neighbouring papers (Lonely Solids, Satheeskumar–Benoit, the octahedron paper) were not searched specifically. (10) AI sentence in the octahedron paper was reassembled from the fetch tool's three-part quotation; it was not checked against the PDF.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "resolved",
+  "ai_role": "none",
+  "resolution_direction": "refuted",
+  "object_role": "counterexample",
+  "counterexample": {
+    "is_counterexample": true
+  },
+  "rests_on": "noperthedron-2025",
+  "no_change_found": false,
+  "event": {
+    "id": "noperthedron-2025",
+    "what_happened": "Jakob Steininger and Sergey Yurkevich posted 'A convex polyhedron without Rupert's property' (arXiv:2508.18475; math.MG, cs.CG, math.CO). They construct the Noperthedron, a point-symmetric convex polyhedron with 90 vertices, 240 edges and 152 faces (150 triangles and two regular pentadecagons, per Quanta and Wikipedia), and prove that it does not have Rupert's property (Theorem 1: 'The Noperthedron does not have Rupert's property'). The 2017 question they answer is attributed in the paper to 'the authors of [4]' (identified as Jerrard, Wetzel and Yuan by the Gosain and Grimmer paper, which quotes it as Conjecture 1.1: every convex polyhedron in R3 is Rupert). The same paper also constructs a polyhedron that is Rupert but not 'locally Rupert' (the Ruperthedron, per a search summary). Press: Quanta (Erica Klarreich, 24 Oct 2025); John Baez's Azimuth blog (28 Aug 2025).",
+    "date": "2025-08-25",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 25 Aug 2025 (arXiv abs: 'Mon, 25 Aug 2025 20:40:00 UTC'); v2 28 Jan 2026 (current; arXiv abs: 'Wed, 28 Jan 2026 18:50:04 UTC'). Differences found: v1 Lemma 33 lacked an assumption; footnote in v2: 'In a first version of this manuscript we were lacking this assumption and we thank David Renshaw for pointing it out.' v2 acknowledgements thank David Renshaw and Jason Reed for formalizing the paper in Lean and for correcting several inaccuracies of the first version; v1 acknowledgements do not mention Lean. Wikipedia's article notes the disproof (lead, 'until late 2025'). Search summaries gave other version dates (30 Jan 2026, 29 Oct 2025); I used the arXiv abstract page.",
+    "delivers": "Refutes the universal claim: exhibits one convex polyhedron (the Noperthedron) with no Rupert passage, i.e. no straight hole through it admits an identical copy of it (the paper's Definition 3 uses rotations and orthogonal projections with no scaling, so the theorem is about identical copies). Restrictions: the Noperthedron is point-symmetric and the paper's Definition 3 is stated for point-symmetric convex polyhedra; the Lean repository's module structure (Rupert/Equivalences) suggests the paper's characterization is shown equivalent to the general IsRupert, which I did not check. Scope note (my reduction, not stated in the paper): Wikipedia's definition allows same-or-larger copies. If a copy nu*P with nu >= 1 passes through a hole in P, then with P centred at an interior point P is contained in nu*P, so P passes through the same hole. So the identical-copy theorem also gives the same-or-larger negative answer.",
+    "remains": "Nothing of the question remains open once this event is accepted: the universal claim is refuted by one polyhedron. Not addressed by this paper: which other convex polyhedra lack the property. Conjectured non-Rupert solids named in Steininger and Yurkevich's 2023 paper (rhombicosidodecahedron, snub dodecahedron, snub cube, per Gosain and Grimmer's quotation of their Conjecture 3.3) are not settled here; a search summary reports the Noperthedron paper says its methods do not settle the rhombicosidodecahedron (I did not verify this in the paper text).",
+    "checked_by": [
+      {
+        "who": "David Renshaw",
+        "qualification": "Author of the Lean 4 package 'rupert' (Reservoir handle dwrensha; the link from handle to this David Renshaw comes from a search summary, not the page). The paper's acknowledgements and footnote name him.",
+        "what_they_did": "Formalized the paper in Lean (per the paper's v2 acknowledgements, with Jason Reed) and identified the missing assumption in Lemma 33 of the first version (paper footnote). This is the one documented case of a human finding a gap in the argument.",
+        "where": "https://arxiv.org/html/2508.18475v2 ; https://reservoir.lean-lang.org/@dwrensha/rupert",
+        "automated": false
+      },
+      {
+        "who": "Jason Reed",
+        "qualification": "Not established by the sources; named in the paper's acknowledgements.",
+        "what_they_did": "Named in v2 acknowledgements as having formalized the paper in Lean and corrected inaccuracies of the first version. The details of his contribution are not in the sources I read.",
+        "where": "https://arxiv.org/html/2508.18475v2",
+        "automated": false
+      }
+    ],
+    "no_engagement_found": false,
+    "time_since_posted": "13.5 months since v1 (25 Aug 2025) and 8.5 months since v2 (28 Jan 2026), as of 11 Oct 2026. No journal publication found; the arXiv abstract page lists no journal reference. Public reactions found (Baez blog; Quanta quotes from Joseph O'Rourke and Benjamin Grimmer) are reactions, not checks: none of them says they worked through the proof. O'Rourke: 'The natural conjecture has been proved false.' Grimmer describes running his own search on the rhombicosidodecahedron.",
+    "machine_checked": {
+      "system": "Lean 4 (independent formalizations; see events lean-jcreedcmu-noperthedron and lean-dwrensha-rupert). SageMath rational verification of the solution tree (about 30 hours per v1 section 7), with the search tree itself generated by floating-point R code that the paper says is not part of the proof.",
+      "sorry_free": true,
+      "url": "https://github.com/jcreedcmu/Noperthedron"
+    },
+    "directly_checkable": "The vertices are explicit: orbits of three rational points under a 30-element rotation group (v1 section 1). The polyhedron can therefore be written down. The non-Rupert claim cannot be checked by hand: it rests on a solution tree of 585,200 interior nodes and 18,115,245 leaves (17,492,530 closed by the global theorem and 622,715 by the local theorem; v1 section 7). The leaf checks are rational versions of both theorems, run in SageMath.",
+    "doubts": "(1) v1 lacked an assumption in Lemma 33 (footnote in v2, crediting David Renshaw). Fixed in v2 as far as the sources show; I did not compare the v1 and v2 proofs of Lemma 33 myself. (2) The case analysis is computer-generated: the solution tree was generated with floating-point R code, and rigour depends on the rational verification in SageMath and the Lean checks. (3) A later paper still treats the question as open and does not cite this paper: Gosain and Grimmer, arXiv:2509.08190 (v1 9 Sep 2025, about two weeks after v1 of this paper), states Conjecture 1.1 ('every convex polyhedron in R3 is Rupert') and says it 'remains open whether every polyhedron in three dimensions is Rupert'. No text or bibliography mention of the Noperthedron appears in their v1 full text as fetched.",
+    "later_work_cites_it": true,
+    "withdrawn": null,
+    "direction": "Negative. The problem asks whether every convex polyhedron has the property; this paper exhibits a convex polyhedron that does not. It answers the 'every' in the negative and says nothing about polyhedra other than the Noperthedron.",
+    "object": "The Noperthedron: a point-symmetric convex polyhedron with 90 vertices, 240 edges and 152 faces. Its vertices are explicit (orbits of three rational points under a 30-element rotation group). What it shows: no straight hole through it admits an identical copy of it (Theorem 1). The construction is explicit; the non-existence of passages is shown by a computer-assisted exhaustive case split over the 18,115,245 leaves of a search tree, checked in exact arithmetic (SageMath) and formalized in Lean.",
+    "people": [
+      "Jakob Steininger (Statistics Austria, per Quanta)",
+      "Sergey Yurkevich (A&R TECH, per Quanta)"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": "v1 acknowledgements: the second author thanks Matthias Auchmann and A&R TECH 'for financial support as well as some computing resources'. No compute quantity given. (Lean repository README gives run times for checking, not for the paper.)",
+      "sources": [
+        "https://arxiv.org/html/2508.18475v2",
+        "https://arxiv.org/html/2508.18475v1",
+        "https://github.com/jcreedcmu/Noperthedron",
+        "https://www.quantamagazine.org/first-shape-found-that-cant-pass-through-itself-20251024/"
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://arxiv.org/abs/2508.18475",
+        "title": "A convex polyhedron without Rupert's property (arXiv abstract page)",
+        "type": "preprint",
+        "opened": true
+      },
+      {
+        "url": "https://arxiv.org/html/2508.18475v1",
+        "title": "A convex polyhedron without Rupert's property (v1 HTML; first 100,000 characters read in two passes; the final part is truncated in my reads)",
+        "type": "preprint",
+        "opened": true
+      },
+      {
+        "url": "https://arxiv.org/html/2508.18475v2",
+        "title": "A convex polyhedron without Rupert's property (v2 HTML; acknowledgements, Definition 3, Theorem 1, Lemma 33 footnote, sections 5.2 to 7.1 read)",
+        "type": "preprint",
+        "opened": true
+      },
+      {
+        "url": "https://arxiv.org/pdf/2508.18475",
+        "title": "A convex polyhedron without Rupert's property (PDF; returned compressed binary, unreadable)",
+        "type": "preprint",
+        "opened": false
+      },
+      {
+        "url": "https://www.quantamagazine.org/first-shape-found-that-cant-pass-through-itself-20251024/",
+        "title": "First Shape Found That Can't Pass Through Itself (Quanta Magazine, Erica Klarreich, 24 Oct 2025)",
+        "type": "news",
+        "opened": true
+      },
+      {
+        "url": "https://johncarlosbaez.wordpress.com/2025/08/28/a-polyhedron-without-ruperts-property/",
+        "title": "A polyhedron without Ruperts property (Azimuth, John Baez, 28 Aug 2025)",
+        "type": "blog",
+        "opened": true
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Prince_Rupert's_cube",
+        "title": "Prince Rupert's cube (Wikipedia; last edited 29 Sep 2026 per footer)",
+        "type": "encyclopedia",
+        "opened": true
+      }
+    ]
+  },
+  "credited_humans": [
+    "Jakob Steininger (Statistics Austria, per Quanta)",
+    "Sergey Yurkevich (A&R TECH, per Quanta)"
+  ],
+  "status_sources": [
+    {
+      "url": "https://arxiv.org/abs/2508.18475",
+      "title": "A convex polyhedron without Rupert's property (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2508.18475v1",
+      "title": "A convex polyhedron without Rupert's property (v1 HTML; first 100,000 characters read in two passes; the final part is truncated in my reads)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2508.18475v2",
+      "title": "A convex polyhedron without Rupert's property (v2 HTML; acknowledgements, Definition 3, Theorem 1, Lemma 33 footnote, sections 5.2 to 7.1 read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2508.18475",
+      "title": "A convex polyhedron without Rupert's property (PDF; returned compressed binary, unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.quantamagazine.org/first-shape-found-that-cant-pass-through-itself-20251024/",
+      "title": "First Shape Found That Can't Pass Through Itself (Quanta Magazine, Erica Klarreich, 24 Oct 2025)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://johncarlosbaez.wordpress.com/2025/08/28/a-polyhedron-without-ruperts-property/",
+      "title": "A polyhedron without Ruperts property (Azimuth, John Baez, 28 Aug 2025)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Prince_Rupert's_cube",
+      "title": "Prince Rupert's cube (Wikipedia; last edited 29 Sep 2026 per footer)",
+      "type": "encyclopedia",
+      "opened": true
+    }
+  ],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "noperthedron-2025",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      },
+      {
+        "id": "lean-jcreedcmu-noperthedron",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lean-dwrensha-rupert",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "zeng-stellated-tetrahedron-2026",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "oliveira-khovanova-shpilman-lonely-solids-2026",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "satheeskumar-benoit-nieuwland-2026",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "steininger-yurkevich-nieuwland-octahedron-2026",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gosain-grimmer-2025",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "murphy-snub-cube-video-2025",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "jerrard-wetzel-yuan-2017",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "scriba-1968",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "scott-2022",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "fredriksson-2022",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "steininger-yurkevich-algorithmic-2023",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks whether every convex polyhedron is Rupert; one explicit convex polyhedron without the property answers it in full, so the Noperthedron paper is scope whole, direction refuted, object a counterexample. The record's reduction from same-or-larger copies to identical copies is sound, so the definitional mismatch does not narrow scope. Verification was the close call. A Lean build alone would be unreviewed (F7), but David Renshaw is named in the paper as having formalised it with Jason Reed. In doing so Renshaw found and corrected a missing assumption in Lemma 33, which is a human working through the argument in public view, so I answered digested (F9). Gosain–Grimmer's silence two weeks after v1 is too soon to count as a doubt. The Lean repositories formalise known work (none, date unplaceable). Zeng offers only a conjecture with numerical evidence (none). The Nieuwland-number and lonely-solids papers answer different questions (variant). The octahedron paper's AI use was figures and typo/inaccuracy checking only, so ai none. Pre-snapshot events are positive instances, except that Scott's sufficient conditions settle a class (case).",
+    "doubts": "Renshaw's qualification is not established in the record, and the digestion rests on the paper's acknowledgement rather than a statement by Renshaw himself; a stricter reader would answer unreviewed, giving claimed rather than resolved. The 18-million-leaf computation has not been checked by a human, and the record did not confirm that the Lean IsRupert definition matches the paper's definition.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "resolved",
+      "rests_on": "noperthedron-2025",
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": "refuted",
+      "object_role": "counterexample",
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

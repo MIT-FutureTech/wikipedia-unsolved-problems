@@ -1,0 +1,908 @@
+{
+  "key": "which-hard-problems",
+  "nothing_found": false,
+  "outcome": "Nothing since 26 January 2024 bears on this bullet. The post-window word-representability papers I opened settle other questions (square-free representations, product constructions, lexicographic products, split graphs, circulant and melon graphs, recognition hardness, a two-word generalisation), and none reports a hard graph problem being solved on the words; the Wikipedia article, last edited 9 August 2026, still lists the question as open.",
+  "problem_asks": "Read from the statement alone: (1) which hard problems on graphs (hard is undefined in the bullet; read as NP-hard or otherwise computationally hard decision or optimisation problems) (2) can be translated into words that represent the graphs, the representation being the Kitaev-Pyatkin notion of a word over the vertices in which two letters alternate exactly when they are adjacent, or some other word encoding; (3) and can be solved on those words; (4) and whether this can be done efficiently (the bullet puts 'efficiently' in brackets, so efficiency is part of the question). The bullet asks which problems, so it is a classification question with no single yes or no. It does not say what 'translated' requires (for example, that the word is computed from the graph in polynomial time) or what 'solved on words' requires (for example, that the algorithm reads only the word).",
+  "events": [
+    {
+      "id": "maxclique-polynomial-structural",
+      "what_happened": "Maximum Clique is solvable in polynomial time on word-representable graphs, because the neighbourhood of every vertex induces a comparability graph. This is stated in Wikipedia's article on word-representable graphs, with no citation visible in the text I read. Per a search-result summary that I did not verify against the text, Kitaev's 2017 comprehensive introduction (arXiv 1705.05924, Theorem 18) and the Kitaev-Pyatkin 2018 survey also state it. I did not locate the first written argument. The earliest source I could date is 2017, so that date is an upper bound on the first appearance, not a confirmed first appearance.",
+      "date": "2017",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Not established. The 2017 date is for arXiv 1705.05924 v1 (16 May 2017), but I did not confirm that this is where the claim first appeared.",
+      "delivers": "Establishes that one classical NP-hard problem, Maximum Clique, is polynomial on the class of word-representable graphs. The mechanism is structural (neighbourhoods are comparability graphs), not a computation on a representing word; no source I read says the algorithm works on a word. The result covers one problem and one class.",
+      "remains": "Every other hard problem, and whether any algorithm for these problems operates on a representing word. The bullet's question about which problems can be translated to words and solved there is not answered by this event.",
+      "checked_by": [
+        {
+          "who": "Sergey Kitaev and Artem Pyatkin, 'Word-representable graphs: a survey' (Journal of Applied and Industrial Mathematics 12(2), 2018)",
+          "qualification": "Authors of the field's principal survey and of the characterisation the complexity claim rests on",
+          "what_they_did": "Survey listing complexity results, including polynomial-time Maximum Clique, per Wikipedia and search-result snippets. I could not read the PDF, so this entry is not verified against the text.",
+          "where": "https://strathprints.strath.ac.uk/62535/1/Kitaev_Pyatkin_DAIO2017_Word_representative_graphs_a_survey.pdf",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 years (2017)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No doubt about the mathematics is recorded. The doubt is about dating: I could not confirm the first appearance, and the Theorem 18 reference comes from a search-result summary I did not verify.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive for one special case: one hard problem is polynomial on the class. It does not bear on the translate-to-words-and-solve question, because no word is used.",
+      "object": null,
+      "people": [
+        "Sergey Kitaev",
+        "Artem Pyatkin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Word-representable_graph",
+          "https://arxiv.org/abs/1705.05924"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Word-representable_graph",
+        "https://arxiv.org/abs/1705.05924",
+        "https://strathprints.strath.ac.uk/62535/1/Kitaev_Pyatkin_DAIO2017_Word_representative_graphs_a_survey.pdf"
+      ]
+    },
+    {
+      "id": "akgun-gent-kitaev-zantema-2018",
+      "what_happened": "Akgun, Gent, Kitaev and Zantema, 'Solving computational problems in the theory of word-representable graphs', arXiv 1808.01215 (3 August 2018), later J. Integer Sequences 22 (2019), Article 19.2.5. Using the semi-transitive-orientation characterisation, they enumerate connected non-word-representable graphs up to 11 vertices, which corrected a published result and took about 3 CPU years. They also report the distribution of k-representable graphs on up to 9 vertices and identify a 9-vertex graph with high representation number. Per search-result summaries I did not verify against the full text, they encode the k-uniform representation problem as an SMT formula solved with Z3 and Yices.",
+      "date": "2018-08-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 only (3 Aug 2018). The journal version, J. Integer Sequences 22 (2019) Article 19.2.5, is from a search result; I did not open it.",
+      "delivers": "Computational facts about word-representability of small graphs: non-word-representability of graphs up to 11 vertices, representation-number data up to 9 vertices. Nothing about a hard graph problem being solved on words. In the SMT version, the graph problem of finding a k-uniform word is encoded as a formula and handed to an external solver. The problem solved is word-representability itself, and the solving is not done on words. Restricted to very small graphs.",
+      "remains": "Every hard graph problem other than representability itself. No efficient method is established, since the enumerations are exhaustive over small graphs.",
+      "checked_by": [
+        {
+          "who": "Journal of Integer Sequences (refereed journal), 2019",
+          "qualification": "Journal of record",
+          "what_they_did": "Accepted the published version, per the journal listing in a search result. I did not open that page.",
+          "where": "https://cs.uwaterloo.ca/journals/JIS/VOL22/Kitaev/kitaev11.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 8 years",
+      "machine_checked": null,
+      "directly_checkable": "The enumeration result is not a single object. Individual non-word-representable graphs can be checked by exhibiting the absence of a semi-transitive orientation, which the authors use. I did not check any instance.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the question. It establishes facts about word-representability of small graphs, which is not a hard graph problem solved on words.",
+      "object": "No single object. The abstract reports a new 9-vertex graph with high representation number, which bears on a known conjecture. I did not obtain its adjacency list, but the graph is explicit, having been found by computation.",
+      "people": [
+        "Ozgur Akgun",
+        "Ian P. Gent",
+        "Sergey Kitaev",
+        "Hans Zantema"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": "About 3 CPU years for the enumeration (abstract). No AI compute or token figure.",
+        "sources": [
+          "https://arxiv.org/abs/1808.01215"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1808.01215",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL22/Kitaev/kitaev11.html"
+      ]
+    },
+    {
+      "id": "boll-et-al-2025-locality",
+      "what_happened": "Boll, Fleischmann, Huch, Kreiss, Lock, Park and Wiedenhoft, 'Word-Representable Graphs and Locality of Words', arXiv 2506.19493 (submitted 24 June 2025; cross-listed to cs.FL). They show that every graph represented by a k-local word is (k+1)-representable, revisit a 1-local word result, and study the graph classes from k-local words under hereditary properties and speed, showing they have bounded clique-width.",
+      "date": "2025-06-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv v1 only (24 Jun 2025).",
+      "delivers": "Establishes that graph classes defined by k-local words have bounded clique-width and are (k+1)-representable. This is a structural property of a graph class defined through words. The abstract states no algorithm and treats no hard graph problem. One link to solving is mine, not the authors': bounded clique-width classes admit polynomial algorithms for MSO-definable problems (Courcelle-Makowsky-Rotics), which would apply here if the classes have bounded clique-width. The paper does not make that connection. Restricted to graphs from k-local words, a subclass of word-representable graphs.",
+      "remains": "Whether any hard problem is solved on the words, or efficiently on these classes. The abstract does not address the bullet's question.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not answer the bullet. It is a structural result on a subclass of word-representable graphs that could feed an efficiency claim via a general theorem the paper does not use. Whether that counts is a judging call.",
+      "object": null,
+      "people": [
+        "Philipp Boll",
+        "Pamela Fleischmann",
+        "Annika Huch",
+        "Jana Kreiss",
+        "Tim Lock",
+        "Kajus Park",
+        "Max Wiedenhoft"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2506.19493"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2506.19493"
+      ]
+    },
+    {
+      "id": "das-hariharasubramanian-2024-square-free",
+      "what_happened": "Das and Hariharasubramanian, 'Square-free Word-representation of Word-representable Graphs', arXiv 2402.14426 (22 February 2024). They prove every non-empty word-representable graph has a square-free representing word, which the abstract calls a positive answer to an open problem in Kitaev and Lozin's Words and Graphs. Journal reference on the arXiv page: Graphs and Combinatorics 42:12 (2026), DOI 10.1007/s00373-025-03000-w.",
+      "date": "2024-02-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv v1 only (22 Feb 2024). Journal version 2026 per the arXiv journal reference.",
+      "delivers": "Every non-empty word-representable graph has a square-free representing word. This concerns the form of the representing word, which is a different open problem from the same book. It involves no hard graph problem and no solving.",
+      "remains": "The whole bullet.",
+      "checked_by": [
+        {
+          "who": "Graphs and Combinatorics (refereed journal)",
+          "qualification": "Journal of record",
+          "what_they_did": "Accepted for publication, volume 42, issue 12 (2026), per the arXiv journal reference",
+          "where": "https://arxiv.org/abs/2402.14426",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 32 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the question. It is a different open problem (square-free representations) from the same book.",
+      "object": null,
+      "people": [
+        "Biswajit Das",
+        "Ramesh Hariharasubramanian"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2402.14426"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2402.14426"
+      ]
+    },
+    {
+      "id": "srinivasan-hariharasubramanian-2024-products",
+      "what_happened": "Srinivasan and Hariharasubramanian, 'Minimum length word-representants of graph products', arXiv 2402.17105 (27 February 2024). They study minimum word-representant lengths for Cartesian products (using morphisms) and rooted products (using occurrence-based functions). The abstract says they resolve an open problem from Broere's master's thesis: constructing a word for the Cartesian product of two arbitrary word-representable graphs. The arXiv comments give Discrete Applied Mathematics 358 (2024), pp. 91-104.",
+      "date": "2024-02-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv v1 only (27 Feb 2024).",
+      "delivers": "Constructs representing words for Cartesian products and bounds minimum lengths for products. This is a construction problem about given graph products. It solves no hard problem on words, and the Broere problem is a different question from the bullet.",
+      "remains": "The whole bullet.",
+      "checked_by": [
+        {
+          "who": "Discrete Applied Mathematics (refereed journal)",
+          "qualification": "Journal of record",
+          "what_they_did": "Published, volume 358 (2024), pp. 91-104, per the arXiv comments",
+          "where": "https://arxiv.org/abs/2402.17105",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 31 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the question. It constructs words for graph products, which is a different problem.",
+      "object": null,
+      "people": [
+        "Eshwar Srinivasan",
+        "Ramesh Hariharasubramanian"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2402.17105"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2402.17105"
+      ]
+    },
+    {
+      "id": "hefty-horn-muir-owens-2024",
+      "what_happened": "Hefty, Horn, Muir and Owens, 'Word-Representable Graphs: Orientations, Posets, and Bounds', Electronic Journal of Combinatorics 31(4) (2024), Article P4.2, published 4 October 2024, DOI 10.37236/12806. The NSF PAR record gives journal submission on 16 February 2024. Per the abstract, they use tools from posets, Ramsey theory, finite geometry and probabilistic methods to settle a number of open problems on the existence and length of word-representations for various classes. The abstract does not list the problems.",
+      "date": "2024",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": null,
+      "revisions": "No arXiv posting was located, so the first public version and its date are unknown. The journal submission date of 16 February 2024 suggests a public version later than 26 January 2024, but that is unverified.",
+      "delivers": "Results on existence and length of word-representations for various graph classes, per the abstract. The specific results were not read. Nothing in the abstract addresses solving hard problems on words or algorithms.",
+      "remains": "The bullet's question. The abstract does not address the algorithmic part.",
+      "checked_by": [
+        {
+          "who": "Electronic Journal of Combinatorics (refereed journal)",
+          "qualification": "Journal of record",
+          "what_they_did": "Published as article P4.2 (2024)",
+          "where": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 years since journal publication (October 2024)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the question. It concerns existence and length of representations, and the abstract shows no hard problem solved on words.",
+      "object": null,
+      "people": [
+        "Zion Hefty",
+        "Paul Horn",
+        "Colby Muir",
+        "Andrew Owens"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2"
+        ]
+      },
+      "sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2"
+      ]
+    },
+    {
+      "id": "dwary-krishna-2024-lexicographic",
+      "what_happened": "Dwary and Krishna, 'Characterization of Word-Representable Graphs using Modular Decomposition', arXiv 2412.17648 (23 December 2024). A graph's representation number is determined from the permutation-representation numbers of its modules and the representation number of its quotient graph. The abstract says this gives a complete answer to an open problem Kitaev and Lozin posed on the word-representability of lexicographical products. A search-result snippet, which I did not open, lists the paper as published in Communications in Combinatorics and Optimization in September 2025.",
+      "date": "2024-12-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv v1 only (23 Dec 2024), per the abstract page.",
+      "delivers": "A complete answer to the lexicographic-product question from the Kitaev-Lozin book, via modular decomposition, characterising word-representability and representation numbers in terms of modules. The abstract states no algorithm and solves no hard graph problem on words.",
+      "remains": "The whole bullet.",
+      "checked_by": [
+        {
+          "who": "Communications in Combinatorics and Optimization (journal), per a search-result snippet",
+          "qualification": "Journal of record",
+          "what_they_did": "Published September 2025, per the search-result snippet. Not verified against the journal page.",
+          "where": "https://arxiv.org/abs/2412.17648",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 22 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the question. It answers a different open problem from the same book, on lexicographic products. I could not confirm from the sources that the bullet's question is the lexicographic one.",
+      "object": null,
+      "people": [
+        "Tithi Dwary",
+        "K. V. Krishna"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2412.17648"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2412.17648"
+      ]
+    },
+    {
+      "id": "dwary-mozhui-krishna-2025-split",
+      "what_happened": "Dwary, Mozhui and Krishna, 'Representation Number of Word-Representable Split Graphs', arXiv 2502.00872 (v1 2 February 2025; v2 27 April 2025). The abstract gives an algorithmic procedure showing the representation number of word-representable split graphs is at most three, and characterises the split graphs and split comparability graphs whose representation number is exactly three. Its background notes that determining the representation number is NP-complete.",
+      "date": "2025-02-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 2 Feb 2025; v2 27 Apr 2025 (per the arXiv abstract page).",
+      "delivers": "Bounds the representation number of word-representable split graphs by three and characterises the exactly-three cases. The algorithmic procedure builds representations for a class, which is not the same as solving a hard problem on words. The NP-completeness mention is background, not a result of this paper. Restricted to split graphs.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 20 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the question. It bounds representation numbers for a graph class.",
+      "object": null,
+      "people": [
+        "Tithi Dwary",
+        "Khyodeno Mozhui",
+        "K. V. Krishna"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2502.00872"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2502.00872"
+      ]
+    },
+    {
+      "id": "das-hariharasubramanian-2025-p-complete",
+      "what_happened": "Das and Hariharasubramanian, 'p-complete square-free Word-representation of Word-representable Graphs', arXiv 2505.05110 (v1 8 May 2025; v2 24 December 2025). They define p-complete square-free words and graphs, show such graphs cannot contain K_p as an induced subgraph, and fully characterise the cases p = 1 and p = 2. The abstract states that recognising p-complete square-free word-representable graphs is NP-hard for any p.",
+      "date": "2025-05-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 8 May 2025; v2 24 Dec 2025.",
+      "delivers": "Recognising a restricted word-representation class is NP-hard for arbitrary p, plus characterisations for p = 1 and 2 and partial results for p = 3. This is a hardness statement about recognising a word property. It runs in the opposite direction from solving hard problems on words, and it solves no hard graph problem.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 17 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the question. It establishes hardness of recognition in a restricted class.",
+      "object": null,
+      "people": [
+        "Biswajit Das",
+        "Ramesh Hariharasubramanian"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2505.05110"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2505.05110"
+      ]
+    },
+    {
+      "id": "roy-hariharasubramanian-2025-circulant",
+      "what_happened": "Roy and Hariharasubramanian, 'On the Word-Representability of 5-Regular Circulant Graphs', arXiv 2512.05480 (v1 5 December 2025). The abstract studies word-representability and the representation number of 5-regular circulant graphs.",
+      "date": "2025-12-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv v1 only (5 Dec 2025).",
+      "delivers": "Results on word-representability and representation number of one subclass of circulant graphs. The specific results were not read. Not a hard problem solved on words.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the question.",
+      "object": null,
+      "people": [
+        "Suchanda Roy",
+        "Ramesh Hariharasubramanian"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2512.05480"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2512.05480"
+      ]
+    },
+    {
+      "id": "mozhui-krishna-2026-melon",
+      "what_happened": "Mozhui and Krishna, 'Word-Representation of Melon Graphs', arXiv 2602.14179 (v1 15 February 2026; the arXiv comments say it is to appear in Graphs and Combinatorics). They show melon graphs have representation number at most three, characterise the melon graphs that are comparability graphs (permutation-representation number at most three), and characterise the word-representable line graphs of melon graphs (representation number at most three).",
+      "date": "2026-02-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv v1 only (15 Feb 2026).",
+      "delivers": "Representation-number bounds and characterisations for melon graphs and their line graphs. Not a hard graph problem solved on words.",
+      "remains": "The whole bullet.",
+      "checked_by": [
+        {
+          "who": "Graphs and Combinatorics (journal)",
+          "qualification": "Journal of record",
+          "what_they_did": "The arXiv comment says 'to appear'. Acceptance is claimed by the authors, not confirmed by the journal.",
+          "where": "https://arxiv.org/abs/2602.14179",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 8 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the question.",
+      "object": null,
+      "people": [
+        "Khyodeno Mozhui",
+        "K. V. Krishna"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2602.14179"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2602.14179"
+      ]
+    },
+    {
+      "id": "adamson-et-al-2026-two-word",
+      "what_happened": "Adamson, Dietz, Fleischmann, Huch and Sacher, '2-word-pi-representable graphs', arXiv 2605.27183, published 26 May 2026 per the St Andrews research portal. The notion uses a pair of words instead of one: letters of the two words are nodes, and two nodes are joined when their projections agree. Every graph is representable this way, and the authors give an algorithm that returns two representing words for any graph. They show permutation graphs are representable by two 1-uniform words and study how graph operations act on the words, with application to cographs. The St Andrews record gives no venue. A search-result snippet, which I did not open, lists it in DCFS 2026 (LNCS vol. 16681). The arXiv page itself was not opened.",
+      "date": "2026-05-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Not established.",
+      "delivers": "A different representation notion, two words instead of one, which represents every graph, and an algorithm that outputs two words for any graph. This changes the notion the bullet uses, so it is a changed version of the question. It constructs words for graphs and does not solve a hard graph problem on the words.",
+      "remains": "The whole bullet, including whether hard problems can be solved on the two-word representation.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4.5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The venue is in conflict across sources. The St Andrews record calls it a preprint with no venue, and a search-result snippet says it appears in the DCFS 2026 proceedings. I could not resolve this.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not answer the bullet. It is a generalised representation notion that can represent every graph, and the bullet is about the one-word notion.",
+      "object": null,
+      "people": [
+        "Duncan Adamson",
+        "Amanita Dietz",
+        "Pamela Fleischmann",
+        "Annika Huch",
+        "Silas Cato Sacher"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://research-portal.st-andrews.ac.uk/en/publications/2-word-%CF%80-representable-graphs/"
+        ]
+      },
+      "sources": [
+        "https://research-portal.st-andrews.ac.uk/en/publications/2-word-%CF%80-representable-graphs/"
+      ]
+    }
+  ],
+  "disputes": [],
+  "summary": "The bullet is the one-line question in the 'Word-representation of graphs' subsection (2.7.7) of Wikipedia's List of unsolved problems in mathematics. The wording matches across the list page and the Word-representable graph article, which was last edited on 9 August 2026 and still lists the question among open problems, so it was unresolved on Wikipedia as of that edit. The question appears to come from Kitaev and Lozin's Words and Graphs (2015), Chapter 7, Section 7.6. The chapter preview says 'one of the most challenging and interesting problems that may lead to potential applications is the following question', but the question's text was not visible in any source I could read, so the origin is an inference. I ran 37 searches and opened about 20 pages. Post-window work I opened (square-free representations, product constructions, lexicographic products, split graphs, circulant and melon graphs, recognition hardness, a two-word generalisation, and Hefty et al.'s bounds) addresses other questions. The nearest candidates are both structural rather than algorithmic. Boll et al. (June 2025) show that graph classes from k-local words have bounded clique-width; that would make general MSO-based algorithms apply to them, but the authors state no algorithm and that link is my inference. Adamson et al. (May 2026) give an algorithm that outputs two representing words for every graph, but solve no hard problem on those words. The older Maximum Clique result (polynomial on word-representable graphs, via comparability neighbourhoods rather than words) is a close call: a reader could count it as a hard problem solved efficiently on the class, but it predates the window and does not use words. The 2018 Akgun et al. paper encodes representability as an SMT formula; the problem it solves is representability, not a hard graph problem, and the solving is not on words. No source I found names an AI system for this problem. More than ten AI-specific queries returned nothing linking word-representable graphs to AI; the AI hits concerned other problems (Erdos problems, and a July 2026 Cycle Double Cover claim that is a different problem). Every event therefore has none_found true, with the caveat that several full texts were not read.",
+  "competing_reading": "The strongest case for something having happened: Boll et al. establish bounded clique-width for a class of word-generated graphs, and general theorems (Courcelle, Courcelle-Makowsky-Rotics) then give polynomial or fixed-parameter algorithms for every MSO-expressible hard problem on those graphs, so the question is answered in principle for that subclass, with the words doing the work of defining it. Against this: the bullet asks for problems solved on words, and nothing in the abstract connects the clique-width result to any algorithm or problem. A second reading takes Maximum Clique (polynomial on word-representable graphs) as a partial answer to 'which hard problems can be solved efficiently', but that result predates the window and uses comparability structure, not words.",
+  "what_would_settle_it": "The exact text of Kitaev and Lozin (2015), Section 7.6 and its citations, to fix what 'translated' and 'solved on words' mean. The full text of Boll et al. (arXiv 2506.19493), to see whether any algorithm, clique-width application, or MSO result is stated. A dated first appearance for the Maximum Clique result. Any published statement about algorithms for hard graph problems through word representations after January 2024, from a citing survey or from the journal versions of the 2024-2026 papers. The current Wikipedia bullet and its citation, which may name the source the question was taken from.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics",
+      "title": "List of unsolved problems in mathematics (Word-representation of graphs, 2.7.7)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Word-representable_graph",
+      "title": "Word-representable graph (last edited 9 August 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.springerprofessional.de/open-problems-and-further-research-directions/6873870",
+      "title": "Open Problems and Further Research Directions on Word-Representable Graphs (Kitaev & Lozin, Words and Graphs, 2015, ch. 7): preview only",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1808.01215",
+      "title": "Solving computational problems in the theory of word-representable graphs (Akgun, Gent, Kitaev, Zantema)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1501.07108",
+      "title": "Semi-Transitive Orientations and Word-Representable Graphs (Halldorsson, Kitaev, Pyatkin)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1705.05924",
+      "title": "A Comprehensive Introduction to the Theory of Word-Representable Graphs (Kitaev)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/1705.05924",
+      "title": "A Comprehensive Introduction (PDF): returned binary, unreadable",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://strathprints.strath.ac.uk/62535/1/Kitaev_Pyatkin_DAIO2017_Word_representative_graphs_a_survey.pdf",
+      "title": "Kitaev & Pyatkin, Word-representable graphs: a survey (PDF): returned binary, unreadable",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://stax.strath.ac.uk/downloads/jw827c11f",
+      "title": "Strathclyde thesis on encoding graphs by words (PDF): returned binary, unreadable",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://cs.uwaterloo.ca/journals/JIS/VOL22/Kitaev/kitaev11.html",
+      "title": "J. Integer Sequences 22 (2019) 19.2.5 listing (from search result)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.19493",
+      "title": "Word-Representable Graphs and Locality of Words (Boll et al.)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2402.14426",
+      "title": "Square-free Word-representation of Word-representable Graphs (Das, Hariharasubramanian)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2402.17105",
+      "title": "Minimum length word-representants of graph products (Srinivasan, Hariharasubramanian)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2",
+      "title": "Word-Representable Graphs: Orientations, Posets, and Bounds (Hefty, Horn, Muir, Owens), EJC 31(4) P4.2",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.17648",
+      "title": "Characterization of Word-Representable Graphs using Modular Decomposition (Dwary, Krishna)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2502.00872",
+      "title": "Representation Number of Word-Representable Split Graphs (Dwary, Mozhui, Krishna)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.05110",
+      "title": "p-complete square-free Word-representation of Word-representable Graphs (Das, Hariharasubramanian)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.05480",
+      "title": "On the Word-Representability of 5-Regular Circulant Graphs (Roy, Hariharasubramanian)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.14179",
+      "title": "Word-Representation of Melon Graphs (Mozhui, Krishna)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://research-portal.st-andrews.ac.uk/en/publications/2-word-%CF%80-representable-graphs/",
+      "title": "2-word-pi-representable graphs (Adamson et al.), St Andrews portal record",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.27183",
+      "title": "2-word-pi-representable graphs, arXiv identifier taken from the portal record (arXiv page not opened)",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Which hard problems on graphs can be translated to words representing them and solved on words",
+      "word-representable graphs hard problems solved on words efficiently",
+      "Kitaev Lozin Words and Graphs open problem hard problems word-representable",
+      "word-representable graphs Wikipedia list of unsolved problems in mathematics",
+      "word-representable graph survey Kitaev arXiv",
+      "\"Solving computational problems in the theory of word-representable graphs\" Kitaev Sun",
+      "\"word-representable\" graphs \"translated to words\" hard problems open problem Words and Graphs chapter 7",
+      "word-representable graphs AI language model proof open problem",
+      "word-representable graph GPT OR Claude OR Gemini OR AlphaEvolve OR LLM result",
+      "Erdős problems AI word-representable graphs solved",
+      "word-representable graphs NP-hard problems polynomial time algorithm via word representation",
+      "Hefty Horn Muir Owens word-representable graphs open problems",
+      "pp-complete square-free word-representation word-representable graphs complexity",
+      "\"most challenging and interesting problems that may lead to potential applications\" word-representable graphs",
+      "word-representable graphs arXiv 2026 new results",
+      "word-representable graphs arXiv 2025 open problem solved",
+      "k-representable graphs characterization open problem 2024 Kitaev",
+      "word-representable graphs bounded treewidth clique-width algorithm semi-transitive orientation",
+      "word-representable graphs Courcelle monadic second order logic meta-theorem",
+      "Kitaev word-representable graphs ChatGPT OR \"large language model\" OR OpenAI",
+      "AlphaEvolve OR \"AI-assisted\" graph theory word-representable representation number counterexample",
+      "word-representable graph Lean formalization OR Coq formalization semi-transitive orientation",
+      "Kitaev Pyatkin triangle-free graphs word-representable arXiv",
+      "Adamson Dietz Fleischmann Huch Sacher 2-word-π-representable graphs arXiv",
+      "word-representable co-bipartite graphs vertex ordering representation number speed entropy",
+      "Dwary word-representability split decomposition thesis IIT Guwahati 2026 open problem Kitaev Lozin",
+      "word-representable graphs hard graph problems encoded as words solved efficiently open question Kitaev",
+      "Terence Tao OR Quanta word-representable graphs AI mathematics",
+      "word-representable graph wikipedia \"word-representation of graphs\" unsolved problem translated words",
+      "snake-in-the-box problem words encoding Evdokimov word-representable graphs",
+      "Hefty Horn Muir Owens arXiv word-representable graphs orientations posets bounds 2023",
+      "word-representability solved with SAT solver encoding graph problem words 2025 2026",
+      "Kitaev Lozin Words and Graphs Section 7.6 open problem word-representable graphs potential applications scheduling",
+      "\"word-representable\" graphs \"hard problems\" words algorithm NP-complete translated",
+      "GPT-5 OR \"AI model\" solves graph theory open problem word-representable OR \"word representable\" 2026",
+      "erdosproblems.com OR \"AI contributions\" database Tao graph problems word representation solved AI 2026",
+      "arXiv \"Word-representable graphs: orientations, posets, and bounds\" Hefty Horn Muir Owens submitted"
+    ],
+    "places_checked": [
+      "Wikipedia: List of unsolved problems in mathematics (bullet 2.7.7 read in full)",
+      "Wikipedia: Word-representable graph (article read; last edited 9 Aug 2026)",
+      "arXiv abstract pages for the post-window papers, the 2018 Akgun et al. paper, the 2015 semi-transitive paper and the 2017 introduction",
+      "Springer book chapter preview: Kitaev & Lozin, Words and Graphs, ch. 7 (abstract only)",
+      "Electronic Journal of Combinatorics (Hefty et al.)",
+      "St Andrews research portal (Adamson et al.)",
+      "Strathclyde repository (survey and thesis PDFs returned unreadable binary)",
+      "NSF PAR record for Hefty et al. (search snippet only, not opened)",
+      "AI check: web search for word-representability together with AI, LLM, AlphaEvolve, Erdos and Tao terms; no AI tracker, lab site or Erdos database was reachable"
+    ],
+    "dead_ends": [
+      "Section 7.6 of Words and Graphs: the Springer preview cuts off before the question, and no full-text copy was reachable",
+      "Kitaev's arXiv 1705.05924 PDF and the Kitaev-Pyatkin survey PDF: returned binary, not text",
+      "Strathclyde thesis on encoding graphs by words (stax.strath.ac.uk): PDF returned binary; its opening motivation (snake-in-the-box) is known only from a search summary",
+      "Snake-in-the-box and Evdokimov: no source tying Evdokimov's path encoding to word-representability",
+      "Courcelle meta-theorem and word-representability: no source; the MSO link is my own inference, not checked",
+      "Lean or Coq formalisation of word-representability: none found (search only; mathlib and AFP not searched directly)",
+      "AI-specific searches (word-representable with AI, LLM, GPT, Claude, Gemini, AlphaEvolve, Erdos problems, Tao, Quanta): nothing linking this problem to AI. The AI hits found concern other problems, e.g. a July 2026 Cycle Double Cover claim (not this bullet) and the Erdos AI-contributions wiki (not reachable)",
+      "Dwary 2026 thesis (IIT Guwahati): search summary only; dates conflict (viva 06-07-2026, cover March 2026, repository 2026-07-23); not opened",
+      "Kitaev's personal word-representable-graphs page (spider-v.science.strath.ac.uk/sergey.kitaev/word-representable-graphs.html): surfaced in a search, not opened; it may list open problems"
+    ]
+  },
+  "incomplete": "(1) The text of Section 7.6 of Kitaev and Lozin (2015), where the question is probably stated, was not retrieved. The Wikipedia wording is the only text of the question I have. (2) Full texts were not read for most events: I read only the abstract or landing page of Akgun et al. 2018, Hefty et al. 2024, Kitaev 2017, Boll et al. 2025, Das and Hariharasubramanian (2024 and 2025), Srinivasan and Hariharasubramanian 2024, Dwary and Krishna 2024, Dwary, Mozhui and Krishna 2025, Roy and Hariharasubramanian 2025, and Mozhui and Krishna 2026. The arXiv page for Adamson et al. was not opened. (3) Several facts come from search-result summaries I did not verify: the Akgun et al. SMT encoding; the Kitaev 2017 Theorem 18 reference for Maximum Clique; the Dwary and Krishna journal placement (Communications in Combinatorics and Optimization, September 2025); the DCFS 2026 venue for Adamson et al.; and the Dwary 2026 thesis details. (4) The arXiv posting date of Hefty et al. was not located; its event is dated to the year 2024 only. (5) The first written appearance of the Maximum Clique result was not located; 2017 is the earliest source I could date. (6) Not searched: Google Scholar, zbMATH, MathSciNet, citation tracking for the Words and Graphs chapter, and the journals' own sites for acceptance statements. Kitaev's own word-representable-graphs page was surfaced but not opened. (7) Neighbouring papers seen only in search snippets and not recorded as events: 2509.03339 (line graphs of Mycielski graphs), 2509.03064 (co-bipartite graphs), 2507.08483 (split graphs with an independent set of size four), 2110.05405 (Kitaev and Sun, human-verifiable proofs), 2411.03274 (generalised word-representable graphs). None of these is about the bullet's question on the evidence I saw. (8) The AI check was by web search only. No AI tracker, lab announcement page, or Erdos-problem database was reachable, so an AI-involved result announced only there could have been missed. (9) The Wikipedia article was read at its current revision, not at the frozen January 2024 wording, so the statement may differ slightly from the bullet as frozen; the bullet's wording matched in both places I checked.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "maxclique-polynomial-structural",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "akgun-gent-kitaev-zantema-2018",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "boll-et-al-2025-locality",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "das-hariharasubramanian-2024-square-free",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "srinivasan-hariharasubramanian-2024-products",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hefty-horn-muir-owens-2024",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "dwary-krishna-2024-lexicographic",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "dwary-mozhui-krishna-2025-split",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "das-hariharasubramanian-2025-p-complete",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "roy-hariharasubramanian-2025-circulant",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "mozhui-krishna-2026-melon",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "adamson-et-al-2026-two-word",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks which hard graph problems can be translated into representing words and solved on the words. No event solves any hard problem on words. The Maximum Clique result (pre-snapshot) solves a hard problem efficiently on word-representable graphs, but through comparability neighbourhoods, not on words; I scored it variant rather than case because the statement's defining feature, solving on the word, is absent. Boll et al.'s bounded clique-width would give MSO algorithms only through the researcher's own inference, which the paper does not state, so it is none. Adamson et al. change the representation to two words and solve no hard problem: variant. The rest answer other open questions about word-representability: none. Hefty et al. carry only a 2024 year date, so after_snapshot is null.",
+    "doubts": "The exact intent of the question in Kitaev-Lozin Section 7.6 was not retrieved; if 'solved on words' is read loosely as 'solved efficiently on word-representable graphs', the Maximum Clique result would be a pre-snapshot case, which still leaves the problem open. Boll et al.'s full text was not read and might state an algorithmic consequence.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

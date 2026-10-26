@@ -1,0 +1,1734 @@
+{
+  "key": "hadamards-maximal-determinant-problem",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 two things have happened to this bullet. (1) A Caltech-led preprint (Butbaia, Gukov et al.; Zenodo 20 Aug 2026, arXiv 2608.22518) reports new lower-bound records for the maximal determinant at n = 51 and at n ≡ 3 (mod 4) in 103–119; its earliest version used no learning method, and its latest version (1 Oct 2026) describes a reinforcement-learning search, with simulated annealing used for some orders. (2) On 12 Aug 2026 Levent Alpöge announced on X a ±1 matrix of order 668 (encoded as a puzzle), crediting a team of three humans and Claude; if valid it attains Hadamard's bound at n = 668, and secondary reports say the same package covers eleven further multiples of 4 below 2000. Neither event determines the maximal determinant in general.",
+  "problem_asks": "Parts, enumerated from the statement alone. (1) For each order n ≥ 1, the largest determinant of an n×n matrix whose entries are all 1 or –1, i.e. the function md(n) = max det over {±1}-matrices of order n. Since negating a row changes the sign of det, max det equals max |det|. (2) The bullet asks for the value of md(n) for every n; it names no restricted class of orders and no restricted class of matrices, so no order is excluded. What the statement does not ask, but which the Wikipedia lead uses as context: Hadamard's bound n^(n/2) is attained exactly when a Hadamard matrix of order n exists, which forces n ∈ {1, 2} or 4 | n; and whether Hadamard matrices exist for every multiple of 4 (the Hadamard conjecture, a separate bullet). For n ≡ 0 (mod 4) part (1) is therefore equivalent to asking whether a Hadamard matrix of order n exists; for other n it is a separate question (Ehlich/Barba-type bounds apply and are not attained in general). The 0/1 and complex-entry variants are not parts of this bullet.",
+  "events": [
+    {
+      "id": "orrick-et-al-2003-records",
+      "what_happened": "W. P. Orrick, B. Solomon, J. Dowdeswell and W. D. Smith, 'New lower bounds for the maximal determinant problem' (arXiv math/0304410). Per the arXiv abstract as quoted in search snippets (not opened by me): new record determinants for orders 22, 23, 27, 29, 31, 33, 34, 35, 39, 45, 47, 53, 63, 69, 73, 77, 79, 93 and 95, with tabulated values for 67, 75, 83, 87, 91 and 99 per a search summary. The authors conjecture that their n = 22 value is the global maximum for that order. Matrices posted at the authors' maxdet site (indiana.edu/~maxdet).",
+      "date": "2003-04",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Explicit ±1 matrices exceeding previously recorded determinants at the listed orders. Lower bounds only; the n = 22 maximality is a conjecture, not a proof, in this paper.",
+      "remains": "Exact md(n) at every listed order (the maximum is not established for these n in this paper) and every other n.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 23 years",
+      "machine_checked": null,
+      "directly_checkable": "The matrices are published as explicit ±1 arrays; each determinant can be recomputed directly. Not checked by me.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Raises lower bounds; does not bear on an upper bound and does not determine any maximum except as conjectured for n = 22.",
+      "object": "Explicit ±1 matrices of the listed orders, with determinants above the earlier records; constructed by computer search and by construction from design-theoretic data. Explicit, not an existence proof.",
+      "people": [
+        "W. P. Orrick",
+        "B. Solomon",
+        "J. Dowdeswell",
+        "W. D. Smith"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0304410"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/math/0304410",
+          "title": "Orrick et al., New lower bounds for the maximal determinant problem (arXiv math/0304410); abstract known from search snippets only",
+          "type": "preprint",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "orrick-solomon-2003-4k1",
+      "what_happened": "W. P. Orrick and B. Solomon, 'Large-determinant sign matrices of order 4k+1' (arXiv math/0311292; Discrete Math. 307 (2007) 226–236 per the OEIS entry). Introduces '3-normalized' Hadamard matrices and uses them to build large-determinant matrices of order n+1. Per search snippets (not opened): new records for n = 37, 49, 65, 73, 77, 85, 93 and 97; the authors conjecture that their n = 37 determinant 72 × 9^17 × 2^36 is the global maximum for that order.",
+      "date": "2003-11",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 Nov 2003 (per arXiv ID); journal version Discrete Math. 307 (2007) per OEIS A003433 references.",
+      "delivers": "Explicit records at n = 37, 49, 65, 73, 77, 85, 93, 97 (order n = 4k+1 matrices built from order n+1 Hadamard-type data). Lower bounds, plus a conjectured maximum at n = 37.",
+      "remains": "Exact md(n) for these n as stated in this paper (the n = 37 maximum is only conjectured here; it is proved later, see brent-orrick-osborn-zimmermann-2011-19-37); all other n.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 22 years",
+      "machine_checked": null,
+      "directly_checkable": "Explicit ±1 matrices of order 38, 50, 66, 74, 78, 86, 94, 98 can be recomputed; not checked by me.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Raises lower bounds; the n = 37 maximum conjectured here was later proved (see the 2011 event), which cuts for the conjecture as stated.",
+      "object": "Explicit ±1 matrices of orders n+1 for n in {37, 49, 65, 73, 77, 85, 93, 97}, built from 3-normalized Hadamard matrices. Explicit construction, not existence proof.",
+      "people": [
+        "W. P. Orrick",
+        "B. Solomon"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0311292"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/math/0311292",
+          "title": "Orrick and Solomon, Large-determinant sign matrices of order 4k+1 (arXiv math/0311292); seen in search results, not opened",
+          "type": "preprint",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "orrick-2004-n15",
+      "what_happened": "W. P. Orrick, arXiv math/0401179 (Jan 2004), determines the maximal determinant of ±1 matrices of order 15 (confirming a conjecture of W. D. Smith and J. H. E. Cohn, per a search snippet). Per a search summary (unverified), the same paper confirms the maxima for orders 3, 7, 9, 11, 17 and 21 and gives improved upper bounds for orders 29, 33 and 37.",
+      "date": "2004-01",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Settles md(15) (as stated by secondary snippets). Upper-bound improvements at 29, 33, 37 are not maxima. The orders 3, 7, 9, 11, 17, 21 claim comes from a search summary and was not checked.",
+      "remains": "md(n) for the other orders, including 29, 33, 37 (upper bounds only from this paper per the search summary).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 22 years",
+      "machine_checked": null,
+      "directly_checkable": "Order 15 maximal matrix is an explicit ±1 array; not checked by me.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Settles the order-15 maximum, consistent with the conjectured value.",
+      "object": "An explicit order-15 ±1 matrix attaining the claimed maximum, found by Gram-matrix enumeration and decomposition. Non-constructive at the level of 'no larger determinant exists' (an upper-bound argument) with an explicit attaining matrix.",
+      "people": [
+        "W. P. Orrick"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0401179"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/math/0401179",
+          "title": "Orrick, arXiv math/0401179 (seen in search results, not opened)",
+          "type": "preprint",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "kharaghani-tayfeh-rezaie-2004-428",
+      "what_happened": "H. Kharaghani and B. Tayfeh-Rezaie construct a Hadamard matrix of order 428, which per the Epoch page for the order-668 problem was the previous smallest unknown order before 668 (resolved in 2004). Not opened by me; included because it settles md(428) = 428^214 by Hadamard's bound.",
+      "date": "2004",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A Hadamard matrix of order 428, so md(428) equals Hadamard's bound 428^(428/2). Settles n = 428 only.",
+      "remains": "All other n.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 22 years",
+      "machine_checked": null,
+      "directly_checkable": "A Hadamard matrix of order 428 can be checked by computing HH^T = 428I; not checked by me.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Attains Hadamard's bound at n = 428, i.e. the maximum is achieved there.",
+      "object": "A Hadamard matrix of order 428 (explicit construction per the Epoch page attribution; the matrix itself not read).",
+      "people": [
+        "H. Kharaghani",
+        "B. Tayfeh-Rezaie"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://epoch.ai/frontiermath/open-problems/hadamard"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://epoch.ai/frontiermath/open-problems/hadamard",
+          "title": "Epoch AI, Hadamard Matrix of Order 668 problem page (mentions 428 resolved in 2004)",
+          "type": "blog",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "brent-orrick-osborn-zimmermann-2011-19-37",
+      "what_happened": "R. P. Brent, W. P. Orrick, J. Osborn and P. Zimmermann, 'Maximal determinants and saturated D-optimal designs of orders 19 and 37' (arXiv 1112.4160). Per search snippets (arXiv page not opened): for order 19 the maximal determinant is 2^30 × 7^2 × 17 and the three known designs are the complete set of saturated D-optimal designs; for order 37 the maximal determinant is proved to be 2^39 × 3^36 (matching the Orrick–Solomon conjectured value), with a sample of inequivalent optimal designs rather than a full enumeration. A search summary dates the order-37 proof to 2009; the arXiv ID gives December 2011.",
+      "date": "2011-12",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Journal publication in 2012 (per search summary); arXiv ID 1112 gives Dec 2011. A search summary's 2009 date for the order-37 proof is unreconciled.",
+      "delivers": "Proves md(19) = 2^30 × 7^2 × 17 and md(37) = 2^39 × 3^36 (per snippets). Settles two single orders.",
+      "remains": "md(n) for all other n, including those listed at the 2003 records.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 years",
+      "machine_checked": null,
+      "directly_checkable": "Gram-matrix-based determinant identities; the maximality proof is computational. Not checked by me.",
+      "doubts": "The maximality for order 37 rests on a computer search (Gram-matrix enumeration and decomposition), not a proof read by me; the claimed exhaustiveness of the candidate search was not checked.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Proves the maximum at 19 and 37 and so settles those orders, consistent with the conjectured values.",
+      "object": "Explicit maximal-determinant matrices at orders 19 and 37 (not read), and the claimed exhaustive search over Gram matrices. Computational rather than a hand proof.",
+      "people": [
+        "R. P. Brent",
+        "W. P. Orrick",
+        "J. Osborn",
+        "P. Zimmermann"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1112.4160"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/1112.4160",
+          "title": "Brent, Orrick, Osborn, Zimmermann, arXiv 1112.4160 (seen in search results, not opened)",
+          "type": "preprint",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "chasiotis-kounias-farmakis-2018-n22",
+      "what_happened": "N. Chasiotis, S. Kounias and A. Farmakis, 'The D-optimal saturated designs of order 22', Discrete Math. 341(2):380–387 (2018), corrigendum Discrete Math. 342(7):2161 (2019). Per the 2024 survey reference (via search snippet) and the OEIS A003433 comment (Brent, 17 Aug 2021): this proves that the 2003 record determinant 2^23 × 5^11 for order 22 is the maximum for n = 22. Not opened by me.",
+      "date": "2018",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Corrigendum Discrete Math. 342(7) (2019) per search snippet.",
+      "delivers": "Settles md(22) = 2^23 × 5^11 (the 2003 record is the maximum), per OEIS and the 2024 survey as quoted in search snippets.",
+      "remains": "All other n.",
+      "checked_by": [
+        {
+          "who": "Discrete Mathematics (journal of record)",
+          "qualification": "Refereed combinatorics journal",
+          "what_they_did": "Published the paper; a corrigendum appeared in 2019",
+          "where": "Reference cited in the 2024 survey arXiv 2404.09040 (search snippet); not opened",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 8 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The corrigendum's content is unknown to me; I could not confirm whether it affects the optimality claim.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Settles the order-22 maximum in favour of the 2003 record value, consistent with the 2003 conjecture.",
+      "object": null,
+      "people": [
+        "N. Chasiotis",
+        "S. Kounias",
+        "A. Farmakis"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://oeis.org/A003433"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://oeis.org/A003433",
+          "title": "OEIS A003433 (comment by R. P. Brent, 17 Aug 2021, on the optimality of n = 22 by Chasiotis et al.)",
+          "type": "encyclopedia",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "browne-egan-hegarty-o-cathain-2021-survey",
+      "what_happened": "P. Browne, R. Egan, F. Hegarty and P. Ó Catháin, 'A Survey of the Hadamard Maximal Determinant Problem' (arXiv 2104.06756; Electronic J. Combin. 28(4) 2021). The abstract, read on the arXiv page: complete proofs of the major results to date; upper bounds mainly via Gram matrices; constructive lower bounds mainly via quadratic residues and design theory; asymptotic analysis for n ≡ 3 (mod 4); and 'We prove that there exists an infinite family of matrices achieving at least 0.48 of the maximal determinant bound. Previously the best known constant for a result of this type was 0.34.'",
+      "date": "2021-04-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 14 Apr 2021; v2 19 Apr 2021; v3 7 Aug 2021; v4 3 Nov 2021 ('28 pages, minor modifications').",
+      "delivers": "An infinite family of order n ≡ 3 (mod 4) matrices reaching at least 0.48 of the Hadamard-type bound (a constant-factor result, not a value of md(n)). Survey of known exact values, which the survey treats as the state of the art to 2021.",
+      "remains": "Exact md(n) for all n ≡ 3 (mod 4) and the others; the constant-factor family does not identify any maximum.",
+      "checked_by": [
+        {
+          "who": "Electronic Journal of Combinatorics (journal of record)",
+          "qualification": "Refereed combinatorics journal; the authors are combinatorialists (Browne, Egan, Hegarty, Ó Catháin, from the arXiv author list)",
+          "what_they_did": "Published the survey, with complete proofs of the cited results",
+          "where": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v28i4p41 (listed; not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial: constant-factor family for n ≡ 3 (mod 4); no maximum settled.",
+      "object": "Not an exhibited object: an infinite family of matrices (order n ≡ 3 mod 4) with determinant at least 0.48 of the bound, by quadratic-residue and design constructions. Explicit family.",
+      "people": [
+        "P. Browne",
+        "R. Egan",
+        "F. Hegarty",
+        "P. Ó Catháin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2104.06756"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2104.06756",
+          "title": "Browne, Egan, Hegarty, Ó Catháin, A Survey of the Hadamard Maximal Determinant Problem (arXiv 2104.06756), version history and abstract",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "sharipov-2021-simplified",
+      "what_happened": "R. Sharipov, 'On a simplified version of Hadamard's maximal determinant problem' (arXiv 2104.01749, April 2021). Per the arXiv abstract as seen in search results: studies a simplified problem (a 0/1-matrix variant built block by block) numerically; the paper states it is neither an attempt to improve existing estimates nor to give new ones. Not opened by me.",
+      "date": "2021-04",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A numerical study of a different (simplified, 0/1) problem; does not determine md(n) for ±1 matrices.",
+      "remains": "The whole bullet, as stated for ±1 matrices.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral: a variant problem, not a bound on this one.",
+      "object": null,
+      "people": [
+        "R. Sharipov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/2104.01749"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/pdf/2104.01749",
+          "title": "Sharipov, On a simplified version of Hadamard's maximal determinant problem (arXiv 2104.01749); seen in search results, not opened",
+          "type": "preprint",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "nunez-ponasso-2024-complex-dissertation",
+      "what_happened": "G. Nuñez Ponasso (WPI PhD dissertation, Ó Catháin advisor), 'Combinatorics of Complex Maximal Determinant Matrices' (arXiv 2404.09040, first submitted April 2024 per a search summary; v2 dated 24 Feb 2026 on the arXiv page). Its subject is maximal determinants of matrices with unimodular complex entries. Per a search summary (unverified), it has a section on the real Hadamard problem that cites a 2022-era survey and says the order-22 maximum was proved by Chasiotis et al. I could not read its body (PDF returned compressed streams).",
+      "date": "2024-04",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv v1 April 2024 (per search summary); v2 24 Feb 2026 (arXiv page fetched).",
+      "delivers": "Concerns complex unimodular matrices (a different question from ±1 matrices). For the real problem, per search summary only, it restates the known small-order results; it claims no new real maximal determinant that I could verify.",
+      "remains": "The whole bullet for ±1 matrices, as far as I could establish.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 30 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Body unread; any new real-matrix claim in it is unknown to me.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral to this bullet: a different problem (complex unimodular entries) and, for the real case, a survey-style restatement as far as I can tell.",
+      "object": null,
+      "people": [
+        "Guillermo Nuñez Ponasso"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/2404.09040"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2404.09040",
+          "title": "Nuñez Ponasso, Combinatorics of Complex Maximal Determinant Matrices (arXiv 2404.09040); abstract page and version history",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/pdf/2404.09040",
+          "title": "Same, PDF (compressed streams, body unreadable)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "nunez-ponasso-2025-roots-of-unity",
+      "what_happened": "G. Nuñez Ponasso, 'Maximal determinants of matrices over the roots of unity' (arXiv 2503.11114; Linear Algebra Appl. 723 (2025) 201–243 per a reference in the OEIS/search results). Concerns maximal determinants over roots of unity, a different class of matrices from ±1 matrices. Not opened by me.",
+      "date": "2025-03",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Journal version LAA 723 (2025) per search reference.",
+      "delivers": "A variant problem (matrices over roots of unity). Does not bear on ±1 determinants except by analogy.",
+      "remains": "The whole bullet.",
+      "checked_by": [
+        {
+          "who": "Linear Algebra and its Applications (journal of record)",
+          "qualification": "Refereed linear algebra journal",
+          "what_they_did": "Published the paper (per reference; not opened)",
+          "where": "https://ar5iv.labs.arxiv.org/html/2503.11114 (search result; not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 19 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral: a different problem.",
+      "object": null,
+      "people": [
+        "Guillermo Nuñez Ponasso"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ar5iv.labs.arxiv.org/html/2503.11114"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://ar5iv.labs.arxiv.org/html/2503.11114",
+          "title": "Nuñez Ponasso, Maximal determinants of matrices over the roots of unity (arXiv 2503.11114); search result only",
+          "type": "preprint",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "eliahou-2025-mod64-668",
+      "what_happened": "S. Eliahou, 'A 64-modular Hadamard matrix of order 668', Australasian J. Combin. 93(2) (2025) 422–427. Per the Epoch page (opened) it is a ±1 matrix of order 668 whose Gram matrix is congruent to 668·I modulo 64 and is not a real Hadamard matrix (it has 26 nonzero off-diagonal products per row). Per a search snippet, the matrix improves the modulus record from 32 (2001) to 64. The AJC PDF returned compressed streams; I did not read it. The arXiv posting date, if any, is not found.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A modular approximation at n = 668: Gram matrix ≡ 668I mod 64. It is not a Hadamard matrix and does not attain Hadamard's bound at 668.",
+      "remains": "Whether md(668) = 668^334 (equivalently, whether a true Hadamard matrix of order 668 exists) — open by this event. Also all other n.",
+      "checked_by": [
+        {
+          "who": "Australasian Journal of Combinatorics (journal of record)",
+          "qualification": "Refereed combinatorics journal",
+          "what_they_did": "Published the paper (received 24 Sep 2025 per a search snippet; not opened)",
+          "where": "https://ajc.maths.uq.edu.au/pdf/93/ajc_v93_p422.pdf (not readable to me)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 months",
+      "machine_checked": null,
+      "directly_checkable": "The modular property can be checked by computing the Gram matrix mod 64; the matrix itself was not read.",
+      "doubts": "Not a Hadamard matrix; per the Epoch page, the matrix's 'Gram matrix congruent to 668I modulo 64' property does not give a real Hadamard matrix.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial: approaches the Hadamard bound at 668 modulo 64 but does not attain it. Cuts neither for nor against the conjectured maximum.",
+      "object": "A ±1 matrix of order 668 whose Gram matrix is ≡ 668I mod 64 (not Hadamard). Explicit, obtained by construction (per the Epoch page's description; the matrix itself not read).",
+      "people": [
+        "Shalom Eliahou"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://epoch.ai/frontiermath/open-problems/hadamard"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://epoch.ai/frontiermath/open-problems/hadamard",
+          "title": "Epoch AI page (describes the Eliahou matrix as modular, not Hadamard)",
+          "type": "blog",
+          "opened": true
+        },
+        {
+          "url": "https://ajc.maths.uq.edu.au/pdf/93/ajc_v93_p422.pdf",
+          "title": "Eliahou, A 64-modular Hadamard matrix of order 668, AJC 93(2) (PDF, compressed; body unreadable)",
+          "type": "journal",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "thetaevolve-2025-n29",
+      "what_happened": "Y. Wang et al. (Microsoft Research / UW), 'ThetaEvolve: Test-time Learning on Open Problems' (arXiv 2511.23473; ICML 2026). An open-source framework that runs an LLM with test-time reinforcement learning on open optimisation problems. Its Appendix A.5 uses the 29×29 maximal-determinant task (Hadamard matrices, n = 29) with the score |det H| / (2^28 × 7^12 × 342), and cites Orrick et al. 2003's 2^28 × 7^12 × 320 as the best known. The best ThetaEvolve score in Table 2 is 0.5764 (Distill-Qwen3-8B with RL, step 65); the pure-inference best is 0.5733 and the ProRL-1.5B-v2 RL best is 0.5635. Under the same normalisation the best known scores 320/342 ≈ 0.936 (my calculation).",
+      "date": "2025-11-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv v1 28 Nov 2025 (per arXiv page); ICML 2026 publication per search results.",
+      "delivers": "No new determinant for n = 29. A benchmark score of 0.5764 of the normalised target, below the best known. Establishes only that an LLM-based search did not reach the 2003 record at n = 29 in this run.",
+      "remains": "The whole bullet, including n = 29 (the best known 2^28 × 7^12 × 320 is not improved here).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 months",
+      "machine_checked": null,
+      "directly_checkable": "The score is a determinant ratio computed by an evaluator function, per the paper's appendix; not checked by me.",
+      "doubts": "The normalisation uses 342 where the best known uses 320; the paper does not explain the choice in the text I read. Not a result, so no doubt about correctness is needed for the bullet.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not improve the best known; a negative benchmark result for an LLM-based search at n = 29.",
+      "object": null,
+      "people": [
+        "Yiping Wang",
+        "Shao-Rong Su",
+        "Zhiyuan Zeng",
+        "Eva Xu",
+        "Liliang Ren",
+        "Xinyu Yang",
+        "Zeyi Huang",
+        "Xuehai He",
+        "Luyao Ma",
+        "Baolin Peng",
+        "Hao Cheng",
+        "Pengcheng He",
+        "Weizhu Chen",
+        "Shuohang Wang",
+        "Simon Shaolei Du",
+        "Yelong Shen"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2511.23473",
+          "https://arxiv.org/html/2511.23473v1"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2511.23473",
+          "title": "ThetaEvolve, arXiv 2511.23473 (abstract page; v1 date; models named in abstract)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2511.23473v1",
+          "title": "ThetaEvolve v1 HTML, Appendix A.5 and Table 2 (read through a summarising fetch; first 100k of 143k chars)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "motwani-2026-horizonmath-668-attempts",
+      "what_happened": "Per a social-media post by Sumeet Motwani (search snippet only; post not opened), he and colleagues tested 'GPT 5.6 Sol Max Reasoning' and 'Claude Fable' on the order-668 Hadamard existence problem as part of HorizonMath (@erikyw26) and found no valid solution. Epoch's earlier AI attempts on the same problem (GPT-5.2 Pro and Gemini 3 Deep Think, per a search snippet of the Epoch page) were marked 'No'. These are about the existence question at 668, not about this bullet's values.",
+      "date": "2026",
+      "precision": "year",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Negative AI attempts at the order-668 existence question; no matrix; nothing for this bullet.",
+      "remains": "All of the bullet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "unknown (before 12 Aug 2026; exact date not found)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Snippet only; the full post text was not seen (the X page returned HTTP 402).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Negative attempts; no direction on the bullet.",
+      "object": null,
+      "people": [
+        "Sumeet Motwani"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://x.com/sumeetrm/status/2087534215772479838"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://x.com/sumeetrm/status/2087534215772479838",
+          "title": "Motwani X post (HTTP 402 when fetched; seen as search snippet)",
+          "type": "blog",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "evomaster-2026",
+      "what_happened": "X. Zhu et al., 'EvoMaster: A Foundational Evolving Agent Framework for Agentic Science at Scale' (arXiv 2604.17406, v1 19 Apr 2026). A general agent framework; its abstract reports a mean 58.02% on ten benchmarks with GPT-5.4 agents. Per a search summary (not verified in the abstract I read), it includes a 'hadamard_maximal_det_29' task, starting from a determinant ratio of about 0.143 and reaching no value reported as a record.",
+      "date": "2026-04-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Benchmark only (per search summary). No new value for n = 29 is claimed in the abstract I read.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 6 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The Hadamard task was not found in the abstract page I read; the description comes from a search summary.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral: a benchmark, not a result on the bullet.",
+      "object": null,
+      "people": [
+        "Xinyu Zhu",
+        "Yuzhu Cai",
+        "Zexi Liu",
+        "Cheng Wang",
+        "Fengyang Li",
+        "Wenkai Jin",
+        "Wanxu Liu",
+        "Zehao Bing",
+        "Bingyang Zheng",
+        "Jingyi Chai",
+        "Shuo Tang",
+        "Rui Ye",
+        "Yuwen Du",
+        "Xianghe Pang",
+        "Yaxin Du",
+        "Tingjia Miao",
+        "Yuzhi Zhang",
+        "Ruoxue Liao",
+        "Zhaohan Ding",
+        "Linfeng Zhang",
+        "Yanfeng Wang",
+        "Weinan E",
+        "Siheng Chen"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2604.17406"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2604.17406",
+          "title": "EvoMaster, arXiv 2604.17406 (abstract page; GPT-5.4 named in comparison)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "williamson-2026-transformers-hadamard",
+      "what_happened": "G. Williamson, O. Yacobi and P. Zinn-Justin, 'Generating Hadamard matrices with transformers' (arXiv 2604.11101, v1 13 Apr 2026). Combines a transformer with local search inside the PatternBoost framework to construct many inequivalent Hadamard matrices of Goethals–Seidel type for orders roughly 100–200 and an order-252 example. It concerns the Hadamard existence question, not the maximal determinant of ±1 matrices as such. The fetched abstract page gives the range as 100–200; a search summary gives 100–250 and largest 244 (conflict unresolved).",
+      "date": "2026-04-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "New inequivalent Hadamard matrices at orders where Hadamard matrices were already known (all orders below 668 are known per the Epoch page), so md(n) at those orders is unchanged: already n^(n/2) by known constructions. Discounted for this bullet.",
+      "remains": "The whole bullet, as stated; these orders are not new cases of the maximum.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 6 months",
+      "machine_checked": null,
+      "directly_checkable": "Hadamard matrices can be checked by computing HH^T = nI; not checked by me.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral for this bullet: existence at orders already settled.",
+      "object": null,
+      "people": [
+        "Geordie Williamson",
+        "Oded Yacobi",
+        "Paul Zinn-Justin"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2604.11101"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2604.11101",
+          "title": "Williamson, Yacobi, Zinn-Justin, Generating Hadamard matrices with transformers (arXiv 2604.11101, abstract page)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "wmllm-2026",
+      "what_happened": "Z. Li et al., 'WMLLM: Self-Evolving Optimization Agents via Predict-Then-Act World Modeling' (arXiv 2609.01608). An LLM-based optimisation agent; its abstract is about black-box optimisation and molecular optimisation. Per a search summary (not verified in the abstract I read), it uses a 29×29 Hadamard determinant task scored by R(H) = |det H| / 29^(29/2), which is normalised to Hadamard's bound rather than to the best known value at n = 29.",
+      "date": "2026-06-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Date conflict: the abstract page says 'Submitted on 2 Jun 2026', but the arXiv identifier 2609.01608 implies September 2026. Unresolved.",
+      "delivers": "Benchmark only (per search summary); no new determinant claimed in the abstract read.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 months (or about 1 month, if the identifier is right)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Date conflict as above; Hadamard task not seen in the abstract read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral: a benchmark.",
+      "object": null,
+      "people": [
+        "Zhongzheng Li",
+        "Qingsong Ran",
+        "Shikun Feng",
+        "Nian Ran",
+        "Wenhao Li",
+        "Xiaoyuan Zhang",
+        "Yue Wang",
+        "Xiaoguang Zhao"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.01608"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2609.01608",
+          "title": "WMLLM, arXiv 2609.01608 (abstract page; date conflict noted)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "alpoge-2026-668",
+      "what_happened": "On 12 Aug 2026 Levent Alpöge (described by QbitAI and Epoch as an Anthropic researcher) posted on X a ±1 matrix of order 668 with HH^T = 668I, encoded in the post and its replies as a puzzle whose decoder is a shell script (per secondary reports). Per QbitAI (13 Aug 2026, Chinese language, quoting the post) the collaborators are Philippe Voinov, Saul Reynolds-Haertle and Claude; QbitAI and Epoch say the same package gives Hadamard matrices for every open order below 2000 without a known instance (QbitAI lists twelve: 668, 716, 892, 1132, 1244, 1388, 1436, 1676, 1772, 1916, 1948, 1964; Epoch says 'all admissible orders up to 2000 where no such instance was previously known'). The X post itself returned HTTP 402 to my fetch, so the primary wording is quoted through a blog post (Nechita) and secondary reports. Epoch's FrontierMath open-problem page lists 'Hadamard Matrix of Order 668' as 'Solved (human + AI)', 'First solved with: Claude (internal Anthropic model)', crediting 'a team of three humans and Claude', with the provisional label dated 12 Aug 2026 in its changelog.",
+      "date": "2026-08-12",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Epoch label 'Solved by AI' provisional from 12 Aug 2026; relabelled 'Solved (human + AI)' on 16 Sep 2026 per Epoch's changelog (as read on the index page).",
+      "delivers": "If the matrix is valid: a Hadamard matrix of order 668 exists, so md(668) = 668^334, Hadamard's bound, attained. That settles n = 668 for this bullet; secondary reports say it settles eleven further multiples of 4 below 2000. It settles nothing for other n, and the general maximal determinant remains open. (For n ≡ 0 mod 4, the maximal determinant equals n^(n/2) exactly when a Hadamard matrix of that order exists, so the existence claim and the bullet's value coincide there.)",
+      "remains": "md(n) for every other n, including n ≡ 1, 2, 3 (mod 4) and all orders outside the claimed list. If any of the eleven secondary-reported orders fails, those cases remain open too.",
+      "checked_by": [
+        {
+          "who": "VibeMathed (named by QbitAI, the only checker named there)",
+          "qualification": "Unknown; I could not identify the group or whether it is human",
+          "what_they_did": "Per QbitAI: reproduced the decoder and checked the matrices with exact integer arithmetic (second-hand)",
+          "where": "https://www.qbitai.com/2026/08/472016.html",
+          "automated": null
+        },
+        {
+          "who": "Ion Nechita (blog author; role in the field not checked by me)",
+          "qualification": "Not established by me",
+          "what_they_did": "Blogged on the post and noted that the tweet is the matrix, and that a short script (he suggests 'write 20 lines of Python') can check that the entries are ±1; reports no completed check",
+          "where": "https://ion.nechita.net/posts/new-hadamard-matrices/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": "The 668 × 668 ±1 matrix itself, if decoded from the puzzle; validity is HH^T = 668I, which a short script checks. The decoder is an obfuscated shell script in the replies (per a Chinese-language report); I did not obtain or run it.",
+      "doubts": "(1) Only secondary reports of the central claim; no arXiv preprint, repository or technical report was found, and QbitAI says the full technical report is still awaited. (2) Whether the result comes from an improved search or from a general construction is unclear (QbitAI). (3) Epoch's 'Solved (human + AI)' label is provisional and 'will be revised if further reports from the team indicate that humans contributed significantly to the core mathematical ideas' (Epoch page). (4) The TheoremDB record (snapshot 24 Jul 2026, before the announcement) still lists the order-668 existence question as open; this is stale, not a contrary check. (5) A 2008 list of open orders below 2000 in a search snippet also contains 1004, which QbitAI's list omits; the discrepancy is unreconciled.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts in favour of the bound being attained at n = 668 (a Hadamard matrix of that order), if valid.",
+      "object": "A ±1 matrix of order 668 with HH^T = 668I (a Hadamard matrix), given as an explicit array encoded in the post as a puzzle; the post's text, per Nechita, 'basically is' the mathematical object. Explicit construction, not an existence proof. Secondary reports say matrices for eleven other open orders below 2000 are included; not seen by me.",
+      "people": [
+        "Levent Alpöge",
+        "Philippe Voinov",
+        "Saul Reynolds-Haertle"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude (internal Anthropic model)",
+            "what_it_did": "Credited (per the team credit as quoted by QbitAI and Epoch) as one of the solvers of the 668 puzzle and the other open orders. The authors' own words, as quoted by Nechita from the post: 'weekend fun w…' and 'of course claude:))' and 'a very strong model, a good loopy/agentic harness. Anthropic has all three, most mathematicians do not.' They do not say what Claude produced. QbitAI says how Claude found the pattern will be revealed only in the full technical report. Epoch calls it 'internal Anthropic model' (a pre-release or internal build, per Epoch's wording). Whether the contribution is load-bearing for the matrix is unresolved: the attribution is 'team of three humans and Claude', not a statement that the model produced the idea.",
+            "basis_quote": "of course claude:))",
+            "quote_url": "https://ion.nechita.net/posts/new-hadamard-matrices/"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ion.nechita.net/posts/new-hadamard-matrices/",
+          "https://www.qbitai.com/2026/08/472016.html",
+          "https://epoch.ai/frontiermath/open-problems/hadamard"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://x.com/__alpoge__/status/2087504785952182273",
+          "title": "Alpöge X post (HTTP 402 when fetched; date decoded from post ID to 12 Aug 2026)",
+          "type": "blog",
+          "opened": false
+        },
+        {
+          "url": "https://www.qbitai.com/2026/08/472016.html",
+          "title": "QbitAI, report on the order-668 Hadamard result (13 Aug 2026; Chinese language)",
+          "type": "news",
+          "opened": true
+        },
+        {
+          "url": "https://ion.nechita.net/posts/new-hadamard-matrices/",
+          "title": "Nechita, New Hadamard matrices (posted 13 Aug 2026; quotes the post)",
+          "type": "blog",
+          "opened": true
+        },
+        {
+          "url": "https://epoch.ai/frontiermath/open-problems/hadamard",
+          "title": "Epoch AI, Hadamard Matrix of Order 668 (problem page, 'Solved (human + AI)')",
+          "type": "blog",
+          "opened": true
+        },
+        {
+          "url": "https://epoch.ai/frontiermath/open-problems",
+          "title": "Epoch AI, FrontierMath open problems index (changelog dates 12 Aug and 16 Sep 2026)",
+          "type": "blog",
+          "opened": true
+        },
+        {
+          "url": "https://www.johndcook.com/blog/2026/08/13/constructing-hadamard-matrices/",
+          "title": "J. D. Cook, Constructing Hadamard matrices (13 Aug 2026): names Alpöge, collaborators unnamed",
+          "type": "blog",
+          "opened": true
+        },
+        {
+          "url": "https://theoremdb.org/statements/hadamard-order-668/",
+          "title": "TheoremDB statement and snapshot (24 Jul 2026; still open)",
+          "type": "repository",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "butbaia-2026-records",
+      "what_happened": "G. Butbaia, J. Tan, P. Vipulanandan, X. Huang, T. Saunders-A'Court, L. Fagan, D. Passaro, M. Tarquini and S. Gukov, 'New Records for the Hadamard Maximal Determinant Problem' (arXiv 2608.22518; a Zenodo copy of v1 is dated 20 Aug 2026, DOI 10.5281/zenodo.22024187, with code at github.com/Math-AI-Caltech/hadamard-maxdet). Three arXiv versions. v1 (23 Aug 2026, title 'in Dimensions 51, 107, and 115'): new lower bounds at n = 51, 107, 115 improving previous recorded bounds by 3.1%, 0.44% and 1.68%, with 'the data necessary to construct these matrices'; no learning method. v2 (31 Aug 2026, title 51, 107, 111, 115, 119): adds 111 and 119 with improvements 1.26% and 2.12%; no learning method. v3 (1 Oct 2026, comment 'Updated to include methods'): abstract 'describe[s] several learning-based strategies for reconstruction', compares with simulated annealing as a benchmark, and reports new record determinants 'for orders n≡3 (mod 4) between 103 and 119, as well as n=51'. Method (from the v3 HTML, read through a summarising fetch): the ±1 matrices are built from two m×m circulant matrices A, B with m = (n−1)/2, and the determinant maximisation is recast as a sequence reconstruction from periodic autocorrelation sums; the reconstruction is done by reinforcement-learning policies (a GNN and an autoregressive transformer decoder trained with PPO, GRPO fine-tuning) and by simulated annealing.",
+      "date": "2026-08-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Zenodo v1 20 Aug 2026 (n = 51, 107, 115; 3.1%, 0.44%, 1.68%). arXiv v1 23 Aug 2026 (same content). arXiv v2 31 Aug 2026 (n = 51, 107, 111, 115, 119; 3.1%, 0.44%, 1.26%, 1.68%, 2.12%). arXiv v3 1 Oct 2026, 'Updated to include methods' (learning-based strategies; simulated annealing benchmark; orders 103–119 with n ≡ 3 mod 4, plus 51).",
+      "delivers": "Lower bounds (new records over previously recorded values) for the maximal determinant at n = 51 and at n ≡ 3 (mod 4) in 103–119, per the latest version. Ratios to the Orrick (2012) reference, as reported in the v3 appendix: n = 103 ratio 1.0000004; n = 111 ratio 1.0126294; n = 115 ratio 1.0182876; n = 51, all 10 record-breaking PAF-sum targets reconstructed (no ratio given); n = 107 and 119, ratios not given in the part I could read. Optimality is claimed only within the family of circulant-block constructions (the uncorrelated X(A, B), plus a correlated variant in Appendix C), not as a global maximum. Establishes no upper bound and no maximum at any order.",
+      "remains": "The exact maximal determinant at every listed order (51 and 103–119), since only lower bounds are claimed, and every other n. The Hadamard-type upper bounds for n ≡ 3 (mod 4) are not attained by these matrices as far as the paper reports.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7 weeks since the first posting (20 Aug 2026), as of 12 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": "Each matrix is specified by the first rows of two circulant blocks, given in a CSV (n, a, b, normalised determinant D) in the GitHub repository, with a verify.py script and an 'expected verification output' table for n = 51 to 119 (repository README, read through a summarising fetch). These were not run by me. The matrices can be checked by computing det and the claimed ratio.",
+      "doubts": "(a) Scope grew between versions: v1 3 orders, v2 5 orders, v3 adds the learning method and the range 103–119. The v3 title lists 51, 107, 111, 115, 119 but the abstract and body also include n = 103, which the title omits. (b) The learning-based part is credited only for n = 103, 111, 115 (Appendix A.1: 'We exhibit new record–determinant matrices obtained by reinforcement learning in orders…'); for n = 51 the appendix says 'We limited experimentation to simulated annealing in this order', and the 107 and 119 runs are described as simulated annealing on the energy functional. (c) The n = 103 margin is 1.0000004 over the previous record. (d) No referee, no journal, no independent reproduction, and no later paper found in my searches. (e) The author team's background in matrix or design theory was not established by me; Sergei Gukov's public profile in the search results is mathematical physics and reinforcement learning for mathematics. This is neutral context for the judging pass, not a finding against the result.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at the listed orders; it cuts in favour of the existence of larger determinants than previously recorded at those orders, and does not bear on the conjectured maximum (no upper bound is claimed).",
+      "object": "Explicit ±1 matrices of orders 51 and 103–119 (n ≡ 3 mod 4), each built from two m×m circulant ±1 blocks with m = (n−1)/2 (the uncorrelated X(A, B) construction and, in Appendix C, a correlated variant), specified by the first rows of the blocks, which are determined by PAF-sum targets found by search. Explicit constructions, not existence proofs. The bitstrings are in Appendix A.1 and the CSV (neither read in full by me).",
+      "people": [
+        "Giorgi Butbaia",
+        "Justin Tan",
+        "Pragatheeswaran Vipulanandan",
+        "Xiaoyu Huang",
+        "Toby Saunders-A'Court",
+        "Lucas Fagan",
+        "Davide Passaro",
+        "Michele Tarquini",
+        "Sergei Gukov"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "reinforcement-learning policy (authors' own; GNN and autoregressive transformer decoder trained with PPO and GRPO fine-tuning; no named model)",
+            "what_it_did": "Per the v3 appendix, the policies reconstruct the PAF-sum targets into ±1 sequences, and for n = 103, 111, 115 the records were obtained by these policies (Appendix A.1: 'We exhibit new record–determinant matrices obtained by reinforcement learning in orders' — the sentence goes on to name 103, 111 and 115). The Conclusions say: 'we have reformulated the Hadamard maximal determinant problem in orders n≡3 (mod 4) as a reinforcement learning based sequence reconstruction problem'. Against this, the n = 51 records were reconstructed with simulated annealing (Appendix D.1), and the 107 and 119 results are attributed to simulated annealing (Appendix D.2). The learning part is therefore load-bearing for three of the listed orders and not for the others, per the authors' own appendix. No commercial or lab-named model is credited anywhere in the text read.",
+            "basis_quote": "we have reformulated the Hadamard maximal determinant problem in orders n≡3 (mod 4) as a reinforcement learning based sequence reconstruction problem",
+            "quote_url": "https://arxiv.org/html/2608.22518"
+          }
+        ],
+        "disclosed_cost": "No money or token figure found. The acknowledgements name compute: Google's TPU Research Cloud (Cloud TPUs), NVIDIA Academic Grant Program GPUs, Nebius Academy cloud, AMD University Program AI & HPC cluster, and the University of Cambridge Computer Lab. Appendix D.2 says the 107 and 119 runs took 'few days'. The paper's acknowledgements also name DARPA cooperative agreement HR0011262E017 as sponsor.",
+        "sources": [
+          "https://arxiv.org/html/2608.22518",
+          "https://arxiv.org/abs/2608.22518v3",
+          "https://zenodo.org/records/22024187"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://zenodo.org/records/22024187",
+          "title": "Zenodo record 22024187, New Records for the Hadamard Maximal Determinant Problem in Dimensions 51, 107, and 115 (v1 copy, 20 Aug 2026)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/abs/2608.22518v1",
+          "title": "arXiv 2608.22518 v1 abstract page (23 Aug 2026; title lists 51, 107, 115)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/abs/2608.22518v2",
+          "title": "arXiv 2608.22518 v2 abstract page (31 Aug 2026; title lists 51, 107, 111, 115, 119)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/abs/2608.22518v3",
+          "title": "arXiv 2608.22518 v3 abstract page (1 Oct 2026; 'Updated to include methods')",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2608.22518",
+          "title": "arXiv 2608.22518 v3 HTML (read through a summarising fetch; quotes are the fetch's, to be re-checked against the text)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/pdf/2608.22518",
+          "title": "arXiv 2608.22518 PDF (compressed streams; body unreadable to me)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://github.com/Math-AI-Caltech/hadamard-maxdet",
+          "title": "GitHub repository Math-AI-Caltech/hadamard-maxdet (README read; code not run)",
+          "type": "repository",
+          "opened": true
+        }
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "scope",
+      "summary": "The Butbaia et al. preprint changes its claimed orders and method between versions. v1 (23 Aug 2026, Zenodo 20 Aug) claims n = 51, 107, 115 with no learning method. v2 (31 Aug) adds 111 and 119. v3 (1 Oct, 'Updated to include methods') adds learning-based reconstruction and states records 'for orders n≡3 (mod 4) between 103 and 119, as well as n=51', while its title still lists 51, 107, 111, 115, 119 and omits 103. The authors' own statements of the scope do not agree.",
+      "sources": [
+        "https://arxiv.org/abs/2608.22518v1",
+        "https://arxiv.org/abs/2608.22518v2",
+        "https://arxiv.org/abs/2608.22518v3",
+        "https://zenodo.org/records/22024187"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Attribution of the order-668 result to an AI system is contested or provisional. Epoch's page credits 'a team of three humans and Claude' and says 'First solved with: Claude (internal Anthropic model)', with the label 'Solved (human + AI)' provisional and open to revision if humans contributed significantly to the core ideas. QbitAI says it is unclear whether the result came from an improved search or from a general construction, and that how Claude found the pattern awaits the technical report. The authors' own X post could not be fetched (HTTP 402), so the only authors' words I have are the 'of course claude' and 'a very strong model, a good loopy/agentic harness' lines as quoted in Nechita's blog.",
+      "sources": [
+        "https://epoch.ai/frontiermath/open-problems/hadamard",
+        "https://www.qbitai.com/2026/08/472016.html",
+        "https://ion.nechita.net/posts/new-hadamard-matrices/"
+      ]
+    },
+    {
+      "kind": "scope",
+      "summary": "The set of orders claimed for the 668 package is not settled. QbitAI lists twelve orders (668, 716, 892, 1132, 1244, 1388, 1436, 1676, 1772, 1916, 1948, 1964). Epoch says 'all admissible orders up to 2000 where no such instance was previously known'. A 2008 list in a search snippet also includes 1004. I could not reconcile these lists.",
+      "sources": [
+        "https://www.qbitai.com/2026/08/472016.html",
+        "https://epoch.ai/frontiermath/open-problems/hadamard"
+      ]
+    },
+    {
+      "kind": "status",
+      "summary": "Order-668 status sources disagree by date: TheoremDB (snapshot 24 Jul 2026) and the Epoch problem page's earlier text describe the Hadamard matrix of order 668 as unknown; the Epoch changelog and the current Epoch page describe it as solved (human + AI) from 12 Aug 2026. The later Epoch entry is the one I take as current, but it rests on secondary reports.",
+      "sources": [
+        "https://theoremdb.org/statements/hadamard-order-668/",
+        "https://epoch.ai/frontiermath/open-problems",
+        "https://epoch.ai/frontiermath/open-problems/hadamard"
+      ]
+    },
+    {
+      "kind": "attribution-date",
+      "summary": "The date of the Brent–Orrick–Osborn–Zimmermann proof that md(37) = 2^39 × 3^36 is 2009 in one search summary and December 2011 (arXiv 1112.4160, published 2012) by the arXiv ID. I did not open the paper to settle which.",
+      "sources": [
+        "https://arxiv.org/abs/1112.4160"
+      ]
+    }
+  ],
+  "summary": "The bullet asks for the largest determinant of a ±1 matrix of each order n, and the Wikipedia lead (opened; its lead says n = 23 is the smallest open case and that the maxima are solved up to n = 22) frames it that way. Before the window the sources show a long run of computer-assisted record and maximum results: Orrick et al. 2003 records and the n = 22 conjecture, Orrick–Solomon 2003 for orders 4k+1, Orrick 2004 for n = 15, Brent–Orrick–Osborn–Zimmermann 2011 for n = 19 and 37 (arXiv ID; the 2009 date in a search summary is unreconciled), Chasiotis–Kounias–Farmakis 2018 for n = 22 (read via OEIS and a survey reference, not opened), and the 2021 survey by Browne et al. with a constant-factor family for n ≡ 3 (mod 4). Within the window, four kinds of event bear on it. (1) Nuñez Ponasso's 2024 dissertation is about complex unimodular matrices; its real-matrix section could not be read. (2) Eliahou's 2025 order-668 matrix is only a 64-modular approximation (Gram matrix ≡ 668I mod 64), so it is not a Hadamard matrix and settles nothing. (3) The 2026 Butbaia et al. preprint on arXiv 2608.22518 (first posted on Zenodo 20 Aug 2026, arXiv v1 23 Aug, v2 31 Aug, v3 1 Oct) gives new lower bounds at n = 51 and n ≡ 3 (mod 4) in 103–119. Its v1 had no learning method. Its v3 adds reinforcement-learning policies and simulated annealing; by its own Appendix A.1, RL produced the records at 103, 111 and 115, and simulated annealing produced the n = 51 targets and the 107 and 119 results. No upper bound and no maximum is claimed; optimality is shown only within a circulant-block family. (4) On 12 Aug 2026 Alpöge announced a ±1 matrix of order 668 with HH^T = 668I, encoded as a puzzle, crediting a team of three humans and Claude; secondary reports say it covers twelve open orders below 2000. Since md(n) = n^(n/2) exactly when a Hadamard matrix of order n exists for 4 | n, a valid matrix would settle md(668), and the other claimed orders, as Hadamard's bound. I could not open the primary post (HTTP 402), any arXiv or repository write-up, or the decoder, so the 668 claim rests on secondary reports, Epoch's provisional 'Solved (human + AI)' label, and a blogger's account of the tweet. The authors' own sentence on Claude's contribution is 'of course claude:))' and 'a very strong model, a good loopy/agentic harness' (as quoted in Nechita's post), which does not say what Claude produced. AI searches on this bullet by name, with AlphaEvolve, GPT, Gemini Deep Think, OpenAI, Lean and formal-conjectures terms, found no AI result on the ±1 maximal determinant apart from the Butbaia et al. learning method and the 668 announcement; ThetaEvolve (Nov 2025), EvoMaster (Apr 2026) and WMLLM (2026) use the n = 29 determinant task as a benchmark and do not beat the 2003 record (ThetaEvolve scores 0.5764 against a best known of 320/342 ≈ 0.936 under its own normalisation). The 2026 Williamson–Yacobi–Zinn-Justin transformer paper concerns Hadamard existence at orders already settled. I found no Lean or formal proof of the ±1 bullet, and the Epoch page for 668 lists no Lean proof. Two close calls: whether the 668 announcement counts as a settled case of this bullet (for n ≡ 0 mod 4 it is equivalent to the Hadamard-existence question, which the bullet does not ask, but the value of md(668) is what the bullet asks for); and whether Claude's role is load-bearing (the attribution is team credit; the mechanism is not described). Smaller discrepancies I did not settle: the WMLLM arXiv date (2 Jun 2026 on the page, 2609 identifier), the order range of the transformer paper (100–200 on the page, 100–250 in a search summary), and the 2025 date of the Eliahou paper (received 24 Sep 2025 per a snippet).",
+  "competing_reading": "The strongest reading against counting anything in the window as settling this bullet: the 668 matrix exists only in secondary reports, with no primary text, technical report, or independent check I could find, and Epoch's label is provisional; so the bullet's value at 668 is unsettled on the record I can verify. The Butbaia et al. records are lower bounds only, with optimality shown only within a family; its v1 had no learning method, and the learning component is credited for three of the listed orders by its own appendix. On that reading the maximal determinant of ±1 matrices is unchanged in general, and the AI-involved events are a claimed construction without a primary account plus a search heuristic that found lower bounds. The opposite reading: a valid Hadamard matrix of order 668 is a settled case in the window (md(668) = 668^334), credited to a team including an AI system by its own organisers' labelling, and the Butbaia et al. preprint is a second in-window event in which AI-driven (RL) search produced records. Both readings rest on the same two events; they differ in whether an unverified or lower-bound-only result is counted.",
+  "what_would_settle_it": "(1) The primary announcement for the order-668 matrix (the X thread or a technical report from Alpöge, Voinov and Reynolds-Haertle), including the decoder and the authors' own sentence on what Claude contributed; (2) an independent check that the decoded matrix is ±1 with HH^T = 668I, and the same for the other claimed orders (716, 892, 1132, 1244, 1388, 1436, 1676, 1772, 1916, 1948, 1964); (3) Epoch's page changelog after 16 Sep 2026, and whether its label changes; (4) the Butbaia et al. repository's verify.py output and a rerun of the determinant ratios at n = 51 and 103–119, the published version of the paper and any referee reports, and the author-side account of which method produced each record (the Appendix A.1 and D statements); (5) the v1 and v3 texts directly, to confirm the scope change and whether the RL policy is load-bearing at 103, 111 and 115; (6) any later paper citing 2608.22518 or the 668 announcement (the 2609.18380 PDF reference list was unreadable to me); (7) the current Orrick maxdet table or the Brent maxdet pages, to check the stated 2012 benchmark values for 103–119.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Hadamard%27s_maximal_determinant_problem",
+      "title": "Wikipedia: Hadamard's maximal determinant problem (current lead; January 2024 revision not checked)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A003433",
+      "title": "OEIS A003433 (values for n ≤ 22; Brent 2021 comment on n = 22 by Chasiotis et al.)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2104.06756",
+      "title": "Browne, Egan, Hegarty, Ó Catháin, A Survey of the Hadamard Maximal Determinant Problem (arXiv 2104.06756)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0304410",
+      "title": "Orrick et al., New lower bounds for the maximal determinant problem (arXiv math/0304410)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0311292",
+      "title": "Orrick and Solomon, Large-determinant sign matrices of order 4k+1 (arXiv math/0311292)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0401179",
+      "title": "Orrick, arXiv math/0401179 (order 15)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1112.4160",
+      "title": "Brent, Orrick, Osborn, Zimmermann, arXiv 1112.4160 (orders 19 and 37)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2104.01749",
+      "title": "Sharipov, On a simplified version of Hadamard's maximal determinant problem (arXiv 2104.01749)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.09040",
+      "title": "Nuñez Ponasso, Combinatorics of Complex Maximal Determinant Matrices (arXiv 2404.09040)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2404.09040",
+      "title": "Same, PDF (compressed; body unreadable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2503.11114",
+      "title": "Nuñez Ponasso, Maximal determinants of matrices over the roots of unity (arXiv 2503.11114; search result only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://ajc.maths.uq.edu.au/pdf/93/ajc_v93_p422.pdf",
+      "title": "Eliahou, A 64-modular Hadamard matrix of order 668, AJC 93(2) 2025 (PDF compressed; body unreadable)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v28i4p41",
+      "title": "Electronic J. Combin. page for the Browne et al. survey (listed; not opened)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.23473",
+      "title": "ThetaEvolve: Test-time Learning on Open Problems (arXiv 2511.23473)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2511.23473v1",
+      "title": "ThetaEvolve v1 HTML, Appendix A.5 and Table 2 (summarising fetch; first 100k of 143k characters)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2511.02864",
+      "title": "Georgiev, Gómez-Serrano, Wagner, Tao et al., Mathematical exploration and discovery at scale (arXiv 2511.02864); no Hadamard section found in the first 200k of 294k characters",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.17406",
+      "title": "EvoMaster, arXiv 2604.17406",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.01608",
+      "title": "WMLLM, arXiv 2609.01608 (date conflict)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.11101",
+      "title": "Williamson, Yacobi, Zinn-Justin, Generating Hadamard matrices with transformers (arXiv 2604.11101)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.18380",
+      "title": "González-Regadera and Falcón, A computational framework for multidimensional loop-cocyclic Hadamard matrices (arXiv 2609.18380; PDF compressed, body unreadable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.22518v1",
+      "title": "Butbaia et al., arXiv 2608.22518 v1 abstract page (23 Aug 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.22518v2",
+      "title": "Butbaia et al., arXiv 2608.22518 v2 abstract page (31 Aug 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.22518v3",
+      "title": "Butbaia et al., arXiv 2608.22518 v3 abstract page (1 Oct 2026; 'Updated to include methods')",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.22518",
+      "title": "Butbaia et al., arXiv 2608.22518 v3 HTML (summarising fetch; quotes to be re-checked)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.22518",
+      "title": "Butbaia et al., arXiv 2608.22518 PDF (compressed; body unreadable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/22024187",
+      "title": "Zenodo 22024187, Butbaia et al., v1 (20 Aug 2026)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/Math-AI-Caltech/hadamard-maxdet",
+      "title": "GitHub Math-AI-Caltech/hadamard-maxdet (README; code not run)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://epoch.ai/frontiermath/open-problems/hadamard",
+      "title": "Epoch AI, Hadamard Matrix of Order 668 (problem page; 'Solved (human + AI)')",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://epoch.ai/frontiermath/open-problems",
+      "title": "Epoch AI, FrontierMath open problems index (changelog)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.qbitai.com/2026/08/472016.html",
+      "title": "QbitAI, report on Alpöge's order-668 announcement (13 Aug 2026; Chinese language)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://ion.nechita.net/posts/new-hadamard-matrices/",
+      "title": "Ion Nechita, New Hadamard matrices (13 Aug 2026; quotes Alpöge's post)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.johndcook.com/blog/2026/08/13/constructing-hadamard-matrices/",
+      "title": "John D. Cook, Constructing Hadamard matrices (13 Aug 2026)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://theoremdb.org/statements/hadamard-order-668/",
+      "title": "TheoremDB statement for the order-668 Hadamard problem (snapshot 24 Jul 2026)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://x.com/__alpoge__/status/2087504785952182273",
+      "title": "Alpöge X post (HTTP 402 when fetched)",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://x.com/sumeetrm/status/2087534215772479838",
+      "title": "Motwani X post (HTTP 402 when fetched; search snippet only)",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://maths-people.anu.edu.au/brent/pd/rpb251_JIS.pdf",
+      "title": "Brent, rpb251 (JIS) PDF (compressed; body unreadable)",
+      "type": "preprint",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "Hadamard maximal determinant problem",
+      "maximal determinant ±1 matrices new results 2025",
+      "Hadamard maximal determinant problem arXiv 2024",
+      "Hadamard maximal determinant problem AI language model AlphaEvolve",
+      "maximal determinant problem sign matrices D-optimal designs Orrick Solomon",
+      "OEIS A003432 maximal determinant of n X n (-1,1)-matrix",
+      "Brent Orrick maximal determinants saturated D-optimal designs orders 19 and 37",
+      "largest determinant of a matrix with entries 1 or -1 open problem",
+      "Wikipedia Hadamard's maximal determinant problem",
+      "maximal determinant (-1,1)-matrix order 21 22 23 new value discovered",
+      "Barba bound determinant ±1 matrix Ehlich bound attained",
+      "large determinant sign matrices of order 4k+1 Orrick Solomon",
+      "ThetaEvolve test-time learning open problems Hadamard determinant",
+      "\"New Records for the Hadamard Maximal Determinant Problem\"",
+      "Hadamard maximal determinant norm equations cyclotomic fields dimensions 51 107 111 115 119",
+      "Hadamard maximal determinant problem 2026 new record AI-discovered matrix",
+      "maximal determinant ±1 matrix LLM evolutionary search record order 29 Orrick",
+      "Combinatorics of Complex Maximal Determinant Matrices arXiv 2404.09040 authors",
+      "Butbaia Gukov Hadamard determinant reinforcement learning PAF sequences arXiv 2608.22518",
+      "Gukov reinforcement learning Hadamard matrices maximal determinant transformer PPO",
+      "Chasiotis Kounias Farmakis maximal determinant order 22 proof",
+      "Chasiotis Kounias Moyssiadis D-optimal design order 22 maximal determinant (-1,1)-matrix",
+      "Mathematical exploration and discovery at scale AlphaEvolve Hadamard maximal determinant",
+      "Hadamard maximal determinant problem Lean formalization formal conjectures sorry",
+      "AlphaEvolve Hadamard matrix determinant ±1 record improvement",
+      "New Records Hadamard maximal determinant problem Butbaia Gukov 2026 news",
+      "Sergei Gukov reinforcement learning mathematics Caltech Hadamard matrices",
+      "Giorgi Butbaia Justin Tan Pragatheeswaran Vipulanandan Caltech Hadamard",
+      "Hadamard maximal determinant problem 2026 blog Tao mathstodon record",
+      "maximal determinant ±1 matrices arXiv 2025 new lower bound order Gram matrix D-optimal",
+      "Sharipov simplified version Hadamard maximal determinant problem 0/1 matrices block numerical",
+      "OpenAI GPT model maximal determinant ±1 matrix record Hadamard",
+      "Gemini Deep Think AlphaEvolve Hadamard maximal determinant n=29 order 29 record",
+      "Orrick maxdet database indiana Hadamard maximal determinant records table",
+      "Hadamard matrix order 668 existence status 2026",
+      "Alpöge Hadamard matrix order 668 found",
+      "Hadamard matrix 668 Claude collaborators weekend construction arXiv",
+      "\"Explicit construction of Hadamard matrices for all unknown orders under 2000, including order 668\"",
+      "VibeMathed Hadamard matrices 668 decoder exact integer arithmetic Alpöge",
+      "Anthropic Claude Hadamard matrix 668 Epoch AI FrontierMath open problem solved human AI",
+      "Eliahou 64-modular Hadamard matrix of order 668 arXiv",
+      "Hadamard maximal determinant records reinforcement learning sequence reconstruction PAF follow-up 2026 arXiv cites Butbaia",
+      "maximal determinant ±1 matrices review verification new records 2026 circulant block constructions optimality family"
+    ],
+    "places_checked": [
+      "Wikipedia article Hadamard's maximal determinant problem (opened; current lead)",
+      "OEIS A003433 with the n = 22 optimality comment (opened); OEIS A003432 (search result only)",
+      "arXiv abstract pages for Butbaia et al. v1, v2, v3 and the main listing; HTML of v3 (read via summarising fetch); PDF (unreadable)",
+      "Zenodo record 22024187 (v1 copy, 20 Aug 2026) (opened)",
+      "GitHub repository Math-AI-Caltech/hadamard-maxdet (README opened; code not run)",
+      "Browne et al. survey arXiv 2104.06756 abstract page with version history (opened); EJC page (search result only)",
+      "ThetaEvolve arXiv 2511.23473 abstract page and v1 HTML appendix (opened)",
+      "AlphaEvolve paper arXiv 2511.02864 HTML (first 200k of 294k characters opened; no Hadamard section found)",
+      "EvoMaster arXiv 2604.17406 and WMLLM arXiv 2609.01608 abstract pages (opened)",
+      "Williamson–Yacobi–Zinn-Justin arXiv 2604.11101 abstract page (opened)",
+      "Nuñez Ponasso arXiv 2404.09040 abstract page, HTML and PDF (opened; body unreadable)",
+      "Eliahou AJC 93(2) 2025 PDF (opened; unreadable); Epoch page and TheoremDB for the 668 problem (opened)",
+      "Epoch AI FrontierMath open problems index (opened; changelog dates)",
+      "QbitAI report (opened); Ion Nechita blog (opened); John D. Cook blog (opened)",
+      "Alpöge X post and Motwani X post (both HTTP 402; search snippets only)",
+      "Brent rpb251 JIS PDF (opened; unreadable)",
+      "Search results for Orrick et al. 2003, Orrick–Solomon 2003, Orrick 2004, Brent et al. 2011, Chasiotis et al. 2018, Sharipov 2021, Nuñez Ponasso 2025, Kharaghani–Tayfeh-Rezaie 2004 (search snippets and summaries only; not opened)",
+      "Orrick maxdet site (indiana.edu/~maxdet) and Brent maxdet pages: named in search results and not opened",
+      "AI searches by name: AlphaEvolve, ThetaEvolve, GPT / OpenAI, Gemini Deep Think, Claude, Lean, formal-conjectures, PatternBoost (no AI result on the ±1 maximal determinant found except the Butbaia et al. learning method and the 668 announcement)"
+    ],
+    "dead_ends": [
+      "No arXiv or journal write-up for the 12 Aug 2026 order-668 announcement found in the searches; the primary X post returned HTTP 402.",
+      "No Lean or Coq formalisation of the ±1 maximal determinant problem found; the formal-conjectures repository top level was not searched in code and no Hadamard entry was seen.",
+      "AlphaEvolve (arXiv 2511.02864): no Hadamard maximal determinant section in the first 200k of 294k characters; the TOC shows none; the remaining text was not read.",
+      "No OpenAI or GPT attribution for any ±1 maximal determinant result was found in searches.",
+      "The 2025 date for Brent–Osborn–Smith probabilistic lower bounds (1211.3248) is a repository posting date (9 May 2025) of a 2016 paper; it is not a new event.",
+      "Brent–Osborn 2013 (arXiv 1208.3819, 'On minors of maximal determinant matrices') appears in an OEIS reference list; not opened; it concerns minors, not the maximum.",
+      "Hadamard circulant conjecture and Hadamard matrices of Williamson type (2605.08661) are about existence questions, not this bullet's values.",
+      "The arXiv 2609.25543 (32-modular half-flip family) and 2605.16722 (Hadamard hypercubes) are Hadamard-existence side papers; not opened in full and not relevant to the maximum.",
+      "A 2013 Álvarez–Armario–Frau–Gudiel arXiv paper on skew-type (−1,1) matrices (1311.7250) concerns a subclass; not this bullet.",
+      "Gukov's public profile: RL for mathematics and mathematical physics; no record of Hadamard-matrix work by him apart from this preprint was found.",
+      "Search for an independent arithmetic check of the 668 matrix: one search summary reports one; I did not find it in the sources I opened (the John D. Cook page does not say it)."
+    ]
+  },
+  "incomplete": "(1) The primary text of the 668 announcement is missing: the Alpöge X post and the Motwani post returned HTTP 402; there is no arXiv, repository or technical report; the decoder and the matrix were not obtained or run. Everything about the 668 event rests on secondary reports (QbitAI, Nechita's blog, Epoch's page, John D. Cook's page). The list of eleven further orders rests on QbitAI and Epoch. (2) The Butbaia et al. PDF is unreadable to me, so the body was read only through a summarising fetch of the arXiv HTML and abstract pages, with quotes capped at 125 characters per quote; the quotes given in this record are the fetch's, and should be re-checked against the HTML before being relied on verbatim. Appendices A.1, D.1–D.3 and the Acknowledgements were read in part; the full list of records and the bitstrings were not. (3) The GitHub repository README was read; verify.py and the CSV were not run. (4) The Eliahou AJC PDF and the Nuñez Ponasso 2024 dissertation PDF were unreadable; the real-matrix section of the dissertation (where its order-22 statement sits) was not read. (5) For several pre-window events I relied on search snippets and summaries, not the sources (Orrick et al. 2003, Orrick–Solomon 2003, Orrick 2004, Brent et al. 2011, Chasiotis et al. 2018, Kharaghani–Tayfeh-Rezaie 2004, Sharipov 2021, Nuñez Ponasso 2025); these are marked opened: false. (6) The Orrick maxdet site and Brent's maxdet pages, which hold the current record table, were not opened; the 2012 benchmark values used in the Butbaia et al. comparisons were not checked. (7) The ThetaEvolve, EvoMaster and WMLLM Hadamard tasks were checked only from the abstract pages and summaries; EvoMaster's and WMLLM's Hadamard passages were not read in full text. (8) The 2609.18380 paper (González-Regadera and Falcón) is said by a search summary to cite the 668 announcement; its reference list was unreadable, so later_work_cites_it is null for the 668 event. (9) Whether the 668 claim's other eleven orders are correct, and how many of the authors' claims are actually new relative to the 2008 list, is unresolved. (10) The January 2024 revision of the Wikipedia article was not checked (the current article was read; this is a fact for another pass). (11) The judging question of whether Claude's contribution to the 668 matrix is load-bearing is not answerable from the sources I could reach; the authors' own technical account is missing.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "assisted",
+  "resolution_direction": "confirmed",
+  "object_role": "witness",
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "alpoge-2026-668",
+  "no_change_found": false,
+  "event": {
+    "id": "alpoge-2026-668",
+    "what_happened": "On 12 Aug 2026 Levent Alpöge (described by QbitAI and Epoch as an Anthropic researcher) posted on X a ±1 matrix of order 668 with HH^T = 668I, encoded in the post and its replies as a puzzle whose decoder is a shell script (per secondary reports). Per QbitAI (13 Aug 2026, Chinese language, quoting the post) the collaborators are Philippe Voinov, Saul Reynolds-Haertle and Claude; QbitAI and Epoch say the same package gives Hadamard matrices for every open order below 2000 without a known instance (QbitAI lists twelve: 668, 716, 892, 1132, 1244, 1388, 1436, 1676, 1772, 1916, 1948, 1964; Epoch says 'all admissible orders up to 2000 where no such instance was previously known'). The X post itself returned HTTP 402 to my fetch, so the primary wording is quoted through a blog post (Nechita) and secondary reports. Epoch's FrontierMath open-problem page lists 'Hadamard Matrix of Order 668' as 'Solved (human + AI)', 'First solved with: Claude (internal Anthropic model)', crediting 'a team of three humans and Claude', with the provisional label dated 12 Aug 2026 in its changelog.",
+    "date": "2026-08-12",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "revisions": "Epoch label 'Solved by AI' provisional from 12 Aug 2026; relabelled 'Solved (human + AI)' on 16 Sep 2026 per Epoch's changelog (as read on the index page).",
+    "delivers": "If the matrix is valid: a Hadamard matrix of order 668 exists, so md(668) = 668^334, Hadamard's bound, attained. That settles n = 668 for this bullet; secondary reports say it settles eleven further multiples of 4 below 2000. It settles nothing for other n, and the general maximal determinant remains open. (For n ≡ 0 mod 4, the maximal determinant equals n^(n/2) exactly when a Hadamard matrix of that order exists, so the existence claim and the bullet's value coincide there.)",
+    "remains": "md(n) for every other n, including n ≡ 1, 2, 3 (mod 4) and all orders outside the claimed list. If any of the eleven secondary-reported orders fails, those cases remain open too.",
+    "checked_by": [
+      {
+        "who": "VibeMathed (named by QbitAI, the only checker named there)",
+        "qualification": "Unknown; I could not identify the group or whether it is human",
+        "what_they_did": "Per QbitAI: reproduced the decoder and checked the matrices with exact integer arithmetic (second-hand)",
+        "where": "https://www.qbitai.com/2026/08/472016.html",
+        "automated": null
+      },
+      {
+        "who": "Ion Nechita (blog author; role in the field not checked by me)",
+        "qualification": "Not established by me",
+        "what_they_did": "Blogged on the post and noted that the tweet is the matrix, and that a short script (he suggests 'write 20 lines of Python') can check that the entries are ±1; reports no completed check",
+        "where": "https://ion.nechita.net/posts/new-hadamard-matrices/",
+        "automated": false
+      }
+    ],
+    "no_engagement_found": false,
+    "time_since_posted": "about 2 months",
+    "machine_checked": null,
+    "directly_checkable": "The 668 × 668 ±1 matrix itself, if decoded from the puzzle; validity is HH^T = 668I, which a short script checks. The decoder is an obfuscated shell script in the replies (per a Chinese-language report); I did not obtain or run it.",
+    "doubts": "(1) Only secondary reports of the central claim; no arXiv preprint, repository or technical report was found, and QbitAI says the full technical report is still awaited. (2) Whether the result comes from an improved search or from a general construction is unclear (QbitAI). (3) Epoch's 'Solved (human + AI)' label is provisional and 'will be revised if further reports from the team indicate that humans contributed significantly to the core mathematical ideas' (Epoch page). (4) The TheoremDB record (snapshot 24 Jul 2026, before the announcement) still lists the order-668 existence question as open; this is stale, not a contrary check. (5) A 2008 list of open orders below 2000 in a search snippet also contains 1004, which QbitAI's list omits; the discrepancy is unreconciled.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Cuts in favour of the bound being attained at n = 668 (a Hadamard matrix of that order), if valid.",
+    "object": "A ±1 matrix of order 668 with HH^T = 668I (a Hadamard matrix), given as an explicit array encoded in the post as a puzzle; the post's text, per Nechita, 'basically is' the mathematical object. Explicit construction, not an existence proof. Secondary reports say matrices for eleven other open orders below 2000 are included; not seen by me.",
+    "people": [
+      "Levent Alpöge",
+      "Philippe Voinov",
+      "Saul Reynolds-Haertle"
+    ],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "Claude (internal Anthropic model)",
+          "what_it_did": "Credited (per the team credit as quoted by QbitAI and Epoch) as one of the solvers of the 668 puzzle and the other open orders. The authors' own words, as quoted by Nechita from the post: 'weekend fun w…' and 'of course claude:))' and 'a very strong model, a good loopy/agentic harness. Anthropic has all three, most mathematicians do not.' They do not say what Claude produced. QbitAI says how Claude found the pattern will be revealed only in the full technical report. Epoch calls it 'internal Anthropic model' (a pre-release or internal build, per Epoch's wording). Whether the contribution is load-bearing for the matrix is unresolved: the attribution is 'team of three humans and Claude', not a statement that the model produced the idea.",
+          "basis_quote": "of course claude:))",
+          "quote_url": "https://ion.nechita.net/posts/new-hadamard-matrices/"
+        }
+      ],
+      "disclosed_cost": null,
+      "sources": [
+        "https://ion.nechita.net/posts/new-hadamard-matrices/",
+        "https://www.qbitai.com/2026/08/472016.html",
+        "https://epoch.ai/frontiermath/open-problems/hadamard"
+      ]
+    },
+    "sources": [
+      {
+        "url": "https://x.com/__alpoge__/status/2087504785952182273",
+        "title": "Alpöge X post (HTTP 402 when fetched; date decoded from post ID to 12 Aug 2026)",
+        "type": "blog",
+        "opened": false
+      },
+      {
+        "url": "https://www.qbitai.com/2026/08/472016.html",
+        "title": "QbitAI, report on the order-668 Hadamard result (13 Aug 2026; Chinese language)",
+        "type": "news",
+        "opened": true
+      },
+      {
+        "url": "https://ion.nechita.net/posts/new-hadamard-matrices/",
+        "title": "Nechita, New Hadamard matrices (posted 13 Aug 2026; quotes the post)",
+        "type": "blog",
+        "opened": true
+      },
+      {
+        "url": "https://epoch.ai/frontiermath/open-problems/hadamard",
+        "title": "Epoch AI, Hadamard Matrix of Order 668 (problem page, 'Solved (human + AI)')",
+        "type": "blog",
+        "opened": true
+      },
+      {
+        "url": "https://epoch.ai/frontiermath/open-problems",
+        "title": "Epoch AI, FrontierMath open problems index (changelog dates 12 Aug and 16 Sep 2026)",
+        "type": "blog",
+        "opened": true
+      },
+      {
+        "url": "https://www.johndcook.com/blog/2026/08/13/constructing-hadamard-matrices/",
+        "title": "J. D. Cook, Constructing Hadamard matrices (13 Aug 2026): names Alpöge, collaborators unnamed",
+        "type": "blog",
+        "opened": true
+      },
+      {
+        "url": "https://theoremdb.org/statements/hadamard-order-668/",
+        "title": "TheoremDB statement and snapshot (24 Jul 2026; still open)",
+        "type": "repository",
+        "opened": true
+      }
+    ]
+  },
+  "credited_humans": [
+    "Levent Alpöge",
+    "Philippe Voinov",
+    "Saul Reynolds-Haertle"
+  ],
+  "status_sources": [
+    {
+      "url": "https://x.com/__alpoge__/status/2087504785952182273",
+      "title": "Alpöge X post (HTTP 402 when fetched; date decoded from post ID to 12 Aug 2026)",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://www.qbitai.com/2026/08/472016.html",
+      "title": "QbitAI, report on the order-668 Hadamard result (13 Aug 2026; Chinese language)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://ion.nechita.net/posts/new-hadamard-matrices/",
+      "title": "Nechita, New Hadamard matrices (posted 13 Aug 2026; quotes the post)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://epoch.ai/frontiermath/open-problems/hadamard",
+      "title": "Epoch AI, Hadamard Matrix of Order 668 (problem page, 'Solved (human + AI)')",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://epoch.ai/frontiermath/open-problems",
+      "title": "Epoch AI, FrontierMath open problems index (changelog dates 12 Aug and 16 Sep 2026)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.johndcook.com/blog/2026/08/13/constructing-hadamard-matrices/",
+      "title": "J. D. Cook, Constructing Hadamard matrices (13 Aug 2026): names Alpöge, collaborators unnamed",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://theoremdb.org/statements/hadamard-order-668/",
+      "title": "TheoremDB statement and snapshot (24 Jul 2026; still open)",
+      "type": "repository",
+      "opened": true
+    }
+  ],
+  "ai": {
+    "systems": [
+      "Claude (internal Anthropic model)"
+    ],
+    "from_event": "alpoge-2026-668",
+    "basis_quote": "of course claude:))",
+    "none_found": false,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "orrick-et-al-2003-records",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "orrick-solomon-2003-4k1",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "orrick-2004-n15",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": "witness"
+      },
+      {
+        "id": "kharaghani-tayfeh-rezaie-2004-428",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": "witness"
+      },
+      {
+        "id": "brent-orrick-osborn-zimmermann-2011-19-37",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": "witness"
+      },
+      {
+        "id": "chasiotis-kounias-farmakis-2018-n22",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "browne-egan-hegarty-o-cathain-2021-survey",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "sharipov-2021-simplified",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "nunez-ponasso-2024-complex-dissertation",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "nunez-ponasso-2025-roots-of-unity",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "eliahou-2025-mod64-668",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "thetaevolve-2025-n29",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "motwani-2026-horizonmath-668-attempts",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "evomaster-2026",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "williamson-2026-transformers-hadamard",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wmllm-2026",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "alpoge-2026-668",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "checkable",
+        "credibility": "doubtful",
+        "credibility_reason": "Known only through secondary reports (QbitAI, Nechita, Epoch); no primary post, technical report or decoder was obtained, the only reported check (VibeMathed) is second-hand and unidentified, and the list of further orders is inconsistent across sources.",
+        "ai_role": "assisted",
+        "ai_basis": "of course claude:))",
+        "ai_systems_credited": [
+          "Claude (internal Anthropic model)"
+        ],
+        "direction": "confirmed",
+        "object_role": "witness"
+      },
+      {
+        "id": "butbaia-2026-records",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "we have reformulated the Hadamard maximal determinant problem in orders n≡3 (mod 4) as a reinforcement learning based sequence reconstruction problem",
+        "ai_systems_credited": [
+          "reinforcement-learning policy (authors' own; GNN and autoregressive transformer decoder trained with PPO and GRPO fine-tuning; no named model)"
+        ],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks for md(n) for every n, so settling one order (15, 19, 37, 22, 428, 668) is a case and new record determinants are bounds. The order-668 event is a case: for 4 | n a Hadamard matrix attains n^(n/2), so if it is valid it fixes md(668). I marked it checkable because the record describes an explicit matrix that a short HH^T = 668I script would verify. I marked it doubtful because it reaches us only through secondary sources. Its AI role was the close call. The authors' only words are 'of course claude:))'. Epoch credits 'a team of three humans and Claude' as the solvers. Read together, these support Claude producing part of the construction, but they do not show that Claude produced it with humans only checking, so I chose assisted over generated or none. Butbaia et al. raises lower bounds at n = 51 and 103–119, so it is a bound, checkable through its CSV and verify script. By the authors' own appendix, their learning policies produced the records at 103, 111 and 115, so it is assisted. The methods are the authors' own neural RL policies, not a named model. Eliahou's mod-64 matrix and the complex and roots-of-unity papers are variants. The benchmarks, the failed AI attempts and the transformer paper at already-settled orders are none.",
+    "doubts": "The 668 AI role depends on a thin quote plus third-party labelling. A technical report could move it to generated, or to none. Whether a custom RL policy (GNN/transformer trained with PPO) counts as an 'AI system' for the project is a definitional question; I treated it as one. The Butbaia quotes come from a summarising fetch. The record does not establish journal acceptance for Orrick 2004 or Brent et al. 2011, so those stay unreviewed. Orrick–Solomon was published in Discrete Math. (2007) per OEIS.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "alpoge-2026-668",
+      "ai_role": "assisted",
+      "ai_from": "alpoge-2026-668",
+      "resolution_direction": "confirmed",
+      "object_role": "witness",
+      "ai_systems_credited": [
+        "Claude (internal Anthropic model)"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

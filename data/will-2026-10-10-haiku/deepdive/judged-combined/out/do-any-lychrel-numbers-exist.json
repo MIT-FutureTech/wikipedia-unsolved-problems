@@ -1,0 +1,779 @@
+{
+  "key": "do-any-lychrel-numbers-exist",
+  "nothing_found": false,
+  "outcome": "No base-10 Lychrel number is proven to exist, and no accepted result on that question appeared since 26 January 2024; the one new claim in the window (Kuitché, Advances in Pure Mathematics, August 2024) asserts a probabilistic proof of base-10 existence, and I found no engagement with it, while base-2 existence (Brousseau, 1969) predates the window.",
+  "problem_asks": "Written from the bullet's statement alone: (1) Whether any Lychrel number exists, i.e. a natural number whose reverse-and-add orbit never reaches a palindrome. The bullet does not name a base, so the literal question is base-unqualified: does at least one such number exist in any base. (2) If read in base ten, which is how the Wikipedia article's own unsolved-problem box words it (fetched text: 'Do any base-10 Lychrel numbers exist?'), the question is whether a base-10 Lychrel number exists. Not asked by the bullet: whether there are infinitely many (conjectured in Wikipedia's text), and whether 196 specifically is Lychrel (the famous candidate, not named in the bullet).",
+  "events": [
+    {
+      "id": "brousseau-1969-base2",
+      "what_happened": "Brother Alfred Brousseau, 'Palindromes by addition in base two', Mathematics Magazine 42 (Nov/Dec 1969), pp. 254-255. Secondary sources seen only as search excerpts (a Spanish RSME gazette article and a Cambridge reference list, plus a zbMATH-style listing) credit it with showing that 10110 in base 2 (decimal 22) never reaches a palindrome under reverse-and-add. The OEIS entry A058042, which I opened, instead says that 'according to J. Walker, Ronald Sprague has proved that this trajectory does not contain a palindrome' (bracketed note: 'I would like a reference for this') and that 'another proof has been given by Klaus Brockhaus'. I did not read the 1969 paper itself.",
+      "date": "1969",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Existence of a Lychrel number in base 2: the seed 10110 (decimal 22) has a reverse-and-add orbit containing no palindrome. Per the Wikipedia article and OEIS, the proof is an induction: the orbit runs 10110, 100011, 1010100, 1101001, 10110100, ..., and after 4n steps reaches '10, then n+1 ones, then 01, then n+1 zeros', the same form with n replaced by n+1. Restricted to base 2; says nothing about base 10.",
+      "remains": "Read without a base, the bullet's question is already answered yes by this event, so nothing remains on that reading. Read in base ten, all of it remains: no base-10 Lychrel number is shown.",
+      "checked_by": [
+        {
+          "who": "Mathematics Magazine (Mathematical Association of America), refereed journal",
+          "qualification": "Journal of record; I did not verify its refereeing practice for this issue",
+          "what_they_did": "Published the paper in 1969",
+          "where": "Bibliographic records seen only in search excerpts (Cambridge reference list; zbMATH-style listing); no URL opened",
+          "automated": false
+        },
+        {
+          "who": "ProofWiki contributors",
+          "qualification": "Community-written mathematics wiki; the page writes out an induction for 22 in base 2",
+          "what_they_did": "Wrote an induction proof for the base-2 seed and attributed the result to Sprague",
+          "where": "https://www.proofwiki.org/wiki/Non-Palindromes_in_Base_2_by_Reverse-and-Add_Process (search excerpt only, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 57 years",
+      "machine_checked": null,
+      "directly_checkable": "The seed 10110 (binary) and its reverse-and-add orbit can be checked by hand or by a short program; the induction on the form 10 1^n 01 0^n is the step that covers all later terms.",
+      "doubts": "Attribution is contested: Brousseau (1969, per the RSME excerpt and bibliographic records), Sprague (OEIS, via J. Walker, reference requested; ProofWiki, citing David Wells's 1986 book), Brockhaus (OEIS, undated). I did not read the 1969 paper, so I cannot confirm that it contains this seed. The OEIS and Wikipedia descriptions of the orbit match each other.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts toward existence: it exhibits a palindrome-free reverse-and-add orbit, in base 2 only.",
+      "object": "The binary seed 10110 (decimal 22). Its reverse-and-add orbit 10110, 100011, 1010100, 1101001, 10110100, ... contains no palindrome. The argument is an explicit induction on the orbit's form 10 1^n 01 0^n (the orbit reaches the same form with n increased by one every four steps). Explicit seed, inductive proof, not an existence argument.",
+      "people": [
+        "Alfred Brousseau",
+        "Ronald Sprague (attributed in OEIS A058042 and ProofWiki)",
+        "Klaus Brockhaus (attributed in OEIS A058042)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://oeis.org/A058042"
+        ]
+      },
+      "sources": [
+        "https://oeis.org/A058042",
+        "https://en.wikipedia.org/wiki/Lychrel_number",
+        "https://www.proofwiki.org/wiki/Non-Palindromes_in_Base_2_by_Reverse-and-Add_Process"
+      ]
+    },
+    {
+      "id": "walker-1990-196-run",
+      "what_happened": "John Walker's reverse-and-add run on 196, from 12 August 1987 to 24 May 1990, stopped at pass 2,415,836 with a number of about one million digits and no palindrome (Wikipedia's history of 196 computations, fetched). A finite computation on a single candidate.",
+      "date": "1990",
+      "precision": "year",
+      "kind": "announcement",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Nothing on existence or non-existence of a Lychrel number: 196 shows no palindrome within 2,415,836 iterations. A finite search cannot show that a number never reaches a palindrome.",
+      "remains": "All of it: whether 196 or any base-10 number is Lychrel is untouched.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 36 years",
+      "machine_checked": null,
+      "directly_checkable": "Reverse-and-add on 196 is reproducible by any program; the orbit can be checked step by step, but only up to the stopping point.",
+      "doubts": "No engagement with the result beyond hobbyist re-runs recorded on p196.org (Irvin, Dolbeau, Piepgras, others), which are computations, not a reading of an argument.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture that 196 is Lychrel, but evidentially only one more finite instance; the problem's existence question is not moved by it.",
+      "object": null,
+      "people": [
+        "John Walker"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Lychrel_number"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Lychrel_number",
+        "https://p196.org/html/news.html"
+      ]
+    },
+    {
+      "id": "johns-wiegold-1994-base2",
+      "what_happened": "Glyn Johns and James Wiegold, 'The palindrome problem in base 2', The Mathematical Gazette 78(483), November 1994, pp. 312-314 (DOI 10.2307/3620206). I opened the Cambridge abstract page: it shows only the opening paragraph, which poses the base-10 reverse-and-add question and gives a few examples. The full text is paywalled. A ProofWiki excerpt (not opened) says the paper noted the reverse-and-add behaviour of 1010100 in base 2, a term of the 10110 orbit, and that ProofWiki's own analysis found a number of mistakes in the source.",
+      "date": "1994-11",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Not established. I could not read the paper's results. Title and excerpt suggest base-2 reverse-and-add examples, possibly the 10110 orbit.",
+      "remains": "Cannot say from what I read.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 32 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "ProofWiki (search excerpt) says that its analysis, based on the Johns-Wiegold report, needed to point out a number of mistakes in that source. Not verified by me.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown.",
+      "object": null,
+      "people": [
+        "Glyn Johns",
+        "James Wiegold"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/palindrome-problem-in-base-2/52BC291294D42DF1ABB7E8C7671B4976"
+        ]
+      },
+      "sources": [
+        "https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/palindrome-problem-in-base-2/52BC291294D42DF1ABB7E8C7671B4976",
+        "https://www.proofwiki.org/wiki/Non-Palindromes_in_Base_2_by_Reverse-and-Add_Process"
+      ]
+    },
+    {
+      "id": "kroeber-1996-nonpalindromic-patterns",
+      "what_happened": "Günter Kröber, '80.51 On non-palindromic patterns in palindromic processes', The Mathematical Gazette 80(489), November 1996, pp. 577-579 (DOI 10.2307/3618533). I opened the Cambridge page: no abstract is available, only a preview image I could not read. Its references, as shown, include Brousseau (1969) and Johns and Wiegold (1994), so it sits in the same base-2 reverse-and-add literature. Content not read.",
+      "date": "1996-11",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Not established. I could not read the paper.",
+      "remains": "Cannot say from what I read.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 30 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Engagement is not established either way; I did not read the paper.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown.",
+      "object": null,
+      "people": [
+        "Günter Kröber"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/8051-on-nonpalindromic-patterns-in-palindromic-processes/C9AC5EEF293D5B8478E76254CD704A54"
+        ]
+      },
+      "sources": [
+        "https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/8051-on-nonpalindromic-patterns-in-palindromic-processes/C9AC5EEF293D5B8478E76254CD704A54"
+      ]
+    },
+    {
+      "id": "seal-1996-usenet-bases",
+      "what_happened": "David Seal, preliminary search-program results posted to Usenet rec.puzzles in January 1996, hosted on p196.org (papers1 page, fetched). He reports: a regular family of seeds for bases 2, 4, 8, 16 and 32 that 'can be shown to extend to any power of 2' (with the page's own note that these are believed well known and no proof is given); sporadic seeds for bases 11 and 17 that 'after 6 iterations, become same thing with n increased by 1'; a sporadic seed for base 26 that does so after 4 iterations; and for base 20 'a >200 digit number of the same general form which grows indefinitely without ever producing a palindrome', not transcribed. He calls the results 'preliminary and unpolished' and says they 'were obtained by a search program'.",
+      "date": "1996-01",
+      "precision": "month",
+      "kind": "announcement",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "As posted: claimed palindrome-free seeds in bases 11, 17, 26 (sporadic) and base 20 (one seed, untranscribed), and a family for powers of 2. The 'same form with n increased by 1' pattern would give an infinite orbit by induction if it holds for all n, as in base 2, but the post does not show that it does. Restricted to these bases; base 10 is not touched.",
+      "remains": "Base 10 entirely. For bases 11, 17, 20 and 26, the post gives search observations, not a verified argument, so whether they settle existence in those bases is unclear.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 30 years",
+      "machine_checked": null,
+      "directly_checkable": "The base-11, 17 and 26 seeds, if transcribed, could be checked by iterating by hand or by program; the base-20 seed was not transcribed, so it cannot be checked from the post.",
+      "doubts": "The author calls them 'preliminary and unpolished' and says they came from a search program. The base-20 seed is not transcribed. The powers-of-2 family is asserted, not proved, on the page. The page's own note says it believes the powers-of-2 results are well known. The Wikipedia article (fetched) says Lychrel numbers 'have been proven to exist' in bases 11, 17, 20, 26 and all powers of 2; I did not check its reference list, but the only source I found for those bases is this post, so that label appears to rest on it.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts toward existence in bases 11, 17, 20, 26 and powers of 2, if the search observations are correct and extend; base 10 untouched.",
+      "object": "Sporadic seeds in bases 11, 17 and 26 with orbits that reach the same form with n increased by one after 6, 6 and 4 iterations; one base-20 seed of over 200 digits that the author says grows without a palindrome, not transcribed; a claimed family of seeds in bases 2, 4, 8, 16, 32 that repeats in the same way. The post gives the iteration counts but, in the text I read, not the explicit seeds for bases 11, 17 and 26. Explicit in principle; the search-based account is not an existence proof.",
+      "people": [
+        "David Seal"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://p196.org/html/papers1.html"
+        ]
+      },
+      "sources": [
+        "https://p196.org/html/papers1.html",
+        "https://en.wikipedia.org/wiki/Lychrel_number"
+      ]
+    },
+    {
+      "id": "dolbeau-2011-billion-iterations",
+      "what_happened": "Romain Dolbeau's run on 196 reached 1,000,000,000 reverse-and-add iterations with a 413,930,770-digit number and no palindrome, announced in a p196.org news item dated 12/27/11 (fetched). Wikipedia's history of 196 computations gives a 2011 run with 413,930,770 digits and a February 2015 Dolbeau run to 'one billion digits'; a search excerpt says 'over 400 million digits'. These figures conflict and I did not resolve them.",
+      "date": "2011-12-27",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": true,
+      "revisions": "Wikipedia dates a related Dolbeau run to February 2015 (one billion digits); not checked against a primary source.",
+      "delivers": "Nothing on existence or non-existence: a finite search, one more instance for 196.",
+      "remains": "All of it.",
+      "checked_by": [
+        {
+          "who": "Wade VanLandingham (p196.org maintainer)",
+          "qualification": "Maintains the 196 record site; not a mathematician referee",
+          "what_they_did": "Recorded the run and reported a verification of data sets up to 240 million digits (news items dated 1/25/11 and 9/25/11)",
+          "where": "https://p196.org/html/news.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 15 years",
+      "machine_checked": null,
+      "directly_checkable": "Iterating 196 by program reproduces the orbit; the digit count is a checkable fact about the orbit, not an argument.",
+      "doubts": "Digit-count conflict noted above. A GitHub README excerpt says supercomputers reached billion-digit numbers, which conflicts with the 413,930,770 figure; not resolved.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture that 196 is Lychrel, but evidentially only one more finite instance.",
+      "object": null,
+      "people": [
+        "Romain Dolbeau",
+        "Wade VanLandingham (site maintainer)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://p196.org/html/news.html"
+        ]
+      },
+      "sources": [
+        "https://p196.org/html/news.html",
+        "https://en.wikipedia.org/wiki/Lychrel_number"
+      ]
+    },
+    {
+      "id": "piepgras-2020-largest-196-run",
+      "what_happened": "Michael Piepgras's update on the 196 quest (Jason Doucette's records page, fetched): iteration 1,559,028,251 with 645,325,000 digits, no palindrome, dated 26 October 2020. The page also lists 'Current WORLD RECORD achieved by Wade VanLandingham' at over 300 million digits, undated, and says 'Nobody knows for sure, since it has never been proven.' The most recent 196-specific entry on the page is 26 October 2020.",
+      "date": "2020-10-26",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Nothing on existence or non-existence: a finite search, the largest 196 run I found.",
+      "remains": "All of it.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 6 years",
+      "machine_checked": null,
+      "directly_checkable": "Iterating 196 by program reproduces the orbit to a stated iteration count.",
+      "doubts": "The page itself gives two inconsistent 'world record' figures (VanLandingham, undated, 300 million digits; Piepgras, 645 million digits), so the largest figure is taken from the page's own 'largest' line.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture that 196 is Lychrel, but one more finite instance.",
+      "object": null,
+      "people": [
+        "Michael Piepgras",
+        "Wade VanLandingham"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://jasondoucette.com/worldrecords.html"
+        ]
+      },
+      "sources": [
+        "https://jasondoucette.com/worldrecords.html"
+      ]
+    },
+    {
+      "id": "mahiddini-2024-canum-abstract",
+      "what_happened": "Florian Mahiddini (EIGSI, La Rochelle), talk 'Numerical Experiments Around the Lychrel Conjecture', CANUM 2024 (27-31 May 2024). Only the conference abstract was found. Its stated content: a recreational framing of the conjecture; extension of thread computations to bases up to 60; graph representations of the threads; and the sentence 'The numerical results obtained will be discussed in the light to the generalised existence proof of Lychrel Numbers.' The abstract does not state or sketch that proof. The PDF would not decode when I tried to fetch it, so the text above comes from a search excerpt.",
+      "date": "2024",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Nothing established by the abstract itself. It refers to a 'generalised existence proof of Lychrel numbers' with no content shown. In base 10 or other bases is not stated in the excerpt.",
+      "remains": "All of it, unless the referenced generalised existence proof exists and is published; I found no such text.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 years 4 months since the conference",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The existence proof it mentions is not in any text I found. The abstract gives the date of the talk, not a posting date; the 2024 date is the conference year. The PDF's metadata creation date is 22 March 2024, but that is not a publication date and I have not used it.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown. Mentions an existence proof without giving it.",
+      "object": null,
+      "people": [
+        "Florian Mahiddini"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://canum2024.math.cnrs.fr/programme/soumission/3a00c64b-9099-4c01-a7fc-367cfc8e04b4/abstract.pdf"
+        ]
+      },
+      "sources": [
+        "https://canum2024.math.cnrs.fr/programme/soumission/3a00c64b-9099-4c01-a7fc-367cfc8e04b4/abstract.pdf"
+      ]
+    },
+    {
+      "id": "kuitche-2024-probabilistic-base10",
+      "what_happened": "Rostand S. Kuitché (The Research Team in Algebra and Logic, ERAL, Yaoundé, Cameroon), 'Lychrel Numbers in Base 10: A Probabilistic Approach', Advances in Pure Mathematics 14(8), August 2024, pp. 667-694, DOI 10.4236/apm.2024.148037 (SCIRP). The landing page (fetched) gives the abstract: 'This paper presents a probabilistic proof of the existence of Lychrel number in base 10 and provides some properties and which enable a mathematical extraction of new Lychrel numbers from existing ones', and 'The results show that palindromes can also be Lychrel numbers.' As reported on the landing page, the method takes a number to be Lychrel when its probability of ever reaching a palindrome is below (1/10)^330, uses digit-pair counting and a limiting constant (about 0.414), tests 196, 879, 1997 and 7059 numerically, and extends to new numbers by equivalence-class constructions. The page's own text reportedly says the characterisation 'remains probabilistic' and that an algebraic characterisation is future work. The PDF would not decode, so the body is unverified beyond the landing page. The landing page shows 139 downloads and 1,334 views. Date is the issue month; I found no earlier preprint or arXiv version, so the first public written argument may be earlier.",
+      "date": "2024-08",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "No revision, erratum or correction found on the landing page; no arXiv or other version found by search.",
+      "delivers": "As claimed in the abstract: existence of a base-10 Lychrel number, via a probabilistic argument. As reported on the landing page: Lychrel is taken as 'probability of reaching a palindrome below (1/10)^330', which is a threshold on probability, not a proof that a specific orbit never reaches a palindrome; the paper's own text reportedly says the result 'remains probabilistic'. Restriction: base 10; the paper also says its method extends to other bases. Whether this establishes existence in the bullet's sense is the open call here.",
+      "remains": "Under the base-ten reading, the claim is that nothing remains; but the claimed proof is probabilistic, and no deterministic argument that a named number never reaches a palindrome is reported. Under the base-unqualified reading the paper adds nothing new because base 2 was already done in 1969.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 26 months since the August 2024 issue (as of 11 October 2026)",
+      "machine_checked": null,
+      "directly_checkable": "The numerical checks (196, 879, 1997, 7059) are reproducible; the existence step is not an object anyone can check directly.",
+      "doubts": "(a) The paper calls its own argument probabilistic and says the characterisation 'remains probabilistic'. (b) The threshold (1/10)^330 is a probability cutoff, while the existence claim requires that some orbit never reaches a palindrome; the landing-page account does not show a bridge from one to the other. (c) The abstract lists bases 2, 11, 17 as proven, while the introduction lists 2, 11, 17, 26 (the landing-page account notes this inconsistency). (d) Venue: Advances in Pure Mathematics is an SCIRP journal; I did not check its editorial process, indexing or peer-review record beyond the landing page. (e) I found no expert engagement, no arXiv version, and no later paper citing it in about ten searches; the Wikipedia article, as fetched (reported last edited 25 September 2026), still says no base-10 Lychrel number has been proven and does not cite it, per my fetch summary. (f) Author's standing in number theory not checked.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims to cut toward existence in base 10 (against the base-10 question being open); the argument is probabilistic per the paper's own text, so whether the claim goes through is not decided by anything I found.",
+      "object": "No single explicit non-palindromic base-10 orbit is exhibited in the parts I read. The object is an existence argument: a probabilistic estimate that a set of seeds (196, 879, 1997, 7059 are the examples named) has a palindrome-reaching probability below (1/10)^330, plus a claimed extraction of new candidates from known ones. Non-constructive in its existence step.",
+      "people": [
+        "Rostand S. Kuitché"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.scirp.org/journal/paperinformation?paperid=135699"
+        ]
+      },
+      "sources": [
+        "https://www.scirp.org/journal/paperinformation?paperid=135699",
+        "https://www.scirp.org/pdf/apm2024148_45302477.pdf"
+      ]
+    },
+    {
+      "id": "sarcone-2026-expository-post",
+      "what_happened": "Gianni Sarcone, '196, the anti-palindromic number', archimedes-lab.org, 6 July 2026 (fetched). An expository post on the reverse-and-add process and on 196. It reports no new computation, proof, or result; it cites only Wikipedia and the author's own site, and does not mention AI or any tool.",
+      "date": "2026-07-06",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Nothing: exposition only. It states that 'there is no proof that they never reach a palindrome' and calls the question open.",
+      "remains": "All of it.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None: it reports the problem as open.",
+      "object": null,
+      "people": [
+        "Gianni Sarcone"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://archimedes-lab.org/2026/07/06/196-the-anti-palindromic-number/"
+        ]
+      },
+      "sources": [
+        "https://archimedes-lab.org/2026/07/06/196-the-anti-palindromic-number/"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Base-2 palindrome-free seed 10110: credited to Brousseau (1969, Mathematics Magazine; per an RSME gazette excerpt and bibliographic records), to Sprague (OEIS A058042, 'according to J. Walker', reference requested; ProofWiki, citing David Wells's 1986 book), and a second proof to Klaus Brockhaus (OEIS A058042, undated). Not resolved; the 1969 paper was not read.",
+      "sources": [
+        "https://oeis.org/A058042",
+        "https://www.proofwiki.org/wiki/Non-Palindromes_in_Base_2_by_Reverse-and-Add_Process",
+        "https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/palindrome-problem-in-base-2/52BC291294D42DF1ABB7E8C7671B4976"
+      ]
+    },
+    {
+      "kind": "claim-conflict",
+      "summary": "Kuitché (August 2024) claims a probabilistic proof of base-10 existence; the Wikipedia article as fetched still says no base-10 Lychrel number has been proven and asks the question as open. Not resolved by any source I found.",
+      "sources": [
+        "https://www.scirp.org/journal/paperinformation?paperid=135699",
+        "https://en.wikipedia.org/wiki/Lychrel_number"
+      ]
+    },
+    {
+      "kind": "claim-conflict",
+      "summary": "Which bases are proven Lychrel: Wikipedia (fetched) lists 11, 17, 20, 26 and all powers of 2 as proven, and the RSME excerpt says the same; the only source I found for bases 11, 17, 20, 26 is Seal's 1996 search-based post, which calls its results preliminary. Kuitché's abstract lists 2, 11, 17 and its introduction lists 2, 11, 17, 26.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Lychrel_number",
+        "https://p196.org/html/papers1.html",
+        "https://www.scirp.org/journal/paperinformation?paperid=135699"
+      ]
+    },
+    {
+      "kind": "record-conflict",
+      "summary": "Dolbeau's 196 digit counts: 413,930,770 digits at one billion iterations (2011, p196 news and Wikipedia) versus 'one billion digits' in February 2015 (Wikipedia) versus 'over 400 million digits' (search excerpt). Not resolved.",
+      "sources": [
+        "https://p196.org/html/news.html",
+        "https://en.wikipedia.org/wiki/Lychrel_number"
+      ]
+    }
+  ],
+  "summary": "Nothing accepted has settled whether any Lychrel number exists in base 10, and every source I opened that gives a current status (Wikipedia as fetched, the 2026 Sarcone post, p196.org) still calls the base-10 question open. Under the base-unqualified reading of the bullet, existence was already shown in base 2 by a palindrome-free orbit of 10110 (decimal 22), attributed to Brousseau (1969) by secondary sources but to Sprague by OEIS and ProofWiki, with a second proof by Brockhaus cited by OEIS; that predates the window. The one new claim inside the window is Kuitché, 'Lychrel Numbers in Base 10: A Probabilistic Approach', Advances in Pure Mathematics 14(8), August 2024, whose abstract claims a probabilistic proof of base-10 existence. I read the SCIRP landing page (abstract, introduction, and an account of the method); the PDF would not decode, so the body is unverified. As reported, the paper takes a number as Lychrel when its probability of ever reaching a palindrome is below (1/10)^330, and its own text reportedly says the result 'remains probabilistic'. The gap between a small probability of reaching a palindrome and a number that never does is where the call lies. That gap, the venue, and the absence of any expert uptake in about 26 months, are the things the later pass needs; I found no arXiv version, no citing paper, no critique, and no correction. A second in-window item is Mahiddini's CANUM 2024 talk (27-31 May 2024), whose abstract mentions a 'generalised existence proof of Lychrel numbers' but gives no content; the text came from a search excerpt because the PDF fetch failed. Pre-window items are recorded as events: Seal's 1996 Usenet search results for bases 11, 17, 20, 26 and powers of 2 (described by their author as preliminary and unpolished), plus the Johns-Wiegold (1994) and Kröber (1996) Gazette papers, which I could not read. Computational work on 196 (Walker 1990, Dolbeau 2011, Piepgras 2020) reached no palindrome; I found no 2021-2026 computational record, and the p196.org news page's last dated item is 2016. The AI search found nothing: no lab announcement, arXiv preprint, or secondary report credits an AI system with work on Lychrel numbers or 196, and the AI-era results I found (Erdős problems, FrontierMath Erdős, OpenProblemBench, the 2026 counterexample papers) do not name Lychrel. That is a search-based finding, not a full scan, since the OEIS Open arXiv paper (2608.11941) could not be read. Where a call was close: the Kuitché claim could be read as a claimed existence proof that moves the base-10 status in August 2024, or as a probabilistic heuristic that does not reach 'never reaches a palindrome'; I record both readings and do not choose.",
+  "competing_reading": "The strongest case for treating the bullet as moved in the window: a peer-reviewed-looking journal (DOI, issue, 139 downloads) published, in August 2024, an abstract stating a 'probabilistic proof of the existence of Lychrel number in base 10', which is the bullet's own question read in base ten; on that reading the problem's base-10 status changed in the window, even if the proof is probabilistic. The strongest case against: the paper's own text reportedly calls its result probabilistic and 'remains probabilistic'; a probability threshold of (1/10)^330 does not show that any orbit never reaches a palindrome; nobody with standing appears to have engaged with it in about 26 months; and the current Wikipedia article still asks the question as open. A third reading: the bullet, read without a base, was answered in base 2 in 1969, so the window had nothing to move on that reading.",
+  "what_would_settle_it": "(i) The full Kuitché text (PDF), specifically whether any step is deterministic and shows that a named base-10 seed's orbit never reaches a palindrome, and how the (1/10)^330 threshold connects to 'never'. (ii) Any expert report, erratum, retraction, or citing paper on the Kuitché result. (iii) The 1969 Brousseau paper, the 1994 Johns and Wiegold paper, and the 1996 Kröber paper, to confirm the base-2 result and its attribution, and whether the Gazette papers add anything. (iv) Seal's full 1996 post, to see whether the 'same form with n increased by 1' pattern is verified symbolically for all n (a proof in bases 11, 17, 26) or only observed by search. (v) The CANUM 2024 full text or the 'generalised existence proof' it mentions. (vi) The reference list of the Wikipedia article for 'proven to exist' in bases 11, 17, 20, 26.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Lychrel_number",
+      "title": "Lychrel number (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.scirp.org/journal/paperinformation?paperid=135699",
+      "title": "Lychrel Numbers in Base 10: A Probabilistic Approach (SCIRP landing page)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.scirp.org/pdf/apm2024148_45302477.pdf",
+      "title": "Lychrel Numbers in Base 10: A Probabilistic Approach (PDF)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://doi.org/10.4236/apm.2024.148037",
+      "title": "DOI for the Kuitché paper (redirects to the SCIRP landing page; redirect not followed)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://oeis.org/A058042",
+      "title": "OEIS A058042, Trajectory of binary number 10110 under Reverse and Add in base 2",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://p196.org/html/papers1.html",
+      "title": "p196.org: Seal's 1996 Usenet post on Lychrel-type seeds in other bases",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://p196.org/html/faq.html",
+      "title": "p196.org FAQ (Wade VanLandingham)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://p196.org/html/news.html",
+      "title": "p196.org news (dated items 2010-2016)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://jasondoucette.com/worldrecords.html",
+      "title": "Jason Doucette, World Records (196 Palindrome Quest)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/palindrome-problem-in-base-2/52BC291294D42DF1ABB7E8C7671B4976",
+      "title": "Johns & Wiegold, The palindrome problem in base 2 (Mathematical Gazette, 1994), Cambridge page",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.cambridge.org/core/journals/mathematical-gazette/article/abs/8051-on-nonpalindromic-patterns-in-palindromic-processes/C9AC5EEF293D5B8478E76254CD704A54",
+      "title": "Kröber, 80.51 On non-palindromic patterns in palindromic processes (Mathematical Gazette, 1996), Cambridge page",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://archimedes-lab.org/2026/07/06/196-the-anti-palindromic-number/",
+      "title": "Sarcone, 196, the anti-palindromic number (2026)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://canum2024.math.cnrs.fr/programme/soumission/3a00c64b-9099-4c01-a7fc-367cfc8e04b4/abstract.pdf",
+      "title": "Mahiddini, Numerical Experiments Around the Lychrel Conjecture (CANUM 2024 abstract)",
+      "type": "conference",
+      "opened": false
+    },
+    {
+      "url": "https://gaceta.rsme.es/abrir.php?id=1656",
+      "title": "Gaceta de la RSME article on Lychrel numbers (id 1656)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.proofwiki.org/wiki/Non-Palindromes_in_Base_2_by_Reverse-and-Add_Process",
+      "title": "ProofWiki, Non-Palindromes in Base 2 by Reverse-and-Add Process",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2012.02524",
+      "title": "Some open problems in low dimensional dynamical systems (arXiv 2012.02524)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.11941",
+      "title": "OEIS Open: How many conjectures can language models turn into theorems? (arXiv 2608.11941)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.researchgate.net/publication/369073006_On_the_Construction_of_Some_Lychrel_Numbers",
+      "title": "ResearchGate, On the Construction of Some Lychrel Numbers (HTTP 403)",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Lychrel number",
+      "Lychrel numbers exist proof 2025",
+      "196 Lychrel number proof palindrome",
+      "Lychrel number AI model mathematics",
+      "reverse and add 196 never palindrome 2026",
+      "Lychrel conjecture unsolved problem Wikipedia",
+      "Lychrel 196 AI language model proved",
+      "\"Lychrel\" arXiv 2024 2025 2026",
+      "Lychrel numbers in base 10 probabilistic approach existence",
+      "Numerical Experiments Around the Lychrel Conjecture Mahiddini",
+      "generalised existence proof Lychrel numbers base",
+      "Kuitché Lychrel numbers base 10 probabilistic proof",
+      "Rostand Kuitché Lychrel arXiv",
+      "10110 base 2 Lychrel number proven",
+      "Lychrel numbers base 11 base 17 base 26 existence proof",
+      "Lychrel number AI GPT Claude Gemini palindrome 196",
+      "AlphaEvolve OR \"AI\" reverse-and-add palindrome Lychrel conjecture result",
+      "Lychrel number 2026 news",
+      "Brousseau \"Palindromes by addition in base two\" Mathematics Magazine 1969",
+      "Lychrel number base 20 base 26 proof palindrome never reached paper",
+      "196-algorithm record iterations 2025 palindrome search billion digits",
+      "\"Lychrel Numbers in Base 10\" probabilistic approach Kuitche Advances in Pure Mathematics",
+      "Lychrel number Erdős problem AI solved OR formalized Lean",
+      "reverse-and-add iteration palindrome arXiv 2025 theorem non-palindromic",
+      "Lychrel number Terence Tao OR Quanta OR Matroid 196 palindrome",
+      "196 palindrome large language model reverse and add experiment",
+      "Lychrel conjecture AI-discovered counterexample or proof 2026",
+      "open problems benchmark Lychrel 196 AI model attempt",
+      "Lychrel numbers formalized Lean Mathlib reverse-and-add palindrome",
+      "Johns Wiegold \"palindrome problem in base 2\" results Lychrel",
+      "\"On the Construction of Some Lychrel Numbers\"",
+      "Lychrel base 10 existence claimed probabilistic proof critique 2025 2026",
+      "Lychrel probability palindrome 10^-330 threshold equivalence class base 10 existence"
+    ],
+    "places_checked": [
+      "Wikipedia, Lychrel number (fetched; reported last edit 25 September 2026)",
+      "SCIRP landing page for the Kuitché paper (fetched twice); DOI redirect to it; PDF not decodable",
+      "OEIS A058042 (fetched); OEIS A023108 and A006960 (in search results, not opened)",
+      "p196.org: papers1, faq, news (fetched); history, papers3/4/5, lychrel_seeds, identifying_lychrels (search results only)",
+      "Jason Doucette world-records page (fetched)",
+      "Cambridge Mathematical Gazette pages for Johns-Wiegold 1994 and Kröber 1996 (fetched; abstract pages only)",
+      "archimedes-lab.org 2026 post (fetched)",
+      "CANUM 2024 abstract PDF (fetch failed; search excerpt only)",
+      "Gaceta de la RSME article (fetch returned binary; search excerpt only)",
+      "arXiv 2012.02524 (search excerpt only); arXiv 2608.11941 (fetch returned binary, not readable)",
+      "ResearchGate, On the Construction of Some Lychrel Numbers (HTTP 403)",
+      "AI search: Lychrel/196 with GPT, Claude, Gemini, AlphaEvolve, LLM, 'AI' generic, AI-discovered counterexamples, open-problem benchmarks, Erdős problems with AI and Lean, Lean/Mathlib formalisation; results checked for any mention of Lychrel or 196",
+      "Mathematics press and expert digests: Terence Tao, Quanta, Matroid Union (search only; no direct site search)",
+      "arXiv: general web searches for 2024-2026 reverse-and-add and Lychrel material; arXiv's own search interface was not used"
+    ],
+    "dead_ends": [
+      "No 2024-2026 arXiv preprint on Lychrel numbers or 196 turned up in search; the only arXiv hit is the 2020 survey (2012.02524), which lists the problem as open.",
+      "No AI system is credited with any Lychrel or 196 result in any source found; searches combining Lychrel with GPT, Claude, Gemini, AlphaEvolve, LLM, benchmarks and Lean returned only general AI-math news (Erdős problems, FrontierMath Erdős, OpenProblemBench, 2026 counterexample papers) that do not name Lychrel.",
+      "No Erdős problem about Lychrel numbers found in any search.",
+      "No 2025-2026 computational record for 196 found; p196.org news has no entries after 2016, and Doucette's page's latest 196 entry is 26 October 2020.",
+      "The Kuitché paper is cited by nothing I could find; searches for the author's name, the title and the DOI returned only general Lychrel pages.",
+      "The 2026 archimedes-lab post (Sarcone) is exposition only; it reports no result and no AI involvement.",
+      "No Tao blog, Quanta or Matroid Union article on Lychrel numbers found.",
+      "A 2026 search for 'Lychrel number 2026 news' returned only reference pages and code repositories."
+    ]
+  },
+  "incomplete": "(1) The Kuitché PDF would not decode, so its body, including the exact probabilistic argument, the (1/10)^330 use, the equivalence-class construction, and whether it mentions any software, AI or computation, is unverified beyond the SCIRP landing page's account. (2) The Brousseau 1969 paper, the Johns-Wiegold 1994 paper and the Kröber 1996 paper were not readable (paywalled or abstract missing), so their content is recorded as unknown. (3) The CANUM 2024 abstract PDF and the RSME Gaceta PDF did not decode; the CANUM text is a search excerpt. (4) The ResearchGate paper 'On the Construction of Some Lychrel Numbers' returned HTTP 403, and I could not establish its date or whether it is in the window. (5) The OEIS Open paper (arXiv 2608.11941) could not be read, so I could not check whether it discusses Lychrel numbers. (6) I did not open the OEIS sequences A023108 or A006960, the Wikipedia reference list, or the ProofWiki, arXiv 2012.02524, and Gaceta pages beyond search excerpts. (7) I did not query arXiv's own search interface, Google Scholar, zbMATH, MathSciNet, or Crossref directly; the coverage of recent arXiv work rests on web search. (8) Dolbeau's digit counts conflict across sources and were not resolved. (9) The Wikipedia article was read through a fetch summary, not as raw text, so its reference details are approximate. (10) The 'proven in bases 11, 17, 20, 26' claim could not be traced to a verified proof; the only source I found is the 1996 search-based post.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "brousseau-1969-base2",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "walker-1990-196-run",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "johns-wiegold-1994-base2",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Content unread; ProofWiki excerpt reports mistakes in the source.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kroeber-1996-nonpalindromic-patterns",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "seal-1996-usenet-bases",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Author calls results preliminary and search-based; no proof that the repeating pattern holds for all n; base-20 seed not transcribed.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "dolbeau-2011-billion-iterations",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "piepgras-2020-largest-196-run",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "mahiddini-2024-canum-abstract",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Abstract only, from a search excerpt; the 'generalised existence proof' it mentions is not given anywhere in the record.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kuitche-2024-probabilistic-base10",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Lychrel is redefined as a palindrome-reaching probability below (1/10)^330, which cannot show that any orbit never reaches a palindrome, and the paper says its result 'remains probabilistic'; low-review SCIRP venue; no expert uptake or citation in about 26 months on a problem whose resolution would be news; Wikipedia, as updated in 2026, still calls the question open; internal inconsistency in the list of proven bases.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "sarcone-2026-expository-post",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement is the Wikipedia list's entry for Lychrel numbers, which are defined in base 10 by default; the list treats the question as open even though base-2 examples were known since 1969. So I read the base-2 and other-base results (Brousseau, Johns-Wiegold, Kröber, Seal) as answers to an analogue (variant), not as a whole answer to the base-unqualified wording. The 196 computations are finite instances. Kuitché's paper is the close call. Its existence 'proof' replaces 'never reaches a palindrome' with a probability threshold, which changes the question (variant). Even if it were read as a claim to the whole question, its signals together put it at not_credible: a self-described probabilistic method that cannot reach the deterministic claim, a weak venue, no uptake, and later sources still calling the problem open. Either reading sets it aside. The Mahiddini abstract has only a year-2024 date, so it cannot be placed; it reports numerics and mentions a proof without giving it, so its scope is none. No AI was involved in any event.",
+    "doubts": "If the bullet is read literally without a base, the 1969 base-2 seed 10110 (checkable by induction) would answer it in full before the snapshot, giving open_stale instead of open. I chose the base-10 reading because the Wikipedia article's own box asks about base 10. Attribution of the base-2 result (Brousseau, Sprague or Brockhaus) is unresolved. The Kuitché PDF body was not read.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

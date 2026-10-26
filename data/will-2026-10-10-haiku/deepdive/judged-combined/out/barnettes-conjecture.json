@@ -1,0 +1,1743 @@
+{
+  "key": "barnettes-conjecture",
+  "nothing_found": false,
+  "outcome": "On 6 October 2026 OpenAI published, in its public repository openai/math, a preprint titled 'Paired states and Hamiltonian cycles in cubic bipartite planar graphs' that claims a full proof of the conjecture as stated, with a Lean 4 formalisation whose statement matches the claim; five days later it has no arXiv posting, no journal submission, and no verification by a named expert that I could find, and the authors' own README says the manuscripts were produced by an unreleased internal OpenAI model. Every other event in the window (2025) is a restricted case (face-size bounds), an analogue (non-bipartite or 2-connected variants), or a bound on a neighbouring question, and none settles the conjecture as stated.",
+  "problem_asks": "One universal claim over one class. Statement: every finite simple graph that is cubic (3-regular), bipartite, planar and 3-connected (3-vertex-connected) has a Hamiltonian cycle. The bullet names no separate parts, no quantities to bound, no counts and no alternative (it does not ask for a counterexample or a bound). So the question is: for the whole class, is every member Hamiltonian? A settlement is either a proof for all members or a member with no Hamiltonian cycle. Partial answers are restrictions of the class (e.g. by face size, by connectivity, by a Pfaffian or matching hypothesis) or bounds on related quantities (e.g. subhamiltonian edge counts), which do not answer the bullet's question.",
+  "events": [
+    {
+      "id": "openai-2026-10-paired-states",
+      "what_happened": "On 6 Oct 2026 OpenAI released, in github.com/openai/math, the preprint 'Paired states and Hamiltonian cycles in cubic bipartite planar graphs' (LaTeX source build/paper.tex: \\author{OpenAI}, \\date{September 24, 2026}; the preprint README gives the same title, author and date). Abstract: 'We prove Barnette's conjecture: every finite simple cubic bipartite planar 3-vertex-connected graph has a Hamiltonian cycle.' Theorem 1.1 (thm:main): every finite simple undirected graph that is cubic, bipartite, planar and 3-vertex-connected has a Hamiltonian cycle. The repository lists it as problem 180 (lean/docs/180.md: 'Barnette's Hamiltonian-cycle conjecture ... The formalization proves this statement for every such graph') with a comparator entry pointing to lean/ComparatorChallenges/BarnetteHamiltonian.lean. Gil Kalai's blog (7 Oct 2026, 05:35) reports the manuscript 'announces a proof of this conjecture' and says results have 'different stages of verification'. A Hacker News thread about the release (item 49984923) has a comment from user jboggan about problem 180. No arXiv posting of this manuscript was found by search, and no journal submission was found.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "The preprint folder has one commit, 'Initial commit' (hash adc7f12), dated Oct 6 2026. The manuscript's own date is 24 Sep 2026 (LaTeX \\date and README), but no public appearance before Oct 6 was found, so Oct 6 is taken as the first public written argument. The repository's history.md (dated 7 Oct 2026) records three withdrawals and fourteen fixes to other manuscripts; Barnette is not among them. A later secondary count (8 Oct) gives 719 manuscripts after the three withdrawals (722 at release).",
+      "delivers": "The conjecture exactly as the bullet states it. Paper Thm 1.1: every finite simple cubic, bipartite, planar, 3-vertex-connected graph is Hamiltonian; the introduction says the paper 'remove[s] the face-size restriction within the full 3-connected bipartite class'. Lean statement (ComparatorChallenges/BarnetteHamiltonian.lean, MainStatement): for every finite type V with decidable equality and every simple graph G on V, if G.IsRegularOfDegree 3, G.IsBipartite, Planar G (nonempty PlaneEmbedding: injective vertex points, injective arcs that avoid other vertices, disjoint edge interiors) and ThreeVertexConnected G (at least 4 vertices; the induced graph stays connected after deleting any set of at most 2 vertices), then HasHamiltonianCycle G (a closed walk that is a Hamiltonian cycle). On my reading the Lean statement matches Thm 1.1. The paper says the argument 'places no bound on the order or face lengths' and 'does not assert a polynomial-time construction of the cycle'.",
+      "remains": "Nothing in problem_asks, provided the proof is correct. The paper's Pfaffian corollary (every three-edge path in a cubic 3-vertex-connected Pfaffian bipartite graph lies in a Hamiltonian cycle) relies on Gorsky, Steiner and Wiederrecht's published equivalence (their Thm 4.16); it is a corollary, not part of the bullet.",
+      "checked_by": [
+        {
+          "who": "Gil Kalai (blog 'Combinatorics and more')",
+          "qualification": "Combinatorialist and convex-polytope researcher; his post recalls an earlier post of his on coloring simple polytopes and Barnette's conjecture.",
+          "what_they_did": "Reported the claim (item 13 of OpenAI's list), said the new manuscript 'announces a proof of this conjecture', and said results have different stages of verification and 'will need to be checked and digested by the mathematical community'. He does not say he checked the argument.",
+          "where": "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+          "automated": false
+        },
+        {
+          "who": "Jake Boggan (Hacker News user 'jboggan')",
+          "qualification": "Self-described graph-theory enthusiast who 'moved to Budapest for awhile to study among the greats'; says he worked on Barnette's conjecture on and off for 24 years and 'thousands of hours'. The sources do not identify an academic post.",
+          "what_they_did": "Read the paper ('I'm digesting the paper'); said the approach 'looks, on the surface, like an approach they considered and abandoned long ago'; wrote that they 'coded up the new constructive algorithm and ran it against the existing test suite, that looks good at least'; called the proof 'rather simple as graph theory proofs go'. Self-reported; no statement that the proof is correct.",
+          "where": "https://news.ycombinator.com/item?id=49984923 (comments 49988526, 49994671, 49997936) ; https://simonwillison.net/2026/Oct/7/jake-boggan/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "5 days (to 11 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib, via the 'comparator' tool (challenge JSON ComparatorChallenges/BarnetteHamiltonian.json: challenge_module ComparatorChallenges.BarnetteHamiltonian, solution_module OAI.Combinatorics.Hamiltonian.Main, theorem OAI.Barnette.main, permitted_axioms propext, Quot.sound, Classical.choice, enable_nanoda false)",
+        "sorry_free": true,
+        "url": "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/BarnetteHamiltonian.lean",
+        "note": "The challenge statement file itself contains 'theorem main : MainStatement := by sorry' by design. The proof is in OAI/Combinatorics/Hamiltonian/Main.lean, which declares theorem main (OAI.Barnette.main) and Duality.hamiltonian, and imports ExactDual, which imports Rectangle, BranchPartition, MinorModel, Corridors, SquareGrid, Traces, Gluing, CappedDuality, and so on through the directory's 31 modules. I read all 31 modules in lean/OAI/Combinatorics/Hamiltonian/ (Main included) via a summarising fetch and found no sorry, admit, axiom or native_decide in any of them; I did not confirm the full import graph line by line. Nothing was compiled or run: no Lean toolchain or shell was available. The 'sorry_free' value is therefore a reading-based finding, not a build. lean/formalization.yaml (the machine-readable catalogue) does not list the Barnette result (checked directly)."
+      },
+      "directly_checkable": null,
+      "doubts": "(1) Single-source claim: the only public source for the proof is the authors' own preprint and repository. No named human author; no arXiv listing, journal, referee report or expert write-up found as of 11 Oct 2026. (2) The release has had errors: three other manuscripts were withdrawn on 7 Oct 2026 for a sign error and a dependence (Algebraicity of Weil classes on split abelian eightfolds; Algebraicity of Kuga-Satake correspondences for K3 surfaces; the rational Hodge conjecture for products of K3 surfaces), per history.md. None is Barnette, but it shows the release has not been error-free. (3) Catalogue status is disputed in secondary coverage: explainx.ai (Yash Thakker) says the CONTENTS.md entry is 'Listed' while the result is 'Not in the machine-readable catalogue'; a Towards AI piece says the YAML misses the family but a full proof exists. I confirmed directly that lean/formalization.yaml has no entry for Barnette, Hamiltonian or problem 180. (4) The Lean chain's sorry-freeness rests on reading, not compilation. (5) Lean fidelity: the statement matches Thm 1.1 on my reading. Two details to check: 'Planar' is encoded as existence of an injective-arc plane embedding with disjoint interiors, which is a standard but nontrivial encoding of planarity; and the ThreeVertexConnected docstring says the deleted graph has 'order at least two' while the code requires at least four vertices in G (a docstring mismatch, not a mismatch of meaning). (6) The paper's proof is a weighted cancellation over complex phases followed by a Jordan-curve tree recovery and induction on separating triangles (sections 3-7 of the TeX). Reading of the argument is by a summarising fetch of the TeX source; I have not verified any step. Commenters say it is short (about 5,800 words per a secondary analysis, unverified). (7) Kalai's reply says OpenAI 'tried the model on about 8,000 problems', while the README says approximately 4,000; this is about the release, not Barnette.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirmative: the manuscript proves the conjecture as stated (every such graph is Hamiltonian). It is not a counterexample and does not change the bullet's scope.",
+      "object": null,
+      "people": [
+        "OpenAI (corporate author; no individual names on the manuscript)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "The repository README states that the repository holds manuscripts and proof artifacts 'produced by an internal OpenAI model', and that 'Most results came from' that model. The README's listed exceptions (the zero-free-region write-up for the Riemann zeta function, the Hodge conjecture for CM abelian varieties, and a human-edited readability pass for the Re(s) > 11/12 write-up) do not include Barnette. The manuscript itself credits only 'OpenAI' and says nothing about how it was produced. The README does not say which part of this proof the model supplied (idea, argument or write-up). The model is internal and unreleased; the name is a descriptive phrase, not a version. Kalai calls it 'an internal AI model'; secondary coverage calls it 'an internal frontier model'.",
+            "basis_quote": "This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math"
+          }
+        ],
+        "disclosed_cost": "README, repository-wide and not specific to this manuscript: the model was posed 'approximately 4,000 problems'; 'On average, each result used three hours of ChatGPT Pro thinking compute with that model.' Quotes are from the fetch summary of the README and should be checked verbatim.",
+        "sources": [
+          "https://github.com/openai/math",
+          "https://raw.githubusercontent.com/openai/math/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/build/paper.tex",
+          "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+          "https://github.com/openai/math/blob/main/lean/docs/180.md"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/blob/main/lean/docs/180.md",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/build/paper.tex",
+        "https://github.com/openai/math/tree/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026",
+        "https://github.com/openai/math/commits/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026",
+        "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BarnetteHamiltonian.lean",
+        "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BarnetteHamiltonian.json",
+        "https://raw.githubusercontent.com/openai/math/main/lean/OAI/Combinatorics/Hamiltonian/Main.lean",
+        "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+        "https://raw.githubusercontent.com/openai/math/main/history.md",
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+        "https://news.ycombinator.com/item?id=49984923",
+        "https://simonwillison.net/2026/Oct/7/jake-boggan/"
+      ]
+    },
+    {
+      "id": "schnieders-2025-08-faces-le-8",
+      "what_happened": "Tobias Schnieders, 'Barnette Graphs with Faces up to Size 8 are Hamiltonian', arXiv:2508.03531 (16 pages, 56 figures). Abstract: Barnette's conjecture is stated; Goodey verified it for faces of size up to 6; the paper proves Hamiltonicity for cubic, bipartite, planar and (2-)connected graphs with faces of size up to 8; parts of the proof are computational, including a case distinction of 339.068.624 cases (SageMath 10.5; code in a public GitHub repository, per the full text).",
+      "date": "2025-08-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, submitted 5 Aug 2025 (no later versions listed on the abs page).",
+      "delivers": "Restricted case. Theorem 1.12 / 5.2 (full text): every finite, simple, cubic, bipartite, planar and connected graph whose faces all have size at most 8 is Hamiltonian; Remark 1.2 and Lemma 5.1 say every connected simple cubic bipartite graph is 2-connected, so this covers every 3-connected cubic bipartite planar graph with faces of size at most 8. It drops 3-connectivity to 2-connectivity inside that class but restricts the face size.",
+      "remains": "The bullet's full class with at least one face of size 10 or more (for 3-connected cubic bipartite planar graphs, faces have even length, so faces of size 10 or more are what is left).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "14 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The proof is partly computer-assisted by an enumeration whose code is public; I did not review the code. No journal publication or independent verification was found. Not a reason to doubt by itself, but the proof leans on a large computation that no one publicly reports checking.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirmative for the restricted case (faces at most 8); it does not contradict the conjecture.",
+      "object": null,
+      "people": [
+        "Tobias Schnieders"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2508.03531v1",
+          "https://arxiv.org/abs/2508.03531"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2508.03531",
+        "https://arxiv.org/html/2508.03531v1"
+      ]
+    },
+    {
+      "id": "shao-wu-2025-04-faces-le-6-2conn",
+      "what_happened": "Sihong Shao and Yuxuan Wu (Peking University), 'Every 2-connected, cubic, planar graph with faces of size at most 6 is Hamiltonian', arXiv:2504.20706 (v1, 29 Apr 2025). Theorem 1 (verbatim from the full text): 'Every 2-connected, planar, cubic graph with faces of size at most 6 is Hamiltonian.' They show the face bound 6 is tight with a 2-connected planar cubic non-Hamiltonian graph with faces of size at most 7. The paper says Barnette's conjecture 'states that every 3-connected, planar, cubic, bipartite graph is Hamiltonian and has stood for decades without being proved or disproved.'",
+      "date": "2025-04-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only per the abs page.",
+      "delivers": "Analogue and restricted case. Covers 2-connected planar cubic graphs with faces of size at most 6, without any bipartiteness hypothesis. This is the Barnette-Goodey form (non-bipartite class), not the bipartite statement, so it is a different question; restricted to faces of size at most 6 it does include the bipartite members with faces at most 6, which Goodey (1975) had already settled for 3-connected graphs.",
+      "remains": "The bullet's bipartite statement for all 3-connected cubic bipartite planar graphs; faces of size 8 and larger for the bipartite class.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "18 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative for the restricted, non-bipartite analogue; it leaves the bipartite conjecture open by its own statement.",
+      "object": null,
+      "people": [
+        "Sihong Shao",
+        "Yuxuan Wu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2504.20706v1",
+          "https://arxiv.org/abs/2504.20706"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2504.20706",
+        "https://arxiv.org/html/2504.20706v1"
+      ]
+    },
+    {
+      "id": "fleischner-iurlano-raidl-2025-10-tait-tutte",
+      "what_happened": "Herbert Fleischner, Enrico Iurlano and Günther R. Raidl, 'Putting Tutte's counterexample to Tait's conjecture in perspective to hamiltonicity and non-hamiltonicity in certain planar cubic graphs', arXiv:2510.08310 (v1, 9 Oct 2025, 9 pages). Abstract: an infinite family of hamiltonian and non-hamiltonian graphs built from prisms and Tutte fragments, in which Tutte's counterexample to Tait's conjecture is a minimal element. The introduction recalls Barnette's conjecture as 'every planar, 3-connected, cubic bipartite graph is hamiltonian'.",
+      "date": "2025-10-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only per the abs page.",
+      "delivers": "Discounted: the result is about Tait's conjecture (planar cubic 3-connected graphs, no bipartiteness). It says nothing about Barnette's conjecture's status. It is listed because it sits in the same family of graphs.",
+      "remains": "Barnette's conjecture as stated, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "12 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not a doubt about Barnette: the text read does not say whether the non-Hamiltonian members of the family are bipartite. Its examples are 'TF-inflated odd-sided prisms', and the text read does not discuss bipartiteness. A bipartite non-Hamiltonian member would be a counterexample to Barnette's conjecture, so a later pass should check that point. I did not find any claim that one exists.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direct bearing on the bullet's statement. The family's non-Hamiltonian members, if any were bipartite, would cut against the conjecture, but the text read does not say so.",
+      "object": "An infinite family of planar cubic 3-connected graphs (prisms with Tutte fragments inserted), some hamiltonian and some not. Explicit construction. The abstract does not state bipartiteness.",
+      "people": [
+        "Herbert Fleischner",
+        "Enrico Iurlano",
+        "Günther R. Raidl"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2510.08310v1",
+          "https://arxiv.org/abs/2510.08310"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2510.08310",
+        "https://arxiv.org/html/2510.08310v1"
+      ]
+    },
+    {
+      "id": "bekos-kaufmann-pfister-2025-subhamiltonian",
+      "what_happened": "Michael A. Bekos, Michael Kaufmann and Maximilian Pfister, 'Approximating Barnette's Conjecture', 33rd International Symposium on Graph Drawing and Network Visualization (GD 2025), LIPIcs vol. 357, pp. 6:1-6:7. Result: every n-vertex Barnette graph has a subhamiltonian cycle with at least 5n/6 edges (equivalently a 2-page book embedding with at least 5n/6 consecutive spine pairs joined), improving the previous 2n/3 bound; a byproduct is a short proof of a known result guaranteeing Hamiltonian cycles in a subclass. The paper describes Barnette's conjecture as open.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": false,
+      "revisions": "DROPS publication date 2025-11-26 (from the DROPS page). No arXiv version was found, so the first public date is not pinned to a month; the conference took place in 2025.",
+      "delivers": "Partial bound. A bound on the number of subhamiltonian edges in Barnette graphs, not a Hamiltonian cycle. It moves a quantity related to the conjecture (subhamiltonicity) without settling Hamiltonicity.",
+      "remains": "Hamiltonicity of every Barnette graph (the whole bullet).",
+      "checked_by": [
+        {
+          "who": "GD 2025 programme committee and LIPIcs peer review",
+          "qualification": "Refereed international conference on graph drawing.",
+          "what_they_did": "Accepted the paper for refereed publication in LIPIcs.",
+          "where": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.GD.2025.6",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 1 year",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial progress toward the conjecture; no counterexample.",
+      "object": null,
+      "people": [
+        "Michael A. Bekos",
+        "Michael Kaufmann",
+        "Maximilian Pfister"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.GD.2025.6"
+        ]
+      },
+      "sources": [
+        "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.GD.2025.6"
+      ]
+    },
+    {
+      "id": "proofatlas-2026-08-collaboration-page",
+      "what_happened": "A ProofAtlas 'Collaboration beta' page for Barnette's Conjecture, self-described as 'AI-first mathematical research'. Its status is dated 2 Aug 2026 and it was recorded 27 Aug 2026. It lists active routes (no owners named) and partial results labelled as source-reported and unreproduced: 'a second-pass-audited global C4-expansion bridge' (revision 40), an 'all-order clean-ladder signature' with a checker for lengths 1-16, a 'corrected reported closure through order 22', and enumerations through order 26 that a separate implementation reproduces only through order 18. Revision 13 is dated 2 Aug 2026. The page says the conjecture 'remains unresolved' and that ProofAtlas 'has not executed or independently reproduced the current work attachments'.",
+      "date": "2026-08-02",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Revision 13 dated 2 Aug 2026 (adds fixed-exterior parity and cap-square provenance); later revisions up to 40 are listed without dates.",
+      "delivers": "Partial results and reductions claimed by the platform, described as reported and unreproduced; no full result. Reductions and bounded computations, not a settlement.",
+      "remains": "The conjecture in full, according to the page itself.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The page labels its results 'source-reported' and 'reported unreproduced'. Its order-26 enumeration is reproduced only through order 18 by a separate implementation (per the page). No authors or dated owners are named. The 'AI-first' framing is the only signal of AI involvement; the page names no model or agent.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial; no bearing on the full statement beyond the claimed reductions.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.proofatlas.ai/collaboration/barnette-conjecture/"
+        ]
+      },
+      "sources": [
+        "https://www.proofatlas.ai/collaboration/barnette-conjecture/"
+      ]
+    },
+    {
+      "id": "kardos-2014-barnette-goodey-faces-le-6",
+      "what_happened": "František Kardoš, 'A computer-assisted proof of Barnette-Goodey conjecture: Not only fullerene graphs are Hamiltonian', arXiv:1409.2440 (v1 8 Sep 2014; v2 16 Aug 2017), published SIAM J. Discrete Math. 34(1):62-100 (2020) and expounded in SIAM Review 64(2) (2022). Claims: every 3-connected planar cubic graph with faces of size at most 6 is Hamiltonian (the Barnette-Goodey form, which drops bipartiteness). Computer-assisted via enumeration of essential patches (code in supplementary material).",
+      "date": "2014-09-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 8 Sep 2014; v2 16 Aug 2017; SIAM DM 2020 (journal); SIAM Review 2022 (expository).",
+      "delivers": "Restricted analogue. Settles the Barnette-Goodey form (3-connected planar cubic, faces of size at most 6, no bipartiteness). Not the bipartite statement. The Wikipedia lead (as indexed) says 'The conjecture was proven by Kardoš (2020)', which conflates this result with the bipartite conjecture.",
+      "remains": "The bipartite statement of the bullet, for 3-connected cubic bipartite planar graphs with a face of size 8 or more. Kardoš's result does cover the bipartite members whose faces are all of size at most 6, but it does not restrict to bipartite graphs and says nothing about larger faces.",
+      "checked_by": [
+        {
+          "who": "SIAM Journal on Discrete Mathematics editors and referees",
+          "qualification": "Refereed journal of record.",
+          "what_they_did": "Accepted for publication (2020).",
+          "where": "https://epubs.siam.org/doi/10.1137/140984737",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "12 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Computer-assisted; code is in the supplementary material, not reviewed by me.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative, for the faces-at-most-6 analogue; no counterexample.",
+      "object": null,
+      "people": [
+        "František Kardoš"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1409.2440"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1409.2440",
+        "https://en.wikipedia.org/wiki/Barnette%27s_conjecture"
+      ]
+    },
+    {
+      "id": "shah-2014-claimed-proof",
+      "what_happened": "Mushtaq Ahmad Shah, 'Necessary Condition for Cubic Planar 3-Connected Graph to be Non-Hamiltonian with Proof of Barnette's Conjecture', International Journal of Mathematical Combinatorics vol. 3 (2014), pp. 70-88. Claims a proof of Barnette's conjecture (per the abstract as seen in search results).",
+      "date": "2014",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Claims the full bipartite statement (per the abstract). The mathematical content could not be read (the PDF returned binary data).",
+      "remains": "Nothing, if the claim is right. Not accepted anywhere I could find.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "12 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No review or acceptance found. The 2019 Shah-Pirzada paper and the 2025 literature (Schnieders; Shao-Wu; Bekos et al.) treat the conjecture as open, which is a signal, though not a verdict. The PDF could not be read, so I could not check the argument; the claim rests on the abstract.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims an affirmative proof; not checked.",
+      "object": null,
+      "people": [
+        "Mushtaq Ahmad Shah"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://fs.unm.edu/IJMC/NecessaryConditionForCubicPlanar3Connected.pdf"
+        ]
+      },
+      "sources": [
+        "https://fs.unm.edu/IJMC/NecessaryConditionForCubicPlanar3Connected.pdf"
+      ]
+    },
+    {
+      "id": "bjorklund-kaski-nederlof-2023-pfaffian",
+      "what_happened": "Andreas Björklund, Petteri Kaski, Jesper Nederlof, 'Another Hamiltonian Cycle in Bipartite Pfaffian Graphs', arXiv:2308.01574 (v1 3 Aug 2023); ICALP 2024 (LIPIcs 297, article 26). Results on finding a second Hamiltonian cycle in bipartite Pfaffian graphs of minimum degree three (linear-time lollipop method). The abstract does not mention Barnette's conjecture; the connection is through Gorsky-Steiner-Wiederrecht's Pfaffian reformulation.",
+      "date": "2023-08-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 3 Aug 2023; ICALP 2024 publication.",
+      "delivers": "Discounted: a result about a neighbouring class (bipartite Pfaffian graphs) and about second Hamiltonian cycles, not about existence of a Hamiltonian cycle in the bullet's class. Its consequence (every cubic bipartite Pfaffian graph has zero or at least six Hamiltonian cycles) is conditional on nothing in the bullet.",
+      "remains": "The bullet, entirely.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "3 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No bearing on the bullet's yes/no question.",
+      "object": null,
+      "people": [
+        "Andreas Björklund",
+        "Petteri Kaski",
+        "Jesper Nederlof"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2308.01574"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2308.01574"
+      ]
+    },
+    {
+      "id": "florek-2023-sufficient-condition",
+      "what_happened": "Jan Florek, 'A sufficient condition for cubic 3-connected plane bipartite graphs to be hamiltonian', arXiv:2309.09578 (v1 18 Sep 2023). The abstract states Barnette's conjecture, says it is open in general, and claims two partial results: an extension of Goodey's theorem (no face has more than four 'big neighbours', rather than all big faces having six edges), and a count of at least 2^k Hamiltonian cycles when every vertex is incident to both a small and a big face.",
+      "date": "2023-09-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 18 Sep 2023; a v2 page exists in search results (not opened).",
+      "delivers": "Restricted partial results (a face-structure hypothesis), not settling the bullet.",
+      "remains": "The general bipartite statement.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "2 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial; no counterexample.",
+      "object": null,
+      "people": [
+        "Jan Florek"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2309.09578"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2309.09578"
+      ]
+    },
+    {
+      "id": "gorsky-johanni-wiederrecht-2024-two-factor",
+      "what_happened": "Maximilian Gorsky, Theresa Johanni, Sebastian Wiederrecht, 'A note on the 2-Factor Hamiltonicity Conjecture', arXiv:2408.08128 (v1 15 Aug 2024). Proves that the Heawood graph is the only Pfaffian cubic brace in which all 2-factors are Hamiltonian cycles, for the 2-factor Hamiltonicity conjecture of Funk, Jackson, Labbate and Sheehan. The abstract does not mention Barnette's conjecture.",
+      "date": "2024-08-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 15 Aug 2024 per abs page.",
+      "delivers": "Discounted: a different conjecture (2-factor Hamiltonicity) about cubic bipartite braces.",
+      "remains": "The bullet, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No bearing on the bullet.",
+      "object": null,
+      "people": [
+        "Maximilian Gorsky",
+        "Theresa Johanni",
+        "Sebastian Wiederrecht"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2408.08128"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2408.08128"
+      ]
+    },
+    {
+      "id": "brinkmann-goedgebeur-mckay-2021-verified-90",
+      "what_happened": "Gunnar Brinkmann, Jan Goedgebeur, Brendan D. McKay, 'The Minimality of the Georges-Kelmans Graph', arXiv:2101.00943 (v1 4 Jan 2021; v2 24 Oct 2021), Mathematics of Computation 91 (2022). Computer verification that Barnette's conjecture holds for every 3-connected planar bipartite cubic graph with up to 90 vertices (the abstract: 'We show that Barnette's conjecture is true up to at least 90 vertices'). The authors do not describe this as a proof.",
+      "date": "2021-01-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 4 Jan 2021; v2 24 Oct 2021; Math. Comp. 2022 (per comments and DOI 10.1090/mcom/3701).",
+      "delivers": "Finite verification: every instance up to 90 vertices. It checks finitely many instances of the universal claim, which moves nothing in the sense of the bullet.",
+      "remains": "All graphs above 90 vertices.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture up to 90 vertices; no counterexample.",
+      "object": null,
+      "people": [
+        "Gunnar Brinkmann",
+        "Jan Goedgebeur",
+        "Brendan D. McKay"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2101.00943"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2101.00943"
+      ]
+    },
+    {
+      "id": "bagheri-feder-fleischner-subi-2018-facial-2-factors",
+      "what_happened": "Behrooz Bagheri Gh., Tomas Feder, Herbert Fleischner, Carlos Subi, 'Hamiltonian cycles in planar cubic graphs with facial 2-factors, and a new partial solution of Barnette's Conjecture', arXiv:1806.05483 (v1 14 Jun 2018); J. Graph Theory (2021, per search). Proves hamiltonicity in the leapfrog extension of planar cubic cyclically 4-edge-connected bipartite graphs and presents itself as partial solutions of Barnette's conjecture.",
+      "date": "2018-06-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 14 Jun 2018; journal version later (search result only).",
+      "delivers": "Partial: a restricted class (leapfrog extensions of cyclically 4-edge-connected cubic bipartite graphs). Does not settle the bullet; the authors say it does not resolve the conjecture.",
+      "remains": "The general statement.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "8 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial; no counterexample.",
+      "object": null,
+      "people": [
+        "Behrooz Bagheri Gh.",
+        "Tomas Feder",
+        "Herbert Fleischner",
+        "Carlos Subi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1806.05483"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1806.05483"
+      ]
+    },
+    {
+      "id": "bagheri-feder-fleischner-subi-2022-np-complete",
+      "what_happened": "Behrooz Bagheri Gh., Tomas Feder, Herbert Fleischner, Carlos Subi, 'On finding hamiltonian cycles in Barnette graphs', arXiv:2212.02668 (v1 5 Dec 2022); Fundamenta Informaticae 188(1), 2022. Shows: if Barnette's conjecture is false, then hamiltonicity in 3-connected planar cubic bipartite graphs is NP-complete.",
+      "date": "2022-12-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 5 Dec 2022; Fundamenta Informaticae 2022 (journal).",
+      "delivers": "Conditional complexity result: it depends on the conjecture failing. It does not bear on the truth of the bullet.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "4 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Conditional; no bearing on the yes/no question.",
+      "object": null,
+      "people": [
+        "Behrooz Bagheri Gh.",
+        "Tomas Feder",
+        "Herbert Fleischner",
+        "Carlos Subi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2212.02668"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2212.02668"
+      ]
+    },
+    {
+      "id": "gorsky-steiner-wiederrecht-2022-matching-reformulation",
+      "what_happened": "Maximilian Gorsky, Raphael Steiner, Sebastian Wiederrecht, 'Matching Theory and Barnette's Conjecture', arXiv:2202.11641 (v1 23 Feb 2022; v3 adds an answer to a question from v1-v2); Discrete Mathematics (2023, per search). Translates the conjecture into matching terms: planarity can be dropped, giving the equivalent statement that every cubic 3-connected Pfaffian bipartite graph is Hamiltonian; reduction to cubic planar braces; brace-based reductions for four stronger Hamiltonicity properties.",
+      "date": "2022-02-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 23 Feb 2022; later versions (v3 per comments).",
+      "delivers": "Reformulation and reduction, not a settlement. Shows equivalence to a Pfaffian statement (planarity dropped) and reductions to braces.",
+      "remains": "The conjecture itself.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "4 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Reformulation; no counterexample.",
+      "object": null,
+      "people": [
+        "Maximilian Gorsky",
+        "Raphael Steiner",
+        "Sebastian Wiederrecht"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2202.11641"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2202.11641"
+      ]
+    },
+    {
+      "id": "clarke-2013-cyclic-subsets-withdrawn",
+      "what_happened": "Paul Clarke, 'Cyclic Subsets and Barnette's Conjecture', arXiv:1309.2560 (v1 10 Sep 2013). The abstract says it 'uses this theorem to construct an inductive proof of Barnette's long-standing conjecture'. The arXiv listing carries the comment 'This paper has been withdrawn for further review'.",
+      "date": "2013-09-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 10 Sep 2013; withdrawn (date of withdrawal not shown on the listing).",
+      "delivers": "Claimed full proof (per the abstract). Not accepted; withdrawn for further review, per the listing. The text itself was not read (only the abstract was reached).",
+      "remains": "Nothing, if the claim held; the claim was withdrawn.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "13 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Withdrawn for further review per the arXiv comment. A secondary search summary says the same author later posted and withdrew a claimed proof of the cycle double cover conjecture (not checked here).",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "arXiv comment: 'This paper has been withdrawn for further review'.",
+        "date": null,
+        "by": "unknown (the listing does not say whether the author or arXiv withdrew it)",
+        "sources": [
+          "https://arxiv.org/abs/1309.2560"
+        ]
+      },
+      "direction": "Claimed affirmative proof; withdrawn.",
+      "object": null,
+      "people": [
+        "Paul Clarke"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1309.2560"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1309.2560"
+      ]
+    },
+    {
+      "id": "alt-payne-schmidt-wood-2013-dual-sufficient-condition",
+      "what_happened": "Helmut Alt, Michael S. Payne, Jens M. Schmidt, David R. Wood, 'Thoughts on Barnette's Conjecture', arXiv:1312.3783 (v1 13 Dec 2013); Australasian Journal of Combinatorics 64 (2016), pp. 354-. Proves a new sufficient condition for a cubic 3-connected planar graph to be Hamiltonian, in terms of the dual triangulation, and a special case of Barnette's conjecture (Eulerian triangulations with a proper three-colouring satisfying a degree-4 condition). They also say related Kelmans results have no published self-contained proofs.",
+      "date": "2013-12-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 13 Dec 2013; AJC 64 (2016).",
+      "delivers": "Partial: a special case (Eulerian triangulations with a specific three-colouring and degree condition). Does not settle the bullet.",
+      "remains": "The general statement.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "12 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial; no counterexample.",
+      "object": null,
+      "people": [
+        "Helmut Alt",
+        "Michael S. Payne",
+        "Jens M. Schmidt",
+        "David R. Wood"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1312.3783"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1312.3783"
+      ]
+    },
+    {
+      "id": "florek-2012-H-plusminus-property",
+      "what_happened": "Jan Florek, 'On Barnette's Conjecture and H^{+-} property', arXiv:1208.4332 (v1 21 Aug 2012); later in Journal of Combinatorial Optimization (2016, per search). Restates the conjecture as: every even plane triangulation has a vertex partition into two sets each inducing a tree; under an acyclicity hypothesis proves two partial partition results.",
+      "date": "2012-08-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 21 Aug 2012. Search results also list a 2016 Florek paper in J. Comb. Optim. with conditional Barnette results; I did not open it and cannot say it is this preprint's journal version.",
+      "delivers": "Reformulation plus conditional partial results. Does not settle the bullet.",
+      "remains": "The general statement.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "14 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Reformulation; no counterexample.",
+      "object": null,
+      "people": [
+        "Jan Florek"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1208.4332"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1208.4332"
+      ]
+    },
+    {
+      "id": "cahit-2009-algorithmic-proof-claim",
+      "what_happened": "I. Cahit, 'Algorithmic proof of Barnette's Conjecture', arXiv:0904.3431 (v1 22 Apr 2009; the only version); math.GM, described as a 13-page draft. The abstract presents an algorithmic proof of Barnette's 1969 conjecture for 3-connected bipartite cubic planar graphs, using 'opening disjoint chambers' and a 'spiral-chain' movement of the outer cycle.",
+      "date": "2009-04-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only.",
+      "delivers": "Claimed full proof (per the abstract). No acceptance or engagement found.",
+      "remains": "Nothing, if the claim held; not checked.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "17 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The paper is labelled a draft; the arXiv abstract gives only the method, not a verifiable step. No engagement found in 17 years; the later literature treats the conjecture as open.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claimed affirmative proof; not checked.",
+      "object": null,
+      "people": [
+        "I. Cahit"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/0904.3431"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/0904.3431"
+      ]
+    },
+    {
+      "id": "holton-manvel-mckay-1985-computer-64",
+      "what_happened": "D. A. Holton, B. Manvel, B. D. McKay, 'Hamiltonian cycles in cubic 3-connected bipartite planar graphs', Journal of Combinatorial Theory B (1985). Computer check that Barnette graphs up to a size bound are Hamiltonian. Secondary sources disagree on the bound: 'fewer than 66 vertices' (MathWorld and the Wikipedia-derived summaries) and '64 vertices' (other summaries); Aldred, Brinkmann and McKay (2002, per secondary summary) reported 84, and Brinkmann-Goedgebeur-McKay (2021) reported 90.",
+      "date": "1985",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Finite verification of small instances. Moves no quantity in the sense of the bullet (finitely many instances of a universal claim).",
+      "remains": "All larger graphs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "41 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The bound is disputed across secondary sources (64, 66, 84); I did not open the original (ScienceDirect returned 403).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture on small graphs; no counterexample.",
+      "object": null,
+      "people": [
+        "D. A. Holton",
+        "B. Manvel",
+        "B. D. McKay"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.sciencedirect.com/science/article/pii/0095895685900723"
+        ]
+      },
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/0095895685900723"
+      ]
+    },
+    {
+      "id": "goodey-1975-faces-4-6",
+      "what_happened": "P. R. Goodey, 'Hamiltonian circuits in polytopes with even sided faces', Israel Journal of Mathematics 22 (1975), 52-56. Proves the case of 3-connected bipartite cubic planar graphs whose faces all have size 4 or 6 (as described by Wikipedia and Schnieders 2025). Not opened (no open copy found).",
+      "date": "1975",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Restricted case (bipartite with faces of size 4 or 6 only). Does not settle the bullet.",
+      "remains": "All other faces.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "51 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture on the restricted face classes.",
+      "object": null,
+      "people": [
+        "P. R. Goodey"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Barnette%27s_conjecture"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Barnette%27s_conjecture"
+      ]
+    },
+    {
+      "id": "openai-math-180",
+      "what_happened": "The manuscript 'Paired states and Hamiltonian cycles in cubic bipartite planar graphs' (OpenAI, dated 24 September 2026; the only manuscript in this family) claims a proof of Barnette's conjecture: every finite simple cubic, bipartite, planar, 3-vertex-connected graph has a Hamiltonian cycle (Theorem 1.1 in the Introduction; the abstract says 'We prove Barnette's conjecture'). The method passes to the sphere dual, a triangulation whose faces are colored black and white. It proves a partition of the triangulation's vertices into two sets, each inducing a tree (every edge between its vertices included), with the endpoints of any chosen facial edge in one set and the third vertex of that face in the other (Theorem 2.2, the partition theorem). The complement of the induced edges in the original graph is then a single spanning cycle, which is the Hamiltonian cycle. The partition is obtained from a finite weighted exponential sum over pairs of 'states' (incidence matchings between black faces and non-root vertices). Cancellation of terms whose second state gives a cyclic graph, together with a positive-circulation argument showing the sum is nonzero, forces some pair whose second state gives a forest. Plane-tree duality and a disk-counting identity then yield the two induced trees. Separating triangles are handled by induction, splitting along the triangle and gluing the partitions. The paper also states, as corollaries, single-edge avoidance (a Hamiltonian cycle avoiding any prescribed edge) and that every three-edge path in a Pfaffian cubic 3-connected bipartite graph lies in a Hamiltonian cycle; both are derived from the main theorem and the cited Gorsky-Steiner-Wiederrecht equivalence.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "If correct, the claim proves the full statement of the list's problem for the whole class: every finite simple cubic bipartite 3-vertex-connected planar graph is Hamiltonian. No face-size, order, or other restriction is imposed beyond the class itself. The paper's statement matches the list's: it uses the same hypotheses (cubic, bipartite, planar, 3-vertex-connected, finite simple) and asks the same question (existence of a Hamiltonian cycle). The one convention the paper states is that 3-vertex-connected requires at least four vertices and that deleting at most two vertices leaves the graph connected; this excludes no bipartite cubic planar 3-connected graph. The result is existence only: the paper says the argument places no bound on order or face length and does not assert a polynomial-time construction of the cycle. The problem asks only for existence, so this is not a gap for it.",
+      "remains": "Nothing of the bullet's question remains open if the claim is correct. The paper does not address a polynomial-time or explicit construction of the cycle, which the list's bullet does not ask for.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "8 days",
+      "machine_checked": {
+        "system": "Lean 4",
+        "sorry_free": null,
+        "url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/180.md",
+        "scope": "Barnette's conjecture states that every finite simple cubic bipartite planar graph that is 3-vertex-connected has a Hamiltonian cycle. The formalization proves this statement for every such graph. The selected result is the existence of a cycle visiting every vertex exactly once.",
+        "theorems": [
+          "OAI.Barnette.main"
+        ]
+      },
+      "directly_checkable": null,
+      "doubts": "The paper does not flag any step as sketched and does not hedge the main claim, whose abstract states the result without qualification. Several steps that carry weight are compressed into a few sentences with no displayed verification: (i) the lemma producing positive spoke circulations, whose proof prescribes face circulations and sums along dual paths in one paragraph; (ii) the isotopy argument that the detoured spoke curve is simple and counterclockwise, which is asserted in a few sentences; (iii) the grouping step that the pairs with a given undirected edge set are exactly the independent orientation choices on its cycles; (iv) the leading-coefficient argument that contributions from different groups cannot cancel; and (v) the gluing across separating triangles, where the claim that the two induced trees meet in a connected subtree is stated in one sentence. The paper's Pfaffian corollary is labelled a consequence of the cited equivalence, so its strength depends on that external result.; conditional on: The main theorem's proof does not assume any hypothesis beyond the paper's own lemmas. It uses standard facts without proof: Euler's formula, the max-flow/min-cut principle (Ford-Fulkerson 1956), and a two-orientations regrouping of cycle covers that the paper cites to Kenyon 2014 (Section 3.2.1, Lemma 1) and does not reprove; that regrouping is used in the nonvanishing step. The Pfaffian three-edge-path corollary, which is not the main theorem, depends on Gorsky, Steiner and Wiederrecht 2023 (Theorem 4.16 for the equivalence, Theorem 4.6 for planar graphs being Pfaffian), cited and not proved. The single-edge-avoidance corollary is proved directly from the construction; its equivalence with Barnette's conjecture (Kelmans, via Hertel 2005 and Gorsky-Steiner-Wiederrecht 2023) is cited as context only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "proves the conjecture (full statement)",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "produced the manuscripts, per the repository README",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+          }
+        ],
+        "disclosed_cost": "On average, each result used three hours of ChatGPT Pro thinking compute with that model.",
+        "sources": [
+          "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/paper.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/180.md"
+      ],
+      "origin": {
+        "stage": "openai",
+        "family": "180",
+        "family_title": "Barnette’s Hamiltonian-cycle conjecture",
+        "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+        "read": [
+          "sources/openai-math/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/build/paper.tex",
+          "sources/openai-math/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/README.md"
+        ]
+      }
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "The Wikipedia article on Barnette's conjecture, as indexed on 10 Oct 2026, says 'The conjecture was proven by Kardoš (2020)' in the context of the Barnette-Goodey (faces at most 6, no bipartiteness) form; the same article says the truth of Barnette's conjecture 'remains unknown'. Kardoš's result is the faces-at-most-6 form, not the bullet. Read literally, the lead could be taken to say the bullet was proved in 2020.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Barnette%27s_conjecture",
+        "https://arxiv.org/abs/1409.2440"
+      ]
+    },
+    {
+      "kind": "catalogue-status",
+      "summary": "Secondary sources disagree on whether the Barnette formalisation is in the machine-readable catalogue. explainx.ai (Yash Thakker, 6-7 Oct 2026) says the CONTENTS.md entry is 'Listed' and 'Not in the machine-readable catalogue'. A Towards AI article says the YAML misses the family. I confirmed directly that lean/formalization.yaml has no Barnette, Hamiltonian or problem-180 entry. I did not confirm the CONTENTS.md family-180 line (it lies beyond the part of the file I read).",
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://pub.towardsai.net/openais-ai-wrote-722-maths-papers-checking-them-was-the-easy-part-886e1a827c28"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "Several claimed proofs predate the window (Cahit 2009, arXiv 0904.3431; Clarke 2013, arXiv 1309.2560, withdrawn; Shah 2014, IJMC). None is accepted in the sources I found, and the 2025-2026 papers describe the conjecture as open. The OpenAI claim of 6 Oct 2026 is the first claim in the record with a Lean formalisation of the bullet's statement.",
+      "sources": [
+        "https://arxiv.org/abs/0904.3431",
+        "https://arxiv.org/abs/1309.2560",
+        "https://fs.unm.edu/IJMC/NecessaryConditionForCubicPlanar3Connected.pdf"
+      ]
+    }
+  ],
+  "summary": "The bullet asks one question about one class: is every cubic, bipartite, planar, 3-connected graph Hamiltonian? As of 11 Oct 2026 the answer claimed by the most recent event is yes. On 6 Oct 2026 OpenAI's repository openai/math published a 'Paired states and Hamiltonian cycles in cubic bipartite planar graphs' preprint (LaTeX \\author{OpenAI}, \\date{September 24, 2026}); Theorem 1.1 states the bullet's claim without restriction, the abstract says 'We prove Barnette's conjecture', and the repository files a Lean 4 statement (ComparatorChallenges/BarnetteHamiltonian.lean, MainStatement) whose hypotheses I read as matching the theorem: 3-regular, bipartite, planar via a plane embedding with injective arcs and disjoint interiors, 3-vertex-connected in the standard sense, conclusion a Hamiltonian cycle. The Lean solution module (OAI.Combinatorics.Hamiltonian.Main, theorem OAI.Barnette.main) sits in a directory of 31 modules; I read all 31 through a summarising fetch and found no sorry, admit, axiom or native_decide in any of them, while the challenge file contains sorry by design. Nothing was compiled, and the comparator was not run, so the Lean status is a reading, not a build. Against that, the claim is five days old; I found no arXiv posting, no journal submission, and no human verification. The only public engagement is Kalai's blog post (he reports the claim and asks for checking) and a Hacker News comment by Jake Boggan, who says he spent 24 years on the problem, coded the constructive algorithm and ran it against a test suite, and found the proof 'rather simple'. The repository's README says that most results came from 'an unreleased internal OpenAI model' and that the repository's manuscripts were 'produced by an internal OpenAI model'; the Barnette manuscript is not among the README's listed exceptions, but the README does not say what part of this proof the model supplied, and the manuscript credits only OpenAI. The same release has had three withdrawals for a sign error, and the Barnette entry is missing from lean/formalization.yaml (checked directly), though its statement is present in lean/ComparatorChallenges. Between 26 Jan 2024 and the OpenAI release the only events are partial results: Schnieders (5 Aug 2025) proves the bipartite statement restricted to faces of size at most 8 (his main theorem is for connected graphs, and connected cubic bipartite graphs are 2-connected, so the class is the bullet's class with faces at most 8); Shao and Wu (29 Apr 2025) prove the faces-at-most-6 analogue without bipartiteness; Bekos, Kaufmann and Pfister (GD 2025) give a subhamiltonian bound of 5n/6 edges; Fleischner, Iurlano and Raidl (9 Oct 2025) work on Tait's conjecture, and their non-Hamiltonian family is not stated to be bipartite. ProofAtlas (status 2 Aug 2026) lists reported but unreproduced partial results and names no model. The pre-window literature (Goodey 1975; Holton, Manvel and McKay 1985; Kardoš 2014/2020; Alt et al. 2013; Gorsky, Steiner and Wiederrecht 2022; Brinkmann, Goedgebeur and McKay 2021, verified to 90 vertices; the claimed proofs of Cahit 2009, Clarke 2013 and Shah 2014) is recorded as events with dates and status. Where a call was close: I took 6 Oct 2026 as the first public date, because the repository's only commit is dated then, even though the manuscript itself says 24 Sep 2026; I treated the README's 'most results' as covering this manuscript, because the exception list does not name it; and I counted the Kardoš event as a restricted analogue, not a settlement, although Wikipedia's lead can be read otherwise.",
+  "competing_reading": "The strongest case for treating the bullet as settled by the OpenAI event: a Lean 4 statement that matches the paper's Theorem 1.1 and whose proof file contains no sorry (on my reading) is the kind of verification the field lacks for an open problem of this age; the argument is short (about 5,800 words per a secondary count); the claim has been public for five days in a repository whose statements are checkable; and the only things missing are human write-ups. The case against: the claim is five days old, has no named human author, no peer review, no arXiv posting, and no expert verification of the argument; the Lean chain was read rather than compiled and the comparator was not run; Lean checks the formal statement, not whether it is the bullet's statement (the planarity and connectivity encodings are where a subtle weakening would hide); the same release has had withdrawn results and the Barnette entry is missing from the machine-readable catalogue; and a 2025 paper (Fleischner et al.) that discusses the same family does not address bipartiteness. On this reading the event should be recorded as 'claimed, machine-formalised in the repository, not yet independently checked', not as a resolution.",
+  "what_would_settle_it": "(a) A run of the comparator on lean/ComparatorChallenges/BarnetteHamiltonian.json with the output recorded (lake env comparator ComparatorChallenges/BarnetteHamiltonian.json), and a check that the solution module compiles without sorry. (b) A written review by a named graph theorist (for example someone who has worked on Barnette's conjecture, such as the authors of the 2022-2025 papers above) checking the cancellation argument and the tree-recovery step, and stating whether the formal definitions of planarity and 3-connectivity match standard ones. (c) An arXiv or journal version with an author list, and any erratum or withdrawal. (d) The OpenAI announcement page itself (blocked to my fetcher, 403) and its statement on how the Barnette manuscript was produced and whether a human supplied the idea or only the write-up. (e) For the 2025-2026 partial results, the Kardoš and Schnieders code, run independently. (f) For the Tutte-fragment family, a check of whether any non-Hamiltonian member is bipartite.",
+  "sources": [
+    {
+      "url": "https://github.com/openai/math",
+      "title": "openai/math repository README (fetched via summary; verbatim wording to be checked)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/lean/docs/180.md",
+      "title": "lean/docs/180.md: Barnette's Hamiltonian-cycle conjecture",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/docs/180.md",
+      "title": "lean/docs/180.md (raw)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/build/paper.tex",
+      "title": "Paired states and Hamiltonian cycles in cubic bipartite planar graphs: paper.tex (fetched via summary)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/paper.pdf",
+      "title": "paper.pdf (GitHub view: navigation only; binary PDF not readable through the fetcher)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026",
+      "title": "preprint folder: README (title, author OpenAI, date September 24 2026; BibTeX)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/commits/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026",
+      "title": "commit history for the preprint folder: one commit, 'Initial commit', 6 Oct 2026",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BarnetteHamiltonian.lean",
+      "title": "Challenge statement file, with sorry by design",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BarnetteHamiltonian.json",
+      "title": "Comparator config",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/lean/ComparatorChallenges",
+      "title": "ComparatorChallenges directory and README verification instructions",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/OAI/Combinatorics/Hamiltonian/Main.lean",
+      "title": "Solution module containing theorem OAI.Barnette.main and Duality.hamiltonian (fetched via summary)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/OAI/Combinatorics/Hamiltonian/CycleReversal.lean",
+      "title": "Hamiltonian/CycleReversal.lean (fetched via summary; no sorry)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/OAI/Combinatorics/Hamiltonian/TriangleSystem.lean",
+      "title": "Hamiltonian/TriangleSystem.lean (fetched via summary; no sorry)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/lean/OAI/Combinatorics/Hamiltonian",
+      "title": "Hamiltonian directory listing (31 modules)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+      "title": "Machine-readable formalization catalogue (no Barnette entry)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/history.md",
+      "title": "history.md (7 Oct 2026): three withdrawals and fourteen fixes; Barnette not among them",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+      "title": "Manuscript map (family-180 line not located; read to 200,000 of 636,312 characters)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "title": "OpenAI announcement (HTTP 403 to the fetcher; not read)",
+      "type": "press_release",
+      "opened": false
+    },
+    {
+      "url": "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+      "title": "Gil Kalai, 'Updates: Sharing AI progress on mathematics (amazing!)' (7 Oct 2026)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://news.ycombinator.com/item?id=49984923",
+      "title": "Hacker News: Sharing AI progress in mathematics (comments read to about 200,000 of 437,877 characters)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://news.ycombinator.com/item?id=50002650",
+      "title": "Hacker News: OpenAI withdraws three mathematical results (withdrawn items named in history.md, not in this thread)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://simonwillison.net/2026/Oct/7/jake-boggan/",
+      "title": "Simon Willison, quotation of Jake Boggan's HN comment (7 Oct 2026)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.artiverse.ca/the-supposed-proof-of-barnettes-conjecture-brings-mixed-feelings/",
+      "title": "Artiverse: 'The Supposed Proof of Barnette's Conjecture Brings Mixed Feelings' (AI-generated site; secondary)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://explainx.ai/blog/openai-722-math-manuscripts-github-repo-what-to-check-2026",
+      "title": "explainx.ai (Yash Thakker byline): repo review, catalogue status (secondary)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.developersdigest.tech/blog/openai-math-repo-lean-proofs-what-they-verify-2026",
+      "title": "Developer's Digest: what the Lean proofs do and do not verify (8 Oct 2026; secondary)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://futurism.com/artificial-intelligence/mathematicians-openai-furious",
+      "title": "Futurism: mathematicians react (9 Oct 2026); no Barnette-specific content",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://leiterreports.com/2026/10/07/open-ais-math-proofs/",
+      "title": "Leiter Reports (7 Oct 2026); no Barnette-specific content",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://the-decoder.com/how-much-beauty-have-we-lost-mathematicians-react-with-shock-and-disgust-as-openai-bulldozes-their-field/",
+      "title": "The Decoder (reaction piece); no Barnette-specific content",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.14673",
+      "title": "Sienicki & Sienicki, A Human Audit of OpenAI's AI-Generated Mathematical Proofs (v3); covers OpenAI's August 2026 ten-result release, not Barnette",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.03531",
+      "title": "Schnieders, Barnette Graphs with Faces up to Size 8 are Hamiltonian (v1 5 Aug 2025)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2508.03531v1",
+      "title": "Schnieders full text (AI: none; acknowledgements; computation; Theorem 1.12)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.20706",
+      "title": "Shao & Wu, Every 2-connected, cubic, planar graph with faces of size at most 6 is Hamiltonian (v1 29 Apr 2025)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2504.20706v1",
+      "title": "Shao & Wu full text (AI: none; Theorem 1; Barnette's conjecture stated as open)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.08310",
+      "title": "Fleischner, Iurlano, Raidl, Putting Tutte's counterexample ... (v1 9 Oct 2025)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2510.08310v1",
+      "title": "Fleischner et al. full text (no Barnette status claim; bipartiteness not discussed)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.GD.2025.6",
+      "title": "Bekos, Kaufmann, Pfister, Approximating Barnette's Conjecture (GD 2025; published 26 Nov 2025)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.proofatlas.ai/collaboration/barnette-conjecture/",
+      "title": "ProofAtlas collaboration page for Barnette's Conjecture (status 2 Aug 2026)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1409.2440",
+      "title": "Kardoš, A computer-assisted proof of Barnette-Goodey conjecture (v1 8 Sep 2014)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://fs.unm.edu/IJMC/NecessaryConditionForCubicPlanar3Connected.pdf",
+      "title": "Shah 2014, IJMC (PDF; binary, not readable through the fetcher)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1309.2560",
+      "title": "Clarke, Cyclic Subsets and Barnette's Conjecture (v1 10 Sep 2013; withdrawn comment)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/0904.3431",
+      "title": "Cahit, Algorithmic proof of Barnette's Conjecture (v1 22 Apr 2009)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1312.3783",
+      "title": "Alt, Payne, Schmidt, Wood, Thoughts on Barnette's Conjecture (v1 13 Dec 2013)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1208.4332",
+      "title": "Florek, On Barnette's Conjecture and H^{+-} property (v1 21 Aug 2012)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2309.09578",
+      "title": "Florek, A sufficient condition for cubic 3-connected plane bipartite graphs to be hamiltonian (v1 18 Sep 2023)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2202.11641",
+      "title": "Gorsky, Steiner, Wiederrecht, Matching Theory and Barnette's Conjecture (v1 23 Feb 2022)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1806.05483",
+      "title": "Bagheri Gh., Feder, Fleischner, Subi, Hamiltonian cycles in planar cubic graphs with facial 2-factors (v1 14 Jun 2018)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2212.02668",
+      "title": "Bagheri Gh., Feder, Fleischner, Subi, On finding hamiltonian cycles in Barnette graphs (v1 5 Dec 2022)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2101.00943",
+      "title": "Brinkmann, Goedgebeur, McKay, The Minimality of the Georges-Kelmans Graph (v1 4 Jan 2021)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2308.01574",
+      "title": "Björklund, Kaski, Nederlof, Another Hamiltonian Cycle in Bipartite Pfaffian Graphs (v1 3 Aug 2023)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.08128",
+      "title": "Gorsky, Johanni, Wiederrecht, A note on the 2-Factor Hamiltonicity Conjecture (v1 15 Aug 2024)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/0095895685900723",
+      "title": "Holton, Manvel, McKay 1985 (ScienceDirect; 403, not read)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Barnette%27s_conjecture",
+      "title": "Wikipedia: Barnette's conjecture (as indexed; last edited 10 Oct 2026 per the article)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://pub.towardsai.net/openais-ai-wrote-722-maths-papers-checking-them-was-the-easy-part-886e1a827c28",
+      "title": "Towards AI: '...checking them was the easy part' (search snippets only; not opened)",
+      "type": "blog",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Barnette's conjecture cubic bipartite planar 3-connected Hamiltonian",
+      "Barnette conjecture Hamiltonian cycle 2024 arXiv",
+      "Barnette's conjecture proof",
+      "Barnette's conjecture disproved counterexample",
+      "Barnette conjecture wikipedia",
+      "Barnette conjecture AI model mathematics Hamiltonian cubic planar",
+      "Barnette conjecture Hamiltonicity planar bipartite cubic graphs recent results",
+      "Barnette conjecture Hamiltonian cycle Goodey faces hexagons",
+      "Barnette conjecture GPT OpenAI",
+      "Barnette conjecture Claude Anthropic Hamiltonian",
+      "Barnette conjecture Gemini DeepMind AlphaEvolve graph Hamiltonian",
+      "Schnieders \"Barnette graphs with faces up to size 8 are Hamiltonian\"",
+      "Shao Wu \"every 2-connected, cubic, planar graph with faces of size at most 6 is Hamiltonian\"",
+      "Tutte's counterexample to Tait's conjecture hamiltonicity planar cubic graphs arXiv 2510.08310",
+      "Barnette conjecture Paul Clarke cyclic subsets inductive proof 2013",
+      "Shah \"Necessary Condition for Cubic Planar 3-Connected Graph to be Non-Hamiltonian\" Barnette",
+      "openai/math github repository manuscripts Lean Barnette conjecture",
+      "OpenAI math repository 722 manuscripts 372 families",
+      "OpenAI GPT-5.6 Sol Barnette conjecture proof",
+      "OpenAI released proofs open problems Erdős Barnette cycle double cover October 2026",
+      "\"Paired states and Hamiltonian cycles in cubic bipartite planar graphs\"",
+      "Barnette conjecture proved OpenAI Hamiltonian cycle mathematicians react verification",
+      "Barnette conjecture 2024 cubic bipartite planar Hamiltonian new result",
+      "Barnette Hamiltonian cycle cubic bipartite Lean formalization comparator OpenAI",
+      "Gorsky Steiner Wiederrecht Barnette conjecture Pfaffian bipartite Hamiltonian",
+      "Another Hamiltonian Cycle in Bipartite Pfaffian Graphs ICALP 2024",
+      "Bekos Kaufmann Pfister Approximating Barnette's Conjecture subhamiltonian arXiv",
+      "Kardoš Barnette-Goodey conjecture SIAM Journal on Discrete Mathematics 2020 computer-assisted",
+      "Barnette's conjecture ProofAtlas active research partial results clean-ladder compression reduction",
+      "Kalai Barnette conjecture coloring simple polytopes triangulations Hamiltonian cycle post",
+      "OpenAI Barnette Hamiltonian cycle conjecture proof Scientific American OR Quanta OR Tao reaction",
+      "Brinkmann Goedgebeur McKay Barnette conjecture verified 90 vertices cubic bipartite",
+      "Yash Thakker OpenAI math repo catalogue family 180 Barnette sorry axiom",
+      "Barnette conjecture preprint 2026 Hamiltonian cubic bipartite planar AI-generated proof arXiv",
+      "Sharing AI progress in mathematics OpenAI internal model 722 manuscripts announcement",
+      "\"Barnette's conjecture (family 180)\" OpenAI math repo catalogue Lean listed machine-readable"
+    ],
+    "places_checked": [
+      "github.com/openai/math: README, preprints folder, commit history, lean/docs/180.md, lean/ComparatorChallenges, lean/OAI/Combinatorics/Hamiltonian (31 modules, Main and imports), lean/formalization.yaml, history.md, CONTENTS.md (first 200,000 characters)",
+      "gilkalai.wordpress.com (7 Oct 2026 post); news.ycombinator.com items 49984923 and 50002650; simonwillison.net (7 Oct 2026)",
+      "arxiv.org abstract pages: 0904.3431, 1208.4332, 1309.2560, 1312.3783, 1409.2440, 1806.05483, 2101.00943, 2202.11641, 2212.02668, 2308.01574, 2309.09578, 2408.08128, 2504.20706, 2508.03531, 2510.08310, 2608.14673; full text (HTML) for 2504.20706, 2508.03531, 2510.08310",
+      "Wikipedia article on Barnette's conjecture (as indexed 10 Oct 2026)",
+      "drops.dagstuhl.de (Bekos et al., GD 2025); proofatlas.ai collaboration page; fs.unm.edu (Shah 2014; PDF unreadable)",
+      "explainx.ai, developersdigest.tech, artiverse.ca, the-decoder.com, futurism.com, leiterreports.com, towardsai (secondary coverage of the October release)",
+      "Searched for arXiv postings of the Paired-states paper (none found), for expert write-ups (none found), for 2024 papers on the conjecture (none found), and for AI involvement with Google DeepMind, Anthropic and OpenAI (only the October 2026 OpenAI release concerns this bullet)"
+    ],
+    "dead_ends": [
+      "No 2024 arXiv or journal paper on the bipartite statement was found; the nearest 2024 items are the Björklund et al. ICALP publication (arXiv 2023) and Gorsky-Johanni-Wiederrecht (2-factor conjecture).",
+      "No arXiv posting or journal submission of the Paired-states manuscript was found (search for the title returns only the repository).",
+      "No Quanta or Scientific American article specifically about the Barnette claim was found (SciAm's headline coverage is about the release as a whole).",
+      "No Google DeepMind, Gemini or AlphaEvolve involvement with Barnette's conjecture was found (AlphaEvolve's documented mathematics work concerns other problems).",
+      "No Anthropic or Claude involvement with Barnette's conjecture was found; 'Claude' appears only in an unrelated HN remark about another problem.",
+      "The 'OpenAI withdraws three mathematical results' HN item names no problem; the withdrawn manuscripts are in history.md (Weil classes and K3 Hodge work), not Barnette.",
+      "A 'Radboud Universiteit' student document on Barnette's conjecture (math.ru.nl/~bosma/Students/BarnetteFinalDocument.pdf) was returned as a binary PDF; only its embedded logo metadata was readable.",
+      "The Sienicki audit (arXiv 2608.14673) covers OpenAI's August 2026 ten-result release; a search snippet claimed it mentions Barnette, but the readable text does not.",
+      "The explainx.ai 'openai-math-results-that-matter' review was read and contains nothing on Barnette.",
+      "ProofAtlas 'Trust model' section was not reachable (linked anchor, not in the fetched content).",
+      "GitHub code search for 'sorry' in openai/math requires sign-in (not available to the fetcher); no mechanical sorry scan was possible.",
+      "Kelmans (1994) equivalences, Feder and Subi (2008, Stanford PDF), and Goodey (1975) were not opened; their content is taken from secondary summaries (Wikipedia, Alt et al., Bagheri et al., Schnieders)."
+    ]
+  },
+  "incomplete": "(1) The OpenAI announcement page (openai.com/index/sharing-ai-progress-in-mathematics) returned HTTP 403; its content is known only through secondary coverage and Kalai's post. (2) The manuscript was read from build/paper.tex through a summarising fetch, not as the compiled PDF (the PDF is binary and unreadable through the fetcher). The quotes from the paper and README are taken from fetch summaries and must be checked verbatim. (3) Lean: nothing was compiled, and the comparator was not run (no Lean toolchain or shell approval). I read all 31 modules in lean/OAI/Combinatorics/Hamiltonian/ (Main included) through summaries; none contains sorry, admit, axiom or native_decide. This is a reading, not a mechanical scan: I did not trace the import graph line by line, did not read the lakefile or toolchain, and could not run GitHub code search to confirm. (4) The CONTENTS.md line for family 180 was not located; I read only the first 200,000 of 636,312 characters. (5) The Hacker News thread was read to about 200,000 of 437,877 characters; later comments, which may include further expert engagement, were not read. (6) Holton, Manvel and McKay (1985) and Goodey (1975) were not opened (paywalled or not online); Shah (2014) and Feder-Subi (2008) PDFs were unreadable or not opened; Kelmans (1994) was not located. (7) For pre-2024 items I read abstracts and metadata, not full texts, so the AI check for those is at abstract level. (8) A number of pre-2024 partial-result papers surfaced in search and were not opened or recorded as events: arXiv 1807.08933 'Remarks on Barnette's conjecture', arXiv 2008.06671 'Hamiltonian cycles in annular decomposable Barnette graphs', arXiv 1608.03105, arXiv 1310.5504 (Conjecture 0.1), arXiv 1806.06713 (algorithmic complexity), and Feder-Subi 2008. (9) The search runs to about 10 Oct 2026; I did not look for developments after that date. (10) The record's date for Bekos et al. is the year only, because no arXiv posting was found and the conference month was not confirmed.",
+  "combined": {
+    "openai_events_added": [
+      "openai-math-180"
+    ],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "claimed",
+  "ai_role": "generated",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "openai-2026-10-paired-states",
+  "no_change_found": false,
+  "event": {
+    "id": "openai-2026-10-paired-states",
+    "what_happened": "On 6 Oct 2026 OpenAI released, in github.com/openai/math, the preprint 'Paired states and Hamiltonian cycles in cubic bipartite planar graphs' (LaTeX source build/paper.tex: \\author{OpenAI}, \\date{September 24, 2026}; the preprint README gives the same title, author and date). Abstract: 'We prove Barnette's conjecture: every finite simple cubic bipartite planar 3-vertex-connected graph has a Hamiltonian cycle.' Theorem 1.1 (thm:main): every finite simple undirected graph that is cubic, bipartite, planar and 3-vertex-connected has a Hamiltonian cycle. The repository lists it as problem 180 (lean/docs/180.md: 'Barnette's Hamiltonian-cycle conjecture ... The formalization proves this statement for every such graph') with a comparator entry pointing to lean/ComparatorChallenges/BarnetteHamiltonian.lean. Gil Kalai's blog (7 Oct 2026, 05:35) reports the manuscript 'announces a proof of this conjecture' and says results have 'different stages of verification'. A Hacker News thread about the release (item 49984923) has a comment from user jboggan about problem 180. No arXiv posting of this manuscript was found by search, and no journal submission was found.",
+    "date": "2026-10-06",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "revisions": "The preprint folder has one commit, 'Initial commit' (hash adc7f12), dated Oct 6 2026. The manuscript's own date is 24 Sep 2026 (LaTeX \\date and README), but no public appearance before Oct 6 was found, so Oct 6 is taken as the first public written argument. The repository's history.md (dated 7 Oct 2026) records three withdrawals and fourteen fixes to other manuscripts; Barnette is not among them. A later secondary count (8 Oct) gives 719 manuscripts after the three withdrawals (722 at release).",
+    "delivers": "The conjecture exactly as the bullet states it. Paper Thm 1.1: every finite simple cubic, bipartite, planar, 3-vertex-connected graph is Hamiltonian; the introduction says the paper 'remove[s] the face-size restriction within the full 3-connected bipartite class'. Lean statement (ComparatorChallenges/BarnetteHamiltonian.lean, MainStatement): for every finite type V with decidable equality and every simple graph G on V, if G.IsRegularOfDegree 3, G.IsBipartite, Planar G (nonempty PlaneEmbedding: injective vertex points, injective arcs that avoid other vertices, disjoint edge interiors) and ThreeVertexConnected G (at least 4 vertices; the induced graph stays connected after deleting any set of at most 2 vertices), then HasHamiltonianCycle G (a closed walk that is a Hamiltonian cycle). On my reading the Lean statement matches Thm 1.1. The paper says the argument 'places no bound on the order or face lengths' and 'does not assert a polynomial-time construction of the cycle'.",
+    "remains": "Nothing in problem_asks, provided the proof is correct. The paper's Pfaffian corollary (every three-edge path in a cubic 3-vertex-connected Pfaffian bipartite graph lies in a Hamiltonian cycle) relies on Gorsky, Steiner and Wiederrecht's published equivalence (their Thm 4.16); it is a corollary, not part of the bullet.",
+    "checked_by": [
+      {
+        "who": "Gil Kalai (blog 'Combinatorics and more')",
+        "qualification": "Combinatorialist and convex-polytope researcher; his post recalls an earlier post of his on coloring simple polytopes and Barnette's conjecture.",
+        "what_they_did": "Reported the claim (item 13 of OpenAI's list), said the new manuscript 'announces a proof of this conjecture', and said results have different stages of verification and 'will need to be checked and digested by the mathematical community'. He does not say he checked the argument.",
+        "where": "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+        "automated": false
+      },
+      {
+        "who": "Jake Boggan (Hacker News user 'jboggan')",
+        "qualification": "Self-described graph-theory enthusiast who 'moved to Budapest for awhile to study among the greats'; says he worked on Barnette's conjecture on and off for 24 years and 'thousands of hours'. The sources do not identify an academic post.",
+        "what_they_did": "Read the paper ('I'm digesting the paper'); said the approach 'looks, on the surface, like an approach they considered and abandoned long ago'; wrote that they 'coded up the new constructive algorithm and ran it against the existing test suite, that looks good at least'; called the proof 'rather simple as graph theory proofs go'. Self-reported; no statement that the proof is correct.",
+        "where": "https://news.ycombinator.com/item?id=49984923 (comments 49988526, 49994671, 49997936) ; https://simonwillison.net/2026/Oct/7/jake-boggan/",
+        "automated": false
+      }
+    ],
+    "no_engagement_found": false,
+    "time_since_posted": "5 days (to 11 Oct 2026)",
+    "machine_checked": {
+      "system": "Lean 4 with Mathlib, via the 'comparator' tool (challenge JSON ComparatorChallenges/BarnetteHamiltonian.json: challenge_module ComparatorChallenges.BarnetteHamiltonian, solution_module OAI.Combinatorics.Hamiltonian.Main, theorem OAI.Barnette.main, permitted_axioms propext, Quot.sound, Classical.choice, enable_nanoda false)",
+      "sorry_free": true,
+      "url": "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/BarnetteHamiltonian.lean",
+      "note": "The challenge statement file itself contains 'theorem main : MainStatement := by sorry' by design. The proof is in OAI/Combinatorics/Hamiltonian/Main.lean, which declares theorem main (OAI.Barnette.main) and Duality.hamiltonian, and imports ExactDual, which imports Rectangle, BranchPartition, MinorModel, Corridors, SquareGrid, Traces, Gluing, CappedDuality, and so on through the directory's 31 modules. I read all 31 modules in lean/OAI/Combinatorics/Hamiltonian/ (Main included) via a summarising fetch and found no sorry, admit, axiom or native_decide in any of them; I did not confirm the full import graph line by line. Nothing was compiled or run: no Lean toolchain or shell was available. The 'sorry_free' value is therefore a reading-based finding, not a build. lean/formalization.yaml (the machine-readable catalogue) does not list the Barnette result (checked directly)."
+    },
+    "directly_checkable": null,
+    "doubts": "(1) Single-source claim: the only public source for the proof is the authors' own preprint and repository. No named human author; no arXiv listing, journal, referee report or expert write-up found as of 11 Oct 2026. (2) The release has had errors: three other manuscripts were withdrawn on 7 Oct 2026 for a sign error and a dependence (Algebraicity of Weil classes on split abelian eightfolds; Algebraicity of Kuga-Satake correspondences for K3 surfaces; the rational Hodge conjecture for products of K3 surfaces), per history.md. None is Barnette, but it shows the release has not been error-free. (3) Catalogue status is disputed in secondary coverage: explainx.ai (Yash Thakker) says the CONTENTS.md entry is 'Listed' while the result is 'Not in the machine-readable catalogue'; a Towards AI piece says the YAML misses the family but a full proof exists. I confirmed directly that lean/formalization.yaml has no entry for Barnette, Hamiltonian or problem 180. (4) The Lean chain's sorry-freeness rests on reading, not compilation. (5) Lean fidelity: the statement matches Thm 1.1 on my reading. Two details to check: 'Planar' is encoded as existence of an injective-arc plane embedding with disjoint interiors, which is a standard but nontrivial encoding of planarity; and the ThreeVertexConnected docstring says the deleted graph has 'order at least two' while the code requires at least four vertices in G (a docstring mismatch, not a mismatch of meaning). (6) The paper's proof is a weighted cancellation over complex phases followed by a Jordan-curve tree recovery and induction on separating triangles (sections 3-7 of the TeX). Reading of the argument is by a summarising fetch of the TeX source; I have not verified any step. Commenters say it is short (about 5,800 words per a secondary analysis, unverified). (7) Kalai's reply says OpenAI 'tried the model on about 8,000 problems', while the README says approximately 4,000; this is about the release, not Barnette.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Affirmative: the manuscript proves the conjecture as stated (every such graph is Hamiltonian). It is not a counterexample and does not change the bullet's scope.",
+    "object": null,
+    "people": [
+      "OpenAI (corporate author; no individual names on the manuscript)"
+    ],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "an unreleased internal OpenAI model",
+          "what_it_did": "The repository README states that the repository holds manuscripts and proof artifacts 'produced by an internal OpenAI model', and that 'Most results came from' that model. The README's listed exceptions (the zero-free-region write-up for the Riemann zeta function, the Hodge conjecture for CM abelian varieties, and a human-edited readability pass for the Re(s) > 11/12 write-up) do not include Barnette. The manuscript itself credits only 'OpenAI' and says nothing about how it was produced. The README does not say which part of this proof the model supplied (idea, argument or write-up). The model is internal and unreleased; the name is a descriptive phrase, not a version. Kalai calls it 'an internal AI model'; secondary coverage calls it 'an internal frontier model'.",
+          "basis_quote": "This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+          "quote_url": "https://github.com/openai/math"
+        }
+      ],
+      "disclosed_cost": "README, repository-wide and not specific to this manuscript: the model was posed 'approximately 4,000 problems'; 'On average, each result used three hours of ChatGPT Pro thinking compute with that model.' Quotes are from the fetch summary of the README and should be checked verbatim.",
+      "sources": [
+        "https://github.com/openai/math",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/build/paper.tex",
+        "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+        "https://github.com/openai/math/blob/main/lean/docs/180.md"
+      ]
+    },
+    "sources": [
+      "https://github.com/openai/math/blob/main/lean/docs/180.md",
+      "https://raw.githubusercontent.com/openai/math/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/build/paper.tex",
+      "https://github.com/openai/math/tree/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026",
+      "https://github.com/openai/math/commits/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026",
+      "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BarnetteHamiltonian.lean",
+      "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BarnetteHamiltonian.json",
+      "https://raw.githubusercontent.com/openai/math/main/lean/OAI/Combinatorics/Hamiltonian/Main.lean",
+      "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+      "https://raw.githubusercontent.com/openai/math/main/history.md",
+      "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+      "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+      "https://news.ycombinator.com/item?id=49984923",
+      "https://simonwillison.net/2026/Oct/7/jake-boggan/"
+    ]
+  },
+  "credited_humans": [
+    "OpenAI (corporate author; no individual names on the manuscript)"
+  ],
+  "status_sources": [
+    "https://github.com/openai/math/blob/main/lean/docs/180.md",
+    "https://raw.githubusercontent.com/openai/math/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026/build/paper.tex",
+    "https://github.com/openai/math/tree/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026",
+    "https://github.com/openai/math/commits/main/preprints/Paired-states-and-Hamiltonian-cycles-in-cubic-bipartite-planar-graphs-September-24-2026",
+    "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BarnetteHamiltonian.lean",
+    "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BarnetteHamiltonian.json",
+    "https://raw.githubusercontent.com/openai/math/main/lean/OAI/Combinatorics/Hamiltonian/Main.lean",
+    "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+    "https://raw.githubusercontent.com/openai/math/main/history.md",
+    "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+    "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+    "https://news.ycombinator.com/item?id=49984923",
+    "https://simonwillison.net/2026/Oct/7/jake-boggan/"
+  ],
+  "ai": {
+    "systems": [
+      "an unreleased internal OpenAI model"
+    ],
+    "from_event": "openai-2026-10-paired-states",
+    "basis_quote": "This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+    "none_found": false,
+    "disclosed_cost": "README, repository-wide and not specific to this manuscript: the model was posed 'approximately 4,000 problems'; 'On average, each result used three hours of ChatGPT Pro thinking compute with that model.' Quotes are from the fetch summary of the README and should be checked verbatim."
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "openai-2026-10-paired-states",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "schnieders-2025-08-faces-le-8",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "shao-wu-2025-04-faces-le-6-2conn",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "fleischner-iurlano-raidl-2025-10-tait-tutte",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bekos-kaufmann-pfister-2025-subhamiltonian",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "proofatlas-2026-08-collaboration-page",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Results self-labelled as source-reported and unreproduced; no named authors.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kardos-2014-barnette-goodey-faces-le-6",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "shah-2014-claimed-proof",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Claimed proof of a landmark problem in a low-profile venue, no uptake in 12 years, and all later literature (2019-2025) treats the conjecture as open without citing it.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "bjorklund-kaski-nederlof-2023-pfaffian",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "florek-2023-sufficient-condition",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "gorsky-johanni-wiederrecht-2024-two-factor",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "brinkmann-goedgebeur-mckay-2021-verified-90",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bagheri-feder-fleischner-subi-2018-facial-2-factors",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "bagheri-feder-fleischner-subi-2022-np-complete",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gorsky-steiner-wiederrecht-2022-matching-reformulation",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "clarke-2013-cyclic-subsets-withdrawn",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn on arXiv 'for further review'.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "alt-payne-schmidt-wood-2013-dual-sufficient-condition",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "florek-2012-H-plusminus-property",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "cahit-2009-algorithmic-proof-claim",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Self-described draft in math.GM claiming a landmark proof, no engagement in 17 years, later literature treats the conjecture as open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "holton-manvel-mckay-1985-computer-64",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "goodey-1975-faces-4-6",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "openai-math-180",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      }
+    ],
+    "why": "The OpenAI manuscript (recorded twice, as openai-2026-10-paired-states and openai-math-180, which are the same event) claims Theorem 1.1 exactly as the statement words it, so scope is whole; verification is unreviewed because Kalai only reported it and asked for checking, Boggan's self-reported reading stops short of saying the proof is correct, and an uncompiled, read-only Lean chain is not digestion (F7). No specific error is identified, and withdrawals of other manuscripts in the same release do not point at this one, so it is credible. The README says the manuscripts were produced by an internal OpenAI model, Barnette is not among the listed exceptions, and the manuscript names no human author, so the role is generated. Schnieders (faces at most 8, within the bullet's class) is a case. Shao-Wu and Kardoš drop bipartiteness and add a face bound; the bipartite part of what they cover was already Goodey's, so they are variants. Bekos et al. bound subhamiltonian edges, a different quantity from the yes/no existence question, so it is a variant rather than a bound. Pre-snapshot claimed proofs: Clarke is withdrawn; Cahit and Shah show several F10 signals.",
+    "doubts": "The two OpenAI rows are duplicates of one event. Whether the README's 'produced by an internal OpenAI model' covers this specific manuscript's mathematics, rather than only its write-up, is not stated per paper; generated rests on the absence of an exception and of any human author. Bekos et al. could arguably be read as a bound; either way it does not change the outcome. The Fleischner et al. family's bipartiteness is unchecked.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "claimed",
+      "rests_on": "openai-2026-10-paired-states",
+      "ai_role": "generated",
+      "ai_from": "openai-2026-10-paired-states",
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": [
+        "an unreleased internal OpenAI model"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

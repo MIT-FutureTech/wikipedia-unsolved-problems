@@ -1,0 +1,1193 @@
+{
+  "key": "hardy-littlewood-zeta-function-conjectures",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 no result I found changes either Hardy–Littlewood statement as the Wikipedia article gives it: the August 2026 Claude-credited bounds (Alpöge–Furman, re-proved by Lamzouri) concern proportions of simple zeros in long windows, and Wang's September 2026 short-interval theorem covers only intervals longer than T^0.5501, so neither statement is reached by new work; older literature (1921–1984), which secondary sources credit with settling them, is recorded below but not verified against the primary texts.",
+  "problem_asks": "The bullet names only 'Hardy–Littlewood zeta-function conjectures'. Its content was taken from the linked Wikipedia article (two summary passes agree; wikitext not retrieved; the article was last edited June 2024 according to one pass, so the January 2024 wording is not confirmed). The article gives two statements about ζ(1/2+it) and its zeros of odd order (N₀(T) counts them with 0 < t ≤ T). Part (1), conjecture 1: for every ε > 0 there is T₀(ε) such that for T ≥ T₀ the interval (T, T+H] with H = T^(1/4+ε) contains a zero of ζ(1/2+it) of odd order. Part (2), conjecture 2: for every ε > 0 there are T₀(ε) and c(ε) > 0 such that for T ≥ T₀ and H = T^(1/2+ε), N₀(T+H) − N₀(T) ≥ cH. Both concern the critical line, odd order (not simple zeros, not all zeros), and short intervals. The article's status line also states Selberg (1942) proved a related all-zeros bound with an H log T factor and Karatsuba lowered the exponent (1984).",
+  "events": [
+    {
+      "id": "alpoge-furman-2026-08",
+      "what_happened": "Levent Alpöge and Ralph Furman posted “More than two thirds of the zeta zeros are simple and on the critical line” (arXiv:2608.13637; v1 13 Aug 2026, v2 19 Aug 2026). Anthropic announced the result on 10 Aug 2026 with a paper PDF, crediting “an unreleased research version of Claude” with the argument. Theorem A: as T→∞, at least (2/3 − o(1))N(T,2T) nontrivial zeros are simple and on the critical line, and at least (5/6 − o(1))N(T,2T) are distinct; with the Montgomery–Taylor window the constants are 0.6725 and 0.8362. Theorem B extends the statements to primitive Dirichlet L-functions. The paper gives the earlier records as 5/12 (simple and on the line) and 0.6603 (distinct).",
+      "date": "2026-08-10",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Anthropic post dated 10 Aug 2026, updated 13 Aug 2026 with a revised paper (post changelog). arXiv v1 13 Aug 2026; arXiv v2 19 Aug 2026. Paper front matter dated 24 Aug 2026 (HTML copy read). Breakthrough tracker gives submission 13 Aug and manuscript date 17 Aug 2026.",
+      "delivers": "For the nontrivial zeros of ζ(s) in the window (T,2T], unconditionally and as T→∞: at least two-thirds of the zeros, counted with multiplicity, are simple and on the critical line; at least five-sixths are distinct; with the Montgomery–Taylor window the constants are 0.6725 and 0.8362. Restrictions: the statements are averages over the window (T,2T], not bounds for each short interval; the counted quantities are simple critical zeros (a subset of odd-order critical zeros) and distinct zeros; nothing is established about odd-order zeros inside any interval of length T^(1/4+ε) or T^(1/2+ε). The paper's only mention of ‘Hardy–Littlewood conjectures’ (§7.2) cites them as an alternative route to prime-pair evaluation, a different conjecture sharing the name.",
+      "remains": "Both Hardy–Littlewood statements as the article gives them: (1) an odd-order zero of ζ(1/2+it) in every interval (T,T+T^(1/4+ε)] for large T; (2) N₀(T+H) − N₀(T) ≥ cH for H = T^(1/2+ε). Also odd-order zeros that are not simple, and any short-interval count.",
+      "checked_by": [
+        {
+          "who": "Levent Alpöge and Ralph Furman",
+          "qualification": "Listed authors; Anthropic describes them as its own mathematicians, and Anthropic is the developer of the system credited with the argument",
+          "what_they_did": "Verified the argument and take responsibility for its content (paper title block: “The listed authors verified the proof and take responsibility for its content.”)",
+          "where": "https://arxiv.org/html/2608.13637v2",
+          "automated": false
+        },
+        {
+          "who": "Brian Conrey and Dan Goldston",
+          "qualification": "Number theorists named by Anthropic as experts in this area",
+          "what_they_did": "Per Anthropic's post, they ‘generously examined the paper on short notice’. No published verdict from either was found.",
+          "where": "https://www.anthropic.com/research/riemann-zeta",
+          "automated": false
+        },
+        {
+          "who": "Claude subagents and independent model instances",
+          "qualification": "AI review inside the development process, not human readings",
+          "what_they_did": "Per Anthropic's post: subagents reviewed proofs, searched for counterexamples, checked 54 arXiv papers and re-proved the result. The paper's §1.5 mentions repeated adversarial review by independent model instances.",
+          "where": "https://www.anthropic.com/research/riemann-zeta",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 months (announced 10 Aug 2026; as of 12 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib v4.33.0-rc2, project zeta23 in anthropics/formal-math",
+        "sorry_free": true,
+        "note": "Per the README as summarised: sorry appears only in the trusted challenge statement files (Challenge.lean: 17 statements; Challenge/XiPrime.lean: 6), by design; no axioms declared; #print axioms reports only propext, Classical.choice and Quot.sound. The PairCeiling results (§7.2) depend on a displayed hypothesis EnclOK whose enclosures come from interval arithmetic outside the Lean kernel, so those results are not kernel-checked. Source files were not inspected directly.",
+        "url": "https://github.com/anthropics/formal-math/tree/main/zeta23"
+      },
+      "directly_checkable": null,
+      "doubts": "(a) The verifiers are the listed authors, who are Anthropic's own mathematicians; the outside names (Conrey, Goldston) are reported only as having examined the paper, with no public verdict found. (b) The Lean development of the PairCeiling results depends on certified numerics outside the kernel (EnclOK), which the README's ‘nothing is assumed’ claim does not reconcile. (c) No peer review: the Breakthrough tracker records ‘Peer reviewed: No’. (d) Authorship and provenance statements conflict across sources (see disputes). Weighing against doubt: an independent human re-derivation of the same bounds exists (Lamzouri, 2 Sep 2026, by a different method), so the bounds have had one check beyond the authors. Lamzouri describes the Claude argument as ‘technically intricate’ with a main mechanism that is ‘not transparent’ (Bonn event page).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts neither way on the Hardy–Littlewood statements: it proves a positive-proportion statement about a different quantity (simple critical zeros in long windows), which neither asserts nor refutes an odd-order zero or count in a short interval.",
+      "object": null,
+      "people": [
+        "Levent Alpöge",
+        "Ralph Furman",
+        "Jarred Sumner (posed the problem and guided the investigation, per the paper's title footnote)",
+        "Eric Easley (orchestrated the Lean formalisation, per the title footnote)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude",
+            "what_it_did": "Per the authors, the mathematical argument of arXiv:2608.13637 was discovered and written by Claude. The arXiv comment reads “Proof discovered autonomously by Claude (Anthropic); verified and communicated by the listed authors.” Anthropic's post calls the model ‘an unreleased research version of Claude’ and gives no version. Claude also wrote the Lean code: the formal-math README says “all Lean code in this repository … was written by Claude (Anthropic)”. Paper §1.5, as summarised: the argument ‘was found over two interactive sessions and checked by repeated adversarial review by independent model instances’. Human roles per the paper: Jarred Sumner posed the problem; the authors verified the proof.",
+            "basis_quote": "The mathematical argument in this paper was discovered and written by Claude, an AI developed by Anthropic.",
+            "quote_url": "https://arxiv.org/html/2608.13637v2"
+          }
+        ],
+        "disclosed_cost": "Per Anthropic's post: two sessions in Claude Code using a total of 31 million output tokens; a first attempt generating 650 ideas, none of which worked; a second using about 60 subagents over a day and a half, with 2,400 shell commands. No dollar cost given.",
+        "sources": [
+          "https://arxiv.org/html/2608.13637v2",
+          "https://arxiv.org/abs/2608.13637",
+          "https://www.anthropic.com/research/riemann-zeta",
+          "https://github.com/anthropics/formal-math/tree/main/zeta23"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.13637",
+        "https://arxiv.org/html/2608.13637v2",
+        "https://www.anthropic.com/research/riemann-zeta",
+        "https://github.com/anthropics/formal-math/tree/main/zeta23",
+        "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-zeta-two-thirds-simple-critical-line-2026/",
+        "https://scientificamerican.com/article/no-ai-didnt-just-solve-the-thorniest-problem-in-math"
+      ]
+    },
+    {
+      "id": "lamzouri-2026-09",
+      "what_happened": "Youness Lamzouri, “A new proof that more than 2/3 of the zeros of the Riemann zeta function are simple and on the critical line” (arXiv:2609.02882; v1 2 Sep 2026, v2 8 Sep 2026). Gives an unconditional proof, described as conceptually simpler, of the Alpöge–Furman bounds: at least C0 = 0.67250… of nontrivial zeros are simple and on the line; at least C1 = 0.83625… are distinct; at least C2 = 0.88762… are simple or on the line (or both). The method replaces a finite-dimensional matrix construction by a Hilbert-space inequality and applies Montgomery's pair-correlation theorem in the unconditional form of Baluyot–Goldston–Suriajaya–Turnage-Butterbaugh. Appendix A says the Lean certificates were generated by AxiomProver, “an AI system currently under development by Axiom Math”, which ‘autonomously generated’ them. Lamzouri gave a talk on the result at MPIM Bonn on 3 Sep 2026.",
+      "date": "2026-09-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 2 Sep 2026; v2 8 Sep 2026 (the paper's date line reads September 8, 2026).",
+      "delivers": "The same unconditional bounds as alpoge-furman-2026-08 (C0 for simple critical zeros, C1 for distinct zeros, C2 for simple-or-critical zeros), reached by a different route. Same restrictions: a proportion of the nontrivial zeros in the asymptotic regime, with no short-interval or odd-order-count statement.",
+      "remains": "Both Hardy–Littlewood statements, as for alpoge-furman-2026-08.",
+      "checked_by": [
+        {
+          "who": "Youness Lamzouri",
+          "qualification": "Number theorist at Université de Lorraine (IECL); author of an independent proof",
+          "what_they_did": "Re-derived the bounds of the Claude-credited argument by a different method and states that they are ‘recovered’ from it; presented the proof at MPIM Bonn on 3 Sep 2026",
+          "where": "https://arxiv.org/html/2609.02882v2",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5.5 weeks (v1 2 Sep 2026)",
+      "machine_checked": {
+        "system": "Lean certificates generated by AxiomProver (Axiom Math), per the paper's Appendix A as summarised; not inspected",
+        "sorry_free": null,
+        "url": "https://arxiv.org/html/2609.02882v2"
+      },
+      "directly_checkable": null,
+      "doubts": "No peer review found. The formal certificates were produced by a system other than the author; that is a machine check of the formal statements and says nothing about whether they encode the intended theorems. Version dates differ between sources (2 Sep and 8 Sep 2026).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "The same bounds as alpoge-furman-2026-08, by a different route; does not address the Hardy–Littlewood statements.",
+      "object": null,
+      "people": [
+        "Youness Lamzouri"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.02882v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.02882",
+        "https://arxiv.org/html/2609.02882v2",
+        "https://math-events.uni-bonn.de/event/1560/"
+      ]
+    },
+    {
+      "id": "wang-2026-09-short",
+      "what_happened": "Biao Wang, “Simple critical zeros and distinct zeros of the Riemann zeta-function in short intervals” (arXiv:2609.07918; v1 7 Sep 2026; v2 6 Oct 2026). Follows Lamzouri's method and proves a short-interval version of Montgomery's pair-correlation theorem. Theorem 1.1 (v2): for each fixed θ with θ0 < θ < 1, where θ0 = 0.5501…, liminf N₀ˢ(T,T^θ)/N(T,T^θ) ≥ c(θ) > 0, with N₀ˢ counting simple zeros on the critical line and c(θ) = 2 − θ/2 − (1/√2)cot(θ/√2). Theorem 1.2: for any 0 < θ < 1, liminf N_d(T,T^θ)/N(T,T^θ) ≥ D(C_θ) > 0 for distinct zeros. The introduction (v2, read) credits Hardy and Littlewood with a theorem, not a conjecture, for the bound at H = T^(1/2+ε) with fixed sufficiently small ε > 0. The v1 Acknowledgments name an AI system (see ai).",
+      "date": "2026-09-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 6 Oct 2026. The Acknowledgments differ: v1 names ‘ChatGPT-6 Astra’; v2 reads ‘AI tools were used to explore some of the proof strategies and calculations.’ Theorem statements above are from v2. The v1 abstract, as read, attributes the Alpöge–Furman bound to Claude and its verification to Alpöge and Furman.",
+      "delivers": "In short intervals (T,T+T^θ] with θ between 0.5501… and 1: a positive proportion of nontrivial zeros are simple and on the critical line (Theorem 1.1). Simple zeros have odd order, so this gives a lower bound for odd-order critical zeros in those intervals of order H log T (my inference; the paper states the simple-zero proportion, not an odd-order count). Restrictions: only θ above 0.5501; the counted zeros are simple ones; Theorem 1.2 covers all θ in (0,1) but for distinct zeros, not odd-order zeros. Nothing about every interval of length T^(1/2+ε) or T^(1/4+ε).",
+      "remains": "Conjecture 1 (exponent 1/4+ε) and Conjecture 2 (exponent 1/2+ε): both exponents lie below θ0 = 0.5501…, so neither is covered by Theorem 1.1, and Theorem 1.2 concerns distinct zeros. Odd-order zeros of multiplicity greater than one are not addressed.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 weeks (v1 7 Sep 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Preprint; no public engagement found. The two versions differ in the AI acknowledgement (see ai). The same author's companion preprint was withdrawn (wang-2026-09-withdrawn), which concerns a different claim.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "If extended below θ0 it would bear on the odd-order count in the form of conjecture 2; as proved it covers a different range and counts simple zeros, so it neither proves nor disproves either statement.",
+      "object": null,
+      "people": [
+        "Biao Wang"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "ChatGPT-6 Astra",
+            "what_it_did": "Per the v1 Acknowledgments: the system was ‘used to implement the ideas of the proof of Theorem 1.1’, and ‘the author verifies, corrects and rewrites the proof, and takes responsibility for the content’. ‘Implement the ideas’ does not say whether it wrote code, ran calculations, or drafted the argument, and the paper does not say; I leave the weight to the later pass. The name is as printed. A search returned OpenAI's ‘GPT-6 Astra’ (API identifier gpt-6-astra) as a candidate match; the identity is not confirmed. In v2 no system is named (‘AI tools were used to explore some of the proof strategies and calculations’), so v2 contributes no entry here.",
+            "basis_quote": "ChatGPT-6 Astra was used to implement the ideas of the proof of Theorem 1.1.",
+            "quote_url": "https://arxiv.org/html/2609.07918v1"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.07918v1",
+          "https://arxiv.org/html/2609.07918v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.07918",
+        "https://arxiv.org/html/2609.07918v1",
+        "https://arxiv.org/html/2609.07918v2"
+      ]
+    },
+    {
+      "id": "wang-2026-09-withdrawn",
+      "what_happened": "Biao Wang, “Proportions of the non-trivial zeros of the Riemann zeta function” (arXiv:2609.24167). v1, 21 Sep 2026, states that refining Lamzouri's method improves the Alpöge–Furman constants to C0 + δ0 and C1 + δ0/2 with δ0 ≈ 6.67×10⁻⁸, for simple critical zeros and distinct zeros among the nontrivial zeros. v2, 6 Oct 2026, is marked withdrawn by the author; the withdrawal notice gives no reason; the Comments field reads ‘New method is need to obtain good improvement’.",
+      "date": "2026-09-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 21 Sep 2026; v2 6 Oct 2026, withdrawn.",
+      "delivers": "As claimed in v1 (abstract as summarised): a negligible improvement of the simple-on-line and distinct proportions of nontrivial zeros. Nothing in the readable text concerns short intervals or odd-order zeros. Withdrawn, so the claimed improvement is not established by any version I could read.",
+      "remains": "Both Hardy–Littlewood statements.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 weeks; withdrawn 6 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Withdrawn by the author with no reason given; the full v1 text is not available from the withdrawn version, so the record relies on the abstract summary. The author's own comment suggests the gain was too small to matter, but that is an inference, not a stated reason.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "Version 2 (6 Oct 2026) replaces the paper with a withdrawal notice; no reason stated; Comments field: ‘New method is need to obtain good improvement’.",
+        "date": "2026-10-06",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/2609.24167v2"
+        ]
+      },
+      "direction": "Neither way on the Hardy–Littlewood statements.",
+      "object": null,
+      "people": [
+        "Biao Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.24167v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.24167",
+        "https://arxiv.org/abs/2609.24167v2"
+      ]
+    },
+    {
+      "id": "moser-2026-03",
+      "what_happened": "Jan Moser, “Jacob's ladders and the equivalent of the Fermat-Wiles theorem generated by the Hardy-Littlewood formula (1921)” (arXiv:2603.01747; one version, 2 Mar 2026). The abstract says the 105-year-old Lemma 18 of Hardy and Littlewood's 1921 paper generates a continuum of new ζ-equivalents of the Fermat–Wiles theorem. A search summary, not in the abstract page I read and so unverified, says it proves every interval (γ′, γ′+A/ln ln γ′) contains an odd-order zero of Z′(t), where Z is Hardy's function.",
+      "date": "2026-03-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "None: single version (v1, 2 Mar 2026).",
+      "delivers": "Per the abstract: nothing about zeros of ζ(1/2+it) in intervals of Hardy–Littlewood lengths; the stated result is a family of ζ-equivalents of Fermat–Wiles. If the unverified Z′ statement holds, it concerns odd-order zeros of the derivative of Hardy's function in intervals of length A/ln ln γ′, an analogue of conjecture 1 rather than the statement itself.",
+      "remains": "Both statements.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Single-author preprint; no peer review or public engagement found. The abstract's claim is strong and rests on a 1921 lemma whose use is not explained in the abstract. I did not open the body of the paper. Other Moser preprints in the same series (e.g. arXiv:2601.13855, 2508.10592) were seen in search results only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue only, if the unverified statement is right (different function, different interval length). The abstract makes no claim about the Hardy–Littlewood statements.",
+      "object": null,
+      "people": [
+        "Jan Moser"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2603.01747"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2603.01747"
+      ]
+    },
+    {
+      "id": "moser-2014-1983",
+      "what_happened": "Jan Moser, “Improvement of the theorem of Hardy–Littlewood on density of zeros of the function ζ(1/2+it)”, Acta Math. Univ. Comen. 42–43 (1983) 41–50. Posted as arXiv:1409.2988 on 10 Sep 2014, as the English version of the 1983 paper. The abstract says: “In this paper we improve classical Hardy–Littlewood exponent 1/2 by about 16.6% 62 years after the original result”, presented as a first step toward Selberg's hypothesis (1942). The abstract does not state the quantity bounded, the range of H or T, or the new exponent; other summaries give 5/12.",
+      "date": "1983",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 10 Sep 2014 (English version of a 1983 journal paper).",
+      "delivers": "Not determinable from the abstract. If the quantity is the Hardy–Littlewood density count for H = T^(1/2+ε) (the classical exponent is 1/2), the claim lowers that exponent and bears on conjecture 2's exponent. If the quantity is all zeros or zeros on the line, it does not bear on the odd-order count.",
+      "remains": "Undetermined from the abstract.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "not applicable (1983 journal; arXiv 2014); no search for engagement was made",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Quantity and range are not established from the abstract. The arXiv posting is a translation of a 1983 paper, so the first public written argument is the 1983 journal.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Undetermined.",
+      "object": null,
+      "people": [
+        "Jan Moser"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1409.2988"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1409.2988"
+      ]
+    },
+    {
+      "id": "hardy-littlewood-1921",
+      "what_happened": "G. H. Hardy and J. E. Littlewood, “The zeros of Riemann's zeta-function on the critical line”, Math. Z. 10 (1921) 283–317 (doi 10.1007/BF01211614, from Wang's reference list). The primary text was not opened. Secondary reports: (i) Khayrulloev's 2019 and 2021 papers in Chebyshevskii Sbornik and a Chebyshevskii abstract (search summaries, not opened) say Hardy and Littlewood proved that every (T,T+H] with H ≥ T^(1/4+ε) contains an odd-order zero of ζ(1/2+it); (ii) Wang's introduction (opened) states the Hardy–Littlewood bound N_odd(T+H) − N_odd(T) ≫ H for H = T^(1/2+ε) with fixed sufficiently small ε > 0. The Wikipedia article calls both statements conjectures and attributes no 1921 result in its status line.",
+      "date": "1921",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per the secondary reports, the 1921 result gives conjecture 1 as stated (H ≥ T^(1/4+ε), odd-order zero). For conjecture 2 it gives the count at H = T^(1/2+ε) for fixed sufficiently small ε; the article's ‘every ε > 0’ follows from the small-ε case by splitting intervals (my inference). Whether HL stated these as conjectures or proved them is not settled by anything I read: the article says conjectures, the Russian and Wang sources say theorem.",
+      "remains": "If the 1921 paper only conjectured them: all of both statements. If it proved them: nothing, subject to the range of ε.",
+      "checked_by": [
+        {
+          "who": "Mathematische Zeitschrift (journal of record)",
+          "qualification": "Peer-reviewed journal, 1921",
+          "what_they_did": "Published the paper; its refereeing is not documented here",
+          "where": "https://doi.org/10.1007/BF01211614",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 105 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Attribution conflict: the article says conjectures; Wang and the Russian sources say theorem. The 1921 proof was not read. The odd-order interval claim is known only through summaries whose hypotheses (T₀, constants, ‘sufficiently large’) are not known.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Per the secondary reports, consistent with both statements in their article form; no counterexample involved.",
+      "object": null,
+      "people": [
+        "G. H. Hardy",
+        "J. E. Littlewood"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Hardy%E2%80%93Littlewood_zeta_function_conjectures",
+        "https://arxiv.org/html/2609.07918v2",
+        "https://doi.org/10.1007/BF01211614"
+      ]
+    },
+    {
+      "id": "selberg-1942",
+      "what_happened": "A. Selberg, “On the zeros of Riemann's zeta-function”, Skr. Norske Vid.-Akad. Oslo I (1942), no. 10, 59 pp. Primary text not opened. Per the Wikipedia article (summary): for H = T^(1/2+ε), N(T+H) − N(T) ≥ cH log T for all zeros; Selberg conjectured the exponent 1/2 could be lowered. Wang's introduction (opened) and search summaries say Selberg also obtained H log T for the odd-multiplicity count N_odd. No source I read reconciles the two readings.",
+      "date": "1942",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A lower bound of order H log T for zero counts in intervals of length T^(1/2+ε): for all zeros (article reading) or for odd-multiplicity zeros (Wang's reading). Restriction: exponent 1/2+ε; it does not lower the exponent, which is Selberg's own conjecture, reduced by Karatsuba (1984) per the article.",
+      "remains": "Conjecture 1 (exponent 1/4+ε); conjecture 2 under the all-zeros reading (the odd count is missing); any exponent below 1/2.",
+      "checked_by": [
+        {
+          "who": "Det Norske Videnskaps-Akademi (publisher of the Skrifter)",
+          "qualification": "Academy publication series",
+          "what_they_did": "Published the paper",
+          "where": null,
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "not applicable (1942)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The quantity counted (all zeros vs odd-order) differs between the article and Wang's introduction.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with conjecture 2 under either reading, at exponent 1/2+ε; does not address conjecture 1.",
+      "object": null,
+      "people": [
+        "Atle Selberg"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Hardy%E2%80%93Littlewood_zeta_function_conjectures",
+        "https://arxiv.org/html/2609.07918v2"
+      ]
+    },
+    {
+      "id": "moser-1976",
+      "what_happened": "J. Moser, 1976 (journal not identified). Per Khayrulloev's 2019 paper (doi 10.22405/2226-8383-2019-20-4-371-384) and a Chebyshevskii Sbornik abstract, both search summaries and not opened: odd-order zeros in every (T,T+H] with H ≥ T^(1/6) ln²T, improving HL's T^(1/4+ε). A survey snippet (search summary, not opened) attributes a T^(1/6) log²T threshold to Moser for N(T+S) − N(T) > 0, i.e. all zeros. The sources I could read do not separate the two readings.",
+      "date": "1976",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Reading A (odd-order): conjecture 1 as stated, since T^(1/4+ε) ≥ T^(1/6) ln²T for large T. Reading B (all zeros): nothing about odd-order zeros. Neither reading reaches conjecture 2, which is a count, not an existence statement.",
+      "remains": "Under reading A: conjecture 2. Under reading B: both statements.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "not applicable (1976)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Primary paper not identified or opened; the odd-order reading comes from a secondary summary; the two readings conflict.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Under reading A, consistent with conjecture 1.",
+      "object": null,
+      "people": [
+        "Jan Moser"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://doi.org/10.22405/2226-8383-2019-20-4-371-384"
+      ]
+    },
+    {
+      "id": "karatsuba-1981",
+      "what_happened": "A. A. Karatsuba, “On the distance between consecutive zeros of the Riemann zeta function that lie on the critical line”, Trudy Mat. Inst. Steklov 157 (1981) 49–63. The bibliographic record was opened (no abstract there). Per a Chebyshevskii Sbornik summary (search snippet, not opened): Karatsuba proved the Hardy–Littlewood odd-order theorem for H ≥ T^(5/32) ln²T in 1981.",
+      "date": "1981",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Reported only: odd-order zero in every (T,T+H] with H ≥ T^(5/32) ln²T. If correct, this gives conjecture 1 as stated, since T^(1/4+ε) ≥ T^(5/32) ln²T for large T. Does not reach conjecture 2 (a count).",
+      "remains": "Conjecture 2 (exponent 1/2+ε counts), unless carried by Karatsuba (1984).",
+      "checked_by": [
+        {
+          "who": "Trudy Matematicheskogo Instituta imeni V. A. Steklova (journal series)",
+          "qualification": "Peer-reviewed Russian mathematical series",
+          "what_they_did": "Published the paper; the record shows pages 49–63 and no abstract",
+          "where": "https://geodesic.mathdoc.fr/item/TM_1981_157_a4",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "not applicable (1981)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The paper's title is about distances between consecutive zeros, not odd-order zeros in intervals. The T^(5/32) claim comes from a secondary summary only. Search snippets also distinguish 5/32 (1981) from 27/82 (1984).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with conjecture 1 if the reported exponent is right.",
+      "object": null,
+      "people": [
+        "A. A. Karatsuba"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://geodesic.mathdoc.fr/item/TM_1981_157_a4"
+      ]
+    },
+    {
+      "id": "karatsuba-1984",
+      "what_happened": "A. A. Karatsuba, “On the zeros of the function ζ(s) on short intervals of the critical line”, Izv. Akad. Nauk SSSR Ser. Mat. 48 (1984) 569–584; English Math. USSR-Izv. 24 (1985) 523–537 (doi 10.1070/IM1985v024n03ABEH001246, from Wang's reference list). Per the Wikipedia article (summary) and a mathnet abstract snippet (not opened; mathnet unreachable): for every ε > 0 there are T₀(ε), c(ε) > 0 such that for T ≥ T₀ and H = T^(27/82+ε), N₀(T+H) − N₀(T) ≥ cH ln T, where N₀ counts odd-order zeros of ζ(1/2+it). Karatsuba's almost-all-interval results are separate events.",
+      "date": "1984",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "English translation 1985 (Math. USSR-Izv. 24 (1985) 523–537).",
+      "delivers": "A lower bound for the odd-order count at H = T^(27/82+ε), with a log factor. By splitting an interval of length T^(1/2+ε) into pieces of length T^(27/82+ε) (my inference, not stated in the sources), this gives N₀(T+H) − N₀(T) ≥ cH for H = T^(1/2+ε) and every ε > 0, i.e. conjecture 2 as the article states it. Does not reach H = T^(1/4+ε), since 27/82 > 1/4, so conjecture 1 is not covered by this event alone.",
+      "remains": "Conjecture 1 (exponent 1/4+ε), per this event alone. Conjecture 2 is covered by the splitting inference above.",
+      "checked_by": [
+        {
+          "who": "Izvestiya Akademii Nauk SSSR, Seriya Matematicheskaya (journal of record); English translation Math. USSR-Izvestiya",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published the paper (received 17 Feb 1984, per a mathnet snippet)",
+          "where": "https://doi.org/10.1070/IM1985v024n03ABEH001246",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "not applicable (1984)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Primary text not read; the exponent comes from the Wikipedia summary and a search snippet. Tam (search summary) reports a separate Karatsuba 1985 upper bound for zeros in thin rectangles, which is a different statement.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with conjecture 2 for every ε > 0 (by the splitting inference); does not decide conjecture 1.",
+      "object": null,
+      "people": [
+        "A. A. Karatsuba"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Hardy%E2%80%93Littlewood_zeta_function_conjectures",
+        "https://doi.org/10.1070/IM1985v024n03ABEH001246"
+      ]
+    },
+    {
+      "id": "kiseleva-1988",
+      "what_happened": "L. V. Kiseleva, Izv. Akad. Nauk SSSR Ser. Mat. 52 (1988) 479–500 (English Math. USSR-Izv. 32 (1989) 475–499), per search snippets and Tam's summary; not opened. For H = Y^ε and T in a range of length Y^(11/12+ε) starting at Y, N₀(T+H) − N₀(T) ≥ cH ln T holds except on a set of T of measure at most Y₁·Y^(−0.5ε).",
+      "date": "1988",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "English translation 1989.",
+      "delivers": "For almost all T in a long range, not for every interval: an averaged odd-order count. Does not establish conjecture 1 or conjecture 2 for all T.",
+      "remains": "Both statements for every T.",
+      "checked_by": [
+        {
+          "who": "Izvestiya Akademii Nauk SSSR (journal of record)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published the paper (per search snippets; not checked)",
+          "where": null,
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "not applicable (1988)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only from snippets and a secondary summary. Sources differ on 1988 vs 1989 and on the spelling of the author's name.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Averaged analogue of conjecture 2's count; discounted as an almost-all statement.",
+      "object": null,
+      "people": [
+        "L. V. Kiseleva"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": []
+    },
+    {
+      "id": "tam-2016",
+      "what_happened": "Do Duc Tam, Chebyshevskii Sbornik (2016), per a search summary of his papers; not opened. Improves the averaging interval in Karatsuba's almost-all result to X^(7/8+ε), and a second paper in the same journal treats almost all very short intervals near the critical line.",
+      "date": "2016",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "An averaged, almost-all statement of the odd-order count; discounted as an analogue of conjecture 2's count.",
+      "remains": "Both statements for every T.",
+      "checked_by": [
+        {
+          "who": "Do Duc Tam",
+          "qualification": "Author; Chebyshevskii Sbornik is a peer-reviewed Russian journal",
+          "what_they_did": "Published the paper (per search summary; not checked)",
+          "where": null,
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "not applicable (2016)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only from a search summary.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Averaged analogue; discounted.",
+      "object": null,
+      "people": [
+        "Do Duc Tam"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": []
+    },
+    {
+      "id": "pratt-robles-zaharescu-zeindler-2020",
+      "what_happened": "K. Pratt, N. Robles, A. Zaharescu and D. Zeindler, 2020: an unconditional proportion of nontrivial zeros of ζ(s) on the critical line (at least 5/12 ≈ 41.7%), and at least 40.7% simple and on the line. Known here only from citing sources (Anthropic's post, Lamzouri's paper, search snippets); not opened.",
+      "date": "2020",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Proportions of all nontrivial zeros, not short intervals or odd-order counts. The previous unconditional record for the Claude-credited result. Neighbouring, discounted.",
+      "remains": "Both Hardy–Littlewood statements.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "not applicable (2020)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Taken from citing sources, not the paper; one citing source gives the bound as above 41.72%, and the exact constant was not checked.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neighbouring result on proportions; does not address the Hardy–Littlewood statements.",
+      "object": null,
+      "people": [
+        "K. Pratt",
+        "N. Robles",
+        "A. Zaharescu",
+        "D. Zeindler"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": []
+    },
+    {
+      "id": "goldston-suriajaya-2025",
+      "what_happened": "Dan Goldston and Ade Irma Suriajaya, expository note “Zeta Zeros on the Critical Line” (arXiv:2511.20059, Nov 2025), per a search summary; not opened. Argues that if RH could be removed from Montgomery's simple-zero argument, then 2/3 of the zeros are simple and on the line, and states conditional joint results with Baluyot and Turnage-Butterbaugh.",
+      "date": "2025-11",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 and v2 exist (search listing); not opened.",
+      "delivers": "Conditional on a narrow-strip hypothesis or the pair-correlation conjecture; not unconditional; no short-interval or odd-order statement. Neighbouring, discounted.",
+      "remains": "Both Hardy–Littlewood statements.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 11 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known from a search summary only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring and conditional; does not address the Hardy–Littlewood statements.",
+      "object": null,
+      "people": [
+        "Dan Goldston",
+        "Ade Irma Suriajaya"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2511.20059"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Who produced the Alpöge–Furman argument. arXiv:2608.13637 lists Levent Alpöge and Ralph Furman as authors, its title footnote says the argument was “discovered and written by Claude, an AI developed by Anthropic”, and §1.5 says “The author of this paper is a large language model developed by Anthropic.” Anthropic's post credits “an unreleased research version of Claude” with the argument. The Breakthrough tracker lists Alpöge and Furman as authors with the argument credited to Claude. Wang and Lamzouri list Alpöge and Furman as the verifiers or authors. Not resolved here.",
+      "sources": [
+        "https://arxiv.org/html/2608.13637v2",
+        "https://www.anthropic.com/research/riemann-zeta",
+        "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-zeta-two-thirds-simple-critical-line-2026/",
+        "https://arxiv.org/html/2609.02882v2"
+      ]
+    },
+    {
+      "kind": "status",
+      "summary": "Whether the two Hardy–Littlewood statements were proved or conjectured. The Wikipedia article calls them conjectures, and its status line credits only Selberg (1942) and Karatsuba (1984). Khayrulloev's papers and a Chebyshevskii abstract (search summaries) call the odd-order interval statement a 1921 result, and Wang's introduction (opened) describes the bound at H = T^(1/2+ε) as a theorem of Hardy and Littlewood.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Hardy%E2%80%93Littlewood_zeta_function_conjectures",
+        "https://arxiv.org/html/2609.07918v2",
+        "https://doi.org/10.22405/2226-8383-2019-20-4-371-384"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "The AI acknowledgement in arXiv:2609.07918 changed between versions. v1: “ChatGPT-6 Astra was used to implement the ideas of the proof of Theorem 1.1.” v2: “AI tools were used to explore some of the proof strategies and calculations.” No source read gives a reason for the change.",
+      "sources": [
+        "https://arxiv.org/html/2609.07918v1",
+        "https://arxiv.org/html/2609.07918v2"
+      ]
+    },
+    {
+      "kind": "source-conflict",
+      "summary": "Karatsuba's 1981 exponent is given as 5/32 in a Chebyshevskii summary, while 27/82 is the 1984 result per the article and a mathnet snippet. The 1981 title concerns distances between consecutive zeros. Moser (1976) is reported both for odd-order zeros and for all zeros with the same T^(1/6) log²T threshold.",
+      "sources": [
+        "https://geodesic.mathdoc.fr/item/TM_1981_157_a4",
+        "https://en.wikipedia.org/wiki/Hardy%E2%80%93Littlewood_zeta_function_conjectures"
+      ]
+    },
+    {
+      "kind": "date",
+      "summary": "The Alpöge–Furman dates differ across sources: announced 10 Aug 2026 (Anthropic), arXiv v1 13 Aug, manuscript dated 17 Aug (tracker), front matter 24 Aug (HTML copy). Lamzouri's v1 is 2 Sep 2026 while his paper's date line says 8 Sep. Recorded as given; the event dates use the earliest public written argument.",
+      "sources": [
+        "https://www.anthropic.com/research/riemann-zeta",
+        "https://arxiv.org/html/2608.13637v2",
+        "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-zeta-two-thirds-simple-critical-line-2026/",
+        "https://arxiv.org/abs/2609.02882"
+      ]
+    }
+  ],
+  "summary": "The bullet is a name; I took the content from the Wikipedia article, which gives two statements: odd-order zeros of ζ(1/2+it) in every interval of length T^(1/4+ε) (conjecture 1), and N₀(T+H) − N₀(T) ≥ cH for H = T^(1/2+ε) (conjecture 2). Wikipedia wikitext was not retrievable, so the January 2024 wording is unconfirmed. Since 2024, the active work is the Claude-credited result. Alpöge and Furman (arXiv:2608.13637, announced by Anthropic on 10 Aug 2026) prove that at least two-thirds of zeros in (T,2T] are simple and on the line, and five-sixths are distinct. That is a long-window proportion, not a short-interval odd-order statement, so it leaves both conjectures untouched. Lamzouri (arXiv:2609.02882, 2 Sep 2026) re-proves the same bounds by a different route, human-written, with formal certificates generated by AxiomProver (Appendix A, not inspected). Wang (arXiv:2609.07918, 7 Sep 2026) proves that for θ between 0.5501 and 1 a positive proportion of zeros in each (T,T+T^θ] are simple and on the line; both exponents in the article lie below 0.5501, so neither conjecture is reached. Wang's companion arXiv:2609.24167 was withdrawn by its author on 6 Oct 2026, with no reason given, and concerns only constants. Moser's 2026 preprint (arXiv:2603.01747) is about a Fermat–Wiles equivalence, and the odd-order-zero statement attributed to it about Z′(t) is unverified. AI search: the only AI credit touching zeta zeros is the Claude argument (not about these conjectures), and Wang's v1 acknowledgement naming ChatGPT-6 Astra (ambiguous: 'implement the ideas of the proof of Theorem 1.1', in the short-interval result, not the conjectures). No AI system was credited with the odd-order mathematics of either conjecture. The pre-2024 record is the close call. Secondary sources (Khayrulloev 2019/2021, a Chebyshevskii abstract, all search summaries) say Hardy and Littlewood (1921) proved conjecture 1 for H ≥ T^(1/4+ε), and Wang's introduction (read) says they proved the conjecture-2 bound for small ε. Karatsuba (1984) gives the odd-order count at H = T^(27/82+ε); splitting intervals gives conjecture 2 for every ε > 0. Moser (1976, T^(1/6) log²T) and Karatsuba (1981, T^(5/32) log²T) are reported only in those summaries, and the 1981 title concerns distances between zeros. If the reports are right, both statements were settled before 2024, and the open status of the bullet is an artifact of the article. Against that: Wikipedia calls both 'conjectures', its status line names only Selberg (1942) and Karatsuba (1984), and Wang calls the 1921 bounds a theorem without saying whether HL claimed them as conjectures. I read the close call as 'settled before 2024 on secondary reports, status unverified against primary texts', and I did not classify it.",
+  "competing_reading": "The strongest case for a different reading is that the 2026 Claude-credited bounds advance this bullet: they make odd-order zeros of ζ a positive proportion of long-window zeros, a quantity the bullet's odd-order count (N₀) concerns. Against it: the bound is an averaged proportion over (T,2T] with no control of individual short intervals, so it does not move conjecture 1 or 2 as written. A separate reading holds that the 1921 and 1984 reports settle the bullet outright, which would make everything since 2024 irrelevant; that reading rests entirely on secondary summaries and on Karatsuba's 1984 result being correctly reported.",
+  "what_would_settle_it": "(1) Hardy & Littlewood, Math. Z. 10 (1921) 283–317: whether the odd-order statements for H ≥ T^(1/4+ε) and H = T^(1/2+ε) are proved there or stated as conjectures, and with which range of ε. (2) Karatsuba, Izv. Akad. Nauk SSSR Ser. Mat. 48 (1984) 569–584 (English Math. USSR-Izv. 24 (1985) 523–537): the main theorem and whether it counts odd-order zeros with the stated exponent. (3) Karatsuba, Trudy MIAN 157 (1981), and Moser (1976): whether either treats odd-order zeros in intervals and the reported exponents. (4) The January 2024 Wikipedia revision and its talk page, which fix the frozen wording. (5) The author's account of Wang's v1 and v2 acknowledgements and of what ‘implement the ideas’ means. (6) Alpöge–Furman §1.5 and Appendix B on how the argument was produced, and the EnclOK certificate for the PairCeiling results.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Hardy%E2%80%93Littlewood_zeta_function_conjectures",
+      "title": "Hardy–Littlewood zeta function conjectures (Wikipedia; read through two summaries, not the wikitext)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.13637",
+      "title": "More than two thirds of the zeta zeros are simple and on the critical line (Alpöge–Furman), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.13637v2",
+      "title": "Alpöge–Furman, arXiv:2608.13637, HTML v2",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.anthropic.com/research/riemann-zeta",
+      "title": "Anthropic, riemann zeta (10 Aug 2026 post; read through a summary)",
+      "type": "press_release",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/anthropics/formal-math/tree/main/zeta23",
+      "title": "anthropics/formal-math, zeta23 Lean project README and file listing",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/anthropics/formal-math",
+      "title": "anthropics/formal-math README (the zeta-23-lean URL resolves to this)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-zeta-two-thirds-simple-critical-line-2026/",
+      "title": "Breakthrough Tracker record: math-zeta-two-thirds-simple-critical-line-2026",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://scientificamerican.com/article/no-ai-didnt-just-solve-the-thorniest-problem-in-math",
+      "title": "Scientific American, Joseph Howlett, 12 Aug 2026",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.02882",
+      "title": "Lamzouri, arXiv:2609.02882, abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.02882v2",
+      "title": "Lamzouri, arXiv:2609.02882, HTML v2",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://math-events.uni-bonn.de/event/1560/",
+      "title": "MPIM Bonn event 1560, Lamzouri talk, 3 Sep 2026",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.07918",
+      "title": "Wang, arXiv:2609.07918, abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.07918v1",
+      "title": "Wang, arXiv:2609.07918, HTML v1 (Acknowledgments name ChatGPT-6 Astra)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.07918v2",
+      "title": "Wang, arXiv:2609.07918, HTML v2 (Acknowledgments: AI tools, unnamed; Theorems 1.1–1.2; introduction; references)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.07918",
+      "title": "Wang, arXiv:2609.07918, PDF (compressed binary; unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.24167",
+      "title": "Wang, arXiv:2609.24167, abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.24167v2",
+      "title": "Wang, arXiv:2609.24167, v2 withdrawal page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.01747",
+      "title": "Moser, arXiv:2603.01747, abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1409.2988",
+      "title": "Moser, arXiv:1409.2988 (English version of the 1983 Acta Math. Univ. Comen. paper), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://geodesic.mathdoc.fr/item/TM_1981_157_a4",
+      "title": "Karatsuba 1981, Trudy MIAN 157, bibliographic record (no abstract)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/1706.08268",
+      "title": "Ivić, On the multiplicities of zeros of ζ(s) and its values over short intervals, arXiv:1706.08268 (no HL odd-order statement found)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.14804",
+      "title": "Das, Mapping Mathematical Hardness, arXiv:2606.14804 (twin primes; no zeta or HL terms in abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://doi.org/10.1007/BF01211614",
+      "title": "Hardy & Littlewood 1921, Math. Z. 10 (doi from Wang's reference list; not opened)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://doi.org/10.1070/IM1985v024n03ABEH001246",
+      "title": "Karatsuba 1984/1985 (doi from Wang's reference list; not opened)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://doi.org/10.22405/2226-8383-2019-20-4-371-384",
+      "title": "Khayrulloev 2019, Chebyshevskii Sbornik (search summary only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://mathnet.ru/eng/im1456",
+      "title": "mathnet record for Karatsuba 1984 (connection refused on three attempts)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://mathnet.ru/eng/cheb854",
+      "title": "Chebyshevskii Sbornik abstract on odd-order zeros (connection refused on two attempts)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.22624",
+      "title": "Zero density theorems for short intervals, arXiv:2609.22624 (reference list only in search results)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/html/2601.15610v1",
+      "title": "Ebadi, On the Zeros of the Riemann Zeta Function with Two Ordinate Shifts, arXiv:2601.15610 (search summary only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2511.20059",
+      "title": "Goldston & Suriajaya, Zeta Zeros on the Critical Line, arXiv:2511.20059 (search summary only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www-cdn.anthropic.com/95c246936988e43127bc6b2ceb7077c1dad2d68e.pdf",
+      "title": "Anthropic-hosted paper PDF (compressed binary; unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://openai.com/hr-HR/index/gpt-6-astra/",
+      "title": "OpenAI GPT-6 Astra page (candidate match for ChatGPT-6 Astra; search result only)",
+      "type": "press_release",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Hardy–Littlewood zeta-function conjectures",
+      "Hardy Littlewood 1921 conjectures zeros of zeta function short intervals N(T+H)-N(T) H log T/2π",
+      "Hardy-Littlewood conjecture zeros of Riemann zeta function short interval T^{1/2+epsilon} proof 2025",
+      "Hardy–Littlewood zeta function conjectures Wikipedia",
+      "Hardy Littlewood conjectures Riemann zeta function mean value integral ∫|ζ(1/2+it)|^2 asymptotic",
+      "\"Hardy-Littlewood\" conjecture zeta function zeros critical line 2026",
+      "Hardy Littlewood zeta conjectures proved new result arXiv",
+      "The zeros of Riemann's zeta-function on the critical line Hardy Littlewood 1921 Mathematische Zeitschrift",
+      "Alpöge Furman more than 67% of zeros of Riemann zeta function simple on the critical line",
+      "Lamzouri simple zeros Riemann zeta function distinct zeros proof 2026",
+      "Claude Riemann zeta function zeros simple proportion Alpöge Furman AI",
+      "Jan Moser arXiv Hardy Littlewood 1921 Lemma zeta-equivalents Fermat-Wiles 5/12 critical line zeros",
+      "Karatsuba 1984 zeros of ζ(s) on short intervals of critical line odd order zeros H = T^{27/82+ε}",
+      "Karatsuba zeros of zeta function short intervals odd order zeros T^{1/4+ε} Hardy Littlewood conjecture proved",
+      "Moser 1976 zeros of zeta function odd order short intervals H > T^{1/6} log^2 T",
+      "Karatsuba 1981 zeros of ζ(s) short intervals T^{5/32} ln^2 T odd multiplicity",
+      "Khayrulloev Hardy Littlewood 1921 odd order zeros interval T^{1/4+ε} Russian paper",
+      "Hardy Littlewood 1921 zeros of zeta on critical line odd order interval H = T^{1/4+ε} conjecture Titchmarsh 9.9",
+      "Selberg 1942 zeros of zeta short intervals odd multiplicity H log T Hardy Littlewood conjecture status",
+      "Alpöge Furman two thirds zeta zeros simple critical line Claude reaction mathematicians Conrey Goldston",
+      "Anthropic Claude Riemann zeta zeros two thirds simple critical line Quanta Tao blog",
+      "arXiv 2608.13637 zeta zeros simple critical line Alpöge Furman",
+      "Hardy Littlewood odd order zeros short intervals new result 2026 arXiv preprint",
+      "AI language model Hardy-Littlewood conjecture zeta function zeros proof 2026",
+      "GPT-5.5 Pro Riemann zeta zeros critical line result AI 2026",
+      "Goldston Suriajaya 2025 at least 41.7% zeros critical line Montgomery simple zeros RH removed",
+      "Pratt Robles Zaharescu Zeindler 2020 proportion zeros Riemann zeta critical line 5/12 simple",
+      "Tam multiplicities of zeros of zeta short intervals Karatsuba odd order zeros survey",
+      "Kiseleva 1988 almost all intervals zeros of zeta odd order T^{11/12} Karatsuba",
+      "Biao Wang Lamzouri Proportions of the non-trivial zeros withdrawn arXiv 2609.24167",
+      "Zero density theorems for short intervals arXiv 2609.22624 zeta zeros",
+      "Claude Anthropic Hardy-Littlewood zeta odd-order zeros short intervals",
+      "Stadlmann 246 240 Axiom Math 212 bound 2026 arXiv",
+      "\"ChatGPT-6 Astra\" OpenAI model",
+      "Ebadi 2026 arXiv zeros zeta intervals relative length exp(-C sqrt(log T)) prescribed nonvanishing two shifts"
+    ],
+    "places_checked": [
+      "arXiv: 2608.13637 (abstract and HTML v2); 2609.02882 (abstract and HTML v2); 2609.07918 (abstract, HTML v1 and v2; PDF unreadable); 2609.24167 (abstract, v2 withdrawal page); 2603.01747; 1409.2988; 1706.08268 (ar5iv); 2606.14804; search listings for 2609.22624, 2601.15610, 2511.20059, 2603.28104, 2609.15329",
+      "Wikipedia: article via two summary passes (action=raw and REST endpoints returned summaries, not wikitext); Wikiwand returned 403",
+      "Anthropic: anthropic.com/research/riemann-zeta (read via summary); www-cdn PDFs (unreadable binaries)",
+      "GitHub: anthropics/formal-math zeta23 README and listing; anthropics/zeta-23-lean (resolves to the formal-math README)",
+      "Breakthrough Tracker record (kingy.ai); Scientific American (12 Aug 2026); MPIM Bonn event 1560",
+      "Bibliographic records: geodesic.mathdoc.fr (Karatsuba 1981); Wang's reference list (Hardy–Littlewood 1921 and Karatsuba 1984 doi)",
+      "mathnet.ru: Karatsuba 1984 (im1456) and Chebyshevskii abstract (cheb854), unreachable",
+      "Search engines: 35 queries as listed, covering the name, the 1921/1942/1976/1981/1984/1988 literature, the 2026 Claude result, neighbouring proportions, and AI involvement (queries 11, 20, 21, 24, 25, 32, 33, 34)",
+      "AI sweep: Anthropic post and Scientific American; formal-math Lean project; Lamzouri's Appendix A (AxiomProver); Das arXiv:2606.14804 (HypothesiX, twin primes)"
+    ],
+    "dead_ends": [
+      "mathnet.ru pages for Karatsuba 1984 and the Chebyshevskii abstracts refused connection (three and two attempts); the 1984 and Khayrulloev statements rest on snippets and summaries.",
+      "Wikipedia wikitext via action=raw and the REST endpoint returned summaries; Wikiwand returned 403. The January 2024 revision was not retrieved.",
+      "Anthropic-hosted PDFs and the arXiv 2609.07918 PDF are compressed binaries; their text was not readable.",
+      "Quanta Magazine and Terence Tao's blog: no coverage of the August 2026 result found in search.",
+      "GPT-5.5 Pro and zeta zeros: no zeta result found. OpenAI's own math claim in search concerns Ramsey numbers and was not opened.",
+      "arXiv 2601.15610 (Ebadi, Jan 2026): zeros with two ordinate shifts in intervals of relative length exp(−C√log T), i.e. length T^(1−o(1)); far longer than either Hardy–Littlewood length and not about odd-order zeros. Not opened.",
+      "Stadlmann (246 to 240), Axiom Math (212) and an OpenAI prime-gap bound (186): AI-related, but about prime gaps, out of scope; the 186 result was not verified.",
+      "arXiv 2606.14804 (Das, HypothesiX, twin primes): the abstract has no zeta or Hardy–Littlewood zeta terms, although one search snippet suggested otherwise.",
+      "Titchmarsh §9.9 as a source for the 1921 result: could not be verified.",
+      "Ivić, arXiv 1706.08268: about multiplicities and the maximum of |ζ| over short intervals; no odd-order statement of Hardy–Littlewood type found in the abstract/introduction read.",
+      "Moser's related preprints (arXiv:2601.13855, 2508.10592): seen only in search results; titles not read further."
+    ]
+  },
+  "incomplete": "(1) The bullet is only a name. The content was taken from the Wikipedia article through two summaries; the wikitext and the January 2024 revision were not retrieved. (2) Primary texts not read: Hardy–Littlewood 1921; Karatsuba 1981 and 1984 (mathnet unreachable; the 1984 statement is from a snippet and the Wikipedia summary); Moser 1976 (journal not identified); Selberg 1942; Kiseleva 1988; Tam 2016; Pratt–Robles–Zaharescu–Zeindler 2020; Goldston–Suriajaya 2025. (3) Anthropic's Claude paper (PDF) and Wang's PDF could not be read; the Anthropic post and the Alpöge–Furman text were read through summaries of HTML pages, so quotations from them are the summariser's extraction, not my reading of the page. (4) The zeta23 Lean source files were not inspected; only the README was read. The sorry and axiom statements are the README's claims. (5) arXiv 2609.22624 (zero density theorems for short intervals) was not characterised; it may bear on short-interval zero counts. (6) Moser 2603.01747's odd-order statement about Z′(t) is unverified; its body was not read. (7) The withdrawn arXiv 2609.24167 v1 text is not available. (8) No check was made for citations after 12 Oct 2026, and no engagement search was made for 1983/2014 Moser or the pre-2024 events.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "alpoge-furman-2026-08",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The mathematical argument in this paper was discovered and written by Claude, an AI developed by Anthropic.",
+        "ai_systems_credited": [
+          "Claude"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lamzouri-2026-09",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wang-2026-09-short",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "ChatGPT-6 Astra was used to implement the ideas of the proof of Theorem 1.1.",
+        "ai_systems_credited": [
+          "ChatGPT-6 Astra"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wang-2026-09-withdrawn",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn by the author on 6 Oct 2026.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "moser-2026-03",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Abstract concerns Fermat–Wiles ζ-equivalents; the Z′(t) claim is unverified and no engagement found.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "moser-2014-1983",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Quantity bounded cannot be determined from the abstract.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hardy-littlewood-1921",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Known only through secondary reports; the article itself calls both statements conjectures, so whether the 1921 paper proved them is disputed.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "selberg-1942",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Sources conflict on whether the count is of all zeros or odd-order zeros.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "moser-1976",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Primary paper not identified; odd-order versus all-zeros readings conflict.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "karatsuba-1981",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Exponent known only from a secondary summary; title concerns gaps between consecutive zeros.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "karatsuba-1984",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kiseleva-1988",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "tam-2016",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "pratt-robles-zaharescu-zeindler-2020",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "goldston-suriajaya-2025",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement names two Hardy–Littlewood statements: an odd-order critical zero in every (T,T+T^(1/4+ε)], and an odd-order count ≥ cH for H = T^(1/2+ε). No post-snapshot event reaches either. Alpöge–Furman and Lamzouri prove proportions of simple critical zeros averaged over (T,2T], a different quantity, so they are variants. Claude's generated role is recorded but does not bear on this problem. Wang's short-interval theorem works only for θ > 0.5501, which is above both exponents, and counts simple zeros, so it is also a variant. I scored the ChatGPT-6 Astra quote ('implement the ideas of the proof') as assisted, but it does not matter because the event is discarded. The close call is the pre-2024 literature. Secondary sources say Hardy–Littlewood 1921 already proved both statements. Karatsuba 1984 gives part 2 by splitting intervals, and Karatsuba 1981 and Moser 1976 reportedly give part 1. The record only has these through summaries, and the Wikipedia article itself calls them conjectures. So I scored each as a case rather than whole, which keeps the problem open rather than open_stale.",
+    "doubts": "Several secondary reports say Hardy–Littlewood 1921 proved both statements outright. If the primary text confirms that, hardy-littlewood-1921 should be whole and the problem open_stale. The January 2024 wording of the Wikipedia article was not retrieved. 'Implement the ideas' in Wang's v1 is ambiguous, and v2 softens it.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

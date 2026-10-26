@@ -1,0 +1,679 @@
+{
+  "key": "edens-conjecture",
+  "nothing_found": false,
+  "outcome": "On 21 September 2026 Matthew J. Colbrook (Cambridge) posted a preprint, on Zenodo and with a Lean 4 formalisation on GitHub, showing that the unrestricted statement fails: for each c > 4 an explicit polynomial ODE on R^5 with uniformly negative divergence has a compact global attractor whose local Lyapunov dimension is 4+4/c, attained on an invariant two-torus with an irrational linear flow, while equilibria and periodic orbits reach at most 3. The author's own declaration says a Codex agent was used to obtain the counterexample. No public human engagement was found in the 19 days since posting, and the registry entry the repository cites could not be confirmed.",
+  "problem_asks": "The bullet asks one universal claim with three parts. (a) For a dynamical system with a global attractor, the supremum of the local Lyapunov dimensions taken over that attractor is achieved. (b) The supremum is achieved at a stationary point (equilibrium) lying in the attractor. (c) Alternatively, the supremum is achieved on an unstable periodic orbit embedded into the attractor. The bullet carries no restriction on the class of systems or attractors, so as worded it is the unrestricted statement. Read as written, it asserts the conclusion for every system with a global attractor. Eden's 1987 proposal and the restricted or refined versions discussed in the literature (Kuznetsov's self-excited and hidden attractor versions) are not named in the bullet.",
+  "events": [
+    {
+      "id": "colbrook-2026-zenodo",
+      "what_happened": "Matthew J. Colbrook (University of Cambridge, DAMTP) posted 'Aperiodic maximisers of Lyapunov dimension: A counterexample to the unrestricted form of Eden's conjecture' on Zenodo, DOI 10.5281/zenodo.22883032, version v1 only, resource type preprint, CC BY 4.0, 'Created and modified September 21, 2026'. The Zenodo abstract, as relayed to me, says it disproves the unrestricted form, which holds that the maximal local Lyapunov dimension on a compact global attractor is attained at an equilibrium or periodic orbit. For each c > 4 it constructs a polynomial differential equation on R^5 with uniformly negative divergence whose attractor has Lyapunov dimension 4+4/c, attained precisely on an invariant two-torus carrying an irrational linear flow, while the maximum over equilibria and periodic orbits is 3. The repository's PALOMAR.md says it holds for the local dimension defined by singular values at every positive time and for the asymptotic Kaplan-Yorke dimension, and that the attractor is nontransitive, with no claim for transitive, strange or typical attractors. The PDF itself could not be read with my tools (see incomplete), so the theorem statement is taken from the abstract and repository files, not from the paper's text.",
+      "date": "2026-09-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only on Zenodo, 'Versions' section empty as of 10 Oct 2026. Repository has six commits from 21 to 22 Sep 2026; the first, d847493 (2026-09-21 23:13:04 UTC), adds the Lean formalisation (see colbrook-2026-lean-repo).",
+      "delivers": "For every c > 4, an explicit polynomial vector field on R^5 with uniformly negative divergence and a compact global attractor on which the maximal local Lyapunov dimension is 4+4/c, reached only on an invariant two-torus with an irrational linear flow. Since the maximum over equilibria and periodic orbits in that attractor is 3, the supremum is attained neither at an equilibrium nor at a periodic orbit for this family, which contradicts the bullet's claim for these systems. Restrictions the paper states: it concerns the unrestricted conjecture only; the attractor is nontransitive; the claim covers the local dimension defined by singular values at every positive time and the asymptotic Kaplan-Yorke dimension. Dimension 5 and the single explicit family for each c > 4 are the whole scope.",
+      "remains": "Part (a) is settled for this family only, and parts (b) and (c) are shown to fail for it. Not addressed: whether the statement holds for transitive, strange or typical attractors (expressly not claimed); the self-excited and hidden attractor refinements that Kuznetsov proposed; whether counterexamples exist in other dimensions or other classes of systems; and whether the specific systems Wikipedia lists as verified (Lorenz, complex Ginzburg-Landau, self-excited Lorenz, Henon map) are affected, which the paper does not discuss as far as I could tell.",
+      "checked_by": [
+        {
+          "who": "Matthew J. Colbrook (author)",
+          "qualification": "Author, named as responsible maintainer. Simons Berkeley profile lists research in numerical analysis, spectral theory, PDEs and foundations of computation.",
+          "what_they_did": "Per formalization.yaml: 'Matthew J. Colbrook checked the proof and problem formulation against the paper and reviewed and adopted its contents.' This is the author's own check, not an independent reading.",
+          "where": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/formalization.yaml",
+          "automated": false
+        },
+        {
+          "who": "OpenAI Codex (agent)",
+          "qualification": "Not a human reviewer",
+          "what_they_did": "Per formalization.yaml review.notes: 'The new independent submission statement was prepared and reviewed by Codex against the published Theorem 1.1'. Relates to the Palomar statement wrapper, not to the mathematics.",
+          "where": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/formalization.yaml",
+          "automated": true
+        },
+        {
+          "who": "Palomar registry automated pipeline (Comparator, nanoda second kernel, LLM-mediated statement check)",
+          "qualification": "Automated registry checks. The registry's statement page says these are not a certificate of novelty or relevance and do not certify that the Lean statement matches the informal one.",
+          "what_they_did": "Unconfirmed. The repository says the project is registered as PALOMAR-2026-09-22-000001 v1. The Palomar data feed I read runs from 10 Oct back to 23 Sep 2026 and contains no entry dated 22 Sep or mentioning Colbrook or Eden. The recent.json file was read only to 200k characters of roughly 500k.",
+          "where": "https://palomar-registry.org/statement",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "19 days as of 10 Oct 2026",
+      "machine_checked": {
+        "system": "Lean 4 (toolchain leanprover/lean4:v4.33.1 per lean-toolchain), Mathlib pinned in the repository, Lean Comparator against Challenge.lean; axiom checks for 219 final declarations and 777 supporting declarations report only propext, Classical.choice and Quot.sound. Build claimed by the repository, not re-run by me.",
+        "sorry_free": true,
+        "url": "https://github.com/MColbrook/Eden_conjecture"
+      },
+      "directly_checkable": "The vector field family is explicit. The repository's READING_GUIDE describes a five-dimensional ambient space with parameter c > 4 and a fifth component -c*w, so the uniform negative divergence can be checked by hand from the field. The dimension values 4+4/c and 3 need the paper's argument. The Lean statement is named EdenPalomar.main_theorem in PalomarChallenge.lean.",
+      "doubts": "(1) Single author, a Zenodo preprint without a journal or referee report found; the author's publications page could not be opened, so I cannot confirm its status. (2) The construction and the counterexample were obtained with an AI agent (Codex, per the author's declaration), and the author says he checked them; no independent human reading is publicly recorded. (3) The Lean statements in PalomarChallenge.lean and Challenge.lean were prepared with AI assistance and checked against Theorem 1.1 by Codex, so whether the formal statement matches the paper's definitions rests on the author's and the agent's check; the Palomar statement says the registry does not certify this. (4) The repository states both that the Palomar registration is final and that a passing report is required before submission, and I could not see the entry, so the registry status is unresolved. (5) Dimension values come from the abstract as relayed; the paper's own derivation was not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against the bullet. The bullet says the supremum is attained at an equilibrium or an unstable periodic orbit. For this family the supremum is attained on an invariant torus, and no equilibrium or periodic orbit reaches it (3 against 4+4/c). The bullet is unrestricted, so the plain reading is that this cuts against it for these systems. Whether it cuts against the refined versions the literature actually tests is not decided by this event.",
+      "object": "An explicit family, one polynomial vector field on R^5 for each c > 4, with uniformly negative divergence and a compact global attractor. On the attractor's invariant two-torus, which carries an irrational linear flow, the local Lyapunov dimension is 4+4/c, and this is the maximum. Equilibria and periodic orbits in the attractor give at most 3. The object is explicit, not from a non-constructive existence argument, per the repository's formalization.yaml ('an explicit polynomial ODE on Euclidean five-space'). The exact vector field was not read from the paper.",
+      "people": [
+        "Matthew J. Colbrook"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "ChatGPT 6",
+            "what_it_did": "Per the author's own account, as relayed by the repository: discussions about the paper, and assistance with the Lean verification. The repository does not say whether it contributed mathematics beyond that. Its formalization.yaml lists 'ChatGPT 6' under automation.methods models.",
+            "basis_quote": "The paper's AI declaration (page 9) reports discussions with ChatGPT 6, ... ChatGPT 6 assistance with the Lean verification.",
+            "quote_url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/formalization.yaml"
+          },
+          {
+            "name": "Codex",
+            "what_it_did": "Per the author's own account: Codex was used first to attempt a proof of the conjecture and then to obtain the counterexample, so it produced the counterexample on the author's account. Codex also prepared the independent Palomar statement, proof wrapper, metadata and preflight workflow, and reviewed the statement against Theorem 1.1. The repository names Codex as the framework (method 'agent') and 'ChatGPT 6' as its model, so Codex is an agent harness, not a shipped model name.",
+            "basis_quote": "use of Codex first to attempt a proof of the conjecture and subsequently to obtain the counterexample,",
+            "quote_url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/formalization.yaml"
+          }
+        ],
+        "disclosed_cost": "The repository states: 'Costs and complete prompting records are not reconstructed.' No budget or token figures are given. The formalization.yaml schema has no budget field.",
+        "sources": [
+          "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/formalization.yaml",
+          "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/PALOMAR.md",
+          "https://zenodo.org/records/22883032"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/22883032",
+        "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/formalization.yaml",
+        "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/PALOMAR.md",
+        "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/README.md",
+        "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/READING_GUIDE.md",
+        "https://palomar-registry.org/statement",
+        "https://data.palomar-registry.org/feed.xml"
+      ]
+    },
+    {
+      "id": "colbrook-2026-lean-repo",
+      "what_happened": "Colbrook's GitHub repository MColbrook/Eden_conjecture (Apache-2.0 for code; paper CC BY 4.0) holds a Lean 4 formalisation of the same counterexample: Solution.lean with 219 declarations, an Eden library with 777 supporting theorems, PalomarChallenge.lean and PalomarSolution.lean for the Palomar submission, and checks/ with axiom and comparator scripts. The first commit that adds the formalisation is d847493, 'Add Lean formalization of the Eden conjecture counterexample', dated 2026-09-21 23:13:04 UTC. This is a formalisation of an argument already public on Zenodo, not a separate mathematical event.",
+      "date": "2026-09-21",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Six commits by MColbrook: d847493 (2026-09-21 23:13 UTC, formalisation), a9f4d9b, 178a92f, 6af2de0, 9e803e9 (2026-09-21 23:59 UTC, snapshot), 86be172 (2026-09-22 16:11 UTC, 'Document Palomar registration in README').",
+      "delivers": "A machine-checked formal statement and proof of the Zenodo result, with the same restrictions: the unrestricted conjecture only, nontransitive attractor, the stated dimension conventions. It adds no new mathematics beyond the preprint, and it checks the paper's claims only against the Lean statements the author wrote.",
+      "remains": "The same as colbrook-2026-zenodo. Whether the Lean statement faithfully captures the paper's definitions is not settled by the repository, which says its Palomar statement and metadata were prepared by an agent and do not assert a new human review.",
+      "checked_by": [
+        {
+          "who": "Matthew J. Colbrook (author)",
+          "qualification": "Author and responsible maintainer",
+          "what_they_did": "Authored the formalisation and the checks; formalization.yaml says he checked the proof and formulation against the paper.",
+          "where": "https://github.com/MColbrook/Eden_conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "19 days as of 10 Oct 2026",
+      "machine_checked": {
+        "system": "Lean 4.33.1; comparator and axiom checks as described in checks/VERIFICATION.md (Linux run on 21 Sep 2026: 'Build completed successfully (3650 jobs)')",
+        "sorry_free": true,
+        "url": "https://github.com/MColbrook/Eden_conjecture"
+      },
+      "directly_checkable": "Solution.lean and PalomarSolution.lean can be built with lake build Eden Solution PalomarSolution, per the README. The sorry placeholders are confined to Challenge.lean and PalomarChallenge.lean, which the repository describes as comparison targets not imported by the solution files.",
+      "doubts": "The statement-to-paper correspondence is by the author and an agent (Codex), and the repository says it is not a new human review. The Challenge files contain sorry placeholders by design. The repository has one star and no visible contributors, so there is no independent uptake signal.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "The same as colbrook-2026-zenodo: against the unrestricted bullet.",
+      "object": "The same explicit family as colbrook-2026-zenodo, formalised in Lean: main theorem EdenPalomar.main_theorem, for each c > 4 an explicit polynomial ODE on R^5 with uniformly negative divergence and compact global attractor with dimension 4+4/c.",
+      "people": [
+        "Matthew J. Colbrook"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "ChatGPT 6",
+            "what_it_did": "Per the repository, assistance with the Lean verification; 'AI-assisted mathematical exploration and Lean formalization' is listed as the tool setup.",
+            "basis_quote": "ChatGPT 6 assistance with the Lean verification.",
+            "quote_url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/formalization.yaml"
+          },
+          {
+            "name": "Codex",
+            "what_it_did": "Per the repository, used to obtain the counterexample and to prepare the Palomar statement and wrapper. The Lean development is described as AI-assisted.",
+            "basis_quote": "use of Codex first to attempt a proof of the conjecture and subsequently to obtain the counterexample,",
+            "quote_url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/formalization.yaml"
+          }
+        ],
+        "disclosed_cost": "As in colbrook-2026-zenodo: 'Costs and complete prompting records are not reconstructed.'",
+        "sources": [
+          "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/formalization.yaml",
+          "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/PALOMAR.md"
+        ]
+      },
+      "sources": [
+        "https://github.com/MColbrook/Eden_conjecture",
+        "https://api.github.com/repos/MColbrook/Eden_conjecture/commits",
+        "https://api.github.com/repos/MColbrook/Eden_conjecture/contents",
+        "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/checks/VERIFICATION.md",
+        "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/README.md"
+      ]
+    },
+    {
+      "id": "kressner-vandereycken-2026-neighbour",
+      "what_happened": "Daniel Kressner (EPFL) and Bart Vandereycken (University of Geneva), arXiv:2608.20875 [math.NA], 'A counterexample to the symmetric-maximizer conjecture for Lyapunov operators', stamped 21 Aug 2026. It gives an integer matrix of order 7 whose skew-symmetric restricted norm of the Frobenius-induced Lyapunov operator exceeds its symmetric restricted norm, with exact rational certificates, and a direct-sum extension to n >= 7. It is discounted here: it concerns operator norms of Lyapunov operators, not Lyapunov dimension or Eden's conjecture, and it does not cite Colbrook's preprint.",
+      "date": "2026-08-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only as shown on the arXiv HTML page.",
+      "delivers": "Settles a different conjecture: that the operator norm of the Lyapunov operator is attained at a symmetric matrix, now refuted for orders 7 and above, with order 6 open. Nothing about attractors, Lyapunov dimension or unstable periodic orbits.",
+      "remains": "All parts of the Eden bullet. This event does not bear on it.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "50 days as of 10 Oct 2026",
+      "machine_checked": {
+        "system": "Exact rational arithmetic with a Python script (verify_counterexample.py) per the authors, not Lean",
+        "sorry_free": null,
+        "url": "https://arxiv.org/html/2608.20875"
+      },
+      "directly_checkable": "The order-7 integer matrix and the rational separator can be checked by exact arithmetic, per the authors.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not applicable to the bullet: a counterexample to a different conjecture.",
+      "object": "An integer 7 by 7 matrix that is a counterexample to the symmetric-maximizer conjecture for the Lyapunov operator, with a direct-sum extension. It is not an object relevant to Eden's conjecture.",
+      "people": [
+        "Daniel Kressner",
+        "Bart Vandereycken"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "gpt-5.6-sol",
+            "what_it_did": "Per the authors, as relayed to me: the computational discovery of the counterexample. The model was given the conjecture and designed the numerical test. The source names it as OpenAI's gpt-5.6-sol at high reasoning effort.",
+            "basis_quote": "The computational discovery used OpenAI's gpt-5.6-sol at high reasoning effort.",
+            "quote_url": "https://arxiv.org/html/2608.20875"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.20875"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2608.20875"
+      ]
+    },
+    {
+      "id": "kuznetsov-mokaev-2018-rossler",
+      "what_happened": "N. V. Kuznetsov and T. N. Mokaev, 'A note on finite-time Lyapunov dimension of the Rossler attractor', arXiv:1807.00235, submitted 30 June 2018. Abstract: 'For the Rossler system we verify Eden's conjecture on the maximum of local Lyapunov dimension.' The verification is numerical: finite-time local Lyapunov dimensions on the Rossler attractor and on embedded unstable periodic orbits, with the orbits found by Pyragas time-delay feedback control.",
+      "date": "2018-06-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only.",
+      "delivers": "For the Rossler system alone, a numerical check of the maximum of local Lyapunov dimension against embedded unstable periodic orbits. It is a finite-time computation for one system, not a proof, and it does not address the general statement.",
+      "remains": "The general statement for all systems with global attractors. Also the Rossler dimension itself, which Leonov conjectured equals a stationary point's local dimension; the paper does not settle it.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 8 years",
+      "machine_checked": null,
+      "directly_checkable": "The numerical method is described in the abstract, but I did not read the full paper.",
+      "doubts": "A finite-time numerical computation of local Lyapunov dimension is not a proof. The later Lorenz paper by the same group (arXiv:1910.08740) says reliable numerical computation of finite-time Lyapunov dimension over long trajectories is itself a difficulty.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet for the Rossler system, as far as a finite-time numerical check can show. Not a counterexample.",
+      "object": null,
+      "people": [
+        "N. V. Kuznetsov",
+        "T. N. Mokaev"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1807.00235"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1807.00235"
+      ]
+    },
+    {
+      "id": "kuznetsov-et-al-2019-lorenz-verification",
+      "what_happened": "N. V. Kuznetsov, T. N. Mokaev, R. N. Mokaev, O. A. Kuznetsova and E. V. Kudryashova, 'A lower-bound estimate of the Lyapunov dimension for the global attractor of the Lorenz system', arXiv:1910.08740 (Chaotic Dynamics). v1 posted 19 Oct 2019, v2 27 Oct 2019. The abstract says that for the classical Lorenz attractor they apply Pyragas time-delayed feedback control and Leonov's analytical method 'for the Lyapunov dimension estimation and verification of the Eden's conjecture'. The abstract does not state the outcome.",
+      "date": "2019-10-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 19 Oct 2019; v2 27 Oct 2019. No 2024 revision is shown on arXiv; an earlier search snippet's 'updated March 2024' is not supported by the arXiv page.",
+      "delivers": "A verification claim for the classical Lorenz attractor, one specific system. The abstract does not say whether the verification is analytic or numerical, nor what value it reaches. It is an instance, not the general statement.",
+      "remains": "The general statement for all systems with global attractors. The paper also flags the reliability of numerical finite-time Lyapunov dimension over long trajectories.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The abstract explicitly raises the reliability problem for numerical finite-time Lyapunov dimension over large time intervals. Whether the paper's Lorenz verification is numerical or analytic is not established from the abstract.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet for the Lorenz attractor, as far as the abstract shows. Not a counterexample.",
+      "object": null,
+      "people": [
+        "N. V. Kuznetsov",
+        "T. N. Mokaev",
+        "R. N. Mokaev",
+        "O. A. Kuznetsova",
+        "E. V. Kudryashova"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1910.08740"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1910.08740"
+      ]
+    },
+    {
+      "id": "leonov-kuznetsov-2015-lorenz-formula",
+      "what_happened": "G. A. Leonov, N. V. Kuznetsov, N. A. Korzhemanova and D. V. Kusakin, 'The Lyapunov dimension formula for the global attractor of the Lorenz system', arXiv:1508.07498, first submitted 29 Aug 2015. It proves the exact Lyapunov dimension formula for the Lorenz global attractor over a wider parameter range, including all parameters satisfying the classical physical limitations. The abstract does not mention Eden's conjecture or a maximum at the zero equilibrium. Wikipedia cites 'Leonov et al., 2016' for the Lorenz case; I have not confirmed that this arXiv preprint is that citation.",
+      "date": "2015-08-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only on arXiv.",
+      "delivers": "An exact Lyapunov dimension formula for the Lorenz global attractor over a parameter range covering the classical physical limits. If the maximum sits at the zero equilibrium, such a formula is what the conjecture would deliver for Lorenz, but the paper itself does not say so. This is a single system, not the general statement.",
+      "remains": "The general statement for all systems. The Eden link for Lorenz is not made in the abstract.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 10 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Journal publication and referee status were not established. The link to Eden's conjecture comes from Wikipedia and from other search snippets, not from this abstract.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not a counterexample. It supports the bullet for the Lorenz system only through the link Wikipedia draws, which the abstract does not make.",
+      "object": null,
+      "people": [
+        "G. A. Leonov",
+        "N. V. Kuznetsov",
+        "N. A. Korzhemanova",
+        "D. V. Kusakin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1508.07498"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1508.07498",
+        "https://en.wikipedia.org/wiki/Eden's_conjecture"
+      ]
+    },
+    {
+      "id": "doering-et-al-1987-cgl",
+      "what_happened": "Reported by Wikipedia as the source for the validity of the conjecture on the global attractor of the complex Ginzburg-Landau equation ('Doering et al., 1987'). I did not open the primary paper.",
+      "date": "1987",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per Wikipedia, validity of the conjecture for the global attractor of the complex Ginzburg-Landau equation. A single equation, so an instance, not the general statement.",
+      "remains": "The general statement for all systems.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 39 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not checked: I did not open the primary paper, and Wikipedia's own date for the conjecture (1987) and its cited sources (a 1989 thesis and a 1989 paper) do not all match.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet for this equation, per Wikipedia. Not a counterexample.",
+      "object": null,
+      "people": [
+        "Doering et al."
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Eden's_conjecture"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Eden's_conjecture"
+      ]
+    },
+    {
+      "id": "leonov-lyashko-1993-lorenz",
+      "what_happened": "Reported by Wikipedia as the first source for the validity of the conjecture on the Lorenz global attractor ('Leonov & Lyashko, 1993'). I did not open the primary paper.",
+      "date": "1993",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per Wikipedia, validity for the Lorenz global attractor. A single system, so an instance, not the general statement.",
+      "remains": "The general statement for all systems.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 33 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not checked: primary paper not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet for Lorenz, per Wikipedia. Not a counterexample.",
+      "object": null,
+      "people": [
+        "G. A. Leonov",
+        "V. Lyashko"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Eden's_conjecture"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Eden's_conjecture"
+      ]
+    },
+    {
+      "id": "kuznetsov-leonov-mokaev-2017-henon",
+      "what_happened": "Reported by Wikipedia as a source for the self-excited attractors of the Henon map, in Kuznetsov's self-excited refinement ('Kuznetsov, Leonov & Mokaev, 2017'). I did not open the primary paper. This is the refined, self-excited statement, not Eden's global one.",
+      "date": "2017",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per Wikipedia, a check of the self-excited refinement (Lyapunov dimension of a self-excited attractor against unstable equilibria) for Henon map attractors. Not the global statement.",
+      "remains": "The global statement, and the self-excited refinement for typical systems in general.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not checked: primary paper not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Refined self-excited statement, not the bullet. Consistent with the refinement for these maps, per Wikipedia.",
+      "object": null,
+      "people": [
+        "N. V. Kuznetsov",
+        "G. A. Leonov",
+        "T. N. Mokaev"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Eden's_conjecture"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Eden's_conjecture"
+      ]
+    },
+    {
+      "id": "kuznetsov-reitmann-2021-henon",
+      "what_happened": "Reported by Wikipedia as a further source for the self-excited attractors of the Henon map ('Kuznetsov & Reitmann, 2021'). I did not open the primary paper. This is the refined, self-excited statement, not Eden's global one.",
+      "date": "2021",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per Wikipedia, a further check of the self-excited refinement for Henon map attractors, including multistable and coexisting cases. Not the global statement.",
+      "remains": "The global statement, and the self-excited refinement for typical systems in general.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not checked: primary paper not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Refined self-excited statement, not the bullet. Consistent with the refinement for these maps, per Wikipedia.",
+      "object": null,
+      "people": [
+        "N. V. Kuznetsov",
+        "T. Reitmann"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Eden's_conjecture"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Eden's_conjecture"
+      ]
+    }
+  ],
+  "disputes": [],
+  "summary": "I found one event that bears on the bullet as worded: Matthew J. Colbrook's Zenodo preprint of 21 September 2026, 'Aperiodic maximisers of Lyapunov dimension: A counterexample to the unrestricted form of Eden's conjecture' (DOI 10.5281/zenodo.22883032). It is a single-author, unrefereed preprint with a Lean 4 formalisation on GitHub. The Zenodo landing page and the repository files, which Colbrook maintains, describe the result: for each c > 4 an explicit polynomial ODE on R^5 with uniformly negative divergence and a compact global attractor whose local Lyapunov dimension is 4+4/c, reached only on an invariant two-torus with an irrational linear flow, while equilibria and periodic orbits reach at most 3. The bullet, which is unrestricted, would require the supremum to be attained at an equilibrium or a periodic orbit. So for this family the result cuts against the bullet. I could not read the PDF with my tools, so the theorem statement and the AI declaration are taken from the repository's formalization.yaml and PALOMAR.md, which quote the paper's page-9 declaration and reach me through a summarising fetch. The quotes are therefore not verbatim-checked against the PDF. The author's declaration, as relayed, says ChatGPT 6 was used in discussions and in Lean verification, and that Codex (an agent harness, with ChatGPT 6 as its listed model) was used first to attempt a proof and then to obtain the counterexample. The repository says the author checked the proof and formulation against the paper and adopted its contents. Two systems are therefore credited: Codex with obtaining the counterexample, which is load-bearing on the author's account, and ChatGPT 6 with discussions and Lean assistance, whose role in the mathematics the repository does not state. No independent human reading or public engagement turned up in my searches, which covered Mathstodon, Tao, news, the Palomar registry and the literature; the search engine indexes blogs and social media poorly, so silence here is weak evidence. The Palomar registry entry the repository cites (PALOMAR-2026-09-22-000001) could not be confirmed: the registry's data feed, read from 23 Sep to 10 Oct 2026, has no entry dated 22 September. Before 2024 the conjecture had been verified only for specific systems: Kuznetsov and Mokaev's 2018 numerical check for the Rossler system (arXiv 1807.00235); the 2019 Lorenz verification report (arXiv 1910.08740; I found no March 2024 revision, despite an earlier search snippet saying so); the exact Lorenz dimension formula (arXiv 1508.07498); and, per Wikipedia only, the Doering et al. 1987 Ginzburg-Landau result, the Leonov-Lyashko 1993 Lorenz result, and the Kuznetsov self-excited Henon results of 2017 and 2021. These are instances, not the general statement. The Wikipedia article was last edited on 2 September 2026, before the preprint, so its silence on the counterexample is not informative. Kressner and Vandereycken's arXiv 2608.20875 (21 Aug 2026), which credits gpt-5.6-sol, concerns a different conjecture (symmetric maximisers for Lyapunov operators) and is recorded only as a discounted neighbour. Close calls: (1) Whether the counterexample refutes the bullet depends on whether the bullet is read as the unrestricted statement, which its wording suggests, or as the conjecture in the literature sense (verified for particular systems and refined by Kuznetsov for self-excited and hidden attractors), which the counterexample does not address. The paper's own title ('unrestricted form') treats the two as distinct. (2) Whether the AI was load-bearing: the author says Codex 'obtain[ed] the counterexample', which is load-bearing on the author's account, but the repository gives no detail on how, and I could not read the paper's own account.",
+  "competing_reading": "The bullet names no restriction, so the plain reading is the unrestricted statement, and this counterexample refutes it outright for every c > 4 in R^5. The competing reading is that Eden's conjecture, as the literature uses the name, is the claim verified for well-known systems (Lorenz, complex Ginzburg-Landau, self-excited Lorenz, Henon) and refined by Kuznetsov for self-excited and hidden attractors. On that reading the counterexample is to a stronger claim than the one the field is testing, and the bullet is not contradicted for the cases it names. The paper's own title ('unrestricted form') supports the view that a restricted form is a separate question.",
+  "what_would_settle_it": "(1) The paper's PDF, read directly: the theorem statement, definitions of the local and Kaplan-Yorke dimensions, and the page-9 AI declaration verbatim, to replace the relayed quotes. (2) The Palomar registry entry for PALOMAR-2026-09-22-000001 or a confirmed absence of it, from the registry's own entry page or API. (3) A public verification or refutation by a dynamical-systems specialist, such as Kuznetsov's group, Leonov, Boichenko, or Colbrook's peers, or a journal referee report. (4) Journal publication or rejection of the preprint. (5) Independent confirmation that the Lean statements in Challenge.lean match Theorem 1.1, and whether the restricted and self-excited versions are addressed by any later work.",
+  "sources": [
+    {
+      "url": "https://zenodo.org/records/22883032",
+      "title": "Aperiodic maximisers of Lyapunov dimension: A counterexample to the unrestricted form of Eden's conjecture (Zenodo record)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/MColbrook/Eden_conjecture",
+      "title": "GitHub - MColbrook/Eden_conjecture: Formal Lean verification of counterexample to Eden's conjecture",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/formalization.yaml",
+      "title": "formalization.yaml (Palomar metadata, AI use, review notes)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/PALOMAR.md",
+      "title": "PALOMAR.md (statement correspondence, authorship and review)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/README.md",
+      "title": "README.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/checks/VERIFICATION.md",
+      "title": "checks/VERIFICATION.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/READING_GUIDE.md",
+      "title": "READING_GUIDE.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/COVERAGE.md",
+      "title": "COVERAGE.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/MColbrook/Eden_conjecture/main/NOTICE.md",
+      "title": "NOTICE.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://api.github.com/repos/MColbrook/Eden_conjecture/contents",
+      "title": "GitHub API: repository root listing",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://api.github.com/repos/MColbrook/Eden_conjecture/commits",
+      "title": "GitHub API: commit list",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://palomar-registry.org/statement",
+      "title": "Palomar registry: Statement (18 Aug 2026)",
+      "type": "press_release",
+      "opened": true
+    },
+    {
+      "url": "https://palomar-registry.org/",
+      "title": "Palomar registry home (entries did not load)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://data.palomar-registry.org/feed.xml",
+      "title": "Palomar registry feed (read in full; earliest item 23 Sep 2026)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://data.palomar-registry.org/recent.json",
+      "title": "Palomar registry recent.json (read to about 200k of 500k characters)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Eden's_conjecture",
+      "title": "Eden's conjecture (Wikipedia; last edited 2 Sep 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1807.00235",
+      "title": "A note on finite-time Lyapunov dimension of the Rossler attractor (Kuznetsov, Mokaev)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1910.08740",
+      "title": "A lower-bound estimate of the Lyapunov dimension for the global attractor of the Lorenz system (Kuznetsov et al.)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1508.07498",
+      "title": "The Lyapunov dimension formula for the global attractor of the Lorenz system (Leonov et al.)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.20875",
+      "title": "A counterexample to the symmetric-maximizer conjecture for Lyapunov operators (Kressner, Vandereycken)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.29595",
+      "title": "GPT, the Counterexample Machine (Sra), checked for any Eden mention; none in the first 100k characters",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/22883032/files/eden_counterexample.pdf?download=1",
+      "title": "eden_counterexample.pdf (returned a binary dump, not readable with my tools)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://zenodo.org/records/22883032/preview/eden_counterexample.pdf",
+      "title": "eden_counterexample.pdf preview (returned viewer labels only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.damtp.cam.ac.uk/user/mjc249/Publications.html",
+      "title": "Colbrook publications page (TLS certificate error, twice)",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/a/colbrook_m_1.html",
+      "title": "arXiv author listing for Colbrook (HTTP 404)",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Eden's conjecture local Lyapunov dimension global attractor stationary point unstable periodic orbit",
+      "Eden's conjecture Lyapunov dimension counterexample",
+      "Eden conjecture supremum local Lyapunov dimension attractor",
+      "Edens conjecture Wikipedia list of unsolved problems in mathematics dynamical systems",
+      "Eden conjecture Navier-Stokes attractor local Lyapunov exponents arXiv",
+      "Kuznetsov Eden conjecture Lyapunov dimension Lorenz system",
+      "Eden conjecture disproved local Lyapunov dimension unstable periodic orbit 2024",
+      "Eden Foias Nicolaenko Temam conjecture local Lyapunov dimension global attractor",
+      "Leonov Boichenko Eden conjecture Lyapunov dimension",
+      "Eden's conjecture AI model proof dynamical systems attractor",
+      "Eden's conjecture Lyapunov dimension arXiv 2025",
+      "Eden conjecture Lyapunov dimension arXiv 2026",
+      "Aperiodic maximisers of Lyapunov dimension counterexample Eden's conjecture",
+      "\"Lyapunov dimension\" counterexample invariant two-torus irrational linear flow polynomial system R^5",
+      "zenodo aperiodic maximisers Lyapunov dimension",
+      "Lyapunov dimension global attractor maximiser quasiperiodic torus counterexample 2026",
+      "Colbrook Eden conjecture Lyapunov dimension counterexample",
+      "Matthew Colbrook Lyapunov dimension Lean formalisation Axiom",
+      "Axiom AI Lean formal verification Eden conjecture",
+      "Palomar PALOMAR-2026-09-22-000001 registry Lean verification",
+      "Palomar mathematics registry AI-assisted proof production review disclosure",
+      "palomar-registry.org Eden conjecture counterexample entry",
+      "Colbrook \"Codex\" Lyapunov dimension counterexample GPT ChatGPT declaration",
+      "Colbrook Lyapunov dimension Eden counterexample ChatGPT Codex GPT-5.6 Lean",
+      "arXiv Colbrook \"aperiodic maximisers\" Lyapunov dimension",
+      "Eden conjecture counterexample Colbrook reaction blog mathstodon",
+      "Terence Tao Eden conjecture Lyapunov dimension counterexample",
+      "Kaplan-Yorke conjecture Lyapunov dimension counterexample 2026 quasiperiodic maximiser",
+      "Colbrook GPT Codex counterexample Lyapunov dimension news 2026",
+      "Eden conjecture unstable periodic orbit counterexample attractor two-torus 4+4/c",
+      "List of unsolved problems in mathematics Eden's conjecture status 2026",
+      "Palomar registry Lean entries Eden counterexample Colbrook registered",
+      "Kuznetsov Eden conjecture response counterexample self-excited attractor 2026",
+      "AI model disproves dynamical systems conjecture Lyapunov 2026 counterexample found by GPT"
+    ],
+    "places_checked": [
+      "Zenodo record 22883032 landing page (metadata, file list, versions); PDF direct URL and preview returned no readable text",
+      "GitHub repository MColbrook/Eden_conjecture: README, PALOMAR.md, formalization.yaml, checks/VERIFICATION.md, READING_GUIDE.md, COVERAGE.md, NOTICE.md (raw files), root listing and commit list (GitHub API), main repository page",
+      "Palomar registry: statement page (opened), home page (entries did not load), data feed feed.xml (read in full), recent.json (read to about 200k characters of about 500k)",
+      "Wikipedia article Eden's conjecture (last edit 2 Sep 2026)",
+      "arXiv abstract pages 1508.07498, 1807.00235, 1910.08740; HTML 2608.20875; HTML 2608.29595 (first 100k characters)",
+      "Colbrook DAMTP publications page: not reachable (TLS certificate error on two attempts)",
+      "arXiv author listing for Colbrook: HTTP 404",
+      "Web search (34 queries above) for the conjecture, its verified cases, the counterexample, Colbrook, the Palomar registry, Axiom, Tao, Kuznetsov's responses, and AI-found counterexamples in dynamical systems",
+      "Not reached: Mathstodon, X, blogs and journals (Chaos, Physica D, Nonlinearity) were not searched directly; the search engine does not index them well"
+    ],
+    "dead_ends": [
+      "No Mathstodon, blog or news reaction to the Colbrook preprint found (searches for Tao, Mathstodon and the preprint's title).",
+      "Axiom AI (AXLE / AxiomProver): searched for a link to Eden's conjecture; nothing found. Axiom's Fel's conjecture work is unrelated, and the repository credits no Axiom tool.",
+      "Kressner and Vandereycken arXiv 2608.20875 (gpt-5.6-sol): different conjecture, recorded as a discounted neighbour.",
+      "Liu and Fitzsimmons arXiv 2607.16171 (homogeneous polynomial Lyapunov converse; GPT-5.6-Sol Pro and Codex credited): a different problem about Lyapunov functions, not Lyapunov dimension. Seen in search snippets only; not opened.",
+      "Sra arXiv 2608.29595 ('GPT, the Counterexample Machine'): opened, first 100k characters read, no mention of Eden or Lyapunov dimension in that part.",
+      "Parker and Goluskin arXiv 2510.14870 (bounding Lyapunov dimension via polynomial optimisation, periodic maximisers): related method, not Eden's conjecture. Seen in search snippets only; not opened.",
+      "Kaplan-Yorke conjecture counterexamples (Chua circuit, four-dimensional oscillator, Baker map): different conjecture.",
+      "Eden-Foias-Nicolaenko-Temam exponential attractors and the 1989 local Lyapunov exponents paper: background, not the conjecture's status.",
+      "Garden of Eden theorem and the 'Eden problem' in cellular automata: unrelated namesakes.",
+      "Palomar ID PALOMAR-2026-08-08-000001 (Erdos unit-distance comparator): unrelated entry, found in a search snippet.",
+      "Wikipedia 'List of unsolved problems in mathematics': not opened; the bullet itself was given, so I did not verify its entry."
+    ]
+  },
+  "incomplete": "(1) The Colbrook PDF (eden_counterexample.pdf) could not be read with my tools: the direct download returned binary content that I was not permitted to read from outside the project, and the Zenodo preview returned viewer labels only. As a result the theorem statement, the definitions of the local and Kaplan-Yorke dimensions, the page-9 AI declaration, and the paper's own account of how the counterexample was found are all taken from the repository's formalization.yaml, PALOMAR.md, READING_GUIDE.md and the Zenodo abstract as relayed through a summarising fetch. The quotes in the AI fields are therefore not verbatim-checked against the paper. (2) Colbrook's publications page could not be opened (TLS certificate error twice), so I cannot confirm the submission status listed in a search snippet. (3) The Palomar registry entry PALOMAR-2026-09-22-000001 is unconfirmed: the feed I read has no entry dated 22 September, and recent.json was read only to about 200k of about 500k characters, so a match in the unread part cannot be excluded. (4) The primary papers for Doering et al. 1987, Leonov and Lyashko 1993, Kuznetsov, Leonov and Mokaev 2017, and Kuznetsov and Reitmann 2021 were not opened; they are recorded from Wikipedia's citations only, and the mapping from Wikipedia's 'Leonov et al., 2016' and 'Kuznetsov et al., 2020' to arXiv 1508.07498 and 1910.08740 is unverified. (5) The journal publication status of the Kuznetsov and Leonov papers was not established. (6) Human engagement was searched only through the search engine, which indexes blogs, Mathstodon and X poorly; a direct check of those sites and of journal databases (Chaos, Physica D, Nonlinearity) was not done. (7) The Lean build and axiom checks are as reported by the repository; I did not run them. (8) The Wikipedia 'List of unsolved problems in mathematics' page was not checked."
+}

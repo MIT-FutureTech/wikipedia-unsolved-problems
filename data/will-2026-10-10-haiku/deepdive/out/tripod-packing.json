@@ -1,0 +1,507 @@
+{
+  "key": "tripod-packing",
+
+  "nothing_found": false,
+  "outcome": "Not settled as of 13 October 2026, and I found no new value, bound or resolution for the tripod-packing count f(n) dated after 26 January 2024: the best lower-bound exponent (n^1.546, Gowers and Long, 2016), the exact values f(10)=32 and f(11)=38 (Östergård and Pöllänen, 2018/2019) and the small-n exact values (Szabó 2013) all predate the window, and the only in-window item is a 14 July 2026 OEIS editorial note that withdraws the a(12)–a(14) values previously attributed to Tiskin (2007) and creates no new value.",
+
+  "problem_asks": "The statement asks for one quantity: the maximum number of tripods whose apexes can be packed into a given cube, with the tripods non-overlapping. Unpacked: (1) a quantity f(n) indexed by the size of the cube (the 'given cube'); (2) 'how many' asks for its value for each cube, i.e. the exact f(n) for every n, since no closed form is stated; (3) the statement does not itself ask for an asymptotic growth rate or for the packing density of space, although the literature's form of the question (Stein's problem) and the Wikipedia article's 'best known lower and upper bounds' concern the growth of f(n); (4) the statement contains no conjectured direction: it is a question, not an assertion. Wikipedia defines a tripod as an infinite polycube (the union of grid cubes along three positive axis-aligned rays from a shared apex); the finite version studied in the literature is the order-n tripod, the corner of an integer n×n×n cube with its three adjacent edges (3n−2 unit cubes), with the apex at a cell of the cube. Whether non-integer cube sides matter is not addressed by any source I read.",
+
+  "events": [
+    {
+      "id": "hamaker-stein-1984",
+      "what_happened": "W. Hamaker and S. K. Stein, IEEE Transactions on Information Theory (1984), cited in the OEIS entry A070214 and in the Wikipedia article as an early improvement on the naive bound for the tripod count. The paper was not opened; its content is known only from those two citations, which describe it only as an improvement on the naive bound.",
+      "date": "1984",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per the two secondary citations only: a bound on f(n) that improves the naive bound. The specific bound and the cube sizes it covers are not known to me.",
+      "remains": "All of problem_asks, so far as this event goes.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 42 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Content not read; known only from two secondary citations.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the problem: a bound, not a resolution.",
+      "object": null,
+      "people": ["W. Hamaker", "S. K. Stein"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A070214", "https://en.wikipedia.org/wiki/Tripod_packing"]
+      },
+      "sources": ["https://oeis.org/A070214", "https://en.wikipedia.org/wiki/Tripod_packing"]
+    },
+    {
+      "id": "pratt-2003-integer-programming",
+      "what_happened": "Rob Pratt, by integer programming, computed bounds on the monotonic-matrix maximum A070214, the sequence that the OEIS entry, Aronov et al. and Östergård and Pöllänen identify with the tripod count (their values agree where both are known, e.g. f(10)=32, f(11)=38): a(7)=19, 23≤a(8)≤28, 28≤a(9)≤42, 32≤a(10)≤62, with n≤6 confirmed. The OEIS gives the work's dates as 27 July to 23 August 2003 (the contribution window, not a publication date). Known from the OEIS entry only; the original is not opened.",
+      "date": "2003-07",
+      "precision": "month",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": "OEIS entry since revised, including the 2026 note listed below.",
+      "delivers": "Bounds on f(n) for n = 7 to 10 only, and exact values for n ≤ 6 (with K. Joy and Szabó credited for n ≤ 6 in the OEIS entry). Finite instances; no general bound.",
+      "remains": "All of problem_asks for general n; the exact value for n = 7 to 10 is later settled by Szabó (2013) and Östergård and Pöllänen (2019) and is no longer open at those n.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 23 years",
+      "machine_checked": {
+        "system": "Integer programming (solver not identified in the OEIS entry)",
+        "sorry_free": null,
+        "url": "https://oeis.org/A070214"
+      },
+      "directly_checkable": null,
+      "doubts": "Known only from the OEIS entry; the original write-up was not located.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the problem: finite bounds on the count.",
+      "object": null,
+      "people": ["Rob Pratt"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A070214"]
+      },
+      "sources": ["https://oeis.org/A070214"]
+    },
+    {
+      "id": "tiskin-2000-cocoon",
+      "what_happened": "A. Tiskin, 'Tripods do not pack densely', COCOON 2000, Lecture Notes in Computer Science vol. 1858 (per the Wikipedia reference list and the title of a conference-version record on the SPBU portal). The paper was not opened. Secondary records (Warwick and SPBU listings) say it answers the density question negatively, which the 2007 abstract I read also states.",
+      "date": "2000",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "Journal version: Tiskin (2007), Discrete Mathematics, see its own event.",
+      "delivers": "Per the title and secondary records only: the fraction of space that tripods of growing order can fill must tend to zero, so no constant-density packing exists. This concerns density, not the count for a given cube size, so it bears on the growth of f(n) only indirectly.",
+      "remains": "The exact value of f(n) for each n; the true growth of f(n) between the known lower and upper bounds.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 26 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Paper not read; its content is inferred from the title and from the 2007 journal abstract that restates the same result.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the problem: a density statement, no counterexample.",
+      "object": null,
+      "people": ["Alexander Tiskin"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://en.wikipedia.org/wiki/Tripod_packing", "https://pureportal.spbu.ru/ru/publications/tripods-do-not-pack-densely(8688228a-7866-4419-8087-dc1c7b64883e).html"]
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Tripod_packing", "https://pureportal.spbu.ru/ru/publications/tripods-do-not-pack-densely(8688228a-7866-4419-8087-dc1c7b64883e).html"]
+    },
+    {
+      "id": "tiskin-2003-computational-tr",
+      "what_happened": "A. Tiskin, 'Packing tripods: a computational approach', ALCOMFT technical report TR-03-7, June 2003 (Warwick work packages 4 and 5). The report page, read through a summarizing fetch, says the best previously known lower bound was f(n) = Ω(n^1.5235) and that computational experiments improve it to Ω(n^1.5287), with conjectures on the structure of good packings. Opened as a web page; the abstract was paraphrased by the fetch tool.",
+      "date": "2003-06",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A lower bound f(n) = Ω(n^1.5287) for the growth of the tripod count, obtained by computer search; this moves the quantity the problem asks about, but only as an asymptotic lower bound.",
+      "remains": "Exact f(n) for every n; the true order of growth, since the upper bound is far above this lower bound.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 23 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Technical report, not peer reviewed in the form I read. Superseded as the best lower bound by Gowers and Long (2016), since n^1.546 exceeds n^1.5287.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the problem: a lower bound on the count's growth.",
+      "object": "A computer-found family of tripod packings giving the exponent 1.5287; the explicit packings were not read.",
+      "people": ["Alexander Tiskin"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://cs.au.dk/~gerth/alcom-ft/TR/ALCOMFT-TR-03-7.html"]
+      },
+      "sources": ["https://cs.au.dk/~gerth/alcom-ft/TR/ALCOMFT-TR-03-7.html", "https://wrap.warwick.ac.uk/id/eprint/31862"]
+    },
+    {
+      "id": "tiskin-2007-discrete-math",
+      "what_happened": "A. Tiskin, 'Packing tripods: narrowing the density gap', Discrete Mathematics 307(16) (2007) 1973–1981, DOI 10.1016/j.disc.2004.12.028. Warwick metadata: first presented at ECCG 2003 (Prague, 8–12 September 2003), submitted 8 September 2003, accepted 12 December 2004, published 28 July 2007. The abstract, read through a fetch summary with quotation limits, states that the fraction of space that can be filled with tripods must be infinitely small as the order grows; that the asymptotic lower bound on packing density is improved; and that computational results are given for low-order packings. Wikipedia and the OEIS entry attribute the o(n²) upper bound on f(n) to this work.",
+      "date": "2003-09",
+      "precision": "month",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "Journal publication 28 July 2007. The ECCG 2003 presentation is the earliest public appearance I found; I could not confirm from the record whether it contained the full argument.",
+      "delivers": "(i) The fraction of space fillable by tripods tends to zero as the order grows, i.e. no constant-density packing. (ii) An improved asymptotic lower bound on packing density, exponent not read. (iii) Computational small-n results, which the OEIS entry later partly withdraws (see the 2026 event). (iv) Per Wikipedia and OEIS, an upper bound f(n) = o(n²). None of these gives the exact count for a given n.",
+      "remains": "Exact f(n) for n ≥ 10 except where later established; the true growth exponent between the lower bounds and the upper bound.",
+      "checked_by": [
+        {
+          "who": "Discrete Mathematics (referees)",
+          "qualification": "Peer-reviewed journal of record",
+          "what_they_did": "Accepted 12 December 2004 and published 2007 (per Warwick metadata)",
+          "where": "https://wrap.warwick.ac.uk/id/eprint/31862",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 23 years since the 2003 presentation",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(1) Wikipedia says that Tiskin's suggested polylogarithmic improvement of the upper bound 'appears to be a mistake'; the summary I read does not say which paper the suggestion is in, so I cannot say whether this one. (2) The OEIS 2026 note says Tiskin's values for n = 12 to 14 are for 3-symmetric packings only, so the computational small-n claims are not general maxima. (3) The date of the first public version is uncertain (see revisions).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the problem: a density statement (no constant-density packing), and an upper bound on f(n) of order o(n²). No counterexample.",
+      "object": null,
+      "people": ["Alexander Tiskin"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://wrap.warwick.ac.uk/id/eprint/31862", "https://pureportal.spbu.ru/en/publications/packing-tripods-narrowing-the-density-gap(98bac8f0-71ab-4af1-bd5d-db2ffb5ae006)/export.html"]
+      },
+      "sources": ["https://wrap.warwick.ac.uk/id/eprint/31862", "https://pureportal.spbu.ru/en/publications/packing-tripods-narrowing-the-density-gap(98bac8f0-71ab-4af1-bd5d-db2ffb5ae006)/export.html", "https://en.wikipedia.org/wiki/Tripod_packing"]
+    },
+    {
+      "id": "szabo-2013-monotonic-matrices",
+      "what_happened": "S. Szabó, 'Monotonic matrices and clique search in graphs', Annales Universitatis Scientiarum Budapestinensis, Sectio Computatorica 41 (2013) 307–322. Reformulates the problem as the maximum number of filled cells in an n×n monotonic matrix and determines that maximum for 7 ≤ n ≤ 9, by partly theoretical arguments and partly computer-aided exhaustive search (per the abstract excerpt). The OEIS reading gives 19, 23, 28 for n = 7, 8, 9. The paper's full text was not opened.",
+      "date": "2013",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Exact values of the monotonic-matrix maximum, which Östergård and Pöllänen identify with f(n), for 7 ≤ n ≤ 9. Finite instances only.",
+      "remains": "f(n) for n ≥ 10, as Östergård and Pöllänen have since taken n = 10 and 11; f(n) for n ≥ 12 in general.",
+      "checked_by": [
+        {
+          "who": "Annales Universitatis Scientiarum Budapestinensis, Sectio Computatorica (referees)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published the paper in 2013",
+          "where": "https://ac.inf.elte.hu/Vol_041_2013/doi/307_41.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 years",
+      "machine_checked": {
+        "system": "Computer-aided exhaustive search (program not identified in the abstract excerpt)",
+        "sorry_free": null,
+        "url": "https://ac.inf.elte.hu/Vol_041_2013/doi/307_41.html"
+      },
+      "directly_checkable": null,
+      "doubts": "Full text not read; the value-to-n mapping for 7–9 comes from my reading of the OEIS sequence, not a quote from the paper.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the problem: exact finite values only.",
+      "object": null,
+      "people": ["Sándor Szabó"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://ac.inf.elte.hu/Vol_041_2013/doi/307_41.html"]
+      },
+      "sources": ["https://ac.inf.elte.hu/Vol_041_2013/doi/307_41.html", "https://oeis.org/A070214"]
+    },
+    {
+      "id": "aronov-et-al-2017-equivalence",
+      "what_happened": "B. Aronov, V. Dujmović, P. Morin, A. Ooms and L. F. Schultz Xavier da Silveira, 'More Turán-type theorems for triangles in convex point sets', arXiv 1706.10193 (v1 30 June 2017; v2 11 September 2018; v3 7 December 2018, whose comments say it corrects one theorem statement); Electronic Journal of Combinatorics 26(1) (2019) #P1.8. The arXiv abstract was read: the eight ways two triangles can interact give 256 Turán-type questions; nearly tight bounds (within a log n factor) are proved for 248; the remaining 8 'are all asymptotically equivalent to Stein's longstanding tripod packing problem'. Section 1.2 (read in an HTML rendering) lists the same problem as 'monotone matrices, tripod packing, and 2-comparable triples'.",
+      "date": "2017-06-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 11 Sep 2018; v3 7 Dec 2018 corrects one theorem statement (not identified); journal EJC 26(1) 2019 #P1.8.",
+      "delivers": "Establishes that eight convex-triangle Turán-type questions are asymptotically equivalent to the tripod problem, and gives log-factor-tight bounds for the other 248. It is a reformulation: it does not by itself change any bound on the tripod count f(n).",
+      "remains": "The tripod problem itself: exact f(n) for every n, and the growth of f(n).",
+      "checked_by": [
+        {
+          "who": "Electronic Journal of Combinatorics (referees)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published the paper as EJC 26(1) #P1.8 (2019)",
+          "where": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v26i1p8",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The equivalence is asymptotic, i.e. stated up to a log factor for the 8 cases; it is not an exact identity of counts. The v3 correction to one theorem statement is not identified in what I read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral: a reformulation that ties the Turán-type problem to tripod packing; it cuts neither way on f(n).",
+      "object": null,
+      "people": ["Boris Aronov", "Vida Dujmović", "Pat Morin", "Aurélien Ooms", "Luís Fernando Schultz Xavier da Silveira"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1706.10193"]
+      },
+      "sources": ["https://arxiv.org/abs/1706.10193", "https://ar5iv.arxiv.org/html/1706.10193", "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v26i1p8"]
+    },
+    {
+      "id": "gowers-long-2016-lower-bound",
+      "what_happened": "W. T. Gowers and J. Long, 'The length of an s-increasing sequence of r-tuples', arXiv 1609.08688 (v1 27 September 2016; v2 2 November 2016, which corrects an error in v1 about transitive sets); Combinatorics, Probability and Computing (2021), per the Wikipedia reference list and Aronov et al. The abstract was read: a problem of Po-Shen Loh about 2-increasing sequences of triples, a log* improvement over the trivial n² bound using the triangle removal lemma, and a simple n^(3/2) construction. Theorem 1.14, read in an HTML rendering summarized by the fetch tool: for arbitrarily large n there are 2-comparable sets of triples of size at least n^1.546, the exponent being 3α with α between 0.5154 and 0.5155. Per Aronov et al. (Section 1.2) 2-comparable triples are the tripod problem in another guise, so this is a tripod lower bound of order n^1.546 (Wikipedia states it directly).",
+      "date": "2016-09-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 2 Nov 2016 corrects an error in v1 about transitive sets; published CPC 2021 (per Wikipedia and Aronov et al.; journal page not opened).",
+      "delivers": "A lower bound on the tripod count of order n^1.546 for large n, through the 2-comparable-triples formulation, which supersedes the Tiskin 2003 exponent 1.5287. Also an upper-bound statement for the 2-increasing quantity: n²/2^Ω(log* n) (Prop. 1.6 in the summary read). Whether that upper bound transfers to the 2-comparable/tripod quantity is unclear from what I read (see doubts). Neither bound settles the exact values.",
+      "remains": "Exact f(n) for every n; the gap between n^1.546 and the upper bound.",
+      "checked_by": [
+        {
+          "who": "Combinatorics, Probability and Computing (referees)",
+          "qualification": "Peer-reviewed journal of record",
+          "what_they_did": "Published 2021 (per Wikipedia and Aronov et al.); journal record not opened",
+          "where": "https://arxiv.org/abs/1609.08688",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 years",
+      "machine_checked": null,
+      "directly_checkable": "The lower-bound construction is a finite combinatorial object for each n, checkable for small n by computer; I did not check any instance.",
+      "doubts": "(1) The abstract does not mention tripods, Stein, packing or monotone matrices; the tripod link is via the Aronov et al. equivalence and Wikipedia. (2) The exponent 1.546 is read from a summarized HTML rendering, not the PDF text, which the fetch tool could not read. (3) v1 contained an error, corrected in v2; I could not tell whether Theorem 1.14 changed. (4) The sources disagree on which quantity the log* upper bound concerns: the fetch summary says Proposition 1.6 is for the 2-increasing quantity F(n) and that the argument does not improve the 2-comparable Problem 1.9, while Aronov et al. (Table 2) and Wikipedia list n²/2^Ω(log* n) for tripods.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the problem as a bound: it shows the simple n^(3/2) construction is not the truth for the tripod count; no counterexample to any claimed value.",
+      "object": "A construction, for arbitrarily large n, of 2-comparable sets of triples in a cube of side n of size at least n^1.546 (per the summary read); per Aronov et al. these correspond to tripod packings of the same size. Whether the construction is explicit or non-constructive was not established from what I read.",
+      "people": ["W. T. Gowers", "J. Long", "Po-Shen Loh"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1609.08688"]
+      },
+      "sources": ["https://arxiv.org/abs/1609.08688", "https://ar5iv.arxiv.org/html/1609.08688", "https://en.wikipedia.org/wiki/Tripod_packing", "https://ar5iv.arxiv.org/html/1706.10193"]
+    },
+    {
+      "id": "ostergard-pollanen-2018-exact",
+      "what_happened": "P. R. J. Östergård and A. Pöllänen, 'New results on tripod packings', Discrete & Computational Geometry 61(2) (2019) 271–284, DOI 10.1007/s00454-018-0012-2 (early online 18 June 2018, per the Aalto record). The Aalto abstract summary, read: f(n) is studied in the maximum-clique framework; f(10) = 32 and f(11) = 38 are obtained computationally (f(n) was previously known only for n ≤ 9); prescribing symmetries gives constructive lower bounds on f(n) for n ≤ 26; a conjecture that f(n) is always attained by a packing with an order-3 symmetry rotating the cube about an axis through two opposite vertices is disproved. The companion Zenodo dataset (10.5281/zenodo.1230276, deposited 26 April 2018, CC-BY-4.0) is said to prove the lower bounds in Table 5. The Springer article and the Zenodo record were not opened (redirect to login and HTTP 504).",
+      "date": "2018-06-18",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Early online 18 June 2018; print DCG 61(2) 2019 (15 March 2019 per the Aalto record). Dataset deposited 26 April 2018.",
+      "delivers": "Exact values f(10) = 32 and f(11) = 38, and constructive lower bounds for f(n) at n ≤ 26 by symmetry-restricted packings; the order-3 symmetry conjecture is disproved. Finite results, and lower bounds for n ≥ 12 that are not shown to be optimal.",
+      "remains": "Exact f(n) for n ≥ 12; the growth of f(n); whether the symmetry-restricted lower bounds are optimal.",
+      "checked_by": [
+        {
+          "who": "Discrete & Computational Geometry (referees)",
+          "qualification": "Peer-reviewed journal of record",
+          "what_they_did": "Published DCG 61(2) (2019)",
+          "where": "https://research.aalto.fi/en/publications/0cae12b2-e1fc-49ad-bb08-eb897491c493",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 8 years",
+      "machine_checked": {
+        "system": "Maximum-clique computations (software not identified in sources read); packings supplied as a Zenodo dataset",
+        "sorry_free": null,
+        "url": "https://zenodo.org/record/1230276"
+      },
+      "directly_checkable": "The explicit packings for f(10) and f(11) and the symmetric packings for n ≤ 26 are in the Zenodo dataset (not opened). Each packing can be checked for disjointness by computer; the upper values rest on the clique search.",
+      "doubts": "No independent reproduction found in the sources I read. The dataset and the full table were not read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the problem: exact finite values and constructive lower bounds; no counterexample to a claimed bound.",
+      "object": "Explicit packings of tripods in n×n×n cubes: 32 tripods for n = 10 and 38 for n = 11, which the paper's clique search shows to be maximal; plus symmetric packings for n ≤ 26. Packings are explicit (computer-found); the exactness rests on the exhaustive clique computation.",
+      "people": ["Patric R. J. Östergård", "Antti Pöllänen"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://research.aalto.fi/en/publications/0cae12b2-e1fc-49ad-bb08-eb897491c493"]
+      },
+      "sources": ["https://research.aalto.fi/en/publications/0cae12b2-e1fc-49ad-bb08-eb897491c493", "https://research.aalto.fi/en/datasets/dataset-for-new-results-on-tripod-packings/", "https://zenodo.org/record/1230276", "https://oeis.org/A070214"]
+    },
+    {
+      "id": "oeis-2026-zabolotskii-note",
+      "what_happened": "An OEIS editorial note by Andrei Zabolotskii, dated 14 July 2026, removes the terms a(12) to a(14) from the Extensions of A070214 (the monotonic-matrix maximum, which matches f(n) where both are known). The note says that the values Tiskin (2007) gave for these n are for 3-symmetric packings only. The current OEIS entry lists terms only up to n = 11, although an older cached search snippet still listed 43, 49, 55 for n = 12 to 14. Read through a summarizing fetch of the OEIS page; the note was not read verbatim.",
+      "date": "2026-07-14",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "OEIS A070214 edited 14 Jul 2026 (removal of a(12)–a(14)); an earlier revision dated 9 Jul 2020 corrected a(11).",
+      "delivers": "No new value. It withdraws the attribution to the general problem of a(12) = 43, a(13) = 49 and a(14) = 55 from the Tiskin (2007) extensions, on the ground that they are restricted to 3-symmetric packings.",
+      "remains": "All of problem_asks for n ≥ 12.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "3 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "An editorial note on an OEIS entry, not a referee check. I did not verify the 3-symmetric claim against Tiskin's paper.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "The OEIS terms a(12)=43, a(13)=49, a(14)=55 of A070214, previously attributed to Tiskin (2007) as extensions of the sequence",
+        "date": "2026-07-14",
+        "by": "OEIS editor (note by Andrei Zabolotskii)",
+        "sources": ["https://oeis.org/A070214"]
+      },
+      "direction": "Neutral to the problem's answer: it narrows what is established for f(n) at n = 12 to 14.",
+      "object": null,
+      "people": ["Andrei Zabolotskii"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A070214"]
+      },
+      "sources": ["https://oeis.org/A070214"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Posing date of Stein's problem: 1967 (Wikipedia, citing Stein's 'Factoring by subsets'), 1984 (Tiskin 2007 as recorded by Warwick and SPBU), 1994 (Stein and Szabó, per the Tiskin 2003 report and the COCOON 2000 title). Wikipedia also cites Stein and Szabó's 1994 book 'Algebra and Tiling'. No result depends on the posing date, so this is not a priority dispute.",
+      "sources": ["https://en.wikipedia.org/wiki/Tripod_packing", "https://cs.au.dk/~gerth/alcom-ft/TR/ALCOMFT-TR-03-7.html", "https://wrap.warwick.ac.uk/id/eprint/31862"]
+    },
+    {
+      "kind": "correction",
+      "summary": "Wikipedia says that Tiskin's suggested polylogarithmic improvement of the packing-number upper bound 'appears to be a mistake'. The paper and the error are not identified in the summary I read.",
+      "sources": ["https://en.wikipedia.org/wiki/Tripod_packing"]
+    },
+    {
+      "kind": "correction",
+      "summary": "OEIS (14 July 2026) withdraws the a(12)–a(14) values attributed to Tiskin (2007), saying they are for 3-symmetric packings only. I did not check Tiskin's paper for whether it claimed general maxima at those n; the attribution question remains open on my reading.",
+      "sources": ["https://oeis.org/A070214", "https://wrap.warwick.ac.uk/id/eprint/31862"]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Whether the log* upper bound n²/2^Ω(log* n) applies to the tripod (2-comparable) quantity or only to the 2-increasing quantity F(n). Gowers and Long (Prop. 1.6, per a summary) state it for F(n); Aronov et al. (Table 2) and Wikipedia list it for tripods.",
+      "sources": ["https://arxiv.org/abs/1609.08688", "https://ar5iv.arxiv.org/html/1706.10193", "https://en.wikipedia.org/wiki/Tripod_packing"]
+    }
+  ],
+
+  "summary": "Across 57 web searches and about 25 opened pages (plus several searches that returned only the titles of unopened papers), I found no event dated after 26 January 2024 that moves a bound on f(n), the largest number of tripods that pack into an n×n×n cube, nor any new exact value. The state of the record: exact values f(n) are known for n ≤ 11 (small n from Pratt's integer-programming bounds and Szabó 2013; f(10)=32 and f(11)=38 from Östergård and Pöllänen, 2018/2019). The best lower bound I can attribute is n^1.546, from Gowers and Long (arXiv 2016, CPC 2021), via Theorem 1.14 on 2-comparable triples, which Aronov et al. (2017/2019) show is the tripod problem in another formulation; this supersedes Tiskin's 2003 exponent 1.5287. The upper bound is o(n²) (Tiskin 2007), with n²/2^Ω(log* n) attributed to the problem by Wikipedia and Aronov et al. The Wikipedia article (last edited 22 June 2026, as the fetch summary reports) cites nothing later than the 2021 journal publication of Gowers and Long, and I found no later preprint, journal paper, blog, Lean project, or AI-lab announcement on this problem. The one in-window item is the OEIS editorial note of 14 July 2026 by Andrei Zabolotskii, which removes the a(12)–a(14) values from the sequence's extensions as 3-symmetric-only and creates no new value. Close calls: (a) I include the 2026 OEIS note as an event because it changes which values are attributed to the problem, though it proves nothing; (b) the n^1.546 bound counts as a bound on this problem only through the Aronov et al. equivalence, which the Gowers–Long abstract does not state, and I read that theorem through a summarizing fetch rather than the PDF; (c) the log* upper bound's applicability to the tripod quantity is ambiguous across sources. AI: no AI system was credited with any tripod-packing result in any source I found. I searched for AI involvement with the problem's name, Stein, tripods, monotone matrices and 2-comparable triples; checked the OpenAI Astra results (the primary page returned 403; two secondary accounts omit tripods), the AlphaEvolve packing paper (visible text does not mention tripods; section 6.19 'Packing problems' was truncated), the Epoch FrontierMath Open Problems list (10 of 49 items visible, none tripod-related), and the Google, Anthropic and OpenAI results found in search, none of which mention tripods. Every event therefore has ai.none_found true. Coverage is limited: the niche combinatorics literature is thinly indexed by this search tool, and several primary sources (Springer, Zenodo, OpenAI, both Gowers–Long and Aronov PDFs) could not be read directly.",
+
+  "competing_reading": "The strongest case for a different reading: the 1.546 exponent is credited only through the Aronov et al. equivalence, which is asymptotic up to log factors, and the Gowers–Long abstract never mentions tripods, so the tripod problem's lower bound could be read as still n^1.5287 (Tiskin 2003) with the 1.546 figure living in a neighbouring problem. The reverse reading: the 2026 OEIS note withdraws values and so is a regression on the problem's known small-n frontier, not merely an attribution clean-up, which would make the record's status for n = 12 to 14 less than the older sources implied. A third reading holds that nothing happened in the window at all, and that the OEIS note should be discounted as an editorial correction rather than an event.",
+
+  "what_would_settle_it": "(1) The full text of Gowers and Long (arXiv 1609.08688) for Theorem 1.14 and Proposition 1.6, specifically whether the stated bounds are for the 2-comparable set quantity used for tripods and whether v1 and v2 agree. (2) The Östergård–Pöllänen Table 5 and the Zenodo dataset, to confirm the symmetric lower bounds and whether any n ≥ 12 value is claimed as exact. (3) The full text of the 14 July 2026 OEIS note and Tiskin 2007's statements for n ≥ 12. (4) The remaining 39 items of Epoch's FrontierMath Open Problems list, and the openai.com Astra page, to rule out a tripod item there. (5) The Aronov et al. v3 correction to one theorem statement, to see whether it touches the equivalence.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Tripod_packing", "title": "Tripod packing (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/1706.10193", "title": "More Turán-Type Theorems for Triangles in Convex Point Sets (arXiv 1706.10193)", "type": "preprint", "opened": true},
+    {"url": "https://ar5iv.arxiv.org/html/1706.10193", "title": "More Turán-Type Theorems for Triangles in Convex Point Sets (ar5iv HTML, truncated)", "type": "preprint", "opened": true},
+    {"url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v26i1p8", "title": "Aronov et al., Electronic Journal of Combinatorics 26(1) #P1.8 (journal page)", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/pdf/1706.10193", "title": "Aronov et al. arXiv PDF (not readable through the fetch tool)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1609.08688", "title": "The length of an s-increasing sequence of r-tuples (arXiv 1609.08688)", "type": "preprint", "opened": true},
+    {"url": "https://ar5iv.arxiv.org/html/1609.08688", "title": "Gowers and Long, ar5iv HTML (summarized, truncated)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/1609.08688", "title": "Gowers and Long arXiv PDF (not readable through the fetch tool)", "type": "preprint", "opened": false},
+    {"url": "https://research.aalto.fi/en/publications/0cae12b2-e1fc-49ad-bb08-eb897491c493", "title": "New Results on Tripod Packings, Aalto research record", "type": "repository", "opened": true},
+    {"url": "https://link.springer.com/article/10.1007/s00454-018-0012-2", "title": "Östergård and Pöllänen, DCG (Springer; redirects to login)", "type": "journal", "opened": false},
+    {"url": "https://zenodo.org/record/1230276", "title": "Dataset for New Results on Tripod Packings, Zenodo (HTTP 504)", "type": "repository", "opened": false},
+    {"url": "https://research.aalto.fi/en/datasets/dataset-for-new-results-on-tripod-packings/", "title": "Dataset for New Results on Tripod Packings, Aalto dataset record (search excerpt only)", "type": "repository", "opened": false},
+    {"url": "https://pureportal.spbu.ru/en/publications/packing-tripods-narrowing-the-density-gap(98bac8f0-71ab-4af1-bd5d-db2ffb5ae006)/export.html", "title": "Tiskin, Packing tripods: narrowing the density gap (SPBU export record)", "type": "repository", "opened": true},
+    {"url": "https://wrap.warwick.ac.uk/id/eprint/31862", "title": "Tiskin, Packing tripods: narrowing the density gap (Warwick WRAP record)", "type": "repository", "opened": true},
+    {"url": "https://cs.au.dk/~gerth/alcom-ft/TR/ALCOMFT-TR-03-7.html", "title": "Tiskin, Packing tripods: A computational approach, ALCOMFT-TR-03-7", "type": "preprint", "opened": true},
+    {"url": "https://pureportal.spbu.ru/ru/publications/tripods-do-not-pack-densely(8688228a-7866-4419-8087-dc1c7b64883e).html", "title": "Tiskin, Tripods do not pack densely (SPBU record; title only)", "type": "repository", "opened": false},
+    {"url": "https://ac.inf.elte.hu/Vol_041_2013/doi/307_41.html", "title": "Szabó, Monotonic matrices and clique search in graphs (ELTE page; excerpt)", "type": "journal", "opened": false},
+    {"url": "https://cglab.ca/seminar/2016/luis-tripod-packing.html", "title": "Silveira, The tripod packing problem (seminar, 2016)", "type": "news", "opened": true},
+    {"url": "https://www.cglab.ca/seminar/2019/luisTripod.html", "title": "Silveira, Tripod Packing on few Layers (seminar, 2019)", "type": "news", "opened": true},
+    {"url": "https://oeis.org/A070214", "title": "OEIS A070214, maximal number of occupied cells in monotonic matrix of order n", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2511.02864", "title": "Georgiev, Gómez-Serrano, Tao, Wagner, Mathematical exploration and discovery at scale (AlphaEvolve)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2511.02864", "title": "AlphaEvolve paper, HTML (truncated; section 6.19 body not read)", "type": "preprint", "opened": true},
+    {"url": "https://openai.com/index/ten-advances-in-mathematics/", "title": "OpenAI, Ten advances in mathematics and theoretical computer science (HTTP 403)", "type": "press_release", "opened": false},
+    {"url": "https://www.implicator.ai/openai-astra-10-math-problems-lean-proofs/", "title": "Implicator, OpenAI Astra ten math problems (secondary)", "type": "news", "opened": true},
+    {"url": "https://epoch.ai/frontiermath/open-problems", "title": "Epoch AI, FrontierMath Open Problems (10 of 49 shown)", "type": "repository", "opened": true},
+    {"url": "https://cryptobriefing.com/frontiermath-open-problems-benchmark-50-challenges/", "title": "CryptoBriefing, FrontierMath Open Problems expansion (secondary)", "type": "news", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "tripod packing problem cube",
+      "tripod packing conjecture unit tripods cube apexes",
+      "Tripod packing Wikipedia list of unsolved problems in mathematics",
+      "tripod packing AI discovered new construction",
+      "tripod packing AlphaEvolve",
+      "Paterson Zwick tripod packing",
+      "Erich Friedman packing center tripods in a cube",
+      "tripod packing arXiv 2025",
+      "tripod packing arXiv 2026",
+      "Conway Guy tripod packing Kakeya Wikipedia",
+      "tripod packing large language model",
+      "tripod packing OpenAI GPT mathematics result",
+      "tripod packing Gemini Deep Think discovery",
+      "Anthropic Claude mathematics open problem tripod",
+      "FunSearch packing problems new lower bounds cube tripods",
+      "Tiskin tripod packing density 2024",
+      "Östergård Pöllänen tripod packings maximum clique f(n)",
+      "\"tripod packing\" improved lower bound f(n) new record",
+      "monotone matrices 2-comparable triples tripod packing",
+      "Stein corners semicrosses packing cube open problem",
+      "Turán-type problems convex point sets forbidden 256 sets 248 asymptotics",
+      "OpenAI Astra ten results pure mathematics Lean repository list",
+      "Szabó monotonic matrices maximum filled cells n by n",
+      "Tiskin \"Tripods do not pack densely\" COCOON 2000",
+      "Terence Tao blog tripod packing",
+      "Erdős problems AI solved packing cube tripods",
+      "tripod packing SAT solver integer programming f(12) f(13)",
+      "Silveira tripod packing gap lower upper bounds layers",
+      "\"tripod packing\" 2026",
+      "AI-discovered packing constructions cube polycubes AlphaEvolve follow-up 2026",
+      "Jungeblut monotonic matrices lower bound a(11) 38",
+      "Tiskin monotonic matrices a(n) = o(n^2) upper bound",
+      "Epoch AI open math problems tracker AI solved list 2026",
+      "Stein tripod problem AI agent autonomous solution",
+      "semicross packing Stein Szabó 1994 tripods open",
+      "polycube packing new result 2026 arXiv cube",
+      "Tripod packing Lean formalization sorry",
+      "tripod packing Quanta Magazine",
+      "\"tripods\" packing cube lower bound AI model claims 2026 mathematics announcement",
+      "Stein's problem tripods cube packing density arXiv 2024 2025 2026 improved asymptotic",
+      "Gowers Long s-increasing sequences tripod packing lower bound n^1.546",
+      "Po-Shen Loh directed paths upper bound tripod packing Ruzsa Szemerédi",
+      "Hickerson tripods cannot pack space constant density argument",
+      "2-comparable sets of triples lower bound improved exponent Gowers Long",
+      "saturated triangulation-free convex geometric graphs arXiv 2508.12789 tripod",
+      "Turán-type convex geometric graphs triangles tripod packing Stein new bound 2025",
+      "Ruzsa-Szemerédi induced matching Σ-free tripod packing lower bound n^{3/2} 2024",
+      "Gowers AI tripod packing",
+      "OpenAI ten advances mathematics Astra complete list erdos problems lattice cryptography result",
+      "Hamaker Stein tripods 1984 packing bound",
+      "Östergård tripod packing dataset Zenodo f(n) lower bounds table 2019",
+      "Andrei Zabolotskii monotonic matrices",
+      "monotonic matrix maximum filled cells AI LLM search new value 2026",
+      "Kalai blog tripod packing Stein problem",
+      "Tiskin 3-symmetric packings tripods f(n) 12 13 14 values",
+      "FrontierMath Open Problems tripod packing Epoch",
+      "Jungeblut monotone matrices computation maximum filled cells 12 13 14"
+    ],
+    "places_checked": [
+      "arXiv abstracts and HTML/ar5iv renderings: 1706.10193 (Aronov et al.), 1609.08688 (Gowers and Long), 2511.02864 (AlphaEvolve), 2608.24961 (AI4Math survey; PDF unreadable)",
+      "Wikipedia article Tripod_packing (opened; last edited 22 June 2026 per the fetch summary; cites nothing after 2021 CPC publication)",
+      "OEIS A070214 (monotonic-matrix maximum; values, editorial history including 14 July 2026 note)",
+      "Östergård and Pöllänen record on Aalto research portal (Springer and Zenodo not reachable)",
+      "Tiskin 2003 technical report (ALCOM-FT) and 2007 Discrete Mathematics record (Warwick, SPBU)",
+      "Silveira seminar pages, Ottawa (2016, 2019)",
+      "ELTE journal page for Szabó 2013",
+      "OpenAI Astra results: secondary accounts (Implicator, search snippets); openai.com page returned 403",
+      "Epoch AI FrontierMath Open Problems list (10 of 49 items visible across two pages)",
+      "Lab and press announcements found by search: Google Gemini Deep Think, Anthropic Claude math results, OpenAI Astra, AlphaEvolve follow-ups; none mention tripods",
+      "Search-engine coverage of 2024–2026 arXiv and journal listings for tripod, Stein, monotone-matrix and 2-comparable terms"
+    ],
+    "dead_ends": [
+      "Erich Friedman's Packing Center: a MathWorld pointer to his 'Cubes in Cubes' page, which covers cubes not tripods; no tripod page found",
+      "Paterson/Zwick: returned photography tripod products only; no packing paper by such authors found",
+      "Conway and Guy attribution: not in the Wikipedia article text I read; no source connects them to tripods",
+      "Hickerson constant-density argument: Wikipedia credits Dean Hickerson with it; no source found that gives the argument or a date",
+      "Quanta Magazine, Terence Tao blog, Gil Kalai blog: no tripod-packing post found",
+      "Lean/mathlib formalisations: none found for tripod packing; only an unrelated sphere-packing project",
+      "Jungeblut's monotone-matrix paper: not located; the a(11) ≥ 38 matrix is known only through the OEIS entry, undated",
+      "f(12), f(13), f(14) exact values: none found in any source read; the OEIS note withdraws the only candidate values",
+      "Gowers–Long and Aronov et al. PDFs: unreadable through the fetch tool; statements taken from HTML renderings summarized by the fetch tool",
+      "AlphaEvolve packing results: the visible text of 2511.02864 has no tripod or polycube mention; section 6.19 body truncated",
+      "OpenAI Astra ten results: no tripod item in the two secondary accounts read; primary page 403",
+      "2024–2026 arXiv or journal papers on tripod packing, Stein's problem or monotone matrices: none surfaced by any of the searches"
+    ]
+  },
+
+  "incomplete": "(1) The Springer article for Östergård and Pöllänen was not opened (redirect to login); the Zenodo dataset returned HTTP 504; the Table 5 values and the f(12)–f(14) claims were not read. The paper's abstract was read as a summary from the Aalto record. (2) The Gowers–Long and Aronov et al. PDFs could not be read through the fetch tool; their statements come from HTML renderings summarized by the fetch tool and truncated at about 100,000 characters, so Theorem 1.14, Proposition 1.6, Section 4.3 and Theorem 11 were read only through summaries, and the v1-to-v2 change to Theorem 1.14 was not checked. (3) The Journal of Combinatorics Gowers–Long CPC record and the Aronov EJC page were not opened; their publication dates come from Wikipedia and Aronov et al. (4) The OpenAI Astra primary page returned 403; the list of ten results comes from two secondary accounts, which disagree on the items. (5) The AlphaEvolve paper's HTML was truncated, and section 6.19 'Packing problems' was not read. (6) Epoch's FrontierMath Open Problems list shows 10 of 49 items; the other 39 were not seen, so a tripod item there cannot be excluded. (7) Tiskin's COCOON 2000 and 2007 full texts were not read; the 2007 abstract was read as quoted excerpts within the tool's quotation limit. (8) Jungeblut's matrix for a(11) ≥ 38 is undated and was not located; it is not recorded as an event because I could not date it. (9) Hamaker and Stein (1984) was not opened, and its content comes from two secondary citations. (10) Loh's 2015 arXiv paper (1505.07312) was not read for the tripod question; it is cited for the trivial n² bound through Gowers and Long. (11) The Wikipedia article's exact bound formulas were read through a summarizing fetch, not the rendered page. (12) Search coverage of the niche combinatorics literature is thin: many queries returned only the same handful of documents, so an unindexed 2024–2026 preprint could exist."
+}

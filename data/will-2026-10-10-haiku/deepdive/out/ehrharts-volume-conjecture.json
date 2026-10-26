@@ -1,0 +1,502 @@
+{
+  "key": "ehrharts-volume-conjecture",
+
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 the inequality has been claimed proved in every dimension by OpenAI (Astra, announced 1 August 2026, with a Lean 4 formalisation whose declaration matches the bullet and which the repository's manifest reports as sorry-free), and a separate arXiv preprint by Jihao Liu (2 August 2026) claims the equality case and states that together with OpenAI's inequality it completes the conjecture; an undated PDF hosted on Anthropic's CDN claims the inequality by a complex-analytic route; a human audit (Sienicki and Sienicki, 3 August 2026, revised to v3 9 September 2026) found the analytic Chapter 8 'verification incomplete' with no confirmed error; no peer review of any of these was found; a 2022 unrefereed preprint claims the bound fails in high dimensions.",
+
+  "problem_asks": "Read from the January 2024 bullet alone. Part A (the bullet's assertion): for every dimension n (the Lean declaration takes n > 0), every convex body K in R^n (compact, convex, with nonempty interior, which the bullet implicitly requires for an interior lattice point to exist) that contains exactly one lattice point of Z^n in its interior, and whose centre of mass (barycentre) is that lattice point, satisfies vol(K) <= (n+1)^n/n!. This is a single assertion of an upper bound; the bullet does not state an equality clause. Part B (not in the bullet's wording, but part of the conjecture as the literature states it, e.g. Nill and Paffenholz 2014, MathWorld): equality holds only when K is a unimodular image of the centred simplex (n+1)Delta_n - (1,...,1), where Delta_n = conv{0, e_1, ..., e_n}. Recorded separately so the later pass can see which part each event reaches. Reduction note: translating by a lattice vector preserves the lattice-point hypothesis, so the bullet's 'centre of mass is the lattice point' is equivalent to 'barycentre 0 and unique interior lattice point 0', which is the form used in the Lean statement.",
+
+  "events": [
+    {
+      "id": "ehrhart-1964-conjecture-and-first-cases",
+      "what_happened": "Eugene Ehrhart stated the bound as a conjecture in a Comptes Rendus note (C. R. Acad. Sci. Paris 258, 4885-4887, 1964; reference as given by MathWorld and Wikipedia). The special cases of dimension 2 and of simplices in every dimension are attributed to Ehrhart in the literature (Wikipedia lead; Nill and Paffenholz 2014; MathWorld). I did not read Ehrhart's own papers; Wikipedia's reference list cites a 1967 Crelle paper by Ehrhart alongside the 1964 note, and I could not tell which contains the special-case proofs.",
+      "date": "1964",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The inequality (Part A) for n = 2 and for simplices in all dimensions, per secondary sources. Restricted to those two classes. Equality clause (Part B): not established by these results.",
+      "remains": "Part A for all other convex bodies, all n >= 3 except simplices. Part B in general.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 62 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The year of the special-case proofs is not pinned down by my sources; the 1964 date is for the conjecture statement and may not be the date of the dimension-2 and simplex proofs.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Toward the conjecture: proves the upper bound in the special cases.",
+      "object": "The sharp example is the centred simplex (n+1)Delta_n - (1,...,1): it has centroid 0, no other interior lattice point, and volume (n+1)^n/n!, so the bound is attained (as stated by Wikipedia, MathWorld and Nill and Paffenholz). This is the classical extremal body, not a new object.",
+      "people": ["Eugene Ehrhart"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://mathworld.wolfram.com/EhrhartVolumeConjecture.html", "https://en.wikipedia.org/wiki/Ehrhart%27s_volume_conjecture"]
+      },
+      "sources": [
+        {"url": "https://mathworld.wolfram.com/EhrhartVolumeConjecture.html", "note": "states the 1964 C. R. note reference; opened via fetch summary"},
+        {"url": "https://en.wikipedia.org/wiki/Ehrhart%27s_volume_conjecture", "note": "lead and reference list; opened via fetch summary"}
+      ]
+    },
+    {
+      "id": "berman-berndtsson-2011-toric-kahler-einstein",
+      "what_happened": "Robert J. Berman and Bo Berndtsson, 'The projective space has maximal volume among all toric Kahler-Einstein manifolds', arXiv:1112.4445 (single version, 19 December 2011). The abstract, as fetched, states that complex projective space has maximal volume (anticanonical degree) among toric Kahler-Einstein manifolds of dimension n. The abstract does not mention Ehrhart's conjecture; the convex-geometry translation is made in the later Berman-Berndtsson paper (next event).",
+      "date": "2011-12-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Only v1 listed (19 Dec 2011), 7 pages.",
+      "delivers": "For toric Kahler-Einstein Fano manifolds of dimension n, P^n has maximal degree. Not stated as a statement about convex bodies in this abstract.",
+      "remains": "Part A and Part B for general convex bodies; the convex-geometry form of the statement is not claimed here.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Toward the conjecture's equality side in the toric setting (maximal degree attained by projective space, which corresponds to the simplex).",
+      "object": null,
+      "people": ["Robert J. Berman", "Bo Berndtsson"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1112.4445"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/1112.4445", "note": "abstract and metadata, opened via fetch summary"}
+      ]
+    },
+    {
+      "id": "berman-berndtsson-2012-rational-polytopes",
+      "what_happened": "Robert J. Berman and Bo Berndtsson, 'The volume of Kahler-Einstein Fano varieties and convex bodies', arXiv:1204.1308 (submitted 5 April 2012). Per the fetched abstract summary, the toric case of their result translates into convex geometry and confirms Ehrhart's volume conjecture for a large class of rational polytopes, including duals of lattice polytopes. The journal version is listed by a search summary as Crelle vol. 723 (2017), DOI 10.1515/crelle-2014-0069 (not opened).",
+      "date": "2012-04-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Only v1 listed (5 Apr 2012) on arXiv; journal version later.",
+      "delivers": "Part A for a large class of rational polytopes, including duals of lattice polytopes (per abstract summary; the exact class and whether it includes every case with the centroid condition is not stated in the fetched text). Confirms the inequality within that class; does not settle it for general convex bodies.",
+      "remains": "Part A for convex bodies outside the class; Part B (equality) for general bodies. Nill and Paffenholz (next event) address equality only within a class.",
+      "checked_by": [
+        {
+          "who": "Journal fur die reine und angewandte Mathematik (Crelle), as listed by search summary",
+          "qualification": "Refereed journal of record",
+          "what_they_did": "Published the journal version (listed as 2017, vol. 723, pp. 127-152 per search summary; not opened)",
+          "where": "https://research.chalmers.se/publication/231588",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 years 6 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Toward the conjecture: confirms the inequality for a class of rational polytopes.",
+      "object": null,
+      "people": ["Robert J. Berman", "Bo Berndtsson"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1204.1308"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/1204.1308", "note": "abstract, opened via fetch summary"},
+        {"url": "https://research.chalmers.se/publication/231588", "note": "journal listing, seen in search results, not opened"}
+      ]
+    },
+    {
+      "id": "nill-paffenholz-2012-equality-case",
+      "what_happened": "Benjamin Nill and Andreas Paffenholz, 'On the equality case in Ehrhart's volume conjecture', arXiv:1205.1270 (v1 7 May 2012; v2 16 Feb 2013). Published in Advances in Geometry 14(4), pp. 579-586 (DOI 10.1515/advgeom-2014-0001; journal listing date 8 October 2014 per search summary). They prove that projective space is the only toric manifold with maximal degree, by proving the corresponding convex-geometric statement, and treat a generalised version tied to a Ricci-curvature invariant.",
+      "date": "2012-05-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 7 May 2012; v2 16 Feb 2013 (the version fetched); journal version Advances in Geometry 2014.",
+      "delivers": "Part B (equality characterisation) for the toric / rational-polytope class covered by Berman-Berndtsson: equality holds only for the simplex image in that class. Does not settle Part A or Part B in general (MathWorld states the general equality classification remains open, citing this paper).",
+      "remains": "Part B for general convex bodies; Part A outside the class.",
+      "checked_by": [
+        {
+          "who": "Advances in Geometry (De Gruyter) editors and referees",
+          "qualification": "Refereed journal of record",
+          "what_they_did": "Accepted and published the paper, Advances in Geometry 14(4), 2014",
+          "where": "https://www.degruyterbrill.com/document/doi/10.1515/advgeom-2014-0001/html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 years 5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Toward the conjecture: the equality case holds in the toric class.",
+      "object": null,
+      "people": ["Benjamin Nill", "Andreas Paffenholz"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1205.1270"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/1205.1270", "note": "abstract, fetched via summary; the abstract text itself was not quoted in full by the tool"},
+        {"url": "https://www.degruyterbrill.com/document/doi/10.1515/advgeom-2014-0001/html", "note": "journal listing, seen in search results, not opened"}
+      ]
+    },
+    {
+      "id": "agama-2022-counterexample-claim",
+      "what_happened": "Theophilus Agama, 'The Ehrhart volume conjecture is false in sufficiently higher dimensions in R^n', posted to AfricArXiv (not arXiv), DOI 10.14293/111.000/000027.v1, issued 27 May 2022 (accessioned 24 March 2024). The record's abstract (truncated, as fetched) says that using the method of compression the author shows the volume of a ball K in R^2 with a single interior lattice point at its centre of mass satisfies a lower bound; the bound itself is cut off on the page. The full PDF ('Erharht volume conjecture.pdf', 300.53 KB) was not accessed.",
+      "date": "2022-05-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Single version v1 on the record. Agama's separate arXiv paper 1912.08075 (The Compression method and applications) has 13 versions up to 24 March 2026, but its abstract does not mention Ehrhart (see dead_ends).",
+      "delivers": "Claims that Part A fails: a ball with a unique interior lattice point at its centre of mass has volume above (n+1)^n/n! in high dimensions. The claimed counterexample's dimension and bound are not verified; the record is internally inconsistent (title says high-dimensional R^n; fetched abstract says R^2).",
+      "remains": "Nothing is settled by this preprint; if correct, it would refute Part A.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 years 4 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(1) The record calls itself a preprint and says it has not been peer-reviewed. (2) Internal inconsistency: the title says high dimensions in R^n, the fetched abstract says R^2, and the conjecture is proved in dimension 2 by Ehrhart, so an R^2 counterexample would contradict a proven case. (3) A search summary says the claimed lower bound is n^n/sqrt(n); if that were correct it would exceed the 4^n upper bound that follows from Milman-Pajor and Minkowski's first theorem (taken from search summaries of Nill and Paffenholz; not checked against the primary sources). (4) No later paper found engages with it, and the OpenAI and Anthropic-hosted results (later events) claim the opposite.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against Part A: claims the bound fails in high dimensions.",
+      "object": "A ball in R^n (abstract: R^2) with a single interior lattice point at its centre of mass, with a lower bound on its volume via compression. The bound and the dimension are not legible in the fetched record, so I cannot say what volume is claimed; the claim as titled is that the inequality fails for sufficiently large n.",
+      "people": ["Theophilus Agama"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://repository.africarxiv.org/items/c60a4d7c-7cc7-4f44-b4cb-392e81364749/full"]
+      },
+      "sources": [
+        {"url": "https://repository.africarxiv.org/items/c60a4d7c-7cc7-4f44-b4cb-392e81364749/full", "note": "record page, opened; abstract truncated on the page"},
+        {"url": "https://africarxiv.ubuntunet.net/items/c60a4d7c-7cc7-4f44-b4cb-392e81364749/full", "note": "same record, DNS failure when fetched; not opened"}
+      ]
+    },
+    {
+      "id": "openai-astra-2026-08-01-inequality",
+      "what_happened": "OpenAI announced on 1 August 2026 a set of ten results in mathematics and theoretical computer science produced by an internal, unreleased version of its model 'Astra', published as a report, 'Ten Advances in Mathematics and Theoretical Computer Science' (MathWorld cites its Chapter 8, 'The Sharp Inequality in Ehrhart's Volume Conjecture', dated 1 August 2026, at cdn.openai.com/pdf/ten-proofs-oai.pdf). The result is listed in the announcement as 'Ehrhart's volume conjecture' and, per the repository README, as 'The sharp maximum volume in every dimension for a convex body whose centroid is its only interior lattice point'. Lean 4 certificates for all ten results are in github.com/openai/ten-proofs; the file EhrhartVolumeInequality.lean (main declaration ehrhart_volume_inequality_for_sets) carries publication_date 2026-08-01 in formalization.yaml. I could not open OpenAI's own page or the PDF (403 and unreadable binary), so the announcement's wording comes from secondary coverage quoting it.",
+      "date": "2026-08-01",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Chapter 8 audit found by Sienicki and Sienicki (arXiv 2608.14673 v1 3 Aug 2026; v2 25 Aug 2026; v3 9 Sep 2026). The openai/math history.md records only the 7 October 2026 withdrawals of other manuscripts; no Ehrhart change recorded there (read only as far as its first and only dated entry).",
+      "delivers": "Part A, as stated in the Lean declaration: for n > 0, every compact convex S in R^n with nonempty interior, barycentre 0 and interiorLatticePoints S = {0} satisfies normalizedVolume S <= ((n:R)+1)^n/n! (signature read verbatim from the raw file). This covers every dimension and the whole class of bodies in the bullet, subject to the definitions of normalizedVolume (not read) being Lebesgue volume, which the sharpness by the simplex makes likely. Part B is not delivered by this event.",
+      "remains": "Part B (equality characterisation; delivered only by the separate Liu event). The Lean declaration encodes only the inequality (the file lists one main theorem and asymptotic Bergman-dimension lemmas near the top; I did not read the whole file).",
+      "checked_by": [
+        {
+          "who": "Mikolaj Sienicki and Krzysztof Sienicki",
+          "qualification": "Authors of the audit; their qualifications are not established in my sources. The audit's chapter-level reports are described as having been written by reviewers whose nature (human or AI-assisted) I could not establish.",
+          "what_they_did": "Reviewed each of the ten results chapter by chapter; for Chapter 8 (this result) the two reports disagree (one minor revision, one major revision), and the audit's verdict is 'verification incomplete, with possible unresolved proof gaps in the presentation' (section 3.2 of the arXiv HTML); the audit says 'no confirmed error' and 'no counterexample'.",
+          "where": "https://arxiv.org/html/2608.14673v3",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 months 10 days",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (Lake project, toolchain 4.32.0), openai/ten-proofs",
+        "sorry_free": true,
+        "url": "https://github.com/openai/ten-proofs"
+      },
+      "directly_checkable": "The Lean file EhrhartVolumeInequality.lean in openai/ten-proofs (about 2.1 million characters). Its statement can be read by a human; I read the signature and did not read the body. The repository also has ComparatorChallenges/F_EhrhartVolumeInequality.json (a Comparator config); I did not run or read it.",
+      "doubts": "(1) The sorry-free status is from formalization.yaml (sorry_count 0; axioms propext, Classical.choice, Quot.sound) and the project-level label 'agent-reviewed'; the Lean file's body was not checked by me. (2) The fidelity of the formal statement to the bullet is a human judgment: the definition of normalizedVolume was not read, and the Lean structure requires barycentre 0 rather than any centroid, which is equivalent by lattice translation but is a modelling choice. (3) Audit (arXiv 2608.14673 v3, section 3.2): Chapter 8 is 'analytic details still needing scrutiny'. Its reservation names uniform Bergman/Laplace asymptotics, the limiting plurisubharmonic ray, slope passage, and the hypotheses for positivity arguments, and says the treatment is 'too compressed to sustain complete independent verification'. The audit identifies 'transitions whose justification must be developed further' but no specific error. (4) Liu's follow-up paper (next event) states it uses this result's analytic half directly and does not reprove it (as relayed by a fetch summary). (5) Secondary coverage says none of the ten results had been peer reviewed as of the 1 August cutoff. (6) The Anthropic-hosted PDF (next-but-one event) claims the same inequality by another route; the relation between the two is unknown.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Toward the conjecture: asserts the bound holds for all n as the conjecture states it; no counterexample. Consistent with the classical extremal simplex.",
+      "object": null,
+      "people": ["OpenAI (credited lab; individual authors of the Ten Advances manuscript are not established in my sources)"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Astra",
+            "what_it_did": "Per OpenAI as quoted in coverage: the mathematical arguments themselves were generated by Astra; human staff compiled them into a manuscript; Astra formalised each argument in Lean 4 (the Lean certificates). This is a load-bearing claim by the lab for the inequality proof. Astra is an internal, unreleased build (coverage calls it 'an internal version of its next-generation flagship AI model').",
+            "basis_quote": "claiming human authorship for a proof an AI system generated would misrepresent both the system's contribution (as quoted by officechai; the same article attributes the statement to OpenAI)",
+            "quote_url": "https://officechai.com/ai/openai-says-it-has-solved-10-open-math-problems-using-astra-its-new-model/"
+          }
+        ],
+        "disclosed_cost": "OpenAI put the token cost for all ten solutions at roughly $2,000 at GPT-5.6 Sol API rates (per siliconangle and gigazine coverage). Coverage describes this as a theoretical token figure, not the cost of the research.",
+        "sources": [
+          "https://gigazine.net/gsc_news/en/20260803-openai-astra-lean/",
+          "https://officechai.com/ai/openai-says-it-has-solved-10-open-math-problems-using-astra-its-new-model/",
+          "https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/",
+          "https://github.com/openai/ten-proofs"
+        ]
+      },
+      "sources": [
+        {"url": "https://github.com/openai/ten-proofs", "note": "repository README read via fetch summary; states the Ehrhart result and the Lean toolchain"},
+        {"url": "https://raw.githubusercontent.com/openai/ten-proofs/main/EhrhartVolumeInequality.lean", "note": "signature read verbatim; body not read"},
+        {"url": "https://raw.githubusercontent.com/openai/ten-proofs/main/formalization.yaml", "note": "sorry_count 0, axioms, publication_date 2026-08-01"},
+        {"url": "https://raw.githubusercontent.com/openai/math/main/history.md", "note": "only dated entry 7 Oct 2026 (withdrawals); no Ehrhart entry"},
+        {"url": "https://arxiv.org/html/2608.14673v3", "note": "audit section 3.2 read via fetch summary"},
+        {"url": "https://thezvi.substack.com/p/openais-unreleased-model-astra-solves", "note": "quotes the item and the post date (3 Aug 2026)"},
+        {"url": "https://kingy.ai/news/openai-astra-ten-math-results-evidence/", "note": "secondary; says no peer review of the bundle as of cutoff"},
+        {"url": "https://gigazine.net/gsc_news/en/20260803-openai-astra-lean/", "note": "secondary; Astra and Lean wording"},
+        {"url": "https://officechai.com/ai/openai-says-it-has-solved-10-open-math-problems-using-astra-its-new-model/", "note": "secondary; the basis quote and Lean wording"}
+      ]
+    },
+    {
+      "id": "liu-2026-08-02-equality-case",
+      "what_happened": "Jihao Liu, 'The equality case of Ehrhart's volume conjecture', arXiv:2608.01040 (sole author; v1 submitted 2 August 2026, v2 6 August 2026; math.CO, cross-listed math.AG and math.CV; CC BY-NC-ND 4.0). Claims that every full-dimensional compact convex body in R^n with barycentre as its unique interior lattice point and volume (n+1)^n/n! is a unimodular image of (n+1)Delta_n - (1,...,1), i.e. the equality case. The abstract says this 'resolves the equality case of Ehrhart's volume conjecture, as a counterpart of the inequality part recently proved by OpenAI'. Per the fetched HTML summary, Remark 1.4 says 'Together with Theorem 1.2, Theorem 1.3 completes Conjecture 1.1', and the paper uses OpenAI's analytic half directly rather than reproving it. The arXiv comments field reads 'AI generated with essential human strategical idea input. Human verified. Version 2, no math change, references updated'.",
+      "date": "2026-08-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 2 Aug 2026 06:54 UTC (37 KB); v2 6 Aug 2026 (38 KB, 'no math change, references updated'). Metadata date 7 Aug 2026.",
+      "delivers": "Part B (equality characterisation) for all n, with the volume hypothesis at the bound: bodies attaining (n+1)^n/n! are unimodular images of the simplex. By the paper's own account (Remark 1.4 as relayed) it completes Part A and Part B together only with OpenAI's Theorem 1.2 (the inequality), which it cites, not reproves.",
+      "remains": "Part A is not delivered by this preprint; it rests on the OpenAI event. The paper's own Remark 1.6 says it is 'possible that we have missed some related references in the literature'. Whether its equality proof depends logically on OpenAI's analytic half is not stated in what I could read.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months 9 days",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(1) The main result was produced with generative AI by the author's own account (see ai field), and the arXiv comments say 'Human verified', which is the author's self-report, not an independent check. (2) The 'key human input' the paper records is an observation about the method of OpenAI's report relying on a 2018 reference (Fuj18 in the relayed text); the second half's 'mechanisms have no counterparts in the K-stability argument' (relayed). (3) The audit (arXiv 2608.14673 v3) states that Liu's follow-up 'does not verify the analytic proof of OpenAI's sharp inequality' and that progress on one does not settle the analytic transitions questioned in the other. (4) The 'dictionary' in Remark 1.5 is described by the paper as heuristic (relayed). (5) No third-party reading of this paper was found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Toward the conjecture: the equality characterisation the conjecture asserts holds (extremal bodies are unimodular images of the simplex).",
+      "object": null,
+      "people": ["Jihao Liu (sole author)"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-5.6-sol",
+            "what_it_did": "Per the author, the main result (the equality classification) was obtained by generative AI, particularly GPT-5.6-sol, Fable 5 and the Danus system. The paper's account of the process attributes the proof mainly to the Danus system (see the Danus entry). GPT-5.6-sol's specific role is not described beyond this sentence.",
+            "basis_quote": "The main result of this paper is obtained by generative AI, particularly GPT-5.6-sol, Fable 5, and the Danus system.",
+            "quote_url": "https://arxiv.org/abs/2608.01040v2"
+          },
+          {
+            "name": "Fable 5",
+            "what_it_did": "Per the author, the main result was obtained by generative AI including Fable 5; separately, 'Discussions with Fable 5 and GPT-5.6-sol-ultra also assisted the author.' The specific contribution is not described.",
+            "basis_quote": "The main result of this paper is obtained by generative AI, particularly GPT-5.6-sol, Fable 5, and the Danus system.",
+            "quote_url": "https://arxiv.org/abs/2608.01040v2"
+          },
+          {
+            "name": "the Danus system",
+            "what_it_did": "Per the author's Remark 1.6 (as relayed): 'The observation was given to the Danus system, which carried out the first half of the proof along the suggested correspondence', and the system 'produced the complete proof, internally verified by the system's proof-checking pipeline'. The author's human input was the observation that the method of the OpenAI report relies on a 2018 reference. This is load-bearing by the author's account.",
+            "basis_quote": "The main result of this paper is obtained by generative AI, particularly GPT-5.6-sol, Fable 5, and the Danus system.",
+            "quote_url": "https://arxiv.org/abs/2608.01040v2"
+          },
+          {
+            "name": "GPT-5.6-sol-ultra",
+            "what_it_did": "Per the author: 'Discussions with Fable 5 and GPT-5.6-sol-ultra also assisted the author.' No statement of what the discussions contributed. Load-bearing status unclear; recorded here so the later pass can decide.",
+            "basis_quote": "Discussions with Fable 5 and GPT-5.6-sol-ultra also assisted the author.",
+            "quote_url": "https://arxiv.org/html/2608.01040v2"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2608.01040v2", "https://arxiv.org/html/2608.01040v2"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2608.01040v2", "note": "abstract (verbatim per fetch summary), author, dates, comments field"},
+        {"url": "https://arxiv.org/html/2608.01040v2", "note": "introduction, Theorem 1.3, Remarks 1.4-1.6, via fetch summary; only the first 100,000 characters read"},
+        {"url": "https://arxiv.org/pdf/2608.01040", "note": "PDF body unreadable (binary); not used"},
+        {"url": "https://arxiv.org/pdf/2608.14673", "note": "audit that describes Liu's relation to OpenAI's inequality"}
+      ]
+    },
+    {
+      "id": "anthropic-cdn-complex-analytic-pdf",
+      "what_happened": "A PDF titled 'The volume inequality in Ehrhart's conjecture' is hosted at www-cdn.anthropic.com/files/4zrzovbb/website/f243959e288ce20b6e64768b0491e50f3d51d71a.pdf. Its abstract, as relayed in a search snippet (the PDF itself was not readable: the fetch returned raw compressed bytes), states that for a convex body whose centroid is a lattice point and is its only interior lattice point, vol(K) <= (n+1)^n/n!. The outline (per a search summary) is complex-analytic: the barycentre hypothesis gives a toric Kahler-Einstein (Monge-Ampere) potential whose gradient image is K; the lattice hypothesis enters through a rank-one property of a weighted Bergman space; Berndtsson's subharmonicity theorem is used for convexity of a Ding-type functional. The author, date and version are not established by anything I could read.",
+      "date": null,
+      "precision": null,
+      "kind": "preprint",
+      "predates_frozen_revision": null,
+      "revisions": null,
+      "delivers": "As the abstract snippet states: Part A for all convex bodies with the centroid and unique-interior-lattice-point hypotheses, in every dimension it claims. Part B is not claimed in the snippet.",
+      "remains": "Unknown from what I could read; Part B not addressed in the snippet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "unknown (undated)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(1) Author, date, venue and status are not established: the document is hosted on Anthropic's CDN, but I could not establish who wrote it or whether it is an Anthropic publication. Nothing I read links it to Anthropic staff other than the hosting domain. (2) The PDF body was not read, so the argument, its dimension range and any AI involvement are unknown. (3) It claims the same inequality as the OpenAI event, through an analytic route of the kind the audit describes as the Chapter 8 difficulty. (4) No review found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Toward the conjecture (claims Part A).",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www-cdn.anthropic.com/files/4zrzovbb/website/f243959e288ce20b6e64768b0491e50f3d51d71a.pdf"]
+      },
+      "sources": [
+        {"url": "https://www-cdn.anthropic.com/files/4zrzovbb/website/f243959e288ce20b6e64768b0491e50f3d51d71a.pdf", "note": "fetched: raw bytes, unreadable; abstract known only from search snippets"}
+      ]
+    },
+    {
+      "id": "alpoge-2026-08-fable-reproduction-lead",
+      "what_happened": "Levent Alpoge, described in secondary coverage as an Anthropic mathematician, posted on X in early August 2026 that he had used the public Fable model to reproduce five of the ten OpenAI results (reported as problems 4 through 8, per LessWrong and secondary summaries; not verified against the list). Per the Zvi post's quotation of his message: 'i think ehrhart is the only one so far where both models found basically the exact same argument'. The post does not name the two models in that sentence; the Zvi post says Alpoge 'pointed Fable at these ten problems'. No write-up of an Ehrhart argument by Fable was found.",
+      "date": "2026-08",
+      "precision": "month",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Nothing settled. A report that, for the Ehrhart problem, two models (apparently Fable and Astra) reached basically the same argument, if true. This is a lead about AI involvement, not a source for a proof.",
+      "remains": "All of Parts A and B are unaffected by this report.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The account is Alpoge's own, relayed secondhand (Zvi post quotes the X message; LessWrong and search summaries paraphrase). I did not open Alpoge's X post or the LessWrong post. Which problems Fable reproduced is not established for Ehrhart.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the conjecture.",
+      "object": null,
+      "people": ["Levent Alpoge (described in coverage as an Anthropic mathematician)"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Fable",
+            "what_it_did": "Per Alpoge's own report (relayed): reproduced five of the ten OpenAI results from a generic prompt without internet access. For Ehrhart, reports that 'both models' found basically the same argument; whether Fable produced an Ehrhart argument is not established.",
+            "basis_quote": "i think ehrhart is the only one so far where both models found basically the exact same argument",
+            "quote_url": "https://thezvi.substack.com/p/openais-unreleased-model-astra-solves"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": ["https://thezvi.substack.com/p/openais-unreleased-model-astra-solves"]
+      },
+      "sources": [
+        {"url": "https://thezvi.substack.com/p/openais-unreleased-model-astra-solves", "note": "quotes the X message; opened via fetch summary (quote is truncated by the tool)"},
+        {"url": "https://www.lesswrong.com/posts/pQYEPitFqztcRvBsS/openai-s-unreleased-model-astra-solves-ten-major-open", "note": "seen in search results, not opened"}
+      ]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Two claimed proofs of the inequality: OpenAI's Chapter 8 (announced 1 August 2026, Lean-formalised) and the undated, unattributed Anthropic-hosted PDF with a complex-analytic proof. Their order and independence are not established. Liu's paper credits the inequality to OpenAI.",
+      "sources": ["https://github.com/openai/ten-proofs", "https://arxiv.org/abs/2608.01040v2", "https://www-cdn.anthropic.com/files/4zrzovbb/website/f243959e288ce20b6e64768b0491e50f3d51d71a.pdf"]
+    },
+    {
+      "kind": "counterexample-conflict",
+      "summary": "Agama (AfricArXiv, 27 May 2022) claims the bound fails in high dimensions; OpenAI's 2026 Lean-formalised proof and the Anthropic-hosted PDF claim it holds. The Agama record is unrefereed, internally inconsistent about the dimension, and no reply was found.",
+      "sources": ["https://repository.africarxiv.org/items/c60a4d7c-7cc7-4f44-b4cb-392e81364749/full", "https://github.com/openai/ten-proofs"]
+    }
+  ],
+
+  "summary": "Searches covered the problem's name and alternate forms (Ehrhart's volume conjecture; the centroid/unique-interior-lattice-point form; the Lean declaration name), result words (proof, counterexample, bound, equality case, dimension 2, simplices), recent work including the arXiv listings and the Berman-Berndtsson and Nill-Paffenholz lines, and separately the AI search (OpenAI's August 2026 Astra announcement, the Anthropic-hosted PDF, the Liu preprint, the Danus system, Alpoge's reproduction post). The bullet asks for the inequality in every dimension; its equality clause is recorded separately as Part B. On Part A there is now a Lean-formalised claimed proof: the OpenAI Astra result, announced 1 August 2026, whose main declaration (read verbatim from the raw file) matches the bullet's hypotheses and conclusion in every dimension n > 0, and whose formalization.yaml reports sorry_count 0 and only the standard axioms. The formal statement is a faithful reading of the bullet subject to the definition of normalizedVolume (not read) and the lattice-translation modelling choice. Against this, the only human audit I found (Sienicki and Sienicki, arXiv 2608.14673; I read section 3.2 via an HTML summary) places Chapter 8, the analytic argument for this result, as 'verification incomplete, with possible unresolved proof gaps in the presentation', with two reports diverging (minor vs major revision) and no confirmed error. Secondary coverage says none of the ten results was peer reviewed as of the cutoff. On Part B, Liu's arXiv:2608.01040 (2 August 2026) claims the equality classification for all n, states that together with OpenAI's Theorem 1.2 it completes the conjecture, says the main result was generated by AI (GPT-5.6-sol, Fable 5 and the Danus system, with the Danus system credited with the first half and the complete proof), and records 'Human verified' in its comments; the audit says Liu does not verify OpenAI's analytic proof. An undated PDF on Anthropic's CDN claims Part A by a complex-analytic route; I could not read its body and could not establish its author, date or status. The 2022 Agama preprint claims Part A fails; it is unrefereed and internally inconsistent about the dimension. Pre-2024 work: Ehrhart's special cases (dimension 2, simplices); Berman-Berndtsson 2011 and 2012 (toric and rational-polytope class; Part A for a class, Part B via projective-space maximality in the toric case); Nill-Paffenholz 2012, published 2014 (Part B for the toric class). Close calls: whether the OpenAI Lean statement is the bullet's problem (I read the signature but not the normalizedVolume definition or the body, so the fidelity call is a human judgment); whether Liu's equality classification is independent of OpenAI's analytic half (the paper says it uses that half directly); and whether the Anthropic-hosted PDF is a second proof or a duplicate of the same route (unknown). AI involvement: the OpenAI result is credited by OpenAI to Astra, which generated the arguments and formalised them, with human staff compiling the manuscript; OpenAI's own page was not readable (403), so the basis quote is from secondary coverage quoting OpenAI. Liu's AI credits are in his own abstract and remark, which I read via a fetch summary. Alpoge's report that for Ehrhart 'both models found basically the exact same argument' is a second-hand lead and is not recorded as evidence of an Ehrhart argument by any particular system. Things I checked and ruled out: the October 2026 OpenAI withdrawals (Weil classes, Kuga-Satake, rational Hodge for K3 products) do not concern this result per coverage and per the openai/math history.md, which has no Ehrhart entry; Scientific American's 'most exciting claims' piece does not mention Ehrhart; Tao, DeepMind/AlphaEvolve and Bloom do not appear in connection with this result. The Wikipedia article (lead, last edited 12 September 2026 per a fetch summary) describes the August 2026 announcement as proving the inequality part, and is tagged as needing non-primary sources; MathWorld (updated 2 October 2026) cites OpenAI's Chapter 8 and says the equality classification remains open, which predates or ignores Liu's preprint.",
+
+  "competing_reading": "Reading A (Part A settled, Part B settled by Liu): the inequality has a Lean-checked proof with no sorry and standard axioms, the formal statement matches the bullet, and the classification of equality cases by Liu completes the conjecture (Liu's Remark 1.4 as relayed). On this reading the problem is resolved since the window, with AI generating both halves. Reading B (not settled): the inequality rests on an AI-generated argument with no peer review, whose analytic chapter an independent audit found 'verification incomplete'; Lean establishes the formal statement only, whose fidelity (normalizedVolume, the modelling of the centroid) has not been independently checked; Liu's equality result depends on the same unverified analytic half and is self-described as 'human verified' by its author; the Anthropic-hosted PDF is an unattributed second route; and the 2022 Agama counterexample has never been answered. On this reading the bullet is open in Part A (unverified) and Part B (single-author, unrefereed).",
+
+  "what_would_settle_it": "(1) A check of EhrhartVolumeInequality.lean by someone who reads the body and the normalizedVolume definition, and a Comparator run of ComparatorChallenges/F_EhrhartVolumeInequality.json. (2) A written expert verification of Chapter 8's analytic transitions (Bergman/Laplace asymptotics, limiting plurisubharmonic ray, slope passage, positivity hypotheses), or a reply to the audit's two reports. (3) Peer-reviewed publication or a named mathematician's public verification of OpenAI's Ehrhart result and of Liu's equality classification. (4) The author, date and venue of the Anthropic-hosted PDF, and whether its argument is the same route. (5) A reply to, or withdrawal of, Agama's 2022 claim, and a read of its full PDF to see the dimension and bound claimed. (6) The OpenAI primary page or PDF, to confirm the 1 August 2026 wording that I could only read through coverage.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Ehrhart%27s_volume_conjecture", "title": "Ehrhart's volume conjecture (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://mathworld.wolfram.com/EhrhartVolumeConjecture.html", "title": "Ehrhart Volume Conjecture (MathWorld)", "type": "encyclopedia", "opened": true},
+    {"url": "https://openai.com/index/ten-advances-in-mathematics/", "title": "Ten advances in mathematics and theoretical computer science (OpenAI)", "type": "press_release", "opened": false},
+    {"url": "https://openai.com/fr-FR/index/ten-advances-in-mathematics/", "title": "same, French locale", "type": "press_release", "opened": false},
+    {"url": "https://cdn.openai.com/pdf/ten-proofs-oai.pdf", "title": "Ten Advances report PDF (cited by MathWorld)", "type": "preprint", "opened": false},
+    {"url": "https://github.com/openai/ten-proofs", "title": "openai/ten-proofs (Lean certificates)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/openai/ten-proofs/main/EhrhartVolumeInequality.lean", "title": "EhrhartVolumeInequality.lean", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/openai/ten-proofs/main/formalization.yaml", "title": "formalization.yaml (ten-proofs)", "type": "repository", "opened": true},
+    {"url": "https://github.com/openai/math", "title": "openai/math (preprints repository)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md", "title": "openai/math CONTENTS.md (first ~100,000 characters)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/openai/math/main/history.md", "title": "openai/math history.md", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.01040v2", "title": "The equality case of Ehrhart's volume conjecture (Liu), abstract", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.01040v2", "title": "same, HTML (first 100,000 characters via summary)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2608.01040", "title": "same, PDF (binary, unreadable)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/2608.14673", "title": "A Human Audit of OpenAI's AI-Generated Mathematical Proofs (Sienicki and Sienicki), abstract", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.14673v3", "title": "same, HTML v3 (section 3.2 via summary)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2608.14673", "title": "same, PDF (binary, unreadable)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1205.1270", "title": "On the equality case in Ehrhart's volume conjecture (Nill, Paffenholz)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1112.4445", "title": "The projective space has maximal volume among all toric Kahler-Einstein manifolds (Berman, Berndtsson)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1204.1308", "title": "The volume of Kahler-Einstein Fano varieties and convex bodies (Berman, Berndtsson)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1912.08075", "title": "The Compression method and applications (Agama)", "type": "preprint", "opened": true},
+    {"url": "https://repository.africarxiv.org/items/c60a4d7c-7cc7-4f44-b4cb-392e81364749/full", "title": "Agama, The Ehrhart volume conjecture is false in sufficiently higher dimensions (AfricArXiv record)", "type": "preprint", "opened": true},
+    {"url": "https://africarxiv.ubuntunet.net/items/c60a4d7c-7cc7-4f44-b4cb-392e81364749/full", "title": "same record, alternate host (DNS failure)", "type": "preprint", "opened": false},
+    {"url": "https://www-cdn.anthropic.com/files/4zrzovbb/website/f243959e288ce20b6e64768b0491e50f3d51d71a.pdf", "title": "The volume inequality in Ehrhart's conjecture (hosted on Anthropic CDN; binary, unreadable)", "type": "preprint", "opened": false},
+    {"url": "https://gigazine.net/gsc_news/en/20260803-openai-astra-lean/", "title": "GIGAZINE: OpenAI Astra and Lean", "type": "news", "opened": true},
+    {"url": "https://officechai.com/ai/openai-says-it-has-solved-10-open-math-problems-using-astra-its-new-model/", "title": "OfficeChai: OpenAI says it has solved 10 open math problems using Astra", "type": "news", "opened": true},
+    {"url": "https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/", "title": "SiliconANGLE: OpenAI's Astra solves 10 long-open math problems", "type": "news", "opened": true},
+    {"url": "https://thezvi.substack.com/p/openais-unreleased-model-astra-solves", "title": "Zvi Mowshowitz: OpenAI's Unreleased Model Astra Solves Ten Major Open Mathematics Problems", "type": "blog", "opened": true},
+    {"url": "https://kingy.ai/news/openai-astra-ten-math-results-evidence/", "title": "Kingy AI: OpenAI Astra's 10 Math Results: Audit and Proof Status", "type": "blog", "opened": true},
+    {"url": "https://www.scientificamerican.com/article/the-most-exciting-claims-from-openais-heap-of-new-proofs/", "title": "Scientific American: the most exciting claims from OpenAI's heap of new proofs", "type": "news", "opened": true},
+    {"url": "https://news.ycombinator.com/item?id=50002650", "title": "Hacker News thread: OpenAI withdraws three mathematical results", "type": "blog", "opened": true},
+    {"url": "https://retractionwatch.com/?p=136176", "title": "Retraction Watch: OpenAI withdraws three preprints", "type": "news", "opened": true},
+    {"url": "https://www.lesswrong.com/posts/pQYEPitFqztcRvBsS/openai-s-unreleased-model-astra-solves-ten-major-open", "title": "LessWrong: OpenAI's Unreleased Model Astra Solves Ten Major Open Mathematics Problems", "type": "blog", "opened": false},
+    {"url": "https://github.com/Vilin97/lean-pool/pull/387", "title": "lean-pool PR 387 (Ehrhart sharp volume inequality)", "type": "repository", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Ehrhart volume conjecture convex body centroid lattice point (n+1)^n/n!",
+      "Ehrhart's volume conjecture",
+      "Ehrhart volume conjecture proof 2025",
+      "Ehrhart volume conjecture arXiv",
+      "Ehrhart volume conjecture AI artificial intelligence proof",
+      "Ehrhart conjecture convex body unique interior lattice point centroid volume bound",
+      "\"ten-proofs\" OpenAI github Astra Lean Ehrhart",
+      "\"The volume inequality in Ehrhart's conjecture\"",
+      "Astra OpenAI ten open math problems Erdos unit distance Ehrhart",
+      "Danus system AI mathematics GPT-5.6-sol Fable 5",
+      "Jihao Liu equality case Ehrhart volume conjecture generative AI",
+      "Ehrhart volume conjecture toric Kähler-Einstein potential complex-analytic proof centroid lattice point",
+      "Agama \"Ehrhart volume conjecture is false\" higher dimensions",
+      "Terence Tao Astra OpenAI ten results Ehrhart commentary",
+      "Sienicki human audit OpenAI Astra ten proofs Chapter 8 reservation",
+      "Thomas Bloom Astra \"dramatic misrepresentation\" OpenAI erdosproblems",
+      "Alpoge Fable Astra ten problems Ehrhart same argument",
+      "Anthropic Fable 5 Ehrhart volume inequality proof mathematics",
+      "Levent Alpoge Fable reproduced OpenAI Astra proofs problems 4 through 8 post",
+      "\"volume inequality\" Ehrhart conjecture Bergman space rank one Monge-Ampère toric Kähler-Einstein proof Anthropic",
+      "EhrhartVolumeInequality.lean Lean formalization sorry Comparator",
+      "lean-pool Vilin97 Ehrhart sharp volume inequality",
+      "Berman Berndtsson Kähler-Einstein Fano varieties convex bodies Ehrhart volume conjecture reflexive polytopes Crelle",
+      "Ehrhart 1964 \"Une généralisation probable du théorème fondamental de Minkowski\"",
+      "Ehrhart volume conjecture counterexample 2026",
+      "centered convex body single interior lattice point centroid volume bound (n+1)^n/n! new result 2026 arXiv",
+      "OpenAI Astra ten advances mathematics peer review verification experts reaction Ehrhart Lean",
+      "Nill Paffenholz equality case Ehrhart volume conjecture Advances in Geometry 2014 published",
+      "Berg Henk lattice point inequalities centered convex bodies Ehrhart conjecture",
+      "Ehrhart volume conjecture DeepMind AlphaEvolve Gemini AI mathematics convex geometry",
+      "OpenAI withdraws three mathematical results",
+      "Berndtsson Ehrhart volume conjecture OpenAI proof comment toric Monge-Ampère 2026",
+      "\"Ehrhart\" OpenAI Astra withdrawn OR retracted OR error convex body volume",
+      "OpenAI 722 manuscripts 372 result families list Ehrhart volume convex body",
+      "Fable 5 Anthropic mathematics paper volume inequality Ehrhart complex analytic arXiv author",
+      "\"ehrhart_volume_inequality_for_sets\""
+    ],
+    "places_checked": [
+      "arXiv: 1205.1270, 1112.4445, 1204.1308, 1912.08075, 2608.01040 (abstract, HTML), 2608.14673 (abstract, HTML)",
+      "Wikipedia article on Ehrhart's volume conjecture (lead, history, references, via fetch summary)",
+      "MathWorld entry EhrhartVolumeConjecture (via fetch summary; last updated 2 October 2026 per the summary)",
+      "OpenAI announcement page (403, both locales); OpenAI Ten Advances PDF (binary, unreadable)",
+      "github.com/openai/ten-proofs: README, EhrhartVolumeInequality.lean (signature read), formalization.yaml",
+      "github.com/openai/math: README, history.md, CONTENTS.md (first ~55 families only)",
+      "AfricArXiv record for Agama (repository host; alternate host failed DNS)",
+      "Anthropic CDN PDF (binary, unreadable); abstract known only from search snippets",
+      "Lean Pool / lean-pool PR 387 (404, not found); reservoir.lean-lang.org listing for lean-pool seen in search results only",
+      "News and commentary: GIGAZINE, OfficeChai, SiliconANGLE, Zvi Mowshowitz, Kingy AI, Scientific American, Hacker News thread, Retraction Watch",
+      "Journal listings seen in search results only: Advances in Geometry (De Gruyter), Chalmers publication page for Berman-Berndtsson"
+    ],
+    "dead_ends": [
+      "arXiv 1912.08075 (Agama, The Compression method and applications): abstract fetched and does not mention Ehrhart; the search snippet claiming a section on the Ehrhart volume conjecture was not confirmed in the full text (not read). Recorded as a dead end, not an event.",
+      "Human audit of OpenAI proofs (Sienicki): search for 'Sienicki ... Chapter 8' returned nothing; the Chapter 8 content came from fetching arXiv HTML v3.",
+      "Terence Tao: no commentary on Astra or Ehrhart found in search or fetched results.",
+      "Thomas Bloom: his comments in the coverage concern the Erdos problems and the bundle as a whole; none about Ehrhart.",
+      "DeepMind, AlphaEvolve, Gemini: no connection to the Ehrhart problem found.",
+      "Berg and Henk, 'Lattice point inequalities for centered convex bodies' (arXiv 1505.06444): about lattice-point counts, not the volume bound; recorded as related background only.",
+      "October 2026 OpenAI withdrawals (Weil classes on split abelian eightfolds; Kuga-Satake for K3; rational Hodge conjecture for K3 products): none concerns the Ehrhart result per coverage and per openai/math history.md (no Ehrhart entry).",
+      "Scientific American 'most exciting claims' article: no mention of Ehrhart, the volume conjecture, or convex geometry.",
+      "Lean Pool / lean-pool: a secondary search summary suggested a lean-pool project formalising the Ehrhart inequality; the PR URL returned 404 and no such project was confirmed. Not recorded as evidence.",
+      "Counterexample searches for 2026 returned no 2026 refutation; the 2026 Ferroni paper on symmetric edge polytopes concerns gamma-positivity, not this conjecture."
+    ]
+  },
+
+  "incomplete": "(1) OpenAI's own announcement page and the Ten Advances PDF (Chapter 8) were not readable (403 and binary). The statement of the Ehrhart chapter, its exact wording of the claim and any AI-role statement come from coverage quoting OpenAI, and the MathWorld citation. (2) The Lean file EhrhartVolumeInequality.lean is about 2.1 million characters: I read the main declaration's signature (ehrhart_volume_inequality_for_sets) and the first 100,000 characters, not the body, the end of file, the normalizedVolume definition, or the Comparator config. (3) The Sienicki audit's Chapter 8 content is from a fetch summary of the arXiv HTML (section 3.2); the PDF body was not readable. (4) Liu's paper: the abstract and Remark quotations come from fetch summaries of the arXiv abstract and HTML (first 100,000 characters of ~181,000); the PDF body was not readable, so Theorem 1.2's exact citation and the full Remark 1.6 text are not verified. (5) The Anthropic-hosted PDF: author, date, venue and body were not established; the event is recorded from search snippets only, and its AI-involvement field is 'none named in the readable text' with the body unread. (6) Agama's full PDF ('Erharht volume conjecture.pdf') was not accessed; the claimed bound's dimension and form are unknown. (7) The Ehrhart special-case proofs (dimension 2, simplices): dates and venues not verified from Ehrhart's own papers. (8) Berman-Berndtsson journal date and Nill-Paffenholz journal date are from search summaries, not from the journals. (9) The Danus system's own paper (arXiv 2607.06447, 'Danus: Orchestrating Mathematical Reasoning Agents with Fact-Graph Memory') was seen only in search results and not opened; the 'Danus system' entries rely on Liu's relayed sentence. (10) Alpoge's X post and the LessWrong post were not opened. (11) The openai/math CONTENTS.md was read only for ~55 of 372 families; I did not verify whether a later family (Oct 6 release) revisits the Ehrhart result, though history.md records no Ehrhart change. (12) Individual human authors of the OpenAI chapter are not established."
+}

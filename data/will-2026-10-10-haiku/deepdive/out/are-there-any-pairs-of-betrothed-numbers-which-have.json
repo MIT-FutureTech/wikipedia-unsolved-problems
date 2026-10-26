@@ -1,0 +1,564 @@
+{
+  "key": "are-there-any-pairs-of-betrothed-numbers-which-have",
+
+  "nothing_found": false,
+  "outcome": "Nothing in the sources has settled or moved whether a same-parity betrothed pair exists: none has been found or excluded since 26 January 2024. The in-window events are formalisations of the question (a January 2026 Lean paper on the definitions; February 2026 and August 2026 entries in DeepMind's formal-conjectures repository, the second correcting a misstatement), and the problem remains open.",
+
+  "problem_asks": "(1) Whether there exists a pair of betrothed numbers m and n, where betrothed means s(m) = n + 1 and s(n) = m + 1 with s the proper-divisor (aliquot) sum; equivalently sigma(m) = sigma(n) = m + n + 1 with sigma the sum-of-divisors function. (2) Whether such a pair can have m and n of the same parity (both even, or both odd). This is one existence question with a yes-or-no answer. It does not ask for bounds, counts, a classification, or the parity of the known pairs. Reading note: the statement says 'pairs' without saying distinct. m = n gives the quasiperfect case sigma(n) = 2n + 1. The February 2026 Lean statement did not require m != n; the August 2026 correction added it, so the distinct reading is the one the formal repository now uses.",
+
+  "events": [
+    {
+      "id": "early-enumeration-1946-1968",
+      "what_happened": "First pairs found by hand or early computation, reported only secondarily: (48, 75) attributed to Nasir (1946); the next pairs to Makowski (1960); Garcia (1968, 'Numeros casi amigos y casi sociables') found further pairs and named them quasi-amicable; Lal and Forbes (1971) also enumerated pairs. Sources are the OEIS A005276 comment by Amiram Eldar and a search snippet of Pollack 2011. The primary papers were not opened.",
+      "date": "1946",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Lists the first handful of pairs, starting with (48, 75). No parity statement is recorded in the secondary sources. Restricted to listing pairs, so it says nothing about whether a same-parity pair exists.",
+      "remains": "The whole problem. Same-parity existence is not addressed.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 80 years (first pair, 1946)",
+      "machine_checked": null,
+      "directly_checkable": "The pair (48, 75) can be checked by hand: sigma(48) = 124 = sigma(75) = 48 + 75 + 1.",
+      "doubts": "Secondary attribution only; primary papers not seen.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral. Exhibits the first pairs, all of opposite parity.",
+      "object": "The pair (48, 75): sigma(48) = sigma(75) = 124 = 48 + 75 + 1. Explicit and checkable by hand. Not a same-parity pair.",
+      "people": ["Nasir", "Makowski", "Garcia", "Lal", "Forbes"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A005276"]
+      },
+      "sources": ["https://oeis.org/A005276", "https://www.mathstat.dal.ca/FQ/Scanned/31-4/beck.pdf (search snippet only, not opened)"]
+    },
+    {
+      "id": "hagis-lord-1977",
+      "what_happened": "P. Hagis Jr. and G. Lord, 'Quasi-amicable numbers', Mathematics of Computation 31(138) (1977), 608-611, DOI 10.1090/S0025-5718-1977-0434939-3. Computational enumeration of pairs: the first 46 pairs (per OEIS), later extended to 107 by Beck and Najar (per a search snippet). The 2013 OEIS comment by Harvey P. Dale and the Wikipedia references attribute to this paper the same-parity lower bound 'a > 10^10' for the smaller member. The paper was not opened: the AMS page returned HTTP 403.",
+      "date": "1977",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Enumeration of pairs up to a search limit. Per secondary report only, a lower bound of 10^10 on the smaller member of any same-parity pair. I have not seen the paper's statement, so I cannot say whether this is a theorem or a computational observation.",
+      "remains": "Existence of a same-parity pair (not addressed by the enumeration).",
+      "checked_by": [
+        {
+          "who": "Mathematics of Computation (American Mathematical Society) editors and referees",
+          "qualification": "Journal of record for computational number theory",
+          "what_they_did": "Accepted and published the paper in 1977. Refereeing not inspected.",
+          "where": "https://www.ams.org/journals/mcom/1977-31-138/S0025-5718-1977-0434939-3/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "49 years",
+      "machine_checked": null,
+      "directly_checkable": "Individual pairs can be checked by computing sigma. The enumeration itself was not checked.",
+      "doubts": "The 10^10 bound is known to me only through the 2013 OEIS comment that cites this paper. The paper was not read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral to the question. A size bound on any same-parity pair, if the paper states one, would constrain a hypothetical counterexample rather than settle existence.",
+      "object": "An explicit list of quasi-amicable pairs (first 46 per OEIS; extended to 107 per Beck and Najar). Not opened, so the list is unverified by me.",
+      "people": ["Peter Hagis Jr.", "Graham Lord"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.ams.org/journals/mcom/1977-31-138/S0025-5718-1977-0434939-3/ (search snippet only)"]
+      },
+      "sources": ["https://www.ams.org/journals/mcom/1977-31-138/S0025-5718-1977-0434939-3/ (not opened, HTTP 403)", "https://oeis.org/A003503", "https://en.wikipedia.org/wiki/Betrothed_numbers"]
+    },
+    {
+      "id": "beck-najar-wajar-1977",
+      "what_happened": "W. E. Beck and R. M. Wajar (also cited as Beck and Najar), 'More reduced amicable pairs', Fibonacci Quarterly 15(4) (1977), 331-332. Adds computed pairs of reduced amicable numbers with smaller member below 10^6; the OEIS remark reports six new pairs. The OEIS remark dates this work to 1971, while the references give 1977. Not opened.",
+      "date": "1977",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Adds enumerated pairs within a search range. The sources I saw say nothing about parity.",
+      "remains": "The whole problem.",
+      "checked_by": [
+        {
+          "who": "Fibonacci Quarterly editors and referees",
+          "qualification": "Journal of record",
+          "what_they_did": "Published the paper in 1977. Refereeing not inspected.",
+          "where": "https://www.mathstat.dal.ca/FQ/Scanned/15-4/beck1.pdf (search result, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "49 years",
+      "machine_checked": null,
+      "directly_checkable": "Individual pairs are checkable by computing sigma. Not checked by me.",
+      "doubts": "Date conflict between OEIS (1971) and the references (1977). Author spelling Wajar/Najar varies across sources.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral. Enumeration only.",
+      "object": "Explicit pairs found by search (six new per the OEIS remark). Not seen.",
+      "people": ["Walter E. Beck", "Rudolph M. Wajar (also cited as R. M. Najar)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A005276"]
+      },
+      "sources": ["https://oeis.org/A005276", "https://www.mathstat.dal.ca/FQ/Scanned/15-4/beck1.pdf (search result, not opened)"]
+    },
+    {
+      "id": "beck-wajar-1993",
+      "what_happened": "W. E. Beck and R. M. Wajar, 'Reduced and augmented amicable pairs to 10^8', Fibonacci Quarterly 31(4) (1993), 295-298. Computer search of reduced amicable pairs with smaller member below 10^8. OEIS says it found the next 33 pairs. A search snippet says a complete list of 84 pairs up to 10^8 was available from the authors. Not opened.",
+      "date": "1993",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Enumeration of pairs with smaller member below 10^8. Finite search: no statement about same-parity pairs appears in the sources I saw, and the search's treatment of parity is not described there.",
+      "remains": "The whole problem.",
+      "checked_by": [
+        {
+          "who": "Fibonacci Quarterly editors and referees",
+          "qualification": "Journal of record",
+          "what_they_did": "Published the paper in 1993. Refereeing not inspected.",
+          "where": "https://www.mathstat.dal.ca/FQ/Scanned/31-4/beck.pdf (search result, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "33 years",
+      "machine_checked": null,
+      "directly_checkable": "Individual pairs are checkable by computing sigma. Not checked by me.",
+      "doubts": "The 84-pair figure and the issue number (4 per OEIS, 3 per one citation) are inconsistent across sources.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral. A finite enumeration; if taken as a same-parity search, it covers only smaller members below 10^8 and is far below the bounds later cited.",
+      "object": "Explicit enumerated pairs (84 up to 10^8 per a search snippet). Not seen.",
+      "people": ["Walter E. Beck", "Rudolph M. Wajar"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A005276"]
+      },
+      "sources": ["https://oeis.org/A005276", "https://www.mathstat.dal.ca/FQ/Scanned/31-4/beck.pdf (search result, not opened)"]
+    },
+    {
+      "id": "pollack-2011",
+      "what_happened": "Paul Pollack, 'Quasi-amicable numbers are rare', Journal of Integer Sequences 14 (2011), Article 11.5.2. Proves that the set of n lying in some quasi-amicable pair has asymptotic density zero. The journal page gives received 26 Nov 2010, revised 16 Apr 2011, published 21 Apr 2011. The paper says previous theoretical work was very limited. NOT OPENED: the EMIS HTML returned HTTP 503 and the cs.uwaterloo PDF was not readable through my fetch. The abstract is taken from a search snippet of the EMIS page.",
+      "date": "2011",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Density-zero statement about the integers that belong to quasi-amicable pairs (per the abstract snippet). That is a statement about how rare members of pairs are; the snippet says nothing about the parity of the two members. Full text unread.",
+      "remains": "The same-parity existence question, and every other part of problem_asks.",
+      "checked_by": [
+        {
+          "who": "Journal of Integer Sequences editors and referees",
+          "qualification": "Journal of record (refereeing not inspected)",
+          "what_they_did": "Published the paper in 2011",
+          "where": "https://emis.univie.ac.at/journals/JIS/VOL14/Pollack/pollack3.html (search snippet, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 15 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Abstract taken from a search snippet; full text unread.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral to the question. A density result about the members of pairs, not about parity.",
+      "object": null,
+      "people": ["Paul Pollack"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://emis.univie.ac.at/journals/JIS/VOL14/Pollack/pollack3.html (search snippet only)"]
+      },
+      "sources": ["https://emis.univie.ac.at/journals/JIS/VOL14/Pollack/pollack3.html (search snippet, not opened)", "https://cs.uwaterloo.ca/journals/JIS/VOL14/Pollack/pollack3.pdf (attempted, unreadable)"]
+    },
+    {
+      "id": "dale-2013-oeis",
+      "what_happened": "Harvey P. Dale, comment on OEIS A003503 dated 7 Apr 2013. States that it has been shown that all known betrothed pairs have opposite parity, and that if a < b are of the same parity then a > 10^10, citing the Hagis and Lord paper. Comment only, with no derivation.",
+      "date": "2013-04-07",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Restates a size bound (smaller member greater than 10^10) for same-parity pairs, attributed to Hagis and Lord. No existence result.",
+      "remains": "Existence of a same-parity pair, and any part of problem_asks other than the size bound.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "13 years 6 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unreferenced restatement. Its 'it has been shown' rests on the cited 1977 paper, which I have not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No existence result. A size bound on a hypothetical smallest counterexample.",
+      "object": null,
+      "people": ["Harvey P. Dale"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A003503"]
+      },
+      "sources": ["https://oeis.org/A003503"]
+    },
+    {
+      "id": "corneth-2019-oeis",
+      "what_happened": "David A. Corneth, comment on OEIS A003503 dated 26 Jan 2019. Shows sigma(k) = sigma(m) for any betrothed pair (k, m). If k and m are both odd, both are squares. If both are even, each is a square or twice a square. Concludes that if k and m are a betrothed pair of the same parity, the minimal term is greater than 2*10^14, 'using inspection and the results above'. Also gives a PARI program (truncated in what I saw). Comment only, not a paper.",
+      "date": "2019-01-26",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Under the comment's argument, any same-parity betrothed pair has minimal term above 2*10^14. This is a size bound on a hypothetical counterexample. It establishes neither existence nor non-existence. The square-structure lemmas are the comment's own; I did not re-derive them.",
+      "remains": "Existence: whether any same-parity pair exists at all, and whether one exists above the stated bound.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "7 years 8 months",
+      "machine_checked": null,
+      "directly_checkable": "Candidate pairs are checkable by computing sigma. The 'inspection' step is not documented in the comment as I read it.",
+      "doubts": "The bound rests on 'inspection' with no documented search range or method. The PARI snippet is truncated. I did not re-derive the parity lemmas. Wikipedia (last edited 14 Mar 2026) still gives 10^13 and does not cite this comment. No source I found cites it.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts neither way on existence. It raises the claimed size of any same-parity pair, if one exists, well above the 10^10 and 10^13 figures elsewhere.",
+      "object": null,
+      "people": ["David A. Corneth"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A003503"]
+      },
+      "sources": ["https://oeis.org/A003503"]
+    },
+    {
+      "id": "eldar-2024-oeis-history",
+      "what_happened": "Amiram Eldar, comment on OEIS A005276 dated 9 Mar 2024. Historical remarks only: first pair (48, 75) found by Nasir (1946); Hagis and Lord (1977) found the first 46 pairs, after Garcia (1968); Beck and Wajar found six more (the comment dates this 1971) and the next 33 (1993), missing two pairs in the process. No new pair and no parity statement.",
+      "date": "2024-03-09",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Historical restatement only. No new pair, no parity result, no bound.",
+      "remains": "The whole problem.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "2 years 7 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral. Discounted: it reports history, not progress.",
+      "object": null,
+      "people": ["Amiram Eldar"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A005276"]
+      },
+      "sources": ["https://oeis.org/A005276"]
+    },
+    {
+      "id": "lean-amicable-formalization-2026-01",
+      "what_happened": "Zhipeng Chen, Haolun Tang and Jingyi Zhan, 'Formalization of Amicable Numbers Theory', arXiv:2601.07444 (cs.LO), submitted 12 Jan 2026. A Lean 4 / Mathlib formalisation of amicable-number theory. It defines betrothed numbers as s(m) = n + 1 and s(n) = m + 1, verifies (48, 75) and (140, 195) computationally, and lists betrothed numbers and 'parity constraint theorems' among its extensions. The authors state the formalisation has zero sorry placeholders (sections 1, 5.1, 6).",
+      "date": "2026-01-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, submitted 12 Jan 2026 (arXiv abstract page).",
+      "delivers": "A formal definition of betrothed pairs, plus machine verification that (48, 75) and (140, 195) are betrothed. No new pair. No result on the parity of betrothed pairs: per the summarising read of the HTML (section 3.7.4), its parity theorems are stated for amicable pairs (IsAmicablePair), not betrothed pairs.",
+      "remains": "Everything the problem asks: whether a same-parity betrothed pair exists.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "9 months",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib",
+        "sorry_free": true,
+        "url": "https://arxiv.org/abs/2601.07444",
+        "note": "Authors' claim (sections 1, 5.1, 6). Not verified by me. The paper's repository https://github.com/chainstart/amicable-numbers (2 commits, Apache 2.0) lists amicable-number files (Amicable.lean, AmicableLib, Amicable/Basic.lean) and no betrothed content, so the betrothed code the paper describes was not located."
+      },
+      "directly_checkable": "The pairs (48, 75) and (140, 195) can be checked by hand against sigma.",
+      "doubts": "(a) Section 3.7.4 says the parity theorems are formalised 'without proof' and also 'proven using 2-adic valuation arguments' in consecutive sentences. (b) Per the summarising read, section 3.7.5 attributes a search bound to 'Pedersen (2003)', which is not in the reference list. (c) The betrothed code was not found in the repository. (d) The zero-sorry claim is the authors' own. None of these bears directly on the existence question.",
+      "later_work_cites_it": false,
+      "withdrawn": null,
+      "direction": "No direction on the question. Confirms known pairs; does not address parity of betrothed pairs.",
+      "object": "The formal definition of betrothed pairs and verified instances (48, 75) and (140, 195). Not a candidate same-parity pair.",
+      "people": ["Zhipeng Chen", "Haolun Tang", "Jingyi Zhan"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2601.07444", "https://arxiv.org/html/2601.07444v1"]
+      },
+      "sources": ["https://arxiv.org/abs/2601.07444", "https://arxiv.org/html/2601.07444v1", "https://github.com/chainstart/amicable-numbers"]
+    },
+    {
+      "id": "formal-conjectures-2026-02",
+      "what_happened": "Two issues opened 10 Feb 2026 by GitHub user franzhusch: #2243 'Do betrothed number pairs with the same parity exist?' and #2246 'Infinitude of Betrothed Numbers'. Both closed as completed by PR #2264 'feat(Wikipedia): Conjectures about Betrothed Numbers', merged 15 Feb 2026 by mo271 (commit 6399d12). The new file FormalConjectures/Wikipedia/BetrothedNumbers.lean defines IsBetrothed (sigma 1 m = m + n + 1 and sigma 1 n = m + n + 1), proves IsBetrothed 48 75 and symmetry, and states same_parity_betrothed (answer(sorry) <-> exists m n, IsBetrothed m n and (Even m <-> Even n)) and infinitely_many_betrothed. Both are tagged research open, AMS 11, and both are sorry-proofed. As the August 2026 issue reports, the merged same_parity statement did not require m != n.",
+      "date": "2026-02-10",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Statement corrected in place by PR #4999 on 16 Aug 2026 (separate event).",
+      "delivers": "Nothing on the question. It states the same-parity question as an open Lean conjecture with no proof either way. The only proved facts are IsBetrothed 48 75 and symmetry. It also states a separate infinitude conjecture, which is not this bullet.",
+      "remains": "All of problem_asks. The existence question is the sorry-proofed statement.",
+      "checked_by": [
+        {
+          "who": "mo271 (GitHub handle; repository maintainer; real identity not established)",
+          "qualification": "Maintainer of the formal-conjectures repository, who merges Lean statements",
+          "what_they_did": "Closed the issues and merged PR #2264. This reviews the Lean statement only, not any mathematics on the question; there is no proof to review.",
+          "where": "https://github.com/google-deepmind/formal-conjectures/pull/2264",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "8 months",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (formal-conjectures repository)",
+        "sorry_free": false,
+        "url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/BetrothedNumbers.lean",
+        "note": "The two open statements are sorry-proofed by design; betrothed_48_75 and IsBetrothed.symm are proved. I did not see a build log. The file was read through a summarising fetch, not raw text."
+      },
+      "directly_checkable": "A same-parity pair would be checkable by computing sigma(m) and sigma(n); none is exhibited.",
+      "doubts": "The merged statement omitted m != n, so it was satisfied by a quasiperfect number (m = n, sigma(n) = 2n + 1), which is a separate open problem. Corrected Aug 2026. The issues cite different OEIS sequences (A005969 in #2246, A005278 in #2243) while the file cites A005276. The issue body and PR description state AI involvement (see ai).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Formal statement of the open question. No direction.",
+      "object": null,
+      "people": ["franzhusch", "mo271"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/google-deepmind/formal-conjectures/issues/2243",
+          "https://github.com/google-deepmind/formal-conjectures/pull/2264"
+        ]
+      },
+      "sources": [
+        "https://github.com/google-deepmind/formal-conjectures/issues/2243",
+        "https://github.com/google-deepmind/formal-conjectures/issues/2246",
+        "https://github.com/google-deepmind/formal-conjectures/pull/2264",
+        "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/BetrothedNumbers.lean"
+      ]
+    },
+    {
+      "id": "formal-conjectures-2026-08-correction",
+      "what_happened": "Issue #4998, 'Wikipedia/BetrothedNumbers: same_parity_betrothed omits m != n, so it is satisfied by a quasiperfect number', by GitHub user Kuberwastaken, created 15 Aug 2026. Closed by PR #4999, 'fix(Wikipedia/BetrothedNumbers): require m != n in same_parity_betrothed', approved by mo271 ('Thanks, LGTM') and merged 16 Aug 2026 (commit c1f1175). Labels: wikipedia, misformalization. The fix adds m != n and keeps the statement research open with sorry. The issue also reports a sigma sieve to 5*10^6 finding 35 betrothed pairs, all of opposite parity; the submitter calls it 'for context; it does not decide anything'. The submitter says a Lean check was run with library options but lake build was not.",
+      "date": "2026-08-15",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Statement corrected in place by PR #4999 (16 Aug 2026).",
+      "delivers": "Correction of the formal statement only: same_parity_betrothed now excludes m = n, so quasiperfect numbers do not satisfy it. Also a finite numerical search to 5*10^6 that finds no same-parity pair. That range is far below the bound Corneth (2019) gives, so it adds no new bound.",
+      "remains": "The existence question entirely. The formal statement is still sorry-proofed.",
+      "checked_by": [
+        {
+          "who": "mo271 (GitHub handle; repository maintainer)",
+          "qualification": "Maintainer of the formal-conjectures repository",
+          "what_they_did": "Approved and merged the statement change ('Thanks, LGTM'). The thread does not show a check of the sieve code.",
+          "where": "https://github.com/google-deepmind/formal-conjectures/pull/4999",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "2 months",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (per submitter)",
+        "sorry_free": false,
+        "url": "https://github.com/google-deepmind/formal-conjectures/issues/4998",
+        "note": "Statement still sorry. Submitter reports a Lean check; no lake build. I did not see the Lean output."
+      },
+      "directly_checkable": "Any candidate pair can be checked by computing sigma. The sieve code and output are not shown.",
+      "doubts": "The sieve results (35 pairs to 5*10^6, all opposite parity) rest on the submitter's own computation, which I could not inspect. The issue does not show code or output.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the question. Repairs a misformalisation.",
+      "object": null,
+      "people": ["Kuberwastaken (GitHub handle)", "mo271 (GitHub handle)"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/google-deepmind/formal-conjectures/issues/4998",
+          "https://github.com/google-deepmind/formal-conjectures/pull/4999"
+        ]
+      },
+      "sources": [
+        "https://github.com/google-deepmind/formal-conjectures/issues/4998",
+        "https://github.com/google-deepmind/formal-conjectures/pull/4999"
+      ]
+    },
+    {
+      "id": "toyohara-tao-yao-2026-08",
+      "what_happened": "Akira Toyohara, Ye Tao and Siqiong Yao, 'Every quasiperfect number has at least eight distinct prime factors', arXiv:2608.02066 (math.NT), submitted 3 Aug 2026. Claims that any quasiperfect number, if one exists, has at least eight distinct prime factors (up from seven, Hagis and Cohen 1982). Says the lemma layer is formalised in Lean (259 theorems, zero sorry). This is an adjacent problem. I record it because betrothed pairs with m = n are quasiperfect numbers, which the distinct-pair reading excludes. Discounted.",
+      "date": "2026-08-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, submitted 3 Aug 2026.",
+      "delivers": "A bound on quasiperfect numbers, which is the m = n case of the betrothed condition. Says nothing about pairs with m != n and nothing about the parity of any betrothed pair.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "2 months",
+      "machine_checked": {
+        "system": "Lean 4 (per abstract)",
+        "sorry_free": true,
+        "url": "https://arxiv.org/abs/2608.02066",
+        "note": "Authors' claim, read through a summarising fetch. Not verified."
+      },
+      "directly_checkable": null,
+      "doubts": "Single-version preprint, not yet reviewed. A search snippet says a sequel aiming at eight-or-more to nine is unfinished.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the question. Quasiperfect side only.",
+      "object": null,
+      "people": ["Akira Toyohara", "Ye Tao", "Siqiong Yao"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2608.02066"]
+      },
+      "sources": ["https://arxiv.org/abs/2608.02066"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "bound-conflict",
+      "summary": "Stated bounds for a same-parity pair disagree. Wikipedia (raw wikitext: '10<sup>13</sup>', no inline citation seen) says any same-parity pair must exceed 10^13. Dale (2013) on OEIS, citing Hagis and Lord (1977), says the smaller member must exceed 10^10. Corneth (2019) on OEIS gives a minimal term above 2*10^14 'using inspection'. An older Wikipedia mirror gives 10^10. These are different claims about the smallest possible counterexample and I have not found which is current or verified.",
+      "sources": ["https://en.wikipedia.org/w/index.php?title=Betrothed_numbers&action=raw", "https://oeis.org/A003503"]
+    },
+    {
+      "kind": "citation",
+      "summary": "Beck and Wajar's 1977 paper is dated 1971 in one OEIS remark and 1977 in the references. Its co-author is spelled Wajar in its byline and Najar in several references.",
+      "sources": ["https://oeis.org/A005276", "https://www.mathstat.dal.ca/FQ/Scanned/31-4/beck.pdf"]
+    }
+  ],
+
+  "summary": "Searched 50 times (WebSearch, standard mode except two extended runs) and opened the following: Wikipedia (rendered and raw wikitext); OEIS A003503 and A005276; arXiv 2601.07444 and 2608.02066; MathWorld; Futility Closet; the formal-conjectures issues #2243, #2246 and #4998, PRs #2264 and #4999, and the Lean file BetrothedNumbers.lean; and the amicable-numbers repository chainstart/amicable-numbers. Nothing found settles, or moves in a way that bears on existence, the question whether a betrothed pair with both members of the same parity exists. None has been found or excluded. Known pairs all have opposite parity (Wikipedia; OEIS; Futility Closet, which says the question is open). The size bounds are the only quantitative content: 10^10 (Dale 2013, attributing to Hagis and Lord 1977), 2*10^14 (Corneth 2019, minimal term, 'using inspection'), and 10^13 (Wikipedia, uncited). These constrain a hypothetical counterexample; they decide nothing about existence, and the problem does not ask for them. The in-window events are formalisations and one misstatement fix. (i) A January 2026 Lean paper formalises amicable numbers and defines betrothed pairs, verifying (48, 75) and (140, 195). Its 'parity constraint theorems' are stated for amicable pairs, not betrothed pairs. (ii) In February 2026 franzhusch opened issues #2243 and #2246, merged by mo271 in PR #2264. The repository states the same-parity question as a sorry-proofed open Lean statement. Its AI disclosures are 'This issue was generated by an AI agent and reviewed by me' (issue) and 'Formalization done with the help of Claude Opus 4.6' (PR). (iii) On 15-16 Aug 2026, Kuberwastaken's issue #4998 and PR #4999 corrected same_parity_betrothed to require m != n, so quasiperfect numbers no longer satisfy it. The issue reports a sieve to 5*10^6 finding 35 betrothed pairs, all of opposite parity, and says it decides nothing. Its AI disclosure is 'prepared with AI assistance (Claude, Anthropic) for the source audit, the sieve computation, and drafting'. On AI: no AI system is credited with any mathematical result on this problem. I have not placed any system in ai.systems, because the contributions I found are statement formalisation, source checking, a computation with no result, and drafting. Section 5.4 excludes those from ai.systems, though all of them count as involvement. none_found is false for the formal-conjectures events and the August correction, and true for the rest. Where a call was close: (a) whether formal statements count as events bearing on the problem; I recorded them and they deliver nothing, so the judging pass can discount them. (b) Whether Corneth's bound moves a quantity the problem names: the problem asks only existence, and the bound is on a hypothetical minimum, so I treat it as a bound rather than a resolution. (c) Whether a model's role in writing a formal statement is AI involvement in the mathematics: I say it is involvement but not in the result, which is the reading §5.4 gives for formalisation, and I flag it in the event for the later pass. Current status signal: as of the 16 Aug 2026 merge, the DeepMind repository still tags same_parity_betrothed as research open with a sorry proof. Futility Closet (29 Sep 2025) and Wikipedia (last edited 14 Mar 2026) state the question as open and cite nothing new; I read them but did not record them as events, since they are digests and not work bearing on the problem. Adjacent, discounted: the Toyohara et al. quasiperfect bound (3 Aug 2026), recorded as an event because the m = n case is quasiperfect.",
+
+  "competing_reading": "The strongest reading against the record: Corneth's 2019 comment is a genuine partial result on this question, not a computation. Its square-structure lemmas restrict any same-parity pair to a very sparse family and put the least such pair above 2*10^14. If the argument holds, it is the most substantive content the record holds, and it falls before the window, so it does not count as since-2024 progress. In the other direction, one could say the 2026 formal-conjectures entries are not research at all and should be discounted as no-events; I recorded them because they are the only in-window items that address this question directly, and they deliver nothing. A third reading would take the Lean paper's 'parity constraint theorems' as bearing on betrothed pairs. Its own text, read through the summarising fetch, says they concern amicable pairs.",
+
+  "what_would_settle_it": "For existence: a same-parity pair (directly checkable by computing sigma(m) and sigma(n)), or a proof that same parity is impossible. For the bounds: the 1977 Hagis and Lord text (the source of the 10^10 claim); the origin of Wikipedia's 10^13 bound; a refereed or written-up version of Corneth's argument and its search. For the record's gaps: Guy's Unsolved Problems in Number Theory, section B5, to confirm the problem's wording (I saw only OEIS citations to it); Pollack 2011 in full; the Lean paper's PDF and any betrothed code; the sieve code and output for issue #4998 and the PR #4999 diff.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Betrothed_numbers", "title": "Betrothed numbers (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/w/index.php?title=Betrothed_numbers&action=raw", "title": "Betrothed numbers, raw wikitext (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A003503", "title": "OEIS A003503 (larger member of a betrothed pair; comments by Dale 2013, Corneth 2019)", "type": "repository", "opened": true},
+    {"url": "https://oeis.org/A005276", "title": "OEIS A005276 (betrothed pairs; comment by Eldar 2024; references)", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2601.07444", "title": "Formalization of Amicable Numbers Theory, arXiv:2601.07444", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2601.07444v1", "title": "Formalization of Amicable Numbers Theory, HTML (read through a summarising fetch)", "type": "preprint", "opened": true},
+    {"url": "https://www.futilitycloset.com/2025/09/29/betrothed-numbers/", "title": "Betrothed Numbers (Futility Closet)", "type": "blog", "opened": true},
+    {"url": "https://mathworld.wolfram.com/QuasiamicablePair.html", "title": "Quasiamicable Pair (MathWorld)", "type": "encyclopedia", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/issues/2243", "title": "Issue #2243: Do betrothed number pairs with the same parity exist?", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/issues/2246", "title": "Issue #2246: Infinitude of Betrothed Numbers", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/pull/2264", "title": "PR #2264: feat(Wikipedia): Conjectures about Betrothed Numbers", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/BetrothedNumbers.lean", "title": "FormalConjectures/Wikipedia/BetrothedNumbers.lean (read through a summarising fetch)", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/issues/4998", "title": "Issue #4998: same_parity_betrothed omits m != n", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/pull/4999", "title": "PR #4999: fix(Wikipedia/BetrothedNumbers): require m != n in same_parity_betrothed", "type": "repository", "opened": true},
+    {"url": "https://github.com/chainstart/amicable-numbers", "title": "chainstart/amicable-numbers (Lean 4 amicable-number repository)", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.02066", "title": "Every quasiperfect number has at least eight distinct prime factors, arXiv:2608.02066", "type": "preprint", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "betrothed numbers same parity",
+      "betrothed numbers sigma function definition",
+      "betrothed numbers Wikipedia",
+      "betrothed pairs of numbers opposite parity open problem Guy UPINT",
+      "betrothed numbers 48 75 140 195 new pairs",
+      "betrothed numbers arXiv",
+      "betrothed numbers OEIS sequence",
+      "\"betrothed numbers\" amicable generalization pair",
+      "betrothed numbers same parity 2025",
+      "betrothed numbers 2026 new result",
+      "betrothed numbers AI model discovered",
+      "amicable numbers same parity open problem",
+      "betrothed numbers Mathworld Weisstein",
+      "betrothed numbers Erdős problems",
+      "betrothed numbers Richard Guy Unsolved Problems in Number Theory B",
+      "Pollack \"Quasi-amicable numbers are rare\" Journal of Integer Sequences",
+      "quasi-amicable numbers 2024 computation search pairs",
+      "quasi-amicable numbers Hagis Lord 1977 Mathematics of Computation",
+      "Erdős problems AI model solved amicable betrothed sigma",
+      "AlphaEvolve number theory amicable numbers discovery",
+      "LLM found new amicable pairs or sociable numbers",
+      "Corneth quasi-amicable same parity 2*10^14 OEIS",
+      "unitary amicable numbers same parity 1971 proof",
+      "Beck Wajar reduced amicable pairs to 10^8 Fibonacci Quarterly",
+      "Garcia 1968 quasi-amicable numbers Fibonacci",
+      "\"quasiamicable\" OR \"quasi-amicable\" pairs list unsolved problem parity Guy (extended mode)",
+      "Formalization of Amicable Numbers Theory Lean sorry repository Chen Tang Zhan",
+      "Wikipedia list of unsolved problems in mathematics betrothed numbers parity",
+      "Dickerman quasi-sociable numbers chains 1997 aliquot",
+      "Rufus Isaacs betrothed numbers name origin",
+      "betrothed numbers ChatGPT OR Gemini OR Claude proof",
+      "aliquot sequence sigma(m)=sigma(n)=m+n+1 AI-assisted discovery",
+      "Epoch AI open problems AI solved list number theory 2026 sigma amicable",
+      "erdosproblems.com betrothed quasi-amicable parity",
+      "\"betrothed\" numbers parity conjecture proof 2026 (extended mode)",
+      "quasiperfect numbers quasi-amicable open problems 2025 survey Guy B5 update",
+      "google-deepmind formal-conjectures betrothed numbers Lean file",
+      "formal-conjectures github Betrothed sorry Lean statement quasi-amicable",
+      "chainstart amicable-numbers github Lean 4",
+      "\"betrothed\" formal-conjectures Wikipedia Number Theory milestone commit 6399d12",
+      "formal-conjectures issue same_parity_betrothed",
+      "Formal Conjectures open evolving benchmark arXiv 2605.13171 Wikipedia conjectures Lean sorry AI-generated statements",
+      "Kuberwastaken betrothed quasiperfect formal-conjectures audit",
+      "\"Claude Opus 4.6\" betrothed numbers formalization",
+      "quasi-amicable betrothed pairs arXiv 2025 OR 2026 new computation parity",
+      "Formal Conjectures AI-generated conjecture statements audit fixes quasiperfect betrothed",
+      "betrothed numbers AI-generated",
+      "quasi-amicable numbers artificial intelligence",
+      "quasi-amicable pairs same parity search bound 10^14 Corneth OEIS comment computation",
+      "Toyohara Tao Yao quasiperfect numbers eight prime factors"
+    ],
+    "places_checked": [
+      "Wikipedia 'Betrothed numbers' (rendered and raw wikitext)",
+      "OEIS A003503 (with comments by Dale 2013 and Corneth 2019)",
+      "OEIS A005276 (with comment by Eldar 2024 and references)",
+      "OEIS A126160, A274118, A281265 (search results only)",
+      "arXiv 2601.07444 (abstract and HTML)",
+      "arXiv 2608.02066 (abstract)",
+      "arXiv listing via web search for 'betrothed numbers' (no direct arXiv search run)",
+      "MathWorld 'Quasiamicable Pair'",
+      "Futility Closet, 29 Sep 2025",
+      "DeepMind formal-conjectures: issues #2243, #2246, #4998; PRs #2264, #4999; file FormalConjectures/Wikipedia/BetrothedNumbers.lean",
+      "chainstart/amicable-numbers repository README and file list",
+      "Pollack 2011 abstract (search snippet of EMIS page)",
+      "Hagis & Lord 1977 bibliographic record (search snippet of AMS page)",
+      "AI search: betrothed/quasi-amicable with AI, LLM, ChatGPT, Gemini, Claude, AlphaEvolve, Erdős-problem AI results, Epoch AI open problems, formal-conjectures AI statements"
+    ],
+    "dead_ends": [
+      "Pollack 2011 full text: EMIS HTML returned HTTP 503; cs.uwaterloo PDF is compressed binary and unreadable through the fetch; pollack.uga.edu redirects to pollack-math.net, not followed.",
+      "Hagis & Lord 1977: AMS page returned HTTP 403; only the bibliographic record was seen.",
+      "Beck & Wajar 1993 and Beck & Najar 1977 PDFs (mathstat.dal.ca): listed in search results, not opened.",
+      "Isabelle AFP 'Amicable_Numbers' outline PDF: compressed binary, unreadable through the fetch. Its entry is an amicable-number formalisation; no betrothed content could be checked.",
+      "Guy's Unsolved Problems in Number Theory, section B5: no text available; only OEIS and MathWorld citations to it were seen.",
+      "erdosproblems.com: no page on this problem found by search; site not reached directly.",
+      "Epoch AI Open Problems list and Terence Tao's GitHub database: searched for, not reached or checked directly.",
+      "Lean paper's GitHub repository chainstart/amicable-numbers: the README and listing were read, but no betrothed file was found there. The paper's betrothed code was not located.",
+      "AI-side searches returned only unrelated AI-math results (OpenAI unit-distance result, Erdős-problem solutions, AlphaEvolve's broader number theory work, Gemini and cosmic-string papers). None concerns betrothed numbers. The 2026 Claude involvement in the formal-conjectures statements is the only AI involvement found for this problem.",
+      "Formal-conjectures Zulip threads linked from issues #2243 and #2246 (custom issue-generation agent): not accessible."
+    ]
+  },
+
+  "incomplete": "(1) Guy's Unsolved Problems in Number Theory, section B5, not read; the problem's wording comes from the Wikipedia statement, not from Guy. (2) Hagis & Lord 1977 (AMS page HTTP 403) and Beck & Najar / Beck & Wajar 1977 and 1993 not opened; their content is secondary only. (3) Pollack 2011 full text not read (EMIS HTML HTTP 503; PDF unreadable); its abstract is from a search snippet. (4) The Lean paper (arXiv 2601.07444) and the formal-conjectures Lean file were read through a summarising fetch, not raw text; its 'zero sorry' and parity claims are unverified. (5) No Lean build log, no lake build, and no sieve code or output were seen for the formal-conjectures events, or for the paper. (6) The source of Wikipedia's 10^13 bound is not identified; the wikitext shows no inline citation. (7) Wikipedia's article history and the date that bound was introduced were not checked. (8) erdosproblems.com, Epoch's Open Problems list, and Tao's GitHub database were not reached. (9) Only the search engine was used; arXiv's own search, Google Scholar and MathSciNet were not run. (10) The Zulip threads linked from the formal-conjectures issues are not accessible. (11) Futility Closet (Sep 2025) and Wikipedia (last edited 14 Mar 2026) were read but are not recorded as events; they are digests stating the question open and cite nothing new. (12) The identity of GitHub handles franzhusch, mo271 and Kuberwastaken was not established, and I have not made any claim about them beyond their GitHub activity."
+}

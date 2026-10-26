@@ -1,0 +1,1168 @@
+{
+  "key": "ibragimov-iosifescu-conjecture-for-mixing-sequences",
+  "nothing_found": false,
+  "outcome": "A candidate Lean disproof of the Ibragimov–Iosifescu φ-mixing CLT conjecture was posted on GitHub on 5 September 2026 by Tom Adamczewski, with the construction and disproof credited in the repository to GPT-6 Astra; it is unrefereed, its formal statement was AI-autoformalised, and as of 12 October 2026 I found no public human reading of it, while the pre-2024 partial results (Peligrad 1985, Yoshihara 1985, Herrndorf 1983) remain restricted cases.",
+  "problem_asks": "(i) Ibragimov's CLT part: for every strictly stationary, centred (E X₀ = 0), square-integrable (E X₀² < ∞) φ-mixing real sequence (Xₙ) with Var(Sₙ) → ∞, where Sₙ = X₁ + … + Xₙ, the normalised sums Sₙ/√Var(Sₙ) converge in distribution to N(0,1). (ii) Iosifescu's companion part: under the same hypotheses, a weak invariance principle holds, i.e. the rescaled partial-sum process converges weakly to Brownian motion. Caveat: the statement field I was given is the title alone; (i) and (ii) are taken from the Wikipedia article and MathWorld, which both describe these two parts. The Wikipedia article also names a related conjecture of Magda Peligrad (with φ₁ < 1, a modified normalised sum W̃ₙ converges weakly to Brownian motion). It is not in the title and I have not decided whether it is part of the bullet; no event I found addresses it. The question asks whether the claims hold in full generality, so one valid counterexample to the universal claim settles that claim negatively.",
+  "events": [
+    {
+      "id": "adamczewski-gpt6astra-2026-09",
+      "what_happened": "Tom Adamczewski published, in the public GitHub repository tadamcz/phi-mixing-clt, a candidate Lean 4 disproof of the Ibragimov–Iosifescu φ-mixing CLT conjecture. The README states that 'the counterexample construction and Lean disproof in this repository were obtained by GPT-6 Astra' and that 'this entire repository was machine-written by AI assistants at the direction of Tom Adamczewski' (both sentences read via a WebFetch summary of the GitHub page; the raw README could not be read). The repository's first commit ('Initial import: Hawk run data and analysis (Ibragimov-Iosifescu phi-mixing CLT, part i)') is dated 2026-09-05T17:10:02Z; the 13 commits run to 2026-09-06T22:18:58Z. The run log in the repository (info.json) records the run as started 2026-09-04T15:46Z and completed 2026-09-05T03:42Z. On 5 September the author posted on X: 'Astra has produced a candidate Lean disproof of the Ibragimov–Iosifescu conjecture for φ-mixing sequences (1971) AIs think it's legit and not misformalized. But I can't judge. Repo in replies.' (quoted in a search snippet; X returned HTTP 402 to my fetch). A Trendshift comment by the same handle, dated 5 September, reads: 'I also do not know the degree of significance of this conjecture. If you don't know either, please do not hype!'. Registries record the same result: a whataifound.org entry dated 2026-09-05 ('Claimed AI-led'), and a VibeMathed entry (solved date 2026-09-05; submitted 6 September 2026; 'Candidate (review pending)'; 'Lean-checked, statement unaudited'). Wikipedia's list of AI mathematical discoveries credits 'Epoch AI and GPT-6 Astra' with status 'Lean formalization; independent review pending'. The Wikipedia article on the conjecture (revision of 15 September 2026) and MathWorld (status 'as of Sep. 7, 2026') both describe the candidate as unaudited by the mathematical community.",
+      "date": "2026-09-05",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "13 commits on the repository, 2026-09-05T17:10:02Z (initial import) to 2026-09-06T22:18:58Z (latest seen in the commit list). VibeMathed reports its Lean check on 6 September 2026 from a clone at commit 8e08498. No arXiv preprint or journal version found. Wikipedia article revised 15 September 2026 to describe the candidate.",
+      "delivers": "If the Lean statement is faithful: a counterexample to Ibragimov's CLT part (i). The exhibited process is strictly stationary, centred, φ-mixing, has E X₀² < ∞ and Var(Sₙ) → ∞, yet along some subsequence nⱼ the normalised sums Sₙⱼ/√Var(Sₙⱼ) → 0 in probability, so Sₙ/√Var(Sₙ) cannot converge to N(0,1). The repository's natural-language argument and the Wikipedia article say the same process also rules out part (ii), since a weak invariance principle would imply the CLT at time 1. Restrictions: (a) the formal target is the CLT only (the Lean statement is named parts.i); the invariance consequence is argued in prose and is not a separate Lean theorem in the portion of Spec.lean I read; (b) the φ-mixing coefficient, strict stationarity and the variance are hand-rolled Lean definitions (φ-mixing as a supremum over events in σ(Xⱼ, j ≤ m) and σ(Xⱼ, j ≥ m+n) of positive measure, stationarity as equality in law of shifts, variance via Mathlib), and their agreement with the classical definitions is the open point; (c) the Peligrad variant with φ₁ < 1 is not addressed by anything I read.",
+      "remains": "If the formalisation is faithful, nothing of part (i) or part (ii) remains open for the sequence class as stated. Unchecked: whether the Lean definitions match the classical ones (the statement was AI-autoformalised, and I found no public human comparison); whether the invariance consequence follows as argued (not formalised as a separate theorem in what I read); the Peligrad variant.",
+      "checked_by": [
+        {
+          "who": "Repository ANALYSIS.md (the README describes the repository as machine-written by AI assistants)",
+          "qualification": "None as a mathematical reading: written by AI assistants at the author's direction.",
+          "what_they_did": "Assessed faithfulness of the formal statement (summary of its preamble: verdict 'C-possibly-new' with high confidence in formal faithfulness); checked each hypothesis against a named Lean lemma; reported a loophole audit (no native_decide, a single sorry on the original statement not used by the disproof); recommended an independent lean4checker run and an expert probabilist review.",
+          "where": "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/ANALYSIS.md (read via WebFetch summary)",
+          "automated": true
+        },
+        {
+          "who": "VibeMathed registry (vibemathed.com); entry submitted by 'VibeGene' on 6 Sep 2026 and approved by Rasmus Lindahl on 6 Sep 2026",
+          "qualification": "Registry curation; no mathematical review is claimed on the entry.",
+          "what_they_did": "Re-ran the Lean check on a clone at commit 8e08498 (6 Sep 2026): reports 13,047 lines, zero sorry outside statement stubs, zero axiom declarations, no native_decide, unsafe or implemented_by; the kernel accepts the disproof with propext, Classical.choice and Quot.sound only. Labelled the entry 'Candidate (review pending)' and 'Lean-checked, statement unaudited'.",
+          "where": "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture (read via WebFetch summary)",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "37 days as of 12 October 2026 (posted 5 September 2026). No public human reading found. MathWorld (status as of 7 September) and the Wikipedia article (revision of 15 September) both say no independent probabilist review or audit has been reported; I found no later report. The only comments on the repository's listing are the author's own.",
+      "machine_checked": {
+        "system": "Lean 4 (4.27.0 pinned per README), with Mathlib and Formal Conjectures pinned; build log reports a 'Comparator' stage. Challenge and Solution both built (8062 jobs); the kernel reports 'Your solution is okay!'. Sorry: two in Challenge.lean (lines 134 and 147) and one in Solution.lean (line 136), on the original conjecture statement; the disproof's axioms are the three standard ones (per the build log's exported-declaration list).",
+        "sorry_free": false,
+        "url": "https://github.com/tadamcz/phi-mixing-clt"
+      },
+      "directly_checkable": "The object is a process defined by a feedback map and rare-spike innovations, too long to check by hand from the repository. natural-language-argument.md gives a four-step sketch: (1) bounded odd feedback controllers that keep typical partial sums small; (2) uniform forgetting plus added Gaussian noise, giving φ-mixing by a coupling argument; (3) innovations that are mixtures of a point mass at zero and very large, very rare spikes; (4) a staged diagonal choice of controllers, observation times and spike sizes. I did not build the Lean project (shell fetches needed approval), so I have not run the build myself.",
+      "doubts": "(1) The formal statement was AI-autoformalised: MathWorld says 'the formal problem statement was itself generated by AI'; the VibeMathed entry says it came from 'Epoch's AI-autoformalized \"wikipedia\" run'; the repository's ANALYSIS.md (via summary) judges the hand-rolled definitions faithful, with the junk-value cases (sSup, division by zero, indexing) judged non-exploitable. This is an AI audit of an AI-written statement; I found no human comparison. (2) The author says he cannot judge the result himself ('But I can't judge'; 'I also do not know the degree of significance of this conjecture'). (3) Self-labelled as a candidate by the registries and by Wikipedia ('unaudited'). (4) The run's info.json keys its metadata to a 'sketch' field whose value is not in the file, so I cannot tell whether a human-written proof idea was supplied to the run. (5) The repository's final_messages.md is described by the README as 'the agent's own closing notes (untrusted self-report)'. (6) The Lean target is the CLT only; the invariance consequence is argued in prose.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against the conjecture as formalised: Ibragimov's CLT (part i) asserts convergence to N(0,1) for every such sequence, and the candidate exhibits one for which convergence fails along a subsequence. By the repository's and Wikipedia's account, the same process is also against Iosifescu's invariance principle (part ii), argued in prose.",
+      "object": "A strictly stationary, centred, φ-mixing real process of the form Xₜ = ξₜ + K(ξₜ₋₁, ξₜ₋₂, …), where the ξₜ are i.i.d. Gaussian innovations convolved with a symmetric rare-spike law and K is a bounded, continuous, odd feedback map built in cascades. It has finite second moments; Var(Sₙ) → ∞ because rare large spikes carry second-moment mass that the bounded feedback cannot cancel; along a subsequence nⱼ, Sₙⱼ/√Var(Sₙⱼ) → 0 in probability. The construction is non-constructive: controllers, observation times, burn-in lengths and spike sizes are chosen by a diagonal argument using Classical.choice over proved existence statements (ANALYSIS.md, via summary). The object is therefore not explicit.",
+      "people": [
+        "Tom Adamczewski (GitHub user tadamcz; the README says the repository was machine-written 'at the direction of' him; VibeMathed lists him as collaborator)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Per the repository, it obtained the counterexample construction (the feedback-and-spike process and the diagonal choice) and the Lean disproof. The run log (info.json) records 1054 turns. The Lean formal statement was AI-autoformalised by a step that the VibeMathed entry attributes to an Epoch AI 'wikipedia' run; no model is named for that step. The repository's ANALYSIS.md and literature review were written by unnamed 'AI assistants'. Registries (VibeMathed, whataifound) label the model 'GPT-6 Astra (pre-release)' with vendor OpenAI; the repository says only 'GPT-6 Astra'. The run's usage record is keyed to 'epoch/vega-alpha' in info.json, and I found no source linking that key to GPT-6 Astra, so I have not recorded it as a system.",
+            "basis_quote": "This entire repository was machine-written by AI assistants at the direction of Tom Adamczewski. The counterexample construction and Lean disproof in this repository were obtained by GPT-6 Astra.",
+            "quote_url": "https://github.com/tadamcz/phi-mixing-clt"
+          }
+        ],
+        "disclosed_cost": "From the repository's info.json (model_usage): total_cost 261.16333 (USD); turns 1054; total_tokens 81,325,445 (input 84,977; output 1,491,547; cache read 70,532,635; cache write 9,216,286; reasoning 856,240); started 2026-09-04T15:46:01Z, completed 2026-09-05T03:42:05Z. VibeMathed and whataifound report about twelve hours, 1054 turns and $261.",
+        "sources": [
+          "https://github.com/tadamcz/phi-mixing-clt",
+          "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/info.json",
+          "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/ANALYSIS.md",
+          "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture",
+          "https://github.com/mrconter1/vibemathed/pull/39",
+          "https://whataifound.org/",
+          "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+          "https://mathworld.wolfram.com/Ibragimov-IosifescuConjecture.html"
+        ]
+      },
+      "sources": [
+        "https://github.com/tadamcz/phi-mixing-clt",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/README.md",
+        "https://api.github.com/repos/tadamcz/phi-mixing-clt/commits",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/info.json",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/submission/Spec.lean",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/ANALYSIS.md",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/natural-language-argument.md",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/final_messages.md",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/LITERATURE_REVIEW.md",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/LITERATURE_CITATIONS.tsv",
+        "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture",
+        "https://github.com/vibemathing/problem-wikipedia-4b88eb65a27050b3",
+        "https://github.com/mrconter1/vibemathed/pull/39",
+        "https://whataifound.org/",
+        "https://trendshift.io/repositories/215471",
+        "https://en.wikipedia.org/wiki/Ibragimov%E2%80%93Iosifescu_conjecture_for_%CF%86-mixing_sequences",
+        "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+        "https://mathworld.wolfram.com/Ibragimov-IosifescuConjecture.html",
+        "https://x.com/tmkadamcz/status/2096303102009700553"
+      ]
+    },
+    {
+      "id": "peligrad-1985-invariance",
+      "what_happened": "Magda Peligrad, 'An invariance principle for φ-mixing sequences', Annals of Probability 13(4), 1304–1313 (November 1985). The abstract (opened, Project Euclid) states that the normalised sample paths of a φ-mixing sequence converge to Brownian motion under Lindeberg's condition and some stationarity assumptions, and that 'no mixing rate is required'. The Bradley survey text, as quoted in a search summary, cites this paper (Corollary 2.2 and p. 1305) for confirming Ibragimov's CLT and Iosifescu's invariance principle under liminf n⁻¹Var(S_n) > 0. I could not open the body, so that link is not checked by me.",
+      "date": "1985",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Restricted case of both parts: the CLT and the invariance principle under the linear-variance hypothesis liminf n⁻¹Var(Sₙ) > 0 (per the citation, body unread). From the abstract: a Lindeberg-type condition with no mixing rate, under stationarity. Confined to the linear-variance regime.",
+      "remains": "The regime with Var(Sₙ) → ∞ and liminf n⁻¹Var(Sₙ) = 0 (sublinear growth), which the repository describes as 'the one open regime'.",
+      "checked_by": [
+        {
+          "who": "Annals of Probability (refereed journal)",
+          "qualification": "Journal of record.",
+          "what_they_did": "Published the paper; referee reports not seen.",
+          "where": "https://projecteuclid.org/euclid.aop/1176992814",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The link between the abstract (Lindeberg condition) and the liminf hypothesis is attributed to the body via a citation I could not read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partly for the conjecture: confirms both parts under an added linear-variance hypothesis.",
+      "object": null,
+      "people": [
+        "Magda Peligrad"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://projecteuclid.org/euclid.aop/1176992814",
+        "https://en.wikipedia.org/wiki/Ibragimov%E2%80%93Iosifescu_conjecture_for_%CF%86-mixing_sequences"
+      ]
+    },
+    {
+      "id": "yoshihara-1985-uniform-integrability",
+      "what_happened": "K. Yoshihara, 'Central limit theorems for stationary mixing sequences', Yokohama Mathematical Journal 33 (1985) 131–137. Per a search summary of the paper's introduction (the PDF returned HTTP 503 to me twice), it states the conjecture (Conjecture A: strictly stationary, centred, φ-mixing, finite second moments, Var(Sₙ) → ∞ implies the CLT) as unsolved, and proves Theorem 2: if {Sₙ²/sₙ²} is uniformly integrable, the CLT holds.",
+      "date": "1985",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A conditional sufficient condition for part (i): the CLT holds under the additional hypothesis that Sₙ²/sₙ² is uniformly integrable. Restriction: the uniform-integrability hypothesis is not among the conjecture's hypotheses, so this is not a proof of the conjecture.",
+      "remains": "The conjecture in full, without the uniform-integrability hypothesis. Part (ii) is not addressed by this result as I read it.",
+      "checked_by": [
+        {
+          "who": "Yokohama Mathematical Journal (refereed journal)",
+          "qualification": "Journal of record.",
+          "what_they_did": "Published the paper; referee reports not seen.",
+          "where": "https://ynu.repo.nii.ac.jp/record/6755/files/YMJ_33_N1-2_1985_131-137.pdf (not opened: HTTP 503)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The statement of Theorem 2 comes from a search summary; I could not open the PDF.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Conditional support for part (i) via a uniform-integrability criterion.",
+      "object": null,
+      "people": [
+        "Ken-ichi Yoshihara"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://ynu.repo.nii.ac.jp/record/6755/files/YMJ_33_N1-2_1985_131-137.pdf"
+      ]
+    },
+    {
+      "id": "herrndorf-1983-wip",
+      "what_happened": "N. Herrndorf (1983), 'The invariance principle for φ-mixing sequences', Zeitschrift für Wahrscheinlichkeitstheorie und verwandte Gebiete 63, 97–108 (bibliographic record from a search snippet; not opened). As stated in a search summary of arXiv 1304.7960 (not opened): for a φ-mixing sequence satisfying the CLT with liminf σₙ²/n > 0, the weak invariance principle holds. Herrndorf's separate 1983 Annals paper, 'Stationary strongly mixing sequences not satisfying the central limit theorem' (opened as an abstract only via search snippet; not the same question), is an α-mixing counterexample to the CLT and is not an event on this conjecture.",
+      "date": "1983",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Restricted case of part (ii): the weak invariance principle, under the assumed CLT and the linear-variance hypothesis liminf σₙ²/n > 0. It does not prove the CLT.",
+      "remains": "Part (i) in full; part (ii) without the assumed CLT and the linear-variance hypothesis.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only through two secondary summaries; the 1983 paper was not opened.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Conditional support for part (ii).",
+      "object": null,
+      "people": [
+        "N. Herrndorf"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/pdf/1304.7960"
+      ]
+    },
+    {
+      "id": "hahn-kuelbs-samur-1987-hilbert",
+      "what_happened": "Hahn, Kuelbs and Samur (1987), Annals of Probability: a Gaussian CLT for trimmed sums of φ-mixing Hilbert-space-valued random variables, with stated implications for Ibragimov's conjecture (per a search summary; not opened).",
+      "date": "1987",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A CLT for trimmed sums in Hilbert space, a different setting from real-valued sequences. Does not decide part (i) for real φ-mixing sequences as I understand the summary; the implications for the conjecture are not stated in what I read.",
+      "remains": "Parts (i) and (ii) for real-valued sequences.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only from a search summary; the paper was not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring setting; discounted.",
+      "object": null,
+      "people": [
+        "Hahn",
+        "Kuelbs",
+        "Samur"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://www.projecteuclid.org/euclid.aop/1176991984"
+      ]
+    },
+    {
+      "id": "peligrad-1990-sps",
+      "what_happened": "M. Peligrad, 'On Ibragimov–Iosifescu conjecture for φ-mixing sequences', Stochastic Processes and their Applications 35 (1990) 293–308, doi 10.1016/0304-4149(90)90008-G (bibliographic data from the MathWorld references and a Springer reference-list snippet). The article is not readable to me: ScienceDirect returned HTTP 403 and academia.edu returned HTTP 403. A search summary of a VibeMathed page says it 'gave a positive answer for a related conjecture under a special tail condition (regularly varying tails with exponent −2)'; I could not confirm that.",
+      "date": "1990",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Not established. The title says the paper concerns this conjecture; the claimed tail-condition result is unverified. The Wikipedia article refers to a related Peligrad conjecture (φ₁ < 1, modified normalised sums converge to Brownian motion), which may be the paper's subject.",
+      "remains": "Not established.",
+      "checked_by": [
+        {
+          "who": "Stochastic Processes and their Applications (refereed journal)",
+          "qualification": "Journal of record.",
+          "what_they_did": "Published the paper; referee reports not seen.",
+          "where": "https://www.sciencedirect.com/science/article/pii/030441499090008G (not opened: HTTP 403)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The content of this paper is unknown to me. Its title makes it a candidate partial result or a related-conjecture paper; the registry's description of it is unverified.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Unknown.",
+      "object": null,
+      "people": [
+        "Magda Peligrad"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/030441499090008G",
+        "https://www.academia.edu/5837082/On_Ibragimov_Iosifescu_conjecture_for_phi_mixing_sequences"
+      ]
+    },
+    {
+      "id": "berkes-philipp-1998-no-rate",
+      "what_happened": "I. Berkes and W. Philipp, 'Limit theorems for mixing sequences without rate assumptions', Annals of Probability 26(2), 805–831 (April 1998), doi 10.1214/aop/1022855651. From the abstract (read via a search snippet, not opened): for stationary φ-mixing sequences, Lévy's criterion for membership of the domain of partial attraction of a nondegenerate Gaussian law, and LIL results, with no rate assumption on the mixing coefficient.",
+      "date": "1998",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Results on partial attraction to a Gaussian law and LIL for stationary φ-mixing sequences without rate assumptions. This is about partial attraction, not the CLT with normalisation by √Var(Sₙ) for every Var → ∞ sequence; discounted as a different question.",
+      "remains": "Parts (i) and (ii) of the conjecture.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known from the abstract snippet only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring question; discounted.",
+      "object": null,
+      "people": [
+        "István Berkes",
+        "Walter Philipp"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://projecteuclid.org/journals/annals-of-probability/volume-26/issue-2/Limit-theorems-for-mixing-sequences-without-rate-assumptions/10.1214/aop/1022855651.full"
+      ]
+    },
+    {
+      "id": "giraudo-volny-2013-beta",
+      "what_happened": "A. Giraudo and D. Volný, 'A strictly stationary β-mixing process satisfying the central limit theorem but not the weak invariance principle', arXiv:1304.7960 (April 2013); published Stochastic Processes and their Applications 124 (2014) 3769–3781 (per IDEAS listing). Abstract read via a search snippet (not opened): a strictly stationary β-mixing process with the CLT but without the weak invariance principle.",
+      "date": "2013-04",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A β-mixing example in which the CLT holds but the invariance principle fails. Concerns a different mixing class (β, not φ) and a different hypothesis set. φ-mixing implies β-mixing, so a β-mixing example does not decide the φ-mixing conjecture either way.",
+      "remains": "All of the conjecture for φ-mixing sequences.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known from the abstract snippet only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring question; discounted.",
+      "object": "A strictly stationary β-mixing process satisfying the CLT but not the weak invariance principle (per the abstract snippet; construction not read).",
+      "people": [
+        "A. Giraudo",
+        "D. Volný"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/pdf/1304.7960",
+        "https://arxiv.org/abs/1304.7960v2"
+      ]
+    },
+    {
+      "id": "bradley-2024-11-reversible-clt-boundary",
+      "what_happened": "R. C. Bradley, 'On a boundary of the central limit theorem for strictly stationary, reversible Markov chains', arXiv:2411.03528 (November 2024); later cited as published in ALEA 22 (2025) 657–694 (per a later Bradley preprint in a search snippet). Per the abstract snippet (not opened): reversible, countable-state, strictly stationary Markov chains with finite second moments and absolute regularity at rates arbitrarily close to exponential that fail the CLT.",
+      "date": "2024-11",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "ALEA publication 2025 per a later citation; arXiv version history not checked.",
+      "delivers": "Counterexamples to the CLT for a class of Markov chains defined by absolute regularity (β-mixing), not φ-mixing sequences in general. Whether these examples are φ-mixing, or have Var(Sₙ) → ∞, is not established from what I read. Absolute regularity is implied by φ-mixing, not the reverse.",
+      "remains": "All of the conjecture for φ-mixing sequences, unless the examples are shown to be φ-mixing with divergent variance.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known from the abstract snippet only.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neighbouring counterexample class; does not decide the φ-mixing question as far as I can tell.",
+      "object": "Reversible, countable-state, strictly stationary Markov chains with finite second moments and absolute regularity at rates close to exponential, for which the CLT fails (per the abstract snippet; construction not read).",
+      "people": [
+        "Richard C. Bradley"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/abs/2411.03528"
+      ]
+    },
+    {
+      "id": "bradley-2025-08-reversible-clt-question",
+      "what_happened": "R. C. Bradley, 'On the central limit question for strictly stationary, reversible Markov chains', arXiv:2508.12951 (August 2025; revised March 2026 per a search snippet). Title only was read; body not opened.",
+      "date": "2025-08",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 revised March 2026 per search snippet.",
+      "delivers": "Not established from what I read; the title places it within the same reversible-Markov-chain CLT question.",
+      "remains": "Not established.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Body not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not established; likely a neighbouring question.",
+      "object": null,
+      "people": [
+        "Richard C. Bradley"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/abs/2508.12951v2"
+      ]
+    },
+    {
+      "id": "matsui-mikosch-2025-infinite-variance",
+      "what_happened": "M. Matsui and T. Mikosch, 'The Gaussian central limit theorem for a stationary time series with infinite variance', arXiv:2503.15894 (submitted 20 March 2025); listed in the Journal of Time Series Analysis (October 2025). From a search summary (not opened): a CLT for stationary series with infinite marginal variance, under sequential regular variation with tail index α = 2.",
+      "date": "2025-03-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 per arXiv listing (not checked).",
+      "delivers": "A CLT in a setting with infinite marginal variance, outside this conjecture's hypothesis of finite second moments. Discounted as a different question.",
+      "remains": "All of the conjecture for φ-mixing sequences with finite second moments.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known from a search summary only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Different hypotheses; discounted.",
+      "object": null,
+      "people": [
+        "Muneya Matsui",
+        "Thomas Mikosch"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2503.15894"
+      ]
+    },
+    {
+      "id": "hafouta-2025-10-markov-shifts",
+      "what_happened": "Y. Hafouta, 'Statistical properties of Markov shifts (part I)', arXiv:2510.07757 (October 2025). From a search summary (not opened): CLTs, Berry–Esseen bounds and invariance principles for partial sums of functions of inhomogeneous Markov chains under mixing assumptions.",
+      "date": "2025-10",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Not checked; the search summary refers to a v2.",
+      "delivers": "Not established whether its mixing assumptions include φ-mixing for sequences of the conjecture's type, nor whether it addresses the Var → ∞ regime. Discounted unless shown otherwise.",
+      "remains": "Not established.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known from a search summary only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not established; likely a neighbouring question.",
+      "object": null,
+      "people": [
+        "Yeor Hafouta"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2510.07757"
+      ]
+    },
+    {
+      "id": "matsui-2026-09-rho-mixing",
+      "what_happened": "M. Matsui, 'Can we further improve the central limit theorem for stationary ρ-mixing sequences?', arXiv:2609.04638 (September 2026). The PDF returned only compressed binary content; I read the title and metadata only.",
+      "date": "2026-09",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Not established: the body was unreadable to me. A ρ-mixing CLT could bear on the conjecture, since φ-mixing implies ρ-mixing; but Ibragimov's known ρ-mixing CLT needs a summability rate condition, which would not settle the conjecture as stated. Not established whether this paper removes it.",
+      "remains": "Not established.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Body unreadable; no mention of the conjecture confirmed either way.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not established.",
+      "object": null,
+      "people": [
+        "Muneya Matsui"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2609.04638"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Who produced the mathematics and the formal statement is recorded inconsistently. The repository's README credits GPT-6 Astra with the construction and Lean disproof, and Tom Adamczewski as director. The VibeMathed entry says the formal statement came from 'Epoch's AI-autoformalized \"wikipedia\" run', and Wikipedia's list of AI discoveries credits 'Epoch AI and GPT-6 Astra'. The repository's info.json keys its usage record to 'epoch/vega-alpha', not GPT-6 Astra. Registries label the model 'GPT-6 Astra (pre-release)' with vendor OpenAI; the repository does not use that label. I found no primary Epoch AI source for the statement step.",
+      "sources": [
+        "https://github.com/tadamcz/phi-mixing-clt",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/info.json",
+        "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture",
+        "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+        "https://whataifound.org/"
+      ]
+    }
+  ],
+  "summary": "One event since the frozen revision: a candidate Lean disproof posted on GitHub on 5 September 2026 by Tom Adamczewski (repository tadamcz/phi-mixing-clt). The README (read via WebFetch summary) says the construction and Lean disproof were 'obtained by GPT-6 Astra' and that the repository was 'machine-written by AI assistants at the direction of Tom Adamczewski'. The object is a strictly stationary, centred, φ-mixing process with finite variance and Var(Sₙ) → ∞ for which Sₙⱼ/√Var(Sₙⱼ) → 0 in probability along a subsequence; if the formal statement is faithful, that refutes Ibragimov's CLT part and, by the repository's and Wikipedia's account, Iosifescu's invariance-principle part. The repository's info.json records a Lean build with a Comparator stage that accepts the disproof with only the three standard axioms, and the disproof's axioms do not include sorryAx, so the sorry on the original conjecture statement is not used. The close call is the formal statement: it was AI-autoformalised, its φ-mixing, stationarity and variance definitions are hand-rolled, and no human has publicly compared them with the classical definitions. Against that, the Lean kernel check, the repository's own audit (machine-written), and the VibeMathed run log all record it as consistent. Both sides rest on machine checks plus unverified formalisation, so I record both readings rather than choosing one. Partial results before the window: Peligrad (1985) confirms both parts under a linear-variance hypothesis (abstract opened; the liminf link is from a citation I could not check in the body); Yoshihara (1985) gives a conditional CLT under uniform integrability (PDF blocked); Herrndorf (1983) gives the invariance principle under the CLT and linear variance (secondary only); Peligrad (1990) is titled after the conjecture but its content is unknown to me (ScienceDirect and academia.edu blocked). Literature that still calls the problem open: the repository cites Borovkov et al. (2023) and Bradley (2005) as saying it is open; I could not open either body (the Bradley arXiv PDF was binary, and the 2005 abstract mentions no open problems), so those citations are unverified by me. Searches for a human expert's response, a probabilist's review, an arXiv posting, a Lean-independent check, an Epoch AI primary page for the statement step, and Russian-language literature found nothing new; the proofsandprompts post of 8 October 2026 (read in full) does not mention this result. Registries and Wikipedia are consistent that the result is unaudited. The model name needs care for matching: 'GPT-6 Astra' is the repository's string; registries add '(pre-release)'; info.json keys usage to 'epoch/vega-alpha'; and a search summary says OpenAI's own term for the model is 'next major model', so the 'GPT-6' prefix may not be an official name. I did not research release dates. Tom Adamczewski also appears, per whataifound, as a co-author on other September 2026 AI-attributed results (for example arXiv 2609.07996 and 2609.11500); those are different problems and are not recorded as events here.",
+  "competing_reading": "On the favourable reading the event is a resolution of part (i), with part (ii) following. The Lean kernel accepts the disproof with only the standard axioms; the repository's build log shows the Comparator stage passing; the construction is a finite mechanism that the repository's audit and the VibeMathed check both judge consistent with Ibragimov (1975), Peligrad (1985) and the ρ-mixing lemma; and the README says the proof is kernel-checked. On the cautious reading it is a candidate only: the formal statement was produced by an AI autoformalisation run; its definitions are hand-rolled and include junk-value cases (sSup, division by zero, one- versus two-sided indexing); no human has read the definitions or the 13,000-line construction publicly; the author says he cannot judge; the Lean target covers part (i) only, so part (ii) is argued in prose; and the registries and Wikipedia all label it unaudited. On this reading the event may settle a formal variant rather than the conjecture as the literature states it.",
+  "what_would_settle_it": "(a) A written check by a probabilist that the Lean definitions of strict stationarity, of the φ-mixing coefficient (supremum over events of positive measure in σ(Xⱼ, j ≤ m) and σ(Xⱼ, j ≥ m+n)) and of the variance and normalisation match the classical definitions and Ibragimov's statement. (b) A human-readable verification of the construction; the repository's natural-language argument is only a sketch. (c) An independent rebuild on the pinned toolchain, and an independent kernel check such as lean4checker, which the repository's ANALYSIS.md itself recommends. (d) A refereed or arXiv version with named referees. (e) The body of Peligrad (1990) and Bradley (2005), to say what the literature actually calls open and whether the 1990 paper covers the tail-condition case claimed in a registry. (f) The value of the 'sketch' metadata field in the run's record, to say whether a human-supplied proof idea was given to the model. (g) A statement from the authors or from Epoch AI about which system produced the formal statement and whether it was a pre-release build.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Ibragimov%E2%80%93Iosifescu_conjecture_for_%CF%86-mixing_sequences",
+      "title": "Ibragimov–Iosifescu conjecture for φ-mixing sequences (Wikipedia, rev. 15 Sep 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/Ibragimov-IosifescuConjecture.html",
+      "title": "Ibragimov–Iosifescu Conjecture (MathWorld)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/Phi-Mixing.html",
+      "title": "Phi-Mixing (MathWorld)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/tadamcz/phi-mixing-clt",
+      "title": "tadamcz/phi-mixing-clt (GitHub repository page)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/README.md",
+      "title": "README.md (summarised via WebFetch; raw text not read)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/ANALYSIS.md",
+      "title": "ANALYSIS.md (summarised via WebFetch)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/submission/Spec.lean",
+      "title": "submission/Spec.lean (first 100k of 606k characters)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/info.json",
+      "title": "info.json (run and build record)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/LITERATURE_CITATIONS.tsv",
+      "title": "LITERATURE_CITATIONS.tsv (41 rows)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/LITERATURE_REVIEW.md",
+      "title": "LITERATURE_REVIEW.md (summarised)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/natural-language-argument.md",
+      "title": "natural-language-argument.md (summarised)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/final_messages.md",
+      "title": "final_messages.md (summarised)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://api.github.com/repos/tadamcz/phi-mixing-clt/commits",
+      "title": "Commit list (GitHub API)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://trendshift.io/repositories/215471",
+      "title": "Trendshift listing for tadamcz/phi-mixing-clt",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/mrconter1/vibemathed/pull/39",
+      "title": "VibeMathed PR #39, 'Review of 6 September: eighteen submissions'",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture",
+      "title": "VibeMathed problem entry",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/vibemathing/problem-wikipedia-4b88eb65a27050b3",
+      "title": "vibemathing/problem-wikipedia-4b88eb65a27050b3 (summarised)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://whataifound.org/",
+      "title": "whataifound.org (entry dated 2026-09-05, read on the 100k–200k segment)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+      "title": "List of mathematical discoveries by artificial intelligence (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://proofsandprompts.com/2026/10/08/100-reactions-to-100-solutions/",
+      "title": "100+ reactions to 100+ solutions (Proofs and Prompts, 8 Oct 2026; read in three segments)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://projecteuclid.org/euclid.aop/1176992814",
+      "title": "Peligrad (1985), An Invariance Principle for φ-Mixing Sequences (abstract)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0511078",
+      "title": "Bradley (2005), Basic Properties of Strong Mixing Conditions (abstract only)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://x.com/tmkadamcz/status/2096303102009700553",
+      "title": "Tom Adamczewski on X, 5 Sep 2026 (not opened: HTTP 402; quote from search snippet)",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/math/0511078",
+      "title": "Bradley (2005) survey, full PDF (binary; not readable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://ynu.repo.nii.ac.jp/record/6755/files/YMJ_33_N1-2_1985_131-137.pdf",
+      "title": "Yoshihara (1985) PDF (HTTP 503 twice)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/030441499090008G",
+      "title": "Peligrad (1990) on ScienceDirect (HTTP 403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.academia.edu/5837082/On_Ibragimov_Iosifescu_conjecture_for_phi_mixing_sequences",
+      "title": "Peligrad (1990) copy on academia.edu (HTTP 403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.mathnet.ru/eng/rm10101",
+      "title": "Borovkov et al. (2023), Ildar Abdullovich Ibragimov (on his ninetieth birthday) (connection refused)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://projecteuclid.org/euclid.aop/1176993529",
+      "title": "Herrndorf (1983), Stationary strongly mixing sequences not satisfying the CLT (bot-check page)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/1304.7960",
+      "title": "Giraudo and Volný, arXiv:1304.7960 (abstract via search snippet)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2411.03528",
+      "title": "Bradley, arXiv:2411.03528 (abstract via search snippet)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.12951v2",
+      "title": "Bradley, arXiv:2508.12951 (title via search snippet)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2503.15894",
+      "title": "Matsui and Mikosch, arXiv:2503.15894 (search summary)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2510.07757",
+      "title": "Hafouta, arXiv:2510.07757 (search summary)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.04638",
+      "title": "Matsui, arXiv:2609.04638 (compressed PDF; metadata only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.projecteuclid.org/euclid.aop/1176991984",
+      "title": "Hahn, Kuelbs and Samur (1987) (search summary)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://projecteuclid.org/journals/annals-of-probability/volume-26/issue-2/Limit-theorems-for-mixing-sequences-without-rate-assumptions/10.1214/aop/1022855651.full",
+      "title": "Berkes and Philipp (1998) (abstract via search snippet)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/1403.4895",
+      "title": "Bradley, On Mixing Properties of Reversible Markov Chains (search snippet)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.25050",
+      "title": "FrontierMath Erdős (search snippet; lists Tom Adamczewski as an author)",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Ibragimov Iosifescu conjecture φ-mixing sequences",
+      "Ibragimov-Iosifescu conjecture phi-mixing central limit theorem",
+      "Ibragimov–Iosifescu conjecture Wikipedia unsolved problems",
+      "Ibragimov Iosifescu conjecture proof arXiv",
+      "Ibragimov conjecture phi-mixing stationary sequence CLT finite second moment solved",
+      "Ibragimov Iosifescu conjecture AI proof language model",
+      "VibeMathed Ibragimov-Iosifescu conjecture phi-mixing sequences",
+      "Adamczewski GPT-6 Astra counterexample central limit theorem",
+      "GPT-6 Astra Lean proof counterexample mathematics",
+      "tadamcz phi-mixing-clt github",
+      "Tom Adamczewski",
+      "google-deepmind formal-conjectures Ibragimov Iosifescu phi-mixing",
+      "Epoch AI GPT-6 Astra open problems runs Ibragimov Iosifescu",
+      "whataifound Ibragimov-Iosifescu phi-mixing CLT disproof Lean 1054 turns",
+      "FrontierMath Open Problems Epoch AI Ibragimov Iosifescu phi-mixing",
+      "phi-mixing central limit theorem counterexample probabilist review 2026",
+      "Adamczewski arXiv 2026 phi-mixing counterexample central limit theorem Lean",
+      "Peligrad On Ibragimov-Iosifescu conjecture for phi-mixing sequences 1990 abstract",
+      "Herrndorf 1983 stationary strongly mixing sequences not satisfying the central limit theorem",
+      "Peligrad 1985 invariance principle for phi-mixing sequences Annals of Probability",
+      "Yoshihara 1985 central limit theorem phi-mixing uniform integrability S_n^2 Ibragimov",
+      "Bradley 2005 Basic properties of strong mixing conditions open questions Ibragimov Iosifescu unsolved",
+      "Terence Tao GPT-6 Astra counterexample probability central limit theorem",
+      "Ibragimov Iosifescu conjecture counterexample disproof misformalization expert check",
+      "Epoch AI autoformalized Wikipedia open problems run GPT-6 Astra Lean statements",
+      "phi-mixing implies rho-star mixing central limit theorem stationary 2025 arXiv",
+      "Borovkov Bulinskii Vershik Zaporozhets Ildar Abdullovich Ibragimov 90th birthday Russian Mathematical Surveys",
+      "Hafouta Williams limit theorems inhomogeneous phi-mixing Markov chains arXiv",
+      "Bradley 2025 boundary of the central limit theorem strictly stationary reversible Markov chains ALEA",
+      "Berkes Philipp 1998 limit theorems for mixing sequences without rate assumptions Annals of Probability",
+      "Matsui Mikosch 2025 Gaussian central limit theorem stationary time series infinite variance phi-mixing",
+      "Grin 2020 strong attraction of functions on dependent variables to the normal law Mathematical Structures and Modeling",
+      "гипотеза Ибрагимова Иосифеску φ-перемешивающиеся последовательности центральная предельная теорема",
+      "Ibragimov conjecture phi-mixing CLT proof 2024 2025 variance tends to infinity sufficient condition new result",
+      "AI-discovered counterexample central limit theorem stationary phi-mixing Astra Epoch review pending",
+      "Ibragimov–Iosifescu conjecture candidate counterexample reaction mathematicians probability blog 2026",
+      "proofsandprompts 100 reactions 100 solutions Astra mathematicians probability"
+    ],
+    "places_checked": [
+      "GitHub repository tadamcz/phi-mixing-clt: README, ANALYSIS.md, LITERATURE_REVIEW.md, LITERATURE_CITATIONS.tsv, natural-language-argument.md, final_messages.md, submission/Spec.lean (first 100k of 606k characters), info.json, commit list via the GitHub API, repository page (1 star, 13 commits, no issues or discussion shown)",
+      "VibeMathed problem entry, the VibeMathed repository vibemathing/problem-wikipedia-4b88eb65a27050b3, and VibeMathed PR #39",
+      "whataifound.org (three segments of 552k characters; the Ibragimov entry appears in the 100k–200k segment)",
+      "Trendshift listing for the repository",
+      "Wikipedia article on the conjecture (revision 15 Sep 2026)",
+      "Wikipedia list of mathematical discoveries by AI",
+      "MathWorld Ibragimov–Iosifescu and Phi-Mixing pages",
+      "Project Euclid abstract for Peligrad (1985)",
+      "arXiv abstract for Bradley (2005)",
+      "Proofs and Prompts 100+ reactions post (8 Oct 2026; read in three segments, about 227k characters; the Ibragimov result does not appear)",
+      "Epoch AI FrontierMath pages and the arXiv FrontierMath Erdős paper (search snippets only)",
+      "arXiv listings for Bradley, Matsui, Matsui–Mikosch, Hafouta, Giraudo–Volný (search snippets and titles)",
+      "Google DeepMind formal-conjectures (search only; no entry for this conjecture found)",
+      "X (blocked), ScienceDirect (blocked), academia.edu (blocked), Yoshihara PDF (503), mathnet (connection refused), Project Euclid Herrndorf (bot check)"
+    ],
+    "dead_ends": [
+      "No arXiv preprint for the 2026 candidate found under any of the searches.",
+      "No Epoch AI primary page found tying the Ibragimov–Iosifescu statement to an Epoch 'wikipedia' autoformalisation run; the Epoch pages found concern FrontierMath and FrontierMath Erdős.",
+      "No Terence Tao connection found; the Tao results were standard CLT notes.",
+      "No human expert review, probabilist's comment or blog post on this candidate found in the Wikipedia article, MathWorld, VibeMathed, whataifound, Trendshift, the Proofs and Prompts post, or the searches.",
+      "No google-deepmind formal-conjectures entry found for this conjecture by search; I did not browse the repository itself.",
+      "'Tom Adamczewski' as a name search returned unrelated Polish namesakes; the link to Epoch AI suggested by the FrontierMath Erdős snippet is not verified.",
+      "2024–2025 searches found no proof, new sufficient condition or rho*-mixing implication for the conjecture.",
+      "The Russian-language search returned only the same English-language sources.",
+      "Peligrad (1990) full text unavailable; its tail-condition result is unverified."
+    ]
+  },
+  "incomplete": "(1) I did not build or run the Lean project; the verification statements come from the repository's build log (info.json), the README, and VibeMathed and whataifound summaries. (2) Repository files were read through WebFetch summaries, not raw text; the README sentences quoted here are as the summariser quoted them, and shell fetches that would have returned the raw files required approval, which I did not have. Spec.lean was read only to 100k of 606k characters. (3) Not opened: the X post (HTTP 402), the Yoshihara body (503), the Peligrad 1990 body (403 on two sites), the Peligrad 1985 body (abstract only), the Herrndorf 1983 paper (bot check), the Bradley 2005 survey body (binary PDF), Borovkov et al. (2023) (connection refused), the Berkes–Philipp body, the Matsui 2026 body (binary), the Giraudo–Volný body, the Bradley 2024 and 2025 bodies, Hafouta 2025, Matsui–Mikosch 2025, Hahn–Kuelbs–Samur 1987. (4) The statement field I was given reads only as the title; I did not have the January 2024 frozen wording, so problem_asks is built from the Wikipedia article, MathWorld and the 1985 Yoshihara statement. (5) The Wikipedia article was read through a summariser, and its revision date is 15 Sep 2026 as reported; I did not recheck it for later edits. (6) Social media (X) and Epoch AI primary pages gave no usable results. (7) Whether 'Epoch AI' or 'epoch/vega-alpha' is the system behind the statement step, and whether the 'sketch' metadata field gave the run a human-written proof idea, is not established. (8) The 'GPT-6 Astra' naming and the '(pre-release)' label conflict across sources; I did not research release dates, which the instructions assign to another pass. (9) Whether the claimed Peligrad 1990 result on regularly varying tails exists is unverified. (10) Whether any later arXiv version of the repository's Lean statement or proof exists after 6 September 2026 was not checked beyond the commit list I fetched.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "claimed",
+  "ai_role": "generated",
+  "resolution_direction": "refuted",
+  "object_role": "counterexample",
+  "counterexample": {
+    "is_counterexample": true
+  },
+  "rests_on": "adamczewski-gpt6astra-2026-09",
+  "no_change_found": false,
+  "event": {
+    "id": "adamczewski-gpt6astra-2026-09",
+    "what_happened": "Tom Adamczewski published, in the public GitHub repository tadamcz/phi-mixing-clt, a candidate Lean 4 disproof of the Ibragimov–Iosifescu φ-mixing CLT conjecture. The README states that 'the counterexample construction and Lean disproof in this repository were obtained by GPT-6 Astra' and that 'this entire repository was machine-written by AI assistants at the direction of Tom Adamczewski' (both sentences read via a WebFetch summary of the GitHub page; the raw README could not be read). The repository's first commit ('Initial import: Hawk run data and analysis (Ibragimov-Iosifescu phi-mixing CLT, part i)') is dated 2026-09-05T17:10:02Z; the 13 commits run to 2026-09-06T22:18:58Z. The run log in the repository (info.json) records the run as started 2026-09-04T15:46Z and completed 2026-09-05T03:42Z. On 5 September the author posted on X: 'Astra has produced a candidate Lean disproof of the Ibragimov–Iosifescu conjecture for φ-mixing sequences (1971) AIs think it's legit and not misformalized. But I can't judge. Repo in replies.' (quoted in a search snippet; X returned HTTP 402 to my fetch). A Trendshift comment by the same handle, dated 5 September, reads: 'I also do not know the degree of significance of this conjecture. If you don't know either, please do not hype!'. Registries record the same result: a whataifound.org entry dated 2026-09-05 ('Claimed AI-led'), and a VibeMathed entry (solved date 2026-09-05; submitted 6 September 2026; 'Candidate (review pending)'; 'Lean-checked, statement unaudited'). Wikipedia's list of AI mathematical discoveries credits 'Epoch AI and GPT-6 Astra' with status 'Lean formalization; independent review pending'. The Wikipedia article on the conjecture (revision of 15 September 2026) and MathWorld (status 'as of Sep. 7, 2026') both describe the candidate as unaudited by the mathematical community.",
+    "date": "2026-09-05",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "revisions": "13 commits on the repository, 2026-09-05T17:10:02Z (initial import) to 2026-09-06T22:18:58Z (latest seen in the commit list). VibeMathed reports its Lean check on 6 September 2026 from a clone at commit 8e08498. No arXiv preprint or journal version found. Wikipedia article revised 15 September 2026 to describe the candidate.",
+    "delivers": "If the Lean statement is faithful: a counterexample to Ibragimov's CLT part (i). The exhibited process is strictly stationary, centred, φ-mixing, has E X₀² < ∞ and Var(Sₙ) → ∞, yet along some subsequence nⱼ the normalised sums Sₙⱼ/√Var(Sₙⱼ) → 0 in probability, so Sₙ/√Var(Sₙ) cannot converge to N(0,1). The repository's natural-language argument and the Wikipedia article say the same process also rules out part (ii), since a weak invariance principle would imply the CLT at time 1. Restrictions: (a) the formal target is the CLT only (the Lean statement is named parts.i); the invariance consequence is argued in prose and is not a separate Lean theorem in the portion of Spec.lean I read; (b) the φ-mixing coefficient, strict stationarity and the variance are hand-rolled Lean definitions (φ-mixing as a supremum over events in σ(Xⱼ, j ≤ m) and σ(Xⱼ, j ≥ m+n) of positive measure, stationarity as equality in law of shifts, variance via Mathlib), and their agreement with the classical definitions is the open point; (c) the Peligrad variant with φ₁ < 1 is not addressed by anything I read.",
+    "remains": "If the formalisation is faithful, nothing of part (i) or part (ii) remains open for the sequence class as stated. Unchecked: whether the Lean definitions match the classical ones (the statement was AI-autoformalised, and I found no public human comparison); whether the invariance consequence follows as argued (not formalised as a separate theorem in what I read); the Peligrad variant.",
+    "checked_by": [
+      {
+        "who": "Repository ANALYSIS.md (the README describes the repository as machine-written by AI assistants)",
+        "qualification": "None as a mathematical reading: written by AI assistants at the author's direction.",
+        "what_they_did": "Assessed faithfulness of the formal statement (summary of its preamble: verdict 'C-possibly-new' with high confidence in formal faithfulness); checked each hypothesis against a named Lean lemma; reported a loophole audit (no native_decide, a single sorry on the original statement not used by the disproof); recommended an independent lean4checker run and an expert probabilist review.",
+        "where": "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/ANALYSIS.md (read via WebFetch summary)",
+        "automated": true
+      },
+      {
+        "who": "VibeMathed registry (vibemathed.com); entry submitted by 'VibeGene' on 6 Sep 2026 and approved by Rasmus Lindahl on 6 Sep 2026",
+        "qualification": "Registry curation; no mathematical review is claimed on the entry.",
+        "what_they_did": "Re-ran the Lean check on a clone at commit 8e08498 (6 Sep 2026): reports 13,047 lines, zero sorry outside statement stubs, zero axiom declarations, no native_decide, unsafe or implemented_by; the kernel accepts the disproof with propext, Classical.choice and Quot.sound only. Labelled the entry 'Candidate (review pending)' and 'Lean-checked, statement unaudited'.",
+        "where": "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture (read via WebFetch summary)",
+        "automated": true
+      }
+    ],
+    "no_engagement_found": true,
+    "time_since_posted": "37 days as of 12 October 2026 (posted 5 September 2026). No public human reading found. MathWorld (status as of 7 September) and the Wikipedia article (revision of 15 September) both say no independent probabilist review or audit has been reported; I found no later report. The only comments on the repository's listing are the author's own.",
+    "machine_checked": {
+      "system": "Lean 4 (4.27.0 pinned per README), with Mathlib and Formal Conjectures pinned; build log reports a 'Comparator' stage. Challenge and Solution both built (8062 jobs); the kernel reports 'Your solution is okay!'. Sorry: two in Challenge.lean (lines 134 and 147) and one in Solution.lean (line 136), on the original conjecture statement; the disproof's axioms are the three standard ones (per the build log's exported-declaration list).",
+      "sorry_free": false,
+      "url": "https://github.com/tadamcz/phi-mixing-clt"
+    },
+    "directly_checkable": "The object is a process defined by a feedback map and rare-spike innovations, too long to check by hand from the repository. natural-language-argument.md gives a four-step sketch: (1) bounded odd feedback controllers that keep typical partial sums small; (2) uniform forgetting plus added Gaussian noise, giving φ-mixing by a coupling argument; (3) innovations that are mixtures of a point mass at zero and very large, very rare spikes; (4) a staged diagonal choice of controllers, observation times and spike sizes. I did not build the Lean project (shell fetches needed approval), so I have not run the build myself.",
+    "doubts": "(1) The formal statement was AI-autoformalised: MathWorld says 'the formal problem statement was itself generated by AI'; the VibeMathed entry says it came from 'Epoch's AI-autoformalized \"wikipedia\" run'; the repository's ANALYSIS.md (via summary) judges the hand-rolled definitions faithful, with the junk-value cases (sSup, division by zero, indexing) judged non-exploitable. This is an AI audit of an AI-written statement; I found no human comparison. (2) The author says he cannot judge the result himself ('But I can't judge'; 'I also do not know the degree of significance of this conjecture'). (3) Self-labelled as a candidate by the registries and by Wikipedia ('unaudited'). (4) The run's info.json keys its metadata to a 'sketch' field whose value is not in the file, so I cannot tell whether a human-written proof idea was supplied to the run. (5) The repository's final_messages.md is described by the README as 'the agent's own closing notes (untrusted self-report)'. (6) The Lean target is the CLT only; the invariance consequence is argued in prose.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Against the conjecture as formalised: Ibragimov's CLT (part i) asserts convergence to N(0,1) for every such sequence, and the candidate exhibits one for which convergence fails along a subsequence. By the repository's and Wikipedia's account, the same process is also against Iosifescu's invariance principle (part ii), argued in prose.",
+    "object": "A strictly stationary, centred, φ-mixing real process of the form Xₜ = ξₜ + K(ξₜ₋₁, ξₜ₋₂, …), where the ξₜ are i.i.d. Gaussian innovations convolved with a symmetric rare-spike law and K is a bounded, continuous, odd feedback map built in cascades. It has finite second moments; Var(Sₙ) → ∞ because rare large spikes carry second-moment mass that the bounded feedback cannot cancel; along a subsequence nⱼ, Sₙⱼ/√Var(Sₙⱼ) → 0 in probability. The construction is non-constructive: controllers, observation times, burn-in lengths and spike sizes are chosen by a diagonal argument using Classical.choice over proved existence statements (ANALYSIS.md, via summary). The object is therefore not explicit.",
+    "people": [
+      "Tom Adamczewski (GitHub user tadamcz; the README says the repository was machine-written 'at the direction of' him; VibeMathed lists him as collaborator)"
+    ],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "GPT-6 Astra",
+          "what_it_did": "Per the repository, it obtained the counterexample construction (the feedback-and-spike process and the diagonal choice) and the Lean disproof. The run log (info.json) records 1054 turns. The Lean formal statement was AI-autoformalised by a step that the VibeMathed entry attributes to an Epoch AI 'wikipedia' run; no model is named for that step. The repository's ANALYSIS.md and literature review were written by unnamed 'AI assistants'. Registries (VibeMathed, whataifound) label the model 'GPT-6 Astra (pre-release)' with vendor OpenAI; the repository says only 'GPT-6 Astra'. The run's usage record is keyed to 'epoch/vega-alpha' in info.json, and I found no source linking that key to GPT-6 Astra, so I have not recorded it as a system.",
+          "basis_quote": "This entire repository was machine-written by AI assistants at the direction of Tom Adamczewski. The counterexample construction and Lean disproof in this repository were obtained by GPT-6 Astra.",
+          "quote_url": "https://github.com/tadamcz/phi-mixing-clt"
+        }
+      ],
+      "disclosed_cost": "From the repository's info.json (model_usage): total_cost 261.16333 (USD); turns 1054; total_tokens 81,325,445 (input 84,977; output 1,491,547; cache read 70,532,635; cache write 9,216,286; reasoning 856,240); started 2026-09-04T15:46:01Z, completed 2026-09-05T03:42:05Z. VibeMathed and whataifound report about twelve hours, 1054 turns and $261.",
+      "sources": [
+        "https://github.com/tadamcz/phi-mixing-clt",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/info.json",
+        "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/ANALYSIS.md",
+        "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture",
+        "https://github.com/mrconter1/vibemathed/pull/39",
+        "https://whataifound.org/",
+        "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+        "https://mathworld.wolfram.com/Ibragimov-IosifescuConjecture.html"
+      ]
+    },
+    "sources": [
+      "https://github.com/tadamcz/phi-mixing-clt",
+      "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/README.md",
+      "https://api.github.com/repos/tadamcz/phi-mixing-clt/commits",
+      "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/info.json",
+      "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/submission/Spec.lean",
+      "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/ANALYSIS.md",
+      "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/natural-language-argument.md",
+      "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/final_messages.md",
+      "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/LITERATURE_REVIEW.md",
+      "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/LITERATURE_CITATIONS.tsv",
+      "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture",
+      "https://github.com/vibemathing/problem-wikipedia-4b88eb65a27050b3",
+      "https://github.com/mrconter1/vibemathed/pull/39",
+      "https://whataifound.org/",
+      "https://trendshift.io/repositories/215471",
+      "https://en.wikipedia.org/wiki/Ibragimov%E2%80%93Iosifescu_conjecture_for_%CF%86-mixing_sequences",
+      "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+      "https://mathworld.wolfram.com/Ibragimov-IosifescuConjecture.html",
+      "https://x.com/tmkadamcz/status/2096303102009700553"
+    ]
+  },
+  "credited_humans": [
+    "Tom Adamczewski (GitHub user tadamcz; the README says the repository was machine-written 'at the direction of' him; VibeMathed lists him as collaborator)"
+  ],
+  "status_sources": [
+    "https://github.com/tadamcz/phi-mixing-clt",
+    "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/README.md",
+    "https://api.github.com/repos/tadamcz/phi-mixing-clt/commits",
+    "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/info.json",
+    "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/submission/Spec.lean",
+    "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/ANALYSIS.md",
+    "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/natural-language-argument.md",
+    "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/final_messages.md",
+    "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/LITERATURE_REVIEW.md",
+    "https://raw.githubusercontent.com/tadamcz/phi-mixing-clt/main/LITERATURE_CITATIONS.tsv",
+    "https://vibemathed.com/problem/ibragimov-iosifescu-varphi-mixing-clt-conjecture",
+    "https://github.com/vibemathing/problem-wikipedia-4b88eb65a27050b3",
+    "https://github.com/mrconter1/vibemathed/pull/39",
+    "https://whataifound.org/",
+    "https://trendshift.io/repositories/215471",
+    "https://en.wikipedia.org/wiki/Ibragimov%E2%80%93Iosifescu_conjecture_for_%CF%86-mixing_sequences",
+    "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+    "https://mathworld.wolfram.com/Ibragimov-IosifescuConjecture.html",
+    "https://x.com/tmkadamcz/status/2096303102009700553"
+  ],
+  "ai": {
+    "systems": [
+      "GPT-6 Astra"
+    ],
+    "from_event": "adamczewski-gpt6astra-2026-09",
+    "basis_quote": "This entire repository was machine-written by AI assistants at the direction of Tom Adamczewski. The counterexample construction and Lean disproof in this repository were obtained by GPT-6 Astra.",
+    "none_found": false,
+    "disclosed_cost": "From the repository's info.json (model_usage): total_cost 261.16333 (USD); turns 1054; total_tokens 81,325,445 (input 84,977; output 1,491,547; cache read 70,532,635; cache write 9,216,286; reasoning 856,240); started 2026-09-04T15:46:01Z, completed 2026-09-05T03:42:05Z. VibeMathed and whataifound report about twelve hours, 1054 turns and $261."
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "adamczewski-gpt6astra-2026-09",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "The formal statement was AI-autoformalised with hand-rolled definitions of φ-mixing, stationarity and variance, and no human has compared them with the classical ones; the only audit is machine-written; the author says he cannot judge it; the 13,000-line construction has had no public human reading after 37 days.",
+        "ai_role": "generated",
+        "ai_basis": "This entire repository was machine-written by AI assistants at the direction of Tom Adamczewski. The counterexample construction and Lean disproof in this repository were obtained by GPT-6 Astra.",
+        "ai_systems_credited": [
+          "GPT-6 Astra"
+        ],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      },
+      {
+        "id": "peligrad-1985-invariance",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "yoshihara-1985-uniform-integrability",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "herrndorf-1983-wip",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "hahn-kuelbs-samur-1987-hilbert",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "peligrad-1990-sps",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "berkes-philipp-1998-no-rate",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "giraudo-volny-2013-beta",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bradley-2024-11-reversible-clt-boundary",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bradley-2025-08-reversible-clt-question",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "matsui-mikosch-2025-infinite-variance",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hafouta-2025-10-markov-shifts",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "matsui-2026-09-rho-mixing",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The Adamczewski/GPT-6 Astra repository is scored whole: the statement is the Ibragimov–Iosifescu conjecture, whose two parts are the CLT and the invariance principle, and a single stationary φ-mixing sequence with finite variance and Var(Sₙ)→∞ for which the CLT fails refutes part (i) and, since the invariance principle implies the CLT at time 1, part (ii) as well; that implication is elementary, so the prose-only treatment of (ii) does not reduce scope. The Peligrad φ₁<1 conjecture is not in the title and is treated as a related problem. Verification is unreviewed: a clean Lean build plus AI-written audits are not digestion (F7, F8), and the object is non-explicit, so not checkable. Credibility is doubtful rather than not_credible: the doubt is specific (AI-autoformalised hand-rolled definitions, author cannot judge), but there is no identified error, and the silence is only 37 days. AI role is generated per the README's explicit attribution. The pre-1990 results are restricted cases (linear-variance regime, added uniform integrability, assumed CLT plus linear variance); the other papers concern other mixing classes, other hypotheses, or unknown content, and are variant or none.",
+    "doubts": "The whole call rests on the Lean definitions being faithful to the classical ones; if they are not, the event settles a formal variant. The repository's README was read only through a WebFetch summary. Whether a human-supplied 'sketch' was given to the run is unknown, which could lower the AI role to assisted. Herrndorf 1983 (conditional on the CLT) could arguably be none rather than case; it is pre-snapshot and does not affect the outcome.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "claimed",
+      "rests_on": "adamczewski-gpt6astra-2026-09",
+      "ai_role": "generated",
+      "ai_from": "adamczewski-gpt6astra-2026-09",
+      "resolution_direction": "refuted",
+      "object_role": "counterexample",
+      "ai_systems_credited": [
+        "GPT-6 Astra"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

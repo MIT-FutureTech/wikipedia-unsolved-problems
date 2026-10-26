@@ -1,0 +1,1770 @@
+{
+  "key": "hopf-conjecture",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 the positive-curvature case of Hopf’s sign conjecture has been claimed false in dimension six (S³×S³, arXiv:2609.11980, 6 Sep 2026, metric and proof credited to the ‘Odin Automatic AI Research Agent’), and the product form has been claimed false by a human-authored S²×S² preprint (arXiv:2608.19068, 19 Aug 2026) and by an AI-credited S²×S³ preprint (arXiv:2608.22133, 22 Aug 2026); none of these has a referee report or independent human check that I could find, one automated reviewer reports a Mathematica-dependent flaw in the S²×S² argument, and the negative and nonpositive sign conjectures remain open, with only restricted-class results posted in 2024–2026.",
+  "problem_asks": "Unpacked from the statement (‘The Hopf conjectures relating the curvature and Euler characteristic of higher-dimensional Riemannian manifolds’), written before weighing any event. (a) Positive-curvature sign conjecture: every closed even-dimensional Riemannian manifold M^(2n) with everywhere positive sectional curvature has χ(M) > 0. (b) Nonnegative-curvature version: closed even-dimensional M with sec ≥ 0 has χ(M) ≥ 0. (c) Negative-curvature sign conjecture: closed M^(2n) with sec < 0 has (−1)ⁿ χ(M) > 0; and the nonpositive version: sec ≤ 0 gives (−1)ⁿ χ(M) ≥ 0. Parts (a)–(c) are asked in every even dimension, with the statement’s ‘higher-dimensional’ pointing at dimensions 2n ≥ 6; dimension 2 is Gauss–Bonnet and dimension 4 is the known case. SCOPE QUESTION, recorded not decided: the Wikipedia Hopf-conjecture article, which the bullet most likely links, also lists (d) the product conjecture — no direct product of two closed positive-dimensional manifolds admits a metric of positive sectional curvature, best-known case S²×S² — which concerns curvature but not Euler characteristic; and (e) Thurston’s aspherical conjecture, (−1)ᵏ χ(M^(2k)) ≥ 0 for closed aspherical manifolds (with Charney–Davis’s piecewise Euclidean analogue). The article also lists a degree-one self-map statement and an unrelated Eberhard Hopf conjecture on conjugate points, which I did not research as they bear on neither curvature nor Euler characteristic.",
+  "events": [
+    {
+      "id": "guo-fang-lu-2026-09-s3xs3",
+      "what_happened": "Shengtao Guo, Ethan X. Fang and Junwei Lu, arXiv:2609.11980 (math.DG), ‘A Metric with Positive Sectional Curvature on S³×S³’. Claims a smooth Riemannian metric with strictly positive sectional curvature on S³×S³ and states that, since S³×S³ is even-dimensional with Euler characteristic zero, this disproves the positive-curvature case of Hopf’s sign conjecture. The abstract ends: ‘The metric and the proof were discovered by the Odin Automatic AI Research Agent.’ The introduction has a passage headed ‘The role of AI in this proof’ containing: ‘Odin Automatic AI Research Agent was used to construct the metric and the proof.’ The paper cites a companion repository, github.com/shengtaoguo/s3xs3-curvature-calculations, which contains Python 3.11 exact-arithmetic checks. The introduction also cites Püttmann–Searle to say a positively curved metric on S³×S³ must have a finite isometry group. Read via a summarising fetch of the arXiv HTML and abstract page; the raw PDF was not readable with my tools.",
+      "date": "2026-09-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 6 Sep 2026 only, per the arXiv abstract page as fetched.",
+      "delivers": "A metric with everywhere strictly positive sectional curvature on S³×S³ (dimension 6, χ = 0). If verified, the positive-curvature case of the sign conjecture (sec > 0 on a closed even-dimensional manifold forces χ > 0) fails in dimension 6. S³×S³ is a direct product of two closed positive-dimensional manifolds, so the same metric would also contradict the product form as the Hopf-article summary words it. The abstract does not say so; that is my logical reading, not the authors’. Restricted to strict positivity: it says nothing about nonnegative curvature, Ric₂, or negative curvature.",
+      "remains": "Part (b), the nonnegative sign statement, and part (c), the negative and nonpositive sign statements, in all even dimensions, which this event does not touch. Part (a) is refuted in dimension 6 if the metric is valid, and part (d) is refuted by the same metric on the product S³×S³ under the same proviso. Part (e) is untouched.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "36 days as of 12 Oct 2026. Searches (arXiv, MathWorld, news, the Wikipedia AI-discoveries list, Tao/Quanta/Mathstodon queries) found no referee outcome, correction, or expert commentary on this preprint.",
+      "machine_checked": {
+        "system": "Python 3.11 scripts with exact rational-arithmetic checks in the companion repository (verification/; the README says success prints ‘VERIFIED:’). Not a proof assistant.",
+        "sorry_free": null,
+        "url": "https://github.com/shengtaoguo/s3xs3-curvature-calculations"
+      },
+      "directly_checkable": "Checkable in principle. The paper reduces positivity to explicit second- and third-order curvature coefficients on the zero set of a background metric (two diagonal Cheeger deformations of the product metric, a normal homogeneous metric on SU(2)³/ΔSU(2)), and the companion code evaluates the identities over ℚ(z). I did not run the code or audit the reduction, so this is checkable but not checked by me.",
+      "doubts": "No specific error identified in any source I could read. Reasons for caution, each with its basis: (1) no referee, journal, or third-party verification found; (2) correctness rests on the authors’ own code (11 commits, no license shown on the repository page), which I did not run; (3) the construction uses the same third-order deformation method as Brendle and Hung’s S²×S² metric, which an automated reviewer is reported to have flagged for a Mathematica-dependent step (second-hand, see the Brendle–Hung event); (4) the AI attribution comes with no account of the agent’s workflow, prompts, budget, or human checking beyond the one introduction sentence; (5) the footnote lists Junwei Lu in the Department of Biostatistics, Harvard T.H. Chan School of Public Health. That bears on the team’s background in geometry, and is not evidence against the result.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against the positive-curvature sign conjecture in dimension 6. It asserts a closed even-dimensional manifold with strictly positive sectional curvature and χ = 0, so, if valid, it contradicts ‘positive sectional curvature ⇒ χ > 0’ in that dimension. It does not bear on the nonnegative or negative sign conjectures.",
+      "object": "A smooth Riemannian metric with everywhere strictly positive sectional curvature on S³×S³ (the main theorem). Explicit rather than non-constructive, as I read the introduction: g_τ = g₀ + τ(…) + τ²(…) + τ³ f̃ g₀, a perturbation of a background g₀ (two diagonal Cheeger deformations of the product metric, normal homogeneous on SU(2)³/ΔSU(2)) with fixed algebraic coefficients. Positivity is shown by checking the second- and third-order curvature coefficients on the zero set of g₀, with the algebraic identities evaluated exactly. I did not read the explicit coefficients.",
+      "people": [
+        "Shengtao Guo",
+        "Ethan X. Fang",
+        "Junwei Lu"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Odin Automatic AI Research Agent",
+            "what_it_did": "On the authors’ account, it discovered the metric and the proof (abstract), and was ‘used to construct the metric and the proof’ (introduction). Load-bearing on that account, since it produced the metric itself. The paper gives no account of its workflow, prompts, budget, or which steps humans checked. I could not identify the system: three searches for an ‘Odin’ AI research agent returned only unrelated products (see dead_ends).",
+            "basis_quote": "The metric and the proof were discovered by the Odin Automatic AI Research Agent.",
+            "quote_url": "https://arxiv.org/abs/2609.11980"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.11980",
+          "https://arxiv.org/html/2609.11980v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.11980",
+        "https://arxiv.org/html/2609.11980v1",
+        "https://github.com/shengtaoguo/s3xs3-curvature-calculations"
+      ]
+    },
+    {
+      "id": "brendle-hung-2026-08-s2xs2",
+      "what_happened": "Simon Brendle and P. K. Hung (listed on arXiv as ‘S. Brendle, P.K. Hung’; search summaries give Pei-Ken Hung), arXiv:2608.19068, ‘A metric on S²×S² with positive sectional curvature’. Theorem 1.1: there exists a metric on S²×S² with positive sectional curvature. Method: start from the standard product metric, perform a Cheeger deformation to a nonnegatively curved Cheeger–Müter metric (the background is half of it), then add a third-order perturbation whose top term is 6χg, with χ fixed by a condition on a special torus. The proof splits by the sign of a constant μ. The abstract says ‘some of which have been carried out with the aid of Mathematica’ and ‘The Mathematica code is attached to this submission.’ The v2 comment says typographical errors in the manuscript and in the Mathematica notebook were corrected. Read via a summarising fetch of the arXiv abstract page and HTML v2; the raw PDF was not readable, and the Mathematica notebook was not retrieved.",
+      "date": "2026-08-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 19 Aug 2026; v2 24 Aug 2026 (current; corrects typographical errors in the manuscript and the Mathematica notebook). Whether v2 fixed the step flagged by the automated reviewer is not established.",
+      "delivers": "A metric of positive sectional curvature on S²×S², a direct product of two closed 2-manifolds, which contradicts the product form (no direct product of two closed positive-dimensional manifolds admits positive sectional curvature), if the proof is correct. Says nothing about the Euler characteristic: χ(S²×S²) = 4 > 0, so the sign conjectures are not engaged. Restricted to S²×S².",
+      "remains": "Parts (a), (b), (c) and (e) are untouched. Part (d) is refuted for S²×S² as a single instance if the proof holds; the product form as a universal claim fails with that one instance.",
+      "checked_by": [
+        {
+          "who": "Refine (AI research verifier; developers named in a search summary as Ben Golub and Yann Calvó López)",
+          "qualification": "Automated reviewer, not a mathematician’s reading.",
+          "what_they_did": "Per a thread by Ben Golub on X, dated August 2026. I could not open it (HTTP 402); this comes from a search snippet and summary. The thread reports Refine flagged that a reduction in the ‘second order positivity’ step depends on a calculation resting on a bug in the Mathematica code, and that the other points were minor. The thread does not name the preprint in what I could read; I infer it is this one from its date and Mathematica content.",
+          "where": "https://x.com/ben_golub/status/2090492235708064040",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "54 days as of 12 Oct 2026. No human expert commentary, correction, or referee outcome found.",
+      "machine_checked": {
+        "system": "Wolfram Mathematica (companion notebook, attached per the abstract). Not a proof assistant.",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2608.19068"
+      },
+      "directly_checkable": "Partly. The background metric and the first two perturbation terms are explicit tensors built from constants λ_c and λ_d. The third-order function χ is fixed by a condition involving a Laplacian on a torus; I read that its existence follows from elliptic theory but did not confirm it. Positivity is claimed for small s. The notebook was not retrieved, and the authors’ publications page returned HTTP 403.",
+      "doubts": "(1) The only critical check found is the automated Refine report, known second-hand, that a second-order positivity step depends on a Mathematica bug. I could not establish whether v2 fixed it. (2) No independent recomputation found. (3) The S³×S³ and S²×S³ preprints by other authors build on the same method; they are not independent checks. (4) MathWorld hedges: ‘if the proof is verified’. (5) A single-author note on almost-positive metrics on S²×S² (arXiv:2608.20888) does not verify this metric; a search summary of it says that author’s own attempt at a simpler explicit construction was not successful, which I did not confirm.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts against the product form, positive sectional curvature on the direct product S²×S², if verified. Silent on the sign conjectures: χ(S²×S²) = 4 is consistent with them.",
+      "object": "A smooth metric on S²×S² with strictly positive sectional curvature (Theorem 1.1). Construction: background = half of the Cheeger–Müter metric; perturbation g̃_s = g + s·h⁽¹⁾ + s²·h⁽²⁾ + s³·h⁽³⁾, with h⁽¹⁾ and h⁽²⁾ explicit tensors built from constants λ_c and λ_d, and h⁽³⁾ = 6χg, where χ is fixed by a third-variation condition equal to a nonzero constant μ plus the Laplacian of χ on a torus Σ. Positivity holds for small s. Partly explicit: the existence of χ comes from an elliptic equation, as I read it.",
+      "people": [
+        "Simon Brendle",
+        "P. K. Hung"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.19068",
+          "https://arxiv.org/html/2608.19068v2",
+          "https://x.com/ben_golub/status/2090492235708064040"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.19068",
+        "https://arxiv.org/html/2608.19068v2",
+        "https://mathworld.wolfram.com/HopfConjecture.html",
+        "https://x.com/ben_golub/status/2090492235708064040"
+      ]
+    },
+    {
+      "id": "guo-fang-lu-2026-08-s2xs3",
+      "what_happened": "Shengtao Guo, Ethan X. Fang and Junwei Lu, arXiv:2608.22133, ‘A Metric with Positive Sectional Curvature on S²×S³’. Main theorem: S²×S³ admits a Riemannian metric with strictly positive sectional curvature. Method, per the paper’s summary: view S²×S³ as a principal circle bundle over S²×S²; start from a nonnegatively curved connection metric; perturb it by the real part of a global complex-valued symmetric 2-tensor; use a Gauss-equation argument along the circle fibres as they shrink. The paper says its construction differs from Brendle–Hung’s, which deforms the four-dimensional base. The abstract ends ‘The metric and the proof are discovered by the Odin Automatic AI Research Agent.’ The introduction says ‘Odin Automatic AI Research Agent was used to discover the Riemannian metric and the proof that it has positive sectional curvature.’ The main theorem’s introduction does not mention Hopf’s conjectures. Read via a summarising fetch of the abstract page and HTML v2 (about 128k characters, of which the first 100k were summarised).",
+      "date": "2026-08-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 22 Aug 2026; v2 26 Aug 2026 (shown).",
+      "delivers": "A positively curved metric on the direct product S²×S³ of two closed positive-dimensional manifolds, which contradicts the product form as stated, if verified. It is silent on the Euler characteristic: S²×S³ has odd dimension 5, so the even-dimensional sign conjecture is not engaged. Whether the paper frames this as a product-form counterexample is for the judging pass; its own introduction does not say so.",
+      "remains": "Parts (a), (b), (c) and (e) are untouched. Part (d) is already refuted by the S²×S² instance if that holds; the S²×S³ instance is a second one.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "51 days as of 12 Oct 2026. No third-party check or response found.",
+      "machine_checked": null,
+      "directly_checkable": "Checkable in principle: an explicit construction from a circle-bundle connection metric and a global symmetric 2-tensor. Not checked by me. I did not find the verification method in the portions I read.",
+      "doubts": "No specific error identified. The positivity step is a limiting argument in the fibre-shrinking parameter, whose quantitative steps I did not read. No third-party check found. The AI attribution is stated at sentence level only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against the product form, positive sectional curvature on a direct product of two closed positive-dimensional manifolds, if verified. Silent on the sign conjectures, which concern even-dimensional manifolds.",
+      "object": "A smooth metric with strictly positive sectional curvature on S²×S³, built as a perturbation of a nonnegatively curved connection metric on the circle bundle over S²×S², with positivity from a Gauss-equation argument along the fibres as they shrink; the abstract also refers to a quantitative lower bound on the Hessian in directions normal to the zero-curvature planes. Perturbative and limiting rather than a single explicit formula; I did not read the explicit tensors.",
+      "people": [
+        "Shengtao Guo",
+        "Ethan X. Fang",
+        "Junwei Lu"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Odin Automatic AI Research Agent",
+            "what_it_did": "On the authors’ account, it discovered the metric and the proof (abstract), and was used to discover the metric and the proof (introduction). Load-bearing on that account. No workflow, prompts, budget or human-checking account found.",
+            "basis_quote": "The metric and the proof are discovered by the Odin Automatic AI Research Agent.",
+            "quote_url": "https://arxiv.org/abs/2608.22133"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.22133",
+          "https://arxiv.org/html/2608.22133v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.22133",
+        "https://arxiv.org/html/2608.22133v2"
+      ]
+    },
+    {
+      "id": "liu-2026-08-almost-positive-s2xs2",
+      "what_happened": "Yuhang Liu, arXiv:2608.20888, ‘Almost Positive Sectional Curvature with Bounded Geometry on S²×S²’. Abstract (summarised): for a fixed open ball U and every ε > 0, a smooth metric on S²×S² whose sectional curvature is positive outside a closed set S_ε of relative volume less than ε, exceeds 1 on U, is bounded below by −ε and above by a constant independent of ε, with uniform volume, diameter and injectivity-radius bounds. Built from the product of unit round metrics, a conformal factor from smoothing a height function on each sphere, a second conformal deformation and a diffeomorphism. The comment reads ‘8 pages. AI generated and human verified.’ The abstract says: ‘The main content of this paper is generated by ChatGPT 5.6 and verified by the author.’ Single version, submitted 21 Aug 2026.",
+      "date": "2026-08-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (21 Aug 2026).",
+      "delivers": "Almost-positive sectional curvature on S²×S²: positive outside a set of small relative volume, with a small negative part. This is a weaker hypothesis than everywhere-positive sectional curvature, so it does not settle the product form as stated. It addresses an analogue (a small exceptional set and a bounded negative part), not the universal statement.",
+      "remains": "All of problem_asks as stated. The product form is not settled by this event, and nor are the sign conjectures.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "52 days as of 12 Oct 2026. No public engagement found.",
+      "machine_checked": null,
+      "directly_checkable": "The construction is explicit in its ingredients (round metrics, conformal factors from smoothed height functions), so checkable in principle. Not checked by me.",
+      "doubts": "The author states that the main content is AI-generated and verified only by the author; no third-party check found. A search summary says the note’s attempt at a simpler explicit construction for the full product question was not successful; I did not confirm that.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "An analogue, not a counterexample: it does not give everywhere-positive sectional curvature on S²×S², so it neither contradicts nor supports the product form as stated. Silent on the sign conjectures.",
+      "object": "For each ε > 0, a smooth metric on S²×S² with sectional curvature positive outside a closed set of relative volume less than ε, with curvature in [−ε, Λ] for a constant Λ independent of ε, and uniform geometry bounds. An approximating family, not a single everywhere-positive metric.",
+      "people": [
+        "Yuhang Liu"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "ChatGPT 5.6",
+            "what_it_did": "Per the author, the main content of the paper (the construction) was generated by the model and verified by the author.",
+            "basis_quote": "The main content of this paper is generated by ChatGPT 5.6 and verified by the author.",
+            "quote_url": "https://arxiv.org/abs/2608.20888"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.20888"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.20888"
+      ]
+    },
+    {
+      "id": "alpoge-2026-08-s6-complex-structure",
+      "what_happened": "Levent Alpöge (described as a mathematician at Anthropic) posted a manuscript PDF (alpo.ge/s6.pdf, reported as more than 100 pages) and an X post on 23 Aug 2026, claiming a one-parameter family of compact complex threefolds diffeomorphic to S⁶, i.e. a complex structure on S⁶, answering Hopf’s 1947 question (a different Hopf problem from this bullet). The manuscript was not on arXiv at the late-August snapshot, per a search summary. Lean formalisation by Boris Alexeev, github.com/plby/HopfProblem, reported 27 Aug 2026 (zeli.app/Hacker News). Philip Engel, arXiv:2609.38442 (29 Sep 2026), ‘Complex structures on S⁶’, an expository self-contained account whose abstract refers to ‘A recent manuscript produced by Claude under the direction of Levent Alpöge’. Scientific American (24 Sep 2026) reports the claim as unverified. Read via OfficeChai (24 Aug 2026), Scientific American, zeli.app, the Engel abstract and the Lean repository page; the alpo.ge PDF and the X post were not readable.",
+      "date": "2026-08-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Manuscript posted as a PDF outside arXiv; Engel’s expository arXiv v1 on 29 Sep 2026 is a separate work.",
+      "delivers": "Claims a complex structure on S⁶, a positive answer to Hopf’s 1947 question. That is a different question from the curvature and Euler-characteristic statements, so it settles nothing in problem_asks.",
+      "remains": "All of problem_asks.",
+      "checked_by": [
+        {
+          "who": "Philip Engel",
+          "qualification": "Author of an expository arXiv paper that recasts the construction and presents a self-contained proof of it; his own background was not established by me.",
+          "what_they_did": "Wrote an expository digest (arXiv:2609.38442), which recasts several arguments and says it gives a self-contained proof of the family’s construction.",
+          "where": "https://arxiv.org/abs/2609.38442",
+          "automated": false
+        },
+        {
+          "who": "Robert L. Bryant (Duke University), quoted in Scientific American",
+          "qualification": "Mathematician named as at Duke University; his field was not established by me.",
+          "what_they_did": "Quoted as saying: ‘There seems to be an emerging consensus that the construction is plausible.’ This is a press quotation, not a written verification.",
+          "where": "https://scientificamerican.com/article/ai-solves-79-year-old-math-mystery-of-six-dimensional-spheres",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 7 weeks (50 days) as of 12 Oct 2026. The expository digest followed on 29 Sep 2026.",
+      "machine_checked": {
+        "system": "Lean (github.com/plby/HopfProblem; files Challenge.lean, Solution.lean, comparator/, lean-toolchain). Two commits.",
+        "sorry_free": null,
+        "url": "https://github.com/plby/HopfProblem"
+      },
+      "directly_checkable": "Not checkable by hand as described: a family of compact complex threefolds built from complex 2-tori over a modular curve for the triangle group Δ(3,4,∞) (per OfficeChai). I did not read the manuscript.",
+      "doubts": "Scientific American and the Wikipedia AI-discoveries list both record it as unverified. OfficeChai notes that claims about this problem have failed in both directions (second-hand). A search summary of Engel’s paper says the manuscript was not on arXiv, that the Alpöge–Claude interaction is not documented, and that the construction, which fibres holomorphically over the Riemann sphere, conflicts with an old algebraic-dimension result; I did not confirm these. The Lean repository’s sorry status was not stated on its page.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative: a complex structure on S⁶ exists (on the claim). It is not a statement about curvature or Euler characteristic.",
+      "object": "A one-parameter family of compact complex threefolds, each claimed diffeomorphic to S⁶ (per OfficeChai, built from complex 2-tori over a modular curve for Δ(3,4,∞)). An algebraic-geometric construction as described.",
+      "people": [
+        "Levent Alpöge"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude",
+            "what_it_did": "Per Scientific American, Alpöge used ‘an internal version of Anthropic’s large language model, Claude’ to produce a purported proof that S⁶ has a complex structure. Per Engel’s arXiv abstract, a manuscript ‘produced by Claude under the direction of Levent Alpöge’. Per the Wikipedia AI-discoveries list, ‘Unreleased version of Claude’. Per OfficeChai’s report of Alpöge’s X post, Claude helped write down the details of the argument. Not read at source: I did not open the X post.",
+            "basis_quote": "Claude really contains multitudes.",
+            "quote_url": "https://officechai.com/ai/anthropic-researcher-says-claude-helped-build-a-complex-structure-on-s%E2%81%B6-taking-aim-at-the-unsolved-hopf-problem/"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://officechai.com/ai/anthropic-researcher-says-claude-helped-build-a-complex-structure-on-s%E2%81%B6-taking-aim-at-the-unsolved-hopf-problem/",
+          "https://scientificamerican.com/article/ai-solves-79-year-old-math-mystery-of-six-dimensional-spheres",
+          "https://arxiv.org/abs/2609.38442",
+          "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence"
+        ]
+      },
+      "sources": [
+        "https://officechai.com/ai/anthropic-researcher-says-claude-helped-build-a-complex-structure-on-s%E2%81%B6-taking-aim-at-the-unsolved-hopf-problem/",
+        "https://scientificamerican.com/article/ai-solves-79-year-old-math-mystery-of-six-dimensional-spheres",
+        "https://zeli.app/story/49467053",
+        "https://arxiv.org/abs/2609.38442",
+        "https://github.com/plby/HopfProblem",
+        "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+        "http://alpo.ge/s6.pdf"
+      ]
+    },
+    {
+      "id": "deng-wang-2024-05-linear-chern-hopf-thurston",
+      "what_happened": "Ya Deng and Botong Wang, arXiv:2405.12012, ‘Linear Chern-Hopf-Thurston conjecture’. Proves the Chern–Hopf–Thurston sign inequality (−1)ⁿ χ(X) ≥ 0 for a closed aspherical manifold X of dimension 2n when X is a complex projective manifold whose fundamental group has an almost faithful linear representation over any field. A stronger statement for large π₁ uses perverse sheaves. The method uses a vanishing cycle functor for multivalued one-forms, non-abelian Hodge theory, and period maps. The abstract does not mention Singer’s conjecture. Read via the abstract page.",
+      "date": "2024-05-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 20 May 2024; v2 22 Sep 2024; v3 27 Sep 2024 (shown).",
+      "delivers": "The nonstrict inequality (−1)ⁿ χ ≥ 0 for closed aspherical complex projective manifolds whose π₁ has an almost faithful linear representation. Restricted to that class, and nonstrict. It carries no curvature hypothesis. The nonpositive Hopf statement is a special case only for those nonpositively curved closed manifolds that lie in this class, which I did not check.",
+      "remains": "Part (e), the general aspherical sign inequality, the strict version, and the nonpositive Hopf statement for manifolds outside the linear complex projective class.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "About 28 months as of 12 Oct 2026. No public engagement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No specific error identified. No engagement found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the nonstrict aspherical sign inequality, and so the nonpositive Hopf sign inequality, only on a restricted class.",
+      "object": null,
+      "people": [
+        "Ya Deng",
+        "Botong Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2405.12012"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2405.12012"
+      ]
+    },
+    {
+      "id": "huang-yu-2026-07-l1-integrability",
+      "what_happened": "Teng Huang and Weike Yu, arXiv:2607.13917, ‘L¹-Integrability of L²-Harmonic Forms and the Hopf Conjecture’. For complete simply connected manifolds with −K ≤ sec ≤ 0, proves an a priori L^∞ estimate by Moser iteration, and shows that an L²-harmonic form which is also L¹-integrable must vanish. For closed nonpositively curved M, the k-th L²-Betti number of the universal cover vanishes if and only if every L²-harmonic k-form is L¹-integrable. The abstract presents this as a criterion and does not claim to prove the Hopf conjecture; the phrase appears only in the title. Read via the abstract page.",
+      "date": "2026-07-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 15 Jul 2026 only.",
+      "delivers": "An equivalence between vanishing of L²-Betti numbers and L¹-integrability of L²-harmonic forms, for closed nonpositively curved manifolds. This is an analytic reformulation on the Singer–Dodziuk route to the nonpositive sign statement, not a proof of any Hopf statement.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "89 days as of 12 Oct 2026. No engagement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Any Hopf consequence needs the L¹-integrability (or vanishing) to be proved, which the abstract does not do.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction stated on the sign conjectures; a criterion.",
+      "object": null,
+      "people": [
+        "Teng Huang",
+        "Weike Yu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2607.13917"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.13917"
+      ]
+    },
+    {
+      "id": "huang-wang-2025-07-small-weyl",
+      "what_happened": "Teng Huang and Weiwei Wang, arXiv:2507.15237, ‘Decomposition of the Curvature Operator and Applications to the Hopf Conjecture’. Theorem 1.3: for compact even-dimensional M of dimension 2n (n ≥ 2) with sec ≥ a > 0, or sec ≤ −a < 0, and a Weyl-tensor bound |W| below an explicit constant times a, the curvature operator is positive, or negative, and the Euler characteristic conclusion is strict: χ > 0, or (−1)ⁿ χ > 0. The abstract says the results ‘confirm the Hopf conjecture for manifolds with sufficiently small Weyl curvature’. Theorem 1.2, as the authors state it: the Hopf conjecture holds for all compact locally conformally flat manifolds of even dimension. The abstract also reports new rigidity results under harmonic Weyl conditions. Versions: v1 21 Jul 2025; v2 25 Jul 2025. Read via the abstract page and HTML v2 (first 100k of about 103k characters).",
+      "date": "2025-07-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 21 Jul 2025; v2 25 Jul 2025 (shown; 29 pages).",
+      "delivers": "Restricted-class confirmations of the positive and negative sign conjectures under a Weyl-smallness hypothesis that depends on the pinching constant, and, as the authors state, of the sign conjecture for all compact locally conformally flat even-dimensional manifolds. These classes are restricted, and nothing here settles the general sign conjectures. The LCF claim is the authors’ and I did not check its proof.",
+      "remains": "The general sign conjectures in all even dimensions without the Weyl or LCF hypotheses, and the nonnegative case unless covered by these classes.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "About 15 months as of 12 Oct 2026. No engagement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The results are restricted and by two authors; no third-party check found. The LCF statement is broad and is quoted from the authors’ summary, not checked.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports both the positive and the negative sign conjectures in the restricted classes described, and (per the authors) for locally conformally flat manifolds.",
+      "object": null,
+      "people": [
+        "Teng Huang",
+        "Weiwei Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2507.15237",
+          "https://arxiv.org/html/2507.15237v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2507.15237",
+        "https://arxiv.org/html/2507.15237v2"
+      ]
+    },
+    {
+      "id": "kennard-mouille-nienhaus-2025-07-ric2",
+      "what_happened": "Lee Kennard, Lawrence Mouillé and Jan Nienhaus, arXiv:2507.16936, ‘On Hopf’s conjecture and positive second intermediate Ricci curvature’. If a closed manifold with Ric₂ > 0 has dimension divisible by four and an effective isometric torus action of rank at least ten, then its Euler characteristic is positive. Key tool: an extension of Kennard’s Four Periodicity Theorem. The summary of the paper says the conclusion of the conjecture is known to fail under weaker curvature assumptions, including Ric₂ > 0 without symmetry, and that examples on S³×S³ (with T³) and S⁷×S⁷ (with T⁴) show the dimension and symmetry hypotheses cannot simply be dropped. Read via the abstract page (the summary of the examples is from the search summary and the introduction, not checked line by line). Single version, 22 Jul 2025.",
+      "date": "2025-07-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 22 Jul 2025 only.",
+      "delivers": "Positive Euler characteristic for closed manifolds with Ric₂ > 0 in dimension divisible by four, with a torus of rank at least ten. A weaker-curvature analogue of part (a), restricted by dimension and symmetry. It settles nothing in problem_asks.",
+      "remains": "Part (a) with no symmetry hypothesis, parts (b) and (c) in general, and the Ric₂ analogue outside the symmetry class.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "About 15 months as of 12 Oct 2026. No third-party check or journal version found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Specialist authors; no third-party check found. The authors are not independent of the field, so this is a qualification, not a check.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports χ > 0 in the restricted Ric₂ class with large symmetry. In the Ric₂ setting the sign conclusion fails without such symmetry (per the authors’ examples as summarised).",
+      "object": null,
+      "people": [
+        "Lee Kennard",
+        "Lawrence Mouillé",
+        "Jan Nienhaus"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2507.16936"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2507.16936"
+      ]
+    },
+    {
+      "id": "chen-zhang-2026-09-s2xt2-biorthogonal",
+      "what_happened": "Zhiqi Chen and Hui Zhang, arXiv:2609.08119, ‘Positive biorthogonal curvature on S²×T²’. Explicit metrics with positive biorthogonal curvature on S²×T², answering a question of Bettiol. Also states that positive biorthogonal curvature on a closed four-manifold does not force virtually free π₁. The page does not mention Hopf’s conjectures. Read via the abstract page.",
+      "date": "2026-09-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 8 Sep 2026 only.",
+      "delivers": "Positive biorthogonal curvature (a different notion from sectional curvature) on the direct product S²×T². It is not a sectional-curvature statement, so it does not bear on the product form as stated.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "34 days as of 12 Oct 2026. No engagement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not a sectional-curvature result, so no direct doubt is relevant here.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not a sign or product statement for sectional curvature.",
+      "object": null,
+      "people": [
+        "Zhiqi Chen",
+        "Hui Zhang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.08119"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.08119"
+      ]
+    },
+    {
+      "id": "di-cerbo-pardini-2023-10-aspherical-projective",
+      "what_happened": "Luca F. Di Cerbo and Rita Pardini, arXiv:2310.03129, ‘On the Hopf Problem and a Conjecture of Liu–Maxim–Wang’. Discusses an approach to the Hopf problem for aspherical smooth projective varieties and, in complex dimension two, proposes a conjecture on the geography of aspherical surfaces of general type. The comment says the final version is to appear in Expositiones Mathematicae after changes following a referee report. Versions: v1 4 Oct 2023; v2 6 Oct 2023; v3 22 Oct 2023; v4 16 Jan 2024. The precise Hopf problem as used is not stated on the abstract page, which I read.",
+      "date": "2023-10-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 4 Oct 2023; v2 6 Oct 2023; v3 22 Oct 2023; v4 16 Jan 2024 (before the frozen revision).",
+      "delivers": "Discussion and a conjecture in complex dimension two, not a settlement. It concerns a complex algebraic Hopf problem, not the curvature statements. It settles nothing in problem_asks.",
+      "remains": "All of problem_asks.",
+      "checked_by": [
+        {
+          "who": "Expositiones Mathematicae (journal), per the arXiv comment",
+          "qualification": "Refereed journal.",
+          "what_they_did": "The comment says the version was changed after a referee report and is to appear in the journal; the journal’s acceptance was not confirmed by me.",
+          "where": "https://arxiv.org/abs/2310.03129",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "Posted 4 Oct 2023 (predates the frozen revision).",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not a sign or product statement.",
+      "object": null,
+      "people": [
+        "Luca F. Di Cerbo",
+        "Rita Pardini"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2310.03129"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2310.03129"
+      ]
+    },
+    {
+      "id": "albanese-di-cerbo-lombardi-2023-11-singer",
+      "what_happened": "Michael Albanese, Luca F. Di Cerbo and Luigi Lombardi, arXiv:2311.10226, ‘Aspherical Complex Surfaces, the Singer Conjecture, and Gromov–Lück Inequality χ ≥ |σ|’. Proves the Singer conjecture for aspherical complex surfaces with residually finite fundamental group; without that assumption, it holds for all aspherical complex surfaces except possibly those in Kodaira class VII₀⁺; sharpens Gromov’s inequality. The abstract does not state the Hopf conjecture, and the authors do not claim a Hopf result. Versions: v1 16 Nov 2023; v2 30 Nov 2023; v3 14 Feb 2024; v4 21 Jul 2025 (shown).",
+      "date": "2023-11-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 16 Nov 2023; v2 30 Nov 2023; v3 14 Feb 2024; v4 21 Jul 2025 (shown).",
+      "delivers": "The Singer conjecture (L² Betti vanishing and positivity) for aspherical complex surfaces with residually finite π₁, a restricted complex class. The Singer conjecture for negatively curved manifolds would imply the negative Hopf statement, per a search summary, but this paper does not claim that.",
+      "remains": "The Hopf sign statements in general; the Singer conjecture for aspherical complex surfaces outside the residually finite case, including the possible class VII₀⁺ cases.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "Posted 16 Nov 2023 (predates the frozen revision). No journal acceptance recorded by me.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unknown. No engagement found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not a sign statement for curvature; a restricted L²/Singer-type result.",
+      "object": null,
+      "people": [
+        "Michael Albanese",
+        "Luca F. Di Cerbo",
+        "Luigi Lombardi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2311.10226"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2311.10226"
+      ]
+    },
+    {
+      "id": "mouille-2019-11-ric2-products-withdrawn",
+      "what_happened": "Lawrence Mouillé, arXiv:1911.03491, ‘Positive intermediate Ricci curvature on products of homogeneous spaces’. The abstract says it constructs metrics with Ric₂ > 0 on products of positively curved homogeneous spaces, and argues that the Hopf conjectures, among others, fail in the Ric₂ > 0 setting. Versions: v1 8 Nov 2019; v2 19 Apr 2020; v3 24 Nov 2020; v4 3 Mar 2021, marked ‘(withdrawn)’. The arXiv notice says ‘A newer version of this paper has been withdrawn by Lawrence Mouillé’. A fetch of the unversioned abstract page gave the reason as a mistake in Lemma 4.5 making Theorem 4.1 incorrect; a fetch of the v2 page found no stated reason. This conflict is unresolved.",
+      "date": "2019-11-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 8 Nov 2019; v2 19 Apr 2020; v3 24 Nov 2020; v4 3 Mar 2021 (withdrawn). The date of the withdrawal notice is not shown.",
+      "delivers": "Claimed Ric₂ > 0 examples on products, which would show the Euler-characteristic conclusion fails under Ric₂ > 0. Withdrawn, so it establishes nothing for the sign conjectures. Ric₂ is a weaker hypothesis than sec > 0, so it is an analogue.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "Withdrawn version posted 3 Mar 2021, about 5 years 7 months before 12 Oct 2026.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The arXiv notice says the later version was withdrawn by the author. The stated reason conflicts between two fetches, so I record it as unresolved.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "The v4 version (3 Mar 2021) is marked withdrawn; the notice says a newer version was withdrawn by the author.",
+        "date": "2021-03-03",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/1911.03491v2",
+          "https://arxiv.org/abs/1911.03491"
+        ]
+      },
+      "direction": "Under the weaker Ric₂ hypothesis, claimed to cut against the Euler-characteristic conclusion; withdrawn.",
+      "object": null,
+      "people": [
+        "Lawrence Mouillé"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1911.03491v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1911.03491",
+        "https://arxiv.org/abs/1911.03491v2"
+      ]
+    },
+    {
+      "id": "wilking-ric2-s3xs3",
+      "what_happened": "A normal homogeneous metric on S³×S³ = SU(2)³/ΔSU(2) with positive second intermediate Ricci curvature, attributed in the S³×S³ preprint’s introduction to a construction of Wilking (quoted via a summarising fetch: ‘a construction of Wilking on S³×S³ with positive second intermediate Ricci curvature’). The Kennard–Mouillé–Nienhaus preprint (22 Jul 2025) also notes that S³×S³ admits a metric with Ric₂ > 0 and T³ symmetry. The original date of Wilking’s construction was not established by me.",
+      "date": null,
+      "precision": null,
+      "kind": "preprint",
+      "predates_frozen_revision": null,
+      "revisions": null,
+      "delivers": "A metric with Ric₂ > 0 on S³×S³ (χ = 0), which shows the Euler-characteristic conclusion fails under Ric₂ > 0 on a product with χ = 0. Weaker than sectional curvature, so an analogue. It does not decide the sec > 0 sign conjecture, which the 2026 Guo–Fang–Lu preprint addresses.",
+      "remains": "Part (a) for sec > 0, which the Guo–Fang–Lu event addresses; parts (b) and (c).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "Original date not established. The Kennard–Mouillé–Nienhaus paper (22 Jul 2025) notes it.",
+      "machine_checked": null,
+      "directly_checkable": "It is a homogeneous metric on an explicit quotient, checkable in principle. Not checked by me.",
+      "doubts": "The attribution to Wilking and the Ric₂ statement come from a summary of the S³×S³ introduction and of the Kennard–Mouillé–Nienhaus summary; neither was checked against a primary Wilking source.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Shows the Euler-characteristic conclusion fails under Ric₂ > 0 on S³×S³. Silent on sectional curvature.",
+      "object": "A normal homogeneous metric on S³×S³ = SU(2)³/ΔSU(2) with Ric₂ > 0, admitting T³ symmetry (per Kennard–Mouillé–Nienhaus). Explicit homogeneous metric.",
+      "people": [
+        "Wilking (as credited in the S³×S³ introduction)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.11980"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2609.11980v1",
+        "https://arxiv.org/abs/2507.16936"
+      ]
+    },
+    {
+      "id": "nienhaus-2022-11-t4",
+      "what_happened": "Jan Nienhaus, arXiv:2211.13151, ‘An improved four-periodicity theorem and a conjecture of Hopf with symmetry’. Proves the positive-sectional sign conjecture (a closed even-dimensional manifold with sec > 0 has χ > 0) under an isometric T⁴-action, improving the T⁵ hypothesis of Kennard, Wiemeler and Wilking. Second application: a classification of positively curved even-dimensional manifolds without odd rational cohomology that admit an isometric T⁶-action. Single version, 23 Nov 2022; no journal reference shown.",
+      "date": "2022-11-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 23 Nov 2022 only, per the arXiv page.",
+      "delivers": "The positive-sectional sign conjecture under an effective isometric torus action of rank 4. Restricted by symmetry rank. It does not address parts (b), (c), or the case without symmetry.",
+      "remains": "Part (a) for manifolds with torus rank below 4 or no torus action; parts (b) and (c) in general.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "About 3 years 11 months as of 12 Oct 2026. Journal publication not established.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No third-party check of the argument found; the search summaries of later work treat it as a known improvement.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the positive sign conjecture in the restricted symmetric case.",
+      "object": null,
+      "people": [
+        "Jan Nienhaus"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2211.13151"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2211.13151"
+      ]
+    },
+    {
+      "id": "kennard-wiemeler-wilking-2021-06-rank5",
+      "what_happened": "Lee Kennard, Michael Wiemeler and Burkhard Wilking, arXiv:2106.14723, ‘Splitting of torus representations and applications in the Grove symmetry program’. Proves Hopf’s positive-sectional sign conjecture for even-dimensional compact Riemannian manifolds with positive sectional curvature under the added assumption that the isometry group has rank at least five. v1 28 Jun 2021. Journal publication not established by me.",
+      "date": "2021-06-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 28 Jun 2021 (as shown).",
+      "delivers": "Part (a) under an isometry group of rank at least five. Restricted by symmetry.",
+      "remains": "Part (a) without the rank-five hypothesis; parts (b) and (c).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "About 5 years 3 months as of 12 Oct 2026. Journal publication not established.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Journal status not established. The phrase ‘simply connected with effective T⁵-action’ from a talk summary is not in the abstract I read, so I do not record it as the hypothesis.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the positive sign conjecture under a large symmetry hypothesis.",
+      "object": null,
+      "people": [
+        "Lee Kennard",
+        "Michael Wiemeler",
+        "Burkhard Wilking"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2106.14723"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2106.14723"
+      ]
+    },
+    {
+      "id": "kennard-2012-03-torus-log",
+      "what_happened": "Lee Kennard, ‘On the Hopf Conjecture with Symmetry’, arXiv:1203.3808, v1 16 Mar 2012; published in Geometry & Topology 17 (2013), 563–593. Proves the positive-sectional sign conjecture under the assumption that a torus acts isometrically with dimension bounded below by a logarithmic function of the manifold dimension. The exact function was not read on the abstract page.",
+      "date": "2012-03-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 16 Mar 2012; published Geom. Topol. 17 (2013).",
+      "delivers": "Part (a) under an effective isometric torus action of logarithmic rank. Restricted by symmetry.",
+      "remains": "Part (a) without the torus assumption; parts (b) and (c).",
+      "checked_by": [
+        {
+          "who": "Geometry & Topology (journal)",
+          "qualification": "Refereed research journal.",
+          "what_they_did": "Published the paper in volume 17 (2013), pages 563–593, per the arXiv page’s journal reference.",
+          "where": "https://arxiv.org/abs/1203.3808",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "Published 2013; predates the frozen revision.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the positive sign conjecture under a torus-symmetry hypothesis.",
+      "object": null,
+      "people": [
+        "Lee Kennard"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1203.3808"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1203.3808"
+      ]
+    },
+    {
+      "id": "puttmann-searle-2002-cohomogeneity-torus",
+      "what_happened": "Thomas Püttmann and Catherine Searle, ‘The Hopf conjecture for manifolds with low cohomogeneity or high symmetry rank’, Proc. AMS 130 (2002), no. 1, 163–166 (the year is given as 2001 on one source and 2002 on the volume listing; I use 2002 with year precision). arXiv:1207.4086 was posted 17 Jul 2012. Results: for an even-dimensional compact manifold with positive (or nonnegative) sectional curvature and an isometric action of a compact Lie group G with cohomogeneity condition k − (rank G − rank H) ≤ 5, the Euler characteristic is positive (or nonnegative); and for dimensions 4l+2 and 4l+4 with positive sectional curvature, χ > 0 if there is an effective isometric torus action of rank at least l.",
+      "date": "2002",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Proc. AMS publication 2002; arXiv v1 17 Jul 2012.",
+      "delivers": "Part (a) and its nonnegative analogue under compact Lie group symmetry with the stated cohomogeneity condition, and in dimensions 4l+2 and 4l+4 with torus symmetry rank at least l. Restricted by symmetry.",
+      "remains": "Part (a) and (b) without the symmetry condition; part (c).",
+      "checked_by": [
+        {
+          "who": "Proceedings of the American Mathematical Society (journal)",
+          "qualification": "Refereed research journal.",
+          "what_they_did": "Published the paper in volume 130, issue 1 (2002), per the journal reference on the arXiv page.",
+          "where": "https://arxiv.org/abs/1207.4086",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "Published 2002; predates the frozen revision.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The year of publication differs between sources (2001 and 2002). Neither affects its place before the frozen revision.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the positive and nonnegative sign conjectures under the stated symmetry hypotheses.",
+      "object": null,
+      "people": [
+        "Thomas Püttmann",
+        "Catherine Searle"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1207.4086"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1207.4086"
+      ]
+    },
+    {
+      "id": "hsiang-kleiner-1989-killing-dim4",
+      "what_happened": "Hsiang and Kleiner (1989), as cited by MathWorld: a closed orientable positively curved 4-manifold with a nontrivial Killing field is homeomorphic to S⁴ or CP². MathWorld draws the consequence that a positively curved metric on S²×S² can have no continuous symmetry. Journal and page not checked by me; the 1989 year is from MathWorld.",
+      "date": "1989",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A topological constraint on any positively curved 4-manifold with a continuous symmetry; it does not settle any part of the statement, since S²×S² is not excluded unless it has such a symmetry.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "Published 1989 (per MathWorld); predates the frozen revision.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "A constraint on symmetric positively curved candidates for S²×S²; no direction on the conjecture as such.",
+      "object": null,
+      "people": [
+        "Wu-Yi Hsiang",
+        "Bruce Kleiner"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://mathworld.wolfram.com/HopfConjecture.html"
+        ]
+      },
+      "sources": [
+        "https://mathworld.wolfram.com/HopfConjecture.html"
+      ]
+    },
+    {
+      "id": "chern-1955-dim4-negative",
+      "what_happened": "Chern (1955) handled the four-dimensional negative-curvature case through the Gauss–Bonnet–Chern formula: for closed 4-manifolds with negative sectional curvature the Gauss–Bonnet integrand is pointwise positive, so χ > 0. Attribution of the idea to Milnor is reported in some sources and not others. Known only from search snippets and a summary, not from the 1955 paper itself, which I did not open.",
+      "date": "1955",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Part (c) in dimension four (χ > 0 for negative sectional curvature, and nonnegative for nonpositive). Settles dimension four of part (c).",
+      "remains": "Part (c) in dimensions 2n ≥ 6.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "1955; predates the frozen revision.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Attribution between Chern and Milnor is unresolved in my sources.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the negative sign conjecture in dimension four.",
+      "object": null,
+      "people": [
+        "Shiing-Shen Chern",
+        "John Milnor (attribution in some sources)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/2001.01398"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2001.01398"
+      ]
+    },
+    {
+      "id": "geroch-1976-pointwise-integrand",
+      "what_happened": "Robert Geroch (1976), ‘On Geroch’s counterexample to the algebraic Hopf conjecture’ is the later discussion; the original gives a counterexample showing that positive sectional curvature does not make the pointwise Gauss–Bonnet–Chern integrand positive in higher dimensions. Known from search snippets (the AMS listing and a summary), not opened.",
+      "date": "1976",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Shows the pointwise route to part (a) fails in dimensions above four. It does not decide the Euler-characteristic sign of any manifold.",
+      "remains": "Parts (a), (b) and (c) in dimensions 2n ≥ 6.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "1976; predates the frozen revision.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not a counterexample to the Euler-characteristic statement itself; a counterexample to the pointwise route.",
+      "object": "Geroch’s algebraic counterexample concerns the pointwise sign of the Gauss–Bonnet–Chern integrand, not the Euler characteristic.",
+      "people": [
+        "Robert Geroch"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.ams.org/proc/1976-059-02/S0002-9939-1976-0428225-6/"
+        ]
+      },
+      "sources": [
+        "https://www.ams.org/proc/1976-059-02/S0002-9939-1976-0428225-6/"
+      ]
+    },
+    {
+      "id": "bettiol-2012-10-biorthogonal-s2xs2",
+      "what_happened": "Renato Bettiol, positive biorthogonal curvature on S²×S² (arXiv:1210.0043, posted October 2012 per the arXiv identifier; the journal reference is Proc. AMS 2014). Shows S²×S² satisfies an intermediate condition between Ric > 0 and sec > 0 in the biorthogonal sense, without nonnegative sectional curvature (per search summaries). Not opened.",
+      "date": "2012-10",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Positive biorthogonal curvature on S²×S², which is weaker than sectional and does not give sec ≥ 0. It settles nothing in problem_asks.",
+      "remains": "Everything in problem_asks, since this is a different curvature notion.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "Posted October 2012, predates the frozen revision.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not opened; the description is from search summaries.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not a sectional-curvature statement; no direction on the product form.",
+      "object": null,
+      "people": [
+        "Renato G. Bettiol"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/1210.0043"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/1210.0043"
+      ]
+    },
+    {
+      "id": "gromov-kahler-hyperbolic",
+      "what_happened": "Gromov introduced Kähler hyperbolicity and verified the negative-curvature sign statement for Kähler hyperbolic manifolds, including compact Kähler manifolds with negative sectional curvature, per a search summary. The original year was not established by me, and the paper was not opened.",
+      "date": null,
+      "precision": null,
+      "kind": "journal",
+      "predates_frozen_revision": null,
+      "revisions": null,
+      "delivers": "Part (c) for Kähler hyperbolic manifolds (a restricted class).",
+      "remains": "Part (c) for manifolds outside that class, and the other parts.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "Year not established by me.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only from a search summary.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports part (c) in a restricted Kähler class.",
+      "object": null,
+      "people": [
+        "Mikhail Gromov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/pdf/1711.03309"
+      ]
+    },
+    {
+      "id": "openai-math-315",
+      "what_happened": "One manuscript, 'The Singer conjecture in dimension four' (OpenAI, dated September 25, 2026; the only manuscript in this family). Its main theorem (thm:main, introduction) says that for any finite connected aspherical integral Poincaré complex Q of formal dimension four, with arbitrary orientation character, the L²-Betti numbers b_p⁽²⁾(Q̃) vanish for every p ≠ 2. Corollary cor:singer-manifolds applies this to closed connected aspherical topological four-manifolds M, which the paper calls the four-dimensional Singer conjecture. The consequences section (cor:euler) adds χ(Q) = b₂⁽²⁾(Q̃) ≥ 0 for the same class, with χ(Q) = 0 exactly when all L²-Betti numbers vanish. For manifolds this is the statement χ(M) ≥ 0 for closed aspherical topological four-manifolds, which is the dimension-four, aspherical case of the Euler-characteristic sign question. The paper also proves χ(M) ≥ |σ(M)| for closed oriented ones (cor:signature) and a growth statement for covers along a descending chain of finite-index normal subgroups with trivial intersection (cor:betti-growth). The main proof is by contradiction. A positive first L²-Betti number yields a nondegenerate continuum boundary with dimension at most one and vanishing Čech H¹ mod 2; the path-pushing section makes it locally connected, and conclusion.tex then contradicts Lemma end:continuum, which says such a continuum has a cut point. The manuscript says nothing about sectional curvature.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Within the Hopf list, the claim bears only on part (e), Thurston's aspherical sign statement, and only in dimension four. It establishes χ(M) ≥ 0 for every closed connected aspherical topological four-manifold, with no smoothness, orientability or geometric-structure assumption, and more generally χ(Q) ≥ 0 for finite aspherical integral Poincaré complexes of formal dimension four, which need not be manifolds. This is the k = 2 instance of (e), which the list states as (−1)ᵏ χ(M^(2k)) ≥ 0 for closed aspherical manifolds in every even dimension; the manuscript's statement is therefore narrower in dimension and broader in the class of spaces. Parts (a) and (b) (positive and nonnegative sectional curvature) and the curvature-sign parts of (c) are not addressed. Since a closed nonpositively curved manifold is aspherical (Cartan–Hadamard, my note, not the text), the nonpositive case of (c) in dimension four falls under the claim, but the manuscript does not state or prove it, and the problem_asks records dimension four as the already-known case of the curvature conjectures. The product conjecture (d) is not addressed. The manuscript's own statements are not about the list's 'higher-dimensional' scope.",
+      "remains": "If the claim is correct, the dimension-four aspherical sign statement is settled for closed topological manifolds and for finite Poincaré complexes. Still open for this problem: (a) and (b), the positive and nonnegative curvature sign conjectures in every even dimension; (c), the negative and nonpositive curvature sign conjectures in dimensions 2n ≥ 6; (d), the product conjecture; and (e) for closed aspherical manifolds in dimensions 2k ≥ 6. The paper's Singer-type concentration would give the sign in higher even dimensions only if the vanishing were proved there, and the manuscript proves it only in dimension four.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "8 days",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(1) The new steps are the authors' own extensions beyond their sources, and the text says so: the finite-interval reduction in the all-parabolic case (pretree.tex: Bowditch's Theorem 6.1 'does not itself produce' it, and 'we now prove that assertion'); the block graph and continuous retraction onto a block (blocks.tex: 'extensions established here, not an invocation of a retraction theorem'); and the separation counts, which the introduction says 'adapt' Bowditch's annulus method. These are the parts a reader must check against the text. (2) The boundary argument runs under standing hypotheses stated at the start of pretree.tex: a finitely presented, torsion-free, one-ended group acting minimally as a convergence group with no nontrivial splitting over a finite or two-ended subgroup. The text says these 'have been established for the boundary constructed above'; I did not check that in foundations.tex or compactification.tex. (3) The four-dimensional model step is compressed. Lemma found:model cites Wall's dimension theorem, justifies finiteness in one sentence ('It can be chosen finite because Q is finite, so its reduced finiteness obstruction vanishes'), and cites West for manifolds. (4) The text presents χ(M) ≥ |σ(M)| as 'the Euler–signature inequality discussed by Gromov and Lück', citing Conjecture 1.3 of Albanese–Di Cerbo–Lombardi, which that source states as a conjecture. The manuscript presents it as a corollary, and says the equality of ordinary and L² signatures is 'an additional input' that is proved only for manifolds. (5) Abstract and main theorem agree: both cover arbitrary orientation characters and both state the manifold case; I found no inconsistency. (6) Reading depth: I read the abstract, introduction, main statements, the conclusion, the consequences, and the openings and flagged passages of foundations, pretree, blocks, annuli and path-pushing. I did not check the full ~3,400 lines of the build, and I did not check the local-connectivity argument in path-pushing beyond its final assembly.; conditional on: No hypothesis is assumed for χ(M) ≥ 0 itself. The proof takes cited literature results without reproving them: Wall's dimension theorem and West's homotopy-dimension estimate for the four-dimensional model, topological Poincaré duality (Sun 2017), Bowditch's pretree package, and Lück's L²-Euler–Poincaré formula. It depends on no other OpenAI manuscript for the main theorem. The companion papers are cited only as an application (the PD4 nonmanifold example) and as a remark on complex surfaces, which the text says is not an input. The corollary χ(M) ≥ |σ(M)| additionally needs Lück–Schick's topological L²-signature theorem, and the growth corollary assumes a descending chain of finite-index normal subgroups with trivial intersection. Neither is relevant to the curvature parts of the list.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "proves a case: the dimension-four aspherical instance of the Euler-characteristic sign (χ ≥ 0), plus χ ≥ |σ| for oriented topological four-manifolds as a side result; no curvature statement",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "produced the manuscripts, per the repository README",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+          }
+        ],
+        "disclosed_cost": "On average, each result used three hours of ChatGPT Pro thinking compute with that model.",
+        "sources": [
+          "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/paper.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+      ],
+      "origin": {
+        "stage": "openai",
+        "family": "315",
+        "family_title": "The four-dimensional Singer conjecture",
+        "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+        "read": [
+          "sources/openai-math/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/README.md",
+          "sources/openai-math/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/build/paper.tex",
+          "sources/openai-math/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/build/introduction.tex",
+          "sources/openai-math/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/build/consequences.tex",
+          "sources/openai-math/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/build/conclusion.tex",
+          "sources/openai-math/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/build/foundations.tex (lines 1-200)",
+          "sources/openai-math/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/build/pretree.tex (lines 1-50, 128-145, 385-397)",
+          "sources/openai-math/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/build/blocks.tex (lines 1-60)",
+          "sources/openai-math/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/build/annuli.tex (lines 1-50)",
+          "sources/openai-math/preprints/The-Singer-conjecture-in-dimension-four-September-25-2026/build/path-pushing.tex (lines 1-30, 440-466)"
+        ]
+      }
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "status",
+      "summary": "The sources differ on how firmly to treat the S²×S² claim. MathWorld hedges: ‘if the proof is verified’, and says the sign form is unaffected. The S³×S³ introduction (via a summarising fetch) says the product conjecture ‘has been disproved by Brendle and Hung’. The S²×S³ introduction says Brendle and Hung show S²×S² admits a positive metric. A search summary of a third, unopened preprint describes it as ‘resolving the Hopf conjecture’. I record the authors’ and MathWorld’s wording and do not pick one.",
+      "sources": [
+        "https://mathworld.wolfram.com/HopfConjecture.html",
+        "https://arxiv.org/abs/2608.19068",
+        "https://arxiv.org/html/2609.11980v1",
+        "https://arxiv.org/html/2608.22133v2"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Three 2026 preprints by Guo, Fang and Lu credit the ‘Odin Automatic AI Research Agent’ with discovering the metric and the proof (S³×S³ and S²×S³), and a similarly credited Komlós-discrepancy paper (arXiv:2609.11189, not researched for this problem) suggests a pattern. I could not identify Odin as a system or lab from any source, and three searches returned only unrelated products named Odin. The claimed AI role is the authors’ own account, but no workflow or human-checking account has been found.",
+      "sources": [
+        "https://arxiv.org/abs/2609.11980",
+        "https://arxiv.org/abs/2608.22133",
+        "https://arxiv.org/pdf/2609.11189"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "An anonymous Hacker News comment on the zeli.app page (27 Aug 2026) says the S²×S² Hopf problem was ‘solved by human mathematicians around the same time’. It is unattributed, and it is not a claim about the S³×S³ or S²×S³ results. I give it no weight beyond recording it.",
+      "sources": [
+        "https://zeli.app/story/49467053"
+      ]
+    },
+    {
+      "kind": "withdrawal",
+      "summary": "The arXiv history of 1911.03491 marks v4 (3 Mar 2021) as withdrawn. One fetch reported a reason (an error in Lemma 4.5 making Theorem 4.1 incorrect); another fetch of the v2 page found no stated reason. Unresolved.",
+      "sources": [
+        "https://arxiv.org/abs/1911.03491",
+        "https://arxiv.org/abs/1911.03491v2"
+      ]
+    }
+  ],
+  "summary": "I ran 35 searches and opened the arXiv abstracts or HTML of about 30 sources, plus MathWorld, the Wikipedia Hopf article and the Wikipedia list of AI mathematical discoveries. The bullet’s open content is parts (a)–(c), the sign conjectures. The 2026 events bear on them as follows. (1) Positive case, part (a): Guo, Fang and Lu, arXiv:2609.11980 (6 Sep 2026), claim a metric of strictly positive sectional curvature on S³×S³, which has χ = 0, so part (a) fails in dimension 6 if the claim holds. Its abstract and introduction credit the metric and proof to the ‘Odin Automatic AI Research Agent’. No source identifies that agent, and the authors describe no workflow. The paper relies on exact-arithmetic code in a public repository, which I did not run. (2) Product form, part (d): Brendle and Hung, arXiv:2608.19068 (19 Aug 2026; v2 24 Aug), give a positive-curvature metric on S²×S² by a Cheeger deformation followed by a third-order perturbation, with Mathematica code attached; an automated reviewer (Refine, reported second-hand from a thread I could not open, HTTP 402) flagged a dependence on a Mathematica bug in a second-order step. Guo, Fang and Lu’s arXiv:2608.22133 (22 Aug 2026) gives a positive metric on S²×S³, again credited to Odin, which bears on part (d) and not on the even-dimensional sign conjecture. Whether part (d) belongs to this bullet is a scope question I have flagged and not decided: the statement speaks of curvature and Euler characteristic, but the Wikipedia Hopf article lists the product form among the Hopf conjectures. (3) Restricted results: Kennard (2012/13), Püttmann–Searle (2002), Kennard–Wiemeler–Wilking (2021), Nienhaus (2022) and Kennard–Mouillé–Nienhaus (2025) prove part (a) under symmetry or Ric₂ hypotheses; Huang and Wang (2025) prove parts (a) and (c) under small-Weyl or locally-conformally-flat hypotheses; Deng and Wang (May 2024) prove a nonstrict aspherical inequality for complex projective manifolds with linear π₁; Huang and Yu (July 2026) give a criterion, not a proof. The negative case in dimension four is Chern (1955), and the general negative case remains open. (4) Discounted events: the S⁶ complex-structure claim by Alpöge (23 Aug 2026, credited to ‘Claude’, Lean-formalised by Alexeev, recorded as unverified by Scientific American) answers a different Hopf problem; Liu’s almost-positive S²×S² note (21 Aug 2026, ‘generated by ChatGPT 5.6’) is an analogue; Chen and Zhang’s S²×T² result concerns biorthogonal curvature. Close calls: whether the S³×S³ claim ‘settles’ the bullet depends on whether the bullet means the sign family as a whole. It refutes the positive case only, so parts (b), (c) and (e) remain open. Whether the AI-credited claims are load-bearing is answered by the authors’ own sentences (the agent ‘discovered’ the metric), but without any account of the workflow or human checking, so I record the sentences and not a judgement. Nothing from 2024 settles any part; the 2024 items are restricted cases. The Wikipedia AI-discoveries list (last edited 11 Oct 2026) has no entry for the S³×S³, S²×S³ or S²×S² results, only the S⁶ claim. The Wikipedia Hopf article (last edited 29 Aug 2026, read via a summarising fetch) names the product and aspherical conjectures and does not mention the 2026 preprints.",
+  "competing_reading": "Read strictly, the S³×S³ claim is a counterexample to the positive case of the sign conjecture as the Wikipedia lead states it, and the S²×S² and S²×S³ claims refute the product form; on that reading the bullet has lost its positive and product cases, with the negative and nonnegative cases still open. The opposing reading treats all three as unrefereed preprints, with no independent recomputation, one automated report of a Mathematica-dependent flaw in the S²×S² argument (second-hand), and an AI attribution that names an unidentified agent without a workflow account, so none should yet count as a settlement. A third reading treats the product form as outside this bullet, which removes the S²×S² and S²×S³ events from scope and leaves only the S³×S³ claim.",
+  "what_would_settle_it": "For part (a): a referee report or published verification of arXiv:2609.11980, and an independent recomputation of the exact checks in its companion repository. For part (d): a v3 or erratum of arXiv:2608.19068 showing whether the Mathematica-dependent step was fixed or is wrong, and an independent computer-algebra check of the S²×S² metric. For the AI attribution: the authors’ account of the Odin workflow and what was checked by hand, and identification of the agent’s lab and release. For the scope: a decision on whether the bullet includes the product conjecture and Thurston’s aspherical conjecture. For part (c): any new result on (−1)ⁿχ > 0 under negative curvature in dimension at least six.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2609.11980",
+      "title": "A Metric with Positive Sectional Curvature on S³×S³ (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.11980v1",
+      "title": "A Metric with Positive Sectional Curvature on S³×S³ (arXiv HTML v1; read via summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.11980",
+      "title": "A Metric with Positive Sectional Curvature on S³×S³ (PDF; returned an unreadable binary)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/shengtaoguo/s3xs3-curvature-calculations",
+      "title": "s3xs3-curvature-calculations (companion repository)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.19068",
+      "title": "A metric on S²×S² with positive sectional curvature (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.19068v2",
+      "title": "A metric on S²×S² with positive sectional curvature (arXiv HTML v2; read via summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.19068",
+      "title": "A metric on S²×S² with positive sectional curvature (PDF; returned an unreadable binary)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://x.com/ben_golub/status/2090492235708064040",
+      "title": "Ben Golub on X: Refine verifier thread on a Hopf preprint (HTTP 402)",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.22133",
+      "title": "A Metric with Positive Sectional Curvature on S²×S³ (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.22133v2",
+      "title": "A Metric with Positive Sectional Curvature on S²×S³ (arXiv HTML v2; read via summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.20888",
+      "title": "Almost Positive Sectional Curvature with Bounded Geometry on S²×S² (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.38442",
+      "title": "Complex structures on S⁶ (Engel, arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "http://alpo.ge/s6.pdf",
+      "title": "Alpöge manuscript on a complex structure on S⁶ (PDF; returned an unreadable binary)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://officechai.com/ai/anthropic-researcher-says-claude-helped-build-a-complex-structure-on-s%E2%81%B6-taking-aim-at-the-unsolved-hopf-problem/",
+      "title": "Anthropic Researcher Says Claude Helped Build a Complex Structure on S⁶ (OfficeChai, 24 Aug 2026)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://scientificamerican.com/article/ai-solves-79-year-old-math-mystery-of-six-dimensional-spheres",
+      "title": "AI solves 79-year-old math mystery of six-dimensional spheres (Scientific American, 24 Sep 2026)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://zeli.app/story/49467053",
+      "title": "Lean Proof: The Six-Sphere Has a Complex Structure (zeli.app, 27 Aug 2026)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/plby/HopfProblem",
+      "title": "plby/HopfProblem (Lean formalisation of the S⁶ claim)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/HopfConjecture.html",
+      "title": "Hopf Conjecture (Wolfram MathWorld)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Hopf_conjecture",
+      "title": "Hopf conjecture (Wikipedia; read via summarising fetch, last edited 29 Aug 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+      "title": "List of mathematical discoveries by artificial intelligence (Wikipedia; last edited 11 Oct 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.16936",
+      "title": "On Hopf’s conjecture and positive second intermediate Ricci curvature (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.15237",
+      "title": "Decomposition of the Curvature Operator and Applications to the Hopf Conjecture (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2507.15237v2",
+      "title": "Decomposition of the Curvature Operator and Applications to the Hopf Conjecture (arXiv HTML v2; read via summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.13917",
+      "title": "L¹-Integrability of L²-Harmonic Forms and the Hopf Conjecture (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2106.14723",
+      "title": "Splitting of torus representations and applications in the Grove symmetry program (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2211.13151",
+      "title": "An improved four-periodicity theorem and a conjecture of Hopf with symmetry (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1203.3808",
+      "title": "On the Hopf Conjecture with Symmetry (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1207.4086",
+      "title": "The Hopf conjecture for manifolds with low cohomogeneity or high symmetry rank (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1911.03491",
+      "title": "Positive intermediate Ricci curvature on products of homogeneous spaces (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1911.03491v2",
+      "title": "Positive intermediate Ricci curvature on products of homogeneous spaces (arXiv version history page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.18846",
+      "title": "Positive Ric₂ curvature on products of spheres and their quotients via intermediate fatness (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.12012",
+      "title": "Linear Chern-Hopf-Thurston conjecture (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2310.03129",
+      "title": "On the Hopf Problem and a Conjecture of Liu-Maxim-Wang (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2311.10226",
+      "title": "Aspherical Complex Surfaces, the Singer Conjecture, and Gromov-Lück Inequality χ ≥ |σ| (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.08119",
+      "title": "Positive biorthogonal curvature on S²×T² (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.11189",
+      "title": "Vector Balancing via Directional Total Variation (search result only; same Odin credit, not researched)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/1210.0043",
+      "title": "Positive biorthogonal curvature on S²×S² (Bettiol; search result only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.ams.org/proc/1976-059-02/S0002-9939-1976-0428225-6/",
+      "title": "On Geroch’s counterexample to the algebraic Hopf conjecture (AMS; search result only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2001.01398",
+      "title": "Integral geometric Hopf conjectures (Knill; search result only, cited for Chern’s 1955 result)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/1711.03309",
+      "title": "On Euler characteristic and fundamental groups of compact manifolds (search result only, cited for Gromov’s Kähler hyperbolic result)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.columbia.edu/~sab2280/publ.html",
+      "title": "Selected Publications, Simon Brendle (HTTP 403)",
+      "type": "news",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Hopf conjecture positive sectional curvature Euler characteristic",
+      "Hopf conjecture S^2 x S^2 positive sectional curvature",
+      "Hopf conjecture Wikipedia Riemannian manifold Euler characteristic",
+      "Hopf conjecture 2025 arXiv sectional curvature Euler characteristic",
+      "Hopf conjecture 2026 positive curvature Euler characteristic proof",
+      "Hopf conjecture AI model proof positive curvature",
+      "Hopf conjecture negative sectional curvature (-1)^n Euler characteristic",
+      "Hopf conjecture scalar curvature Euler characteristic even-dimensional manifold",
+      "does S^2 x S^2 admit a metric of positive sectional curvature",
+      "Hopf conjecture 4-manifolds positive curvature isometric circle action 2024",
+      "Hopf conjecture Euler characteristic positive curvature Lean formalization",
+      "Hopf's conjecture Gauss-Bonnet Chern counterexample language model",
+      "\"Odin Automatic AI Research Agent\"",
+      "Odin Automatic AI Research Agent mathematics discovery (extended)",
+      "Guo Fang Lu positive sectional curvature S^3 x S^3 Hopf conjecture disproved (extended)",
+      "Brendle Hung metric S^2 x S^2 positive sectional curvature Hopf conjecture verification (extended)",
+      "Hopf conjecture resolved S^2 x S^2 2026 news mathematicians",
+      "AI agent disproves Hopf conjecture positive curvature S^3 x S^3 Euler characteristic",
+      "Anthropic Claude complex structure S^6 Hopf problem arXiv 2026 (extended)",
+      "Hopf conjecture S^3 x S^3 positive curvature Tao OR Quanta OR Mathstodon reaction (extended)",
+      "Hopf conjecture 2024 new result positive sectional curvature Euler characteristic arXiv",
+      "Wilking positive curvature S^3 x S^3 second intermediate Ricci curvature Hopf",
+      "Hopf conjecture AlphaEvolve OR AlphaProof OR GPT-5 OR \"Gemini\" positive curvature manifold",
+      "Hopf conjecture S^2 x S^2 Mathematica code Brendle Hung verification independent check",
+      "Hopf conjecture Formal Conjectures Google DeepMind Lean repository positive sectional curvature",
+      "Kennard Wiemeler Wilking Hopf conjecture T^5 action simply connected positively curved manifolds",
+      "Chern 1955 negative curvature Euler characteristic four-dimensional Gauss-Bonnet sign Hopf conjecture history",
+      "Singer conjecture L2 harmonic forms negatively curved manifold Euler characteristic sign 2025 arXiv",
+      "Hopf product conjecture S^2 x S^3 S^3 x S^3 mathoverflow positive sectional curvature disproved 2026 (extended)",
+      "Hsiang Kleiner 1989 positive curvature 4-manifold Killing field S^4 CP^2 Hopf S^2xS^2",
+      "Cao Tran four-manifolds pinched sectional curvature S^2 x S^2 obstruction s/6 - W+",
+      "Hopf conjecture arXiv 2026 comment note refutation S^3 x S^3 Brendle Hung Guo Fang Lu response (extended)",
+      "Refine AI research verifier Brendle Hung S^2 x S^2 Hopf preprint flaws Mathematica bug (extended)",
+      "Odin research agent Guo Fang Lu S^3 x S^3 metric AI discovered mathematics Hopf reaction experts (extended)",
+      "Hopf conjecture disproved counterexample sign conjecture dimension six AI-discovered metric September 2026"
+    ],
+    "places_checked": [
+      "arXiv abstract pages and HTML versions for 2609.11980, 2608.19068, 2608.22133, 2608.20888, 2609.38442, 2507.16936, 2507.15237, 2607.13917, 2106.14723, 2211.13151, 1203.3808, 1207.4086, 1911.03491 (incl. version history), 2410.18846, 2405.12012, 2310.03129, 2311.10226, 2609.08119",
+      "Companion repository github.com/shengtaoguo/s3xs3-curvature-calculations",
+      "Lean repository github.com/plby/HopfProblem",
+      "Wikipedia: Hopf conjecture; List of mathematical discoveries by artificial intelligence",
+      "Wolfram MathWorld: Hopf Conjecture",
+      "OfficeChai (24 Aug 2026); Scientific American (24 Sep 2026); zeli.app (27 Aug 2026)",
+      "X: Ben Golub thread (HTTP 402, not read)",
+      "Search results only: diffgeom.subwiki.org Hopf conjecture page; quantumcalculus.org Hopf conjectures; Grokipedia Hopf conjecture; researchgate and emergentmind mirrors",
+      "Google DeepMind Formal Conjectures (search result only; no Hopf entry found in search)"
+    ],
+    "dead_ends": [
+      "Three searches for an ‘Odin’ automatic AI research agent returned unrelated products: an Odin AI desktop agent with review pages, the getodin.ai enterprise agent platform, an Odin graph-intelligence library on arXiv, and HockeyStack’s Odin. None is the agent credited in the Guo–Fang–Lu preprints, and no lab or release is identified.",
+      "Searches for expert reaction (Terence Tao, Quanta, Mathstodon, MathOverflow, news coverage) on the S³×S³, S²×S³ and S²×S² claims found no commentary, verification or refutation beyond the automated Refine report (second-hand).",
+      "No Lean or Mathlib formalisation of the positive-curvature sign conjecture or of the S²×S² product claim was found. The Google DeepMind Formal Conjectures repository was searched only through search results, and no Hopf entry was found; I did not open the repository.",
+      "Searches for AlphaEvolve, AlphaProof, GPT-5 and Gemini in connection with the positive-curvature conjecture found no AI-credited result beyond those listed in events.",
+      "The Wikipedia AI-discoveries list (edited 11 Oct 2026) has no entry for the S³×S³, S²×S³ or S²×S² results. Its only Hopf entry is the S⁶ complex-structure claim.",
+      "Searches for 2024 settlements of the sign conjectures found none. The 2024 items are restricted cases (Deng–Wang) and revisions of pre-2024 work (Di Cerbo–Pardini, Albanese–Di Cerbo–Lombardi).",
+      "Cao–Tran (pinched four-manifolds) was searched for an S²×S² obstruction. The search did not locate the claimed inequality in the form described, so I did not record it.",
+      "Brendle’s publication page returned HTTP 403, so the Mathematica notebook for arXiv:2608.19068 could not be located.",
+      "The PDFs of 2609.11980, 2608.19068 and alpo.ge/s6.pdf returned binary content that my tools could not read; the HTML versions were used instead, and they were read through summarising fetches."
+    ]
+  },
+  "incomplete": "(1) The raw text of arXiv:2609.11980, arXiv:2608.19068 and alpo.ge/s6.pdf was not readable with my tools (binary PDF). The HTML versions were read through a summarising fetch in two passes, one covering the first 100,000 characters and one covering the rest, so every quotation from these papers is a relayed quotation and should be checked against the source; the Odin sentences were confirmed in two separate passes. (2) The Ben Golub X thread (Refine report) returned HTTP 402 and was not read; the description of the reported Mathematica bug is second-hand, and the identification of the preprint it concerns is my inference. (3) I did not check whether arXiv:2608.19068 v2 fixed the step the automated reviewer flagged. (4) The Mathematica notebook and the S³×S³ Python checks were not run or audited. (5) The S⁶ claim’s manuscript and the Alpöge X post were not readable; its AI account is relayed through OfficeChai and Scientific American. (6) Pre-2024 events Chern (1955), Geroch (1976), Hsiang–Kleiner (1989), Bettiol (2012), Gromov’s Kähler hyperbolicity and Wilking’s Ric₂ construction were established from search snippets or from another paper’s summary and are marked opened false or lack a date. (7) The Wikipedia Hopf article was read through a summarising fetch; its list of conjectures is paraphrased. (8) Journal publication status is established only where the arXiv page gives a journal reference. (9) The Huang–Wang locally-conformally-flat theorem and the Mouillé withdrawal reason are unresolved as recorded above. (10) Scope: the product conjecture and Thurston’s aspherical conjecture are researched but their membership in this bullet is not decided.",
+  "combined": {
+    "openai_events_added": [
+      "openai-math-315"
+    ],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "generated",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "huang-wang-2025-07-small-weyl",
+  "no_change_found": false,
+  "event": {
+    "id": "huang-wang-2025-07-small-weyl",
+    "what_happened": "Teng Huang and Weiwei Wang, arXiv:2507.15237, ‘Decomposition of the Curvature Operator and Applications to the Hopf Conjecture’. Theorem 1.3: for compact even-dimensional M of dimension 2n (n ≥ 2) with sec ≥ a > 0, or sec ≤ −a < 0, and a Weyl-tensor bound |W| below an explicit constant times a, the curvature operator is positive, or negative, and the Euler characteristic conclusion is strict: χ > 0, or (−1)ⁿ χ > 0. The abstract says the results ‘confirm the Hopf conjecture for manifolds with sufficiently small Weyl curvature’. Theorem 1.2, as the authors state it: the Hopf conjecture holds for all compact locally conformally flat manifolds of even dimension. The abstract also reports new rigidity results under harmonic Weyl conditions. Versions: v1 21 Jul 2025; v2 25 Jul 2025. Read via the abstract page and HTML v2 (first 100k of about 103k characters).",
+    "date": "2025-07-21",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 21 Jul 2025; v2 25 Jul 2025 (shown; 29 pages).",
+    "delivers": "Restricted-class confirmations of the positive and negative sign conjectures under a Weyl-smallness hypothesis that depends on the pinching constant, and, as the authors state, of the sign conjecture for all compact locally conformally flat even-dimensional manifolds. These classes are restricted, and nothing here settles the general sign conjectures. The LCF claim is the authors’ and I did not check its proof.",
+    "remains": "The general sign conjectures in all even dimensions without the Weyl or LCF hypotheses, and the nonnegative case unless covered by these classes.",
+    "checked_by": [],
+    "no_engagement_found": true,
+    "time_since_posted": "About 15 months as of 12 Oct 2026. No engagement found.",
+    "machine_checked": null,
+    "directly_checkable": null,
+    "doubts": "The results are restricted and by two authors; no third-party check found. The LCF statement is broad and is quoted from the authors’ summary, not checked.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Supports both the positive and the negative sign conjectures in the restricted classes described, and (per the authors) for locally conformally flat manifolds.",
+    "object": null,
+    "people": [
+      "Teng Huang",
+      "Weiwei Wang"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/abs/2507.15237",
+        "https://arxiv.org/html/2507.15237v2"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2507.15237",
+      "https://arxiv.org/html/2507.15237v2"
+    ]
+  },
+  "credited_humans": [
+    "Teng Huang",
+    "Weiwei Wang"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2507.15237",
+    "https://arxiv.org/html/2507.15237v2"
+  ],
+  "ai": {
+    "systems": [
+      "Odin Automatic AI Research Agent"
+    ],
+    "from_event": "guo-fang-lu-2026-09-s3xs3",
+    "basis_quote": "The metric and the proof were discovered by the Odin Automatic AI Research Agent.",
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "guo-fang-lu-2026-09-s3xs3",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Landmark claim with no human check after 36 days; correctness rests on the authors' own unaudited code; the AI agent credited is unidentifiable and no workflow is given; it uses the same third-order deformation method whose S²×S² instance drew a (second-hand, automated) bug report.",
+        "ai_role": "generated",
+        "ai_basis": "The metric and the proof were discovered by the Odin Automatic AI Research Agent.",
+        "ai_systems_credited": [
+          "Odin Automatic AI Research Agent"
+        ],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      },
+      {
+        "id": "brendle-hung-2026-08-s2xs2",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Second-hand automated report of a Mathematica-dependent bug in a second-order positivity step; unknown whether v2 fixed it.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "guo-fang-lu-2026-08-s2xs3",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "No third-party check; unidentified AI agent with no workflow account.",
+        "ai_role": "generated",
+        "ai_basis": "The metric and the proof are discovered by the Odin Automatic AI Research Agent.",
+        "ai_systems_credited": [
+          "Odin Automatic AI Research Agent"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "liu-2026-08-almost-positive-s2xs2",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The main content of this paper is generated by ChatGPT 5.6 and verified by the author.",
+        "ai_systems_credited": [
+          "ChatGPT 5.6"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "alpoge-2026-08-s6-complex-structure",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "Engel's abstract (in what_it_did): 'A recent manuscript produced by Claude under the direction of Levent Alpöge'; the recorded basis_quote itself ('Claude really contains multitudes') is thin.",
+        "ai_systems_credited": [
+          "Claude"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "deng-wang-2024-05-linear-chern-hopf-thurston",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "huang-yu-2026-07-l1-integrability",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "huang-wang-2025-07-small-weyl",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kennard-mouille-nienhaus-2025-07-ric2",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chen-zhang-2026-09-s2xt2-biorthogonal",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "di-cerbo-pardini-2023-10-aspherical-projective",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "albanese-di-cerbo-lombardi-2023-11-singer",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "mouille-2019-11-ric2-products-withdrawn",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn by the author (v4, 3 Mar 2021).",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wilking-ric2-s3xs3",
+        "after_snapshot": null,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "nienhaus-2022-11-t4",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kennard-wiemeler-wilking-2021-06-rank5",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kennard-2012-03-torus-log",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "puttmann-searle-2002-cohomogeneity-torus",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "hsiang-kleiner-1989-killing-dim4",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chern-1955-dim4-negative",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "geroch-1976-pointwise-integrand",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bettiol-2012-10-biorthogonal-s2xs2",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gromov-kahler-hyperbolic",
+        "after_snapshot": null,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "openai-math-315",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement is the sign conjectures relating curvature to Euler characteristic, which have several parts (positive, nonnegative, negative, nonpositive), so the S³×S³ metric (sec > 0, χ = 0) refutes only the positive part in dimension 6: that makes it a case and a counterexample, not the whole. Q5 credits it as generated from the authors' own abstract sentence. Its verification stays unreviewed: the record marks it checkable only 'in principle' through a perturbative reduction plus custom code, and that check is not simple enough to be decisive. The product conjecture (S²×S², S²×S³) makes no claim about the Euler characteristic, and the statement's wording, not the Wikipedia article's list, decides scope, so those events are variants. The same reasoning makes Thurston's aspherical conjecture (Deng–Wang, the OpenAI dimension-four Singer manuscript) a variant: it has no curvature hypothesis, and the OpenAI result is also only dimension 4. Ric₂ and biorthogonal results change the curvature hypothesis, so they are variants. The S⁶ complex-structure claim is a different Hopf problem. Results under symmetry, small Weyl curvature or Kähler hyperbolicity are cases.",
+    "doubts": "The scope call that excludes the product conjecture is the closest one. If the bullet is read as covering all Hopf conjectures, then Brendle–Hung (human, no AI) and the S²×S³ preprint would become cases. The verdict on the S³×S³ claim rests on summarised fetches; the PDF was never read and the companion code was never run. The AI credit for the S⁶ event relies on Engel's abstract rather than the thin recorded basis_quote. Huang–Wang's broad locally-conformally-flat claim is unverified.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "huang-wang-2025-07-small-weyl",
+      "ai_role": "generated",
+      "ai_from": "guo-fang-lu-2026-09-s3xs3",
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": [
+        "Odin Automatic AI Research Agent"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

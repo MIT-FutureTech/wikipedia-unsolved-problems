@@ -1,0 +1,441 @@
+{
+  "key": "universal-point-set",
+
+  "nothing_found": false,
+  "outcome": "A single-author arXiv preprint (Taylor Gordon, arXiv 2609.10916, v1 posted 10 Sep 2026 UTC) claims explicitly constructible universal point sets of size n^(1+o(1)) for all n-vertex planar graphs, which would answer the subquadratic question affirmatively; the preprint credits GPT-6 Astra with assisting the construction and proof, and as of 13 Oct 2026 I found no public check, critique, or citing work on it.",
+
+  "problem_asks": "Whether planar graphs have universal point sets of subquadratic size. Unpacked: (a) the object is a family of point sets S_n in the plane such that every n-vertex planar graph has a straight-line crossing-free drawing with its vertices placed at distinct points of S_n; (b) the size measure is subquadratic, i.e. |S_n| = O(n^(2-eps)) for some fixed eps > 0; (c) the scope is all n-vertex planar graphs, since the bullet names no subclass. The bullet asks only the existence of such a family in subquadratic size; it does not ask for the constant, for an explicit construction, or for a lower bound. Adjacent but not asked by this bullet: whether O(n) points suffice (Mohar 1988, the linear-size question), and the constant in the linear lower bound.",
+
+  "events": [
+    {
+      "id": "cardinal-hoffmann-kusters-2012",
+      "what_happened": "Cardinal, Hoffmann and Kusters, 'On universal point sets for planar graphs' (arXiv 1209.3594, first posted 17 Sep 2012; JGAA 19(1), 2015). Exact-size results only: n-point universal sets exist for all n <= 10 (computer enumeration of order types), and do not exist for n >= 15, even when restricted to stacked triangulations. Per a search summary, an earlier arXiv version claimed 14 as the exact threshold, which the authors later described as unsubstantiated after verification.",
+      "date": "2012-09-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 17 Sep 2012; later versions not checked by me. Withdrawn 14-point threshold claim reported by a search summary only.",
+      "delivers": "Settles exact-size questions only: universal sets with exactly n points exist for n <= 10 and fail to exist for n >= 15. Says nothing about sets of size O(n^(2-eps)).",
+      "remains": "Everything in this bullet. The exact-size cases between 11 and 14 are not what the bullet asks.",
+      "checked_by": [
+        {
+          "who": "Journal of Graph Algorithms and Applications (refereed journal)",
+          "qualification": "Peer-reviewed journal of record for the work",
+          "what_they_did": "Accepted and published the paper, JGAA 19(1), 2015 (per a search summary; the page was not opened)",
+          "where": "https://jgaa.info/index.php/jgaa/article/view/paper374",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": "The n <= 10 existence claims are finite point sets checkable by computer; I did not check them.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": {
+        "what": "Earlier arXiv version's claim that 14 is the exact threshold for n-point universal sets; the authors later said after verification the claim appears unsubstantiated (per a search summary; primary text not opened)",
+        "date": null,
+        "by": "author",
+        "sources": ["https://arxiv.org/abs/1209.3594"]
+      },
+      "direction": "Exact-size results: existence for n <= 10, non-existence for n >= 15. Neither direction bears on the subquadratic question.",
+      "object": "For n >= 15, no set of n points is universal for all n-vertex planar graphs, even for stacked triangulations (non-existence argument, per a search summary). For n <= 10, explicit n-point universal sets exist (found by computer enumeration of order types).",
+      "people": ["Jean Cardinal", "Michael Hoffmann", "Vincent Kusters"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/search/?query=%22universal+point+set%22&searchtype=all&order=-announced_date_first"]
+      },
+      "sources": ["https://arxiv.org/search/?query=%22universal+point+set%22&searchtype=all&order=-announced_date_first", "https://jgaa.info/index.php/jgaa/article/view/paper374", "https://arxiv.org/abs/1209.3594"]
+    },
+    {
+      "id": "fulek-toth-2012",
+      "what_happened": "Fulek and Toth, 'Universal point sets for planar three-trees' (arXiv 1212.6148, posted 26 Dec 2012; WADS 2013; J. Discrete Algorithms 30, 2015, pp. 101-112 per DBLP summary). A point set of size O(n^(3/2) log n) into which every n-vertex planar 3-tree embeds straight-line; the same bound covers 2-trees and series-parallel graphs. Search summaries describe it as the first subquadratic bound for these classes.",
+      "date": "2012-12-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv posted 26 Dec 2012. A search snippet gives O(n^(5/3)) for an earlier version; I did not open either abstract to compare (see disputes).",
+      "delivers": "Subquadratic universal point sets, but only for planar 3-trees and their subclasses 2-trees and series-parallel graphs. Does not cover planar graphs in general.",
+      "remains": "All planar graphs outside those classes, which is the bullet's question.",
+      "checked_by": [
+        {
+          "who": "Journal of Discrete Algorithms (refereed journal)",
+          "qualification": "Peer-reviewed journal of record for the work",
+          "what_they_did": "Published the full version, vol. 30 (2015), pp. 101-112 (per a DBLP search summary; not opened)",
+          "where": "https://dblp.dagstuhl.de/pid/63/2965.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper bound on a restricted class, in the direction of the subquadratic question but for a class that is not all planar graphs.",
+      "object": "An explicit point set S_n of size O(n^(3/2) log n) such that every n-vertex planar 3-tree has a straight-line embedding with vertices at points of S_n (per arXiv abstract summaries; not opened).",
+      "people": ["Radoslav Fulek", "Csaba D. Toth"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/search/?query=%22universal+point+set%22&searchtype=all&order=-announced_date_first"]
+      },
+      "sources": ["https://arxiv.org/search/?query=%22universal+point+set%22&searchtype=all&order=-announced_date_first", "https://arxiv.org/abs/1212.6148", "https://dblp.dagstuhl.de/pid/63/2965.html"]
+    },
+    {
+      "id": "bannister-cheng-devanny-eppstein-2013",
+      "what_happened": "Bannister, Cheng, Devanny and Eppstein, 'Superpatterns and Universal Point Sets' (arXiv 1308.0403, v1 posted 2 Aug 2013, v2 3 Apr 2014; JGAA 18(2), 2014; GD 2013). Superpatterns of length n^2/4+Theta(n) containing all 213-avoiding permutations of length n, from which universal point sets of size n^2/4-Theta(n) are obtained for n-vertex planar graphs. Every proper subclass of the 213-avoiding permutations has superpatterns of size O(n log^O(1) n), which gives near-linear universal point sets for planar graphs of bounded pathwidth. The paper states only upper bounds for these superpatterns, with no lower bound for the whole class or for subclasses.",
+      "date": "2013-08-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 2 Aug 2013; v2 3 Apr 2014 (per arXiv abstract page). Journal version JGAA 18(2) 2014.",
+      "delivers": "Quadratic upper bound n^2/4-Theta(n) for all n-vertex planar graphs (the baseline the bullet's question starts from). Near-linear universal point sets only for planar graphs of bounded pathwidth; the general planar case stays quadratic in this event.",
+      "remains": "The subquadratic question for planar graphs in general.",
+      "checked_by": [
+        {
+          "who": "Journal of Graph Algorithms and Applications (refereed journal)",
+          "qualification": "Peer-reviewed journal of record for the work",
+          "what_they_did": "Published as JGAA 18(2), 2014, pp. 177-209 (per a search summary; the page was not opened). The GD 2013 talk won a best-presentation award per a search summary.",
+          "where": "https://jgaa.info/index.php/jgaa/article/view/paper318",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": "The reduction from superpatterns to point sets is checkable by hand (its Lemma and appendix are in the paper); I did not check it.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper bound, in the same quadratic direction as the bullet's known baseline; no statement about cutting below quadratic for all planar graphs.",
+      "object": "Superpatterns (ordered sequences of permutations) of length n^2/4+Theta(n) containing every 213-avoiding permutation of length n, built recursively by Strahler number (per a search summary; the full text was not read). From these, universal point sets of size n^2/4-Theta(n) for n-vertex planar graphs. Explicit construction.",
+      "people": ["Michael J. Bannister", "Zhanpeng Cheng", "William E. Devanny", "David Eppstein"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1308.0403"]
+      },
+      "sources": ["https://arxiv.org/abs/1308.0403", "https://jgaa.info/index.php/jgaa/article/view/paper318"]
+    },
+    {
+      "id": "angelini-bruckdorfer-kaufmann-mchedlidze-2015",
+      "what_happened": "Angelini, Bruckdorfer, Kaufmann and Mchedlidze, 'A universal point set for 2-outerplanar graphs' (arXiv 1508.05784, posted 24 Aug 2015; journal version 'Small universal point sets for k-outerplanar graphs', Discrete and Computational Geometry 60(2), 2018, with Di Battista, Roselli and Squarcella as additional authors per a search summary). O(n log n) points universal for 2-outerplanar graphs; the DCG abstract also covers simply nested graphs per a search summary.",
+      "date": "2015-08-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv posted 24 Aug 2015; DCG 2018 version under a different title and with additional authors (per search summary).",
+      "delivers": "Subquadratic universal point sets for 2-outerplanar graphs (and simply nested graphs). Not planar graphs in general.",
+      "remains": "All planar graphs outside those classes.",
+      "checked_by": [
+        {
+          "who": "Discrete and Computational Geometry (refereed journal)",
+          "qualification": "Peer-reviewed journal of record for the work",
+          "what_they_did": "Published the journal version, DCG 60(2), 2018 (per a search summary; not opened)",
+          "where": "https://dx.doi.org/10.1007/s00454-018-0009-x",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Upper bound for a restricted class; cuts in the subquadratic direction but does not address planar graphs in general.",
+      "object": "A point set of size O(n log n) universal for 2-outerplanar graphs (per arXiv and DCG summaries; the construction was not read).",
+      "people": ["Patrizio Angelini", "Till Bruckdorfer", "Michael Kaufmann", "Tamara Mchedlidze"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/search/?query=%22universal+point+set%22&searchtype=all&order=-announced_date_first"]
+      },
+      "sources": ["https://arxiv.org/search/?query=%22universal+point+set%22&searchtype=all&order=-announced_date_first", "https://arxiv.org/pdf/1508.05784"]
+    },
+    {
+      "id": "scheucher-schrezenmaier-steiner-2018",
+      "what_happened": "Scheucher, Schrezenmaier and Steiner, 'A note on universal point sets for planar graphs' (arXiv 1811.06482, v1 posted 15 Nov 2018; v2 5 Aug 2019; v3 25 Sep 2019, which carries the GD 2019 comment; JGAA 2020). Proves a linear lower bound: any universal point set for n-vertex planar graphs has at least (1.293 - o(1))n points (also for stacked triangulations, per GD 2019 slides as summarised). Also shows by exhaustive computer search that no 11-point set is universal for all planar graphs on 11 vertices.",
+      "date": "2018-11-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 15 Nov 2018; v2 5 Aug 2019; v3 25 Sep 2019 (per arXiv abstract page). The abstract page has no note that an earlier version contained an error. A search summary reports that earlier versions had a flaw that was corrected; that is unverified.",
+      "delivers": "Lower bound only: size at least (1.293 - o(1))n. No upper bound. The 11-point nonexistence is a finite case.",
+      "remains": "The subquadratic upper-bound question in full; the gap between the linear lower bound and any upper bound, including the linear-size question.",
+      "checked_by": [
+        {
+          "who": "Graph Drawing 2019 program committee and JGAA 2020 referees",
+          "qualification": "Refereed conference (GD 2019) and refereed journal (JGAA 2020)",
+          "what_they_did": "Accepted to GD 2019 (per the arXiv comment field); published in JGAA 2020 (per search summary)",
+          "where": "https://arxiv.org/abs/1811.06482",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": {
+        "system": "Exhaustive computer search (method not read)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/1811.06482"
+      },
+      "directly_checkable": "The 11-point nonexistence is a finite search, checkable by re-running the search; I did not check it.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Lower bound: points the linear side. Does not bear on whether subquadratic upper bounds exist.",
+      "object": "No object is exhibited. The 11-point result is a computer-verified nonexistence claim for all planar 11-vertex graphs.",
+      "people": ["Manfred Scheucher", "Hendrik Schrezenmaier", "Raphael Steiner"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1811.06482"]
+      },
+      "sources": ["https://arxiv.org/abs/1811.06482", "https://en.wikipedia.org/wiki/Universal_point_set"]
+    },
+    {
+      "id": "felsner-schrezenmaier-schroder-steiner-2023",
+      "what_happened": "Felsner, Schrezenmaier, Schroder and Steiner, 'Linear size universal point sets for classes of planar graphs' (arXiv 2303.00109, v1 posted 28 Feb 2023; SoCG 2023). An 'exploding double chain' point set of size 2n-2 is universal for n-vertex bipartite planar graphs and for n-vertex planar graphs of maximum degree 3; it also works for subgraphs of planar graphs with a one-sided Hamiltonian cycle. A 4n-6 point set serves 1-bend drawings of plane graphs. The paper states that for all planar graphs the best known upper bound is quadratic and the best known lower bound linear.",
+      "date": "2023-02-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 28 Feb 2023; later versions not checked by me.",
+      "delivers": "Linear-size universal point sets for restricted planar classes: bipartite planar graphs, planar graphs of maximum degree 3, and subgraphs with a one-sided Hamiltonian cycle. Not general planar graphs.",
+      "remains": "All planar graphs in general, for both the subquadratic and the linear question.",
+      "checked_by": [
+        {
+          "who": "SoCG 2023 program committee (refereed conference)",
+          "qualification": "Refereed computational geometry conference",
+          "what_they_did": "Accepted to SoCG 2023 (per a Dagstuhl/LIPIcs search result; not opened)",
+          "where": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2023.31",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": "The 2n-2 point set for bipartite planar graphs is explicit; I did not check it.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Linear upper bounds for restricted classes; does not move the general planar quantity.",
+      "object": "An 'exploding double chain' point set of size 2n-2 universal for n-vertex bipartite planar graphs and for n-vertex planar graphs of maximum degree 3 (explicit, per the arXiv abstract summary).",
+      "people": ["Stefan Felsner", "Hendrik Schrezenmaier", "Felix Schroder", "Raphael Steiner"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2303.00109"]
+      },
+      "sources": ["https://arxiv.org/abs/2303.00109"]
+    },
+    {
+      "id": "gavoille-jacques-2025",
+      "what_happened": "Gavoille and Jacques, 'Lower Bounds for Induced-Universal Graphs' (arXiv 2508.11585, v1 submitted 15 Aug 2025). Shows that an induced-universal graph for n-vertex planar graphs needs at least 10.52n vertices. This concerns induced subgraph containment in a host graph, not straight-line drawings with vertices at points of a set.",
+      "date": "2025-08-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 15 Aug 2025; later versions not checked.",
+      "delivers": "Nothing on this bullet. Its object is an induced-universal graph, not a universal point set.",
+      "remains": "Everything in this bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 2 months at 13 Oct 2026; engagement with it was not searched because it is discounted here",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on this bullet: the result is about a different object (induced-universal graphs).",
+      "object": null,
+      "people": ["Cyril Gavoille", "Amaury Jacques"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2508.11585"]
+      },
+      "sources": ["https://arxiv.org/abs/2508.11585"]
+    },
+    {
+      "id": "gordon-2026-09",
+      "what_happened": "Taylor Gordon, 'Almost Linear Universal Point Sets for Planar Graphs' (arXiv 2609.10916; 12 pages, 2 figures; cs.CG with math.CO cross-list; sole author, no affiliation on the arXiv page; v1 only as of 13 Oct 2026). Claims that for every n there is an explicitly constructible universal point set for planar graphs on n vertices of size n*exp(O(sqrt(log n))) = n^(1+o(1)) (Theorem 1.1), improving the quadratic bound. Route: Lemma 1 (Section 2) states that an S_{n-3}(213)-superpattern of length M gives a universal point set of size M+3 for planar graphs on n vertices; Sections 2-5 build near-linear superpatterns for the 213-avoiding permutations via ordered rooted forests and a family of layered intervals; Section 5 counts the intervals (total at most n + W(2+ceil(log2 n)), with W < 2R_n <= 4n 2^(sqrt(2 log2 n + 4))). The abstract says the result follows from a straightforward bound on the family of intervals. The arXiv listing's comment reads 'Lean formalization of the earlier construction' with a GitHub link. The paper credits GPT-6 Astra (see ai). Date note: the abstract page gives submission at Thu, 10 Sep 2026 00:03:29 UTC, while the arXiv search listing shows 9 Sep 2026 (US Eastern); these are the same instant and I record 10 Sep 2026.",
+      "date": "2026-09-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, submitted 10 Sep 2026 (UTC) per the arXiv abstract page as of 13 Oct 2026. Repository commit history not visible, so earlier public posting of the mathematics (for example on GitHub) cannot be excluded.",
+      "delivers": "If the proof holds: subquadratic, indeed n^(1+o(1)), universal point sets for all n-vertex planar graphs, explicitly constructible for every n (Theorem 1.1). Its chain is (i) near-linear superpatterns for 213-avoiding permutations (Lean-formalised per the README, superpattern part only), (ii) Lemma 1, the reduction to point sets (not formalised; outside Lean scope per the README), and (iii) the explicit coordinates in Appendix 0.A (not checked by me). The o(1) is exp(O(sqrt(log n))) in the exponent.",
+      "remains": "Not addressed: whether O(n) points suffice (Mohar 1988), i.e. the linear-size question; the lower-bound gap between the known linear lower bound (1.293n per Scheucher et al. 2018) and the new n^(1+o(1)) upper bound; the constant in the n^(1+o(1)) bound.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "33 days at 13 Oct 2026 (posted 10 Sep 2026). Searches for blog posts, critiques, citing papers, a Wikipedia talk-page thread and an arXiv author page found nothing. Aggregator pages mention the result but do not check it.",
+      "machine_checked": {
+        "system": "Lean 4 v4.19.0 with Mathlib v4.19.0",
+        "sorry_free": true,
+        "url": "https://github.com/taylorgordon20/math/tree/main/213-superpatterns"
+      },
+      "directly_checkable": "Lean scope per the README: the superpattern construction (Superpattern.optimized_sequence, construction_isSuperpattern, almost_linear_superpatterns, superpattern_with_explicit_bound, and supporting lemmas). The README says the planar-graph reduction from the paper's appendix is outside the Lean project's scope, so Lemma 1 and the planar-graph universality step are checkable only by hand from Section 2 and Appendix 0.A. The counting in Section 5 is checkable by hand. sorry_free true rests on the README's statement and on a verification.txt axiom list (propext, Classical.choice, Quot.sound only) for six theorems, as relayed by a summarising fetch; I did not run lake or grep the Lean sources.",
+      "doubts": "(1) Scope of the machine check: the Lean files cover the superpattern half, not the reduction that produces the planar-graph point set (README: 'outside the Lean project's scope'). (2) Human checking is not described: the paper says the model 'helped develop the construction, formulate and revise the proof, check finite examples, and draft the exposition', and the README says it wrote the Lean formalization and checked it with Lean; the record does not say what the human author checked personally. (3) Departure from the 2014 picture: Bannister et al. gave quadratic superpatterns for the whole 213-avoiding class and near-linear ones only for proper subclasses; Gordon claims near-linear for the whole class. I found no published lower bound showing the whole class needs quadratic superpatterns, so this is not a demonstrated contradiction, but it is a reason to test the construction at the point where it departs from the older method. (4) The abstract calls the interval counting 'straightforward', while the counting in Section 5 is a multi-step estimate; the word 'straightforward' does not occur in Section 5 or Appendix 0.A. (5) No independent review, citing paper, or public error report found as of 13 Oct 2026; silence is 33 days old and is recorded as such.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirmative on the question as worded: it asserts that subquadratic (indeed n^(1+o(1))) universal point sets exist for all n-vertex planar graphs, so it answers the bullet's question yes if correct. It makes no claim about the linear-size question.",
+      "object": "No counterexample: an explicit family of point sets. For each n, the point set has size M+3, where M is the length of an S_{n-3}(213)-superpattern given by an explicit host sequence (Lemma 1). The host sequence is the Lean-formalised construction: constructionPermutation h n, with the README's bound (36*2^(2h)+3)*(n+1)^(1+2/h)*(1+log(n+1)) for every h>0, and optimized_sequence with length q(n) <= C*n^(1+eps) for each eps>0. Explicit, not an existence proof. Coordinates come from the canonical permutation and a stretching argument (Appendix 0.A.1 to 0.A.3). I did not verify the coordinates.",
+      "people": ["Taylor Gordon"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Per the abstract: assisted in developing the construction and proof. Per the introduction, verbatim as returned by a summarising fetch: 'This paper was prepared with substantial assistance from GPT-6 Astra.' and 'Starting from the author's interval-based approach, the model helped develop the construction, formulate and revise the proof, check finite examples, and draft the exposition.' Per the GitHub README: 'GPT-6 Astra assisted in developing the construction and proof, writing the Lean formalization, and checking it with Lean.' The construction and the proof are the claimed result, so the contribution is load-bearing on the authors' own account. The name is as the sources give it. Secondary coverage (OpenAI's own post was not reachable) describes Astra as an internal, unreleased model; the name carries that status, and no release date is recorded here.",
+            "basis_quote": "GPT-6 Astra assisted in developing the construction and proof.",
+            "quote_url": "https://arxiv.org/abs/2609.10916"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.10916", "https://arxiv.org/html/2609.10916v1", "https://raw.githubusercontent.com/taylorgordon20/math/main/213-superpatterns/README.md"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.10916", "https://arxiv.org/html/2609.10916v1", "https://arxiv.org/pdf/2609.10916", "https://github.com/taylorgordon20/math/tree/main/213-superpatterns", "https://raw.githubusercontent.com/taylorgordon20/math/main/213-superpatterns/README.md", "https://raw.githubusercontent.com/taylorgordon20/math/main/213-superpatterns/verification.txt", "https://arxiv.org/search/?query=%22universal+point+set%22&searchtype=all&order=-announced_date_first"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "proof-challenge",
+      "summary": "Kurowski (2004) claimed a lower bound of 1.235n - o(n) on universal point sets for planar graphs. Mondal (2012) challenged the proof as erroneous and later retracted the challenge after discussion with Jean Cardinal, per the Wikipedia article's account (the Kurowski and Mondal papers were not opened). Scheucher, Schrezenmaier and Steiner later stated (1.293 - o(1))n.",
+      "sources": ["https://en.wikipedia.org/wiki/Universal_point_set"]
+    },
+    {
+      "kind": "conflicting-figures",
+      "summary": "The current best lower bound is given as 1.239n - o(n) on the Emergent Mind page, which also cites the 2026 Gordon preprint for the linear question and lists the upper bound as n^2/4 - O(n). The Wikipedia article and the Scheucher et al. abstract give 1.293n - o(n). The 1.239 figure is uncited on that page and I could not identify its source; a search summary attributes it to a 2024 survey, which I could not read.",
+      "sources": ["https://www.emergentmind.com/open-problems/linear-size-universal-point-sets-planar-graphs", "https://en.wikipedia.org/wiki/Universal_point_set"]
+    },
+    {
+      "kind": "conflicting-figures",
+      "summary": "Fulek and Toth's exponent is given as O(n^(3/2) log n) in the published abstract (per search summaries), and as O(n^(5/3)) in a Charles University record and an earlier arXiv version (per a search snippet). I did not open either abstract to see which version each describes.",
+      "sources": ["https://arxiv.org/abs/1212.6148", "https://nomos.is.cuni.cz/publication/216216?query=CKS"]
+    }
+  ],
+
+  "summary": "Found one event inside the window that bears on the bullet: Taylor Gordon's arXiv preprint 2609.10916 (v1 only, posted 10 Sep 2026 UTC), which claims explicitly constructible universal point sets of size n^(1+o(1)) for all n-vertex planar graphs, improving the quadratic bound. I read the abstract and the arXiv HTML version through summarising fetches that enforced a 125-character quote limit, so the quoted sentences are as the fetch returned them, and the PDF text could not be decoded. I read the introduction's Lemma 1 hypotheses (an S_{n-3}(213)-superpattern of length M yields a universal set of M+3 points), the Section 5 counting formula, and the README and verification.txt of the Lean repository (Lean 4.19.0, Mathlib v4.19.0). The README says the Lean project formalises the superpattern construction and that the planar-graph reduction is outside its scope, so the machine check does not cover the step that turns superpatterns into planar-graph point sets. The AI attribution is explicit and consistent across the abstract, the introduction and the README: GPT-6 Astra assisted in developing the construction and proof, and in the README also wrote the Lean formalization. Secondary coverage places Astra as an unreleased OpenAI model; OpenAI's own post returned 403, so that coverage is unverified. Authorship: sole listed author Taylor Gordon, with no affiliation on the arXiv page, and I could not identify the author further. Search results for human engagement were empty: no blog post, critique, citing paper, Wikipedia talk-page thread, or author page on arXiv turned up, and the Semantic Scholar citation query returned no data. The arXiv all-fields search for 'universal point set' lists Gordon first, then the 2023 Felsner et al. paper, with no 2024-2025 entries, so no other arXiv paper on this topic was posted in that span. The Wikipedia article (last edited 30 March 2026 per its footer) still states the subquadratic question as open and cites nothing newer than 2018; it predates Gordon, so it shows no status change either way. The Emergent Mind and Open Problem Garden pages mention or cite Gordon or keep the linear question open, but they are aggregators, not checks. Close calls: (a) whether Gordon's result settles the bullet rests on Lemma 1 and the Section 5 counting, which I read but did not verify; the abstract's word 'straightforward' is not used in Section 5. (b) The date: the abstract page gives 00:03:29 UTC on 10 Sep 2026, and the arXiv listing shows 9 Sep (US Eastern); I record 10 Sep 2026 for the same instant. (c) The repository commit history was not visible, so the mathematics may have been public earlier, which would move the event date. (d) The construction is near-linear for all 213-avoiding permutations, while Bannister et al. (2014) gave quadratic superpatterns for the full class and near-linear only for proper subclasses; I found no published lower bound for the full class, so this is not a demonstrated contradiction, but it is the place a checker should look first. Other events: the pre-window results (Cardinal et al., Fulek and Toth, Bannister et al., Angelini et al., Scheucher et al., Felsner et al.) are recorded with their classes and their restrictions; none moves the general planar quantity below quadratic, and the Scheucher et al. lower bound is linear. Gavoille and Jacques (2025) concerns induced-universal graphs and is discounted. AI search: beyond Gordon, the searches for GPT-6 Astra with mathematical terms, the secondary coverage of OpenAI's August 2026 'Ten advances' list (none of the ten concerns universal point sets or graph drawing, per that coverage), 2026 arXiv papers crediting Astra on other problems, and an AI-tracker search for graph drawing found no other AI-credited event on this bullet. The model is named variously as 'Astra 6', 'ChatGPT-6' and 'GPT-6 Astra (in the Codex command-line agent)' in other 2026 papers; these are naming variants noted for the later pass and are not applied here.",
+
+  "competing_reading": "Read as a resolution: the bullet asks for subquadratic universal point sets for planar graphs, and Gordon's n^(1+o(1)) construction gives that answer yes, so the bullet is resolved as of this preprint, pending checks, and the earlier quadratic baseline is simply superseded. The stronger case for not counting it yet: a 33-day-old, single-author preprint whose proof was built with an AI model, with no public review; its machine check covers only the superpattern half, while the step that produces the planar-graph point sets (Lemma 1 and Appendix 0.A) is outside the Lean scope; and it departs from the 2014 picture in which the same superpattern route gave only quadratic bounds for the whole 213-avoiding class. On that reading it is a serious unrefereed claim that moves the bound, not a settled resolution. A third reading treats 'subquadratic' as shorthand for the linear-size question near the bullet's neighbourhood; I do not think the bullet's wording supports that, but the linear question remains open on any reading.",
+
+  "what_would_settle_it": "(1) A qualified reader's written check of Lemma 1 and of the planar-graph universality step in Appendix 0.A, and of the Section 5 counting, or a machine check of those steps (the existing Lean repository does not cover them). (2) A refereed version or a published verification. (3) A gap report or a counterexample to the point-set claim for some small n, which the explicit construction makes checkable. (4) The repository commit dates, to see whether the mathematics was public before 10 Sep 2026, which would move the event date. (5) The author's own account of which checks he performed personally, as distinct from what the model checked.",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2609.10916", "title": "Almost Linear Universal Point Sets for Planar Graphs (arXiv abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.10916v1", "title": "Almost Linear Universal Point Sets for Planar Graphs (arXiv HTML v1; read through summarising fetches)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2609.10916", "title": "Almost Linear Universal Point Sets for Planar Graphs (PDF; text not decodable by the fetch tool)", "type": "preprint", "opened": true},
+    {"url": "https://github.com/taylorgordon20/math/tree/main/213-superpatterns", "title": "taylorgordon20/math, 213-superpatterns (Lean project)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/taylorgordon20/math/main/213-superpatterns/README.md", "title": "213-superpatterns README (Lean formalisation)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/taylorgordon20/math/main/213-superpatterns/verification.txt", "title": "213-superpatterns verification.txt (axiom audit)", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/search/?query=%22universal+point+set%22&searchtype=all&order=-announced_date_first", "title": "arXiv search: 'universal point set', newest first", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1308.0403", "title": "Superpatterns and Universal Point Sets (Bannister, Cheng, Devanny, Eppstein)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2303.00109", "title": "Linear Size Universal Point Sets for Classes of Planar Graphs (Felsner et al.)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1811.06482", "title": "A Note on Universal Point Sets for Planar Graphs (Scheucher, Schrezenmaier, Steiner)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2403.17090", "title": "Free Sets in Planar Graphs: History and Applications (Dujmovic, Morin; abstract only)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2508.11585", "title": "Lower Bounds for Induced-Universal Graphs (Gavoille, Jacques)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2608.24961", "title": "The Gold Rush in AI4Math: Where Are We Now? (PDF; text not decodable)", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Universal_point_set", "title": "Universal point set (Wikipedia; read through a summarising fetch)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Talk:Universal_point_set", "title": "Talk:Universal point set (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.emergentmind.com/open-problems/linear-size-universal-point-sets-planar-graphs", "title": "Linear-size universal point sets for planar graphs (Emergent Mind aggregator page)", "type": "blog", "opened": true},
+    {"url": "https://openproblemgarden.org/category/universal_set", "title": "Open Problem Garden: universal sets", "type": "blog", "opened": true},
+    {"url": "https://openai.com/index/ten-advances-in-mathematics/", "title": "Ten advances in mathematics and theoretical computer science (OpenAI; returned HTTP 403)", "type": "press_release", "opened": false},
+    {"url": "https://thenextweb.com/news/openai-astra-model-ten-math-proofs-non-sofic-groups", "title": "OpenAI says its next model, Astra, has solved ten open problems in mathematics (news; search snippet)", "type": "news", "opened": false},
+    {"url": "https://www.datacamp.com/blog/open-ai-model-astra-solved-ten-open-math-problems", "title": "OpenAI's New Model, Astra, Has Solved Ten Open Math Problems (blog; search snippet)", "type": "blog", "opened": false},
+    {"url": "https://arxiv.org/abs/2609.32011", "title": "The Erdos-Sos Conjecture: A visual exposition of the proof discovered by GPT-6 Astra (search snippet; example of other 2026 Astra disclosures)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1212.6148", "title": "Universal point sets for planar three-trees (Fulek, Toth; search snippet only)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1209.3594", "title": "On Universal Point Sets for Planar Graphs (Cardinal, Hoffmann, Kusters; search snippet only)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/pdf/1508.05784", "title": "A Universal Point Set for 2-Outerplanar Graphs (Angelini et al.; search snippet only)", "type": "preprint", "opened": false},
+    {"url": "https://jgaa.info/index.php/jgaa/article/view/paper374", "title": "On Universal Point Sets for Planar Graphs (JGAA; search result only)", "type": "journal", "opened": false},
+    {"url": "https://jgaa.info/index.php/jgaa/article/view/paper318", "title": "Superpatterns and Universal Point Sets (JGAA; search result only)", "type": "journal", "opened": false},
+    {"url": "https://dx.doi.org/10.1007/s00454-018-0009-x", "title": "Small Universal Point Sets for k-Outerplanar Graphs (DCG 2018; search result only)", "type": "journal", "opened": false},
+    {"url": "https://dblp.dagstuhl.de/pid/63/2965.html", "title": "DBLP author page for Radoslav Fulek (search result only)", "type": "repository", "opened": false},
+    {"url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2023.31", "title": "SoCG 2023 LIPIcs record for Felsner et al. (search result only)", "type": "journal", "opened": false},
+    {"url": "https://nomos.is.cuni.cz/publication/216216?query=CKS", "title": "Charles University record citing O(n^(5/3)) bound (search result only)", "type": "repository", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "universal point set subquadratic size planar graphs",
+      "universal point sets for planar graphs new bound 2025",
+      "Bannister Cheng Devanny Eppstein superpatterns and universal point sets",
+      "universal point set n^{2-epsilon} planar graphs straight-line drawing",
+      "Wikipedia list of unsolved problems in mathematics universal point set planar graphs",
+      "\"Almost Linear Universal Point Sets for Planar Graphs\"",
+      "Taylor Gordon universal point sets planar graphs AI assisted proof",
+      "GPT-6 Astra mathematics open problem proof",
+      "universal point set Lean formalization 213-avoiding superpattern GitHub",
+      "universal point sets planar graphs n^{1+o(1)} reaction blog",
+      "Eppstein blog universal point set superpattern 2026",
+      "Mohar problem universal point set linear size planar graphs open problems project problem 45",
+      "Fulek Tóth universal point sets planar 3-trees n^{3/2} log n",
+      "Scheucher Schrezenmaier Steiner universal point sets lower bound 1.293n",
+      "OpenAI Astra ten open problems list non-sofic Ehrhart Erdős sphere packing full list",
+      "Ten advances in mathematics and theoretical computer science OpenAI Astra",
+      "213-avoiding permutations superpattern near-linear size construction 2026",
+      "Taylor Gordon mathematics arXiv 2026 superpatterns Lean",
+      "\"universal point set\" arXiv 2025",
+      "Cardinal Hoffmann Kusters universal point sets n ≤ 10 n ≥ 15 planar graphs",
+      "Kurowski 1.235n lower bound universal point set planar graphs Mondal retracted",
+      "GPT-6 Astra arXiv paper acknowledgement assisted proof author contribution",
+      "universal point set planar graphs new result 2024 arXiv",
+      "subquadratic universal point set planar graphs",
+      "Gordon almost linear universal point sets critique error gap proof check",
+      "GPT-6 Astra graph drawing geometry result arXiv",
+      "AI-assisted results open problems tracker 2026 graph drawing computational geometry",
+      "\"Taylor Gordon\" mathematician",
+      "lower bound superpattern size 213-avoiding permutations quadratic",
+      "Bannister Devanny Eppstein small superpatterns dominance drawing universal point set",
+      "universal point set planar graphs Lean 4 formalization superpattern reduction verified",
+      "n^{1+o(1)} universal point sets planar graphs exp(sqrt(log n)) interval family",
+      "universal point set planar graphs October 2026",
+      "GPT-6 Astra open problems solved graph theory combinatorics list arXiv Erdős 2026 claims verification",
+      "Angelini Bruckdorfer Kaufmann Mchedlidze universal point set 2-outerplanar O(n log n)"
+    ],
+    "places_checked": [
+      "arXiv abstract page for 2609.10916 (version history, subject classes, comments, AI sentence)",
+      "arXiv HTML v1 for 2609.10916 (introduction, Lemma 1, Section 5 count, appendix hypotheses, section headings)",
+      "arXiv PDF for 2609.10916 (not decodable)",
+      "GitHub repository taylorgordon20/math, 213-superpatterns (directory listing, README, verification.txt, Lean toolchain)",
+      "arXiv all-fields search for 'universal point set', newest first (10 results)",
+      "arXiv abstract pages for 1308.0403, 2303.00109, 1811.06482, 2403.17090, 2508.11585",
+      "arXiv PDF for 2608.24961 (not decodable)",
+      "Wikipedia article 'Universal point set' (problem box, bounds, last-edit footer)",
+      "Wikipedia talk page 'Universal point set' (no threads; last-edit footer 9 March 2024)",
+      "Emergent Mind open-problem page on linear-size universal point sets",
+      "Open Problem Garden universal set category (last updated 22 May 2007)",
+      "Semantic Scholar citations endpoint for arXiv:2609.10916 (empty result)",
+      "arXiv author page arxiv.org/a/gordon_t_1 (HTTP 404)",
+      "OpenAI 'Ten advances in mathematics' post (HTTP 403; contents from secondary coverage)"
+    ],
+    "dead_ends": [
+      "Semantic Scholar citations for 2609.10916 returned an empty list; this may be indexing lag, not absence of citations.",
+      "arXiv author page for Taylor Gordon returned 404; a web search for 'Taylor Gordon' as a mathematician found no matching person, so affiliation remains unknown.",
+      "No critique, error report, blog post, or talk-page thread about 2609.10916 was found in any search.",
+      "No 2024 or 2025 arXiv paper on universal point sets appeared in the all-fields arXiv search; the closest 2024 item, the Dujmovic-Morin survey, was read only at abstract level and does not name this question in what I could read.",
+      "The Dujmovic-Morin survey (arXiv 2403.17090) full text was not decodable, so the 'open since 1988' statement attributed to a 2024 survey in a search snippet is unverified.",
+      "The Gold Rush in AI4Math survey (arXiv 2608.24961) PDF was not decodable; no method or list of records was readable, so it cannot say whether this problem appears.",
+      "The OpenAI Ten-advances post returned HTTP 403, so the full list of the ten results was not read; secondary coverage lists ten results none of which concerns universal point sets or graph drawing.",
+      "The AI-tracker search for graph drawing or computational geometry found no tracker covering this area.",
+      "Gavoille and Jacques (2025) concerns induced-universal graphs, a different object; discounted.",
+      "Bannister, Devanny, Eppstein, 'Small Superpatterns for Dominance Drawing' (arXiv 1310.3770) concerns dominance drawings of DAGs; a different question; discounted. Its search summary has a conflict between st-outerplanar and st-planar that does not affect this bullet.",
+      "'Circular super patterns and zigzag constructions' (arXiv 2602.09072) concerns the shortest permutation containing all permutations of a length, not 213-avoiding superpatterns; unrelated.",
+      "Kobourov's 14-point universal set claim was reported unsubstantiated after verification; background only.",
+      "Mondal (2021), 'Simultaneous Embedding of Colored Graphs', is a different problem; not opened."
+    ]
+  },
+
+  "incomplete": "(1) The Gordon quotes come from summarising fetches that enforced a 125-character quote limit. The abstract sentence 'GPT-6 Astra assisted in developing the construction and proof.' was returned identically by two separate fetches; the introduction sentences came from one fetch. The PDF could not be decoded, so the exact wording should be checked against the arXiv HTML before anyone relies on it. (2) I did not read the proof in Sections 2-5 or Appendix 0.A in full, and I did not read the Lean sources; the sorry-free status rests on the README and on a verification.txt axiom list as relayed by a summarising fetch. I did not run lake or grep the Lean files. (3) The repository commit history was not visible, so I cannot rule out earlier public posting of the mathematics. (4) The OpenAI primary post returned 403; the Astra facts above come from secondary coverage. (5) Not opened, only seen in search snippets and flagged opened:false: Fulek and Toth (arXiv 1212.6148), Cardinal et al. (arXiv 1209.3594), Angelini et al. (arXiv 1508.05784), the JGAA, DCG, SoCG and JDA pages, and the Charles University record. (6) Not opened at all: Kurowski (2004) and Mondal (2012); their content comes from the Wikipedia article. (7) The Dujmovic-Morin survey (arXiv 2403.17090) full text was not readable, so whether it calls the question open is unverified. (8) The Gold Rush AI4Math survey (arXiv 2608.24961) was not readable. (9) Semantic Scholar returned an empty citation list, so the later-citation status of 2609.10916 is not established. (10) I could not establish the author's affiliation or any other works by Taylor Gordon. (11) The events for Cardinal et al., Fulek and Toth, Angelini et al. and Felsner et al. have their restrictions taken from abstracts or search summaries, not from full texts."
+}

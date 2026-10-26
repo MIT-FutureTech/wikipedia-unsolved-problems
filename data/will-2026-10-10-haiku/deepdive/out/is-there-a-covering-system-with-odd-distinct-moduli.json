@@ -1,0 +1,629 @@
+{
+  "key": "is-there-a-covering-system-with-odd-distinct-moduli",
+
+  "nothing_found": false,
+  "outcome": "As of 12 Oct 2026, on the sources I could reach, the problem is not settled. The erdosproblems.com page (Erdős #7) still reads open. Since 26 Jan 2024 the events are: a Lean-checked exclusion (Mian and Siddique, 28 Jul 2026) showing any such covering has lcm above 10^4, which the authors say is not progress on the open question; two full-scope negative claims posted on the Erdős forum, one AI-generated (gebyjaff, 11 Jan 2026) and one Lean-based (jinooklee, 2 May 2026), neither accepted, the second conceded to rest on a false formal axiom; and two forum-only posts (Aug and Sep 2026) that I could not locate.",
+
+  "problem_asks": "Unpacked from the statement alone. (1) Does there exist a covering system of the integers, i.e. a finite collection of congruences a_i mod n_i whose union is all of Z? (2) Can every modulus n_i be odd? (3) Can the moduli be pairwise distinct? The bullet itself does not say n_i > 1. The literature (Wikipedia's covering-system article, the Erdős problem page, Bispels et al.) adds n_i > 1; without it the single modulus 1 covers Z trivially, so I record it as the standard reading, not as the bullet's wording. The question is a yes/no existence question: an explicit example or a non-existence proof answers it. A result on a sub-case (for example square-free moduli, or a bound on the lcm of any such system) does not, on its own, answer the existence question. Not asked by the bullet, though related and recorded in events: the square-free version (the Erdős–Selfridge stronger question) and the variant in which one odd modulus may repeat.",
+
+  "events": [
+    {
+      "id": "guo-sun-2004-square-free-lcm",
+      "what_happened": "Song Guo and Zhi-Wei Sun, 'On odd covering systems with distinct moduli' (arXiv math/0412217; Adv. Appl. Math. 35 (2005) 182–187). Shows that if an odd distinct covering system with all moduli square-free exists, the lcm of its moduli has at least 22 distinct prime divisors. The search snippets describe this as improving Simpson and Zeilberger's bound of 18; I did not open that source.",
+      "date": "2004-12-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 10 Dec 2004; v2 14 Sep 2005 ('final version', per the arXiv abstract page); journal reference Adv. Appl. Math. 35 (2005) 182–187.",
+      "delivers": "A necessary condition, restricted to square-free moduli: the lcm must have at least 22 distinct prime factors. Does not decide existence, and says nothing about non-square-free moduli.",
+      "remains": "Existence in full (problem_asks 1–3), including every case with a non-square-free modulus.",
+      "checked_by": [
+        {
+          "who": "Advances in Applied Mathematics (journal peer review)",
+          "qualification": "Journal of record that accepted the paper",
+          "what_they_did": "Accepted and published the paper (2005)",
+          "where": "https://arxiv.org/abs/math/0412217 (journal reference given on the arXiv page)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "21 years (no later challenge found to this bound)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial necessary condition on the square-free case. Cuts neither way on existence.",
+      "object": null,
+      "people": ["Song Guo", "Zhi-Wei Sun"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/math/0412217"]
+      },
+      "sources": ["https://arxiv.org/abs/math/0412217", "https://en.wikipedia.org/wiki/Covering_system"]
+    },
+    {
+      "id": "hough-nielsen-2017-divisible-by-2-or-3",
+      "what_happened": "Robert D. Hough and Pace P. Nielsen, 'Covering systems with restricted divisibility' (arXiv 1703.02133; cited on the Erdős problem page as HoNi19). Proves that every distinct covering system has a modulus divisible by 2 or 3. The result is not specific to odd moduli.",
+      "date": "2017-03-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 6 Mar 2017; v2 8 Aug 2018 (the current version, per the arXiv abstract page). Journal publication 2019 per the Erdős page's citation HoNi19; journal details not checked.",
+      "delivers": "For any distinct covering system (moduli greater than 1 as the literature reads it), some modulus is divisible by 2 or 3. Applied to the odd question, any odd distinct covering must contain a modulus divisible by 3. This is a necessary condition only.",
+      "remains": "Existence in full (problem_asks 1–3). The 2-or-3 condition is compatible with existence.",
+      "checked_by": [
+        {
+          "who": "Balister, Bollobás, Morris, Sahasrabudhe and Tiba",
+          "qualification": "Combinatorialists who later worked directly on this family of covering-system problems",
+          "what_they_did": "Per the Erdős problem page, 'gave a simpler proof of that result'. I did not open the source for this statement and did not find which BBMST paper it refers to.",
+          "where": "https://www.erdosproblems.com/7",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial necessary condition. Cuts neither way on existence.",
+      "object": null,
+      "people": ["Robert D. Hough", "Pace P. Nielsen"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1703.02133"]
+      },
+      "sources": ["https://arxiv.org/abs/1703.02133", "https://www.erdosproblems.com/7"]
+    },
+    {
+      "id": "bbmst-2019-square-free-odd-impossible",
+      "what_happened": "Paul Balister, Béla Bollobás, Robert Morris, Julian Sahasrabudhe and Marius Tiba, 'The Erdős–Selfridge problem with square-free moduli' (arXiv 1901.11465). Proves that no covering system has distinct, odd, square-free moduli; equivalently, any distinct covering with square-free moduli has an even modulus.",
+      "date": "2019-01-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (31 Jan 2019), per the arXiv abstract page. Journal version not checked.",
+      "delivers": "Settles the square-free sub-case completely: no distinct odd square-free covering exists. The square-free sub-case is a restriction of problem_asks, so this is a complete answer to a restricted version only. It says nothing about odd moduli that are not square-free.",
+      "remains": "Odd distinct moduli that are not square-free (the general case of problem_asks 1–3).",
+      "checked_by": [
+        {
+          "who": "Thomas Bloom (maintainer of erdosproblems.com)",
+          "qualification": "Runs the database that records this problem and its status",
+          "what_they_did": "Records the square-free odd case as answered 'no' by BBMST22 on the problem page",
+          "where": "https://www.erdosproblems.com/7",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Citation mismatch, not a doubt about this paper: the Erdős page cites 'BBMST22' for the square-free result and for a 9-or-15 lcm result. The arXiv HTML of Balister et al. 'Erdős covering systems' (arXiv 2211.01417) contains neither statement. The source of the 9-or-15 claim is not located (see the 2022 event).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts toward non-existence, but only in the square-free sub-case. Erdős and Selfridge disagreed on the answer in general (see disputes).",
+      "object": null,
+      "people": ["Paul Balister", "Béla Bollobás", "Robert Morris", "Julian Sahasrabudhe", "Marius Tiba"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1901.11465"]
+      },
+      "sources": ["https://arxiv.org/abs/1901.11465", "https://www.erdosproblems.com/7"]
+    },
+    {
+      "id": "harrington-sun-wong-2021-repeated-odd-prime",
+      "what_happened": "Joshua Harrington, Yewen Sun and Tony W. H. Wong, 'Covering systems with odd moduli' (arXiv 2104.00602; Discrete Math. 345 (2022) 112936). Studies a variant: one odd prime may be used as a modulus more than once, all other moduli distinct, odd and greater than 1. Also studies the square-free version. Gives constructions for that variant, e.g. Theorem 4.3: for a prime p ≥ 23 there is such a covering in which p is used p−5 times (per the arXiv HTML read).",
+      "date": "2021-04-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (1 Apr 2021). Journal: Discrete Math. 345 (2022) 112936.",
+      "delivers": "Existence results for the repeated-prime variant only. For the distinct-moduli question, nothing: the constructions use a repeated modulus p. The square-free results are conditional (e.g. Theorem 3.2: if an odd square-free distinct covering exists, there is an odd covering with p used exactly twice).",
+      "remains": "The question as stated, with every modulus distinct (problem_asks 1–3), entirely.",
+      "checked_by": [
+        {
+          "who": "Discrete Mathematics (journal peer review)",
+          "qualification": "Journal of record that accepted the paper",
+          "what_they_did": "Accepted and published the paper (2022)",
+          "where": "https://arxiv.org/abs/2104.00602 (journal reference on the arXiv page)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Variant only. No direction on the stated problem.",
+      "object": "Coverings in which a single odd prime p is a modulus p−5 times (p ≥ 23) or 4 or 6 times (p = 7), with all other moduli odd and distinct. Explicit constructions for the variant. These have a repeated modulus, so they are not coverings with distinct moduli and do not bear on the question as stated.",
+      "people": ["Joshua Harrington", "Yewen Sun", "Tony W. H. Wong"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2104.00602", "https://arxiv.org/html/2104.00602v1"]
+      },
+      "sources": ["https://arxiv.org/abs/2104.00602", "https://arxiv.org/html/2104.00602v1"]
+    },
+    {
+      "id": "balister-et-al-2022-expository-discounted",
+      "what_happened": "Balister, Bollobás, Morris, Sahasrabudhe and Tiba, 'Erdős covering systems' (arXiv 2211.01417, submitted 2 Nov 2022). Expository note on the distortion method for the minimum-modulus problem. Discounted for this question: its arXiv HTML contains no statement about odd moduli, no 9-or-15 lcm statement, and no statement that the odd problem is open.",
+      "date": "2022-11-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (2 Nov 2022), per the arXiv HTML read. Journal version not checked.",
+      "delivers": "Nothing on the odd question. Its distortion method is the framework that the 2025–2026 forum claims extend. Its Corollary 2.2 concerns distinct square-free moduli and an absolute bound on the minimum modulus.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Citation mismatch: the Erdős problem page attributes the 9-or-15 lcm result to BBMST22. This expository note does not contain it, so either the Erdős page means another BBMST paper or the statement is in a version I could not read. Unresolved.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about the question. Discounted.",
+      "object": null,
+      "people": ["Paul Balister", "Béla Bollobás", "Robert Morris", "Julian Sahasrabudhe", "Marius Tiba"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2211.01417v1"]
+      },
+      "sources": ["https://arxiv.org/html/2211.01417v1"]
+    },
+    {
+      "id": "adenwalla-2025-erdos-graham-204-discounted",
+      "what_happened": "Sarosh Adenwalla, 'A Question of Erdős and Graham on Covering Systems' (arXiv 2501.15170). Shows no integer n exists whose divisors greater than 1 are the moduli of a distinct covering with coprime overlapping moduli. The abstract says this is Problem #204 on erdosproblems.com. It does not mention the odd question, per the abstract page. Adenwalla also posted a comment on the #7 forum thread (5 Nov 2025) asking that the question say 'distinct'. Discounted: a different question.",
+      "date": "2025-01-25",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 25 Jan 2025; v2 27 Apr 2025; v3 3 Dec 2025 (per the arXiv abstract page). A search snippet reports publication in INTEGERS 26 (2026); not opened.",
+      "delivers": "Answers Erdős–Graham #204 negatively. Says nothing about odd moduli.",
+      "remains": "All of problem_asks, since the result is about a different question.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this question. Discounted.",
+      "object": null,
+      "people": ["Sarosh Adenwalla"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2501.15170"]
+      },
+      "sources": ["https://arxiv.org/abs/2501.15170", "https://www.erdosproblems.com/forum/thread/7?embed=1"]
+    },
+    {
+      "id": "bispels-et-al-2025-repeated-odd-modulus",
+      "what_happened": "Chris Bispels, Matthew Cohen, Joshua Harrington, Joshua Lowrance, Kaelyn Pontes, Leif Schaumann and Tony W. H. Wong, 'A further investigation on covering systems with odd moduli' (arXiv 2507.16135; Discrete Math. 349 (2026) 115013). Studies the variant where one odd integer may appear multiple times as a modulus and all other moduli are distinct odd integers greater than 1. Theorem 2.2: if such a system exists with modulus k used t times, then for every m ≥ 2 there is one in which km is used at most m(t−1)+1 times (at most (m−1)(t−1)+1 when gcd(k,m)=1). Theorem 1.1 gives an odd covering of a union of listed sets (sums of two squares, primes and prime powers, Fermat numbers, etc.), not of Z. The introduction calls the odd covering problem among 'the most notable open questions'.",
+      "date": "2025-07-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (22 Jul 2025), per the arXiv abstract page. Journal: Discrete Math. 349 (2026) 115013.",
+      "delivers": "Results for the repeated-modulus variant only, including the multiplicative construction in Theorem 2.2. Theorem 1.1 is a covering of a union of sets, not of all of Z. Neither gives a covering with distinct odd moduli.",
+      "remains": "All of problem_asks 1–3, for distinct moduli.",
+      "checked_by": [
+        {
+          "who": "Discrete Mathematics (journal peer review)",
+          "qualification": "Journal of record that accepted the paper",
+          "what_they_did": "Accepted and published the paper (2026)",
+          "where": "https://arxiv.org/abs/2507.16135 (journal reference on the arXiv page)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 3 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Variant only. Confirms the question is open as of July 2025 (its introduction says so). No direction on the stated problem.",
+      "object": "Explicit coverings for the repeated-modulus variant (e.g. for p² with p = 11 or 13, per a search snippet). Not coverings with distinct moduli.",
+      "people": ["Chris Bispels", "Matthew Cohen", "Joshua Harrington", "Joshua Lowrance", "Kaelyn Pontes", "Leif Schaumann", "Tony W. H. Wong"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2507.16135", "https://arxiv.org/html/2507.16135v1"]
+      },
+      "sources": ["https://arxiv.org/abs/2507.16135", "https://arxiv.org/html/2507.16135v1"]
+    },
+    {
+      "id": "gebyjaff-2026-01-candidate-proof",
+      "what_happened": "On the Erdős problems forum (thread 7), the user gebyjaff posted a 'candidate solution' with a Lean repository (github.com/spicylemonade/erdos-007). Their words: 'We have posted a candidate solution here. It is mostly formalized in Lean, with two axiomatic statements.' and 'There are most likely errors in this work, but we are seeking a review.' In the repository's main file (read as text, not compiled), the top-level theorems no_odd_covering_system and erdos_selfridge_answer state that no odd covering system exists (¬ ∃ S : CoveringSystem, S.IsOdd). They take the hypothesis HoughNielsenFact and the file uses one axiom, HoughNielsenGoodFibre. The file header says 'two independent axioms', which does not match the code. The profile page also has a later post (25 Apr 2026, thread 38) about a different problem, not this one.",
+      "date": "2026-01-11",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "No revision found. The GitHub page shows two commits on main, with dates not visible. The repository README returned 404.",
+      "delivers": "As claimed, a full negative answer: no finite odd distinct covering exists, conditional on the Hough–Nielsen good-fibre input (axiom HoughNielsenGoodFibre) and the hypothesis HoughNielsenFact. If sound, this would settle the whole of problem_asks. Not verified: the author expects errors, and the external input has not been checked.",
+      "remains": "Nothing, if the claim holds. If it fails, all of problem_asks 1–3.",
+      "checked_by": [
+        {
+          "who": "Terence Tao",
+          "qualification": "Professional mathematician and the most prominent commentator on AI-assisted work on Erdős problems",
+          "what_they_did": "Commented in the thread that external commentary needs 'a high-level, human-readable and preferably human-generated description' of what was achieved and what gaps remain, and called the appendix too focused on low-level Lean detail for an outside reader. Did not state the proof is correct.",
+          "where": "https://www.erdosproblems.com/forum/thread/7",
+          "automated": false
+        },
+        {
+          "who": "Nat Sothanaphan",
+          "qualification": "Mathematician; author of arXiv 2601.07421, a writeup of Harmonic's Aristotle proof of Erdős #728 (per a search snippet, not opened)",
+          "what_they_did": "Said 'If I understand correctly, there is a gap in the current Lean work in progress on this problem.' Also said 'this informal proof is likely generated by LLM by stylistic considerations and so exercise caution in accepting its validity.'",
+          "where": "https://www.erdosproblems.com/forum/thread/7",
+          "automated": false
+        },
+        {
+          "who": "DanielLarsen (forum handle; affiliation not established)",
+          "qualification": "Not established",
+          "what_they_did": "Wrote a preliminary assessment arguing that the key claim linking Hough–Nielsen's R to collision events is unexplained, and that the analysis fails if it is false.",
+          "where": "https://www.erdosproblems.com/forum/thread/7",
+          "automated": false
+        },
+        {
+          "who": "llllvvuu (forum handle)",
+          "qualification": "Not established; used AI tools to examine the argument",
+          "what_they_did": "Reported that Gemini and Aristotle were used to examine the 'HoughNielsenGoodFibre' argument, and that Aristotle left three holes, including the independence assumption.",
+          "where": "https://www.erdosproblems.com/forum/thread/7",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 months (to 12 Oct 2026). No accepted review and no later endorsement found in the visible thread.",
+      "machine_checked": {
+        "system": "Lean (repository spicylemonade/erdos-007). Not compiled by me.",
+        "sorry_free": true,
+        "url": "https://raw.githubusercontent.com/spicylemonade/erdos-007/main/main.lean",
+        "note": "No sorry token in the file text I read. The main theorems depend on the hypothesis HoughNielsenFact and the axiom HoughNielsenGoodFibre. Whether the axiom is a faithful and published Hough–Nielsen result is not checked."
+      },
+      "directly_checkable": null,
+      "doubts": "(1) The author writes: 'There are most likely errors in this work.' (2) The argument depends on an axiom (HoughNielsenGoodFibre) and a hypothesis (HoughNielsenFact) that are not proved in the file; the file header's count of axioms does not match the code. (3) llllvvuu's Aristotle run reported three holes, including the independence assumption. (4) Sothanaphan said there is a gap in the Lean work. (5) DanielLarsen said a key link is unexplained. (6) Tao asked for a human-readable write-up that the thread does not show being supplied. (7) The Erdős page still reads Open and shows 0 proof claims in the page's own count, which may not count forum claims.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims a full negative answer: no odd distinct covering of the integers exists. This is the direction Selfridge expected, not the one Erdős expected.",
+      "object": null,
+      "people": ["gebyjaff (forum handle; real name not established)"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Archivara",
+            "what_it_did": "The author says the proof was generated using Archivara, with a human bridging the final gap through the appendix. The source says nothing further about what Archivara produced. I could not identify Archivara in any source, so the name is recorded as the author wrote it.",
+            "basis_quote": "The proof was generated using Archivara and Aristotle, with a human bridging the final gap through the appendix.",
+            "quote_url": "https://www.erdosproblems.com/forum/thread/7"
+          },
+          {
+            "name": "Aristotle",
+            "what_it_did": "The author says the proof was generated using Aristotle, with a human bridging the final gap through the appendix. The name is recorded as written. A search snippet links it to Harmonic's Lean prover in arXiv 2601.07421; I did not open that and did not re-verify the identity.",
+            "basis_quote": "The proof was generated using Archivara and Aristotle, with a human bridging the final gap through the appendix.",
+            "quote_url": "https://www.erdosproblems.com/forum/thread/7"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.erdosproblems.com/forum/thread/7",
+          "https://www.erdosproblems.com/forum/user/gebyjaff"
+        ]
+      },
+      "sources": [
+        "https://www.erdosproblems.com/forum/thread/7",
+        "https://www.erdosproblems.com/forum/thread/7?embed=1",
+        "https://www.erdosproblems.com/forum/user/gebyjaff",
+        "https://github.com/spicylemonade/erdos-007",
+        "https://raw.githubusercontent.com/spicylemonade/erdos-007/main/main.lean"
+      ]
+    },
+    {
+      "id": "jinooklee-2026-05-sieve-monotonicity",
+      "what_happened": "On the Erdős problems forum (thread 7), jinooklee posted on 2 May 2026 'a proposed proof that no covering system with distinct odd moduli greater than 1 exists'. The argument uses 'sieve monotonicity': it extends the BBMST square-free sieve framework to non-square-free moduli by replacing a prime modulus p with p^e, which enlarges the block size from p−1 to p^e−1 and lowers the sieve product. The author says the monotonicity chain is proved sorry-free in Lean 4 with Mathlib, but that three axioms encode published BBMST results. On 6 May 2026 Thomas Bloom questioned whether the axioms are correct translations. Nat Sothanaphan said the axiom bbmst_sf_lt_one is false as formalised. The author replied: 'Thank you, this is a valid and decisive objection to the Lean formalization as stated.' They attributed the error to an omitted initial value c0 and said they would revise the code. Bloom closed technical discussion on 7 May 2026, saying he would accept only 'a complete, self-contained, Lean formalisation, without any sorry or axioms appealing to external work'. The author also said the extension to non-square-free moduli is not a trivial change and that the email to Dr. Tiba bounced.",
+      "date": "2026-05-02",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Announced revision of the Lean code on 6 May 2026. No revised version found.",
+      "delivers": "As claimed, a full negative answer for distinct odd moduli greater than 1. As formalised, the reduction is not established: it rests on three axioms, one of which the author conceded is false as formalised. Nothing is established by the posted version.",
+      "remains": "All of problem_asks 1–3, if the claim is not established. The author also says the extension to non-square-free moduli is the step not formally checked.",
+      "checked_by": [
+        {
+          "who": "Thomas Bloom (maintainer of erdosproblems.com)",
+          "qualification": "Runs the database that records this problem",
+          "what_they_did": "Said the proof is presumed flawed until an expert vouches for it or a full axiom-free Lean formalisation is given. Questioned whether the three axioms are correct translations, and noted the write-up appears to claim that BBMST19 essentially proved the result already.",
+          "where": "https://www.erdosproblems.com/forum/thread/7",
+          "automated": false
+        },
+        {
+          "who": "Nat Sothanaphan",
+          "qualification": "Mathlib-aware mathematician (see gebyjaff event)",
+          "what_they_did": "Said 'This is incorrect. Here's decisive evidence.' and 'The assumed axiom bbmst_sf_lt_one is false.' Argued the sieve product as defined is always above 1, so the axiom fails as formalised.",
+          "where": "https://www.erdosproblems.com/forum/thread/7",
+          "automated": false
+        },
+        {
+          "who": "Aristotle verification system (author-reported audit)",
+          "qualification": "Automated checker, not a human reading",
+          "what_they_did": "The author reports that the Lean code was audited by the Aristotle verification system with 7/7 checks passed. The audit does not address the false axiom and was not repeated after the fix as far as the thread shows.",
+          "where": "https://www.erdosproblems.com/forum/thread/7",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 months (to 12 Oct 2026). No revised formalisation, expert endorsement or Erdős site status change found. Bloom closed the technical thread on 7 May 2026.",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (author's code; link to repository not read; not compiled by me)",
+        "sorry_free": true,
+        "url": "https://www.erdosproblems.com/forum/thread/7",
+        "note": "Sorry-free is the author's claim. Three axioms encode BBMST Theorems 1.1 and 3.1 (author's words). The axiom bbmst_sf_lt_one was conceded false as formalised. The Aristotle audit is author-reported."
+      },
+      "directly_checkable": null,
+      "doubts": "(1) The author conceded that bbmst_sf_lt_one is false as formalised (omitting c0), so the posted Lean development does not establish its stated result. (2) The author's own description: the extension to non-square-free moduli is 'one aspect of the proof that relies on a structural argument rather than formal verification'. (3) Bloom: presumed flawed, and the write-up seems to claim BBMST essentially proved the result. (4) The Aristotle audit predates the admitted error and was not reported as rerun. (5) Erdős page still reads Open. These are reasons to doubt the posted version; they are not a finding that the mathematics is false.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims a full negative answer: no covering with distinct odd moduli greater than 1 exists.",
+      "object": null,
+      "people": ["jinooklee (forum handle; real name not established)"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.erdosproblems.com/forum/thread/7", "https://www.erdosproblems.com/forum/user/jinooklee"]
+      },
+      "sources": [
+        "https://www.erdosproblems.com/forum/thread/7",
+        "https://www.erdosproblems.com/forum/thread/7?embed=1",
+        "https://www.erdosproblems.com/forum/user/jinooklee"
+      ]
+    },
+    {
+      "id": "mian-siddique-2026-lcm-exclusion",
+      "what_happened": "Ibrahim Mian and Shayaan Siddique, 'Kernel-Checked Exclusions for the Erdős-Selfridge Odd Covering Problem: Any Odd Covering of Z Has lcm Exceeding 10000' (arXiv 2607.25628, submitted 28 Jul 2026). Lean 4 formalisation, checked end to end by the proof kernel; the paper says 'no sorry, no native_decide, no solver in the trusted base'. It shows that any covering of Z by finitely many congruence classes with distinct odd moduli greater than 1 has lcm of moduli above 10^4. The method combines a density argument, an abundancy bound, CRT certificates for the 23 odd abundant numbers below 10^4, and a kernel-checked enumeration. The authors say 'The mathematical content is known — the density argument is folklore', and the contribution is 'epistemic rather than mathematical'. They say the problem 'is open in both directions' and that 'This is not progress on the open question'. The abstract says the result is transported to the StrictCoveringSystem formulation of erdos_7 in google-deepmind/formal-conjectures. That file still reads theorem erdos_7 : answer(sorry) ↔ … with category 'research open' (read on GitHub; I did not compile it).",
+      "date": "2026-07-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, per the arXiv HTML and abstract pages read.",
+      "delivers": "A lower bound on the lcm of any odd distinct covering (moduli greater than 1): above 10^4. Partial. The problem asks existence, not lcm; the statement names no lcm bound, so this moves no quantity the bullet names. It does not show existence or non-existence, and any covering would have lcm above 10^4, which is consistent with existence.",
+      "remains": "Existence (problem_asks 1–3) entirely. Also the lcm range from 10^4 upward.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2.5 months (to 12 Oct 2026). No public engagement found in the forum thread's visible posts (through 15 Sep 2026) or in the searches.",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (kernel-checked, per the paper)",
+        "sorry_free": true,
+        "url": "https://arxiv.org/html/2607.25628v1",
+        "note": "Sorry-free and no native_decide are the authors' claims. I did not read the Lean source. The formal-conjectures file for erdos_7 still contains answer(sorry), as expected for the open problem."
+      },
+      "directly_checkable": "The certificates are CRT residue checks for the 23 odd abundant numbers below 10^4 plus a kernel-checked enumeration, per the paper. I did not check them.",
+      "doubts": "No specific error identified. Reasons for caution: no public review found; the authors' own framing is that the contribution is epistemic and not new mathematics; the affiliation 'Millennium Research' has no findable record; the acknowledgements credit Claude (see ai) without saying what it did.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial exclusion. Bounds the lcm from below and so cuts against small odd coverings only. Not a counterexample and does not decide existence.",
+      "object": null,
+      "people": ["Ibrahim Mian", "Shayaan Siddique"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude (Anthropic)",
+            "what_it_did": "The acknowledgements say development was carried out with Claude's assistance. The sentence does not say what was developed (text, code, certificates or mathematics). The paper's own framing (folklore density argument; contribution is formal) suggests the work was formalisation and certification, which the protocol treats as not AI involvement in the result, but the source does not say so. Load-bearing status is unknown.",
+            "basis_quote": "Development was carried out with the assistance of Claude (Anthropic).",
+            "quote_url": "https://arxiv.org/html/2607.25628v1"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2607.25628v1"]
+      },
+      "sources": [
+        "https://arxiv.org/html/2607.25628v1",
+        "https://www.alphaxiv.org/abs/2607.25628",
+        "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/7.lean"
+      ]
+    },
+    {
+      "id": "egeozturk-2026-08-forum-preprint-unlocated",
+      "what_happened": "On the forum thread 7 (18 Aug 2026), egeozturk wrote: 'I have posted a preprint with some elementary computational progress on this problem.' The longer forum view summarised by my fetch tool reports closed-form nonexistence certificates, no covering with lcm below 11,486,475, and says the author is an undergraduate. I could not locate the preprint in any search.",
+      "date": "2026-08-18",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Preprint not located. Date is the forum post, not a preprint date.",
+      "delivers": "As summarised and not verified: a lower bound on the lcm of an odd distinct covering (below 11,486,475 excluded). Partial. Does not decide existence.",
+      "remains": "Existence (problem_asks 1–3).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 weeks (to 12 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unverified: preprint not found, and the detail comes from a summarising fetch of the forum page. If accurate, the excluded range (lcm below 11,486,475) is larger than Mian–Siddique's 10^4 bound, so it would be a stronger partial exclusion obtained by a different method. The Mian–Siddique paper does not cite it.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial lcm exclusion, as claimed. Cuts neither way on existence.",
+      "object": null,
+      "people": ["egeozturk (forum handle; the post says the author is an undergraduate)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.erdosproblems.com/forum/thread/7?embed=1"]
+      },
+      "sources": ["https://www.erdosproblems.com/forum/thread/7?embed=1", "https://www.erdosproblems.com/forum/thread/7"]
+    },
+    {
+      "id": "schroeder-2026-09-forum-preprints-unlocated",
+      "what_happened": "On forum thread 7 (15 Sep 2026), MichaelSchroeder wrote: 'I would like to share progress on the Erdős–Selfridge odd covering conjecture.' The longer summary from my fetch tool reports three papers establishing that ω(lcm) ≥ 7, 8 and 9 (ω counting distinct prime divisors), and a noncoverage result for moduli with at most three prime divisors, and says the unrestricted conjecture remains open. I could not locate the papers.",
+      "date": "2026-09-15",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Papers not located. Date is the forum post.",
+      "delivers": "As summarised and not verified: prime-count lower bounds on the lcm (ω(lcm) ≥ 9) and a noncoverage result for moduli with at most three prime divisors. Partial; does not decide existence.",
+      "remains": "Existence (problem_asks 1–3).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 weeks (to 12 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unverified: the three papers were not found and the detail comes from a summarising fetch. To be compared with the Guo–Sun 22-prime bound (square-free moduli only) and the 9-or-15 statement, which I could not place in any source.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial, as claimed. Cuts neither way on existence.",
+      "object": null,
+      "people": ["MichaelSchroeder (forum handle)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.erdosproblems.com/forum/thread/7?embed=1"]
+      },
+      "sources": ["https://www.erdosproblems.com/forum/thread/7?embed=1"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "status",
+      "summary": "The Erdős problem page (Thomas Bloom's database) still reads open. Its own note says the open status 'reflects the current belief of the owner of this website'. Forum claims of resolution (gebyjaff, Jan 2026; jinooklee, May 2026) are not reflected on the page, and the page's count shows 0 proof claims.",
+      "sources": ["https://www.erdosproblems.com/7", "https://www.erdosproblems.com/forum/thread/7"]
+    },
+    {
+      "kind": "priority",
+      "summary": "Expectation, not priority: Erdős believed an odd covering exists and offered $25 for a proof that none exists; Selfridge believed none exists, offered $300 for an explicit example (later $2000). Recorded via the Erdős page's quotation of Filaseta, Ford and Konyagin (2000), which I did not open. Not a dispute about a result.",
+      "sources": ["https://www.erdosproblems.com/7"]
+    },
+    {
+      "kind": "validity",
+      "summary": "The jinooklee May 2026 claim: the author says the Lean development is sorry-free and audited by Aristotle (7/7); a commenter (Sothanaphan) and the author concedes that the axiom bbmst_sf_lt_one is false as formalised. The author's audit claim does not cover the false axiom.",
+      "sources": ["https://www.erdosproblems.com/forum/thread/7?embed=1"]
+    },
+    {
+      "kind": "citation",
+      "summary": "The Erdős page attributes to BBMST22 a statement that if an odd covering exists then the lcm is divisible by 9 or 15. The arXiv HTML of Balister et al. 'Erdős covering systems' (2211.01417) does not contain it, and the abstract of the 2019 square-free paper (1901.11465) as read does not mention it. Source not located.",
+      "sources": ["https://www.erdosproblems.com/7", "https://arxiv.org/html/2211.01417v1", "https://arxiv.org/abs/1901.11465"]
+    }
+  ],
+
+  "summary": "The problem has not been resolved on the sources I could reach. The Erdős problem page (fetched) reads open, carries a $25 prize, and was last edited 22 Jan 2026 (the history page shows a revision dated 20 Oct 2025). Wikipedia's covering-system article lists the question as open and was last edited 5 Sep 2026. The events that bear on the question are of four kinds. (a) Restricted or necessary results, all before 2024 except where noted: Guo and Sun (2004) show that a square-free odd distinct covering would need an lcm with at least 22 prime factors; Hough and Nielsen (2017) show every distinct covering has a modulus divisible by 2 or 3; Balister et al. (2019) show no distinct odd covering with square-free moduli exists. (b) Variants, which do not answer the question as stated: Harrington, Sun and Wong (2021) and Bispels et al. (2025) study coverings where one odd modulus repeats. Adenwalla (2025) answers a different Erdős–Graham question (#204). (c) Two full-scope negative claims posted on the Erdős forum. gebyjaff (11 Jan 2026) says the proof was 'generated using Archivara and Aristotle, with a human bridging the final gap'; the repository's top-level theorem is a full negative answer, conditional on one axiom and one hypothesis. Tao asked for a human-readable account; llllvvuu reported that Aristotle left three holes; Sothanaphan said there was a gap; the author wrote 'There are most likely errors in this work'. No later review found. jinooklee (2 May 2026) claims a negative answer by a sieve-monotonicity extension of BBMST, with a Lean formalisation. Bloom and Sothanaphan objected; the author conceded that the axiom bbmst_sf_lt_one is false as formalised; Bloom closed the technical discussion on 7 May. No revision found. (d) A Lean-checked partial result: Mian and Siddique (28 Jul 2026) show any odd distinct covering has lcm above 10^4. Their acknowledgements say 'Development was carried out with the assistance of Claude (Anthropic)', but do not say what Claude did. The authors say the contribution is epistemic and that this is not progress on the open question. Two forum-only posts (egeozturk 18 Aug 2026, MichaelSchroeder 15 Sep 2026) describe further partial bounds; I could not locate their preprints. Close calls: (i) whether the Mian–Siddique lcm bound is 'progress' depends on whether lcm counts as a quantity the bullet names, which it does not; I record it as partial. (ii) For gebyjaff, the AI credit is load-bearing on the author's own wording ('generated using'), but the claim's status turns on the external axiom, which I did not verify. (iii) For jinooklee, Aristotle is recorded only as an audit tool, which the protocol does not count as AI involvement in the result. A third-party comment (Sothanaphan, 6 May 2026) says 'Credit to GPT for [discussion]', which I record here and not in ai.systems because it is not the authors' account of the mathematics. Sources were read through a mix of direct page reads and summarising fetches; forum text is marked as summarised where the summary is the only evidence I have. The 'Archivara' system could not be identified anywhere.",
+
+  "competing_reading": "The gebyjaff repository could be read as the first claimed full resolution with AI load-bearing in the sense the protocol asks: the author says the proof was generated by Archivara and Aristotle, and its top-level theorem is a complete negative statement. On that reading the event counts as a claimed resolution (as yet unaccepted), and the AI attribution goes to the later pass. The other reading is that neither forum claim is a resolution, because each rests on an external axiom or hypothesis that has not been checked, and the jinooklee version concedes a false axiom. The Mian–Siddique paper can be read as partial progress, since it bounds the lcm from below for every odd distinct covering; the other reading is that the bound moves no quantity the bullet names, and the authors themselves say it is not progress.",
+
+  "what_would_settle_it": "(1) A compiled, axiom-audited check of the gebyjaff repository, with a finding on whether HoughNielsenGoodFibre is a published result as stated and whether HoughNielsenFact is satisfied; plus a human expert write-up. (2) A compiled, axiom-free Lean proof of the jinooklee argument, or a referee report on the non-square-free extension. (3) A change of status on erdosproblems.com/7, or the forum thread closing with a verdict. (4) For the AI question: what Archivara is; what Claude did in arXiv 2607.25628 (the authors' fuller account, or the Lean development history); and the teorth AI-contributions wiki entry for #7 (the subpages errored when I tried). (5) The preprints behind the egeozturk and Schroeder posts. (6) The source of the 'divisible by 9 or 15' statement attributed to BBMST22.",
+
+  "sources": [
+    {"url": "https://www.erdosproblems.com/7", "title": "Erdős Problem #7 (erdosproblems.com)", "type": "repository", "opened": true},
+    {"url": "https://www.erdosproblems.com/forum/thread/7", "title": "Erdős Problem #7 forum thread", "type": "repository", "opened": true},
+    {"url": "https://www.erdosproblems.com/forum/thread/7?embed=1", "title": "Erdős Problem #7 forum thread (embed view)", "type": "repository", "opened": true},
+    {"url": "https://www.erdosproblems.com/forum/user/gebyjaff", "title": "gebyjaff forum profile", "type": "repository", "opened": true},
+    {"url": "https://www.erdosproblems.com/forum/user/jinooklee", "title": "jinooklee forum profile", "type": "repository", "opened": true},
+    {"url": "https://www.erdosproblems.com/history/7", "title": "Erdős Problem #7 history page", "type": "repository", "opened": true},
+    {"url": "https://github.com/spicylemonade/erdos-007", "title": "spicylemonade/erdos-007 (GitHub repository page)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/spicylemonade/erdos-007/main/main.lean", "title": "spicylemonade/erdos-007 main.lean (raw text)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/spicylemonade/erdos-007/main/README.md", "title": "spicylemonade/erdos-007 README (HTTP 404)", "type": "repository", "opened": false},
+    {"url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/7.lean", "title": "google-deepmind/formal-conjectures ErdosProblems/7.lean (raw text)", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/html/2607.25628v1", "title": "Kernel-Checked Exclusions for the Erdős-Selfridge Odd Covering Problem (arXiv 2607.25628, HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2607.25628", "title": "arXiv 2607.25628 PDF (compressed, unreadable by fetch tool)", "type": "preprint", "opened": false},
+    {"url": "https://www.alphaxiv.org/abs/2607.25628", "title": "alphaxiv mirror of arXiv 2607.25628", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2507.16135", "title": "A further investigation on covering systems with odd moduli (arXiv 2507.16135, abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2507.16135v1", "title": "A further investigation on covering systems with odd moduli (arXiv 2507.16135, HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2507.16135", "title": "arXiv 2507.16135 PDF (compressed, unreadable by fetch tool)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/2104.00602", "title": "Covering systems with odd moduli (arXiv 2104.00602, abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2104.00602v1", "title": "Covering systems with odd moduli (arXiv 2104.00602, HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2104.00602", "title": "arXiv 2104.00602 PDF (compressed, unreadable by fetch tool)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1901.11465", "title": "The Erdős-Selfridge problem with square-free moduli (arXiv 1901.11465)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1703.02133", "title": "Covering systems with restricted divisibility (arXiv 1703.02133)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2211.01417v1", "title": "Erdős covering systems (arXiv 2211.01417, HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2211.01417", "title": "arXiv 2211.01417 PDF (compressed, unreadable by fetch tool)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/math/0412217", "title": "On odd covering systems with distinct moduli (arXiv math/0412217)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2501.15170", "title": "A Question of Erdős and Graham on Covering Systems (arXiv 2501.15170)", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Covering_system", "title": "Covering system (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://github.com/teorth/erdosproblems/wiki", "title": "teorth/erdosproblems wiki (home page; AI-contributions subpages returned errors)", "type": "repository", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "covering system with odd distinct moduli",
+      "covering system distinct odd moduli Erdős problem",
+      "covering systems distinct moduli odd Erdős Graham open problem 2025",
+      "Wikipedia list of unsolved problems in mathematics covering system odd distinct moduli",
+      "covering system minimum modulus distinct moduli Hough 10^16 improvement",
+      "arXiv covering systems odd moduli 2024",
+      "covering system AI proof Erdős problem GPT model odd moduli",
+      "Erdős problems website covering systems odd moduli status",
+      "Nielsen covering system minimum modulus 9 distinct moduli",
+      "Balister Bollobás Morris Sahasrabudhe Tiba covering system Erdős minimum modulus",
+      "Archivara Aristotle Erdős problem 7 covering system proof",
+      "sieve monotonicity covering systems odd moduli Lean Mathlib Erdős Selfridge",
+      "Mian Siddique Kernel-Checked Exclusions Erdős-Selfridge odd covering arXiv",
+      "Terence Tao Erdős problem 7 odd covering system Aristotle proof gap",
+      "no covering system distinct odd moduli proof claim 2026",
+      "Erdős problem 7 covering system Lean formal-conjectures google-deepmind StrictCoveringSystem",
+      "Sothanaphan odd covering system sieve Erdős 7 counterexample bbmst_sf_lt_one",
+      "Schroeder covering system omega lcm moduli at least 9 prime divisors odd covering",
+      "gebyjaff Erdős problem 7 candidate solution Archivara Aristotle human bridging gap",
+      "egeozturk preprint closed-form nonexistence certificates covering system lcm 11486475",
+      "Erdős–Selfridge odd covering conjecture progress omega(lcm) noncoverage moduli three prime divisors arXiv 2026",
+      "Archivara AI mathematics Erdős problems",
+      "Erdős problem 7 covering system Claude Anthropic AI proof odd moduli",
+      "Ibrahim Mian Shayaan Siddique Millennium Research Lean",
+      "Guo Sun covering system odd square-free moduli 22 prime factors lcm",
+      "Filaseta Ford Konyagin Erdős Selfridge odd covering prize $25 $300 $2000 explicit example",
+      "jinooklee Erdős Lean BBMST sieve formalization revised covering odd moduli",
+      "Harrington Sun Wong odd covering system repeated modulus Discrete Mathematics 2022 Harrington question n at most twice",
+      "Erdős problems AI-assisted solutions covering systems odd distinct moduli OpenAI DeepMind Harmonic 2026 tracker",
+      "Tao mathstodon Erdős problem 7 odd covering gebyjaff Aristotle proof January 2026",
+      "Schroeder covering systems arXiv 2026 lcm distinct moduli prime factors odd Erdős Selfridge"
+    ],
+    "places_checked": [
+      "erdosproblems.com: problem page #7, forum thread 7 (full and embed views), forum profiles for gebyjaff and jinooklee, history page #7",
+      "arXiv abstract and HTML pages: 2607.25628, 2507.16135, 2104.00602, 1901.11465, 1703.02133, 2211.01417, math/0412217, 2501.15170",
+      "GitHub: spicylemonade/erdos-007 (repository page and main.lean raw text), google-deepmind/formal-conjectures ErdosProblems/7.lean",
+      "teorth/erdosproblems wiki home page (AI-contributions subpages returned errors; last-edited date Jun 30 2026)",
+      "Wikipedia: Covering system (last edited 5 Sep 2026)",
+      "Search results for AI-lab and tracker announcements (OpenAI, Google DeepMind, Harmonic, teorth wiki)"
+    ],
+    "dead_ends": [
+      "'Archivara': no source found beyond the gebyjaff forum post (queries 11, 19, 22).",
+      "Schroeder's three papers (ω(lcm) ≥ 7, 8, 9) and egeozturk's preprint: not located (queries 18, 20, 21, 31).",
+      "The identifier bbmst_sf_lt_one: no hits outside the forum thread (query 17).",
+      "Affiliation 'Millennium Research' for Mian and Siddique: no record found (query 24).",
+      "Tao's Mathstodon posts about #7: not accessible (query 30).",
+      "GitHub README for spicylemonade/erdos-007: HTTP 404; the repository page showed no README.",
+      "teorth/erdosproblems AI-contributions subpages: error on load.",
+      "Google DeepMind and OpenAI AI-result announcements (AlphaProof Nexus, unit-distance, Astra) concern other Erdős problems per search snippets; not opened.",
+      "Erdős #281 (GPT-5.2 Pro, covering systems and congruence classes): per a search snippet, not the odd-moduli question; not opened.",
+      "Erdős #728 (Aristotle/GPT-5.2 Pro, arXiv 2601.07421): different problem; search snippet only.",
+      "Erdős #647 Kernel-Checked Exclusion Certificate (arXiv 2608.17880): different problem; search snippet only.",
+      "arXiv 2607.19029 (distinct covering with minimum modulus 7 and lcm 10080): minimum-modulus question, not odd; search snippet only.",
+      "arXiv 2506.11359 (non-existence intervals for distinct moduli): minimum-modulus question; search snippet only.",
+      "Minimum-modulus results (Hough 2015 bound 10^16; Cummings–Filaseta–Trifonov square-free bound 118; Owens 42; Klein–Koukoulopoulos–Lemieux): different question; search snippets only.",
+      "Filaseta and Harvey (2018), odd covers of a union of sets (primes, sums of two squares, Fibonacci numbers): a variant covering a union, not Z; search snippet only.",
+      "Simpson and Zeilberger (18 prime factors, square-free case): superseded by Guo–Sun; search snippet only.",
+      "Agrawal et al., INTEGERS 24A (2024), classification of distinct covering systems with at most ten moduli: not about odd moduli; search snippet only.",
+      "Sun's Graz talk slides (May 2026): snippet says the conjecture is still stated as open; not opened.",
+      "Wikipedia 'List of unsolved problems in mathematics': not opened; the statement was given in the task.",
+      "PDFs of 2607.25628, 2507.16135, 2104.00602, 2211.01417: the fetch tool returned compressed streams; the HTML versions were used instead."
+    ]
+  },
+
+  "incomplete": "(1) The forum thread shows 'Show 4 more comments' and the thread header says 23 comments; I read the visible posts only, through 15 Sep 2026. Hidden posts may contain further claims or verdicts. (2) Forum content was read through a summarising fetch tool, with short quotes and some timestamps differing between views (the gebyjaff candidate post shows 00:31 in the thread and 01:40 on the author's profile, both on 11 Jan 2026). Quotes marked as summaries should be checked against the live page. (3) The Lean code for gebyjaff and jinooklee was read as text only and not compiled; axiom counts are as read. (4) The Mian–Siddique PDF and the Bispels et al. and Harrington–Sun–Wong PDFs could not be read by the fetch tool; I used their HTML and abstract pages, and did not read the full acknowledgements of the two older papers beyond what the HTML fetch returned. (5) 'Archivara' was not identified. (6) The AI-contributions wiki for this problem could not be loaded. (7) The egeozturk and Schroeder preprints were not located; their forum-post content is summarised, not verified. (8) The source of the 9-or-15 statement attributed to BBMST22 is not located. (9) Not opened: the Filaseta–Ford–Konyagin (2000) paper, the Hough–Nielsen journal version, the Balister et al. journal versions, and the Adenwalla journal version (INTEGERS, from a search snippet). (10) Google Scholar and the Wikipedia list page were not searched directly."
+}

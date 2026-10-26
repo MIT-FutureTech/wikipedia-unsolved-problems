@@ -1,0 +1,797 @@
+{
+  "key": "sphere-packing",
+
+  "nothing_found": false,
+
+  "outcome": "Since 26 January 2024 the lower bound on lattice packing density has moved twice (Klartag, April 2025, order n²·2⁻ⁿ; Abuya, Gargava and Zhao, June 2026, an extra log log N factor along an infinite sequence of dimensions), an upper bound on high-dimensional density has been claimed by OpenAI's internal Astra model (1 August 2026, exponent 0.59906 to 0.6044, with a Lean repository and an open attribution dispute), and several records have been set for specific dimensions (non-lattice packings in 19, 20, 21, 23, 44, 45, 47; the lattice optimum in dimension 9; packings in 38 to 43; upper bounds in 4 to 16). The optimal density in any dimension other than 1, 2, 3, 8 and 24 is still unknown, and the gap between the lower and upper asymptotic exponents is still open.",
+
+  "problem_asks": "The bullet has two named parts, plus a family phrase. (a) The density of the densest packing of identical spheres in R^n for each dimension n other than 1, 2, 3, 8 and 24, i.e. determine it (the frozen wording asks what the densest sphere packing is in those dimensions). The densest packing is over all packings, not only lattice packings; the statement does not restrict to lattices. (b) The asymptotic behaviour of that optimal density as n tends to infinity: the statement does not name constants, so the asymptotic question is the growth of the optimal density in high dimensions (the exponential rate and the sub-exponential factor). (c) The opening phrase 'Sphere packing problems, including' indicates the bullet stands for a family; the operative content I read is (a) and (b). Dimensions 1, 2, 3, 8 and 24 are excluded because they are already solved.",
+
+  "events": [
+    {
+      "id": "campos-et-al-2023",
+      "what_happened": "Campos, Jenssen, Michelen and Sahasrabudhe, 'A new lower bound for sphere packing' (arXiv:2312.10026). Shows that in R^d there is a packing of identical spheres of density at least (1 − o(1))·d·log d / 2^(d+1), an improvement by a factor of order log d over Rogers' 1947 linear factor. The arXiv page lists no journal reference; Klartag's v2 bibliography cites it as J. Amer. Math. Soc. (2025), which I did not confirm elsewhere. Predates the frozen revision; recorded because it is the baseline the 2025 and 2026 lower bounds are measured against.",
+      "date": "2023-12-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 15 Dec 2023 only; no later version listed on the arXiv abstract page read.",
+      "delivers": "Existence, by a graph-theoretic (independent-set) argument, of packings in R^d of density (1 − o(1))·d·log d / 2^(d+1) for all large d. The packings need not be lattices. Asymptotic only; it gives no value in any specific dimension.",
+      "remains": "The exact optimal density in every dimension other than 1, 2, 3, 8, 24; the constant in the asymptotic exponent; the gap to the upper bound (2^(−0.599 d) by Kabatiansky–Levenshtein as cited by the 2025–2026 papers).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 34 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "A lower bound on the best packing density in all high dimensions, growing by a log d factor over the Rogers bound. It moves the asymptotic lower bound on the general (non-lattice) optimal density; it does not settle the problem.",
+      "object": "Non-constructive existence: a packing in R^d of density (1 − o(1))·d·log d / 2^(d+1), obtained from an independent-set theorem for graphs of bounded degree and codegree applied to a discretised large ball. No explicit packing is given.",
+      "people": ["Marcelo Campos", "Matthew Jenssen", "Marcus Michelen", "Julian Sahasrabudhe"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2312.10026"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2312.10026",
+        "https://arxiv.org/html/2504.05042v2"
+      ]
+    },
+    {
+      "id": "venkatesh-2013-cyclotomic",
+      "what_happened": "Venkatesh's lattice construction using cyclotomic symmetries gives lattice packings of density at least order n·log log n·2⁻ⁿ for infinitely many n (as described in 2026 secondary sources). The year is uncertain: one search summary says a 2013 note, another says the work was from 2012. The Stanford note (math.stanford.edu/~akshay/research/sp.pdf) returned binary data and could not be read, so this event rests on search summaries only. Predates the frozen revision.",
+      "date": "2013",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Year conflicts across sources (2012 or 2013); the source PDF was not readable.",
+      "delivers": "Lattice packing density of order n·log log n·2⁻ⁿ for infinitely many n. Lattice packings only, and only along an infinite sparse set of dimensions.",
+      "remains": "All other dimensions; non-lattice packings; the exact density in every dimension other than 1, 2, 3, 8, 24.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 years (year only)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "A lower bound along an infinite sparse set of dimensions. It moves the lattice lower bound there, by a log log n factor. Predates the window.",
+      "object": "Existence, non-constructive (random arguments over infinite families of cyclotomic-symmetric lattices), per the 2026 secondary sources. Moustrou later gave a finite-family effective version (arXiv:1603.00743), which I did not open.",
+      "people": ["Akshay Venkatesh"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://math.stanford.edu/~akshay/research/sp.pdf (not opened: binary PDF unreadable)"
+      ]
+    },
+    {
+      "id": "viazovska-dim8-2016",
+      "what_happened": "Viazovska, 'The sphere packing problem in dimension 8' (arXiv:1603.04246), solving the problem in dimension 8 (the E8 lattice is optimal among all packings). Dimension 8 is excluded by the bullet. Date is from a search summary (posted 14 March 2016); the arXiv page was not opened.",
+      "date": "2016-03-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The densest packing in dimension 8 (E8), a dimension the bullet excludes. Settles nothing in an open dimension.",
+      "remains": "Every dimension the bullet asks about.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 years 7 months",
+      "machine_checked": {"system": "Lean 4 (formal verification of dimension 8 completed in 2026; see event math-inc-gauss-2026)", "sorry_free": null, "url": "https://arxiv.org/abs/2604.23468"},
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Solves an excluded dimension; confirms the exceptional status of dimensions 8 and 24 that the bullet lists.",
+      "object": "The E8 lattice with its packing density, optimal among all packings in dimension 8 (proof via modular-form interpolation). Explicit lattice; non-constructive optimality proof.",
+      "people": ["Maryna Viazovska"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/abs/1603.04246 (not opened; date from search summary)"
+      ]
+    },
+    {
+      "id": "cohn-kumar-miller-radchenko-viazovska-dim24-2016",
+      "what_happened": "Cohn, Kumar, Miller, Radchenko and Viazovska, 'The sphere packing problem in dimension 24' (arXiv:1603.06518), solving dimension 24 (Leech lattice). Excluded by the bullet. The date (21 March 2016) is from a search summary; the arXiv page was not opened.",
+      "date": "2016-03-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The densest packing in dimension 24 (Leech lattice), a dimension the bullet excludes.",
+      "remains": "Every dimension the bullet asks about.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 years 6 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Solves an excluded dimension.",
+      "object": "The Leech lattice with its packing density, optimal among all packings in dimension 24. Explicit lattice; non-constructive optimality proof.",
+      "people": ["Henry Cohn", "Abhinav Kumar", "Stephen D. Miller", "Danylo Radchenko", "Maryna Viazovska"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/abs/1603.06518 (not opened; date from search summary)"
+      ]
+    },
+    {
+      "id": "gargava-viazovska-2024",
+      "what_happened": "Gargava and Viazovska, 'Mean Value for Random Ideal Lattices' (arXiv:2411.14973). A mean-value theorem for random ideal lattices in cyclotomic fields gives, as a consequence, the existence of ideal lattice packings in dimension φ(n) with density n·2^(−φ(n))(1 + o(1)) as n tends to infinity. The abstract does not use the words 'lower bound'. The comments field links a Lean formalisation (not opened).",
+      "date": "2024-11-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 22 Nov 2024; v2 10 Dec 2025; v3 14 Sep 2026 (current).",
+      "delivers": "Lattice packings in dimensions φ(n) for each n, with density n·2⁻^φ(n)(1 + o(1)). Lattice packings only, and only in dimensions of the form φ(n).",
+      "remains": "Dimensions not of the form φ(n); non-lattice packings; the optimal density in every dimension the bullet asks about.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 23 months",
+      "machine_checked": {"system": "Lean (formalisation linked in the arXiv comments field; not opened)", "sorry_free": null, "url": "https://arxiv.org/abs/2411.14973"},
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Lattice lower bounds in a sparse set of dimensions (of the form φ(n)); it moves a density quantity the bullet asks about, only in those dimensions.",
+      "object": "Existence, from a Siegel-type mean value theorem and symmetries of ideal lattices (roots of unity). Non-constructive; no explicit lattice.",
+      "people": ["Nihar Gargava", "Maryna Viazovska"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2411.14973"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2411.14973"
+      ]
+    },
+    {
+      "id": "klartag-2025",
+      "what_happened": "Klartag, 'Lattice packing of spheres in high dimensions using a stochastically evolving ellipsoid' (arXiv:2504.05042). Shows that in every dimension n there is an origin-symmetric ellipsoid of volume c·n² containing no nonzero point of Zⁿ, with c a universal constant; equivalently a lattice sphere packing in Rⁿ of density at least c·n²·2⁻ⁿ. The previously known constructions gave at most C·n·log n·2⁻ⁿ. Posted 7 April 2025 (v1), revised 25 January 2026 (v2, 29 pages). Journal: Inventiones mathematicae (DOI 10.1007/s00222-026-01412-w); the journal header in a search result gives 'Received 7 April 2025 / Accepted 22 February 2026'. The Springer page redirected to a login and was not opened; the Weizmann PDF mirror was not reachable. One search summary instead says Math. Annalen; see disputes.",
+      "date": "2025-04-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 7 Apr 2025; v2 25 Jan 2026 (current); accepted Inventiones 22 Feb 2026 per a search-result header.",
+      "delivers": "A lower bound of order c·n²·2⁻ⁿ on the density of LATTICE sphere packings in every dimension n, universal c > 0. Restriction: lattice packings only. The Klartag paper as read proves only the lattice case; Aubrun's note says the improvement is also substantial for non-lattice packings in high dimension, but that is a comparison in the note, not a theorem I found in Klartag's paper.",
+      "remains": "The exact optimal density (lattice and general) in every dimension other than 1, 2, 3, 8, 24; the gap between the lower bound n²·2⁻ⁿ and the upper bounds (Kabatiansky–Levenshtein 2^(−0.599n); the Cohn–Elkies-type 2^(−0.6044n) claimed by OpenAI, see event openai-astra-2026); the non-lattice question in general.",
+      "checked_by": [
+        {
+          "who": "Gil Kalai (Hebrew University of Jerusalem)",
+          "qualification": "Senior combinatorialist and geometer; says he discussed the proof with Klartag in person.",
+          "what_they_did": "Blog post (9 April 2025) describing the result and calling it 'an amazing breakthrough'. Describes the proof only in outline and says he hopes to write a more detailed post (not found).",
+          "where": "https://gilkalai.wordpress.com/2025/04/09/boaz-klartag-striking-new-lower-bounds-for-sphere-packing-in-high-dimensions/",
+          "automated": false
+        },
+        {
+          "who": "Guillaume Aubrun",
+          "qualification": "Researcher in high-dimensional convex and metric geometry (listing cross-lists math.MG, math.NT, math.PR); gave the June 2026 Bourbaki seminar on this result.",
+          "what_they_did": "Wrote an English expository account of Klartag's proof (translating Bourbaki notes), explaining both uses of the probabilistic method. Presents the argument; does not claim an independent new check.",
+          "where": "https://arxiv.org/abs/2606.13313",
+          "automated": false
+        },
+        {
+          "who": "Referees of Inventiones mathematicae",
+          "qualification": "Journal of record; referees not named in the sources read.",
+          "what_they_did": "Accepted the paper on 22 February 2026 (per the journal header quoted in a search result).",
+          "where": "https://doi.org/10.1007/s00222-026-01412-w",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 18 months (v1); about 8 months (v2)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "A lower bound on lattice packing density. Moves the asymptotic lower bound from order n·log n·2⁻ⁿ to order n²·2⁻ⁿ (a factor of roughly n/log n). It does not determine the optimal density and does not contradict any claim in the problem; the problem remains open.",
+      "object": "Existence, non-constructive and probabilistic: an origin-symmetric ellipsoid of volume c·n² in Rⁿ with no nonzero integer lattice point in its interior, produced by a random evolution of the ellipsoid that collects order n² lattice points on its boundary. It yields a unit-covolume lattice whose packing density is at least c·n²·2⁻ⁿ. No explicit lattice is given.",
+      "people": ["Boaz Klartag"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2504.05042v2"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2504.05042",
+        "https://arxiv.org/html/2504.05042v2",
+        "https://gilkalai.wordpress.com/2025/04/09/boaz-klartag-striking-new-lower-bounds-for-sphere-packing-in-high-dimensions/",
+        "https://www.quantamagazine.org/new-sphere-packing-record-stems-from-an-unexpected-source-20250707/",
+        "https://arxiv.org/abs/2606.13313"
+      ]
+    },
+    {
+      "id": "antipode-nonlattice-2025",
+      "what_happened": "Chen, Hu, Li, Wang and Wu, 'New Sphere Packings from the Antipode Construction' (arXiv:2505.02394). Non-lattice sphere packings in dimensions 19, 20, 21, 23, 44, 45 and 47, built by applying the antipode construction to suboptimal cross-sections of the Leech lattice Λ24 and P48p; the authors say these 'surpass all previously documented results in these dimensions'. Posted 5 May 2025.",
+      "date": "2025-05-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 5 May 2025 (only version read).",
+      "delivers": "Lower bounds on the best known packing density in the seven specified dimensions (19, 20, 21, 23, 44, 45, 47), via non-lattice packings, claimed as records. Says nothing about the optimal density in those dimensions.",
+      "remains": "The optimal density in all seven dimensions and in every other dimension the bullet asks about.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 17 months",
+      "machine_checked": null,
+      "directly_checkable": "The packings are explicit constructions; a density check would need the cross-section data in the paper, which I did not read.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Improves known lower bounds in seven specific dimensions; cuts toward higher density in those dimensions. Not sharp.",
+      "object": "Explicit non-lattice packings in R^19, R^20, R^21, R^23, R^44, R^45 and R^47, from the antipode construction on cross-sections of Λ24 and P48p. The density values were not read.",
+      "people": ["Ruitao Chen", "Jiachen Hu", "Binghui Li", "Liwei Wang", "Tianyi Wu"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2505.02394"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2505.02394"
+      ]
+    },
+    {
+      "id": "dutour-woerden-dim9-lattice-2025",
+      "what_happened": "Dutour Sikirić and van Woerden, 'The lattice packing problem in dimension 9 by Voronoi's algorithm' (arXiv:2508.20719). Computes all 2,237,251,040 perfect lattices in dimension 9 via Voronoi's algorithm and concludes that the laminated lattice Λ9 gives the densest LATTICE packing in dimension 9 (equivalently, the Hermite constant γ9 = 2). Also determines the possible kissing numbers in dimension 9 (off-scope). Posted 28 August 2025; revised 7 February 2026 (v2, which carries a dedication to Jacques Martinet, d. 2026).",
+      "date": "2025-08-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 28 Aug 2025; v2 7 Feb 2026 (current; the v2 HTML carries a dedication to Jacques Martinet). The later paper 2607.11695 describes the result.",
+      "delivers": "The densest LATTICE packing in dimension 9 is Λ9 (equivalently γ9 = 2). Restriction: lattice packings only, and dimension 9 only. A later arXiv paper (2607.11695) states that Λ9 is the unique densest 9-dimensional lattice packing up to similarity, a claim I saw only in that secondary description.",
+      "remains": "Whether any non-lattice packing in dimension 9 is denser than Λ9 (the bullet asks for the densest packing, not the densest lattice packing). Lattice optima in dimensions 10 and above, and all non-lattice optima.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 months",
+      "machine_checked": null,
+      "directly_checkable": "The result is a finite enumeration over perfect lattices (a computer-assisted proof, not AI). The enumeration could be checked by re-running the algorithm; the verification details are in the full paper, which I did not read.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Settles the densest lattice packing in one dimension (9). This is an analogue of the bullet's question (lattice rather than general packings) in one dimension, so it does not settle the bullet as stated.",
+      "object": "The laminated lattice Λ9 (called the Korkine–Zolotareff lattice in the later paper), explicit; its optimality is shown by an exhaustive finite computation over the 2,237,251,040 perfect lattices in dimension 9.",
+      "people": ["Mathieu Dutour Sikirić", "Wessel van Woerden"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2508.20719"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2508.20719"
+      ]
+    },
+    {
+      "id": "huawei-ucl-ai-upper-bounds-2025",
+      "what_happened": "Tutunov, Maraval, Grosnit, Li, Wang and Bou-Ammar (Huawei Noah's Ark and UCL AI Centre), 'Model-Based and Sample-Efficient AI-Assisted Math Discovery in Sphere Packing' (arXiv:2512.04829). Recasts the construction of semidefinite programs for the three-point upper-bound method as a sequential decision problem ('SDP game') and combines Bayesian optimisation with Monte Carlo Tree Search to search admissible polynomial structures. The abstract states the authors 'obtain new state-of-the-art upper bounds in dimensions 4–16'. Submitted 4 December 2025; v2 8 December 2025. The numerical bounds were not read.",
+      "date": "2025-12-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 4 Dec 2025 (cs.AI); v2 8 Dec 2025 (current).",
+      "delivers": "New upper bounds on the density of packings in dimensions 4 to 16, from the three-point / SDP method, per the authors' abstract. Upper bounds only; the bounds are not sharp, and the exact density in those dimensions is not determined. Dimension 8 is in the range but already solved.",
+      "remains": "The exact optimal density in dimensions 4–7 and 9–16 (the bullet's open dimensions), and every other open dimension.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The bounds' numerical values and the SDP certificates were not read; the claim of state-of-the-art rests on the authors' own comparison. The authors' framing is 'AI-assisted', but the method as described is classical search (Bayesian optimisation, MCTS) rather than a named language model.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Moves a named quantity (the density in dimensions 4 to 16) from the upper side. Cuts toward lower achievable densities in those dimensions; not a counterexample to anything the bullet asserts.",
+      "object": null,
+      "people": ["Rasul Tutunov", "Alexandre Maraval", "Antoine Grosnit", "Xihan Li", "Jun Wang", "Haitham Bou-Ammar"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "unnamed Bayesian optimisation with Monte Carlo Tree Search framework (no model or lab system named in the abstract)",
+            "what_it_did": "Assembles semidefinite-program formulations for the three-point bound by a search (the 'SDP game') over admissible polynomial structures, identifying the polynomial pair that yields the strongest certified bound in an interval.",
+            "basis_quote": "A paraphrase, not a verbatim quote, from the fetched abstract: a policy assembles SDP formulations from admissible components, and the search framework guides that assembly. A verbatim sentence was not obtained.",
+            "quote_url": "https://arxiv.org/abs/2512.04829"
+          }
+        ],
+        "disclosed_cost": "Not disclosed. The authors note that each candidate SDP may take days to evaluate, which is a per-evaluation cost, not a total.",
+        "sources": ["https://arxiv.org/abs/2512.04829"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2512.04829"
+      ]
+    },
+    {
+      "id": "dorofeev-sun-wang-dims38-43-2026",
+      "what_happened": "Dorofeev, Sun and Wang, 'Optimal Extensions of Cross-Sections: Sphere Packings in Dimensions 38 to 43' (arXiv:2607.20359). Improves the best known packings in every dimension from 38 to 43: dimensions 38–42 from a determinant-minimal chain of cross-sections of an extremal even unimodular lattice (lattice packings); dimension 43 an antipode packing. Also improves some kissing numbers (off-scope). Posted 22 July 2026.",
+      "date": "2026-07-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 22 Jul 2026; v2 30 Jul 2026; v3 18 Aug 2026; v4 29 Aug 2026 (current).",
+      "delivers": "Improved lower bounds on the best known packing density in dimensions 38 to 43. Lower bounds only; no optimal density is determined.",
+      "remains": "The optimal density in dimensions 38 to 43, and in every other dimension the bullet asks about.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2.5 months",
+      "machine_checked": null,
+      "directly_checkable": "The lattice packings are explicit constructions from a given extremal lattice; the density values were not read.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Improves lower bounds in six specific dimensions; cuts toward higher density in those dimensions. Not sharp.",
+      "object": "Explicit packings: in dimensions 38–42 the orthogonal complements of a chain of cross-sections of P48p (starting from √3·E6, through √3·E7, √3·E8, K9, K10), and in dimension 43 an antipode packing built from six translates of the complement of a 5-dimensional section. The density values were not read.",
+      "people": ["Ivan Dorofeev", "Xiaoming Sun", "Chengu Wang"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2607.20359"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.20359"
+      ]
+    },
+    {
+      "id": "jumagulov-dim36-lp-2026",
+      "what_happened": "Rifat Jumagulov, 'A dual linear programming bound for sphere packing in dimension 36' (arXiv:2607.11319). Builds an explicit dual-feasible point for the Cohn–Elkies linear programme in dimension 36 from weight-18 modular forms for Γ0(24), giving a rational certificate checked with exact arithmetic and certified interval bounds (author-supplied verifier scripts). The abstract says the two-point LP bound on density in dimension 36 exceeds the density of the best known packing by a factor of at least 32.91. Posted 13 July 2026; v2 15 July 2026 ('main result unchanged').",
+      "date": "2026-07-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 13 Jul 2026; v2 15 Jul 2026 (current; 'substantially revised exposition and verification bundle; main result unchanged').",
+      "delivers": "A rigorous, machine-checked upper bound from the two-point Cohn–Elkies LP in dimension 36 (certified rational dual-feasible point), with the margin stated against the best known packing. The abstract does not say whether this sharpens the earlier Cohn–Elkies LP value in dimension 36.",
+      "remains": "The exact optimal density in dimension 36; LP bounds are not sharp.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 months",
+      "machine_checked": {"system": "exact rational LP certificate with certified interval arithmetic (author-supplied verifier and exact-arithmetic scripts; not Lean)", "sorry_free": null, "url": "https://arxiv.org/abs/2607.11319"},
+      "directly_checkable": "The rational certificate and the verifier scripts are said to be ancillary to the arXiv submission; I did not open them.",
+      "doubts": "The factor 32.91 is a comparison of an upper bound with the best known packing density, so it is a gap statement and not evidence that the LP bound improved; the abstract as read does not say whether the bound is new. Not reviewed by anyone else in the sources read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "An upper bound on density in dimension 36 from the LP method. Cuts toward lower achievable density in that dimension; the exact value is not found.",
+      "object": "An explicit dual-feasible function for the two-point Cohn–Elkies linear programme in dimension 36, built from weight-18 modular forms for Γ0(24), with rational coefficients; checkable by exact arithmetic.",
+      "people": ["Rifat Jumagulov"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2607.11319"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.11319"
+      ]
+    },
+    {
+      "id": "vanoni-guo-torquato-2026",
+      "what_happened": "Vanoni, Guo and Torquato, 'Analysis of Conjectural Improvements to Minkowski's Lower Bound on the Sphere Packing Density' (arXiv:2608.00920, math-ph). Works in the pair-correlation (hyperuniform) framework of Torquato and Stillinger. Conditional on a realizability conjecture, polynomial improvements over Minkowski's 2^(−d) for each β > 1; an explicit Gauss–Radau-quadrature family with rate 2^(−0.6225…d); strong duality between the unrestricted pair-correlation program and its Cohn–Elkies dual; the unrestricted program attains the Cohn–Elkies rate 2^(−0.6044…d). The abstract states these are correlation functions; realizability as packings is conjectural.",
+      "date": "2026-08-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 2 Aug 2026; v2 12 Sep 2026; v3 22 Sep 2026 (current; 'substantial improvements after v1 and v2').",
+      "delivers": "Within the pair-correlation framework: conditional (on realizability) polynomial improvements over Minkowski's lower bound, and an explicit family with exponent 0.6225 that the authors say surpasses the Torquato–Stillinger rate. Upper-bound side: strong duality with the Cohn–Elkies dual and the claim that the optimal Cohn–Elkies rate 0.6044 is attained by the unrestricted correlation program. No packing is constructed.",
+      "remains": "Realizability of the correlation functions as actual packings (the conjecture); the actual optimal density in any dimension.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The polynomial improvements are conditional on a realizability conjecture the authors state but do not prove. The abstract does not say whether the explicit Gauss–Radau family is realizable as packings. The 0.6044 figure matches the OpenAI claim (event openai-astra-2026) and is cited, not independently derived here.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "On the lower-bound side, conditional and framework-internal improvements; on the upper-bound side, duality and attainment statements for the Cohn–Elkies method. Neither side settles the bullet.",
+      "object": "Explicit hyperuniform pair-correlation functions with about (d − 1)/4 positive delta-function shells, from Gauss–Radau quadrature; not shown to be realized as packings.",
+      "people": ["Carlo Vanoni", "Alan Guo", "Salvatore Torquato"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2608.00920"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.00920"
+      ]
+    },
+    {
+      "id": "openai-astra-2026",
+      "what_happened": "OpenAI announced on 1 August 2026 ten results from 'an internal version of Astra, our next major model', with a 249-page PDF ('Ten Advances in Mathematics and Theoretical Computer Science') and Lean certificates in the openai/ten-proofs repository. The sphere-packing item, quoted by Zvi Mowshowitz from OpenAI's list, reads: 'High-dimensional sphere packing. New upper bounds on sphere-packing density down to the Cohn–Elkies threshold.' Per secondary sources that summarise the PDF (empirical.health; arXiv 2608.00920; arXiv 2609.03736): the asymptotic strength of the Cohn–Elkies linear programme is determined exactly, LP_d^(1/d) → √(e/(2π)), i.e. density at most 2^(−(α+o(1))d) with α = ½·log₂(2π/e) ≈ 0.6044, improving the Kabatiansky–Levenshtein exponent 0.59906 (the empirical.health post says 0.59906 → 0.6044). The companion Lean file SpherePacking.lean states the sharp asymptotics as Props and proves LinearProgrammingBound and sphere_packing_sharp_asymptotic_upper, among others. The PDF and the OpenAI web page were not readable here (binary; HTTP 403).",
+      "date": "2026-08-01",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Announcement 1 Aug 2026. A secondary citation dates the PDF 2 Aug 2026. Lean repository commit 0fd01b1c427a4af86493c983550dba485a0911d8 (per kingy.ai).",
+      "delivers": "An upper bound on the density of packings in high dimension whose exponent is 0.6044 (density at most 2^(−(0.6044…+o(1))d)), obtained by determining the exact high-dimensional exponential rate of the Cohn–Elkies linear programme, which the sources say is the limit of that method. Restriction: an upper bound only, and only what the Cohn–Elkies method can give. It does not construct any packing and does not determine the true asymptotic density.",
+      "remains": "The true asymptotic exponent of the optimal density (the lower bound exponent is about 1 up to polynomial factors by Klartag, the upper bound is 0.6044, so the gap is open); the optimal density in every individual dimension other than 1, 2, 3, 8, 24.",
+      "checked_by": [
+        {
+          "who": "Zvi Mowshowitz (blogger)",
+          "qualification": "Not established as a mathematician in the sources read.",
+          "what_they_did": "Read the announcement and the Lean repository links; wrote that the results 'look good so far' and that 'That does not mean that all ten results prove the things they assert that they prove.' Does not state having checked the argument.",
+          "where": "https://www.lesswrong.com/posts/pQYEPitFqztcRvBsS/openai-s-unreleased-model-astra-solves-ten-major-open",
+          "automated": false
+        },
+        {
+          "who": "Vanoni, Guo and Torquato",
+          "qualification": "Authors of arXiv:2608.00920 working in the sphere-packing and pair-correlation framework.",
+          "what_they_did": "Use the optimal Cohn–Elkies rate 2^(−0.6044…d) in their analysis; they do not report verifying the OpenAI argument.",
+          "where": "https://arxiv.org/abs/2608.00920",
+          "automated": false
+        },
+        {
+          "who": "Andrew Salmon",
+          "qualification": "Author of a binary-code analogue (arXiv:2609.03736).",
+          "what_they_did": "Writes that OpenAI's Chapter 1 'proved their conjecture' and builds on Chapter 2; relies on the claim, does not verify it.",
+          "where": "https://arxiv.org/abs/2609.03736",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 months",
+      "machine_checked": {"system": "Lean 4 with Mathlib (README: Lean 4.32.0), file SpherePacking.lean", "sorry_free": "Not established. A chunked scan of the raw file via WebFetch found no sorry, admit, native_decide or axiom in each window read, but each window was truncated internally, so the scan is partial; the README points to a separate Comparator check, which I did not run.", "url": "https://github.com/openai/ten-proofs"},
+      "directly_checkable": null,
+      "doubts": "(1) Not peer reviewed: search summaries of Scientific American and kingy.ai say so; the 17 Sept 2026 Scientific American article text I read does not say it either way. (2) Attribution: Steven/Stephen Miller of Yeshiva University told Scientific American (6 Aug 2026) that the sphere-packing proof reuses his prior work without credit and is 'running roughshod over the work of others who came before them in a deliberate way'; a search summary adds a 2016 paper he co-authored, but the 17 Sept article does not name it. (3) OpenAI's first press text said these problems 'have been open and seen no progress on the main result for at least a decade', which a search summary says was later revised (not read in the article). (4) Two audit claims (a Sienicki arXiv audit of 18 chapters; a 25 Aug audit of Chapter 6 withdrawing a polarity-error claim) each rest on one secondary source. The Chapter 6 item concerns another chapter. (5) The Lean check covers logical consistency, not originality or whether the problem was posed correctly (per a kingy.ai summary of Scientific American). (6) The Lean file was only partly scanned.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper-bound side only: tightens the high-dimensional exponent of the density upper bound from 0.59906 to 0.6044 and claims this is the exact limit of the Cohn–Elkies method. Cuts against a view that the Kabatiansky–Levenshtein exponent is the last word on the upper side; does not produce a denser packing and does not determine the true asymptotic density.",
+      "object": "No packing is exhibited. The object is the asymptotic value of the Cohn–Elkies linear programme, LP_d^(1/d) → √(e/(2π)), with a matching lower-bound half saying no Cohn–Elkies auxiliary function can beat 0.6044 (per the empirical.health summary). Explicit auxiliary functions and Euclidean witnesses are reportedly in the repository; I did not read them.",
+      "people": ["None named in the sources read. An unnamed OpenAI spokesperson is quoted: 'We take responsibility for the correctness of these results.'"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Astra",
+            "what_it_did": "Credited by OpenAI with producing the sphere-packing result and formalising each argument in Lean. The source calls it 'an internal version of Astra, our next major model', so it is a pre-release internal build, not a shipped model. OpenAI's text (quoted by Zvi Mowshowitz) says 'formalized each argument in a Lean certificate'.",
+            "basis_quote": "formalized each argument in a Lean certificate",
+            "quote_url": "https://www.lesswrong.com/posts/pQYEPitFqztcRvBsS/openai-s-unreleased-model-astra-solves-ten-major-open"
+          }
+        ],
+        "disclosed_cost": "Reported by secondary sources (not OpenAI's primary text) as about $2,000 in token usage for all ten results combined. Not verified.",
+        "sources": [
+          "https://www.lesswrong.com/posts/pQYEPitFqztcRvBsS/openai-s-unreleased-model-astra-solves-ten-major-open",
+          "https://www.scientificamerican.com/article/openai-cracks-the-hidden-math-that-keeps-your-texts-from-turning-to-gibberish/",
+          "https://github.com/openai/ten-proofs"
+        ]
+      },
+      "sources": [
+        "https://www.lesswrong.com/posts/pQYEPitFqztcRvBsS/openai-s-unreleased-model-astra-solves-ten-major-open",
+        "https://www.empirical.health/blog/ai-math-sphere-packing/",
+        "https://github.com/openai/ten-proofs",
+        "https://raw.githubusercontent.com/openai/ten-proofs/main/SpherePacking.lean",
+        "https://www.scientificamerican.com/article/openai-cracks-the-hidden-math-that-keeps-your-texts-from-turning-to-gibberish/",
+        "https://www.scientificamerican.com/article/openais-latest-math-breakthroughs-commit-research-misconduct-experts-say/",
+        "https://kingy.ai/news/openai-astra-ten-math-results-evidence/",
+        "https://arxiv.org/abs/2608.00920",
+        "https://arxiv.org/abs/2609.03736",
+        "https://en.wikipedia.org/wiki/Sphere_packing",
+        "https://openai.com/index/ten-advances-in-mathematics/",
+        "https://cdn.openai.com/pdf/ten-proofs-oai.pdf"
+      ]
+    },
+    {
+      "id": "salmon-binary-codes-2026",
+      "what_happened": "Andrew Salmon, 'The half-rate linear programming bound for binary codes is 1/2 − 1/π' (arXiv:2609.03736). A binary-code analogue of the Cohn–Elkies exponent result: the half-rate LP quantity equals 1/2 − 1/π. Presents OpenAI's Chapter 1 as having proved the Afkhami-Jeddi–Cohn–Hartman–de Laat–Tajdini conjecture on the sphere-packing LP exponent. Discounted for the bullet: it is a different problem (binary codes), though it depends on the OpenAI sphere-packing claim.",
+      "date": "2026-09-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 3 Sep 2026; v2 30 Sep 2026 (current).",
+      "delivers": "A result on binary codes (Delsarte/Hamming space), not on sphere packing. It states that the sphere-packing exponent was proved by OpenAI's Chapter 1; it does not itself change the sphere-packing density statement.",
+      "remains": "Not applicable to the sphere-packing bullet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 1 month",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not a sphere-packing result. It treats the OpenAI sphere-packing exponent as established.",
+      "object": null,
+      "people": ["Andrew Salmon"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.03736"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.03736"
+      ]
+    },
+    {
+      "id": "math-inc-gauss-dims8-24-2026",
+      "what_happened": "Math, Inc. announced in February 2026 that its autoformalisation model 'Gauss' had completed the Lean formalisation of Viazovska's dimension-8 and dimension-24 sphere-packing proofs. The project 'Formalising Sphere Packing in Lean' began in March 2024 (Hariharan and Viazovska). The arXiv paper (arXiv:2604.23468, Hariharan, Birkbeck, Lee, Ma, Mehta, Poiroux, Viazovska) says in its abstract that 'the final stages of the verification [were] done by Math, Inc.'s autoformalization model Gauss'. The dimension-24 formalisation (120,000 to over 200,000 lines) was reportedly produced from the published paper alone. The Math, Inc. write-up itself was not reached. The 23 February date is from one report; other sources give a later date for the dimension-24 announcement.",
+      "date": "2026-02-23",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv 2604.23468: v1 25 Apr 2026; v2 28 Apr 2026; v3 29 May 2026 ('8 pages, title updated').",
+      "delivers": "Lean formalisation of the optimality proofs for dimensions 8 and 24, both already settled in 2016 by human proofs. A formalisation, not new sphere-packing mathematics. Restriction: dimensions 8 and 24 only, which the bullet excludes.",
+      "remains": "Everything the bullet asks about (every dimension other than 1, 2, 3, 8, 24).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 8 months",
+      "machine_checked": {"system": "Lean (Sphere Packing in Lean project, with Gauss completing steps)", "sorry_free": "The project reports that the 8-dimensional sorry placeholders were filled (per a search summary of the team's account). Not verified by me.", "url": "https://thefundamentaltheor3m.github.io/Sphere-Packing-Lean/"},
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms, by machine, results already known for two dimensions the bullet excludes. No bearing on the open dimensions.",
+      "object": null,
+      "people": ["Sidharth Hariharan", "Christopher Birkbeck", "Seewoo Lee", "Ho Kiu Gareth Ma", "Bhavik Mehta", "Auguste Poiroux", "Maryna Viazovska"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2604.23468", "https://aihub.org/2026/04/27/maryna-viazovskas-proofs-of-sphere-packing-formalized-with-ai/"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2604.23468",
+        "https://aihub.org/2026/04/27/maryna-viazovskas-proofs-of-sphere-packing-formalized-with-ai/"
+      ]
+    },
+    {
+      "id": "abuya-gargava-zhao-2026",
+      "what_happened": "Abuya, Gargava and Zhao, 'Stochastically evolving ellipsoids with symmetries' (arXiv:2606.05105). Combines Klartag's stochastic ellipsoid process with the cyclotomic symmetries of Venkatesh: along an infinite sequence of dimensions N there are lattice packings in R^N of density at least c·N²·log log N·2^(−N), improving Klartag's bound by a log log N factor. The paper's AI-use statement says a third author 'prompted the GPT-5.5 Pro model to extend Venkatesh's construction'; that the model 'proposed combining Venkatesh's cyclotomic symmetries with Klartag's stochastic ellipsoid method'; and that it 'discovered the idea of letting the rank grow and successfully proved the bound given below'. It says 'ChatGPT and Codex used extensively in the process'. The ancillary file chatlog.pdf (the ChatGPT log) was not readable. The arXiv comments say the first author uses a pseudonym.",
+      "date": "2026-06-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 3 Jun 2026; v2 4 Jun 2026 (current, 484 KB).",
+      "delivers": "Lattice packing density at least c·N²·log log N·2^(−N) for infinitely many N (not all N). Improves Klartag's lattice bound by a log log N factor in those dimensions. Restriction: lattice packings; infinitely many dimensions only.",
+      "remains": "Every other dimension; the general (non-lattice) packing density; the gap to the upper bounds.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No outside check of the proof is cited. The authors say 'the three authors joined forces to verify the proof and edit the writing', so the check is internal. The key idea is attributed to a model in the authors' own words. Aubrun's June 2026 note cites the preprint as an 'AI-generated argument' without any verification of it.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Improves a lattice lower bound by a log log N factor along an infinite sequence of dimensions; cuts toward higher density in those dimensions; not sharp.",
+      "object": "Existence (non-constructive) of lattices in R^N for infinitely many N with packing density at least c·N²·log log N·2^(−N), from the cyclotomic-symmetric stochastic ellipsoid process. No explicit lattice.",
+      "people": ["Elisha B. Abuya (pseudonym per the arXiv comments)", "Nihar Gargava", "Yufei Zhao"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-5.5 Pro model",
+            "what_it_did": "Per the authors: proposed combining Venkatesh's cyclotomic symmetries with Klartag's stochastic ellipsoid method; 'discovered the idea of letting the rank grow and successfully proved the bound given below'. The authors say the third author prompted it.",
+            "basis_quote": "discovered the idea of letting the rank grow and successfully proved the bound given below",
+            "quote_url": "https://arxiv.org/html/2606.05105v2"
+          },
+          {
+            "name": "ChatGPT",
+            "what_it_did": "Per the authors, used 'extensively in the process'; the ancillary files include 'a complete log of the ChatGPT conversation that led to the proof'. Its specific contribution beyond that is not described in the text read.",
+            "basis_quote": "ChatGPT and Codex used extensively in the process",
+            "quote_url": "https://arxiv.org/html/2606.05105v2"
+          },
+          {
+            "name": "Codex",
+            "what_it_did": "Per the authors, used 'extensively in the process'. Its contribution is not described in the text read.",
+            "basis_quote": "ChatGPT and Codex used extensively in the process",
+            "quote_url": "https://arxiv.org/html/2606.05105v2"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2606.05105v2", "https://arxiv.org/abs/2606.05105"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2606.05105",
+        "https://arxiv.org/html/2606.05105v2"
+      ]
+    },
+    {
+      "id": "lean-eval-klartag-2026",
+      "what_happened": "A lean-eval benchmark submission, GitHub issue #1720 in leanprover/lean-eval-submissions, opened by mlgraham on 13 September 2026 and dated 12 September 2026: '[submission] klartag_packing — Klartag's lattice sphere packings (discrete-chain route)'. It claims a Lean proof of a formalised version of Klartag's bound (an ellipsoid in R^(n+1) of volume c·n² whose only lattice point is the origin). The author says the proof has no sorry and no native_decide, uses only the standard axioms, and was 'Produced with Claude Code under human direction' (model field '(various models)'). A GitHub Actions bot labelled it 'Newly-solved problem' and closed it.",
+      "date": "2026-09-12",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A claimed machine-checked Lean proof of a formalised version of Klartag's lattice lower bound. No new mathematics beyond Klartag's result (a formalisation of an existing human proof).",
+      "remains": "Everything the bullet asks about.",
+      "checked_by": [
+        {
+          "who": "lean-eval CI bot (GitHub Actions)",
+          "qualification": "Automated benchmark harness.",
+          "what_they_did": "Ran the submitted proof ('Attempted 1 / 1; succeeded on 1') and closed the issue.",
+          "where": "https://github.com/leanprover/lean-eval-submissions/issues/1720",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 1 month",
+      "machine_checked": {"system": "Lean 4 (lean-eval harness)", "sorry_free": "Claimed by the submitter; I did not check it.", "url": "https://github.com/leanprover/lean-eval-submissions/issues/1720"},
+      "directly_checkable": null,
+      "doubts": "The submission's statement is an ellipsoid in R^(n+1), while the paper's is in Rⁿ; I read the submission as a formalised variant of the paper's statement, so whether the formal statement matches the paper needs checking.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Formalisation only; no bearing on the open dimensions.",
+      "object": null,
+      "people": ["mlgraham (submitter)"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://github.com/leanprover/lean-eval-submissions/issues/1720"]
+      },
+      "sources": [
+        "https://github.com/leanprover/lean-eval-submissions/issues/1720"
+      ]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Steven (Stephen) Miller of Yeshiva University says the Astra sphere-packing proof reuses his prior work without credit, which he calls a deliberate pattern ('running roughshod over the work of others who came before them in a deliberate way', Scientific American, 6 Aug 2026). OpenAI's only response quoted is 'We take responsibility for the correctness of these results.' A search summary identifies a 2016 paper he co-authored; the 17 Sept 2026 article does not name one, so the specific prior work is unverified. Relates to event openai-astra-2026. Not resolved here.",
+      "sources": [
+        "https://www.scientificamerican.com/article/openais-latest-math-breakthroughs-commit-research-misconduct-experts-say/",
+        "https://www.scientificamerican.com/article/openai-cracks-the-hidden-math-that-keeps-your-texts-from-turning-to-gibberish/"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Journal of Klartag's paper: the Inventiones mathematicae header (DOI 10.1007/s00222-026-01412-w, accepted 22 Feb 2026) quoted in a search result, and Aubrun's bibliography ('Inventiones mathematicae', 2026), versus a search summary that says Math. Annalen vol. 244 (2026). The Inventiones version is better supported. The Springer page was not readable.",
+      "sources": [
+        "https://arxiv.org/html/2606.13313v1",
+        "https://doi.org/10.1007/s00222-026-01412-w"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Campos–Jenssen–Michelen–Sahasrabudhe (arXiv:2312.10026): Klartag's v2 bibliography cites it as 'J. Amer. Math. Soc. (2025)'. The arXiv page shows no journal reference, and a search found no journal venue. Unresolved.",
+      "sources": [
+        "https://arxiv.org/html/2504.05042v2",
+        "https://arxiv.org/abs/2312.10026"
+      ]
+    },
+    {
+      "kind": "other",
+      "summary": "Model naming: OpenAI and most coverage call it 'Astra' (described as 'an internal version of Astra, our next major model'); an Epoch AI benchmark paper (per a search summary) labels a model 'GPT-6 Astra'. Recorded here as 'Astra'. The Wikipedia lead refers to 'OpenAI's Astra model'.",
+      "sources": [
+        "https://www.lesswrong.com/posts/pQYEPitFqztcRvBsS/openai-s-unreleased-model-astra-solves-ten-major-open",
+        "https://en.wikipedia.org/wiki/Sphere_packing"
+      ]
+    }
+  ],
+
+  "summary": "The bullet's operative content is the densest packing in dimensions other than 1, 2, 3, 8, 24 and its high-dimensional asymptotics. Since January 2024 there have been three kinds of event. (1) Asymptotic lower bounds for lattice packings. Klartag (arXiv:2504.05042, 7 Apr 2025; Inventiones accepted 22 Feb 2026 per a header in a search result, with one search summary saying Math. Annalen) gives density at least c·n²·2⁻ⁿ, improving the earlier n·log n·2⁻ⁿ; Abuya, Gargava and Zhao (arXiv:2606.05105, 3 Jun 2026) add a log log N factor along an infinite sequence of dimensions, with an AI-use statement crediting GPT-5.5 Pro with a load-bearing idea. Gargava–Viazovska (arXiv:2411.14973, Nov 2024) gives lattice packings in dimensions φ(n). The 2023 Campos et al. non-lattice bound (predates the window) remains the general-packing baseline. (2) Upper bounds. OpenAI's internal Astra (announced 1 Aug 2026) claims the exact exponential rate of the Cohn–Elkies LP, giving density at most 2^(−0.6044d) against the earlier 0.59906; this rests on a Lean repository whose main theorems I saw, but I could not read the full file, the OpenAI PDF or the website, and the result is not peer reviewed. Scientific American reports a credit dispute (Miller). The Huawei/UCL paper (arXiv:2512.04829, Dec 2025) gives new SDP upper bounds in dimensions 4 to 16 by a search method described as AI-assisted but without a named model. (3) Dimension-specific records and optima: non-lattice packings in 19, 20, 21, 23, 44, 45, 47 (antipode, May 2025); the lattice optimum in dimension 9 (Aug 2025; lattice only); improved packings in 38–43 (Jul 2026); a dimension-36 LP certificate (Jul 2026). Discounted: the Viazovska formalisations of dimensions 8 and 24 by Math, Inc.'s Gauss (announced Feb 2026; arXiv:2604.23468), a Lean benchmark submission of Klartag's bound (Sept 2026, claimed sorry-free, Claude Code credited for the formalisation), a binary-code analogue (Salmon, Sept 2026), and kissing-number records (AlphaEvolve, dimension 11; off-scope). Close calls: (a) whether the Astra result counts toward the asymptotic question: it settles the exact limit of the Cohn–Elkies method, but it does not determine the density, and the true exponent is still bracketed between about 1 (Klartag, up to polynomial factors) and 0.6044. (b) Whether the Abuya event's AI is load-bearing: the authors say the model proposed the combination and the rank idea, so by their account yes; the chatlog was not readable. (c) Whether Huawei/UCL's method is an AI system: the title and authors say so, but the method is Bayesian optimisation plus tree search and no model is named. (d) Whether the Math, Inc. and Lean-benchmark items count: they formalise proofs that already exist, which by the protocol is not the AI involvement sought, so I left them out of the systems lists but record that AI was involved. Searches for AI-driven sphere-packing density results (AlphaEvolve, FunSearch, Gemini, Claude, ChatGPT) found no others. No expert reaction from Tao, Cohn or Michelen on the Astra result was found; Michelen's 2025 quote ('I really have no idea what to believe at this point') predates it and is not a verification. The Wikipedia lead (fetched 10 Oct 2026) now lists Campos et al., Klartag, the Abuya team and the OpenAI claim, calls the OpenAI result 'claimed', and carries the unsolved box 'What is the densest sphere packing in dimensions other than 1, 2, 3, 8, and 24?'. Background, not re-researched: Rogers (1947), Kabatiansky–Levenshtein (1978), Cohn–Elkies (2003), Viazovska (2016) for dimensions 8 and 24, and Afkhami-Jeddi et al. (2020) for the conjectured LP exponent.",
+
+  "competing_reading": "The Astra result can be read as answering the asymptotic part of the bullet, since it fixes the exact exponential rate of the strongest known upper-bound method and matches a 2020 conjecture; on that reading the asymptotic question is partly settled on the upper side. The opposing reading is that this fixes a limit of a method rather than the density itself, so the density's exponent remains bracketed (about 1 from below against 0.6044 from above) and the question remains open. Likewise, Klartag's n²·2⁻ⁿ can be read as a major step toward the asymptotic answer, or as one polynomial factor away from a bound that is still exponentially far from the 2^(−0.6044n) upper bound. For the dimension-specific records, a reader who counts only lattice optima would call dimension 9 settled; the bullet asks about general packings, so that reading does not settle it. For the AI question, the Abuya authors' own account makes the model's contribution load-bearing; a stricter reader might treat a 'proposed combination' prompted by a human as assistance rather than discovery. The Huawei/UCL work could be read as 'AI-assisted' in title only.",
+
+  "what_would_settle_it": "(1) The OpenAI chapter on the Cohn–Elkies LP (not readable here) and the full SpherePacking.lean, checked for sorry and for whether the statement matches the Cohn–Elkies definition; plus independent expert verification or a refereed publication. (2) Miller's prior paper compared line by line with the Astra argument, to settle the attribution dispute. (3) The Inventiones volume and page, and the referee record, for Klartag; a Springer page that is readable. (4) The chatlog.pdf of Abuya et al., to see what the model contributed beyond the stated idea, and an outside check of the rank-growth argument. (5) The numerical density values in the antipode, dimension-38–43 and Huawei/UCL papers, to confirm records and bounds. (6) The full text of the dimension-9 paper, to confirm the lattice-only scope and the non-lattice status.",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2504.05042", "title": "Lattice packing of spheres in high dimensions using a stochastically evolving ellipsoid (Klartag), abstract", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2504.05042v2", "title": "Klartag, full text v2 (read to end for AI mentions)", "type": "preprint", "opened": true},
+    {"url": "https://gilkalai.wordpress.com/2025/04/09/boaz-klartag-striking-new-lower-bounds-for-sphere-packing-in-high-dimensions/", "title": "Gil Kalai blog on Klartag (9 Apr 2025)", "type": "blog", "opened": true},
+    {"url": "https://www.quantamagazine.org/new-sphere-packing-record-stems-from-an-unexpected-source-20250707/", "title": "Quanta: New Sphere-Packing Record Stems From an Unexpected Source (7 Jul 2025)", "type": "news", "opened": true},
+    {"url": "https://arxiv.org/abs/2606.13313", "title": "Aubrun, Sphere Packings in Higher Dimension (after Boaz Klartag), abstract", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2606.13313v1", "title": "Aubrun, full text bibliography (for later citations)", "type": "preprint", "opened": true},
+    {"url": "https://doi.org/10.1007/s00222-026-01412-w", "title": "Klartag, Inventiones DOI (redirect to Springer login; not read)", "type": "journal", "opened": false},
+    {"url": "https://www.weizmann.ac.il/math/klartag/sites/math.klartag/files/uploads/s00222-026-01412-w.pdf", "title": "Klartag, journal PDF mirror (not reachable; header from search snippet)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/2606.05105", "title": "Abuya, Gargava, Zhao, Stochastically evolving ellipsoids with symmetries, abstract", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2606.05105v2", "title": "Abuya et al., full text with Statement on AI use", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2312.10026", "title": "Campos, Jenssen, Michelen, Sahasrabudhe, A new lower bound for sphere packing", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2411.14973", "title": "Gargava, Viazovska, Mean Value for Random Ideal Lattices", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2512.04829", "title": "Tutunov et al., Model-Based and Sample-Efficient AI-Assisted Math Discovery in Sphere Packing", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2505.02394", "title": "Chen, Hu, Li, Wang, Wu, New Sphere Packings from the Antipode Construction", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2508.20719", "title": "Dutour Sikirić, van Woerden, The lattice packing problem in dimension 9 by Voronoi's algorithm", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.20359", "title": "Dorofeev, Sun, Wang, Optimal Extensions of Cross-Sections: Sphere Packings in Dimensions 38 to 43", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.11319", "title": "Jumagulov, A dual linear programming bound for sphere packing in dimension 36", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.00920", "title": "Vanoni, Guo, Torquato, Analysis of Conjectural Improvements to Minkowski's Lower Bound", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.03736", "title": "Salmon, The half-rate linear programming bound for binary codes is 1/2 − 1/π", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2604.23468", "title": "Hariharan et al., Progress in Formalizing Sphere Packing in Dimension 8", "type": "preprint", "opened": true},
+    {"url": "https://aihub.org/2026/04/27/maryna-viazovskas-proofs-of-sphere-packing-formalized-with-ai/", "title": "AIhub: Viazovska's proofs of sphere packing formalized with AI (27 Apr 2026)", "type": "news", "opened": true},
+    {"url": "https://arxiv.org/abs/2511.02864", "title": "Georgiev, Gómez-Serrano, Tao, Wagner, Mathematical exploration and discovery at scale (no sphere packing in abstract)", "type": "preprint", "opened": true},
+    {"url": "https://openai.com/index/ten-advances-in-mathematics/", "title": "OpenAI, Ten advances in mathematics and theoretical computer science (HTTP 403)", "type": "press_release", "opened": false},
+    {"url": "https://cdn.openai.com/pdf/ten-proofs-oai.pdf", "title": "OpenAI, Ten Advances PDF (binary; not readable here)", "type": "preprint", "opened": false},
+    {"url": "https://github.com/openai/ten-proofs", "title": "openai/ten-proofs repository README", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/openai/ten-proofs/main/SpherePacking.lean", "title": "openai/ten-proofs SpherePacking.lean (read in chunks; partial)", "type": "repository", "opened": true},
+    {"url": "https://www.lesswrong.com/posts/pQYEPitFqztcRvBsS/openai-s-unreleased-model-astra-solves-ten-major-open", "title": "Zvi Mowshowitz, OpenAI's Unreleased Model Astra Solves Ten Major Open Mathematics Problems (cross-post, 3 Aug 2026)", "type": "blog", "opened": true},
+    {"url": "https://www.scientificamerican.com/article/openai-cracks-the-hidden-math-that-keeps-your-texts-from-turning-to-gibberish/", "title": "Scientific American, Murtagh, OpenAI cracks the hidden math... (17 Sep 2026)", "type": "news", "opened": true},
+    {"url": "https://www.scientificamerican.com/article/openais-latest-math-breakthroughs-commit-research-misconduct-experts-say/", "title": "Scientific American, Howlett, OpenAI's latest math breakthroughs commit research misconduct, experts say (6 Aug 2026)", "type": "news", "opened": true},
+    {"url": "https://www.empirical.health/blog/ai-math-sphere-packing/", "title": "Empirical Health blog, Stacking oranges in 24 dimensions (secondary, OpenAI exponent)", "type": "blog", "opened": true},
+    {"url": "https://kingy.ai/news/openai-astra-ten-math-results-evidence/", "title": "Kingy AI, OpenAI Astra's 10 Math Results: Audit and Proof Status (secondary)", "type": "news", "opened": true},
+    {"url": "https://github.com/leanprover/lean-eval-submissions/issues/1720", "title": "lean-eval-submissions issue #1720, klartag_packing", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Sphere_packing", "title": "Wikipedia, Sphere packing (lead and unsolved box, fetched 10 Oct 2026)", "type": "encyclopedia", "opened": true},
+    {"url": "https://math.stanford.edu/~akshay/research/sp.pdf", "title": "Venkatesh notes (binary; not readable)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1603.04246", "title": "Viazovska, The sphere packing problem in dimension 8 (not opened; date from search summary)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1603.06518", "title": "Cohn et al., The sphere packing problem in dimension 24 (not opened; date from search summary)", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "sphere packing density lower bound high dimensions 2025 arXiv",
+      "Klartag lattice packing of spheres in high dimensions stochastically evolving ellipsoid",
+      "Campos Jenssen Michelen Sahasrabudhe new lower bound for sphere packing",
+      "sphere packing AI discovered new packing dimension",
+      "Wikipedia list of unsolved problems in mathematics sphere packing",
+      "Quanta sphere packing record high dimensions",
+      "Rogers bound sphere packing density improvement factor d",
+      "AlphaEvolve sphere packing kissing number new bound",
+      "OpenAI Astra ten open problems sphere packing upper bound Cohn Elkies",
+      "Quanta \"New Sphere-Packing Record Stems From an Unexpected Source\" Klartag",
+      "Klartag sphere packing lattice n^2 2^-n Gil Kalai blog \"lower bounds for sphere packing\" follow-up",
+      "asymptotic strength of the Cohn-Elkies linear program determined exactly arXiv 2026",
+      "Klartag \"Inventiones\" lattice packing spheres high dimensions accepted 2026",
+      "Afkhami-Jeddi Cohn Hartman de Laat Tajdini conjecture Cohn-Elkies linear programming sphere packing exponent",
+      "Henry Cohn reaction OpenAI sphere packing Cohn-Elkies result verified mathematicians",
+      "Math Inc Gauss sphere packing formalization Lean dimension 24 announcement",
+      "Terence Tao blog Astra OpenAI sphere packing Cohn-Elkies",
+      "Stephen Miller Yeshiva sphere packing Astra attribution 2016 Cohn Kumar Miller Radchenko Viazovska",
+      "Torquato Stillinger sphere packing conjecture pair correlation hyperuniform 2026",
+      "Venkatesh cyclotomic lattice sphere packing density construction log n improvement",
+      "Gay Jeronimo Liu binary hierarchy Delsarte linear programming bound rate improvement 2026",
+      "Gauss Math Inc sphere packing Viazovska formalization completed AI",
+      "sphere packing density new record 2026 dimension lower bound improved",
+      "Ball lower bound sphere packing density Klartag improvement Abuya Gargava Zhao log log N",
+      "OpenAI Astra sphere packing \"upper bound\" mathematicians react independent check",
+      "Pith review \"Sphere Packings in Higher Dimension\" OR \"antipode construction\" sphere packing non-lattice dimensions 19 20 21 23 44 45 47",
+      "\"New Sphere Packings from the Antipode Construction\" arXiv 2505.02394",
+      "Stephen Miller \"research misconduct\" Astra sphere packing Scientific American",
+      "Venkatesh \"sphere packing\" lattices cyclotomic symmetries arXiv Delta_n n log log n 2^{n+1} infinitely many dimensions",
+      "Gargava Viazovska lattice sphere packing density improvement leading constant",
+      "Dutour Sikirić van Woerden lattice packing problem dimension 9 Voronoi algorithm resolved densest lattice",
+      "Optimal Extensions of Cross-Sections sphere packings dimensions 38 to 43 arXiv 2607.20359",
+      "Campos Jenssen Michelen Sahasrabudhe \"sphere packing\" journal published 2025 Annals of Mathematics or Inventiones",
+      "Huawei Noah's Ark UCL sphere packing semidefinite program upper bounds dimensions 4 to 16 Bayesian optimisation Monte Carlo tree search Tutunov",
+      "AlphaEvolve OR FunSearch OR Gemini sphere packing density dimension new bound 2026",
+      "Claude OR ChatGPT OR LLM sphere packing high dimensions lower bound proof Klartag AI-assisted",
+      "AI mathematics tracker results list OpenAI Astra sphere packing Erdős problems AlphaProof 2026 open problems solved"
+    ],
+    "places_checked": [
+      "arXiv abstract pages and HTML full texts for the preprints listed in events (opened as marked in sources; the 2016 Viazovska and Cohn et al. pages and the Venkatesh notes were not opened)",
+      "Kalai blog (Combinatorics and more) for the Klartag post",
+      "Quanta Magazine (July 2025 Klartag article; 2024 Campos article seen in search only)",
+      "Wikipedia Sphere packing article (fetched 10 Oct 2026)",
+      "OpenAI web page (403), OpenAI Ten Advances PDF (binary), openai/ten-proofs GitHub README and SpherePacking.lean (chunked)",
+      "Scientific American (Sept 17 and Aug 6, 2026 articles)",
+      "lesswrong cross-post of Zvi Mowshowitz (3 Aug 2026)",
+      "lean-eval-submissions GitHub issue #1720",
+      "AIhub / EPFL account of the Viazovska formalisation",
+      "Epoch AI and AI-news trackers (via search summaries only)",
+      "Springer / Inventiones page for Klartag (redirected to login; not read)"
+    ],
+    "dead_ends": [
+      "No Terence Tao blog post or statement on the Astra sphere-packing result was found in search.",
+      "No public reaction from Henry Cohn to the Astra sphere-packing result was found.",
+      "No Gil Kalai follow-up post on the mathematics of Klartag's proof was found (his blog says he hoped to write one).",
+      "No Pith review of arXiv:2505.02394 was found.",
+      "No Gargava–Viazovska paper improving a leading constant (as the search summary suggested) was found; the nearest is arXiv:2411.14973, a different result.",
+      "No 2026 development on the Torquato–Stillinger hyperuniformity conjecture beyond 2003–2011 physics literature was found.",
+      "Mathematical exploration and discovery at scale (arXiv:2511.02864, Tao et al.) has no sphere packing content in its abstract.",
+      "The Venkatesh notes PDF and the OpenAI PDF were binary and could not be read.",
+      "No journal reference for Campos et al. was found by search, though Klartag's bibliography cites J. Amer. Math. Soc. (2025).",
+      "AlphaEvolve, FunSearch and Gemini searches produced kissing-number results (dimension 11 from 592 to 593; a 2026 kissing claim) only, which are off-scope for density.",
+      "The Math, Inc. original announcement page was not reached; the date rests on a secondary report.",
+      "The sphere-packing record in dimension 9 for non-lattice packings was not found; the 2025 paper is lattice-only."
+    ]
+  },
+
+  "incomplete": "(1) The OpenAI primary sources were not readable: openai.com returned HTTP 403 and the Ten Advances PDF returned binary. Everything about the Astra result comes from secondary descriptions (Zvi Mowshowitz's quotation of OpenAI's list, the empirical.health blog, arXiv 2608.00920 and 2609.03736, Scientific American and kingy.ai), plus the Lean README and partial reading of SpherePacking.lean. (2) The Lean file was scanned in 100,000-character windows through WebFetch; each window reported internal truncation, so the sorry/axiom check is partial and the main theorem's proof was not read. (3) The Klartag journal record: the Springer page redirected to login and the Weizmann PDF was not reachable; the Inventiones acceptance date comes from a search-result header and the Math. Annalen claim from a search summary. (4) Abuya et al.'s chatlog.pdf (the ChatGPT conversation) was not readable, so the extent of the model's contribution is the authors' own sentence only. (5) The Venkatesh notes were not readable and the 2012/2013 year is unresolved; the Viazovska and Cohn et al. 2016 arXiv pages were not opened, and their dates come from search summaries. (6) Numerical density values were not read for the antipode (2505.02394), dimension-38–43 (2607.20359), Huawei/UCL (2512.04829) and dimension-36 (2607.11319) papers; the claims are recorded as the abstracts state them. (7) The Math, Inc. write-up and the 23 Feb 2026 date are from one secondary report. (8) Several claims come from secondary search summaries only and are not recorded as facts: a Sienicki audit of 18 chapters; the $2,000 compute figure; the 'first improvement since 1978' phrase; Gowers's comment on a model's proof; the Epoch 'GPT-6 Astra' label; the 'Stephen Miller 2016 paper' identity. (9) Kissing-number work (AlphaEvolve, Ganzhinov, Cohn–Li, PackingStar) is off-scope and was not researched further. (10) The Campos et al. JAMS publication, if it exists, was not confirmed. (11) The Torquato–Stillinger conjecture's original date was not researched; it predates the window and is background only."
+}

@@ -1,0 +1,1504 @@
+{
+  "key": "gilbreaths-conjecture",
+  "nothing_found": false,
+  "outcome": "Still open on 11 October 2026: no proof or disproof has appeared since 26 January 2024, but the verified range was pushed from primes up to 10^13 (Odlyzko, 1993) to primes up to 10^14 (Plouffe, October 2025, independently matched by Colonna) and to a headline 1.5×10^15 (Colonna, March 2026); Chase, Hunter and Tao proved the leading-1 property for a Cramér random model and an inverse theorem for the deterministic sequence (arXiv 2607.08712, 9 July 2026), and state that the prime conjecture 'remains open'.",
+  "problem_asks": "(1) The infinite sequence of primes 2, 3, 5, 7, 11, ... taken as the top row, not any single finite initial segment. (2) The unsigned forward difference operator applied repeatedly: each row is the list of absolute differences of consecutive entries of the row above, giving rows of decreasing length, one per depth k = 1, 2, 3, ... (3) The assertion that the first (leftmost) entry of every row after the first is 1 at every depth, equivalently that the left diagonal of the difference array is all ones after the first row. Parts that must each be addressed: (a) the leading-1 claim at every depth k, so unbounded depth is part of the claim; (b) the claim for the prime sequence itself, so it covers every initial length n of the primes, not only some; (c) it is stated for the primes specifically, so results on random or sieved analogues are about a different sequence. Wikipedia's January 2024 wording is 'the first term of every resulting row, after the start, is 1'.",
+  "events": [
+    {
+      "id": "proth-1878",
+      "what_happened": "François Proth published the observations later called Gilbreath's conjecture in 1878 (cited by OEIS A393110 as F. Proth, Nouv. Corresp. Math. (1878); the journal itself was not opened). Wikipedia and several secondary sources say Proth also gave an attempted proof, later shown faulty. Chase (arXiv 2005.00530) argues that there is no evidence Proth published a proof, or even a false one, and calls the flawed-proof claim unfounded; Neil Sloane's 2023 notes are reported as agreeing (search snippet only; not opened).",
+      "date": "1878",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "At most an asserted pattern for all depths and all primes. Whether any argument was published is disputed; if one was, its content is not known from any source I opened.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "148 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The existence of a flawed published proof is contested: the Wikipedia article and several secondary sources say one was published and was faulty; Chase (2020) says there is no evidence of any published proof. The 1878 source was not opened, so neither side is verified here.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Asserts the conjecture. Points the same way as the conjecture if an argument existed; no content verified.",
+      "object": null,
+      "people": [
+        "François Proth"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gilbreath%27s_conjecture",
+          "title": "Gilbreath's conjecture (Wikipedia)",
+          "type": "encyclopedia",
+          "opened": true
+        },
+        {
+          "url": "https://oeis.org/A393110",
+          "title": "OEIS A393110",
+          "type": "repository",
+          "opened": false
+        },
+        {
+          "url": "https://arxiv.org/abs/2005.00530",
+          "title": "A random analogue of Gilbreath's conjecture (Chase, arXiv 2005.00530)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "kilgrove-ralston-1959",
+      "what_happened": "Early computational check of the claim for the first several tens of thousands of primes. MathWorld attributes to Kilgrove and Ralston (1959) a check for m < 63,419; T5K's glossary says two of Gilbreath's students verified the conjecture for the first 64,419 rows. The two figures disagree and the original 1959 venue was not opened.",
+      "date": "1959",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A finite check of the leading-1 pattern for initial segments of roughly 63,000–64,000 primes (figure disputed between sources). Says nothing about longer initial segments or unbounded depth.",
+      "remains": "All of problem_asks beyond the checked length.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "67 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The two sources give different bounds (63,419 in MathWorld, 64,419 in T5K), and the T5K 'two students' attribution is not dated. Neither source was opened in full, so the range is not settled here.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture within the checked range; no counterexample.",
+      "object": null,
+      "people": [
+        "Kilgrove",
+        "Ralston",
+        "two unnamed students of Gilbreath (per T5K)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        {
+          "url": "https://mathworld.wolfram.com/GilbreathsConjecture.html",
+          "title": "Gilbreath's Conjecture (MathWorld)",
+          "type": "encyclopedia",
+          "opened": false
+        },
+        {
+          "url": "https://t5k.org/glossary/xpage/GilbreathsConjecture.html",
+          "title": "Gilbreath's conjecture (The Prime Pages glossary)",
+          "type": "encyclopedia",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "odlyzko-1993",
+      "what_happened": "Andrew M. Odlyzko, 'Iterated absolute values of differences of consecutive primes', Math. Comp. 61(203) (1993), 373–380. Per the AMS abstract (seen in search results; the AMS page returned HTTP 403), the computation verifies the conjecture for all k up to π(10^13), which is 346,065,536,839 primes. The method uses a shortcut: if a row starts with 1 followed by n entries that are 0 or 2, the next n rows also start with 1. Odlyzko needed only the first 635 rows for the largest case (G(π(10^13)) = 635). The abstract also says the paper discusses heuristic evidence and that similar conjectures probably hold for many other sequences.",
+      "date": "1993",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Verifies the leading-1 pattern for every initial segment of up to π(10^13) primes (the depth bound is G(π(10^13)) = 635). Restricted to that finite range; it says nothing about longer initial segments.",
+      "remains": "The unbounded claim: every initial length beyond π(10^13), and every depth for those lengths.",
+      "checked_by": [
+        {
+          "who": "Mathematics of Computation (American Mathematical Society), referee process",
+          "qualification": "Journal of record for computational number theory",
+          "what_they_did": "Published the paper; the refereeing process was not inspected",
+          "where": "https://www.ams.org/journals/mcom/1993-61-203/S0025-5718-1993-1182247-7",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "33 years",
+      "machine_checked": null,
+      "directly_checkable": "The shortcut lemma (a row starting 1 followed by n entries from {0,2} forces the next n rows to start with 1) is checkable by hand on small cases. The 635-row computation is not checkable by hand.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture in the checked range; no counterexample.",
+      "object": "No counterexample. A computed verification that G(π(10^13)) = 635, i.e. the 635th row starts with 1 followed only by 0s and 2s over enough entries to force the leading 1 on all later rows, for every initial segment up to π(10^13) primes.",
+      "people": [
+        "Andrew M. Odlyzko"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.ams.org/journals/mcom/1993-61-203/S0025-5718-1993-1182247-7"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.ams.org/journals/mcom/1993-61-203/S0025-5718-1993-1182247-7",
+          "title": "Iterated absolute values of differences of consecutive primes (AMS)",
+          "type": "journal",
+          "opened": false
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Gilbreath%27s_conjecture",
+          "title": "Gilbreath's conjecture (Wikipedia)",
+          "type": "encyclopedia",
+          "opened": true
+        },
+        {
+          "url": "https://www.lactamme.polytechnique.fr/descripteurs/GilbreathConjecture.01.Ang.html",
+          "title": "Proth-Gilbreath Conjecture (Colonna project page)",
+          "type": "repository",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "chase-2020-random-analogue",
+      "what_happened": "Zachary Chase, 'A random analogue of Gilbreath's conjecture', arXiv:2005.00530. Posted 1 May 2020 (v2 24 July 2020; v3 11 January 2022, 14 pages, 1 figure). Proves a precise form of the postulate that the leading-1 property should hold for starting sequences whose gaps are not too large and are sufficiently random. Wikipedia reports the published version as Mathematische Annalen 388(3) (2024), pp. 2611–2625, DOI 10.1007/s00208-023-02579-w, with the random model being starting sequences 2, 3 followed by gaps drawn uniformly from even integers in [0, f(i)] for slowly growing f; the Springer page was not reached (redirect not followed), and Wikipedia's reference list dates it to both 2023 and 2024.",
+      "date": "2020-05-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 24 Jul 2020; v3 11 Jan 2022; journal version Math. Ann. 388(3), 2024 per Wikipedia (DOI not opened)",
+      "delivers": "For random starting sequences (not the primes): a precise form of the postulate that the leading 1 eventually holds, under random small-gap hypotheses; per Wikipedia, for gaps uniform on even integers in [0, f(i)] with slowly growing f. Restricted to random initial data.",
+      "remains": "All of problem_asks for the prime sequence: this is a different sequence.",
+      "checked_by": [
+        {
+          "who": "Mathematische Annalen (Springer)",
+          "qualification": "Journal of record for the field",
+          "what_they_did": "Published the article (per the Wikipedia citation; the Springer page was not reached to confirm the refereeing)",
+          "where": "https://en.wikipedia.org/wiki/Gilbreath%27s_conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "6 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "An analogue for random sequences. Points toward the conjecture's property in a changed setting; does not address the prime sequence.",
+      "object": null,
+      "people": [
+        "Zachary Chase"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2005.00530"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2005.00530",
+          "title": "A random analogue of Gilbreath's conjecture (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Gilbreath%27s_conjecture",
+          "title": "Gilbreath's conjecture (Wikipedia)",
+          "type": "encyclopedia",
+          "opened": true
+        },
+        {
+          "url": "https://ar5iv.labs.arxiv.org/html/2005.00530",
+          "title": "A Random Analogue of Gilbreath's Conjecture (ar5iv)",
+          "type": "preprint",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "eppstein-2011",
+      "what_happened": "David Eppstein, 'Anti-Gilbreath sequences', blog post dated 20 February 2011 (11011110 blog). Per the Wikipedia article, the post shows counterexamples to a broader claim (that the Gilbreath-type property holds for a wide class of non-prime sequences, as put forward by Hallard Croft in Martin Gardner's 1980 column). The post itself was not opened; the date comes from a bibliography listing.",
+      "date": "2011-02-20",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Counterexamples for non-prime sequences to a broader Croft-style claim. Settles nothing about the prime sequence.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "15 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only through Wikipedia's one-line summary and a bibliography listing; the post was not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against a generalisation of the conjecture to non-prime sequences; not about primes.",
+      "object": null,
+      "people": [
+        "David Eppstein"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        {
+          "url": "https://en.wikipedia.org/wiki/Gilbreath%27s_conjecture",
+          "title": "Gilbreath's conjecture (Wikipedia)",
+          "type": "encyclopedia",
+          "opened": true
+        },
+        {
+          "url": "https://neilsloane.com/doc/EMSep2023.Updates.txt",
+          "title": "Sloane bibliography update (EMSep2023)",
+          "type": "repository",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "gilbreath-2011-jnt",
+      "what_happened": "Norman Gilbreath, 'Processing process: The Gilbreath conjecture', J. Number Theory 131 (2011), 2436–2441, as listed in a bibliography snippet. Not opened; the content is unknown to me and I cannot say whether it bears on the prime case.",
+      "date": "2011",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Unknown: the paper was not opened.",
+      "remains": "Unknown.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "15 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Only a bibliographic listing was seen.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown.",
+      "object": null,
+      "people": [
+        "Norman L. Gilbreath"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        {
+          "url": "https://neilsloane.com/doc/EMSep2023.Updates.txt",
+          "title": "Sloane bibliography update (EMSep2023)",
+          "type": "repository",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "bhat-cobeli-zaharescu-2023",
+      "what_happened": "Raghavendra N. Bhat, Cristian Cobeli, Alexandru Zaharescu, 'On quasi-periodicity in Proth-Gilbreath triangles', arXiv:2307.11776 (math.NT; submitted 19 July 2023, v1 only). Defines the Proth-Gilbreath operator and characterises which infinite higher-difference tables have near-periodic features; reports two results on formal power series over F2. The abstract does not mention the Gilbreath conjecture. A bulletin listing in search results gives a journal version in Bull. Math. Soc. Sci. Math. Roumanie 67(1) (2024), pp. 3–21 (not opened).",
+      "date": "2023-07-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only; journal version 2024 per search listing",
+      "delivers": "Quasi-periodicity of higher-difference tables for chosen starting sequences. Does not address whether the leading entry is 1 for the primes.",
+      "remains": "All of problem_asks.",
+      "checked_by": [
+        {
+          "who": "Bull. Math. Soc. Sci. Math. Roumanie (editorial process)",
+          "qualification": "Journal publication, per a search listing (not opened)",
+          "what_they_did": "Published the article, per the search listing",
+          "where": "https://bulletin.ssmr.ro/volumes/67-1/node2.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "3 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the leading-1 claim.",
+      "object": null,
+      "people": [
+        "Raghavendra N. Bhat",
+        "Cristian Cobeli",
+        "Alexandru Zaharescu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2307.11776",
+          "title": "On Quasi-Periodicity in Proth-Gilbreath Triangles (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://bulletin.ssmr.ro/volumes/67-1/node2.html",
+          "title": "Bull. Math. Soc. Sci. Math. Roumanie, vol. 67-1 listing (search snippet only)",
+          "type": "journal",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "salvia-2013-withdrawn",
+      "what_happened": "Raffaele Salvia, 'Pseudorandomness in 0's and 2's distribution in the iterated absolute differences of primes', arXiv:1308.3113 (v1 14 August 2013). Reports a computation over about 4.55×10^8 entries of the difference matrix, observing that after the first few terms the columns appear to contain only 0s and 2s, suggesting a pseudorandom distribution. Version 2 (19 July 2016) is a withdrawal, which the abstract page reports as due to flaws in the statistical method.",
+      "date": "2013-08-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 19 Jul 2016 (withdrawn)",
+      "delivers": "An empirical observation about the 0s and 2s in the difference matrix, which the author withdrew. No proof of any part of the conjecture.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "13 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Withdrawn by its author for flawed statistics (per the withdrawal note on the abstract page).",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "Author withdrawal of the paper because of flaws in the statistical method used (quoted from the abstract-page summary)",
+        "date": "2016-07-19",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/1308.3113"
+        ]
+      },
+      "direction": "Empirical support for pseudorandomness of 0s and 2s; withdrawn.",
+      "object": null,
+      "people": [
+        "Raffaele Salvia"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/1308.3113",
+          "title": "Pseudorandomness in 0's and 2's distribution in the iterated absolute differences of primes (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "agama-2021",
+      "what_happened": "Theophilus Agama, 'On the Gap sequence and the Gilbreath conjecture', arXiv:2104.05258 (math.CO, cross-listed math.NT). Posted 12 April 2021; v2 13 April 2021; v3 5 April 2026 (reformatted, expanded introduction). Introduces the gap sequence induced by a sequence, and path and circuit notions, 'motivated by the Gilbreath conjecture'. The abstract states no result about the conjecture.",
+      "date": "2021-04-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 13 Apr 2021; v3 5 Apr 2026 (reformatted, expanded introduction; no new claim seen on the abstract page)",
+      "delivers": "A framework (gap sequence, path, trace) motivated by the conjecture. Asserts no result about the leading-1 claim, per the abstract.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Only the abstract page was read; the body was not.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None stated.",
+      "object": null,
+      "people": [
+        "Theophilus Agama"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2104.05258",
+          "title": "On the Gap sequence and the Gilbreath conjecture (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "muney-2026-finite-sequences",
+      "what_happened": "Leila Muney, 'Holes in Valid-Extension Sets of Finite Gilbreath Sequences', arXiv:2606.23721 (math.CO, cross-listed math.NT; v1 18 June 2026; v2 16 July 2026). Studies finite Gilbreath sequences (a sequence whose difference triangle has a leading 1 in every row below the top) and which integers can be appended to them. Shows that a previously proposed characterisation fails: valid-extension sets can have interior holes, the smallest at length 5 for (2,3,5,9,15). Gives an exact membership criterion and algorithm, a completeness criterion analogous to Brown's for subset sums, endpoint and reflection results, the minimum size of the set, a family with exponentially many components, and enumeration data to length 11. The introduction mentions the conjecture as open: 'The Gilbreath conjecture, which remains open, asserts that every initial segment of the primes is a Gilbreath sequence.'",
+      "date": "2026-06-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 16 Jul 2026 (the AI disclosure sentence appears in both v1 and v2 HTML)",
+      "delivers": "Results on valid-extension sets for finite Gilbreath sequences in general (holes, minimum size, component counts, a completeness criterion), with enumeration to length 11. Restricted to finite sequences; not about the prime sequence.",
+      "remains": "All of problem_asks for the prime sequence: the paper addresses the local extension problem for finite sequences, which the authors describe as a different question.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "4 months",
+      "machine_checked": null,
+      "directly_checkable": "The length-5 example (2,3,5,9,15) is a small finite case that can be checked by hand. The enumeration data through length 11 is machine-generated.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither supports nor refutes the prime claim: it concerns finite Gilbreath sequences, and treats the prime conjecture as motivation.",
+      "object": "A finite sequence (2,3,5,9,15) whose valid-extension set has an interior hole at length 5, which shows that a previously proposed characterisation fails for finite Gilbreath sequences. It is not a prime-sequence object.",
+      "people": [
+        "Leila Muney"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2606.23721v2",
+          "https://arxiv.org/html/2606.23721v1"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2606.23721",
+          "title": "Holes in Valid-Extension Sets of Finite Gilbreath Sequences (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2606.23721v2",
+          "title": "Holes in Valid-Extension Sets of Finite Gilbreath Sequences (arXiv HTML v2, acknowledgements)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2606.23721v1",
+          "title": "Holes in Valid-Extension Sets of Finite Gilbreath Sequences (arXiv HTML v1)",
+          "type": "preprint",
+          "opened": true
+        }
+      ]
+    },
+    {
+      "id": "plouffe-2025-verification-1e14",
+      "what_happened": "Simon Plouffe (sole author), 'Verification of Gilbraith's conjecture up to 10^14', arXiv:2510.06688 (rendered title; Wikipedia gives 'Verification of the Proth-Gilbraith conjecture up to π(10^14)'). v1 submitted 8 October 2025; v2 26 October 2025 ('Minor changes and addition of a new reference'). Reports G(π(10^14)) = 693, i.e. a row beginning 1 followed only by 0s and 2s at depth 693, for all primes up to 10^14 by the stated method. Plouffe says the calculation was completed on 7 October 2025 and that Colonna had reached the same value earlier, on 5 October (from the paper's text as quoted in a search snippet; not verified in the body).",
+      "date": "2025-10-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 8 Oct 2025; v2 26 Oct 2025 (minor changes and a new reference)",
+      "delivers": "Finite verification: the leading-1 pattern for every initial segment of primes up to π(10^14), witnessed by G(π(10^14)) = 693 under the stated criterion. Restricted to that finite range; no claim about longer initial segments.",
+      "remains": "The unbounded claim: all initial lengths beyond π(10^14) and all depths for them.",
+      "checked_by": [
+        {
+          "who": "Jean-François Colonna (CMAP, École polytechnique)",
+          "qualification": "Researcher at CMAP, École polytechnique, per his project page; ran an independent computation of the same quantity",
+          "what_they_did": "Independently computed G(π(10^14)) = 693, dated 10/05/2025 on his page, matching Plouffe's value",
+          "where": "https://www.lactamme.polytechnique.fr/descripteurs/GilbreathConjecture.01.Ang.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "12 months",
+      "machine_checked": null,
+      "directly_checkable": "The stated criterion is checkable by hand on small cases: a row starting 1 followed only by 0s and 2s settles the initial segment. The 10^14 computation itself is not checkable by hand.",
+      "doubts": "Single-author computation whose code is not described in the abstract page; the only independent agreement found is Colonna's 693. No third party has reproduced the 10^14 value in the sources I found: the 2026 GitHub reproduction stops at 10^13. Wikipedia and the abstract page disagree slightly on the title's wording (Gilbraith vs Gilbreath) but not on the content.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture; no counterexample in the range checked.",
+      "object": "No counterexample. The verified depth G(π(10^14)) = 693: the 693rd row starts with 1 followed only by 0s and 2s, which by the shortcut forces the leading 1 on later rows for every initial segment up to π(10^14) primes.",
+      "people": [
+        "Simon Plouffe",
+        "Jean-François Colonna"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2510.06688"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2510.06688",
+          "title": "Verification of Gilbraith's conjecture up to 10^14 (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2510.06688v2",
+          "title": "arXiv HTML v2 (attempted: HTTP 404)",
+          "type": "preprint",
+          "opened": false
+        },
+        {
+          "url": "https://www.lactamme.polytechnique.fr/descripteurs/GilbreathConjecture.01.Ang.html",
+          "title": "Proth-Gilbreath Conjecture (Colonna project page)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://oeis.org/A393110",
+          "title": "OEIS A393110",
+          "type": "repository",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "colonna-records-2025-2026",
+      "what_happened": "Jean-François Colonna's project page (CMAP, École polytechnique; the page credits a collaboration with Jean-Paul Delahaye of Université de Lille) logs successive computational records, each dated: G(π(10^14)) = 693 on 10/05/2025; G(π(1.1×10^14)) = 701 (10/24/2025); G(π(2.2×10^14)) = 773 (11/03/2025); G(π(6.15×10^14)) = 800 (12/13/2025); G(π(10^15)) = 800 (01/23/2026); G(π(1.0025×10^15)) = 806 (01/24/2026); G(π(1.2075×10^15)) = 809 and G(π(1.2125×10^15)) = 811 (both 02/15/2026); and a headline 'Verification up to 1.5x10^15 (03/18/2026)'. The page says the 10^14 run took about 198 hours on 96 processors, uses deterministic Miller–Rabin primality tests, and is 'entirely homemade' (as quoted in a fetch summary). Per the same fetch summary the page says the computation was interrupted at 03/18/2026, not completed. Captions also list a relative record of 969 at x ≈ 1.6931×10^15 with no date in the text, and a stray line 'G(Pi(6.150x10^15))=800'; these are not reconciled. Delahaye's Pour la Science 580 article (February 2026) is cited by OEIS; it was not opened.",
+      "date": "2025-10-05",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Dated updates on the page from 10/05/2025 through 03/18/2026",
+      "delivers": "Finite verification of the leading-1 pattern for initial segments up to the headline 1.5×10^15 primes-count bound; the page itself describes the 1.5×10^15 run as interrupted at 03/18/2026, so the completed range is not established by this source. The highest depth on the page is G = 811 at x ≈ 1.2125×10^15 (02/15/2026).",
+      "remains": "The unbounded claim, and initial segments beyond the verified bound.",
+      "checked_by": [
+        {
+          "who": "Jean-François Colonna",
+          "qualification": "Researcher at CMAP, École polytechnique, per the page",
+          "what_they_did": "Ran the computations and posted the dated records; his 10^14 value agrees with Plouffe's independently computed G = 693",
+          "where": "https://www.lactamme.polytechnique.fr/descripteurs/GilbreathConjecture.01.Ang.html",
+          "automated": false
+        },
+        {
+          "who": "Jean-Paul Delahaye (Université de Lille)",
+          "qualification": "Researcher at Université de Lille and Pour la Science columnist, per the page",
+          "what_they_did": "Suggested the calculation and collaborated on the research; co-author of the Pour la Science 580 (Feb 2026) article on the records (article not opened)",
+          "where": "https://www.lactamme.polytechnique.fr/descripteurs/GilbreathConjecture.01.Ang.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "12 months",
+      "machine_checked": null,
+      "directly_checkable": "The criterion is checkable by hand on small cases, as for Plouffe's event. The computations are not checkable by hand.",
+      "doubts": "The page's own headline and its description of the run disagree: the header says 'up to 1.5x10^15 (03/18/2026)' while the page is described as having been interrupted at that date. The page has an unreconciled 969 caption at 1.6931×10^15 and a stray G(Pi(6.150x10^15))=800 line. Apart from Plouffe's agreement at 10^14, no third party in the sources I found has reproduced any value above 10^13.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture; no counterexample in the range checked.",
+      "object": "No counterexample. Records of the depth G(π(x)) at which the test row appears, e.g. G = 811 at x ≈ 1.2125×10^15.",
+      "people": [
+        "Jean-François Colonna",
+        "Jean-Paul Delahaye",
+        "Simon Plouffe (independent value at 10^14)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.lactamme.polytechnique.fr/descripteurs/GilbreathConjecture.01.Ang.html"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.lactamme.polytechnique.fr/descripteurs/GilbreathConjecture.01.Ang.html",
+          "title": "Proth-Gilbreath Conjecture (Colonna project page)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://oeis.org/A393110",
+          "title": "OEIS A393110 (lists the Colonna and Delahaye sources)",
+          "type": "repository",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "chase-hunter-tao-2026",
+      "what_happened": "Zachary Chase, Zach Hunter and Terence Tao, 'Gilbreath's conjecture: a Cramér random model and a deterministic analysis', arXiv:2607.08712 (primary math.CO; v1 submitted 9 July 2026, 28 pages, 8 figures; single version). Tao announced it on his blog on 11 July 2026, with a heuristic discussion. Main results, per the HTML text: Theorem 1.2: with independent geometric inputs with parameter 2/(2+log n), almost surely the left diagonal takes values in {0,1} after finitely many rows (a Cramér random model of the prime gaps). Theorem 1.6: for non-negative integer initial data bounded by 2^M, if the array has no long block of zeros and no long shallow {0,d}-valued block (d ≥ 2), then the bottom entry lies in {0,1} (described as an inverse theorem, conditional on a Cramér-type bound on prime gaps). The continuous (exponential-input) model: partial sums of the constants c_i are at least log(n+e); c_0..c_3 computed exactly; boundedness of the c_i not shown. The paper states 'This conjecture remains open' and notes that the verification covers 3.34×10^11 rows (a figure that does not match π(10^13) = 346,065,536,839; see summary). Tao's blog states the heuristic (average row maximum about log n, Cramér bound O(log² n)) and says making it rigorous is well beyond current technology.",
+      "date": "2026-07-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (9 Jul 2026)",
+      "delivers": "(i) The leading-1 property holds almost surely in the Cramér random model, a changed question (random geometric inputs, not the primes). (ii) A deterministic inverse theorem, conditional on a Cramér-type bound on prime gaps, which identifies the only obstructions (long zero blocks or long {0,d} blocks) for initial data bounded by 2^M. (iii) Partial information on the continuous model's constants (partial sums bounded below; c_0..c_3). It does not prove the leading-1 claim for the primes, and does not show the obstructions are absent.",
+      "remains": "The prime case itself (all of problem_asks for primes); the absence of long zero blocks and long shallow blocks for the primes (unproved); the Cramér-type bound (unproved).",
+      "checked_by": [
+        {
+          "who": "Pith AI referee (model named glm-5.2 on the page)",
+          "qualification": "An AI referee, not a human reading",
+          "what_they_did": "T0 'AI review' read 10 July 2026: verdict 'Solid paper. The Cramér-model Gilbreath result is genuinely new and correctly proved; the deterministic inverse theorem is conditional but conceptually valuable.' The page says 'No human expert has reviewed this paper yet.' and that the review is a stress test, not a formal check",
+          "where": "https://pith.science/paper/2607.08712",
+          "automated": true
+        },
+        {
+          "who": "Fedor Nazarov and Anders Martinsson",
+          "qualification": "Mathematicians (named in the paper and in Tao's blog)",
+          "what_they_did": "Supplied an argument (packing problem, answered on MathOverflow) for an earlier version with weaker bounds of the proof of Theorem 1.6; the current version has little trace of it, per the paper's section 1.5. This is engagement with a superseded version, not a check of the final argument",
+          "where": "https://arxiv.org/html/2607.08712v1",
+          "automated": false
+        },
+        {
+          "who": "Emmanuel Audigé (blog commenter; qualification not stated)",
+          "qualification": "Not established by the source",
+          "what_they_did": "Worked through Proposition 4.1 and the geometric model in a blog comment of 24 July 2026, deriving an exact concentration coefficient and a finite-n failure bound (read via a fetch summary of the comments; not verified verbatim)",
+          "where": "https://terrytao.wordpress.com/2026/07/11/gilbreaths-conjecture-a-cramer-random-model-and-a-deterministic-analysis/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "3 months",
+      "machine_checked": null,
+      "directly_checkable": "The Monte Carlo and small-n checks in the paper are reproducible by reader computation; the theorem arguments are not checkable by hand in summary.",
+      "doubts": "Preprint with no journal version. The only automated review (Pith, AI, T0) is not a human reading. The deterministic inverse theorem is conditional on a Cramér-type bound on prime gaps, which the authors do not prove and Tao's blog calls far beyond current methods. Theorem 1.6 is stated for initial data bounded by 2^M, so its scope is finite-height and bounded. Tao's blog says the heuristic explanation for plausibility is not a proof.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "For the random model: the leading-1 property holds almost surely, which points toward the conjecture in a changed setting. For the deterministic sequence: a conditional reduction to two obstructions, which the authors say remain open. The authors explicitly state the prime conjecture remains open.",
+      "object": null,
+      "people": [
+        "Zachary Chase",
+        "Zach Hunter",
+        "Terence Tao",
+        "Fedor Nazarov",
+        "Anders Martinsson"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2607.08712v1"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2607.08712",
+          "title": "Gilbreath's conjecture: a Cramér random model and a deterministic analysis (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2607.08712v1",
+          "title": "Gilbreath's conjecture: a Cramér random model and a deterministic analysis (arXiv HTML v1, sections 1.2–1.6 and 1.5 acknowledgements and AI disclosure)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://terrytao.wordpress.com/2026/07/11/gilbreaths-conjecture-a-cramer-random-model-and-a-deterministic-analysis/",
+          "title": "Tao blog post, 11 July 2026, with comments",
+          "type": "blog",
+          "opened": true
+        },
+        {
+          "url": "https://www.johndcook.com/blog/2026/07/11/progress-on-gilbreaths-conjecture/",
+          "title": "John D. Cook, 'Progress on Gilbreath's conjecture', 11 July 2026",
+          "type": "blog",
+          "opened": true
+        },
+        {
+          "url": "https://pith.science/paper/2607.08712",
+          "title": "Pith AI review of arXiv 2607.08712 (T0)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/pdf/2607.08712",
+          "title": "arXiv PDF (binary, unreadable in the fetch tool)",
+          "type": "preprint",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "granville-2026-sieving",
+      "what_happened": "Vincent Granville, 'Piercing Gilbreath's Conjecture: From Deep Number Theory Insights to Fintech and Cybersecurity', arXiv:2607.04166 (primary cs.CR, cross-listed cs.AI; v1 5 July 2026; v2 7 July; v3 14 July 2026). Proposes a sieving methodology and 'reverse sieving'. Claimed results (per the HTML text read in full): Theorem 2.3 (Δ-periodic sieved sequences S3 and S8 built by sieving with primes up to 19 are successful; κ ≤ 8); Theorem 2.4 (period ∏(p_i − 1)); Theorem 2.5 (random-order prime sieving with κ distinct primes yields successful sequences for κ ≤ κ0, κ0 'yet to be determined'; general κ conjectured); Theorem 3.1 (length bounds for admissible sequences); Theorem 3.2 (a corridor of parameters containing the primes; for n = 11 only one failing sequence); Theorem 5.1 (magic twin primes). Section 5 is titled 'with partial proof' and says 'None of this is proved yet despite massive empirical evidence'. The introduction says the prime case 'remains fully open'.",
+      "date": "2026-07-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 7 Jul 2026; v3 14 Jul 2026",
+      "delivers": "Partial results on sieved sequences (finite sets of small primes), random-order sieved sequences (finite κ), and corridor-type statements for finite lengths; several statements are conditional or conjectural (Theorem 2.5's general case, Conjecture 3.1, Statement 4.1). The prime sequence itself is not proved, by the author's own statement.",
+      "remains": "The prime case and the general claim for all depths and initial lengths; all of problem_asks for the prime sequence.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "3 months",
+      "machine_checked": null,
+      "directly_checkable": "The finite computations (sieved sequences in Tables 3–4; the length-11 corridor enumeration of about 10^7 sequences) can be re-run from the description; I did not re-run them.",
+      "doubts": "Single-author preprint with no journal, referee, or public engagement found in the sources. The author's own text labels central parts informal, conditional or partial (Conjecture 3.1; Statements 3.1, 3.2 and 4.1; Theorem 2.5 general case). Its positive statements concern sieved or random-order variants rather than the prime sequence. The cs.AI cross-listing is metadata only; there is no AI disclosure in the text read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims progress toward the conjecture in variant settings; explicitly does not claim the prime case. Partial results cut toward the conjecture in those variants.",
+      "object": "No counterexample. Exhibited objects: sieved sequences S3 and S8 (built by sieving with the primes up to 19), shown to be successful under Theorem 2.3; and a corridor enumeration of about 10^7 admissible length-11 sequences, of which only one in the corridor fails.",
+      "people": [
+        "Vincent Granville"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2607.04166v3"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://arxiv.org/abs/2607.04166",
+          "title": "Piercing Gilbreath's Conjecture (arXiv abstract page)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/html/2607.04166v3",
+          "title": "Piercing Gilbreath's Conjecture (arXiv HTML v3, full text read in two passes)",
+          "type": "preprint",
+          "opened": true
+        },
+        {
+          "url": "https://arxiv.org/pdf/2607.04166",
+          "title": "arXiv PDF (binary, unreadable in the fetch tool)",
+          "type": "preprint",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "ross-2026-decay-constants",
+      "what_happened": "Michael Ross, 'Empirical Structure of the Gilbreath Decay Constants', Zenodo DOI 10.5281/zenodo.21326026 (published 12 July 2026; last modified 4 September 2026; listed author affiliation 'Researcher'). A Monte Carlo study to depth 8192 for the stationary continuous Gilbreath model of Chase, Hunter and Tao (top row independent standard exponentials), with exact values of c_4, c_5 and c_6 added; proposes the empirical law c_i ≈ C·λ^{s_2(i)}/i with λ about 1.14–1.20, where s_2(i) is the binary digit sum. Code is linked at github.com/michaelmross/Gilbreath (not opened). Tao's blog comments of 13 July 2026 include Tao's remark 'A quick check against our Monte Carlo calculation reveals an excellent fit', and an anonymous comment, linked by handle to the same GitHub account, reports the extension of c_4–c_6. Two comments signed 'Michael M. Ross' announce OEIS submissions; a 29 July comment announces A397880 and A395556 (OEIS entries not opened).",
+      "date": "2026-07-12",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only per the record (last modified 4 Sep 2026)",
+      "delivers": "Numerical evidence about the decay constants c_i of the continuous Gilbreath model, not the prime sequence. An empirical law, not a theorem.",
+      "remains": "All of problem_asks for the prime sequence.",
+      "checked_by": [
+        {
+          "who": "Terence Tao (co-author of the model paper, Chase–Hunter–Tao)",
+          "qualification": "Co-author of the model; his check is not independent of the model",
+          "what_they_did": "Blog comment 13 July 2026: 'A quick check against our Monte Carlo calculation reveals an excellent fit.'",
+          "where": "https://terrytao.wordpress.com/2026/07/11/gilbreaths-conjecture-a-cramer-random-model-and-a-deterministic-analysis/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "3 months",
+      "machine_checked": null,
+      "directly_checkable": "The constants c_i are exact rationals for small i; the Monte Carlo data is reproducible from the linked code (not checked).",
+      "doubts": "A Monte Carlo fit whose λ drifts across the sampled windows (per the record); the 1/i decay is conjectural. Not peer-reviewed. The blog comment's credit for the c_4–c_6 extension is an inference from a handle, not an identified name.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Empirical support for a decay law in the continuous model; no statement about primes.",
+      "object": null,
+      "people": [
+        "Michael Ross"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/21326026"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://zenodo.org/records/21326026",
+          "title": "Empirical Structure of the Gilbreath Decay Constants (Zenodo)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://terrytao.wordpress.com/2026/07/11/gilbreaths-conjecture-a-cramer-random-model-and-a-deterministic-analysis/",
+          "title": "Tao blog post, 11 July 2026, with comments",
+          "type": "blog",
+          "opened": true
+        },
+        {
+          "url": "https://oeis.org/A393110",
+          "title": "OEIS A393110 (not related to Ross; listed for context)",
+          "type": "repository",
+          "opened": false
+        }
+      ]
+    },
+    {
+      "id": "shimizu-2026-reproduction",
+      "what_happened": "Hirotaka Shimizu (ORCID 0009-0005-9508-4917), 'A Reproducible CPU Verification of Gilbreath's Conjecture up to 10^13', Zenodo DOI 10.5281/zenodo.23160565, version 1.0.0, published 5 October 2026; also public as the GitHub repository yygotm/gilbreath-verification (MIT licence). Reproduces Odlyzko's 1993 result: π(10^13) = 346,065,536,839 and G(π(10^13)) = 635, and states that it 'is not a new bound'. Uses primesieve and 8-bit SIMD difference rows; includes C source, tests, a Dockerfile, 100 segment logs and SHA-256 checksums. Validation: agreement with Odlyzko's G values, OEIS A006880, and record prime gaps, plus an independent brute-force check for small inputs. The README and Zenodo record both close with the sentence 'AI-assisted (Claude, Anthropic; OpenAI Codex).'",
+      "date": "2026-10-05",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "v1.0.0 (5 Oct 2026); GitHub repository dates not stated on the page",
+      "delivers": "A reproduction of Odlyzko's finite verification up to π(10^13), with the author's own code. Restricted to that range; the author says it is not a new bound.",
+      "remains": "Everything beyond π(10^13), and the unbounded claim.",
+      "checked_by": [
+        {
+          "who": "Hirotaka Shimizu (author)",
+          "qualification": "Not stated in the record",
+          "what_they_did": "Independent reimplementation reproducing G(π(10^13)) = 635, compared against Odlyzko's values, OEIS A006880 and record prime gaps; self-reported",
+          "where": "https://zenodo.org/records/23160565",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "6 days",
+      "machine_checked": null,
+      "directly_checkable": "The 10^13 computation can be re-run from the supplied Dockerfile and scripts; it is not checkable by hand.",
+      "doubts": "A self-reproduction of a 1993 result by the author, with no third party identified. The AI disclosure does not say which parts of the package were AI-assisted (see ai).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture in the range checked; no counterexample.",
+      "object": "No counterexample. The verification output π(10^13) = 346,065,536,839 and G = 635, reproduced by the package.",
+      "people": [
+        "Hirotaka Shimizu"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude, Anthropic",
+            "what_it_did": "Not stated. The only sentence is 'AI-assisted (Claude, Anthropic; OpenAI Codex).' The package is C code, scripts and a Dockerfile for a computation that reproduces Odlyzko's 1993 values, so the role may be code-writing rather than mathematics; the record does not say.",
+            "basis_quote": "AI-assisted (Claude, Anthropic; OpenAI Codex).",
+            "quote_url": "https://zenodo.org/records/23160565"
+          },
+          {
+            "name": "OpenAI Codex",
+            "what_it_did": "Not stated. The only sentence is 'AI-assisted (Claude, Anthropic; OpenAI Codex).' See the previous entry.",
+            "basis_quote": "AI-assisted (Claude, Anthropic; OpenAI Codex).",
+            "quote_url": "https://zenodo.org/records/23160565"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/23160565",
+          "https://github.com/yygotm/gilbreath-verification"
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://zenodo.org/records/23160565",
+          "title": "A Reproducible CPU Verification of Gilbreath's Conjecture up to 10^13 (Zenodo)",
+          "type": "repository",
+          "opened": true
+        },
+        {
+          "url": "https://github.com/yygotm/gilbreath-verification",
+          "title": "yygotm/gilbreath-verification (GitHub)",
+          "type": "repository",
+          "opened": true
+        }
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Whether François Proth published a proof in 1878. Wikipedia and several secondary sources say he published an attempted proof later shown to be false; Chase (arXiv 2005.00530) argues there is no evidence of any published proof, true or false, and Sloane's 2023 notes agree (search snippet). The 1878 source was not opened.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Gilbreath%27s_conjecture",
+        "https://arxiv.org/abs/2005.00530"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "The name. Odlyzko's 1993 abstract (AMS, seen in search results) says the conjecture is usually credited to Gilbreath but was due to Proth in the 19th century. Gilbreath's own 1958 presentation is the conventional attribution.",
+      "sources": [
+        "https://www.ams.org/journals/mcom/1993-61-203/S0025-5718-1993-1182247-7"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "Priority for the 10^14 check. Colonna's page dates his G(π(10^14)) = 693 to 10/05/2025 (opened). Plouffe's arXiv paper (8 Oct 2025 v1) says he completed his run on 7 October and that Colonna had reached the same value slightly earlier (from a search snippet; not verified in the body). Both are independent computations.",
+      "sources": [
+        "https://www.lactamme.polytechnique.fr/descripteurs/GilbreathConjecture.01.Ang.html",
+        "https://arxiv.org/abs/2510.06688"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "Early checks: MathWorld gives Kilgrove and Ralston (1959) for m < 63,419; T5K says two of Gilbreath's students verified the first 64,419 rows. Not resolved; neither original was opened.",
+      "sources": [
+        "https://mathworld.wolfram.com/GilbreathsConjecture.html",
+        "https://t5k.org/glossary/xpage/GilbreathsConjecture.html"
+      ]
+    }
+  ],
+  "summary": "I found no proof or disproof of Gilbreath's conjecture in the sources, and the authors of the one substantive 2026 preprint state the prime case remains open, so the status is 'open' with no change since 26 January 2024. Events in the window: (1) the verified range moved from primes up to 10^13 (Odlyzko, 1993, G = 635, Math. Comp.) to primes up to 10^14 (Plouffe, arXiv 2510.06688, 8 October 2025; Colonna's page gives the same G = 693 dated 5 October 2025, an independent computation) and then to a headline 1.5×10^15 (Colonna, dated 18 March 2026, where his page describes the run as interrupted at that date, so the completed range is not settled by that page). (2) Chase, Hunter and Tao (arXiv 2607.08712, v1 9 July 2026; Tao blog 11 July) prove that the leading-1 property holds almost surely in a Cramér random model (Theorem 1.2), and give a deterministic inverse theorem (Theorem 1.6) that is conditional on a Cramér-type bound on prime gaps and reduces failure to long zero blocks or long {0,d} blocks; the prime case is not proved. Their predecessor is Chase's random analogue (arXiv 2005.00530, posted 1 May 2020, Math. Ann. 388(3) 2024 per Wikipedia). (3) Granville (arXiv 2607.04166, 5 July 2026) claims a sieving approach with partial results on sieved and random-order variants; the text reads its prime case as 'remains fully open'; I found no engagement. (4) Muney (arXiv 2606.23721, 18 June 2026) on finite Gilbreath sequences, which is a different question. (5) Ross (Zenodo 21326026, 12 July 2026) gives Monte Carlo numerics for the continuous model's constants, which Tao's blog comments say fit their Monte Carlo. (6) Shimizu (Zenodo 23160565, 5 October 2026) reproduces Odlyzko's 10^13 result and says it is not a new bound. Older items are recorded as events: Proth 1878 (disputed proof), Kilgrove and Ralston 1959, Eppstein 2011 (non-prime counterexamples), Gilbreath 2011 (not opened), Bhat, Cobeli and Zaharescu 2023 (quasi-periodicity; not on the conjecture), Agama 2021 (no result stated), and Salvia 2013 (withdrawn). AI involvement: four records name or describe AI use. (a) Chase, Hunter and Tao acknowledge 'Gemini was used to generate the code for Figure 1.' This is peripheral (figure code), so it is recorded here and not in ai.systems; the HTML was read in full and no other AI mention was found. The Pith AI referee review (model glm-5.2, T0) is an automated review, not a human reading, and says 'No human expert has reviewed this paper yet.' (b) Muney's acknowledgements state: 'This project made use of AI tools during the exploratory stage, including computational experimentation, conjecture generation, and preliminary drafting.' No system is named, so ai.systems is empty; 'conjecture generation' is the sentence a later pass would weigh, though the theorems concern finite sequences. (c) Shimizu's README and Zenodo record state 'AI-assisted (Claude, Anthropic; OpenAI Codex).' The record does not say what was assisted. I entered both names in ai.systems because the quote is generic and the computation is the artefact, but the reproduced result is Odlyzko's old one; this is a close call. (d) Granville, Plouffe, Colonna and Ross: no AI mention in the text read. For Plouffe only the abstract and metadata were readable (the HTML was 404 and the PDF binary), so that is weaker evidence. ProofAtlas, an 'AI-first' platform, hosts a Gilbreath 'collaboration' page with status 'Open conjecture', no proof claim, no named contributors and computations 'reported unreproduced'; it is not an event. The AI-focused searches found no AI-credited proof, counterexample or verification for this conjecture. Numerical discrepancies to note: Chase–Hunter–Tao and Wikipedia give 'first 3.34×10^11 rows', while π(10^13) = 346,065,536,839 ≈ 3.46×10^11; the sources do not reconcile these. Close calls: whether the Cramér random-model theorem counts as a changed question (by §2.1, yes, since it is a different sequence); whether finite verifications of a universal claim move anything the problem asks for (the judging pass decides); and whether the Shimizu AI disclosure is load-bearing.",
+  "competing_reading": "The strongest case for counting 2026 as real progress: Chase, Hunter and Tao reduce the deterministic conjecture to two named obstructions (long zero runs and long shallow {0,d} blocks under a Cramér-type bound), a reframing that a referee could regard as a partial result on the deterministic analysis rather than a changed question; Tao is a co-author, the paper is a math.CO preprint and the blog gives a heuristic for plausibility. The opposing reading is that the random-model result is a different sequence, the inverse theorem is conditional on an unproved bound, and the authors say the prime case remains open. For the verifications: Plouffe and Colonna are independent computations and could be read as moving the verified range of a claim, but the statement is universal, so finitely many verified initial segments change nothing about the claim itself. For the AI record: Shimizu's 'AI-assisted (Claude, Anthropic; OpenAI Codex)' could be read as AI involvement in a computation, or as incidental code help for a reproduction of a 1993 result; Muney's 'conjecture generation' could be read as load-bearing for finite-sequence theorems, but those are not about primes.",
+  "what_would_settle_it": "For the verification range: Colonna's statement of the completed range after 18 March 2026, and an independent reproduction of any value above 10^13 (the Shimizu package stops at 10^13). For the random-model and inverse results: a human referee or journal decision (only an AI T0 review exists), and whether the inverse theorem can be made unconditional. For the AI questions: the authors' account of what 'AI-assisted' covered in the Shimizu package, and whether any theorem in Muney's paper came from the 'conjecture generation' step. For Proth 1878: the 1878 Nouvelle Correspondance Mathématique text. For Granville: a referee or expert reading, or a journal decision. For the early checks: the original Kilgrove and Ralston (1959) paper and the T5K 'two students' source.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Gilbreath%27s_conjecture",
+      "title": "Gilbreath's conjecture (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.08712",
+      "title": "Gilbreath's conjecture: a Cramér random model and a deterministic analysis (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.08712v1",
+      "title": "Gilbreath's conjecture: a Cramér random model and a deterministic analysis (arXiv HTML v1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2607.08712",
+      "title": "arXiv PDF of 2607.08712 (binary, unreadable in the fetch tool)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://terrytao.wordpress.com/2026/07/11/gilbreaths-conjecture-a-cramer-random-model-and-a-deterministic-analysis/",
+      "title": "Terence Tao, blog post 11 July 2026, with comments",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.johndcook.com/blog/2026/07/11/progress-on-gilbreaths-conjecture/",
+      "title": "John D. Cook, 'Progress on Gilbreath's conjecture', 11 July 2026",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://pith.science/paper/2607.08712",
+      "title": "Pith AI review of arXiv 2607.08712 (T0)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.04166",
+      "title": "Piercing Gilbreath's Conjecture (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.04166v3",
+      "title": "Piercing Gilbreath's Conjecture (arXiv HTML v3)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2607.04166",
+      "title": "arXiv PDF of 2607.04166 (binary, unreadable in the fetch tool)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.06688",
+      "title": "Verification of Gilbraith's conjecture up to 10^14 (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2510.06688v2",
+      "title": "arXiv HTML v2 of 2510.06688 (HTTP 404)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.lactamme.polytechnique.fr/descripteurs/GilbreathConjecture.01.Ang.html",
+      "title": "Proth-Gilbreath Conjecture (Colonna project page)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2005.00530",
+      "title": "A random analogue of Gilbreath's conjecture (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2005.00530",
+      "title": "A Random Analogue of Gilbreath's Conjecture (ar5iv; seen in search results only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://people.maths.ox.ac.uk/chase/gilbreath.pdf",
+      "title": "Chase's notes on Gilbreath's conjecture (HTTP 404)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://doi.org/10.1007/s00208-023-02579-w",
+      "title": "Chase, Math. Ann. 388(3) DOI (redirect to Springer not followed)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.ams.org/journals/mcom/1993-61-203/S0025-5718-1993-1182247-7",
+      "title": "Odlyzko, Iterated absolute values of differences of consecutive primes (AMS; HTTP 403; abstract seen in search results)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://mathworld.wolfram.com/GilbreathsConjecture.html",
+      "title": "Gilbreath's Conjecture (MathWorld; search snippet only)",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://t5k.org/glossary/xpage/GilbreathsConjecture.html",
+      "title": "Gilbreath's conjecture (The Prime Pages glossary; search snippet only)",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://oeis.org/A393110",
+      "title": "OEIS A393110 (search snippet only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://neilsloane.com/doc/EMSep2023.Updates.txt",
+      "title": "Sloane bibliography update EMSep2023 (search snippet only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2104.05258",
+      "title": "On the Gap sequence and the Gilbreath conjecture (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.23721",
+      "title": "Holes in Valid-Extension Sets of Finite Gilbreath Sequences (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2606.23721v2",
+      "title": "Holes in Valid-Extension Sets of Finite Gilbreath Sequences (arXiv HTML v2)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2606.23721v1",
+      "title": "Holes in Valid-Extension Sets of Finite Gilbreath Sequences (arXiv HTML v1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2307.11776",
+      "title": "On Quasi-Periodicity in Proth-Gilbreath Triangles (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://bulletin.ssmr.ro/volumes/67-1/node2.html",
+      "title": "Bulletin listing, vol. 67-1 (search snippet only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1308.3113",
+      "title": "Pseudorandomness in 0's and 2's distribution in the iterated absolute differences of primes (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/21326026",
+      "title": "Empirical Structure of the Gilbreath Decay Constants (Zenodo)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/23160565",
+      "title": "A Reproducible CPU Verification of Gilbreath's Conjecture up to 10^13 (Zenodo)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/yygotm/gilbreath-verification",
+      "title": "yygotm/gilbreath-verification (GitHub)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.proofatlas.ai/collaboration/gilbreaths-conjecture/",
+      "title": "ProofAtlas, Gilbreath's Conjecture collaboration page (status checked 28 Aug 2026)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.22365",
+      "title": "Towards Solving the Gilbert-Pollak Conjecture via Large Language Models (different problem; dead end)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.08643",
+      "title": "The set of primes is supernatural: a Lean formalization (different problem; dead end)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.02864",
+      "title": "Mathematical exploration and discovery at scale (AlphaEvolve; no Gilbreath found)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2511.02864v3",
+      "title": "Mathematical exploration and discovery at scale (arXiv HTML v3; read in three passes, truncated)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures",
+      "title": "google-deepmind/formal-conjectures (GitHub; code search needs sign-in, not checked)",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Gilbreath's conjecture",
+      "Gilbreath conjecture primes proof 2025",
+      "Gilbreath conjecture verified primes iterated differences",
+      "Gilbreath conjecture arXiv",
+      "Gilbreath conjecture AI proof",
+      "Gilbreath conjecture Wikipedia",
+      "Gilbreath's conjecture counterexample",
+      "Gilbreath conjecture Odlyzko 1993 iterated absolute differences primes",
+      "Gilbreath conjecture Andrew Odlyzko Ryan? verification 10^13 primes",
+      "\"Gilbreath\" conjecture new result 2026",
+      "Gilbreath conjecture Crandall Pomerance prime numbers",
+      "Gilbreath conjecture Lean formalization",
+      "Terence Tao blog Gilbreath conjecture Cramér random model",
+      "Plouffe Gilbreath conjecture verification 10^14 preprint",
+      "Colonna Proth-Gilbreath conjecture verification 1.5x10^15",
+      "Chase \"random analogue of Gilbreath's conjecture\" Mathematische Annalen",
+      "Zachary Chase Zach Hunter Terence Tao Gilbreath arXiv 2607.08712",
+      "Vincent Granville \"Piercing Gilbreath's Conjecture\"",
+      "Gilbreath conjecture erdosproblems OR \"open problems\" database status",
+      "Gilbreath conjecture GPT OR Gemini OR Claude OR AlphaEvolve OR AlphaProof",
+      "Proth-Gilbreath conjecture arXiv 2025 2026 paper",
+      "John D. Cook Tao July 2026 Gilbreath analogous problem",
+      "Gilbreath conjecture Mathematical Reviews zbMATH review 2026",
+      "Gilbreath conjecture Cramér conjecture prime gaps long blocks zeros obstruction",
+      "Simon Plouffe Proth Gilbraith conjecture Delahaye Colonna 2025",
+      "Gilbreath conjecture Eppstein anti-Gilbreath sequences 2011",
+      "Gilbreath conjecture Odlyzko 1993 Mathematics of Computation AMS page abstract",
+      "Empirical Structure of the Gilbreath Decay Constants zenodo",
+      "OEIS A393110 Gilbreath",
+      "Delahaye Pour la Science Gilbreath conjecture 2026",
+      "Hallard Croft Gilbreath property sequences Gardner 1980 Proth 1878 Chase Sloane dispute",
+      "Gilbreath conjecture AI-generated proof claim arXiv 2026 LLM prime differences",
+      "Gilbreath conjecture Quanta Magazine OR Scientific American 2026",
+      "Gilbreath conjecture Mathoverflow Nazarov Martinsson packing",
+      "Gilbreath Holes valid-extension Muney 2026 Gilbreath sequences follow-up",
+      "Gilbreath conjecture Lean mathlib formal-conjectures GitHub Gilbreath",
+      "Proth Gilbreath conjecture Colonna Delahaye Plouffe 2026 new record 2×10^15",
+      "Michael Ross Gilbreath decay constants λ 1.17 preprint arXiv",
+      "Gilbreath conjecture ChatGPT OR Codex OR Aristotle OR \"Deep Think\" proof attempt",
+      "\"Gilbreath\" conjecture AI tracker erdosproblems OR \"AI for math\" results list 2026",
+      "formal-conjectures google-deepmind Gilbreath OR \"Proth\" Lean statement open conjecture file"
+    ],
+    "places_checked": [
+      "Wikipedia article 'Gilbreath's conjecture' (opened, full text read in summary)",
+      "arXiv 2607.08712 abstract page, HTML v1 (full text read in two passes, including section 1.5 acknowledgements and AI disclosure), PDF (binary)",
+      "Terence Tao blog post of 11 July 2026 with comments (opened)",
+      "John D. Cook blog post of 11 July 2026 (opened)",
+      "Pith review page for arXiv 2607.08712 (opened; AI referee review)",
+      "arXiv 2607.04166 abstract page and HTML v3 (full text read in two passes; PDF binary)",
+      "arXiv 2510.06688 abstract page (opened); HTML v2 (404); PDF not readable",
+      "Colonna's project page, CMAP, École polytechnique (opened)",
+      "arXiv 2005.00530 abstract page (opened); ar5iv and Chase's Oxford PDF (404) not read; Springer redirect not followed",
+      "arXiv 2606.23721 abstract page and HTML v1 and v2 (full text read; AI disclosure in acknowledgements in both)",
+      "arXiv 2104.05258 abstract page (opened)",
+      "arXiv 2307.11776 abstract page (opened)",
+      "arXiv 1308.3113 abstract page (opened; withdrawn)",
+      "arXiv 2601.22365 and 2608.08643 (opened; different problems, dead ends)",
+      "arXiv 2511.02864 HTML v3 (read in three passes; truncated; no Gilbreath found in the parts read)",
+      "Zenodo 21326026 (Ross) and Zenodo 23160565 (Shimizu) (opened)",
+      "GitHub yygotm/gilbreath-verification (opened)",
+      "GitHub code search for Gilbreath in google-deepmind/formal-conjectures (requires sign-in; not checked)",
+      "ProofAtlas Gilbreath collaboration page, status checked 28 Aug 2026 (opened)",
+      "AMS abstract for Odlyzko 1993 (HTTP 403; abstract text from search results)",
+      "Tagteam feed item for 'Visualizing the Gilbreath expectation sequence' (HTTP 503; not read)",
+      "OEIS A393110, MathWorld, T5K, Sloane's 2023 bibliography, Eppstein's blog, Bulletin listing, and Zenodo search results (search snippets only; not opened)",
+      "Search engine results for Quanta, Scientific American, MathOverflow, zbMATH, erdosproblems.com (no Gilbreath entry found in the results)"
+    ],
+    "dead_ends": [
+      "No Quanta or Scientific American article on the conjecture from 2026 found in search results.",
+      "No MathOverflow thread located; only the Nazarov/Martinsson acknowledgement in the paper and Tao's blog.",
+      "No Gilbreath entry located on erdosproblems.com in the search results; the Erdős remark about 200 years is a commentary, not a listed problem.",
+      "The AI-focused searches returned the Gilbert–Pollak LLM paper (arXiv 2601.22365, Steiner ratio, a different problem) and the GPT-5.6 Sol Ultra cycle double cover claim (a different problem); neither concerns Gilbreath.",
+      "AlphaEvolve/Tao 'Mathematical exploration and discovery at scale' (arXiv 2511.02864): no Gilbreath or Proth entry in the parts read; the final part was not confirmed as fully read.",
+      "The Lean 'supernatural primes' formalisation (arXiv 2608.08643) is a different conjecture.",
+      "Gilbreath-named Lean formalisation not found; GitHub code search for the formal-conjectures repo requires sign-in.",
+      "Granville's sieving preprint (arXiv 2607.04166): no independent expert engagement found in the searches.",
+      "Muney 2606.23721 is about finite sequences; its 'follow-up' search found no earlier Muney paper.",
+      "Chase's Oxford PDF (people.maths.ox.ac.uk/chase/gilbreath.pdf) returns HTTP 404; the search snippet for it was not verified.",
+      "The Pith and ProofAtlas pages are platform pages; neither credits an AI system with the mathematics.",
+      "The Gardner (1980) column and Croft's suggestion were not opened; they appear only through the Wikipedia article and a Spanish blog summary."
+    ]
+  },
+  "incomplete": "(1) Plouffe's arXiv 2510.06688 body was not readable (HTML 404; PDF binary), so its AI and checking claims rest on the abstract and metadata. (2) Chase's Math. Ann. 388(3) (2024) publication date and DOI were not verified on Springer (redirect not followed); the DOI and journal details come from Wikipedia. (3) The AMS page for Odlyzko 1993 returned 403; the abstract is from search results. The Kilgrove and Ralston (1959) and 'two students' checks were not opened, and their figures disagree (63,419 vs 64,419). (4) The Proth 1878 source and Delahaye's Pour la Science 580 article (Feb 2026) were not opened; Colonna's 2025 French paper (cited by OEIS) was not opened. (5) Colonna's 'interrupted at 03/18/2026' wording and the 'entirely homemade' phrase come from a fetch summary, not a verbatim reading; the completed range after 18 March 2026 is unknown. (6) Eppstein's 2011 post, Gardner's 1980 column, Gilbreath's 2011 J. Number Theory paper, and Chase's Oxford notes were not opened (the Gilbreath 2011 paper is recorded with unknown content). (7) OEIS A393110 and the Ross OEIS submissions A397880 and A395556 were not opened. (8) The formal-conjectures Lean repository was not checked for a Gilbreath or Proth statement (GitHub code search requires sign-in). (9) The Chase–Hunter–Tao AI disclosure was read verbatim in the HTML; the PDF was not readable. The Pith review was read through a fetch summary; the verdict quotation is as reported by that summary. (10) Tao blog comments (Audigé, Ross, Tao's 13 July remark) were read through a fetch summary, so exact wording is not verified beyond the quoted fragments. (11) The AlphaEvolve paper (arXiv 2511.02864) was read in three truncated passes; the final part may not have been fully covered, though no Gilbreath mention was seen. (12) Later citations of Chase–Hunter–Tao and Granville were not systematically searched beyond the search engine; later_work_cites_it is null for Granville. (13) No zbMATH, MathSciNet or Google Scholar query was run directly; the searches were through the web search tool.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "proth-1878",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Whether any proof was published is disputed (Wikipedia vs Chase 2020); the 1878 source was not opened.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kilgrove-ralston-1959",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "odlyzko-1993",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chase-2020-random-analogue",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "eppstein-2011",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gilbreath-2011-jnt",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bhat-cobeli-zaharescu-2023",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "salvia-2013-withdrawn",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn by the author in v2 (19 July 2016) for flaws in the statistical method.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "agama-2021",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "muney-2026-finite-sequences",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "plouffe-2025-verification-1e14",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "colonna-records-2025-2026",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "The page's 1.5x10^15 headline conflicts with its description of the run as interrupted, and it carries unreconciled captions (969 at 1.6931x10^15; G(Pi(6.150x10^15))=800).",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chase-hunter-tao-2026",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "granville-2026-sieving",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "The author labels central parts informal, conditional or partial ('None of this is proved yet'), and no engagement was found.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "ross-2026-decay-constants",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "shimizu-2026-reproduction",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement is about the infinite prime sequence at every depth. Every computational check (Kilgrove–Ralston, Odlyzko, Plouffe, Colonna, Shimizu) only verifies finitely many initial segments, so I scored them instances (F5). Chase 2020, Chase–Hunter–Tao 2026 (Cramér random model), Granville (sieved sequences), Muney (finite Gilbreath sequences), Ross (continuous-model constants) and Eppstein (non-prime sequences) all settle changed questions, so I scored them variant. The Chase–Hunter–Tao inverse theorem is conditional on an unproved Cramér-type gap bound and leaves its obstructions open. That makes it a reduction, not a case, and its random-model theorem is the paper's main result. The authors themselves say the conjecture remains open. AI: Chase–Hunter–Tao used Gemini only for figure code, and Pith is an AI referee, so both count as none. Muney's disclosure names no system and the paper is a variant anyway. Shimizu's bare line 'AI-assisted (Claude, Anthropic; OpenAI Codex).' says nothing about any mathematics in a package that reproduces a 1993 computation, so it is none (F12); that event is discarded as instances in any case.",
+    "doubts": "Shimizu's AI disclosure is generic. If Claude or Codex wrote the verification code, that is still not mathematics in the result. Muney's 'conjecture generation' disclosure may have contributed to theorems, but those theorems concern finite sequences, not the primes.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

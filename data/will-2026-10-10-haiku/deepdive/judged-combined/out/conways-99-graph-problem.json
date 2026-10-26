@@ -1,0 +1,974 @@
+{
+  "key": "conways-99-graph-problem",
+  "nothing_found": false,
+  "outcome": "Still open as of 11 October 2026: no strongly regular graph with parameters (99,14,1,2) has been constructed and no nonexistence proof has been published. Since 26 January 2024 the events are a conditional nonexistence criterion on hexagon counts (Reimbayev, Sept 2024), a family-wide subgraph enumeration (Reimbayev, Aug 2025), a SAT-encoding attempt with a negative method result (Keramatipour, Apr 2026), and a CAISc 2026 preprint by Thakkar (13 Jul 2026, revised 18 Sep 2026 with Severini added) giving a forced-structure reduction, a circulant-only exhaustive ceiling of 68.0%, and best partial scores of 69.43% (v1) and 70.73% (v2, from an AlphaEvolve-generated search). The Thakkar work involves AI systems: v1 names Anthropic’s Claude as the agent that wrote the code and drafted the manuscript; v2 credits AlphaEvolve for the 70.73% search program. The authors state the results do not resolve existence.",
+  "problem_asks": "One question: does a strongly regular graph with parameters (99,14,1,2) exist? Unpacked: a graph on 99 vertices, regular of degree k=14 (k is forced by n: k(k−2)=2(n−k−1) gives k=14), such that every pair of adjacent vertices has exactly λ=1 common neighbour and every pair of distinct non-adjacent vertices has exactly μ=2 common neighbours. Equivalently, every edge lies in a unique triangle and every non-adjacent pair is a diagonal of a unique 4-cycle. The statement asks for existence only (yes or no). It does not ask for bounds, a classification, or a count; an answer restricted to a class (circulant graphs, graphs with a prescribed automorphism group) answers only that class.",
+  "events": [
+    {
+      "id": "cesarz-woldar-2023",
+      "what_happened": "Patrick G. Cesarz (University of Wyoming) and Andrew J. Woldar (Villanova University), 'On the automorphism group of a putative Conway 99-graph', arXiv:2308.02978. The paper studies G=Aut(Γ) for a putative (99,14,1,2) graph, building on Makhnev and Minakova's bound |G| dividing 2·3³·7·11. The arXiv abstract (via a fetch summary) states that divisibility of |G| by 7 implies G ≅ Z7 and that an even-order group must be Z2, Z6 or S3. Published as Algebraic Combinatorics 8(2) (2025), 379–398, where the journal abstract says the predecessors' results are reproduced 'without the aid of a computer' and gives computer-free proofs that 2 dividing |G| implies |G| divides 6 and that 7 dividing |G| implies G ≅ Z7.",
+      "date": "2023-08-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv lists only v1 (6 Aug 2023). Journal version: Algebraic Combinatorics 8(2):379–398, published online 24 Apr 2025 (received 23 Jul 2023, revised 28 May 2024, accepted 19 Jan 2025). The arXiv text, read via ar5iv, uses GAP for one step ('here we find it necessary to enlist the aid of a computer'), while the journal abstract claims computer-free proofs of the same kind of statement.",
+      "delivers": "Restriction on automorphism groups only: |Aut(Γ)| divides 2·3³·7·11 (the bound it cites from Makhnev and Minakova); if 7 divides |G| then G ≅ Z7; if 2 divides |G| then |G| divides 6. It says nothing about whether a graph exists and does not treat the trivial group.",
+      "remains": "Existence of a (99,14,1,2) graph with any automorphism group not excluded above, including the trivial group and the Z7 case (the 2026 papers still list Z7 as unresolved).",
+      "checked_by": [
+        {
+          "who": "Algebraic Combinatorics (journal of record)",
+          "qualification": "Peer-reviewed journal in algebraic combinatorics (Centre Mersenne)",
+          "what_they_did": "Refereed and accepted the paper (accepted 19 Jan 2025); published online 24 Apr 2025",
+          "where": "https://alco.centre-mersenne.org/articles/10.5802/alco.418",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 3 years (journal version 2025)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The method changed between versions: the arXiv text uses a GAP computation for one step, while the journal version claims computer-free proofs of the same kind of statement. I read the arXiv version through ar5iv and the journal version through its abstract only, so I did not check the journal proofs step by step.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Restricts the automorphism group; neither direction on existence.",
+      "object": null,
+      "people": [
+        "Patrick G. Cesarz",
+        "Andrew J. Woldar"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2308.02978",
+          "https://ar5iv.labs.arxiv.org/html/2308.02978",
+          "https://alco.centre-mersenne.org/articles/10.5802/alco.418"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2308.02978",
+        "https://ar5iv.labs.arxiv.org/html/2308.02978",
+        "https://alco.centre-mersenne.org/articles/10.5802/alco.418"
+      ]
+    },
+    {
+      "id": "makhnev-minakova-2004",
+      "what_happened": "A. A. Makhnev and I. M. Minakova, 'On automorphisms of strongly regular graphs with the parameters λ=1 and μ=2', Diskretnaya Matematika 16(1):95–104, 2004 (English translation Discrete Mathematics and Applications 14(2):201–210). Abstract (read via the Geodesic record): any srg(v,k,1,2) has k=u²+u+2 with u in {1,3,4,10,31}; graphs are known for u=1 and u=4; for u=3 the parameters are (99,14,1,2), and 'the question on existence of such graphs was posed by J. Seidel'; if Aut(Γ) contains an involution its order divides 42.",
+      "date": "2004",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "For the whole family, the parameter restriction k=u²+u+2 with u in {1,3,4,10,31}. For (99,14,1,2) specifically, only the automorphism statement: an involution in Aut(Γ) forces |Aut(Γ)| to divide 42. Later papers credit the wider bound 2·3³·7·11 to this work; I read only the abstract and have not checked that attribution.",
+      "remains": "Existence of (99,14,1,2). The abstract presents existence as open and does not claim nonexistence.",
+      "checked_by": [
+        {
+          "who": "Diskretnaya Matematika (journal) and its English translation Discrete Mathematics and Applications",
+          "qualification": "Peer-reviewed journals of discrete mathematics",
+          "what_they_did": "Published (refereeing presumed, not verified)",
+          "where": "https://geodesic.mathdoc.fr/item/DM_2004_16_1_a6",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 22 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Restriction on the family and on automorphism groups; leaves existence open.",
+      "object": null,
+      "people": [
+        "A. A. Makhnev",
+        "I. M. Minakova"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://geodesic.mathdoc.fr/item/DM_2004_16_1_a6"
+        ]
+      },
+      "sources": [
+        "https://geodesic.mathdoc.fr/item/DM_2004_16_1_a6"
+      ]
+    },
+    {
+      "id": "zehavi-de-oliveira-2017",
+      "what_happened": "Sa’ar Zehavi and Ivo Fagundes David de Olivera (spelled so on arXiv), 'Not Conway’s 99-Graph Problem', arXiv:1707.08047 (v1 25 Jul 2017, v2 26 Jul 2017). The abstract says the 99-graph problem is one of five 1000$ problems set in 2017, that four of the five remain unsolved, and that the authors 'propose an alternative interpretation' which they 'solve ... completely'.",
+      "date": "2017-07-25",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 26 Jul 2017 (one day after v1).",
+      "delivers": "A complete answer to a different question: the authors' 'alternative interpretation' of Conway's definition, which the paper itself labels as not the original problem. Nothing about whether a (99,14,1,2) graph exists.",
+      "remains": "All of problem_asks; the alternative question was solved, not this one.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Discounted: about a different question. I read only the abstract. A search snippet describes the alternative result as 'a triangle or two triangles intersecting in a single vertex', which I could not confirm from the abstract.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the question as stated; settles an alternative version of it.",
+      "object": null,
+      "people": [
+        "Sa’ar Zehavi",
+        "Ivo Fagundes David de Olivera"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1707.08047"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1707.08047"
+      ]
+    },
+    {
+      "id": "crnkovic-maksimovic-2020",
+      "what_happened": "Dean Crnković (University of Rijeka) and Marija Maksimović, 'Construction of strongly regular graphs having an automorphism group of composite order', Contributions to Discrete Mathematics 15(1), 2020. The abstract states: 'we show that there are no SRGs with parameters (99,14,1,2) having an automorphism group of order six or nine', ruling out Z6, S3, Z9 and E9. The paper's method attempts to build such a graph with these groups and does not produce one.",
+      "date": "2020",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Journal publication date 2020-05-11 (DOI 10.55016/ojs/cdm.v15i1.62323). Any earlier preprint was not checked, so the first public written argument may be earlier than the journal date.",
+      "delivers": "Restricted nonexistence: no (99,14,1,2) graph whose automorphism group is Z6, S3, Z9 or E9 (the groups of order 6 and 9). Extends the orbit-matrix method of Behbahani and Lam to composite orders.",
+      "remains": "Existence for all graphs whose automorphism group is not one of those four groups, including the trivial group and groups of other orders.",
+      "checked_by": [
+        {
+          "who": "Contributions to Discrete Mathematics (journal)",
+          "qualification": "Peer-reviewed journal in discrete mathematics",
+          "what_they_did": "Published (refereeing presumed, not verified)",
+          "where": "https://cdm.ucalgary.ca/article/view/62323",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 years (journal version)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Restricted nonexistence, by automorphism group. Cuts against existence only within that class.",
+      "object": null,
+      "people": [
+        "Dean Crnković",
+        "Marija Maksimović"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://cdm.ucalgary.ca/article/view/62323"
+        ]
+      },
+      "sources": [
+        "https://cdm.ucalgary.ca/article/view/62323",
+        "https://alco.centre-mersenne.org/articles/10.5802/alco.418"
+      ]
+    },
+    {
+      "id": "reimbayev-2024",
+      "what_happened": "Reimbay Reimbayev, 'The Lower Bound for Number of Hexagons in Strongly Regular Graphs with Parameters λ=1 and μ=2', arXiv:2409.10620 (math.CO, 16 Sep 2024, v1 only). Theorem 2 gives a lower bound on the number of hexagons in the family (as returned by the fetch: 1/12·nk(k−2)(2k²−21k+53)). The introduction states: 'we show that if the lower bound for hexagons achieved then the graph doesn't exist'. The conclusion says 'We conjecture that the lower bound is indeed the true value', says the bound is achieved when n3=0, and says that given n3=0, 'Makhnev [4] has proved that srg(99,14,1,2) doesn't exist'.",
+      "date": "2024-09-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (16 Sep 2024).",
+      "delivers": "A lower bound on hexagon counts for the λ=1, μ=2 family, plus a conditional nonexistence criterion: if the hexagon count attains the bound, the graph does not exist. Attainment is not shown for the 99 case; the paper treats it as a conjecture and as a hypothesis supported by the known graphs srg(9,4,1,2) and srg(243,22,1,2). Unconditionally, it delivers no nonexistence for (99,14,1,2).",
+      "remains": "Existence of (99,14,1,2), since attainment of the hexagon bound for n=99 is conjectural in the paper.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(1) Conditional: the nonexistence claim depends on equality in the hexagon bound, which the paper conjectures and does not prove for n=99. (2) The conclusion attributes an unconditional statement, that srg(99,14,1,2) does not exist, to Makhnev under the n3=0 condition. I could not find Makhnev’s proof. The 2004 Makhnev–Minakova abstract claims no nonexistence, and Cesarz–Woldar and Thakkar–Severini treat the case as open. See disputes. (3) No peer review found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A conditional nonexistence criterion (if the hexagon count attains the bound). Not an unconditional result for this case.",
+      "object": null,
+      "people": [
+        "Reimbay Reimbayev"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2409.10620v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2409.10620",
+        "https://arxiv.org/html/2409.10620v1"
+      ]
+    },
+    {
+      "id": "reimbayev-2025",
+      "what_happened": "Reimbay Reimbayev, 'The Subgraphs of Order Six of the Family of Strongly Regular Graphs with Parameters λ=1 and μ=2', arXiv:2508.03377 (math.CO; v1 5 Aug 2025, v2 3 Nov 2025). The abstract says the paper establishes all subgraphs of order six for the family. The body (HTML, via fetch summary) says there are 'exactly 62 possible subgraphs of order six', gives counts in n, k and n3, and does not determine n3; it also says the (99,14,1,2) existence question is 'famously known as Conway’s 99-vertex graph problem' and that 'Makhnev was able to partially answer' it, adding 'But that would immediately mean, as shown by Makhnev, that an srg(99,14,1,2) doesn’t exist'.",
+      "date": "2025-08-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 5 Aug 2025; v2 3 Nov 2025 (metadata only; I did not compare the versions).",
+      "delivers": "A structural enumeration for the whole λ=1, μ=2 family: the six-vertex subgraphs and their counts in terms of n, k and n3. For (99,14,1,2) this is a constraint on local structure. The paper does not determine n3 and says symmetry arguments suggest n3 should be zero. Its nonexistence sentence depends on the Makhnev attribution discussed in disputes.",
+      "remains": "Existence of (99,14,1,2); n3 is undetermined in the part I read.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 14 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Family-wide, not specific to (99,14,1,2). The nonexistence sentence rests on the unverified Makhnev attribution. The PDF was unreadable, so I read the HTML version through a fetch summary; the 62-subgraph count and the n3 statement are as returned.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Structural enumeration for the family; no decision on existence in the paper’s own terms.",
+      "object": null,
+      "people": [
+        "Reimbay Reimbayev"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2508.03377v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2508.03377",
+        "https://arxiv.org/html/2508.03377v2"
+      ]
+    },
+    {
+      "id": "keramatipour-2026",
+      "what_happened": "Ali Keramatipour, 'Approaching the Conway-99 problem using SAT solvers', arXiv:2604.23037 [cs.LO] (v1 24 Apr 2026, v2 28 Apr 2026). The abstract encodes the search as SAT instances and reports 'we shall see the incapability of SAT solvers facing this problem in a reasonable time', and calls for 'better strategies ... to find this graph or prove its non-existence'. The text includes experiments on small graphs and on the Conway-99 instance (per the table of contents). The title page states the document was submitted in June 2023 as an MPhil thesis in Advanced Computer Science (Churchill College, Cambridge).",
+      "date": "2026-04-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 24 Apr 2026; v2 28 Apr 2026. The title page says 'submitted June 2023'. I did not establish whether the thesis was publicly available before April 2026, which would change the first-public-argument date.",
+      "delivers": "No existence or nonexistence result. A negative method-level finding: SAT encodings do not finish in a reasonable time on this problem.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 6 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None on existence. A negative computational result about SAT solvers for this search.",
+      "object": null,
+      "people": [
+        "Ali Keramatipour"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2604.23037v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2604.23037v2",
+        "https://arxiv.org/html/2604.23037v2"
+      ]
+    },
+    {
+      "id": "thakkar-2026-v1",
+      "what_happened": "Aalok Thakkar (sole author of v1), 'A Forced-Structure Reduction and Verifiable Bounds for Conway’s 99-Graph', arXiv:2608.11211, v1 submitted 13 Jul 2026 (cs.AI, cs.SC, math.CO; comment: 'This paper is accepted to the first Conference For AI Scientists (CAISc)'). The paper says it attempts 'the conways-99-graph instance of the CAISc 2026 Verifiable Problems track'. Claimed contributions: (1) an exhaustive proof that no circulant graph on Z/99 satisfies more than 3366/4950 = 68.0% of the constraints; (2) a forced-structure reduction (λ=1 makes each neighbourhood a perfect matching; μ=2 fixes the outer-vertex matching), so existence reduces to a constrained 12-regular graph on 84 vertices, encoded in CP-SAT and validated by recovering srg(9,4,1,2); (3) a prescribed-automorphism orbit-existence framework, checked on srg(9,4,1,2) and srg(13,6,2,3); (4) a best verified artifact at 3437/4950 = 69.43%, presented as a robust frontier across fourteen methods. The abstract says 'any provable bound below 4950 is a non-existence proof'.",
+      "date": "2026-07-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 13 Jul 2026 (single author). Superseded by v2 of 18 Sep 2026 (see the next event), which carries the same reduction and circulant bound and adds a 70.73% result.",
+      "delivers": "(a) Restricted to circulant graphs on Z/99: no circulant srg(99,14,1,2) exists, since the best circulant scores 68.0%, below 100%. (b) Structural: any srg(99,14,1,2) reduces to a constrained 12-regular graph on 84 vertices. (c) A prescribed-automorphism framework, validated on known graphs. (d) A best partial 99-vertex 0/1 matrix scoring 69.43%, which is not a strongly regular graph. None of these is a construction, nor a proof of nonexistence for the general problem.",
+      "remains": "Existence of a (99,14,1,2) graph in general: the 84-vertex reduced problem, and all graphs that are neither circulant nor within the prescribed-automorphism classes searched.",
+      "checked_by": [
+        {
+          "who": "CAISc 2026 Verifiable Problems track: the problem entry is credited to Siddhartha Mahajan and marked 'Reviewed by Dr. Ankan Pal' (per arXiv:2608.11211 v2 reference [13])",
+          "qualification": "Pal’s qualifications are not established. Mahajan is listed on the CAISc organising committee. The venue page does not describe the reviewing for this track.",
+          "what_they_did": "Track review of the submission. The entry records the reviewer's name only; no review text was found.",
+          "where": "https://caisc2026.github.io/verifiable-problems/?problem=conways-99-graph (linked from arXiv:2608.11211 v2 reference [13]); https://caisc2026.github.io",
+          "automated": null
+        },
+        {
+          "who": "CAISc 2026 organisers, Best Paper Awards",
+          "qualification": "Venue awards. Sponsors of the award pool are Anthropic, OpenAI and Jarvis Labs (context: Anthropic is the vendor of the system named in v1).",
+          "what_they_did": "Named this paper as one of three Best Paper Awards (July 2026). The venue page describes AI agents as first reviewers for the open-ended track; it does not describe the review for the verifiable track.",
+          "where": "https://caisc2026.github.io",
+          "automated": null
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 3 months",
+      "machine_checked": null,
+      "directly_checkable": "Circulant bound: enumerate the symmetric connection sets on Z/99 and score each against the 4950 constraints (v1 Proposition 1, as described in the fetch summary; I did not read the proposition directly). Reduction: the perfect-matching step follows by hand from λ=1 and μ=2; the CP-SAT encoding was validated by recovering srg(9,4,1,2). Code availability was not verified.",
+      "doubts": "(1) Not peer reviewed. The only named check is a CAISc track reviewer, with no review text found. (2) The v1 abstract calls 69.43% 'a robust frontier' across fourteen methods; v2 reports a higher partial score (70.73%), which contradicts that claim. (3) The v1 AI disclosure says the agent wrote the code and drafted the manuscript, while the problem instance and strategy came from the author; the CAISc entry credits the problem to a different person (see disputes). (4) The first author’s publication record found in searches is in program synthesis and relational queries; I found no earlier strongly regular graph work by him (not established either way).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither proves nor disproves existence. Gives a restricted nonexistence (circulant graphs), a structural reduction, and a partial-score search. The abstract's 'bound below 4950' sentence is a conditional statement; no such bound is claimed.",
+      "object": "(i) A best-found 99×99 symmetric 0/1 matrix scoring 3437 of the 4950 constraints (69.43%). It is not a strongly regular graph. Whether it is explicit or released was not verified. (ii) An enumeration showing that no circulant graph on Z/99 scores above 3366 of 4950 (68.0%). This is an exhaustive, non-constructive ceiling over the circulant class, and it implies no circulant srg(99,14,1,2).",
+      "people": [
+        "Aalok Thakkar"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI (no model version stated)",
+            "what_it_did": "Per the paper's own AI-involvement checklist, 'The implementation and refinement of approaches (the circulant autocorrelation bound, the forced-structure reduction, the orbit-existence and blended-objective formulations) were generated by a frontier AI agent across iterations.' Also: 'The agent wrote the code (solver encodings, the reduction and its validation, and the fixed-point-free and single-fixed-point orbit-existence models).' 'The AI agent drafted the manuscript and tables.' The checklist attributes 'The problem instance and the strategic plan' to the author and answers 'Mostly human, assisted by AI'. The checklist's 'frontier AI agent' is not named there; the disclosure paragraph names it as Claude.",
+            "basis_quote": "Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI with shell and tool access, invoking external constraint solvers (Google OR-Tools CP-SAT and Microsoft Z3) and standard scientific-Python libraries (NumPy, SciPy) for enumeration and verification.",
+            "quote_url": "https://arxiv.org/html/2608.11211v1"
+          }
+        ],
+        "disclosed_cost": "None disclosed in v1: no token, session, hour or cost figures.",
+        "sources": [
+          "https://arxiv.org/html/2608.11211v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.11211v1",
+        "https://arxiv.org/html/2608.11211v1",
+        "https://caisc2026.github.io",
+        "https://caisc2026.github.io/verifiable-problems/?problem=conways-99-graph",
+        "https://luma.com/caisc2026",
+        "https://gdg.community.dev/events/details/google-gdg-ai-for-science-india-presents-conference-for-ai-scientists/"
+      ]
+    },
+    {
+      "id": "thakkar-severini-2026-v2",
+      "what_happened": "Revised version v2 of arXiv:2608.11211, submitted 18 Sep 2026, by Aalok Thakkar (Vachani School of Advanced Computing, Ashoka University) and Simone Severini (UCL). It adds: 'Separately, we supplied the scoring function to an evolutionary program-search system.' The system produced a degree-preserving tabu search whose best verified artifact scores 3501/4950 = 70.73%, above the 69.43% of the fourteen human-designed methods. Acknowledgements: 'We thank the AlphaEvolve team [15] at Google DeepMind for access to the evolutionary code-search system used to generate the 70.73% heuristic.' The authors write: 'These results do not resolve the existence problem', and that the 70.73% artifact 'is a search result, not a bound and not evidence for or against existence.' The v2 AI-disclosure paragraph is absent; the trajectory section refers to 'The coding agent' without naming it.",
+      "date": "2026-09-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 13 Jul 2026 (Thakkar alone; AI-disclosure paragraph naming Anthropic’s Claude; best 69.43%). v2 18 Sep 2026 (Thakkar and Severini; comment 'An earlier version of this paper was accepted to the first Conference For AI Scientists (CAISc)'; AlphaEvolve acknowledgement; 70.73%).",
+      "delivers": "A partial-score search result: a 99-vertex symmetric 0/1 matrix satisfying 3501 of the 4950 CAISc constraints (70.73%). It is not a strongly regular graph and not a bound. The v1 results (circulant ceiling of 68.0%, 84-vertex reduction) are retained.",
+      "remains": "Existence of (99,14,1,2); the 84-vertex reduced problem; everything v1 leaves open.",
+      "checked_by": [
+        {
+          "who": "CAISc 2026 Verifiable Problems track reviewer named in the v2 bibliography: Dr. Ankan Pal",
+          "qualification": "Not established",
+          "what_they_did": "Track review as recorded in the bibliography entry; no review text found",
+          "where": "https://caisc2026.github.io/verifiable-problems/?problem=conways-99-graph",
+          "automated": null
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 weeks",
+      "machine_checked": null,
+      "directly_checkable": "The 3501/4950 matrix can be scored by anyone with the 4950-constraint rule. The v2 text says every candidate was evaluated by the same independent scorer used for the human-designed methods. The matrix and scoring code were not located, so whether they are released is unverified.",
+      "doubts": "(1) The v1 'robust frontier' claim (fourteen methods, none exceeding 69.43%) is contradicted by this v2 result. (2) AI attribution changed: v1 names Claude as the agent that wrote the code and drafted the manuscript; v2 names AlphaEvolve only for the search program and says nothing about who wrote the code or drafted the text. (3) Authorship changed from one author to two. (4) The switch size of the tabu move is rendered as '4-vertex' in one fetch and '44-vertex' in another; I did not resolve this from the paper body.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither way on existence. A partial-score search result that the authors themselves describe as not a bound.",
+      "object": "A 99×99 symmetric 0/1 matrix produced by a degree-preserving tabu search (program generated by AlphaEvolve, per the acknowledgement), satisfying 3501 of the 4950 CAISc constraints (70.73%). It fails 1449 constraints, so it is not a strongly regular graph. Whether the matrix is explicit and released was not verified.",
+      "people": [
+        "Aalok Thakkar",
+        "Simone Severini"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "AlphaEvolve",
+            "what_it_did": "Generated the evolutionary program (a degree-preserving tabu search) whose best verified artifact scores 70.73%. The authors supplied the scoring function as the fitness harness, and the system 'was not given our forced-structure reduction or our hand-designed move operators'. The text also says 'Every candidate returned by the program search was evaluated by the same independent scorer'.",
+            "basis_quote": "We thank the AlphaEvolve team [15] at Google DeepMind for access to the evolutionary code-search system used to generate the 70.73% heuristic.",
+            "quote_url": "https://arxiv.org/html/2608.11211v2"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.11211v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.11211v2",
+        "https://arxiv.org/html/2608.11211v2"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Makhnev and a nonexistence claim. Reimbayev 2024 (arXiv:2409.10620, conclusion) says that given n3=0, 'Makhnev [4] has proved that srg(99,14,1,2) doesn't exist'. Reimbayev 2025 (arXiv:2508.03377, body) says 'as shown by Makhnev, that an srg(99,14,1,2) doesn’t exist'. The Makhnev–Minakova 2004 abstract claims no nonexistence and presents existence as open. Cesarz–Woldar (2023 arXiv; 2025 journal) and Thakkar–Severini (2026) treat the case as open, and so do Wikipedia and Epoch AI. I could not locate any Makhnev paper proving nonexistence, nor the n3=0 hypothesis in the sources I could read. Unresolved.",
+      "sources": [
+        "https://arxiv.org/html/2409.10620v1",
+        "https://arxiv.org/html/2508.03377v2",
+        "https://geodesic.mathdoc.fr/item/DM_2004_16_1_a6",
+        "https://arxiv.org/html/2608.11211v2"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Who supplied the problem instance. Thakkar v1 says 'The problem instance and the strategic plan ... came from the author'. The v2 bibliography entry for the CAISc Verifiable Problems track gives the problem as 'Siddhartha Mahajan. Conway’s 99-Graph. Reviewed by Dr. Ankan Pal. CAISc 2026 Verifiable Problems Track, 2026'. Mahajan is listed on the CAISc organising committee. Unresolved.",
+      "sources": [
+        "https://arxiv.org/html/2608.11211v1",
+        "https://arxiv.org/html/2608.11211v2",
+        "https://caisc2026.github.io"
+      ]
+    },
+    {
+      "kind": "secondary-misstatement",
+      "summary": "The UBOS blog (A. Bidochko, updated 15 Aug 2026) says the work bounds 'any candidate strongly regular graph to at most 69.43 %' and calls the 69.43% 'the highest ever reported', and claims 'the first verifiable bounds'. The paper's v1 abstract gives 69.43% as the best verified partial-score artifact, not a ceiling over all candidates, and gives 68.0% only as the exhaustive ceiling for circulant graphs. The blog's 'fully reproducible, AI-driven attack' and its multi-agent pipeline are not stated in the paper, which names one system (Claude) in v1 and none in v2.",
+      "sources": [
+        "https://ubos.tech/a-forced-structure-reduction-and-verifiable-bounds-for-conways-99-graph/",
+        "https://arxiv.org/html/2608.11211v1"
+      ]
+    },
+    {
+      "kind": "date",
+      "summary": "Keramatipour: the title page gives 'submitted June 2023' for an MPhil thesis at Cambridge, but the arXiv posting is 24 Apr 2026. Whether the thesis was public before 2026 is not established; if it was, the first public written argument would predate the frozen Wikipedia revision.",
+      "sources": [
+        "https://arxiv.org/html/2604.23037v2",
+        "https://arxiv.org/abs/2604.23037v2"
+      ]
+    },
+    {
+      "kind": "internal-revision",
+      "summary": "Thakkar v1 says 69.43% is 'a robust frontier' (fourteen methods, none exceeding it). v2 reports a 70.73% artifact that exceeds it, and the v2 text says the earlier search 'crosses a plateau that was stable under' the authors' own searches. This is a revision contradicting an earlier claim, not a priority dispute.",
+      "sources": [
+        "https://arxiv.org/html/2608.11211v1",
+        "https://arxiv.org/html/2608.11211v2"
+      ]
+    }
+  ],
+  "summary": "No construction and no nonexistence proof for srg(99,14,1,2) was found in any source, and every source I could read still treats the problem as open: Wikipedia (last edit 30 Jan 2026 per the fetch), Epoch AI’s FrontierMath open-problem page (listed as unsolved, with the note 'The main risk with this problem is that no such graph exists'), the Cesarz–Woldar journal version (2025), and the 2026 papers. Since 26 January 2024 the events are: Reimbayev (16 Sep 2024), a conditional nonexistence criterion that holds only if the hexagon count meets a bound the paper conjectures for n=99; Reimbayev (5 Aug 2025), a family-wide enumeration of six-vertex subgraphs that does not determine n3; Keramatipour (24 Apr 2026), a negative SAT-encoding result; and Thakkar, with Severini added in v2 (13 Jul 2026, revised 18 Sep 2026), which gives a forced-structure reduction to a 12-regular graph on 84 vertices, an exhaustive ceiling of 68.0% for circulant graphs on Z/99 (so no circulant srg(99,14,1,2)), and best partial scores of 69.43% (v1) and 70.73% (v2). The Thakkar work is the one with AI involvement. In v1 the authors say 'Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI' wrote the code and drafted the manuscript, while the problem instance and strategy came from the author; v2 drops that disclosure and credits AlphaEvolve for the search program that produced the 70.73% artifact, saying it is 'not a bound and not evidence for or against existence'. The paper was accepted to CAISc 2026, where it was listed on the Verifiable Problems track as an instance credited to Siddhartha Mahajan and 'Reviewed by Dr. Ankan Pal', and it received one of three Best Paper Awards; the award pool was sponsored by Anthropic, OpenAI and Jarvis Labs. Those are the only checks I found: no expert write-up, no journal acceptance, and no peer review. Close calls: (1) whether the Thakkar result counts toward this problem at all. It rules out circulant srg(99,14,1,2) and narrows the structure, but leaves general existence untouched, and the authors say so. (2) Whether the Makhnev attribution in Reimbayev 2024 and 2025 means the question was already settled negatively. I could not find Makhnev’s proof, and the sources that cite him still treat the case as open, so I record it as a dispute rather than an event. (3) Keramatipour's negative SAT result is a method finding, not a claim about existence. AI search: I searched the problem name with AI terms, AlphaEvolve, Claude, GPT, Gemini, Deep Think, FrontierMath and the venue pages. I found no lab announcement and no AI claim on this problem outside arXiv:2608.11211. The Knuth/Claude Hamiltonian-cycle result is a different problem and is not counted. Caveat: most verbatim quotes from arXiv PDFs (2608.11211, 2409.10620, 2508.03377, 2604.23037) came from a fetch tool that returns summarised, piece-wise quotes; the PDF bodies were unreadable as binary, so wording should be checked against the source before it is relied on.",
+  "competing_reading": "The v1 disclosure is an explicit authorial account that a model supplied the implementation, the reduction code and the manuscript, and a reader could treat the Thakkar work as the first AI-agent-driven progress on the problem, with the circulant ceiling and the reduction counted as settled mathematics. The reverse reading: Reimbayev's 'as shown by Makhnev ... doesn’t exist' sentences would mean the problem was already answered negatively, making all 2024–2026 events confirmatory rather than progress. Against both: the authors of the 2026 work say the results 'do not resolve the existence problem'; the Makhnev–Minakova abstract claims no nonexistence; and I could not find Makhnev’s proof.",
+  "what_would_settle_it": "(1) Makhnev’s own nonexistence paper, if it exists, which Reimbayev cites as [4], with its hypotheses (the n3=0 condition in particular) checked against the claim. (2) The CAISc Verifiable Problems entry and its scorer: the 4950-constraint rule, the reviewer's report by Dr. Ankan Pal, and any statement about who posed the problem. (3) The released 99×99 matrices and scoring code for the 69.43% and 70.73% artifacts, to check the scores and the 'independent scorer' statement. (4) A referee report or journal acceptance of arXiv:2608.11211. (5) The full texts of Reimbayev 2024 and 2025, to confirm the conditional criterion and the n3 status. (6) The Behbahani–Lam 2011 paper and the 2026 claim that prime automorphism orders are restricted to 2 and 3. (7) The 2019 McGill report by Hutnyk, whose PDF I could not read.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Conway%27s_99-graph_problem",
+      "title": "Conway's 99-graph problem (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Simone_Severini",
+      "title": "Simone Severini (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.11211v1",
+      "title": "A Forced-Structure Reduction and Verifiable Bounds for Conway's 99-Graph, v1 abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.11211v2",
+      "title": "A Forced-Structure Reduction and Verifiable Bounds for Conway's 99-Graph, v2 abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.11211v1",
+      "title": "arXiv:2608.11211 v1 HTML",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.11211v2",
+      "title": "arXiv:2608.11211 v2 HTML",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.11211",
+      "title": "arXiv:2608.11211 PDF (binary; unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://ubos.tech/a-forced-structure-reduction-and-verifiable-bounds-for-conways-99-graph/",
+      "title": "UBOS blog summary of 2608.11211 (A. Bidochko)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://caisc2026.github.io",
+      "title": "Conference For AI Scientists (CAISc 2026) home page",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://caisc2026.github.io/verifiable-problems/?problem=conways-99-graph",
+      "title": "CAISc 2026 Verifiable Problems page for Conway's 99-graph (problem list did not load)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://caisc2026.github.io/program",
+      "title": "CAISc 2026 program page (HTTP 404)",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://luma.com/caisc2026",
+      "title": "CAISc 2026 event listing (Luma)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://gdg.community.dev/events/details/google-gdg-ai-for-science-india-presents-conference-for-ai-scientists/",
+      "title": "Conference For AI Scientists (GDG AI for Science India listing)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.23037v2",
+      "title": "Approaching the Conway-99 problem using SAT solvers, arXiv:2604.23037 abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2604.23037v2",
+      "title": "Approaching the Conway-99 problem using SAT solvers, arXiv:2604.23037 HTML",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://epoch.ai/frontiermath/open-problems/conway-99-graph",
+      "title": "Conway's 99-Graph Problem (Epoch AI, FrontierMath: Open Problems)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2308.02978",
+      "title": "On the automorphism group of a putative Conway 99-graph, arXiv:2308.02978",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2308.02978",
+      "title": "arXiv:2308.02978 HTML rendering (ar5iv)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://alco.centre-mersenne.org/articles/10.5802/alco.418",
+      "title": "Cesarz & Woldar, Algebraic Combinatorics 8(2) (2025)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://cdm.ucalgary.ca/article/view/62323",
+      "title": "Crnković & Maksimović, Contributions to Discrete Mathematics 15(1) (2020)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://geodesic.mathdoc.fr/item/DM_2004_16_1_a6",
+      "title": "Makhnev & Minakova, Diskretnaya Matematika 16(1) (2004), record",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://m.mathnet.ru/eng/dm144",
+      "title": "Diskretnaya Matematika (mathnet) — connection refused",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1707.08047",
+      "title": "Not Conway's 99-Graph Problem, arXiv:1707.08047",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2409.10620",
+      "title": "Reimbayev, The Lower Bound for Number of Hexagons ..., arXiv:2409.10620 abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2409.10620v1",
+      "title": "arXiv:2409.10620 v1 HTML",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2409.10620",
+      "title": "arXiv:2409.10620 PDF (binary; unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.03377",
+      "title": "Reimbayev, The Subgraphs of Order Six ..., arXiv:2508.03377 abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2508.03377v2",
+      "title": "arXiv:2508.03377 v2 HTML",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2508.03377",
+      "title": "arXiv:2508.03377 PDF (binary; unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.29183",
+      "title": "Ishida, No involutions in the missing Moore graph, arXiv:2606.29183 (checked; no mention of 99-graph)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.22867",
+      "title": "Phillips, A Comprehensive Study of Clique Graphs and Clique Regular Graphs, arXiv:2605.22867 (checked; no mention of 99-graph)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://cp4space.hatsya.com/?p=4379",
+      "title": "apgoucher, 'A rather satisfying winter' (2018 blog; SAT idea, no result)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/GrayTaylor/conway99",
+      "title": "GrayTaylor/conway99 repository (no claimed result; no date seen)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://math.mcgill.ca/gsams/drp/papers/papers2019/2019Fall_Hutnyk.pdf",
+      "title": "Hutnyk, McGill 2019 report (binary; unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://educ.jmu.edu/~duceyje/undergrad/2024/index.html",
+      "title": "JMU undergraduate 2024 index (host did not resolve)",
+      "type": "news",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Conway 99-graph problem strongly regular graph (99,14,1,2)",
+      "Conway's 99-graph problem",
+      "Conway 99-graph problem solved 2025",
+      "99-graph Conway existence strongly regular graph 2026",
+      "Conway 99 graph AI model proof OR counterexample",
+      "Wikipedia Conway's 99-graph problem",
+      "Conference For AI Scientists CAISc 2026 accepted papers",
+      "Thakkar Severini Conway 99-graph CP-SAT",
+      "Keramatipour Conway-99 SAT solvers strongly regular graph",
+      "evolutionary program search tabu search strongly regular graph 99 vertices 70.73%",
+      "AlphaEvolve Conway 99-graph strongly regular graph",
+      "autonomous AI research agent Conway 99-graph reproducible attack",
+      "Conway 99 graph GPT-5 OR Gemini OR Claude OR \"Deep Think\" strongly regular",
+      "CAISc 2026 Verifiable Problems track Conway 99-graph",
+      "Conference For AI Scientists Lossfunk BITS Pilani verifiable problems",
+      "srg(99,14,1,2) nonexistence proof",
+      "Aalok Thakkar Ashoka University Vachani strongly regular graph",
+      "Simone Severini UCL Conway 99 graph",
+      "Brouwer strongly regular graphs table parameters 99 14 1 2 unknown",
+      "Aalok Thakkar relational query synthesis Möbius",
+      "Conway 99 graph undergraduate project 2024 strongly regular graph JMU",
+      "Behbahani Lam strongly regular graphs (99,14,1,2) orbit matrix automorphism",
+      "Makhnev Minakova strongly regular graphs parameters (v,k,1,2) automorphism groups",
+      "Conway 99-graph hexagons lower bound arXiv 2024",
+      "\"Conway\" \"99-graph\" AI agent claim 2026 Claude Code mathematics open problem",
+      "Anthropic Claude solved open problem combinatorics 2026 strongly regular graph",
+      "\"Conference For AI Scientists\" accepted paper Thakkar",
+      "caisc2026 Conference For AI Scientists call for papers verifiable problems track",
+      "Open Conference of AI Agents for Science Stanford 2025 AI primary author",
+      "Epoch AI FrontierMath open problems Conway 99 graph submission solved",
+      "CAISc 2026 Best Paper Award Conway 99-graph Thakkar",
+      "Lossfunk Conway 99-graph verifiable problems AI scientist",
+      "Conway 99-graph bounty unclaimed 2026 existence open strongly regular",
+      "Conway 99-graph SAT solver Cambridge thesis 2023 strongly regular graph (99,14,1,2)",
+      "Ankan Pal reviewer CAISc verifiable problems",
+      "Crnković Maksimović strongly regular graphs (99,14,1,2) automorphism group order six nine",
+      "Makhnev strongly regular graph (99,14,1,2) does not exist triangles n3 = 0"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2608.11211 (v1 and v2); PDF unreadable",
+      "arXiv abstract and HTML pages for 2604.23037 (v1 and v2)",
+      "arXiv abstract and HTML pages for 2409.10620, 2508.03377, 2308.02978 (via ar5iv), 1707.08047, 2606.29183, 2605.22867",
+      "Algebraic Combinatorics journal record for 2308.02978 (2025)",
+      "Contributions to Discrete Mathematics record for Crnković & Maksimović (2020)",
+      "Diskretnaya Matematika record for Makhnev & Minakova (2004) via geodesic.mathdoc.fr; the mathnet page was unreachable",
+      "Wikipedia article on the problem and on Simone Severini",
+      "Epoch AI FrontierMath open-problem page for Conway's 99-graph (the open-problems index was seen only through search)",
+      "CAISc 2026 home, verifiable-problems page, Luma listing, GDG listing; CAISc program page 404",
+      "UBOS blog on 2608.11211 (secondary, promotional)",
+      "GrayTaylor/conway99 GitHub repository",
+      "cp4space blog post (2018) on SAT approaches to this graph",
+      "Searches for AI involvement: problem name with AI, Claude, GPT, Gemini, Deep Think, AlphaEvolve, Epoch leaderboards, CAISc, Lossfunk, Stanford Agents4Science"
+    ],
+    "dead_ends": [
+      "Hutnyk (McGill 2019) evolutionary-search report: PDF returned binary; abstract not read. Earlier snippet said the work reported no solution.",
+      "JMU 2024 undergraduate index: host did not resolve; no 2024 JMU project on this problem was found in search.",
+      "Makhnev Doklady 2013 paper on locally strongly regular graphs with (99,14,1,2) parameters: a title in search results only; a different question (local subgraphs), not opened.",
+      "Makhnev's proof of nonexistence cited in Reimbayev 2024/2025: not found in any source; the n3=0 hypothesis not located.",
+      "Behbahani–Lam 2011 (Discrete Mathematics 311, 132–144): not opened. A 2026 claim that prime orders are restricted to 2 and 3 is not verified.",
+      "Knuth / Claude Opus Hamiltonian-cycle result (Feb 2026): a different problem; not counted.",
+      "Reimbayev 2025 and 2024 PDFs: binary; read through HTML and fetch summaries only.",
+      "Keramatipour thesis: read through fetch summaries of the HTML version; the acknowledgements and absence of AI mention were checked, but the experiment tables were not read in full.",
+      "No Lean or Coq formalisation of the problem, the reduction or the scores was found.",
+      "No Quanta, Tao, Matroid Union or subject-blog coverage of any 2024–2026 event found.",
+      "No FrontierMath leaderboard submission or OpenAI/Google/Anthropic announcement on this problem found; the Epoch page reports none.",
+      "No Brouwer parameter-table page was reached; the 'unknown' status was taken from secondary sources that reproduce it.",
+      "The CAISc verifiable-problem page did not load its problem list, scoring rule or review text; the 'Dr. Ankan Pal' review could not be checked beyond the bibliography entry.",
+      "No independent expert engagement with the 2026 Thakkar–Severini paper was found, and no later paper citing it was found."
+    ]
+  },
+  "incomplete": "Not read or not reached: the 2019 McGill report by Hutnyk (PDF unreadable); the Makhnev Doklady 2013 paper; the full text of Makhnev–Minakova 2004 (abstract only); the full text of Zehavi–de Oliveira 2017 (abstract only); the full text of Crnković–Maksimović 2020 (abstract only; any earlier preprint not checked); the Behbahani–Lam 2011 paper; the PDFs of 2608.11211, 2409.10620 and 2508.03377 (binary; HTML and fetch summaries used instead); the Keramatipour thesis beyond the parts returned by the fetch tool. Quotes from the arXiv HTML pages were returned by a fetch tool that summarises and quotes in pieces, so exact wording should be checked against the source before it is relied on. The CAISc verifiable-problem page did not load its problem statement, scoring rule or review text, and the CAISc accepted-papers list and track review process were not found. The 'Dr. Ankan Pal' reviewer's role and qualifications were not established. The authorship of the problem instance (Thakkar vs. Mahajan) is unresolved. The date of the Crnković–Maksimović preprint, if any, and of the Thakkar–Severini artifact matrices (whether released) were not established. The Epoch AI open-problem index was seen only through search results. No Wikipedia revision history was checked beyond the last-edit date in the fetch summary.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "assisted",
+  "resolution_direction": "refuted",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "thakkar-2026-v1",
+  "no_change_found": false,
+  "event": {
+    "id": "thakkar-2026-v1",
+    "what_happened": "Aalok Thakkar (sole author of v1), 'A Forced-Structure Reduction and Verifiable Bounds for Conway’s 99-Graph', arXiv:2608.11211, v1 submitted 13 Jul 2026 (cs.AI, cs.SC, math.CO; comment: 'This paper is accepted to the first Conference For AI Scientists (CAISc)'). The paper says it attempts 'the conways-99-graph instance of the CAISc 2026 Verifiable Problems track'. Claimed contributions: (1) an exhaustive proof that no circulant graph on Z/99 satisfies more than 3366/4950 = 68.0% of the constraints; (2) a forced-structure reduction (λ=1 makes each neighbourhood a perfect matching; μ=2 fixes the outer-vertex matching), so existence reduces to a constrained 12-regular graph on 84 vertices, encoded in CP-SAT and validated by recovering srg(9,4,1,2); (3) a prescribed-automorphism orbit-existence framework, checked on srg(9,4,1,2) and srg(13,6,2,3); (4) a best verified artifact at 3437/4950 = 69.43%, presented as a robust frontier across fourteen methods. The abstract says 'any provable bound below 4950 is a non-existence proof'.",
+    "date": "2026-07-13",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 13 Jul 2026 (single author). Superseded by v2 of 18 Sep 2026 (see the next event), which carries the same reduction and circulant bound and adds a 70.73% result.",
+    "delivers": "(a) Restricted to circulant graphs on Z/99: no circulant srg(99,14,1,2) exists, since the best circulant scores 68.0%, below 100%. (b) Structural: any srg(99,14,1,2) reduces to a constrained 12-regular graph on 84 vertices. (c) A prescribed-automorphism framework, validated on known graphs. (d) A best partial 99-vertex 0/1 matrix scoring 69.43%, which is not a strongly regular graph. None of these is a construction, nor a proof of nonexistence for the general problem.",
+    "remains": "Existence of a (99,14,1,2) graph in general: the 84-vertex reduced problem, and all graphs that are neither circulant nor within the prescribed-automorphism classes searched.",
+    "checked_by": [
+      {
+        "who": "CAISc 2026 Verifiable Problems track: the problem entry is credited to Siddhartha Mahajan and marked 'Reviewed by Dr. Ankan Pal' (per arXiv:2608.11211 v2 reference [13])",
+        "qualification": "Pal’s qualifications are not established. Mahajan is listed on the CAISc organising committee. The venue page does not describe the reviewing for this track.",
+        "what_they_did": "Track review of the submission. The entry records the reviewer's name only; no review text was found.",
+        "where": "https://caisc2026.github.io/verifiable-problems/?problem=conways-99-graph (linked from arXiv:2608.11211 v2 reference [13]); https://caisc2026.github.io",
+        "automated": null
+      },
+      {
+        "who": "CAISc 2026 organisers, Best Paper Awards",
+        "qualification": "Venue awards. Sponsors of the award pool are Anthropic, OpenAI and Jarvis Labs (context: Anthropic is the vendor of the system named in v1).",
+        "what_they_did": "Named this paper as one of three Best Paper Awards (July 2026). The venue page describes AI agents as first reviewers for the open-ended track; it does not describe the review for the verifiable track.",
+        "where": "https://caisc2026.github.io",
+        "automated": null
+      }
+    ],
+    "no_engagement_found": false,
+    "time_since_posted": "about 3 months",
+    "machine_checked": null,
+    "directly_checkable": "Circulant bound: enumerate the symmetric connection sets on Z/99 and score each against the 4950 constraints (v1 Proposition 1, as described in the fetch summary; I did not read the proposition directly). Reduction: the perfect-matching step follows by hand from λ=1 and μ=2; the CP-SAT encoding was validated by recovering srg(9,4,1,2). Code availability was not verified.",
+    "doubts": "(1) Not peer reviewed. The only named check is a CAISc track reviewer, with no review text found. (2) The v1 abstract calls 69.43% 'a robust frontier' across fourteen methods; v2 reports a higher partial score (70.73%), which contradicts that claim. (3) The v1 AI disclosure says the agent wrote the code and drafted the manuscript, while the problem instance and strategy came from the author; the CAISc entry credits the problem to a different person (see disputes). (4) The first author’s publication record found in searches is in program synthesis and relational queries; I found no earlier strongly regular graph work by him (not established either way).",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Neither proves nor disproves existence. Gives a restricted nonexistence (circulant graphs), a structural reduction, and a partial-score search. The abstract's 'bound below 4950' sentence is a conditional statement; no such bound is claimed.",
+    "object": "(i) A best-found 99×99 symmetric 0/1 matrix scoring 3437 of the 4950 constraints (69.43%). It is not a strongly regular graph. Whether it is explicit or released was not verified. (ii) An enumeration showing that no circulant graph on Z/99 scores above 3366 of 4950 (68.0%). This is an exhaustive, non-constructive ceiling over the circulant class, and it implies no circulant srg(99,14,1,2).",
+    "people": [
+      "Aalok Thakkar"
+    ],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI (no model version stated)",
+          "what_it_did": "Per the paper's own AI-involvement checklist, 'The implementation and refinement of approaches (the circulant autocorrelation bound, the forced-structure reduction, the orbit-existence and blended-objective formulations) were generated by a frontier AI agent across iterations.' Also: 'The agent wrote the code (solver encodings, the reduction and its validation, and the fixed-point-free and single-fixed-point orbit-existence models).' 'The AI agent drafted the manuscript and tables.' The checklist attributes 'The problem instance and the strategic plan' to the author and answers 'Mostly human, assisted by AI'. The checklist's 'frontier AI agent' is not named there; the disclosure paragraph names it as Claude.",
+          "basis_quote": "Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI with shell and tool access, invoking external constraint solvers (Google OR-Tools CP-SAT and Microsoft Z3) and standard scientific-Python libraries (NumPy, SciPy) for enumeration and verification.",
+          "quote_url": "https://arxiv.org/html/2608.11211v1"
+        }
+      ],
+      "disclosed_cost": "None disclosed in v1: no token, session, hour or cost figures.",
+      "sources": [
+        "https://arxiv.org/html/2608.11211v1"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2608.11211v1",
+      "https://arxiv.org/html/2608.11211v1",
+      "https://caisc2026.github.io",
+      "https://caisc2026.github.io/verifiable-problems/?problem=conways-99-graph",
+      "https://luma.com/caisc2026",
+      "https://gdg.community.dev/events/details/google-gdg-ai-for-science-india-presents-conference-for-ai-scientists/"
+    ]
+  },
+  "credited_humans": [
+    "Aalok Thakkar"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2608.11211v1",
+    "https://arxiv.org/html/2608.11211v1",
+    "https://caisc2026.github.io",
+    "https://caisc2026.github.io/verifiable-problems/?problem=conways-99-graph",
+    "https://luma.com/caisc2026",
+    "https://gdg.community.dev/events/details/google-gdg-ai-for-science-india-presents-conference-for-ai-scientists/"
+  ],
+  "ai": {
+    "systems": [
+      "Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI (no model version stated)"
+    ],
+    "from_event": "thakkar-2026-v1",
+    "basis_quote": "Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI with shell and tool access, invoking external constraint solvers (Google OR-Tools CP-SAT and Microsoft Z3) and standard scientific-Python libraries (NumPy, SciPy) for enumeration and verification.",
+    "none_found": false,
+    "disclosed_cost": "None disclosed in v1: no token, session, hour or cost figures."
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "cesarz-woldar-2023",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "refuted",
+        "object_role": null
+      },
+      {
+        "id": "makhnev-minakova-2004",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "refuted",
+        "object_role": null
+      },
+      {
+        "id": "zehavi-de-oliveira-2017",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "crnkovic-maksimovic-2020",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "refuted",
+        "object_role": null
+      },
+      {
+        "id": "reimbayev-2024",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Nonexistence is conditional on an unproved hexagon-count equality, and the paper attributes an unconditional nonexistence result to Makhnev that the record could not locate and that later sources contradict by treating the case as open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "reimbayev-2025",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Family-wide enumeration that leaves n3 undetermined; its nonexistence sentence rests on the same unlocated Makhnev attribution.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "keramatipour-2026",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "thakkar-2026-v1",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI with shell and tool access, invoking external constraint solvers (Google OR-Tools CP-SAT and Microsoft Z3) ... for enumeration and verification. (Checklist: 'The implementation and refinement of approaches (the circulant autocorrelation bound, the forced-structure reduction, ...) were generated by a frontier AI agent across iterations'; 'The problem instance and the strategic plan' from the author; 'Mostly human, assisted by AI'.)",
+        "ai_systems_credited": [
+          "Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI (no model version stated)"
+        ],
+        "direction": "refuted",
+        "object_role": null
+      },
+      {
+        "id": "thakkar-severini-2026-v2",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "We thank the AlphaEvolve team [15] at Google DeepMind for access to the evolutionary code-search system used to generate the 70.73% heuristic.",
+        "ai_systems_credited": [
+          "AlphaEvolve"
+        ],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks only whether srg(99,14,1,2) exists, so a nonexistence result restricted to a class of graphs (by automorphism group, or circulant on Z/99) is a case. Thakkar v1's circulant exhaustion is such a case. I treated it as checkable because it is a finite, decisive enumeration that anyone can rerun. Its forced-structure reduction is a reformulation, and its 69.43% artifact is a partial-score search, not a bound on the problem. The v1 disclosure says Claude generated the implementation of the circulant bound and the reduction, while the strategy came from the author. That puts mathematics in the result as computational work the agent built and ran, so I answered assisted rather than generated or none. v2 adds new mathematics only in the 70.73% artifact. The authors say it is not a bound and not evidence either way, so its scope is none, even though AlphaEvolve generated it. Both Reimbayev papers are conditional or structural and settle nothing for n=99. Keramatipour is a negative result about a method. Zehavi–de Oliveira solves an alternative question. I read the restricted nonexistence results as going against existence (refuted) within their class.",
+    "doubts": "The Thakkar v1 AI role was a close call between assisted and none. The quote says the agent 'generated' the implementation of the circulant bound and the reduction, and the strategy was human, which is why I chose assisted. I chose checkable for the circulant ceiling even though the record did not confirm that the code was released. The unlocated Makhnev nonexistence attribution in Reimbayev's papers is unresolved. The Keramatipour date may really be June 2023 if the thesis was public then, but this does not matter because its scope is none.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "thakkar-2026-v1",
+      "ai_role": "assisted",
+      "ai_from": "thakkar-2026-v1",
+      "resolution_direction": "refuted",
+      "object_role": null,
+      "ai_systems_credited": [
+        "Anthropic’s Claude, run as an autonomous research-and-coding agent via the Claude Code CLI (no model version stated)"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

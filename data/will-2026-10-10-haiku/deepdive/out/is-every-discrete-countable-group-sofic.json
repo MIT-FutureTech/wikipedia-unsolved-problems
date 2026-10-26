@@ -1,0 +1,789 @@
+{
+  "key": "is-every-discrete-countable-group-sofic",
+
+  "nothing_found": false,
+
+  "outcome": "Answered negatively by a claim not yet peer reviewed: OpenAI announced on 1 August 2026 an explicit non-sofic countable discrete group (a finitely generated non-sofic subgroup of the unit group of the binary Leavitt algebra L(F₂)(1,2)), with a reportedly sorry-free Lean 4 formalisation. Two arXiv follow-ups in August 2026 (Fournier-Facio, 3 Aug; Kun and Thom, 6 Aug) produce further non-sofic groups by the same mechanism, and a human audit (Sienicki and Sienicki, 3 Aug, revised to 9 Sep) reports no substantive error in the non-sofic chapter but says it is not a sentence-by-sentence verification. A priority and provenance dispute involving Andreas Thom is open. No retraction or identified fatal error was found as of 12 October 2026.",
+
+  "problem_asks": "One universal yes/no claim, read from the statement alone: (a) the class: every discrete countable group G; (b) the property: G is sofic, i.e. G admits sofic approximations (for every finite set F of group elements and every ε > 0 there exist a finite set and a map from G's elements to permutations of that set which is approximately multiplicative on F and almost-free on F), equivalently G embeds in an ultraproduct of symmetric groups; (c) the question is answered affirmatively by proving every such group sofic, and negatively by exhibiting one discrete countable group that is not sofic. No hypothesis, no parameter, no sub-case is named. The bullet has no parent.",
+
+  "events": [
+    {
+      "id": "openai-astra-2026-08",
+      "what_happened": "OpenAI's 'Ten advances in mathematics and theoretical computer science' (announced 1 Aug 2026) includes a chapter, titled 'A Counterexample to the Soficity Conjecture' (Ch. 3, per MathWorld), claiming an explicit non-sofic group: the unit group of the binary Leavitt algebra L(F₂)(1,2), with a finitely generated non-sofic subgroup constructed inside it. The list item reads 'Non-sofic groups. An explicit non-sofic group is constructed, resolving the question of whether every countable group admits finite permutation approximations' (quoted via a search snippet of OpenAI's list, not read directly). The release is a manuscript collection with Lean 4 formalisations in the GitHub repository openai/ten-proofs (file NonSoficGroup.lean; Apache-2.0; README says Lean 4.32.0 with Mathlib). A leaked paper titled 'Nonsofic Groups Exist' was reported circulating on X late on 31 July 2026 (secondary sources only). The OpenAI announcement page and the PDF (cdn.openai.com/pdf/ten-proofs-oai.pdf) were not readable here (HTTP 403 on the page; the PDF returned as binary), so the wording of the announcement is from MathWorld, SiliconAngle, the HUN-REN institute, and an AI-written overview page quoting the PDF.",
+      "date": "2026-08-01",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Leaked version on X late 31 Jul 2026 (secondary). Official announcement 1 Aug 2026. Scientific American (6 Aug 2026) reports that an OpenAI spokesperson said 'We plan to make small updates [to the paper] this week, consistent with standard academic practice' and that OpenAI changed the wording of its press release. One secondary report says the Astra writeup was quietly updated to credit Thom and Kun (not verified against OpenAI). Repository showed one commit when the README was read; later commit history not checked.",
+      "delivers": "If the construction is correct: a countable discrete group that is not sofic (a finitely generated non-sofic subgroup of the unit group of L(F₂)(1,2)). This is a single counterexample to the universal claim, so it settles the problem as stated in the negative. Secondary reports (DEV write-up; SiliconAngle paraphrase) say the top-level Lean theorem gives a finitely presented non-sofic group and that the specific group is not given by an explicit finite presentation in the manuscript; I did not verify either from the Lean file or the manuscript.",
+      "remains": "Nothing of the question as stated, provided the construction holds. Not established by the sources: that the Lean statements match the prose definitions of soficity and the Leavitt algebra (SiliconAngle notes a mathematician must still confirm the formal statements match the open problems; no published fidelity audit found); whether a finite presentation of the named group is given (disputed in secondary coverage).",
+      "checked_by": [
+        {
+          "who": "Francesco Fournier-Facio, with Henry Bradford and Alon Dogon",
+          "qualification": "Group theorists working in the area of sofic groups. Fournier-Facio is described in secondary coverage as a Cambridge group theorist; Bradford co-authors sofic-group papers (arXiv 2601.18742). I did not check Dogon's record.",
+          "what_they_did": "Per the acknowledgements of arXiv 2608.02025: 'On 31 July 2026 I saw an early version of [Ope26] and went through it together with Henry Bradford and Alon Dogon.' The author uses OpenAI's key proposition as a black box in his own construction and does not re-prove it. No separate report from Bradford or Dogon was found.",
+          "where": "https://arxiv.org/html/2608.02025v2",
+          "automated": false
+        },
+        {
+          "who": "Mikołaj Sienicki and Krzysztof Sienicki",
+          "qualification": "No affiliations shown on the arXiv page; I did not establish their expertise.",
+          "what_they_did": "Audit of 18 chapter-specific reviews of the ten OpenAI results, Lean formalisations and follow-up work. States that 'no substantive error is reported in Chapter 3's non-sofic-group construction' in the examined reviews; that one review 'places particular emphasis on matching conventions in imported results'; that 'neither paper is a sentence-by-sentence verification of Chapter 3'; and that it does not claim a complete reconstruction of any of the ten proofs.",
+          "where": "https://arxiv.org/html/2608.14673 (v3, 9 Sep 2026)",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 weeks (1 Aug to 12 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 (v4.32.0 per the repository README) with Mathlib, as a Lake project",
+        "sorry_free": true,
+        "sorry_free_basis": "Reported by a secondary write-up (DEV, 'three days on') and by SiliconAngle and the Sienicki audit metadata. I did not build the repository, so this is a reported fact, not one I checked.",
+        "statement_fidelity": "No published audit that the Lean definitions of soficity, the Leavitt algebra and the group match the prose. Kernel acceptance establishes the formal statement, not that it is the intended one.",
+        "url": "https://github.com/openai/ten-proofs"
+      },
+      "directly_checkable": "The group is a specific subgroup of the unit group of an explicit algebra over the field with two elements. Per the SiliconAngle paraphrase, the obstruction is that a carefully chosen copy of Thompson's group V violates the required finite-approximability property. I did not check the obstruction or the Lean file by hand.",
+      "doubts": "(1) Provenance: the key step is reported (Scientific American; Thom via secondary reports) to rest on Kun's 2016 decomposition theorem and the 2019 Kun–Thom paper. Thom says the key step traces to his 2019 work with Kun and that he and a colleague had worked through the same mathematics with ChatGPT for months beforehand; he asked OpenAI whether those conversations entered training data or were accessible to the system, and a single-sentence reply from Mark Sellke ('Regarding your conversations with ChatGPT: that did not happen.') is disputed by Thom as answering only the second question. OpenAI's Bubeck is quoted by Wired (via secondary) as saying 'We did not use their prompt or proofs to prompt our models.' This is a dispute about provenance and access, not a finding that the proof is wrong. (2) OpenAI's announcement contained a claim of 'no progress on the main result for at least a decade', which Fournier-Facio's footnote says was contrary to the literature and was redacted on 3 Aug. (3) Scientific American (6 Aug) reports that the key step combined ideas from papers of 2016 and 2019 and that the result 'wasn't as novel as it first appeared' (attributed to a group of mathematicians; the reporter's excerpt does not give names beyond the Miller dispute below). (4) No public check by a group theorist beyond the Fournier-Facio–Bradford–Dogon statement was found. Gowers's weblog post of 12 Aug 2026 (read via a summariser) calls the problem 'one of the most important unsolved problems in group theory' and counts it among results obtained by counterexample rather than proof; it does not assess correctness. A secondary report that Gowers would recommend the paper for the Annals is not in the blog text I read. (5) The audit's reviewer note on matching conventions and parameter hierarchy in nested o(N) bookkeeping; the audit explicitly declines a sentence-by-sentence check. (6) No named human authors on the release (secondary, DEV). None of these is a retraction.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Negative: asserts that a countable discrete group that is not sofic exists, which is the negation of the question as stated. It cuts against the (widely believed) affirmative answer that every countable group is sofic.",
+      "object": "A finitely generated non-sofic subgroup of the unit group of the binary Leavitt algebra L(F₂)(1,2) over the field with two elements (MathWorld; Fournier-Facio's abstract: 'the unit group of the binary Leavitt algebra'). The construction is a proof that a specific finitely generated group is not sofic, via a finite-approximation obstruction involving Thompson's group V (SiliconAngle paraphrase). OpenAI's wording, quoted via an AI-written overview of the PDF, is that the model 'disproved this soficity conjecture by constructing an explicit group within the unit group of the binary Leavitt algebra'. Whether the group is explicit in the stronger sense of a finite presentation is disputed in secondary coverage.",
+      "people": [
+        "OpenAI (no named human authors on the release, per the DEV secondary write-up)",
+        "Gábor Kun (HUN-REN Alfréd Rényi Institute; key ingredient, per HUN-REN and secondary reports)",
+        "Andreas Thom (TU Dresden; key 2019 ingredient; disputes provenance)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Astra",
+            "what_it_did": "OpenAI says the mathematical arguments for the ten results, including the non-sofic construction, came from the model; human researchers turned the output into publishable papers. Named as an internal version of OpenAI's forthcoming Astra model (a pre-release build, not a shipped model). Bubeck's post, as quoted in the AI overview page: 'this statement is one of many new beautiful results proved by Astra, our next major model.' Scientific American reports that the LLM-generated proof 'hinges on' an argument the critics say first appeared in the literature.",
+            "basis_quote": "The model disproved this 'soficity conjecture' by constructing an explicit group within the unit group of the binary Leavitt algebra.",
+            "quote_url": "https://openai.com/index/ten-advances-in-mathematics/ (page returned 403; sentence as reproduced in https://www.alphaxiv.org/overview/2607.ten-advancements, an automated summary, and the SiliconAngle article)"
+          }
+        ],
+        "disclosed_cost": "OpenAI reportedly says the tokens to find all ten solutions would cost roughly $2,000 at 'Sol API rates' (secondary coverage quoting OpenAI). Not verified in a primary source.",
+        "sources": [
+          "https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/",
+          "https://hun-ren.hu/research_news/openais-mathematical-breakthrough-builds-on-hun-ren-renyi-researchers-work-110264",
+          "https://www.alphaxiv.org/overview/2607.ten-advancements",
+          "https://scientificamerican.com/article/openais-latest-math-breakthroughs-commit-research-misconduct-experts-say",
+          "https://mathworld.wolfram.com/SoficityConjecture.html"
+        ]
+      },
+      "sources": [
+        "https://mathworld.wolfram.com/SoficityConjecture.html (date Aug 1 2026; chapter title; 'AI-generated proof given by OpenAI (2026)'; group)",
+        "https://github.com/openai/ten-proofs (repository, Lean files, Apache-2.0, Lean 4.32.0)",
+        "https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/ (announcement date, Astra, 'none of the 10 has been through peer review')",
+        "https://hun-ren.hu/research_news/openais-mathematical-breakthrough-builds-on-hun-ren-renyi-researchers-work-110264 (dated 05.08.2026; 'AI-generated proof'; Kun's results)",
+        "https://arxiv.org/html/2608.02025v2 (Fournier-Facio's account of the OpenAI theorem and his checking with Bradford and Dogon; footnote on the 3 Aug redaction)",
+        "https://arxiv.org/html/2608.14673 (audit: Chapter 3, no substantive error reported, not a verification)",
+        "https://scientificamerican.com/article/openais-latest-math-breakthroughs-commit-research-misconduct-experts-say (6 Aug 2026; OpenAI spokesperson; press release wording changed; critics)",
+        "https://en.wikipedia.org/wiki/Sofic_group (presents the 2026 result as claimed, citing OpenAI's 1 Aug 2026 PDF and a New Scientist article of 3 Aug 2026)"
+      ]
+    },
+
+    {
+      "id": "fournier-facio-2026-08",
+      "what_happened": "Francesco Fournier-Facio, 'A torsion-free non-sofic group', arXiv:2608.02025 (single author, 5 pages). Takes OpenAI's key technical criterion (cited as Proposition 1.2, OpenAI's Proposition 2.3) as a black box and gives a different source of examples relying on that criterion. Main theorem as stated in the paper: Theorem 1.3, 'There exists a finitely presented torsion-free non-sofic group.' The introduction describes the construction as a non-sofic group avoiding Leavitt algebras entirely. The paper states the OpenAI theorem as 'There exists a non-sofic group' (its Theorem 1.1, citing OpenAI).",
+      "date": "2026-08-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 submitted 3 Aug 2026; v2 14 Aug 2026 ('small changes after several comments on the first version'). The footnote says the OpenAI announcement's claim of 'no progress on the main result for at least a decade' was contrary to the literature and 'has been redacted on 3 August'.",
+      "delivers": "Negative answer for the same question: a finitely presented torsion-free non-sofic group exists (Theorem 1.3). This is conditional on OpenAI's technical proposition, which the paper uses without re-proving it, so it adds further examples but does not independently verify the criterion. Its non-sofic conclusion rests on the same criterion as the OpenAI event.",
+      "remains": "Nothing of the question as stated, if the OpenAI criterion holds. The paper does not supply an independent check of that criterion.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 weeks",
+      "machine_checked": null,
+      "directly_checkable": "Theorem 1.3 gives a finitely presented group, so a finite presentation can be checked for torsion-freeness and for the criterion's hypotheses by a group theorist with the paper. I did not check the presentation.",
+      "doubts": "The non-soficity conclusion depends on OpenAI's Proposition, used as a black box (the author states he went through the OpenAI argument with two others, see the OpenAI event). The author's own acknowledgements do not describe an independent proof of the criterion. The result is also a follow-on to an announcement whose 'no progress' sentence the author called incorrect.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Negative: an additional non-sofic group, here finitely presented and torsion-free, consistent with the OpenAI event.",
+      "object": "A finitely presented torsion-free non-sofic group (Theorem 1.3), generated by Γ, t₁ and t₂ in the paper's construction (from the summary of the introduction; the generator count is not part of the theorem statement). The construction uses Thompson's group V, which the paper describes as not LEF, finitely presented and simple (search snippet, not read in full). Proof-based, not an explicit computation.",
+      "people": [
+        "Francesco Fournier-Facio (author)",
+        "Henry Bradford and Alon Dogon (named in the acknowledgements as having gone through the OpenAI argument with the author)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.02025v2 (introduction and acknowledgements as read; no AI disclosure found there; the full text was not read)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.02025 (dates, abstract, comments)",
+        "https://arxiv.org/html/2608.02025v2 (Theorem 1.3, the OpenAI theorem as Theorem 1.1, Proposition 1.2 as the key technical ingredient, acknowledgements)"
+      ]
+    },
+
+    {
+      "id": "kun-thom-2026-08",
+      "what_happened": "Gábor Kun and Andreas Thom, 'Nonsofic wreath products of residually finite groups', arXiv:2608.06222 (16 pages). The abstract says the work 'builds on the breakthrough of OpenAI in finding the first nonsofic group', analyses the underlying proof mechanism and finds further applications. Theorem A (as paraphrased by the summary of the paper): let Γ be infranormal but not normal in G, with both Γ and G having Kazhdan's property (T); then the generalised wreath product (ℤ/2ℤ) ≀_{G/Γ} G and the group double G *_Γ G are not sofic. The abstract says the hypotheses hold for explicit elementary groups over polynomial and Laurent polynomial rings. The introduction says OpenAI 'recently constructed the first nonsofic group [15, Theorem 1.1]' and that the common input is 'a permutation-valued strengthening of the component-matching mechanism from [15, Proposition 2.3]'.",
+      "date": "2026-08-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 submitted 6 Aug 2026; v2 19 Aug 2026 (updated Theorem A per the comments field); v3 last revised 20 Aug 2026 (the version I read via summary).",
+      "delivers": "Further non-sofic groups of the stated form, under the stated hypotheses (Γ and G both property (T), Γ infranormal and not normal, explicit elementary-group examples). Each is a single counterexample to the universal claim, so it answers the question negatively for those groups. The argument uses a strengthening of OpenAI's Proposition 2.3, so these examples are not independent of the OpenAI mechanism's correctness, and their hypotheses are restricted to property (T) pairs.",
+      "remains": "Nothing of the question as stated, which is already answered negatively by the OpenAI event if correct. This event adds examples and does not supply an independent route.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 weeks",
+      "machine_checked": null,
+      "directly_checkable": "Not a finite object: the examples are explicit groups defined from property (T) pairs, and non-soficity is a proof. I did not check the argument.",
+      "doubts": "(1) Inherits any gap in the OpenAI mechanism it strengthens. (2) Thom is an author and is also the person disputing OpenAI's provenance and the 2019 credit; the authors' own description of their contribution to the OpenAI argument is not given. (3) The acknowledgements disclose ChatGPT 5.6 Sol assistance (see the ai field). (4) The only review statement is the authors' own: 'All mathematical content was reviewed, checked, and substantially revised by the authors.' I found no external expert check of this paper. The Sienicki audit discusses the paper but does not verify it (see the OpenAI event).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Negative: further counterexamples to the universal claim, for the specific group families named.",
+      "object": "Non-sofic groups of the form (ℤ/2ℤ) ≀_{G/Γ} G and the group double G *_Γ G, for a pair Γ < G of property (T) groups with Γ infranormal and not normal (Theorem A); the abstract says the hypotheses hold for explicit elementary groups over polynomial and Laurent polynomial rings. The object is defined explicitly, but non-soficity is proved, not computed.",
+      "people": [
+        "Gábor Kun (HUN-REN Alfréd Rényi Institute of Mathematics, Budapest)",
+        "Andreas Thom (TU Dresden)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.06222v3 (Acknowledgements)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.06222 (title, authors, v1 6 Aug 2026, v2 19 Aug, v3 20 Aug, abstract summary)",
+        "https://arxiv.org/html/2608.06222v3 (introduction, Theorem A paraphrase, acknowledgements; the authors' use of ChatGPT 5.6 Sol)"
+      ]
+    },
+
+    {
+      "id": "sienicki-audit-2026-08",
+      "what_happened": "Mikołaj Sienicki and Krzysztof Sienicki, 'A Human Audit of OpenAI's AI-Generated Mathematical Proofs', arXiv:2608.14673. Assesses 18 chapter-specific reviews of the ten OpenAI results, alongside review standards, Lean formalisations, subsequent research and mathematical references. Reports 'no confirmed substantive mathematical error in a principal result' in the examined assessments, with review depth varying. Section 4.2 discusses Chapter 3 (the non-sofic construction) and the follow-up papers of Kun–Thom and Fournier-Facio as independent uses of the mechanism. States that the audit does not claim a complete reconstruction.",
+      "date": "2026-08-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 submitted 3 Aug 2026; v2 25 Aug 2026; v3 9 Sep 2026 (current).",
+      "delivers": "Nothing on the sofic question as such. It is an assessment of the reviews of the OpenAI chapter and of the follow-up uses, and by its own account does not re-derive the non-sofic argument line by line.",
+      "remains": "All of the question. The audit does not establish the non-sofic construction independently of the OpenAI manuscript.",
+      "checked_by": [
+        {
+          "who": "Mikołaj Sienicki and Krzysztof Sienicki",
+          "qualification": "No affiliations shown on the arXiv page; I did not establish their expertise.",
+          "what_they_did": "Audit of the review record for the ten results. For Chapter 3, reports no substantive error in the examined reviews and notes one reviewer's emphasis on conventions and parameter hierarchy. Says the audit is not a reconstruction of the proofs.",
+          "where": "https://arxiv.org/html/2608.14673",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The audit's authors say confidence should combine formal checking, human reconstruction and independent mathematical use. It explicitly does not provide the last two for Chapter 3.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the problem; it assesses the OpenAI claim and the reviews of it.",
+      "object": null,
+      "people": [
+        "Mikołaj Sienicki",
+        "Krzysztof Sienicki"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.14673 (abstract and Section 4.2 summary; no AI system credited with the audit's own analysis as far as read)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.14673 (dates, abstract)",
+        "https://arxiv.org/html/2608.14673 (chapter numbering, Chapter 3 discussion, scope statements)"
+      ]
+    },
+
+    {
+      "id": "thom-conditional-nonhyperlinear-2026-09",
+      "what_happened": "Andreas Thom, 'A conditional construction of a nonhyperlinear group and the centralizer problem', arXiv:2609.27795 (single author; one version, submitted 14 Sep 2026). Shows that a positive answer to the centralizer problem for tracial matrix ultraproducts would imply the existence of a finitely generated nonhyperlinear group.",
+      "date": "2026-09-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (14 Sep 2026).",
+      "delivers": "Conditional only: a non-hyperlinear group follows from an open hypothesis (positive answer to the centralizer problem for tracial matrix ultraproducts). Sofic groups are hyperlinear (a standard inclusion, background not checked in this run), so a non-hyperlinear group would be non-sofic, but the abstract does not mention sofic groups and the implication is conditional. Unconditionally it settles nothing about soficity.",
+      "remains": "All of the question; the unconditional existence of a non-sofic group is not addressed by this paper.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 4 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Conditional on an open hypothesis; the abstract does not say the hypothesis is known.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Would cut against hyperlinearity (and so, by the standard inclusion, against soficity) only if the hypothesis holds; no unconditional direction.",
+      "object": null,
+      "people": [
+        "Andreas Thom (TU Dresden)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.27795 (abstract page; no AI sentence found; full text not read)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.27795 (title, date, conditional claim)"
+      ]
+    },
+
+    {
+      "id": "alekseev-thom-2025-12",
+      "what_happened": "Vadim Alekseev and Andreas Thom, 'Remarks on approximability and stability for groups', arXiv:2512.15494 (single version, 17 Dec 2025). Shows approximation and stability properties pass to quotients by finitely generated normal subgroups, or by normal subgroups with property (T). Theorem A(ii): if N is Kazhdan, G residually finite, stable in finite actions and Q sofic, then Q is residually finite. Theorem A(iv): if N is Kazhdan and the canonical action G on {0,1}^Q is sofic, then Q is sofic. Corollary E: if a non-sofic group exists, there is a hyperbolic group admitting a non-sofic p.m.p. action. The paper states it is 'an outstanding open problem to decide if a non-sofic group or at least a non-sofic p.m.p. action exists', that 'the general belief is that there do exist non-sofic groups', and that the Baumslag–Solitar group BS(2,3) and the Baumslag–Gersten group are sofic.",
+      "date": "2025-12-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "Relative statements: soficity of a quotient under stated hypotheses, and the sofic status of two specific groups (BS(2,3) and the Baumslag–Gersten group). It establishes no non-sofic group, and does not claim to.",
+      "remains": "All of the question as stated: whether every countable discrete group is sofic remains open in the paper's account.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 10 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the question; the paper records the question as open in December 2025 and does not exhibit any non-sofic group.",
+      "object": null,
+      "people": [
+        "Vadim Alekseev",
+        "Andreas Thom"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2512.15494v1 (acknowledgements: 'ChatGPT was used to assist in drafting parts of this manuscript.')"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2512.15494 (authors, date, abstract opening)",
+        "https://arxiv.org/html/2512.15494v1 (Theorem A, Corollary E, open-problem sentence, acknowledgements)"
+      ]
+    },
+
+    {
+      "id": "bowen-chapman-2025-11",
+      "what_happened": "Lewis Bowen and Michael Chapman, 'Surjunctivity does not characterize cosoficity of invariant random subgroups', arXiv:2511.06586 (v1 10 Nov 2025). Constructs a surjunctive invariant random subgroup (IRS) of a free group that is not (co)sofic. The introduction records that, because no non-sofic groups are known, the work uses IRSs of free groups, where non-(co)sofic examples were found earlier.",
+      "date": "2025-11-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 10 Nov 2025 (only version read).",
+      "delivers": "An analogue on invariant random subgroups of free groups, not on groups: surjunctivity does not characterise cosoficity for IRSs. The paper says nothing directly about sofic groups; it reports that the group-level question is still open, with 'no known non-sofic groups' and the negative answer 'still out of reach'.",
+      "remains": "The group-level question in full: whether every countable group is sofic, and whether every surjunctive group is sofic.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 11 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the group-level question. It is a different question (IRSs) and is recorded as such.",
+      "object": null,
+      "people": [
+        "Lewis Bowen",
+        "Michael Chapman"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2511.06586 (abstract; no AI sentence found)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2511.06586 (title, authors, date, abstract summary)"
+      ]
+    },
+
+    {
+      "id": "alekseev-bradford-2026-01",
+      "what_happened": "Vadim Alekseev and Henry Bradford, 'Sofic actions, halo products, and metric approximations of groups', arXiv:2601.18742 (26 Jan 2026). Defines sofic C-actions and shows the classes of sofic, hyperlinear, linear sofic and weakly sofic groups are each closed under semidirect products with a sofic C-action; uses this to build many new examples (often halo products).",
+      "date": "2026-01-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (26 Jan 2026).",
+      "delivers": "Closure and construction results inside the sofic-type classes. Establishes no non-sofic group and does not address whether every group is sofic.",
+      "remains": "All of the question.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 9 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the question; positive closure results inside sofic-type classes.",
+      "object": null,
+      "people": [
+        "Vadim Alekseev",
+        "Henry Bradford"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2601.18742 (abstract summary; no AI sentence found)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2601.18742 (title, authors, date, abstract summary)"
+      ]
+    },
+
+    {
+      "id": "ersoy-2026-04",
+      "what_happened": "Kıvanç Ersoy, 'On minimal non-sofic and ω-non-sofic groups', arXiv:2604.19174 (v1 21 Apr 2026; v4 8 Jun 2026). Studies minimal non-sofic and ω-non-sofic groups, explicitly assuming that non-sofic groups exist. Results are conditional, e.g. if a non-sofic group exists then the class of ω-non-sofic groups is nonempty; the abstract notes that the existence of a non-sofic group yields a countable existentially closed non-sofic group.",
+      "date": "2026-04-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 21 Apr 2026; v2 23 Apr 2026; v3 15 May 2026; v4 8 Jun 2026.",
+      "delivers": "Conditional structural results about non-sofic groups, on the hypothesis that such groups exist. Establishes no non-sofic group.",
+      "remains": "All of the question. Its hypothesis is the open question.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 6 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Conditional throughout; as of April–June 2026 the paper treats existence as open.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the question; it presupposes the object whose existence the question concerns.",
+      "object": null,
+      "people": [
+        "Kıvanç Ersoy"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2604.19174 (abstract summary; no AI sentence found; the search summary of the introduction notes the question is open, not read in full)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2604.19174 (versions, abstract summary)"
+      ]
+    },
+
+    {
+      "id": "berlai-2025-02",
+      "what_happened": "Federico Berlai, 'A new family of sofic one-relator groups', arXiv:2502.05064 (v1 7 Feb 2025). An infinite family of one-relator groups shown sofic, which are not residually solvable and not residually finite. Its proof does not rely only on Magnus' decompositions, per the abstract.",
+      "date": "2025-02-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (7 Feb 2025).",
+      "delivers": "Soficity for an infinite family of one-relator groups. A positive result on a restricted class; it does not address every countable group.",
+      "remains": "All of the question as stated.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 20 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive, but on a restricted class; no direction on the universal claim.",
+      "object": null,
+      "people": [
+        "Federico Berlai"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2502.05064 (abstract verbatim; no AI sentence found)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2502.05064 (title, author, date, abstract)"
+      ]
+    },
+
+    {
+      "id": "chapman-dikstein-lubotzky-2024-10",
+      "what_happened": "Michael Chapman, Yotam Dikstein and Alexander Lubotzky, 'Conditional Non-Soficity of p-adic Deligne Extensions: on a Theorem of Gohla and Thom', arXiv:2410.02913 (v1 3 Oct 2024; v2 16 Dec 2024). Shows that central extensions of certain arithmetic lattices in Sp(2g, Q_p) are non-sofic, conditional on the (flexible) stability of the lattice; stability would follow from positivity of the permutation Cheeger constant of the underlying simplicial complex, which the abstract presents as still to be proved (generalising Evra and Kaufman). The implication stability to non-soficity is a reworking of Gohla and Thom.",
+      "date": "2024-10-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 3 Oct 2024; v2 16 Dec 2024 (adds an example of a non-stable central extension of a stable group).",
+      "delivers": "Conditional non-soficity for specific central extensions of arithmetic lattices, on a stability hypothesis the paper does not prove. Non-soficity is claimed only conditionally.",
+      "remains": "Unconditionally, these groups are not settled; the question as stated is not settled by this paper.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 12 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Conditional on an open hypothesis (positive permutation Cheeger constant, equivalently stability of the lattice as stated in the abstract).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Would cut against soficity for the named groups, but only conditionally.",
+      "object": "Central extensions of arithmetic lattices in Sp(2g, Q_p), which the paper argues are non-sofic conditional on stability of the lattice; not explicit objects.",
+      "people": [
+        "Michael Chapman",
+        "Yotam Dikstein",
+        "Alexander Lubotzky"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2410.02913v2 (abstract summary; no AI sentence found)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2410.02913v2 (title, authors, dates, conditional structure)"
+      ]
+    },
+
+    {
+      "id": "solé-pi-2025-08",
+      "what_happened": "Oriol Solé-Pi, 'Minor-excluded graphs and soficity', arXiv:2508.06731 (v1 8 Aug 2025; v2 11 Oct 2025). Proves that every one-ended unimodular random rooted graph with no finite graph H as a minor is sofic (Benjamini–Schramm limit of finite graphs); the number-of-ends hypothesis can be dropped for quasi-transitive graphs.",
+      "date": "2025-08-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 8 Aug 2025; v2 11 Oct 2025.",
+      "delivers": "Soficity of random rooted graphs, not of groups. Discarded for this question: the notion of sofic is for random rooted graphs, and the paper makes no claim about groups.",
+      "remains": "All of the question.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 14 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the group question; a different object with the same word.",
+      "object": null,
+      "people": [
+        "Oriol Solé-Pi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2508.06731 (abstract summary; no AI sentence found)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2508.06731 (title, dates, scope)"
+      ]
+    },
+
+    {
+      "id": "bowen-burton-2019-06",
+      "what_happened": "Lewis Bowen and Peter Burton, 'Flexible stability and nonsoficity', arXiv:1906.02172 (2019; arXiv identifier indicates June 2019). Shows conditionally: if PSL_d(ℤ) is flexibly stable for some d ≥ 5, then there exists a non-sofic group, constructed as a quotient of an HNN extension of PSL_d(ℤ). The paper does not prove unconditionally that any particular group is non-sofic. v2 adds a hypothesis to Theorem 2.1 that v1 omitted.",
+      "date": "2019-06",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 and v2 (v2 adds a hypothesis to Theorem 2.1, per the arXiv listing summary).",
+      "delivers": "Conditional existence of a non-sofic group, given flexible stability of PSL_d(ℤ) for some d ≥ 5. Unconditional existence not established.",
+      "remains": "The question as stated, unless the stability hypothesis is established; the stability question was open as of the sources I found.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Conditional; the hypothesis was not known in the sources I found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Would cut against soficity conditionally, if the hypothesis holds.",
+      "object": "A quotient of an HNN extension of PSL_d(ℤ), non-sofic if PSL_d(ℤ) is flexibly stable (from the search summary; not read in full).",
+      "people": [
+        "Lewis Bowen",
+        "Peter Burton"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1906.02172v2 (search snippet only; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1906.02172v2 (search snippet only; not opened)"
+      ]
+    },
+
+    {
+      "id": "kun-thom-2019-01",
+      "what_happened": "Gábor Kun and Andreas Thom, 'Inapproximability of actions and Kazhdan's property (T)', arXiv:1901.03963 (v1 13 Jan 2019). Shows that expander sofic approximations of a product G × D with property (T) factor force D to be locally embeddable into finite groups (LEF) under conditions, using a self-improvement theorem for almost automorphisms of expander sofic approximations. Reported in the attribution dispute as the 2019 paper that the key step of the OpenAI argument draws on.",
+      "date": "2019-01-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 13 Jan 2019; a later version adds a new section per the arXiv listing (August 2026 revision reported by a search summary; not verified).",
+      "delivers": "Results on LEF and inapproximability of actions, not a statement about whether every countable group is sofic. Treated here as the prior ingredient named in the priority dispute, not as a result on the question.",
+      "remains": "All of the question as stated.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "No direction on the universal claim; background to the 2026 construction.",
+      "object": null,
+      "people": [
+        "Gábor Kun",
+        "Andreas Thom"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1901.03963 (search snippet only; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1901.03963 (search snippet only; not opened)"
+      ]
+    },
+
+    {
+      "id": "kun-2016-06",
+      "what_happened": "Gábor Kun, 'On sofic approximations of Property (T) groups', arXiv:1606.04471 (v1 13 Jun 2016; v5 30 Jul 2019). Proves Bowen's conjecture: sequences of finite graphs locally converging to the Cayley graph of a property (T) group are essentially disjoint unions of expanders, with a characterisation in terms of the Markov operator. Reported (HUN-REN; secondary reports of the priority dispute) as the 2016 result the OpenAI argument relies on.",
+      "date": "2016-06-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 13 Jun 2016; v5 30 Jul 2019 (separates one- and two-sided expanders, per the version comments as reported in a search summary).",
+      "delivers": "Structural result on sofic approximations of property (T) groups. Not a statement about which groups are sofic. Treated as the ingredient named in the dispute.",
+      "remains": "All of the question as stated.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 10 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "No direction on the universal claim; background ingredient.",
+      "object": null,
+      "people": [
+        "Gábor Kun"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1606.04471v5 (search snippet only; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1606.04471v5 (search snippet only; not opened)"
+      ]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Provenance of the key step. Thom (via secondary reports) says the key step traces to the 2019 Kun–Thom paper (and Kun's 2016 decomposition theorem). Scientific American says the key step combined ideas from papers of 2016 and 2019. HUN-REN says the proof relies crucially on two results of Kun and Kun–Thom. Kun–Thom's own paper says its main input is the authors' earlier decomposition theorem. One secondary report says OpenAI quietly revised the writeup to credit Thom and Kun; I could not check the OpenAI text.",
+      "sources": [
+        "https://hun-ren.hu/research_news/openais-mathematical-breakthrough-builds-on-hun-ren-renyi-researchers-work-110264",
+        "https://scientificamerican.com/article/openais-latest-math-breakthroughs-commit-research-misconduct-experts-say",
+        "https://arxiv.org/html/2608.06222v3",
+        "https://aiweekly.co/alerts/openais-astra-proof-draws-fire-from-mathematician-andreas-thom (search snippet only)"
+      ]
+    },
+    {
+      "kind": "provenance",
+      "summary": "Andreas Thom says he and a colleague spent months on related mathematics with ChatGPT before the announcement and asked OpenAI whether those conversations entered training data and were accessible during the proof. Mark Sellke's reply, as Thom quotes it: 'Regarding your conversations with ChatGPT: that did not happen.' Thom says this answers only the second question. Sébastien Bubeck told Wired (via secondary): 'We did not use their prompt or proofs to prompt our models.' Thom's published posts (Mathstodon) and the Wired article were not retrievable here; the account is secondary.",
+      "sources": [
+        "https://aiweekly.co/alerts/openais-astra-proof-draws-fire-from-mathematician-andreas-thom (search snippet only)",
+        "https://officechai.com/ai/mathematician-andreas-thom-questions-if-openai-used-his-chatgpt-chat-data-for-its-non-sofic-groups-proof/ (search snippet only)",
+        "https://thecybersecguru.com/?p=25254 (search snippet only)"
+      ]
+    },
+    {
+      "kind": "announcement-correction",
+      "summary": "The OpenAI announcement contained a claim of 'no progress on the main result for at least a decade'. Fournier-Facio's footnote says this was contrary to the literature and was redacted on 3 August 2026. Scientific American reports OpenAI changed the wording of the press release and said it would make small updates to the paper that week.",
+      "sources": [
+        "https://arxiv.org/html/2608.02025v2",
+        "https://scientificamerican.com/article/openais-latest-math-breakthroughs-commit-research-misconduct-experts-say"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Steven Miller (Yeshiva University) alleges that OpenAI's work reuses an argument from a 2016 paper he co-wrote without credit, and calls the pattern research misconduct. One secondary (Chinese-language) report places this allegation on the sphere-packing chapter, not the non-sofic one. The Scientific American excerpt I read is ambiguous about which chapter, and I could not identify the 2016 paper's authors (one search summary names Henry Cohn; I did not confirm it). Recorded here so that it is not conflated with the sofic result, whose 2016 ingredient is Kun's paper.",
+      "sources": [
+        "https://scientificamerican.com/article/openais-latest-math-breakthroughs-commit-research-misconduct-experts-say",
+        "https://aiweekly.co/alerts/openais-astra-math-proofs-draw-research-misconduct-claims (search snippet only)"
+      ]
+    },
+    {
+      "kind": "naming",
+      "summary": "OpenAI's announcement names 'Astra' (an internal version of its forthcoming Astra model). A leaked paper and some aggregators name 'GPT 5.6 Sol' as the model that produced the result. Kun and Thom's acknowledgements name 'ChatGPT 5.6 Sol' for assistance with their own manuscript. The relation between the names is not established in any source I read.",
+      "sources": [
+        "https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/",
+        "https://arxiv.org/html/2608.06222v3",
+        "https://officechai.com/ai/gpt-5-6-sol-helps-prove-that-non-sofic-groups-exist-in-big-math-breakthrough/ (search snippet only)"
+      ]
+    },
+    {
+      "kind": "reception",
+      "summary": "A secondary report says Gowers would recommend the paper for the Annals of Mathematics without hesitation; the blog post of 12 Aug 2026 that I read (via a summariser) contains no such remark, and calls the non-sofic problem one of the most important unsolved problems in group theory. Thomas Bloom's X post, as reported by secondary coverage, ranks the result above the unit distance counterexample; not verified.",
+      "sources": [
+        "https://gowers.wordpress.com/ (read via summariser; post of 12 Aug 2026)",
+        "https://thenextweb.com/news/gowers-llm-maths-counterexamples-not-proofs (search snippet only)"
+      ]
+    }
+  ],
+
+  "summary": "The question is a single universal claim, and on 1 August 2026 OpenAI announced a construction that answers it negatively: an explicit non-sofic countable discrete group, a finitely generated non-sofic subgroup of the unit group of the binary Leavitt algebra L(F₂)(1,2). I could read the MathWorld entry, the openai/ten-proofs repository README, the Wikipedia article (which presents the result as claimed, not established), the HUN-REN institute item, SiliconAngle, Scientific American, the Gowers weblog and the arXiv papers, but not OpenAI's own announcement page or its PDF (both not readable here), so the wording of OpenAI's claim comes through secondary reproductions and an automated overview. The Lean formalisation is reported sorry-free (Lean 4 with Mathlib), which I did not build, and I found no published audit that its formal definitions match the prose. Human engagement with the argument is thin: Fournier-Facio, with Bradford and Dogon, says in his arXiv acknowledgements that he went through it, and his own preprint (3 Aug 2026; a finitely presented torsion-free non-sofic group) uses OpenAI's key proposition as a black box rather than re-proving it. Kun and Thom (6 Aug 2026) give further non-sofic wreath products and doubles under property (T) hypotheses, building on the same mechanism, and disclose ChatGPT 5.6 Sol assistance for drafting, editing and checking parts of their manuscript. The Sienicki and Sienicki audit (3 Aug, revised 9 Sep 2026) reports no substantive error in the non-sofic chapter among the examined reviews but says it is not a sentence-by-sentence verification. Priority is contested: the key step is reported to rest on Kun (2016) and Kun–Thom (2019), and Thom disputes OpenAI's answer about his ChatGPT conversations. Earlier events on the question are all conditional or restricted: Bowen–Burton (2019, conditional on flexible stability of PSL_d(ℤ)), Chapman–Dikstein–Lubotzky (Oct 2024, conditional), Bowen–Chapman (Nov 2025, an IRS analogue), Alekseev–Thom (Dec 2025, which records the question as open and asserts soficity for BS(2,3) and the Baumslag–Gersten group), Alekseev–Bradford (Jan 2026, closure results), Ersoy (Apr 2026, conditional on existence), Berlai (Feb 2025, a restricted family), and Solé-Pi (Aug 2025, which concerns random rooted graphs). Close calls: whether the Lean statement is the intended one (not established); whether the human check counts as verification (the Fournier-Facio check is a single author's statement and the audit disclaims reconstruction); whether the attribution dispute bears on correctness (the sources say it is about provenance, not validity); and whether the 31 July leak or the 1 August announcement is the first public written argument (I used 1 August, with the leak noted). AI involvement: OpenAI credits 'Astra' (an internal, pre-release version) with the mathematical arguments, which is load-bearing on the authors' own account; critics dispute novelty, not AI involvement. No other lab's claim on this problem was found; a reported Anthropic claim that Claude Fable 5 reproduced five other OpenAI results does not include the non-sofic result. Two claims I could not verify: that OpenAI's construction yields a finitely presented group, and that OpenAI quietly credited Thom and Kun.",
+
+  "competing_reading": "Read conservatively, nothing has been settled: the only construction is a claim by the lab that produced it, its key step is reported to rest on earlier human work, the Lean statements have not been audited against the prose, the one named human check is a statement by Fournier-Facio (with Bradford and Dogon) that he went through the argument, while his own paper uses the criterion without re-proving it, and an audit explicitly declines to verify the chapter. On that reading the question is open pending expert verification and the correct record is 'claimed'. Read against that, the formal Lean certificate, a named group theorist's public statement that he went through the argument, two follow-up preprints that use the criterion (one by a different author, one by the authors of the 2019 ingredient, who are themselves party to the provenance dispute), and an audit that found no substantive error in the chapter together make the construction more than a press claim; on that reading the question is settled negatively, subject to the verification gaps listed. A third reading: the AI's contribution is the assembly of known ingredients (the critics' position), which bears on how load-bearing the AI contribution is, not on whether the result is correct.",
+
+  "what_would_settle_it": "(a) OpenAI's primary announcement page and the Chapter 3 PDF, with their revision history, to confirm the wording of the claim and the credit given to Kun and Thom. (b) A published audit of the Lean statements in openai/ten-proofs against the definitions of soficity and the Leavitt algebra, by someone who works on sofic groups. (c) A referee or journal decision, or a signed expert verification of the non-sofic construction. (d) Thom's posted email exchange and Sellke's reply in full, to settle the access question. (e) The OpenAI-side account of the model used (Astra, or the GPT 5.6 Sol name in the leak). (f) Whether Fournier-Facio's Theorem 1.3 presentation checks out independently of OpenAI's proposition, and whether the criterion has been checked by a party other than its authors.",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2608.02025", "title": "A torsion-free non-sofic group (Fournier-Facio)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.02025v2", "title": "A torsion-free non-sofic group (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.06222", "title": "Nonsofic wreath products of residually finite groups (Kun, Thom)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.06222v3", "title": "Nonsofic wreath products of residually finite groups (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.14673", "title": "A Human Audit of OpenAI's AI-Generated Mathematical Proofs (Sienicki, Sienicki)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.14673", "title": "A Human Audit of OpenAI's AI-Generated Mathematical Proofs (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.27795", "title": "A conditional construction of a nonhyperlinear group and the centralizer problem (Thom)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2512.15494", "title": "Remarks on approximability and stability for groups (Alekseev, Thom)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2512.15494v1", "title": "Remarks on approximability and stability for groups (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2511.06586", "title": "Surjunctivity does not characterize cosoficity of invariant random subgroups (Bowen, Chapman)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2601.18742", "title": "Sofic actions, halo products, and metric approximations of groups (Alekseev, Bradford)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2604.19174", "title": "On minimal non-sofic and omega-non-sofic groups (Ersoy)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2410.02913v2", "title": "Conditional Non-Soficity of p-adic Deligne Extensions (Chapman, Dikstein, Lubotzky)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2508.06731", "title": "Minor-excluded graphs and soficity (Sole-Pi)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2502.05064", "title": "A new family of sofic one-relator groups (Berlai)", "type": "preprint", "opened": true},
+    {"url": "https://mathworld.wolfram.com/SoficityConjecture.html", "title": "Soficity Conjecture (MathWorld)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Sofic_group", "title": "Sofic group (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://github.com/openai/ten-proofs", "title": "openai/ten-proofs (Lean 4 formalisations)", "type": "repository", "opened": true},
+    {"url": "https://hun-ren.hu/research_news/openais-mathematical-breakthrough-builds-on-hun-ren-renyi-researchers-work-110264", "title": "OpenAI's Mathematical Breakthrough Builds on HUN-REN Renyi Researcher's Work", "type": "news", "opened": true},
+    {"url": "https://siliconangle.com/2026/08/02/openais-astra-solves-10-long-open-math-problems-publishes-proofs/", "title": "OpenAI's Astra solves 10 long-open math problems, publishes proofs", "type": "news", "opened": true},
+    {"url": "https://scientificamerican.com/article/openais-latest-math-breakthroughs-commit-research-misconduct-experts-say", "title": "OpenAI's latest math breakthroughs commit research misconduct, experts say (Scientific American, 6 Aug 2026)", "type": "news", "opened": true},
+    {"url": "https://gowers.wordpress.com/", "title": "Gowers's Weblog (post 'What sort of maths are LLMs good at?', 12 Aug 2026; read via summariser)", "type": "blog", "opened": true},
+    {"url": "https://www.alphaxiv.org/overview/2607.ten-advancements", "title": "AlphaXiv overview of OpenAI Ten advances (automated summary of the PDF)", "type": "blog", "opened": true},
+    {"url": "https://openai.com/index/ten-advances-in-mathematics/", "title": "Ten advances in mathematics and theoretical computer science (OpenAI)", "type": "press_release", "opened": false},
+    {"url": "https://cdn.openai.com/pdf/ten-proofs-oai.pdf", "title": "Ten advances PDF (OpenAI); returned binary, not readable", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1906.02172v2", "title": "Flexible stability and nonsoficity (Bowen, Burton)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1901.03963", "title": "Inapproximability of actions and Kazhdan's property (T) (Kun, Thom)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1606.04471v5", "title": "On sofic approximations of Property (T) groups (Kun)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1712.07191", "title": "Soficity and variations on Higman's group (Kassabov, Kuperberg, Riley), seen in search results only", "type": "preprint", "opened": false},
+    {"url": "https://dev.to/breachprotocol/the-non-sofic-group-is-the-one-openai-claim-a-computer-can-check-3e4g", "title": "DEV write-up on the Lean certificate (search snippet only)", "type": "blog", "opened": false},
+    {"url": "https://thenextweb.com/news/gowers-llm-maths-counterexamples-not-proofs", "title": "The Next Web on Gowers's post (search snippet only)", "type": "news", "opened": false},
+    {"url": "https://aiweekly.co/alerts/openais-astra-proof-draws-fire-from-mathematician-andreas-thom", "title": "AI Weekly on Thom's dispute (search snippet only)", "type": "news", "opened": false},
+    {"url": "https://officechai.com/ai/gpt-5-6-sol-helps-prove-that-non-sofic-groups-exist-in-big-math-breakthrough/", "title": "OfficeChai on GPT 5.6 Sol (search snippet only)", "type": "news", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "every countable discrete group sofic open problem",
+      "non-sofic group constructed 2025",
+      "sofic group arXiv 2026",
+      "existence of a non-sofic group",
+      "Wikipedia List of unsolved problems in mathematics sofic group",
+      "is every group sofic Gromov Weiss question status",
+      "sofic group AI model proof counterexample",
+      "Connes embedding problem non-hyperlinear group MIP* RE finitely presented",
+      "sofic groups survey Pestov Arzhantseva Elek Ceccherini-Silberstein open questions",
+      "LLM agent disproves conjecture group theory sofic AlphaEvolve OpenAI 2026",
+      "\"Ten Advances in Mathematics and Theoretical Computer Science\" OpenAI PDF counterexample soficity",
+      "OpenAI GitHub NonSoficGroup.lean Lean 4 certificates Leavitt algebra",
+      "Kun Thom arXiv August 2026 non-sofic wreath products expanders",
+      "Andreas Thom OpenAI non-sofic ChatGPT conversations Sellke",
+      "Alekseev Thom centraliser rigidity arXiv 2026",
+      "Gowers non-sofic group OpenAI counterexample reaction blog",
+      "Andreas Thom published email exchange OpenAI Sellke Bubeck September 2026 Mastodon",
+      "Wired OpenAI Astra non-sofic group Thom Bubeck \"did not use\" prompts",
+      "mathstodon Andreas Thom OpenAI Astra non-sofic \"Sellke\"",
+      "\"A Counterexample to the Soficity Conjecture\" OpenAI",
+      "\"GPT 5.6 Sol\" non-sofic group proof model name",
+      "Tim Gowers blog \"What sort of maths are LLMs good at\" non-sofic counterexample",
+      "non-sofic group Lean formalization audit statement check mathematicians OpenAI ten-proofs",
+      "Thomas Bloom non-sofic group OpenAI reaction unit distance",
+      "Kun \"On sofic approximations of property (T) groups\" expander decomposition arXiv 1606.04471",
+      "Bowen Burton flexible stability nonsoficity PSL_d(Z) conditional non-sofic group",
+      "\"On minimal non-sofic and ω-non-sofic groups\" arXiv 2604.19174",
+      "Conditional non-soficity of p-adic Deligne extensions arXiv 2410.02913",
+      "Remarks on approximability and stability for groups Alekseev Thom arXiv 2512.15494",
+      "non-sofic group OpenAI error gap retraction October 2026",
+      "Henry Bradford Alon Dogon sofic group 2026 arXiv",
+      "Kun Thom 2019 arXiv property (T) sofic approximation expander paper",
+      "Wired OpenAI mathematician Andreas Thom ChatGPT conversations Astra non-sofic",
+      "Higman group or Thompson group V non-sofic 2026 follow-up construction",
+      "Tao blog Astra OpenAI ten results non-sofic group reaction",
+      "Quanta Magazine non-sofic group 2026 Gromov question answered",
+      "Thom OpenAI Astra quietly revised credit Thom Kun writeup mathematicians omission",
+      "Steven Miller Henry Cohn 2016 paper sofic expander Astra prior work OpenAI",
+      "Alpöge Claude reproduced OpenAI ten math results non-sofic",
+      "DeepMind OR Anthropic OR Google AI non-sofic group sofic conjecture claim 2026"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2608.02025, 2608.06222, 2608.14673, 2609.27795, 2512.15494, 2511.06586, 2601.18742, 2604.19174, 2410.02913, 2508.06731, 2502.05064",
+      "OpenAI announcement page and Ten advances PDF (blocked or binary; not read)",
+      "openai/ten-proofs GitHub repository (README and file list, via summariser)",
+      "MathWorld Soficity Conjecture entry",
+      "Wikipedia article Sofic group",
+      "HUN-REN Rényi Institute news item (5 Aug 2026)",
+      "SiliconAngle (2 Aug 2026)",
+      "Scientific American (6 Aug 2026)",
+      "Gowers's Weblog homepage (post of 12 Aug 2026 read via summariser)",
+      "AlphaXiv overview of the OpenAI PDF (automated summary)",
+      "Search for an AI system credited with the non-sofic result beyond OpenAI (DeepMind, Anthropic, Google; Claude reproduction claim) returned no other lab claim on this question",
+      "Search for a Tao blog post and a Quanta article on the result (none found)",
+      "Search for retraction or error reports dated to October 2026 (none found)"
+    ],
+    "dead_ends": [
+      "OpenAI announcement page (HTTP 403) and Ten advances PDF (binary, not readable). The saved copy of the PDF was not opened.",
+      "Mathstodon thread of Andreas Thom and the Wired article: not retrievable; the dispute is recorded from secondary reports.",
+      "Terence Tao blog: no post on the non-sofic result found in searches.",
+      "Quanta Magazine: no article on the result found in searches.",
+      "Retraction or identified error, October 2026: none found; the only retraction language found was a prediction-market resolution criterion.",
+      "Higman group: no 2026 result proves it is non-sofic; Thompson group V is the group the OpenAI argument uses, not Higman's group.",
+      "Pestov's 2008 survey (arXiv 0804.3968) and the Capraro–Lupini monograph: seen in search results only; the open-question statements in them predate the window.",
+      "Kassabov–Kuperberg–Riley (soficity of variants of Higman's group, 2017): seen in search results only; predates the window and treats specific groups.",
+      "Gohla–Thom (the stability-to-non-soficity implication): cited by Chapman–Dikstein–Lubotzky and Alekseev–Thom; not opened.",
+      "Kun–Thom 2019 and Kun 2016 papers: seen in search results only, not opened; their content is recorded from search summaries and the Kun–Thom paper's own citations.",
+      "Steven Miller's 2016 paper: not identified. One summary's 2016 co-author (Henry Cohn) was not confirmed.",
+      "Alon Dogon: a Weizmann seminar page lists a talk on non-sofic groups in August 2026; the abstract refers to OpenAI's Leavitt-path-algebra example. No paper by Dogon on the topic found.",
+      "Claude reproduction claim (Levent Alpöge, Anthropic): reported as five of the ten OpenAI results (problems 4 to 8 of the list), not including the non-sofic group. Not verified; not counted as an AI event on this problem.",
+      "Sofic-action and halo-product results (Alekseev–Bradford) and minor-excluded graphs (Solé-Pi) are about closure properties or random rooted graphs; recorded as events that do not bear on the question."
+    ]
+  },
+
+  "incomplete": "(1) OpenAI's own announcement and the Chapter 3 PDF were not readable here (403 on the page; the PDF returned as binary). The announcement wording and the 'Astra' attribution come from MathWorld, SiliconAngle, the HUN-REN item, and an automated overview that quotes the PDF; they are not primary reads. (2) The Lean repository was read through a summariser; I did not clone or build it, so the sorry-free claim is reported, not checked. (3) Full texts of 2608.02025 and 2608.06222 were not read end to end; theorem statements are from summaries of the HTML versions and should be checked against the paper before being relied on. (4) Thom's Mathstodon posts, the Wired article and Sellke's reply are not retrievable; the provenance dispute is recorded from secondary reports. (5) The Gowers 'Annals' remark is secondary only; the blog text read contains no such remark. (6) Bowen–Burton (2019), Kun–Thom (2019), Kun (2016) and Kassabov–Kuperberg–Riley (2017) were checked by search snippet only, not opened. (7) The Wikipedia list page 'List of unsolved problems in mathematics' was not opened; only a search snippet was seen. (8) The 2016 paper in Miller's dispute is not identified. (9) The 'quiet revision' crediting Thom and Kun is from one secondary report and is not verified. (10) No check was made of whether Lean statements match the prose; no audit of the formal definitions was found. (11) The denominator-level questions (year posed, Wikipedia article status in January 2024, model release dates) were not researched, as §7.1 requires."
+}

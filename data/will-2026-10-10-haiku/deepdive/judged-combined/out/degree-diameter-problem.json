@@ -1,0 +1,2324 @@
+{
+  "key": "degree-diameter-problem",
+  "nothing_found": false,
+  "outcome": "The general problem is still open and the exact value of N(d,k) is still unknown for most pairs. Since 26 January 2024 the lower bounds for many specific (d,k) pairs have moved, mostly in 2026 and mostly by human-run computer or algebraic constructions, several with AI involvement: Mizuno (June 2026) found N(12,5) >= 34,992 and N(16,5) >= 147,456 with ChatGPT; Cames van Batenburg and Korsky (August 2026) proved that lim n_k(d)/d^k = 1 for each fixed k, resolving a conjecture of Bollobas, with GPT-5.6 Pro credited with one suggestion; de Messieres (October 2026) posted seven improved bounds whose search programs were written by Claude. The degree-57, diameter-2 Moore graph case (N(57,2) = 3250?) is still unresolved; the only nonexistence proof (Makhnev, 2020) is disputed and has no published resolution found.",
+  "problem_asks": "Read from the statement alone. (1) For every pair of positive integers d and k, the largest possible order N(d,k) of a graph with maximum degree at most d and diameter k: the exact value of this function, for all pairs. (2) For each pair, what a largest graph looks like (the statement asks 'what is the largest graph', so the extremal graph itself is asked for, not only its order). Notes on the wording: the statement says 'diameter k' while the literature standardly uses diameter at most k, and the statement does not say 'undirected' or 'simple'; the directed-graph version is a different question. The statement does not single out the Moore-bound cases, but the case (d,k) = (57,2), where the Moore bound 3250 would be attained, is one of the pairs covered by (1) and is the single pair the Wikipedia article names as open in its lead.",
+  "events": [
+    {
+      "id": "mizuno-2026-06",
+      "what_happened": "Ryosuke Mizuno, single author, arXiv:2606.15860, 'New lower bounds for the degree/diameter problem via interaction with a browser-accessible LLM'. Gives explicit graphs with N(12,5) >= 34,992 (12-regular, on 144 * 3^5 vertices) and N(16,5) >= 147,456 (16-regular, on 144 * 4^5 vertices), improving the previously recorded 29,621 and 132,496. The graphs are lifts of a 144-vertex 4-regular controller over the group C4 x C6 with affine maps over F_3 and F_4. Method: a six-day dialogue with ChatGPT in its standard web interface.",
+      "date": "2026-06-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 14 Jun 2026 only, per the arXiv submission history. Search snippets gave 11 June 2026; the arXiv page gives 14 June and that is used here. Later preprint-level changes are not visible.",
+      "delivers": "Lower bounds only, for two pairs: N(12,5) >= 34,992 and N(16,5) >= 147,456. Both are lower bounds on the named quantity N(d,k) at specific pairs; neither is an exact value. Its own abstract states the bounds with 'greater than or equal to' and its appendix states them strictly; the strict form follows from a diameter argument the paper gives.",
+      "remains": "The exact value of N(12,5) and N(16,5), and N(d,k) for all other pairs, including (57,2). Everything in problem_asks apart from the two stated lower bounds is open.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 months (to 11 Oct 2026)",
+      "machine_checked": {
+        "system": "Author-supplied Python verification scripts (verify_candidate.py, verify_graphs_identical.py, verify_with_igraph.py) working from edge lists; the author states the diameter and degree of each graph were checked",
+        "sorry_free": null,
+        "url": "https://github.com/rmizuno42/ddp"
+      },
+      "directly_checkable": "The graphs are explicit: a 144-vertex 4-regular controller with route-chart matrices A_t in GL5(F_3) and vectors b_t, giving 34,992 vertices with adjacency y = A_t x + lambda b_t. Appendix A.6 gives the F_3 and F_4 route charts. Degree and diameter can be checked by breadth-first search from every vertex, which the author's repository describes.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Raises lower bounds for two specific pairs. The quantity named in the statement (the largest order N(d,k)) moves at those points. It cuts neither for nor against any conjectured value, because no conjectured exact value for (12,5) or (16,5) is known.",
+      "object": "An explicit 12-regular graph on 34,992 vertices with maximum degree 12 and diameter 5, and an explicit 16-regular graph on 147,456 vertices with diameter 5. Both are lifts of a 6-vertex 4-regular base multigraph over the group C4 x C6, with route-chart affine maps over F_3 and F_4 in dimension 5. Explicit, not an existence proof. The paper's own comparison gives the Moore bound for (12,5) as 193,261, so 34,992 is about 18 percent of it.",
+      "people": [
+        "Ryosuke Mizuno"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "gpt-5-5-pro",
+            "what_it_did": "Generated the candidate construction in a long web-interface dialogue. The paper states: 'Candidate generation itself was left mainly to the LLM' (section 4.1); 'Rather than directly guessing the whole final graph, the LLM reformulated the task' (section 4.6); the route-chart lift principle 'first appeared' in Round 023, after the user requested 'an a priori mathematical reason to expect success' and asked the LLM 'to devise a new principle' (sections 4.3 and 5.3). The interface is named 'ChatGPT in a web browser'. Section 5.3 states: 'The interventions referred to here did not supply components of the final construction.' The author's own framing: 'This paper does not treat ChatGPT as an author or as an autonomous prover' and 'ChatGPT was used as an interactive discovery engine' (section 1). This is the load-bearing AI involvement: the construction was produced in the dialogue.",
+            "basis_quote": "Model display name: gpt-5-5-pro in the transcript metadata. (Also: 'ChatGPT was used as an interactive discovery engine.' and 'Candidate generation itself was left mainly to the LLM.')",
+            "quote_url": "https://arxiv.org/html/2606.15860"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2606.15860",
+          "https://arxiv.org/html/2606.15860"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2606.15860",
+        "https://arxiv.org/html/2606.15860",
+        "https://arxiv.org/abs/2606.15860v1",
+        "https://github.com/rmizuno42/ddp",
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+      ]
+    },
+    {
+      "id": "mizuno-repo-2026",
+      "what_happened": "The same author's GitHub repository rmizuno42/ddp, titled as the arXiv paper with 'and the supplementary materials', lists further explicit graphs beyond the arXiv paper: (12,4) on 5,832 vertices, (14,5) on 88,452, (15,3) on 1,458, (15,5) on 100,000, and (16,3) on 1,920, each compared with an earlier table value. It says the construction generalizes the controller used in arXiv:2606.15860 by allowing transitions from a state to itself and adding translation edges within each fibre. The README says these 'do not imply acceptance into the public table or optimality'.",
+      "date": null,
+      "precision": null,
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Repository page shows 9 commits and a 2026 copyright. Commit and release dates are not visible. The page was last changed 2026-09-24 according to the author's own table of comparisons. No first-posting date could be established.",
+      "delivers": "Lower bounds for five further pairs: N(12,4) >= 5,832; N(14,5) >= 88,452; N(15,3) >= 1,458; N(15,5) >= 100,000; N(16,3) >= 1,920. The author's table gives table values of 5,184, 61,887, 1,224, 82,684 and 1,610 respectively as the baseline. These are lower bounds for specific pairs only.",
+      "remains": "Exact values for all pairs, including these five. The author does not claim optimality.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "unknown (no posting date visible)",
+      "machine_checked": {
+        "system": "Author-supplied verifier working from edge lists: vertex count, degrees, connectivity and exact diameter over all ordered vertex pairs, with VERIFICATION.md and results.json",
+        "sorry_free": null,
+        "url": "https://github.com/rmizuno42/ddp"
+      },
+      "directly_checkable": "Edge lists are in the repository and can be checked by an exact all-pairs breadth-first search, which the verifier performs.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at five pairs, in the same direction as the arXiv paper.",
+      "object": "Five explicit graphs given as generalized controller-and-fibre lifts. Orders as listed in delivers. Explicit.",
+      "people": [
+        "Ryosuke Mizuno"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/rmizuno42/ddp"
+        ]
+      },
+      "sources": [
+        "https://github.com/rmizuno42/ddp"
+      ]
+    },
+    {
+      "id": "comellas-2024-table",
+      "what_happened": "Francesc Comellas, arXiv:2406.18994, 'Table of large graphs with given degree and diameter', updating the 2013 Miller-Sirán survey table with results obtained since. The page credits the 2024 new best values for thirteen pairs: (3,5), (6,8), (7,6), (7,7), (8,5), (9,4), (10,4), (10,5), (11,5), (12,5), (13,5), (14,5), (15,5). The Leaps in Bounds page records that the (12,5) lower bound was raised from 29,470 (Loz and Sirán 2008) to 29,621 on 2024-06-27. The arXiv v2 comment reads 'Added a new best value for degree and diameter five and new references.'",
+      "date": "2024-06-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 27 Jun 2024; v2 24 Jan 2026. The Mendeley dataset is at version 7 (4 Apr 2025, state as of March 2025) and version 11 (28 Jan 2026, state as of January 2026). Entries for the pairs are credited to 'the author ... in 2024'. The per-pair first-appearance dates within January to June 2024 are not established; the arXiv v1 date is used as the first public written argument for the group.",
+      "delivers": "New lower bounds for the 13 listed pairs (for example (12,5) from 29,470 to 29,621, per Leaps in Bounds). Each is a bound on N(d,k) at a specific pair. No exact value is established for any of them, and the Comellas table lists an 'optimal' (boldface) status only for pairs with a matching upper bound.",
+      "remains": "Exact values for all pairs, including those 13 pairs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 years 3 months",
+      "machine_checked": null,
+      "directly_checkable": "Each graph is listed in the table with its adjacency list, which can be checked directly (the table says so; the individual adjacency lists were not opened).",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at thirteen pairs. Cuts in the same direction as the other lower-bound events, with no conjectured exact value involved.",
+      "object": "Explicit graphs for each listed pair, given in the table with adjacency lists. Not opened individually. The 2024 additions are mainly Cayley-graph or voltage-lift constructions per the table's own bibliography.",
+      "people": [
+        "Francesc Comellas"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+          "https://arxiv.org/abs/2406.18994"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2406.18994",
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+        "https://data.mendeley.com/datasets/d75dzbjd4k/11",
+        "https://leapsinbounds.org/constants/degree-diameter-12-5/"
+      ]
+    },
+    {
+      "id": "comellas-ejgta-2025",
+      "what_happened": "Francesc Comellas, 'New results on the degree-diameter problem for undirected graphs', Electronic Journal of Graph Theory and Applications 13(1) (2025), 211-215, DOI 10.5614/ejgta.2025.13.1.14. The abstract states 'fourteen newly discovered largest undirected graphs with specified degree and diameter', found since the Miller-Sirán survey. It cites the 2024 table update and reports the same results. The paper's pair list was not opened.",
+      "date": null,
+      "precision": null,
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "Received 8 Dec 2024; revised 26 Mar 2025; accepted 2 Apr 2025; published 2025 (volume 13, number 1). Exact publication date not seen.",
+      "delivers": "Fourteen new lower bounds on N(d,k), at pairs not listed in the abstract. The Mendeley notes list thirteen pairs found in 2024, so the paper's count and the dataset's count do not match, and this is not resolved here. Each is a bound at a specific pair.",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [
+        {
+          "who": "Anonymous referees of the Electronic Journal of Graph Theory and Applications",
+          "qualification": "Peer review for a graph-theory journal",
+          "what_they_did": "Refereed; the paper was accepted on 2 April 2025",
+          "where": "https://www.ejgta.org/index.php/ejgta/article/view/2206",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "not applicable (journal item; the 2024 table posting is the earlier event)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The paper's count of fourteen differs from the thirteen pairs listed by the Mendeley dataset for 2024. The first public written argument of these graphs may be the 2024 arXiv table rather than this paper; that was not established.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at fourteen unlisted pairs, in the same direction as other lower-bound events.",
+      "object": "Explicit graphs for fourteen pairs, not individually opened; the abstract does not describe the construction method.",
+      "people": [
+        "Francesc Comellas"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.ejgta.org/index.php/ejgta/article/view/2206"
+        ]
+      },
+      "sources": [
+        "https://www.ejgta.org/index.php/ejgta/article/view/2206"
+      ]
+    },
+    {
+      "id": "cames-korsky-2026-08",
+      "what_happened": "Wouter Cames van Batenburg and Samuel Korsky, arXiv:2608.03965, 'Asymptotically attaining the Moore bound'. For each fixed positive integer k, the maximum order n_k(d) of a graph with maximum degree at most d and diameter at most k satisfies n_k(d)/d^k -> 1 as d -> infinity. The paper says this 'resolv[es] the asymptotic degree-diameter problem for fixed diameter and prov[es] a conjecture of Bollobas', and treats the edge-count analogue (Corollary 1.2), which resolves a conjecture of Cambie, Cames van Batenburg, de Joannis de Verclos and Kang. Lower bound from regular graphs H_{k,q} (halved-flag graphs) on partial flags of F_q^(2k+1).",
+      "date": "2026-08-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version v1, submitted 4 Aug 2026, per the arXiv submission history. The Lean formalization README says it was formalized from the 3 August 2026 draft and that no mathematically relevant changes were made before submission.",
+      "delivers": "For every fixed k: lim_{d->infinity} n_k(d)/d^k = 1, i.e. n_k(d) ~ d^k as the degree grows. This covers the asymptotic behaviour of N(d,k) in d, with k fixed, for all fixed k. It does not give exact values, and it says nothing about any fixed pair (d,k). The Lean formalization covers Lemma 2.1, Proposition 3.1, Theorem 1.1, Lemma 4.1 and Corollary 1.2, and the README lists as outside its kernel-checked scope the explicit O_k(q^-1) and O_k(q^-2) error rates and a bipartite-restricted exact limit that depends on a cited external bound.",
+      "remains": "Exact values of N(d,k) for every pair, including (57,2). The rate at which n_k(d)/d^k approaches 1 and the explicit error terms as stated in the README's exclusions. The degree-57 Moore graph case is untouched.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months (to 11 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 (Lean v4.32.2, Mathlib commit 905b95818eb32af7874a58b427f50c1711a5e96c, LeanArchitect commit d9013cc08bd2b5483e837368dfa4cc7ead92a5c2); public theorem DegreeDiameter.theorem_1_1 per the README",
+        "sorry_free": null,
+        "url": "https://github.com/woutercvb/wewantmoore"
+      },
+      "directly_checkable": "The lower-bound graphs H_{k,q} are explicit: vertices are even-rank partial flags of F_q^(2k+1), and two vertices are adjacent when they share a compatible odd-rank partial flag. The paper states they are regular of diameter k and have order (1+o(1)) Delta^k.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Proves the asymptotic statement conjectured by Bollobas (the limsup form, and the stronger full limit). Cuts in favour of the Moore bound being asymptotically sharp for fixed k as d grows. No exact value and no contradiction with any conjectured value.",
+      "object": "The regular graphs H_{k,q}, indexed by prime powers q, built from partial flags in F_q^(2k+1), with diameter k and order (1+o(1)) Delta(H_{k,q})^k. Explicit (no existence argument). Attached to the proof of the main theorem as its lower-bound family.",
+      "people": [
+        "Wouter Cames van Batenburg",
+        "Samuel Korsky"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-5.6 Pro",
+            "what_it_did": "Suggested the idea of splitting complete flags into their odd- and even-rank subflags, which the authors say was initially discussed for the edge problem; the authors developed that suggestion into the halved-flag construction H_{k,q}, which supplies the lower bound in Theorem 1.1. The paper says the model was used 'during exploratory brainstorming about possible constructions' and that the discussion was directed by the authors. The authors state they 'formulated and verified all mathematical arguments, and take full responsibility for the content'. The load-bearing question for the later pass: the model supplied a construction principle, and the authors built the proof on it; the authors call it a suggestion, not a proof.",
+            "basis_quote": "GPT-5.6 Pro was used during exploratory brainstorming about possible constructions. ... The tool suggested splitting complete flags into their odd- and even-rank subflags, initially in connection with the edge problem. The authors developed this suggestion into the halved-flag construction, formulated and verified all mathematical arguments, and take full responsibility for the content.",
+            "quote_url": "https://arxiv.org/html/2608.03965"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.03965",
+          "https://github.com/woutercvb/wewantmoore"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.03965",
+        "https://arxiv.org/html/2608.03965",
+        "https://github.com/woutercvb/wewantmoore",
+        "https://en.wikipedia.org/wiki/Degree_diameter_problem"
+      ]
+    },
+    {
+      "id": "cames-lean-2026-08",
+      "what_happened": "Lean 4 formalization of arXiv:2608.03965 by the same authors, posted at github.com/woutercvb/wewantmoore. The README states: 'The AI-assisted formalization was carried out in the final phase of the project, based on the 3 August 2026 version of the draft.' It formalizes Lemma 2.1, Proposition 3.1 (equations 6-9), Theorem 1.1, Lemma 4.1 and Corollary 1.2, using SimpleGraph.ediam. A third-party Lean project (Vilin97/lean-pool) has a pull request (#444) 'Import asymptotically attaining the Moore bound'; not opened.",
+      "date": "2026-08",
+      "precision": "month",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "README says it was formalized from the 3 August 2026 draft; the arXiv paper (4 Aug 2026) cites the repository as '2026'. The repository's own commit date is not visible; month taken from the paper's citation and the README's dating.",
+      "delivers": "Machine verification of the statements listed in the README, as formalized: the asymptotic result for fixed k (Theorem 1.1, public version using the concrete Proposition 3.1 family) and Corollary 1.2. The README lists as not covered the explicit error rates and a bipartite-restricted exact limit that uses a cited external bound. No content beyond the paper's.",
+      "remains": "The same as the paper: exact values of N(d,k) for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months",
+      "machine_checked": {
+        "system": "Lean 4 v4.32.2 with Mathlib commit 905b95818eb32af7874a58b427f50c1711a5e96c and LeanArchitect commit d9013cc08bd2b5483e837368dfa4cc7ead92a5c2",
+        "sorry_free": null,
+        "url": "https://github.com/woutercvb/wewantmoore"
+      },
+      "directly_checkable": "The Lean sources in the repository. Their axiom audit (axiom-audit.txt, generated by a script that scans for proof holes) is described but its output is not shown on the page, so sorry-freeness is not established from what was read.",
+      "doubts": "The page reports no audit result, so whether the Lean development still contains sorry or non-standard axioms is unknown from what was read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Machine formalization of the asymptotic result in the same direction as the paper.",
+      "object": null,
+      "people": [
+        "Wouter Cames van Batenburg",
+        "Samuel Korsky"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/woutercvb/wewantmoore",
+          "https://arxiv.org/html/2608.03965"
+        ]
+      },
+      "sources": [
+        "https://github.com/woutercvb/wewantmoore",
+        "https://arxiv.org/html/2608.03965"
+      ]
+    },
+    {
+      "id": "rajiv-2026-07-diam3",
+      "what_happened": "Rishabh Rajiv, 'Four new largest known graphs of diameter three', Zenodo preprint DOI 10.5281/zenodo.21180071. Four new largest known graphs at diameter 3: N(14,3) >= 979, N(18,3) >= 1746, N(19,3) >= 1950, N(20,3) >= 2202. The graphs are Cayley graphs of semidirect products of two cyclic groups given by explicit generating sets, found by a stochastic search over generating sets guided by an exact census of short-word relations.",
+      "date": "2026-07-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version v1, 3 Jul 2026.",
+      "delivers": "Lower bounds at four diameter-3 pairs. Each is a bound on N(d,3) at a specific pair; none is an exact value.",
+      "remains": "Exact values for these four pairs and all other pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 months",
+      "machine_checked": {
+        "system": "Author's breadth-first-search check of degree and diameter; the record states that each graph can be checked with a single breadth-first search",
+        "sorry_free": null,
+        "url": "https://zenodo.org/records/21180071"
+      },
+      "directly_checkable": "Explicit generating sets are given; degree and diameter are checkable by one breadth-first search from the identity.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at four diameter-3 pairs, in the same direction as other lower-bound events.",
+      "object": "Four explicit Cayley graphs of semidirect products of two cyclic groups with orders 979, 1746, 1950 and 2202, at degrees 14, 18, 19, 20 respectively, diameter 3.",
+      "people": [
+        "Rishabh Rajiv"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/21180071"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/21180071"
+      ]
+    },
+    {
+      "id": "rajiv-2026-08-metacyclic",
+      "what_happened": "Rishabh Rajiv, 'Improved lower bounds for the degree-diameter problem from metacyclic groups, coset graphs and affine lifts', Zenodo preprint DOI 10.5281/zenodo.22073603. Claims improved lower bounds for 18 pairs with degree at most 20 and diameter at most 10: fifteen Cayley graphs of semidirect products of two cyclic groups, a 6-regular diameter-5 coset graph of PSL(2,23) on 1,518 vertices, and two degree-20 affine-line lifts (diameter 3 on 2,750 vertices; diameter 5 on 450,000 vertices, which the author states exceed the previous bound by 59.7 percent).",
+      "date": "2026-08-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version v1; the record was last modified 9 Sep 2026.",
+      "delivers": "Lower bounds at 18 pairs, including (6,5) >= 1,518 and (20,3) >= 2,750 and (20,5) >= 450,000 (as the author states them). Each is a lower bound at a specific pair.",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7 weeks",
+      "machine_checked": {
+        "system": "Author's independent breadth-first search from every vertex when the graph has no transitive symmetry; standalone verification scripts are included",
+        "sorry_free": null,
+        "url": "https://zenodo.org/records/22073603"
+      },
+      "directly_checkable": "Complete descriptions, adjacency data and standalone verification scripts are included, per the record.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at 18 pairs, in the same direction as other lower-bound events.",
+      "object": "Explicit Cayley graphs (15 of them), an orbit-type coset graph of PSL(2,23) on 1,518 vertices at (6,5), and two degree-20 lifts of a small regular graph with fibres F_q^s and affine lines: diameter 3 on 2,750 vertices and diameter 5 on 450,000 vertices.",
+      "people": [
+        "Rishabh Rajiv"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/22073603"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/22073603"
+      ]
+    },
+    {
+      "id": "rajiv-2026-09-h9-diam5",
+      "what_happened": "Rishabh Rajiv, 'Large graphs of diameter five from a duality of order four of the split Cayley hexagon H(9)', Zenodo preprint DOI 10.5281/zenodo.22907863. Quotient of the incidence graph of H(9) by a duality of order four gives a graph on 33,397 vertices of diameter 5; adding edges and twin vertices gives N(10,5) >= 33,397, N(11,5) >= 35,203 and N(12,5) >= 38,167. The stated previous values are 14,047, 20,952 and 34,992 (the last is the Mizuno value).",
+      "date": "2026-09-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version v1, 23 Sep 2026. The Comellas table credits the (10,5) entry to Rajiv on 24 Aug 2026, which does not match this record's date for the 33,397 graph; see disputes.",
+      "delivers": "Lower bounds at (10,5), (11,5) and (12,5). The (12,5) bound 38,167 exceeds the Mizuno bound 34,992 that the record gives as its previous value.",
+      "remains": "Exact values at these pairs and all others.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 weeks",
+      "machine_checked": {
+        "system": "A data-and-verification.zip and README are linked; their contents were not inspected",
+        "sorry_free": null,
+        "url": "https://zenodo.org/records/22907863"
+      },
+      "directly_checkable": "The 33,397-vertex quotient is explicit from the incidence graph of H(9), which is a classical object; the bounds follow from the quotient by a stated duality and the stated modifications.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Raises the lower bounds at three diameter-5 pairs. The (12,5) bound supersedes the Mizuno bound at that pair.",
+      "object": "A quotient graph on 33,397 vertices of maximum degree 10 and diameter 5, obtained as the quotient of the incidence graph of the split Cayley hexagon H(9) by a duality of order four; the three bounds come from adding edges and twin vertices to it. Explicit.",
+      "people": [
+        "Rishabh Rajiv"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/22907863"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/22907863"
+      ]
+    },
+    {
+      "id": "rajiv-2026-09-cayley-orbit",
+      "what_happened": "Rishabh Rajiv, 'New lower bounds for the degree-diameter problem from Cayley graphs, orbit graphs and lifts', Zenodo preprint DOI 10.5281/zenodo.22928337. Claims 21 new lower bounds for degree at most 20 and diameter at most 10: 15 Cayley graphs, 3 orbit graphs (252 vertices at (5,4); 441 at (6,4); 119 at (6,3)), a bi-Cayley graph on 216 vertices at (16,2), and two affine line lifts (35,328 vertices at (20,4); 197,316 at (18,5)). The largest is 2,007,474 vertices at (12,7). Previous values are not stated on the page.",
+      "date": "2026-09-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version v1, published 24 Sep 2026 per Zenodo. The Comellas table bibliography dates this record 30 September 2026; see disputes.",
+      "delivers": "Lower bounds at 21 pairs with diameter at most 10, including (12,7) >= 2,007,474 and (6,3) >= 119.",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 weeks",
+      "machine_checked": {
+        "system": "Author's breadth-first-search check of degree and diameter",
+        "sorry_free": null,
+        "url": "https://zenodo.org/records/22928337"
+      },
+      "directly_checkable": "The graphs are given explicitly and checkable by breadth-first search.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at 21 pairs, in the same direction as other lower-bound events.",
+      "object": "Explicit Cayley graphs, orbit graphs, one bi-Cayley graph and two affine line lifts, with orders as listed in what_happened.",
+      "people": [
+        "Rishabh Rajiv"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/22928337"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/22928337"
+      ]
+    },
+    {
+      "id": "rajiv-2026-09-gq-hex",
+      "what_happened": "Rishabh Rajiv, 'New lower bounds for the degree-diameter problem from generalized quadrangles and hexagons', Zenodo preprint DOI 10.5281/zenodo.23052995. Improves the known lower bounds at 14 pairs: diameter 3 at (14,3), (15,3), (19,3), (20,3); diameter 4 at (13,4), (14,4), (15,4), (17,4), (18,4), (19,4); diameter 6 at (11,6), (13,6), (15,6), (16,6). Constructions: fibre extensions of the symplectic quadrangle W(q) with Cayley edges on transvection orbits, and new vertices attached to incidence graphs of generalized quadrangles and hexagons. Orders and previous values are not given on the page.",
+      "date": "2026-09-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version v1, 30 Sep 2026.",
+      "delivers": "Lower bounds at 14 pairs (none of them an exact value). Diameter 3, 4 and 6 pairs.",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 1.5 weeks",
+      "machine_checked": {
+        "system": "data-and-verification.zip and README are linked; contents not inspected",
+        "sorry_free": null,
+        "url": "https://zenodo.org/records/23052995"
+      },
+      "directly_checkable": "Constructions are described and the paper states proofs of the diameter claims; data-and-verification.zip not inspected.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at 14 pairs, in the same direction as other lower-bound events.",
+      "object": "Constructed graphs for the 14 pairs, described as fibre extensions of W(q) and attachments to generalized quadrangle and hexagon incidence graphs; orders not stated on the page. Explicit.",
+      "people": [
+        "Rishabh Rajiv"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/23052995"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/23052995"
+      ]
+    },
+    {
+      "id": "rajiv-2026-09-partial-folds",
+      "what_happened": "Rishabh Rajiv, 'Partial folds of the split Cayley hexagon H(9) and large graphs of diameter five', Zenodo preprint DOI 10.5281/zenodo.23056128. Partial folds of the 33,397-vertex diameter-5 quotient of H(9) keep diameter at most 5 and have 33,397 + |S| vertices for a chosen set S of pairs. Integer programming over the choices gives N(11,5) >= 36,563 (previously 35,203), N(12,5) >= 41,699 (previously 38,167) and N(13,5) >= 50,750 (previously 44,232).",
+      "date": "2026-09-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version v1, 30 Sep 2026.",
+      "delivers": "Lower bounds at (11,5), (12,5) and (13,5). The (12,5) bound 41,699 is above the earlier Rajiv (38,167) and Mizuno (34,992) values.",
+      "remains": "Exact values at these pairs and all others.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 1.5 weeks",
+      "machine_checked": {
+        "system": "Integer programming over the fold choices (a computer optimisation, not an AI system); the record's verification materials were not inspected",
+        "sorry_free": null,
+        "url": "https://zenodo.org/records/23056128"
+      },
+      "directly_checkable": "The base quotient is explicit; each partial fold is a specified modification with a stated diameter bound.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at three diameter-5 pairs.",
+      "object": "Graphs obtained from the 33,397-vertex quotient of H(9) by partial folds and blow-ups, with orders as stated in what_happened. Explicit.",
+      "people": [
+        "Rishabh Rajiv"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/23056128"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/23056128"
+      ]
+    },
+    {
+      "id": "rajiv-2026-09-clique-subst",
+      "what_happened": "Rishabh Rajiv, 'New lower bounds for the degree-diameter problem from Cayley graphs of metacyclic groups, orbit graphs and clique substitution', Zenodo preprint DOI 10.5281/zenodo.23057003. Claims 24 new lower bounds for degree at most 20 and diameter at most 10: 17 Cayley graphs of semidirect products of two cyclic groups at diameters 7 to 9 (largest 41,152,320 vertices at (19,7)), 3 orbit graphs, and 4 incidence-graph constructions from split Cayley hexagons with lines replaced by complete graphs (after Comellas and Gomez). States 'The constructions are known; the graphs are new.' Previous values not stated.",
+      "date": "2026-09-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version v1, 30 Sep 2026.",
+      "delivers": "Lower bounds at 24 pairs with diameter at most 10 (up to 7 to 9 for the Cayley ones).",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 1.5 weeks",
+      "machine_checked": {
+        "system": "Author's breadth-first-search verification; accompanying dataset data-and-verification.zip not inspected",
+        "sorry_free": null,
+        "url": "https://zenodo.org/records/23057003"
+      },
+      "directly_checkable": "Explicit generating sets for the Cayley graphs; each graph is given explicitly in the paper or in the accompanying dataset.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at 24 pairs, in the same direction as other lower-bound events.",
+      "object": "Explicit Cayley, orbit and clique-substitution graphs, the largest on 41,152,320 vertices at (19,7). Explicit.",
+      "people": [
+        "Rishabh Rajiv"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/23057003"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/23057003"
+      ]
+    },
+    {
+      "id": "demessieres-2026-10",
+      "what_happened": "Michel de Messieres (listed as 'Researcher'), 'Large graphs for the degree-diameter problem: n(5,7) >= 5894, n(6,3) >= 120, n(7,4) >= 684, n(7,5) >= 2758, n(13,3) >= 868, n(14,3) >= 1094, n(14,4) >= 8303', Zenodo DOI 10.5281/zenodo.23176213. Previous values recorded: 5824 (Rajiv 2026), 119 (Rajiv 2026), 672 (Sampels 1997), 2756 (Dinneen and Hafner 1994), 859 (Yugeswardeenoo 2026), 1088 (Rajiv 2026), 8288 (Rajiv 2026). Most graphs are lifts of small voltage graphs (dipoles) over groups, with voltages found by simulated annealing; n(5,7) is a lift over a group of odd order 2947 and is recorded as not vertex-transitive; n(14,3) and n(14,4) extend Rajiv's graphs; n(13,3) is built from a generalized quadrangle over GF(8) plus an annealed layer.",
+      "date": "2026-10-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Zenodo record shows v4 dated 6 Oct 2026. Stated history: v2 added n(6,3) >= 120; v3 added n(7,4) >= 684 and n(7,5) >= 2758; v4 added n(5,7) >= 5894. The record does not say which version introduced n(13,3), n(14,3) and n(14,4). The date 4 Oct 2026 is the Comellas table's credit for this record; the v1 date was not shown.",
+      "delivers": "Lower bounds at seven pairs, including degree-7 entries (7,4) and (7,5) and diameter-3 entries (6,3), (13,3), (14,3), and diameter-4 (14,4), and diameter-7 (5,7). Each is a lower bound at a specific pair.",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [
+        {
+          "who": "Francesc Comellas",
+          "qualification": "Maintainer of the degree-diameter table and author of the 2024 table update and the 2025 EJGTA paper",
+          "what_they_did": "Wrote one of the independent checkers used on the graphs, per the record (a 'checker by F. Comellas')",
+          "where": "https://zenodo.org/records/23176213",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 1 week",
+      "machine_checked": {
+        "system": "Independent breadth-first search and NetworkX checks, and a checker by F. Comellas, per the record",
+        "sorry_free": null,
+        "url": "https://zenodo.org/records/23176213"
+      },
+      "directly_checkable": "The graphs are lifts of small voltage graphs over stated groups with stated voltages, checkable by breadth-first search; the record states all results were independently verified.",
+      "doubts": "The voltages were found by simulated annealing, which the record does not describe in enough detail to reproduce the search exactly. The record names an AI system as writing the search programs (see ai). Who devised the mathematical families is not stated.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Raises lower bounds at seven pairs, in the same direction as other lower-bound events.",
+      "object": "Lifts of small voltage graphs over groups for most bounds (including a group of odd order 2947 for n(5,7)), extensions of Rajiv's graphs for (14,3) and (14,4), and a generalized quadrangle over GF(8) plus an annealed layer for (13,3). Explicit.",
+      "people": [
+        "Michel de Messieres"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "AI assistant (Claude, Anthropic)",
+            "what_it_did": "Wrote and ran the search programs. The record says: 'The search programs were produced with the help of an AI assistant (Claude, Anthropic) under the author's direction'; for (13,3), (14,3) and (14,4) it says 'The search programs were written and run by an AI assistant (Anthropic's Claude) under the author's direction'. The record does not say that the AI devised the voltage-lift or generalized-quadrangle constructions. Whether writing search code counts as load-bearing is for the later pass: the graphs were found by the programs, but the mathematical families are not attributed to the AI.",
+            "basis_quote": "The search programs were produced with the help of an AI assistant (Claude, Anthropic) under the author's direction;",
+            "quote_url": "https://zenodo.org/records/23176213"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/23176213"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/23176213"
+      ]
+    },
+    {
+      "id": "kronecker-2026-08",
+      "what_happened": "Kelly Isham (Colgate), Kartik Lakhotia (Intel), Laura Monroe (Los Alamos), Fabrizio Petrini (Intel), arXiv:2608.27253, 'Kronecker Products, Polarity Quotients and Large Graph Constructions'. Builds three families of large graphs of diameter 2, 3 and 5 from a structural compatibility between Kronecker products of bipartite polarity graphs, using generalized polygons G_n(q,q) as factors. Table 1 gives new diameter-3 graphs at degrees 18, 19, 20 of orders 2340, 2470, 2600, against 1620, 1638, 1958 in the Degree-Diameter Table and 1830, 2128, 2394 for PolarStar. The abstract says the diameter-3 family from generalized quadrangles gives graphs 'larger than any previously known at their degrees'.",
+      "date": "2026-08-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version v1, 27 Aug 2026.",
+      "delivers": "New lower bounds for N(d,3) at degrees 18, 19 and 20 (2340, 2470, 2600), and families of graphs for an infinite but sparse set of degrees with diameters 2, 3 and 5. The families approach a theoretical upper bound as the polygon parameters grow. Each is a bound at specific degrees or a sparse family of degrees, and no exact value is established.",
+      "remains": "Exact values for all pairs; the diameter-2 and diameter-5 families are asymptotic on a sparse set of degrees only.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 6 weeks",
+      "machine_checked": null,
+      "directly_checkable": "The constructions are described explicitly (Kronecker products of polarity quotients of generalized polygon incidence graphs); degree and diameter are checkable by breadth-first search.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Raises lower bounds for N(d,3) at degrees 18, 19 and 20, and gives sparse-degree families for diameters 2, 3 and 5. Cuts in the same direction as other lower-bound events.",
+      "object": "Explicit graphs from Kronecker products of bipartite polarity graphs with generalized quadrangle factors G_n(q,q); the diameter-3 graphs at degrees 18, 19, 20 with orders 2340, 2470, 2600. Explicit.",
+      "people": [
+        "Kelly Isham",
+        "Kartik Lakhotia",
+        "Laura Monroe",
+        "Fabrizio Petrini"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.27253"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.27253",
+        "https://arxiv.org/html/2608.27253"
+      ]
+    },
+    {
+      "id": "wagner-2026-10",
+      "what_happened": "Paul Stankovski Wagner, arXiv:2610.04815, 'Less is Moore' (cs.DM and math.CO). Exact search for radius-two Moore trees, the structure whose completion gives a diameter-2 Moore graph. The paper says it is 'not an attempt to settle that open problem'. It gives algorithm-engineering improvements (short-cycle pruning, bit-parallel domains, symmetry-based pruning): on a k = 9 benchmark the wall time drops from 47.6 s to 17.9 s; a five-minute degree-57 stress run peaks at 161 MiB.",
+      "date": "2026-10-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version v1, 3 Oct 2026, per the abstract page.",
+      "delivers": "Speed-ups for an exact search for diameter-2 Moore graphs. No new bound on N(d,k) and no result on whether any Moore graph of degree 57 exists. The k = 9 and degree-57 runs are benchmarks, not results.",
+      "remains": "The whole problem, including the degree-57 existence question.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "8 days",
+      "machine_checked": {
+        "system": "Exact exhaustive computer search; described as tested by controlled regression tests",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2610.04815"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not bear on the answer to the statement; it concerns the efficiency of a search for the degree-57 Moore graph.",
+      "object": null,
+      "people": [
+        "Paul Stankovski Wagner"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2610.04815"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.04815",
+        "https://arxiv.org/html/2610.04815"
+      ]
+    },
+    {
+      "id": "ishida-2026-06",
+      "what_happened": "Yawara Ishida, arXiv:2606.29183, 'No involutions in the missing Moore graph' (math.CO). Claims that a Moore graph of degree 57 (on 3250 vertices, strongly regular with parameters (3250,57,0,1)), if it exists, has no involutory automorphisms, so its automorphism group has odd order. The argument uses a trace-rank identity from the Brauer quotient of p-permutation lattices, applied to strongly regular graphs.",
+      "date": "2026-06-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 28 Jun 2026; v2 8 Jul 2026 (current, 22 KB).",
+      "delivers": "A restriction on the automorphism group of a hypothetical degree-57 Moore graph: no involutions. It is conditional on existence and establishes neither existence nor nonexistence, and it does not change any bound on N(d,k).",
+      "remains": "Whether a Moore graph of degree 57 exists, i.e. whether N(57,2) = 3250; and all other pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3.5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Restricts a hypothetical object to odd-order automorphism groups; cuts neither for nor against existence.",
+      "object": null,
+      "people": [
+        "Yawara Ishida"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2606.29183"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2606.29183"
+      ]
+    },
+    {
+      "id": "smith-montemanni-axioms-2026-05",
+      "what_happened": "Derek H. Smith and Roberto Montemanni, 'The Moore Graph of Diameter 2 and Degree 57 via Cyclic Derangements', Axioms, published 1 May 2026 (DOI 10.3390/axioms15050332). Per search snippets, the paper shows that a construction using only a cyclic group of permutations (a cyclic group of derangements) cannot produce the degree-57 Moore graph; other groups of derangements, and non-group sets, remain open. NOT OPENED: the MDPI page returned HTTP 403 on both the DOI and the redirect target.",
+      "date": "2026-05-01",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "Not known beyond the publication date in the search snippet (received February 2026, accepted late April 2026).",
+      "delivers": "Per the abstract snippet only: rules out the cyclic-group route for the degree-57 Moore graph. Does not establish existence or nonexistence; the authors discuss other groups as open.",
+      "remains": "Existence of the degree-57 Moore graph; all other pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Rules out one construction route; the question remains open.",
+      "object": null,
+      "people": [
+        "Derek H. Smith",
+        "Roberto Montemanni"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://doi.org/10.3390/axioms15050332"
+        ]
+      },
+      "sources": [
+        "https://doi.org/10.3390/axioms15050332"
+      ]
+    },
+    {
+      "id": "smith-montemanni-symmetry-2024-12",
+      "what_happened": "Smith and Montemanni, 'Potential Subgraphs of the Missing Moore Graph', Symmetry 16(12), article 1563, a computational study of partial structures of a degree-57 Moore graph under a cyclic-group ansatz, reported via search snippet as extending a previously known sequence of 15 such subgraphs to 20 using the Google OR-Tools CP-SAT solver. NOT OPENED: the MDPI and University of Modena PDF pages returned HTTP 403. Date taken from the volume and issue in the URL.",
+      "date": "2024-12",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Per the snippet only: extends a partial-structure census for the degree-57 case. No bound on N(57,2) and no existence or nonexistence result.",
+      "remains": "Existence of the degree-57 Moore graph; all other pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 months",
+      "machine_checked": {
+        "system": "Google OR-Tools CP-SAT (per snippet)",
+        "sorry_free": null,
+        "url": "https://www.mdpi.com/2073-8994/16/12/1563/htm"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial structures only; neither cuts for nor against existence.",
+      "object": null,
+      "people": [
+        "Derek H. Smith",
+        "Roberto Montemanni"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.mdpi.com/2073-8994/16/12/1563/htm"
+        ]
+      },
+      "sources": [
+        "https://www.mdpi.com/2073-8994/16/12/1563/htm"
+      ]
+    },
+    {
+      "id": "smith-montemanni-euro-2023-01",
+      "what_happened": "Smith and Montemanni, 'EURO Journal on Computational Optimization' (January 2023 issue, per DOAJ listing; article title not opened), an optimization study of the degree-57 Moore graph. Per search snippets, the algorithm converges to solutions 'massively short' of the required number of edges, and the authors suggest the graph may not exist. NOT OPENED (DOAJ listing only).",
+      "date": "2023-01",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Heuristic evidence against existence, per the snippet; not a proof, and does not settle N(57,2).",
+      "remains": "Existence or nonexistence of the degree-57 Moore graph; all other pairs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 3.7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Heuristic only; the snippet says the authors suggest but do not prove nonexistence.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Heuristic evidence against existence of a degree-57 Moore graph, not a result.",
+      "object": null,
+      "people": [
+        "Derek H. Smith",
+        "Roberto Montemanni"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://doaj.org/article/6bd7b229fb89420dac19d456a61d8024"
+        ]
+      },
+      "sources": [
+        "https://doaj.org/article/6bd7b229fb89420dac19d456a61d8024"
+      ]
+    },
+    {
+      "id": "makhnev-2020-10",
+      "what_happened": "A. A. Makhnev, arXiv:2010.13443, 'Moore graph with parameters (3250,57,0,1) does not exist' (Russian text, English abstract). Claims that a distance-regular graph with intersection array {55,54,2;1,1,54} does not exist, and concludes that no Moore graph of degree 57 exists, via the Jurisic-Vidali reduction. Related journal paper: A. A. Makhnev and D. V. Paduchikh, 'The largest Moore graph and a distance-regular graph with intersection array {55,54,2;1,1,54}', Algebra i Logika 59(4), 2020 (not opened).",
+      "date": "2020-10-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 26 Oct 2020; v2 9 Nov 2020 (current).",
+      "delivers": "Claims to settle the (57,2) pair: no Moore graph of degree 57, i.e. N(57,2) < 3250. Only the (57,2) pair is affected; the rest of problem_asks is untouched.",
+      "remains": "All pairs other than (57,2) (the claim is about the one pair). Within (57,2), the claim is contested (see doubts).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Vance Faber and Jonathan Keegan (arXiv:2210.09577, 2022-2023) argue that the case analysis appears to be flawed and that 'this seems not to be correct'; they reduce the question to an equivalent family of permutation systems and find the system of equations factors into blocks that each have solutions. No published resolution of this dispute was found. The Renteln erratum (see renteln-2015-erratum-2021) concerns a different paper's Theorem 3.1 and does not address Makhnev's argument.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Claims nonexistence of a degree-57 Moore graph, which would settle the (57,2) pair in the direction that no Moore graph exists.",
+      "object": null,
+      "people": [
+        "A. A. Makhnev"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2010.13443"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2010.13443"
+      ]
+    },
+    {
+      "id": "faber-keegan-2022-10",
+      "what_happened": "Vance Faber and Jonathan Keegan, arXiv:2210.09577, 'Existence of a Moore graph of degree 57 is still open'. Argues that the 2020 Makhnev nonexistence argument 'seems not to be correct' because the system of equations factors into small diagonal blocks, each with solutions, and gives an alternative formulation: the Moore graph exists if and only if some member of a family of permutation systems has no solutions.",
+      "date": "2022-10-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 18 Oct 2022; v2 21 Oct 2022; v3 22 Nov 2022; v4 6 Dec 2022; v5 5 Feb 2023; v6 27 Feb 2023 (current).",
+      "delivers": "Establishes no new bound and no existence or nonexistence result. It is a critique of the (57,2) nonexistence argument and a reformulation of the existence question.",
+      "remains": "Existence of the degree-57 Moore graph; all other pairs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against the Makhnev nonexistence claim; no direction on existence.",
+      "object": null,
+      "people": [
+        "Vance Faber",
+        "Jonathan Keegan"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2210.09577"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2210.09577"
+      ]
+    },
+    {
+      "id": "renteln-2015-erratum-2021",
+      "what_happened": "Paul Renteln, 'Some constraints on the missing Moore graph' (arXiv:1509.00327, 2015; published Australasian Journal of Combinatorics 77(3), pp. 373-382). Derives constraints that a hypothetical degree-57 Moore graph would have to satisfy (biregular bipartitions, automorphisms). An erratum in Australasian Journal of Combinatorics 79(1) (2021), pp. 193-194, says the proof of Theorem 3.1 contained a computational error that rendered it invalid; the main Corollary 3.1 stands, and later results need equal-part bipartitions. Not opened: search snippets only.",
+      "date": "2015-09",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Erratum 2021 (Australasian Journal of Combinatorics 79(1), 193-194).",
+      "delivers": "Constraints on a hypothetical degree-57 Moore graph; no existence or nonexistence result.",
+      "remains": "Existence of the degree-57 Moore graph; all other pairs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 11 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Theorem 3.1 contained a computational error per the 2021 erratum; the erratum credits Megan Boes with flagging it. The corrected statement is narrower.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Constraints on a hypothetical object; no direction on existence.",
+      "object": null,
+      "people": [
+        "Paul Renteln"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/1509.00327"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/1509.00327"
+      ]
+    },
+    {
+      "id": "dailly-2025-07",
+      "what_happened": "Antoine Dailly, Sasha Darmon, Ugo Giocanti, Claire Hilaire and Petru Valicov, arXiv:2507.18797, 'Largest planar graphs of diameter 3 and fixed maximum degree -- connection with fractional matchings'. For planar graphs of maximum degree at most Delta and diameter at most 3, the maximum order is (9/2)Delta up to an additive constant; this matches the Fellows, Hell and Seyffarth lower bound.",
+      "date": "2025-07-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 24 Jul 2025 per the abstract page.",
+      "delivers": "Settles the diameter-3 planar restriction: max order (9/2)Delta + O(1) for planar graphs. This is a restricted class (planar graphs), not the general problem; the general N(Delta,3) is not moved.",
+      "remains": "The general problem for all graphs, including the general diameter-3 values.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Discarded for scope. A planar-restriction result on a neighbouring question; it does not change what the entry for the general problem should say.",
+      "object": null,
+      "people": [
+        "Antoine Dailly",
+        "Sasha Darmon",
+        "Ugo Giocanti",
+        "Claire Hilaire",
+        "Petru Valicov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2507.18797"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2507.18797"
+      ]
+    },
+    {
+      "id": "polarstar-2023-02",
+      "what_happened": "Lakhotia, Monroe, Isham, Besta, Blach, Hoefler and Petrini, 'PolarStar: Expanding the Scalability Horizon of Diameter-3 Networks', arXiv:2302.07217 (Feb 2023), SPAA 2024. Diameter-3 networks from a star product of an Erdos-Renyi polarity graph ER_q with an Inductive-Quad or Paley supernode; asymptotically reaches an 8/27 fraction of the diameter-3 Moore bound for the degrees it covers. Not opened: search snippet only.",
+      "date": "2023-02",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v2 and the SPAA 2024 version differ in comparison figures (per snippet).",
+      "delivers": "Lower bounds on N(d,3) for infinitely many d (degrees of the form q+1 and their star-product splits). Pre-window background against which the 2026 diameter-3 entries are compared.",
+      "remains": "Exact values; all other degrees.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 3.7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Lower bounds at infinitely many diameter-3 degrees; no conflict with any conjectured value.",
+      "object": null,
+      "people": [
+        "Kartik Lakhotia",
+        "Laura Monroe",
+        "Kelly Isham",
+        "Maciej Besta",
+        "Nils Blach",
+        "Torsten Hoefler",
+        "Fabrizio Petrini"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/2302.07217"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2302.07217"
+      ]
+    },
+    {
+      "id": "chishwashwa-2024-05",
+      "what_happened": "Chishwashwa, Faber and Streib, arXiv:2405.12374, 'Algebraic Constructions for the Digraph Degree-Diameter Problem' (first submitted May 2024; v3 1 Oct 2025). Constructs digraphs via quasigroups, 1-factors and permutation groups. Not opened: search snippet only.",
+      "date": "2024-05",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v3 1 Oct 2025 (per snippet).",
+      "delivers": "Constructions for the directed version of the problem. This is a different question (digraphs, not graphs), so it moves no bound on the statement's quantity.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2.4 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Discarded for scope: directed graphs.",
+      "object": null,
+      "people": [
+        "Chishwashwa",
+        "Faber",
+        "Streib"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2405.12374"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2405.12374"
+      ]
+    },
+    {
+      "id": "araujo-pardo-2024-01",
+      "what_happened": "Araujo-Pardo, Conder, Garcia-Colin, Kiss and Leemans, arXiv:2401.15539, 'A note on girth-diameter cages', submitted 28 January 2024 (v1). Studies (k; g, d)-graphs, k-regular with girth g and diameter d, and shows n0(k;5,4) >= k^2+k+2 with cages determined for k = 3, 4, 5. Not opened: search listing only.",
+      "date": "2024-01-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 28 Jan 2024; journal version in The Art of Discrete and Applied Mathematics 8(3), 2025 (per search).",
+      "delivers": "Results on a different problem (cages with a diameter condition, girth 5, diameter 4). Not the degree-diameter problem for graphs of max degree at most d and diameter k. Discarded for scope.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2.7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Discarded for scope: a regular-graph girth-diameter problem.",
+      "object": null,
+      "people": [
+        "Gabriela Araujo-Pardo",
+        "Marston Conder",
+        "Natalia Garcia-Colin",
+        "Gyorgy Kiss",
+        "Dimitri Leemans"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/2401.15539"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2401.15539"
+      ]
+    },
+    {
+      "id": "conder-talk-2025-04",
+      "what_happened": "Marston Conder, seminar talk 'Maximum/minimum orders of graphs with given degree and given diameter and/or girth' at FAMNIT, University of Primorska, 22 April 2025. Covers the degree-diameter-girth problem (largest regular graph with given degree, diameter and girth) and reports on a 2023 BIRS workshop. No written preprint was found. Not opened: seminar listing only.",
+      "date": "2025-04-22",
+      "precision": "day",
+      "kind": "conference",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "No written result found. Discarded for scope: it concerns a stronger combined problem with a girth condition, and a talk is not a written argument.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 18 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Discarded for scope.",
+      "object": null,
+      "people": [
+        "Marston Conder"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.famnit.upr.si/?p=106418"
+        ]
+      },
+      "sources": [
+        "https://www.famnit.upr.si/?p=106418"
+      ]
+    },
+    {
+      "id": "table-credits-yugeswardeenoo-2026",
+      "what_happened": "Credits in the Comellas table (opened 2026-10-11) to Dharunish Yugeswardeenoo in 2026: (8,5) in August 2026; (7,5) and (11,5) in October 2026. Also cited by the de Messieres record as the source of the previous value 859 for n(13,3) in 2026. No bibliography tag for these entries on the table page; the underlying sources were not identified or opened.",
+      "date": "2026-08",
+      "precision": "month",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Credit dates per the table: August 2026 and October 2026.",
+      "delivers": "Lower bounds for specific diameter-5 pairs (8,5), (7,5), (11,5), and a diameter-3 bound (13,3) >= 859 as the source record reports. Table credits do not say what changed; the values are not individually verified.",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Source unknown; the credits are unverified and may refer to table updates, not new graphs.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Lower bounds at specific pairs if the table credits are correct; unverified.",
+      "object": null,
+      "people": [
+        "Dharunish Yugeswardeenoo"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+          "https://zenodo.org/records/23176213"
+        ]
+      },
+      "sources": [
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+      ]
+    },
+    {
+      "id": "table-credits-marosi-2026-08-18",
+      "what_happened": "Credits in the Comellas table to Mark Marosi on 18 August 2026 for (9,5), (13,5) and (14,5). No bibliography tag; the source was not identified or opened.",
+      "date": "2026-08-18",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Lower bounds at (9,5), (13,5), (14,5) if the credits correspond to new graphs; unverified.",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Source unknown; unverified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unverified; lower-bound direction if the credits are new graphs.",
+      "object": null,
+      "people": [
+        "Mark Marosi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+        ]
+      },
+      "sources": [
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+      ]
+    },
+    {
+      "id": "table-credits-wupperfeld-2026-08-06",
+      "what_happened": "Credits in the Comellas table to Niklas Wupperfeld on 6 August 2026 for (11,5), (13,5), (14,5) and (15,5). No bibliography tag; the source was not identified or opened.",
+      "date": "2026-08-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Lower bounds at (11,5), (13,5), (14,5), (15,5) if the credits correspond to new graphs; unverified.",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Source unknown; unverified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unverified; lower-bound direction if the credits are new graphs.",
+      "object": null,
+      "people": [
+        "Niklas Wupperfeld"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+        ]
+      },
+      "sources": [
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+      ]
+    },
+    {
+      "id": "table-credits-badaoui-2026-08",
+      "what_happened": "Credits in the Comellas table to Sami Badaoui: (14,5) on 16 August 2026 and (15,5) on 19 August 2026. The (14,5) and (15,5) values in the table (88,452 and 100,000) equal the values in Mizuno's repository. No bibliography tag; the source was not identified or opened.",
+      "date": "2026-08-16",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Lower bounds at (14,5) >= 88,452 and (15,5) >= 100,000 as the table records them; the same numbers appear in Mizuno's repository, so this credit is a priority question (see disputes).",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The same two numbers are in Mizuno's repository with no visible date. Which record is first is unresolved.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Lower bounds at (14,5) and (15,5) at the stated values.",
+      "object": null,
+      "people": [
+        "Sami Badaoui"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+          "https://github.com/rmizuno42/ddp"
+        ]
+      },
+      "sources": [
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+        "https://github.com/rmizuno42/ddp"
+      ]
+    },
+    {
+      "id": "table-credits-isufi-2026-08-13",
+      "what_happened": "Search snippet only (table page not read at this point): credit to Petrit Isufi on 13 August 2026 for (12,4), (15,2) and (15,3). Not verified against the table page; source not opened.",
+      "date": "2026-08-13",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Unverified lower-bound credits at three pairs.",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Credit seen only in a search snippet; unverified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unverified.",
+      "object": null,
+      "people": [
+        "Petrit Isufi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+        ]
+      },
+      "sources": [
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+      ]
+    },
+    {
+      "id": "table-credits-prajapati-2026-08-09",
+      "what_happened": "Search snippet only: credit to Jitendra Prajapati on 9 August 2026 for (4,6). Not verified against the table page; source not opened.",
+      "date": "2026-08-09",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Unverified lower-bound credit at (4,6).",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Credit seen only in a search snippet; unverified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unverified.",
+      "object": null,
+      "people": [
+        "Jitendra Prajapati"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+        ]
+      },
+      "sources": [
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+      ]
+    },
+    {
+      "id": "table-credits-conder-2026-01-18",
+      "what_happened": "Credit in the Comellas table to Marston Conder on 18 January 2026 for (5,5). The (5,5) value on the table is 650. Whether the January 2026 credit reflects a new value or a reference update is not visible.",
+      "date": "2026-01-18",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Unclear; possibly a reference update rather than a new bound.",
+      "remains": "Exact values for all pairs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The credit does not say whether a value changed.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unclear.",
+      "object": null,
+      "people": [
+        "Marston Conder"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+        ]
+      },
+      "sources": [
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Same values, two credits. The orders 88,452 for (14,5) and 100,000 for (15,5) are in Mizuno's repository (no visible date) and are credited in the Comellas table to Sami Badaoui on 16 and 19 August 2026. Neither the repository date nor the Badaoui source was established, so priority is not settled.",
+      "sources": [
+        "https://github.com/rmizuno42/ddp",
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "Chain of (12,5) records in 2026: Comellas 2024 29,621 (leapsinbounds, Jun 2024); Mizuno 34,992 (arXiv 14 Jun 2026; table credit 25 Jul 2026); Rajiv 38,167 (Zenodo 23 Sep 2026); Rajiv 41,699 (Zenodo 30 Sep 2026); the table currently shows 42,342 credited to Rajiv in September 2026. A search snippet earlier reported 38,167 as the table value; the table page read on 11 Oct 2026 shows 42,342. The current table value is taken from the page; the snippet is not relied on.",
+      "sources": [
+        "https://arxiv.org/abs/2606.15860",
+        "https://zenodo.org/records/22907863",
+        "https://zenodo.org/records/23056128",
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+        "https://leapsinbounds.org/constants/degree-diameter-12-5/"
+      ]
+    },
+    {
+      "kind": "date",
+      "summary": "Mizuno's arXiv v1 is dated 14 June 2026 on the arXiv abstract page. Search snippets gave 11 June 2026; the arXiv page is taken as correct.",
+      "sources": [
+        "https://arxiv.org/abs/2606.15860v1"
+      ]
+    },
+    {
+      "kind": "date",
+      "summary": "Rajiv's Zenodo 'Cayley graphs, orbit graphs and lifts' record shows 24 Sep 2026; the Comellas table bibliography dates it 30 Sep 2026. The Zenodo date is used.",
+      "sources": [
+        "https://zenodo.org/records/22928337",
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html"
+      ]
+    },
+    {
+      "kind": "date",
+      "summary": "The Comellas table dates the (10,5) entry to Rajiv on 24 Aug 2026, but the 33,397-vertex graph for (10,5) is in Rajiv's 23 Sep 2026 record. The table credit date and the Zenodo date do not match; the Zenodo date is used.",
+      "sources": [
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+        "https://zenodo.org/records/22907863"
+      ]
+    },
+    {
+      "kind": "count",
+      "summary": "The EJGTA 2025 abstract says fourteen new graphs; the Mendeley dataset notes list thirteen pairs found in 2024. Not resolved here; the paper's pair list was not opened.",
+      "sources": [
+        "https://www.ejgta.org/index.php/ejgta/article/view/2206",
+        "https://data.mendeley.com/datasets/d75dzbjd4k/11"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Yang and Zhu (2019), 'fractal block design' nonexistence claim for the degree-57 Moore graph, was mentioned in one search snippet. The arXiv id given for it (1910.05989) is a different paper, 'The classification of local m-GCI-group on finite nonabelian simple groups' (Zhu and Yang), and the claim could not be located. Recorded here as unresolved, not as an event.",
+      "sources": [
+        "https://arxiv.org/abs/1910.05989"
+      ]
+    },
+    {
+      "kind": "authorship",
+      "summary": "Makhnev's 2020 paper is credited in one search snippet to Makhnev and Paduchikh's 2020 Algebra i Logika paper, which treats the same intersection array {55,54,2;1,1,54}. The arXiv paper (2010.13443) is by A. A. Makhnev alone.",
+      "sources": [
+        "https://arxiv.org/abs/2010.13443"
+      ]
+    }
+  ],
+  "summary": "The problem asks for the exact value of the largest order N(d,k) for every pair of positive integers, and for the extremal graphs. Nothing has settled it since 26 January 2024: no exact value of N(d,k) has been established for any pair not already known, and the degree-57, diameter-2 Moore graph case is still open. What has happened is a large number of lower-bound improvements at specific pairs, most of them in 2026. The earliest in-window event is the 2024 update to the Comellas table (arXiv:2406.18994, 27 June 2024), which raised N(12,5) from 29,470 to 29,621 and thirteen other pairs; its 2025 journal version (EJGTA, accepted 2 April 2025) reports fourteen graphs. In 2026 the bounds move steadily. Mizuno (arXiv:2606.15860, 14 June 2026) gives N(12,5) >= 34,992 and N(16,5) >= 147,456 from a six-day ChatGPT dialogue (gpt-5-5-pro in the transcript metadata); the construction is load-bearing per the author's own account ('Candidate generation itself was left mainly to the LLM'). Rajiv posted a run of Zenodo preprints from July to September 2026 with lower bounds at many pairs, found by computer searches over Cayley and lift constructions, none of them attributing the work to an AI system; the September papers push N(12,5) to 38,167 and then 41,699, and the Comellas table shows 42,342 for (12,5) at the time of reading. Cames van Batenburg and Korsky (arXiv:2608.03965, 4 August 2026) prove lim n_k(d)/d^k = 1 for each fixed k, which resolves a conjecture of Bollobas; the paper credits GPT-5.6 Pro with suggesting the odd/even subflag splitting that the authors developed into the halved-flag construction (H_{k,q}), which supplies the lower bound in the main theorem. They say they 'formulated and verified all mathematical arguments'. Their Lean 4 formalization is described as AI-assisted without naming the tool. de Messieres (Zenodo, October 2026) gives seven bounds, the search programs for which the record says were 'produced with the help of an AI assistant (Claude, Anthropic)'; the record does not say the AI devised the constructions. Kronecker-product constructions by Isham, Lakhotia, Monroe and Petrini (arXiv:2608.27253, 27 August 2026) give diameter-3 bounds at degrees 18 to 20 with no AI mention. Two degree-57 Moore graph items are recent: Ishida (June 2026) shows no involutory automorphisms if the graph exists, and Wagner (October 2026) improves exact search for diameter-2 Moore trees and says it does not attempt the open problem. Smith and Montemanni (Axioms, 1 May 2026) rule out a cyclic-group route, but I could not open that article (HTTP 403). The only nonexistence claim, Makhnev (arXiv:2010.13443, October 2020), is contested by Faber and Keegan (arXiv:2210.09577, 2022) who argue 'this seems not to be correct'; no published resolution was found. The close calls: (a) whether the Cames suggestion is load-bearing, since the authors call it a suggestion they developed; (b) whether writing the search code for de Messieres's graphs counts, since the mathematical families are not attributed to the AI; (c) the Comellas table's header says 'except for some SageMath scripts that were created with the help of ChatGPT', which I did not treat as a system in the result because it concerns scripts, but it is a disclosure on the table that the judging pass should see. Lower-bound events are reported in the direction of the problem's question; none claims or contradicts an exact value.",
+  "competing_reading": "The lower-bound events could be read as 'nothing has happened': no pair's exact value has moved, N(d,k) is still unknown for every pair that matters, and the asymptotic result from Cames van Batenburg and Korsky is the only resolution of anything the statement asks, and it is about a limit rather than the largest graph. Read that way, the AI-linked lower bounds at (12,5) and (16,5) are ordinary improvements that were later superseded by human-run constructions in September 2026. In the other direction, the Cames paper could be read as an AI-generated idea at the centre of a resolved conjecture, because the authors credit GPT-5.6 Pro with the suggestion that led to the construction used for the lower bound. Under the second reading the AI is load-bearing; under the first it is a brainstorming aid.",
+  "what_would_settle_it": "(1) The arXiv PDF and any acknowledgements of 2608.03965 read in full, to see whether the GPT-5.6 Pro suggestion is the idea the proof turns on, or whether H_{k,q} was developed independently. (2) The first-version dates and version histories of the de Messieres Zenodo record and the Rajiv records, and the data-and-verification.zip contents, to see whether any AI credit appears inside the Rajiv data. (3) The Mizuno repository's commit history, to date the 2026 table-linked graphs for (14,5) and (15,5) and settle the Badaoui priority question. (4) The MDPI article (Axioms, 1 May 2026) and the Symmetry 2024 article, both blocked here. (5) The 2024 Comellas EJGTA paper's pair list and whether the 14 graphs were first public in arXiv:2406.18994. (6) Any refereed resolution or replacement of the Faber and Keegan critique of Makhnev's 2020 argument, which would settle the (57,2) case. (7) The Comellas table's history of entries and credits, to date the untagged credits (Yugeswardeenoo, Marosi, Wupperfeld, Badaoui, Isufi, Prajapati, Conder) to specific sources.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2606.15860",
+      "title": "Mizuno, New lower bounds for the degree/diameter problem via interaction with a browser-accessible LLM (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2606.15860",
+      "title": "Mizuno, same paper (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.15860v1",
+      "title": "Mizuno, submission history",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/rmizuno42/ddp",
+      "title": "rmizuno42/ddp supplementary repository",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.03965",
+      "title": "Cames van Batenburg and Korsky, Asymptotically attaining the Moore bound (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.03965",
+      "title": "Cames van Batenburg and Korsky, same paper (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/woutercvb/wewantmoore",
+      "title": "Lean 4 formalization of Asymptotically attaining the Moore bound",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Degree_diameter_problem",
+      "title": "Degree diameter problem (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+      "title": "Comellas, Degree-Diameter Table for Graphs (last changed 11 Oct 2026)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.18994",
+      "title": "Comellas, Table of large graphs with given degree and diameter (v1 27 Jun 2024; v2 24 Jan 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.ejgta.org/index.php/ejgta/article/view/2206",
+      "title": "Comellas, New results on the degree-diameter problem for undirected graphs (EJGTA 2025)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://data.mendeley.com/datasets/d75dzbjd4k/11",
+      "title": "Comellas, Table of Large Degree/Diameter Graphs, version 11 (28 Jan 2026)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://leapsinbounds.org/constants/degree-diameter-12-5/",
+      "title": "Leaps in Bounds, degree-diameter N(12,5)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/21180071",
+      "title": "Rajiv, Four new largest known graphs of diameter three (3 Jul 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/22073603",
+      "title": "Rajiv, Improved lower bounds ... metacyclic groups, coset graphs and affine lifts (24 Aug 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/22907863",
+      "title": "Rajiv, Large graphs of diameter five from a duality of order four of H(9) (23 Sep 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/22928337",
+      "title": "Rajiv, New lower bounds from Cayley graphs, orbit graphs and lifts (24 Sep 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/23052995",
+      "title": "Rajiv, New lower bounds from generalized quadrangles and hexagons (30 Sep 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/23056128",
+      "title": "Rajiv, Partial folds of H(9) and large graphs of diameter five (30 Sep 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/23057003",
+      "title": "Rajiv, New lower bounds from metacyclic Cayley graphs, orbit graphs and clique substitution (30 Sep 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/23176213",
+      "title": "de Messieres, Large graphs for the degree-diameter problem (v4 6 Oct 2026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.27253",
+      "title": "Isham, Lakhotia, Monroe, Petrini, Kronecker Products, Polarity Quotients and Large Graph Constructions (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.27253",
+      "title": "Same paper (HTML); acknowledgements read in the second 100k-character segment",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.04815",
+      "title": "Wagner, Less is Moore (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2610.04815",
+      "title": "Wagner, Less is Moore (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.29183",
+      "title": "Ishida, No involutions in the missing Moore graph",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://epoch.ai/frontiermath/open-problems/missing-moore-graph",
+      "title": "Epoch AI, FrontierMath open problem: The Missing Moore Graph",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2010.13443",
+      "title": "Makhnev, Moore graph with parameters (3250,57,0,1) does not exist",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2210.09577",
+      "title": "Faber and Keegan, Existence of a Moore graph of degree 57 is still open",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.18797",
+      "title": "Dailly et al., Largest planar graphs of diameter 3 and fixed maximum degree",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1910.05989",
+      "title": "Zhu and Yang, arXiv:1910.05989 (cited in one snippet as the Yang and Zhu claim; it is a different paper)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://doi.org/10.3390/axioms15050332",
+      "title": "Smith and Montemanni, Axioms (DOI redirect to MDPI)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.mdpi.com/2075-1680/15/5/332",
+      "title": "Smith and Montemanni, Axioms (MDPI page; HTTP 403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.mdpi.com/2073-8994/16/12/1563/htm",
+      "title": "Smith and Montemanni, Symmetry 16(12) 1563 (MDPI page; HTTP 403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://iris.unimore.it/bitstream/11380/1364069/2/symmetry-16-01563-v2.pdf",
+      "title": "Same paper (institutional PDF; HTTP 403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://doaj.org/article/6bd7b229fb89420dac19d456a61d8024",
+      "title": "DOAJ listing, EURO Journal on Computational Optimization (Jan 2023), Smith and Montemanni",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/1509.00327",
+      "title": "Renteln, Some constraints on the missing Moore graph (search result only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://ajc-new.maths.uq.edu.au/pdf/79/ajc_v79_p193.pdf",
+      "title": "Renteln erratum, Australasian Journal of Combinatorics 79 (search result only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2302.07217",
+      "title": "Lakhotia et al., PolarStar (search result only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.12374",
+      "title": "Chishwashwa, Faber, Streib, Algebraic Constructions for the Digraph Degree-Diameter Problem (search result only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2401.15539",
+      "title": "Araujo-Pardo et al., A note on girth-diameter cages (search result only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.famnit.upr.si/?p=106418",
+      "title": "Conder seminar listing, FAMNIT (search result only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/Vilin97/lean-pool/pull/444",
+      "title": "lean-pool PR #444 importing the Cames van Batenburg and Korsky formalization (search result only)",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "degree diameter problem new result 2025",
+      "degree-diameter problem for general graphs arXiv 2025",
+      "degree diameter problem AI discovered largest graph",
+      "degree diameter problem Wikipedia",
+      "table of largest known graphs degree diameter combinatorics wiki",
+      "AlphaEvolve graph theory extremal graph construction degree diameter",
+      "Moore graph existence degree diameter 2024 new lower bound",
+      "largest graphs of given maximum degree and diameter new record construction",
+      "Miller Širáň degree diameter survey dynamic survey",
+      "LLM found graph construction record maximum degree diameter",
+      "OpenEvolve FunSearch graph diameter extremal construction",
+      "degree diameter problem arXiv abstract new graphs diameter 2 degree",
+      "Cames van Batenburg Korsky Moore bound asymptotically tight Bollobás conjecture",
+      "Mizuno ChatGPT degree diameter lower bound N(12,5) 34992",
+      "\"degree/diameter\" ChatGPT OR GPT OR Claude OR Gemini graph construction preprint 2026",
+      "Comellas Mendeley table of large degree diameter graphs January 2026 update",
+      "Bollobás conjecture Moore bound fixed diameter degree tends to infinity maximum order d^k",
+      "Mizuno degree diameter problem ChatGPT conversation blog",
+      "Moore graph degree 57 diameter 2 AI search 2026",
+      "Mizuno \"degree/diameter\" preprint critique OR comment OR reaction 2026",
+      "AI model open problems combinatorics extremal graph new lower bound 2026 list",
+      "Canale Gómez graphs diameter k order (0.629Δ)^k degree diameter",
+      "Moore bound improvement upper bound degree diameter problem 2025 arXiv",
+      "Conder degree diameter girth regular graphs 2025 talk",
+      "Lean 4 formalization Moore bound degree diameter Cames van Batenburg",
+      "mixed graphs Moore bound Nguyen 2025 Discrete Mathematics degree diameter",
+      "Erdős problems AI solved GPT-5 Pro graph theory counterexample 2026 tracker",
+      "Borsuk problem 321 points R^63 GPT-5.5 Pro counterexample",
+      "Comellas \"fourteen newly discovered largest undirected graphs\" degree diameter",
+      "Rishabh Rajiv degree diameter graph largest known 2026",
+      "Dharunish Yugeswardeenoo degree diameter graphs",
+      "Niklas Wupperfeld Sami Badaoui Mark Marosi largest graph degree diameter 2026",
+      "\"Less is Moore\" diameter two Moore graph constraint satisfaction arXiv 2610.04815",
+      "The Missing Moore Graph Epoch AI FrontierMath open problem degree 57",
+      "Smith Montemanni Moore graph diameter 2 degree 57 cyclic derangements Axioms 2026",
+      "No involutions in the missing Moore graph arXiv 2606.29183",
+      "Kronecker products polarity quotients large graph constructions generalized quadrangle diameter 3 degree record",
+      "degree diameter problem new largest graph record 2026 preprint AI-assisted",
+      "proofatlas \"The Missing Moore Graph\" collaboration",
+      "Araujo-Pardo Conder García-Colín Kiss Leemans girth-diameter cages arXiv 2401.15539 submitted January 2024",
+      "Renteln correction Makhnev nonexistence Moore graph degree 57 Theorem 3.1 erratum",
+      "Makhnev 2020 arXiv Moore graph degree 57 nonexistence distance-regular",
+      "PolarStar degree diameter graphs arXiv Lakhotia Petrini diameter 3 scalable network"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages: 2606.15860, 2608.03965, 2608.27253, 2610.04815, 2606.29183, 2406.18994, 2507.18797, 2010.13443, 2210.09577, 1910.05989 (abstract pages and HTML where available)",
+      "Zenodo records (Rajiv 21180071, 22073603, 22907863, 22928337, 23052995, 23056128, 23057003; de Messieres 23176213)",
+      "Comellas Degree-Diameter Table (UPC), last changed 11 Oct 2026, including its 2026 bibliography",
+      "Mendeley Table of Large Degree/Diameter Graphs, version 11",
+      "Leaps in Bounds N(12,5) entry",
+      "English Wikipedia Degree diameter problem article (lead and references)",
+      "GitHub: rmizuno42/ddp and woutercvb/wewantmoore",
+      "EJGTA article 2206",
+      "Epoch AI FrontierMath 'The Missing Moore Graph' page",
+      "Search results for Renteln, PolarStar, Chishwashwa, Araujo-Pardo, Conder, Smith-Montemanni (MDPI blocked), DOAJ, lean-pool"
+    ],
+    "dead_ends": [
+      "AlphaEvolve, OpenEvolve and FunSearch: no source applies them to degree-diameter graphs; AlphaEvolve's graph results concern cuts and Ramanujan graphs, not N(d,k).",
+      "Gemini, Claude and GPT searches for degree-diameter results found only Mizuno, Cames van Batenburg and Korsky, and de Messieres.",
+      "Yang and Zhu 2019 fractal block design nonexistence claim: could not be located; the cited arXiv id 1910.05989 is a different paper.",
+      "Nguyen 2025 'Moore bound for mixed graphs' in Discrete Mathematics: not found; only the 2008 Nguyen-Miller and 2016 Buset et al. corrections on mixed graphs, which are different questions.",
+      "Canale and Gomez: one search snippet gave (Delta/1.57)^k, another gave 0.629; the constant could not be verified and the paper is pre-window.",
+      "Conder's 2025 talk concerns the degree-diameter-girth problem, not this one.",
+      "Borsuk's conjecture and the GPT-5.6 Dinitz-Garg-Goemans item came up in AI-search results; both are unrelated to degree-diameter.",
+      "ProofAtlas: a search-result page titled 'The Missing Moore Graph' exists, but no content was opened and no link to this problem was established.",
+      "'Less is Moore' was not found by the first search but was opened directly.",
+      "Smith-Montemanni 2026 (Axioms): not opened because MDPI returned HTTP 403 on both the DOI and the redirect.",
+      "Mizuno-era transcripts: the arXiv paper's own description was used; no separate transcript was accessed."
+    ]
+  },
+  "incomplete": "(1) Not opened: MDPI Axioms 2026 (Smith and Montemanni) and Symmetry 2024 (both HTTP 403); their content is from search snippets only. (2) Search-snippet-only sources, not opened: Renteln 2015 and 2021 erratum; PolarStar (2023); Chishwashwa, Faber and Streib (2024); Araujo-Pardo et al. (2024); the Conder talk listing; the DOAJ listing for the 2023 Smith-Montemanni EURO article; the lean-pool import PR. (3) The Rajiv data-and-verification.zip files and README files in each Zenodo record were not inspected, so their computational checks are unverified; the same applies to the de Messieres record's verification details. (4) Untagged Comellas-table credits without dates (Bhakar, Chenxudong, Amarel et al., Gupta, Uberti) were not recorded as events because no date appears in the table page I read; they need a second pass. (5) Pre-2024 record-setting constructions (Loz and Sirán 2008; Comellas and Gómez 1995; Mesežnikov 2012; Abas 2015; Erskine 2014; Dinneen and Hafner 1994; Sampels 1997; Canale and Gómez) are background that the 2024 and 2026 records supersede; they are not recorded as individual events. (6) The Comellas table is a live page, last changed 11 Oct 2026, and is in active update; its values and credits in this record are a snapshot. (7) Quotes from arXiv and Zenodo pages were obtained via a summarising fetch tool, which returns paraphrase in places and truncates long pages; they were not checked against the PDFs. The Mizuno quotes in particular were confirmed by two fetches that agreed on the key sentences, but the full section text was not read. The Cames quotes come from one fetch of the HTML. (8) The de Messieres first-version date is not visible; 4 Oct 2026 is the table's credit date. (9) The EJGTA publication date and the first public date of its 14 graphs are not established. (10) The Mizuno repository has no visible posting date. (11) The Wikipedia Table of the largest known graphs article was not opened. (12) The Lean formalization's axiom audit output is not shown, so sorry-freeness is not established for either Lean project. (13) Dates for the untagged credits are month or day as the table shows them; the table does not give the underlying source dates.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "progress",
+  "ai_role": "generated",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "comellas-2024-table",
+  "no_change_found": false,
+  "event": {
+    "id": "comellas-2024-table",
+    "what_happened": "Francesc Comellas, arXiv:2406.18994, 'Table of large graphs with given degree and diameter', updating the 2013 Miller-Sirán survey table with results obtained since. The page credits the 2024 new best values for thirteen pairs: (3,5), (6,8), (7,6), (7,7), (8,5), (9,4), (10,4), (10,5), (11,5), (12,5), (13,5), (14,5), (15,5). The Leaps in Bounds page records that the (12,5) lower bound was raised from 29,470 (Loz and Sirán 2008) to 29,621 on 2024-06-27. The arXiv v2 comment reads 'Added a new best value for degree and diameter five and new references.'",
+    "date": "2024-06-27",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 27 Jun 2024; v2 24 Jan 2026. The Mendeley dataset is at version 7 (4 Apr 2025, state as of March 2025) and version 11 (28 Jan 2026, state as of January 2026). Entries for the pairs are credited to 'the author ... in 2024'. The per-pair first-appearance dates within January to June 2024 are not established; the arXiv v1 date is used as the first public written argument for the group.",
+    "delivers": "New lower bounds for the 13 listed pairs (for example (12,5) from 29,470 to 29,621, per Leaps in Bounds). Each is a bound on N(d,k) at a specific pair. No exact value is established for any of them, and the Comellas table lists an 'optimal' (boldface) status only for pairs with a matching upper bound.",
+    "remains": "Exact values for all pairs, including those 13 pairs.",
+    "checked_by": [],
+    "no_engagement_found": false,
+    "time_since_posted": "about 2 years 3 months",
+    "machine_checked": null,
+    "directly_checkable": "Each graph is listed in the table with its adjacency list, which can be checked directly (the table says so; the individual adjacency lists were not opened).",
+    "doubts": null,
+    "later_work_cites_it": true,
+    "withdrawn": null,
+    "direction": "Raises lower bounds at thirteen pairs. Cuts in the same direction as the other lower-bound events, with no conjectured exact value involved.",
+    "object": "Explicit graphs for each listed pair, given in the table with adjacency lists. Not opened individually. The 2024 additions are mainly Cayley-graph or voltage-lift constructions per the table's own bibliography.",
+    "people": [
+      "Francesc Comellas"
+    ],
+    "ai": {
+      "none_found": false,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+        "https://arxiv.org/abs/2406.18994"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2406.18994",
+      "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+      "https://data.mendeley.com/datasets/d75dzbjd4k/11",
+      "https://leapsinbounds.org/constants/degree-diameter-12-5/"
+    ]
+  },
+  "credited_humans": [
+    "Francesc Comellas"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2406.18994",
+    "https://web.mat.upc.edu/francesc.comellas/delta-d/table_degree_diameter.html",
+    "https://data.mendeley.com/datasets/d75dzbjd4k/11",
+    "https://leapsinbounds.org/constants/degree-diameter-12-5/"
+  ],
+  "ai": {
+    "systems": [
+      "gpt-5-5-pro"
+    ],
+    "from_event": "mizuno-2026-06",
+    "basis_quote": "Model display name: gpt-5-5-pro in the transcript metadata. (Also: 'ChatGPT was used as an interactive discovery engine.' and 'Candidate generation itself was left mainly to the LLM.')",
+    "none_found": false,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "mizuno-2026-06",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "'Candidate generation itself was left mainly to the LLM' and 'ChatGPT was used as an interactive discovery engine'; the route-chart lift principle first appeared in the dialogue, and the author states interventions 'did not supply components of the final construction'.",
+        "ai_systems_credited": [
+          "gpt-5-5-pro"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "mizuno-repo-2026",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "doubtful",
+        "credibility_reason": "No posting date visible; same (14,5) and (15,5) values are credited to Badaoui in the table, so priority is unresolved.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "comellas-2024-table",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "comellas-ejgta-2025",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "cames-korsky-2026-08",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "The tool suggested splitting complete flags into their odd- and even-rank subflags ... The authors developed this suggestion into the halved-flag construction, formulated and verified all mathematical arguments.",
+        "ai_systems_credited": [
+          "GPT-5.6 Pro"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "cames-lean-2026-08",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "rajiv-2026-07-diam3",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "rajiv-2026-08-metacyclic",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "rajiv-2026-09-h9-diam5",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "rajiv-2026-09-cayley-orbit",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "rajiv-2026-09-gq-hex",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "rajiv-2026-09-partial-folds",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "rajiv-2026-09-clique-subst",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "demessieres-2026-10",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kronecker-2026-08",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wagner-2026-10",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "ishida-2026-06",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "smith-montemanni-axioms-2026-05",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "smith-montemanni-symmetry-2024-12",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "smith-montemanni-euro-2023-01",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "makhnev-2020-10",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Faber and Keegan argue the case analysis is flawed (the equation system factors into solvable blocks); no published resolution, and their objection is hedged ('seems not to be correct') rather than a pinpointed fatal error.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "refuted",
+        "object_role": null
+      },
+      {
+        "id": "faber-keegan-2022-10",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "renteln-2015-erratum-2021",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "dailly-2025-07",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "polarstar-2023-02",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chishwashwa-2024-05",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "araujo-pardo-2024-01",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "conder-talk-2025-04",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "table-credits-yugeswardeenoo-2026",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Underlying source unidentified; table credits only.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "table-credits-marosi-2026-08-18",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Underlying source unidentified; table credit only.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "table-credits-wupperfeld-2026-08-06",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Underlying source unidentified; table credit only.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "table-credits-badaoui-2026-08",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Source unidentified; identical values appear in Mizuno's repository, priority unresolved.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "table-credits-isufi-2026-08-13",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Seen only in a search snippet; not confirmed on the table page.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "table-credits-prajapati-2026-08-09",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Seen only in a search snippet; not confirmed on the table page.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "table-credits-conder-2026-01-18",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "The credit does not show that any value changed; possibly a reference update.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks for the exact largest order N(d,k) for all pairs, so every new explicit graph at a specific pair is a lower bound (bound), checkable by BFS where explicit. Cames van Batenburg–Korsky determine lim N(d,k)/d^k = 1 for fixed k: an asymptotic statement, not the value for any pair, so bound rather than case; its Lean formalization is not digestion and the formalization event adds no mathematics (none). Mizuno's construction was produced in the ChatGPT dialogue by the author's own account (generated). The Cames suggestion of splitting flags into odd/even subflags became the halved-flag construction that supplies the lower bound, so the model supplied part of the mathematics (assisted), though the authors call it a suggestion. For de Messieres, Claude wrote and ran search programs (simulated annealing) but the constructions are not attributed to it; that is search-code tooling, answered none — the closest call. Planar, digraph and girth-cage results are variants. Moore-57 structural papers (Ishida, Smith–Montemanni, Wagner, Renteln) bound or restrict nothing about N(57,2) and are none. Makhnev's pre-snapshot nonexistence claim is a case (one pair), doubtful given the unanswered Faber–Keegan critique.",
+    "doubts": "de Messieres AI role: Claude wrote and ran the programs that found the voltages, which some would count as assisted; answered none because the record attributes no mathematical idea to the model. Smith–Montemanni items were judged from snippets only (MDPI blocked). Untagged table credits have no identified source. The Comellas table header discloses ChatGPT-assisted SageMath scripts, not treated as AI mathematics.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "progress",
+      "rests_on": "comellas-2024-table",
+      "ai_role": "generated",
+      "ai_from": "mizuno-2026-06",
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": [
+        "gpt-5-5-pro"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

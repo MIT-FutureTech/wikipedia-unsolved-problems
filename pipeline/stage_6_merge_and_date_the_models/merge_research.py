@@ -1,0 +1,462 @@
+"""Turn the deep-dive records into the tables build.py joins onto the frozen list.
+
+One record per problem comes out of pipeline/stage_2_research_each_problem/deep_dive.py, keyed by slug, into the same
+data/<VERSION>/ folder this writes to. build.py works from the wikitext and knows nothing about
+slugs, so this is where the two meet:
+
+  * the join is on statement text (pipeline/shared/join_map.py explains why, and carries the exceptions)
+  * system names are canonicalised through pipeline/shared/model_aliases.py
+  * `year_introduced` is not researched yet — year_introduced() below is the stub
+
+Writes data/<VERSION>/research.json:
+
+  by_statement  statement text -> the finding, for the 457 bullets
+  by_name       build record name -> the finding, for the 5 Millennium problems
+  models        canonical model -> lab, family, kind, release
+  meta          version, counts, and every problem the merge could not place
+
+Run: python3 pipeline/stage_6_merge_and_date_the_models/merge_research.py
+"""
+import argparse, collections, datetime, json, os, re, sys
+
+sys.path.insert(0, os.path.join(
+    os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'shared'))
+import manifest
+from join_map import BY_NAME
+from model_aliases import MODELS, ALIASES
+from tiers import tier_of, TIERS
+from wikitext import parse_problem_keys, strip_wiki
+
+ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+ap = argparse.ArgumentParser()
+ap.add_argument('--version', required=True, metavar='NAME',
+                help='the dataset version to work in: data/<NAME>/ — e.g. mark_2026-09-22')
+ap.add_argument('--revision', default='2024-01')
+ap.add_argument('--records', default='out', metavar='SET',
+                help="which records to merge: 'out' (research, judged/) or 'combined' "
+                     "(research plus the OpenAI stage, judged-combined/)")
+ap.add_argument('--allow-rejected', action='store_true',
+                help='PREVIEW ONLY: use a judged copy the validator flagged, with its derived codes, '
+                     'instead of refusing the merge. Every one is printed and listed in the manifest; '
+                     'never publish a dataset built this way')
+args = ap.parse_args()
+STARTED = manifest.now()
+VERSION = args.version
+
+OUT_DIR = os.path.join(ROOT, 'data', VERSION)
+RECORDS = os.path.join(OUT_DIR, 'deepdive', args.records)
+# The judging pass (pipeline/stage_4_judge_the_records/judge.py) writes corrected copies here. Where one exists it replaces the
+# research record, unless a human has since overruled the judge on that record, which the live
+# record says in a correction whose `by` contains OVERRULES.
+JUDGED = os.path.join(OUT_DIR, 'deepdive', 'judged' if args.records == 'out' else f'judged-{args.records}', 'out')
+
+
+# A research record carries findings and no codes (DEEP_DIVE.md §7), so only the judging pass can
+# produce something build.py can use. A record that reaches here without codes is a hole in the
+# dataset, and a hole that defaults to `open` is indistinguishable from a researched `open` — the
+# exact failure the fixed denominator exists to prevent. So they are collected and refused, never
+# filled in.
+NEEDS = ('status', 'ai_role', 'resolution_direction')
+
+
+def load_record(f):
+    """(record, source). `source` is 'judged', 'overruled', or why the record cannot be used."""
+    live = json.load(open(os.path.join(RECORDS, f), encoding='utf-8'))
+    path = os.path.join(JUDGED, f)
+    if not os.path.exists(path):
+        return live, 'NOT JUDGED: no judged copy'
+    if any('OVERRULES' in (c.get('by') or '') for c in live.get('corrections') or []):
+        missing = [k for k in NEEDS if live.get(k) is None]
+        return live, 'overruled' if not missing else f'OVERRULES but the record has no {missing[0]}'
+    judged = json.load(open(path, encoding='utf-8'))
+    problems = judged.get('judge_problems', ['not validated'])
+    # An AI credit with no quote naming the system is accepted on progress, not on a resolution:
+    # the site shows it as AI involvement with no system named.
+    unnamed_ai = re.compile(r'derived ai_role \w+ with no basis_quote behind it')
+    if problems and all(unnamed_ai.fullmatch(p) for p in problems) and judged.get('status') not in ('resolved', 'claimed'):
+        problems = []
+    if problems:
+        return judged, f'JUDGE REJECTED: {problems[0]}'
+    # JUDGE.md §3 step 6: only a resolution carries a direction. A partial result, a moved bound or
+    # a stale entry has none by design, so its absence there is not a hole.
+    needs = NEEDS if judged.get('status') in ('resolved', 'claimed') else ('status', 'ai_role')
+    missing = [k for k in needs if judged.get(k) is None]
+    if missing and judged.get('status') != 'open':
+        return judged, f'judged copy has no {missing[0]}'
+    return judged, 'judged'
+
+
+def statements(revision):
+    """slug -> statement, for every bullet including the article's own headings."""
+    return {r['key']: r['statement']
+            for r in parse_problem_keys(os.path.join(ROOT, 'data', VERSION, 'problem_keys.md'), revision)}
+
+
+def groupings(revision):
+    """slug -> statement for the bullets that are headings, not problems.
+
+    Two sources, and they turn out to be disjoint: problem_keys.md marks a bullet [GROUPING] when
+    it ends in a colon and has children, and wikitext.HEADING_BULLETS carries the five the retired
+    triage pass judged headings (Kaplansky's conjectures, the Deligne conjecture, Landau's problems
+    and two 'Problems in …' headings). parse_problem_keys flags both, so every pass filters the
+    same ten, and build.py excludes them from the 467 bullets to leave the 457-problem denominator.
+    """
+    rows = parse_problem_keys(os.path.join(ROOT, 'data', VERSION, 'problem_keys.md'), revision)
+    return {r['key']: r['statement'] for r in rows if r['is_grouping']}
+
+
+def release_dates():
+    """canonical model -> the release pass's finding, or {} if that pass has not run.
+
+    `available` is the date that matters for comparing against a result: the private preview where
+    there was one, otherwise the public release. A system its users could reach in May 2025 was
+    available in May 2025, whatever month it later reached general availability.
+
+    A tier with no date of its own inherits its base model's dates and is marked inherited, so a
+    reader can tell a sourced date from a carried one.
+    """
+    path = os.path.join(OUT_DIR, 'release_dates.json')
+    if not os.path.exists(path):
+        return {}
+    raw = json.load(open(path, encoding='utf-8'))
+    out = {}
+    for m, r in raw.items():
+        out[m] = dict(release=r.get('release'), preview_date=r.get('preview_date'),
+                      release_basis=r.get('release_basis'), base_model=r.get('base_model'),
+                      release_url=r.get('url'))
+    for m, r in out.items():                       # tiers inherit, after everything is loaded
+        if r['release_basis'] == 'tier' and r.get('base_model') in out and not r['release']:
+            base = out[r['base_model']]
+            r['release'], r['preview_date'] = base['release'], base['preview_date']
+            r['inherited_from'] = r['base_model']
+    # TENTATIVE (see TODO.md): OpenAI's internal model has no public release, so it sits nowhere on a
+    # release timeline. It is placed, provisionally, on the day after GPT-6 Astra's release, the
+    # latest model it is described against, and marked `tentative` so no reader takes it as sourced.
+    astra = (out.get('GPT-6 Astra') or {}).get('release')
+    if astra and len(astra) == 10 and not (out.get('OpenAI internal model') or {}).get('release'):
+        day_after = (datetime.date.fromisoformat(astra) + datetime.timedelta(days=1)).isoformat()
+        out.setdefault('OpenAI internal model', {}).update(
+            release=day_after, preview_date=None, release_basis='tentative', release_url=None,
+            tentative_note='no public release; placed provisionally on the day after GPT-6 Astra')
+    for r in out.values():
+        r['available'] = r.get('preview_date') or r.get('release')
+    return out
+
+
+def years_posed():
+    """key -> the year-posed finding, or {} if that pass has not run.
+
+    One file, written by pipeline/stage_5_date_each_problem/year_posed.py, holding both sources:
+    `scrape` where the year was read mechanically off the article by scrape_years.py, `agent` where
+    it was researched. That script treats the file as a cache and will not rebuild it without
+    --force, so running its stage on an existing trial costs nothing.
+
+    The distinction is kept per record in `basis`: a regex over an article lead and a sourced
+    literature citation are not the same kind of fact, and the scrape has known false positives
+    where a dating verb sits beside a year that is not the posing year.
+    """
+    path = os.path.join(OUT_DIR, 'year_posed.json')
+    return json.load(open(path, encoding='utf-8')) if os.path.exists(path) else {}
+
+
+YEAR_SOURCE = {'wikipedia_infobox': 'Wikipedia infobox',
+               'wikipedia_lead': 'Wikipedia article lead',
+               'literature': 'mathematical literature (sourced)',
+               'unknown': None}
+
+
+def year_introduced(key, statement):
+    """(year, source, note, approx) for one problem; year is None where no source states one."""
+    r = YEARS.get(key)
+    if not r or r.get('year') is None:
+        return (None, None, '', False)
+    note = (r.get('quote') or '').strip()
+    if r.get('posed_by'):
+        note = f"{r['posed_by']}, {r['year']}" + (f" — {note}" if note else '')
+    return (r['year'], YEAR_SOURCE.get(r.get('basis')) or r.get('basis'), note, bool(r.get('approx')))
+
+
+def systems_of(record):
+    """The record's system strings -> canonical models, plus anything the alias map has not seen.
+
+    A record coded `ai_role: none` may still name systems — a model that only checked the proof,
+    wrote the manuscript, or was tried and failed. Those names stay in `ai_systems` as evidence,
+    but the record credits no model, so it contributes nothing to `ai_models` and nothing to the
+    model table. Counting them would put GitHub Copilot on a problem whose authors say it
+    formatted their LaTeX.
+    """
+    named = (record.get('ai') or {}).get('systems') or []
+    if (record.get('ai_role') or 'none') == 'none':
+        return named, [], []
+    models, unknown = [], []
+    for s in named:
+        s = s.strip()
+        if s not in ALIASES:
+            unknown.append(s)
+        elif ALIASES[s] and ALIASES[s] not in models:
+            models.append(ALIASES[s])
+    return named, models, unknown
+
+
+def month_of(event):
+    """'YYYY-MM', or 'YYYY-MM~' where only the year is sourced. Never invents a month."""
+    date, prec = str(event.get('date') or ''), event.get('precision')
+    if not re.match(r'\d{4}', date):
+        return None
+    if prec == 'year' or len(date) < 7:
+        return None                      # a year with no month is a gap; build shows year only
+    return date[:7]
+
+
+# Claims OpenAI published in its own repositories (openai/math, October 2026; openai/NavierStokesAndEuler,
+# September 2026): the stage's own events, and research events whose source is one of them.
+OPENAI_REPO = re.compile(r'(github|githubusercontent)\.com/openai/(math|NavierStokesAndEuler)')
+
+
+def from_openai_repo(ev):
+    if (ev.get('origin') or {}).get('stage') == 'openai':
+        return True
+    return any(OPENAI_REPO.search(str(s.get('url') if isinstance(s, dict) else s)) for s in ev.get('sources') or [])
+
+
+# Hand corrections to individual events, applied over the judge's answers: data/<version>/corrections.json,
+# a list of {key, event, field, from, to, by, why}, where field is `ai` (the role), `ai_models` (the
+# credited systems after aliasing) or `date` (with `precision` beside `to`). `from` must match the
+# record, so a correction that no longer applies stops the merge rather than silently changing
+# something else.
+_CORR_PATH = os.path.join(OUT_DIR, 'corrections.json')
+CORRECTIONS = {(c['key'], c['event']): c for c in (json.load(open(_CORR_PATH, encoding='utf-8')) if os.path.exists(_CORR_PATH) else [])}
+_corrections_used = set()
+
+
+def events_of(r):
+    """Every event that survives JUDGE.md §3 step 1, with the judge's answers beside it.
+
+    The site's charts each count events their own way (the first resolution, any progress, each
+    credited system), so they need the events themselves rather than one status per problem. This
+    passes them through and decides nothing: the only rule applied is the shared tier definition.
+    Discarded events (variants, instances, the not credible) are left out; they set no chart.
+    """
+    rows = {x.get('id'): x for x in ((r.get('judgement') or {}).get('events') or [])}
+    out = []
+    for ev in r.get('events') or []:
+        row = rows.get(ev.get('id'))
+        if not row or not (tier := tier_of(row)):
+            continue
+        # A doubtful claim on the whole problem does not count, except a claim from the OpenAI
+        # repository, which counts by policy; the judge's rating is kept beside it (see About).
+        policy = None
+        if tier in ('resolved', 'claimed') and row.get('credibility') == 'doubtful':
+            if not from_openai_repo(ev):
+                continue
+            policy = 'openai_repository'
+        role = row.get('ai_role') or 'none'
+        corr = CORRECTIONS.get((r.get('key'), ev.get('id')))
+        if corr and corr['field'] == 'ai':
+            if corr['from'] != role:
+                sys.exit(f"corrections.json: {corr['key']} {corr['event']} expects ai {corr['from']!r}, the judge says {role!r}")
+            role = corr['to']
+            _corrections_used.add((corr['key'], corr['event']))
+        names = row.get('ai_systems_credited') or [] if role != 'none' else []
+        models = [ALIASES[n.strip()] for n in names if ALIASES.get(n.strip())]
+        if corr and corr['field'] == 'ai_models':
+            if corr['from'] != models:
+                sys.exit(f"corrections.json: {corr['key']} {corr['event']} expects ai_models {corr['from']!r}, the judge's names give {models!r}")
+            models = corr['to']
+            _corrections_used.add((corr['key'], corr['event']))
+        date, precision = ev.get('date'), ev.get('precision')
+        if corr and corr['field'] == 'date':
+            if corr['from'] != date:
+                sys.exit(f"corrections.json: {corr['key']} {corr['event']} expects date {corr['from']!r}, the record says {date!r}")
+            date, precision = corr['to'], corr['precision']
+            _corrections_used.add((corr['key'], corr['event']))
+        mc = ev.get('machine_checked')
+        out.append(dict(
+            id=ev.get('id'),
+            date=date, precision=precision,
+            after_snapshot=row.get('after_snapshot'),
+            tier=tier, scope=row.get('scope'), verification=row.get('verification'),
+            credibility=row.get('credibility'),
+            ai=role,
+            ai_systems=names,
+            ai_models=models,
+            direction=row.get('direction'), object_role=row.get('object_role'),
+            lean=bool(isinstance(mc, dict) and mc.get('system')),
+            origin=(ev.get('origin') or {}).get('stage') or 'research',
+            source=next((s.get('url') if isinstance(s, dict) else s for s in ev.get('sources') or []), None),
+            counted_by_policy=policy,
+            correction=(corr['by'] + ': ' + corr['why']) if corr else None,
+            people=ev.get('people') or [],
+            delivers=ev.get('delivers') if tier in ('resolved', 'claimed') else None,
+        ))
+    return out
+
+
+def status_of(r, events):
+    """The highest tier among the events that count, which matches the judge's status except where
+    events_of has set a doubtful claim aside."""
+    tiers = [e['tier'] for e in events if e['after_snapshot'] is True]
+    if tiers:
+        return max(tiers, key=TIERS.index)
+    return r['status'] if r['status'] in ('open', 'open_stale') else 'open'
+
+
+def key_event(events):
+    """The event the problem-level fields describe: the first resolution, or else the latest relevant event."""
+    ev = sorted((e for e in events if e['after_snapshot'] is True), key=lambda e: str(e.get('date') or '9999'))
+    res = [e for e in ev if e['tier'] in ('resolved', 'claimed')]
+    return res[0] if res else (ev[-1] if ev else None)
+
+
+def ai_category(events):
+    """As on the site: a resolved problem by the AI role on its first resolution; any other problem
+    that moved by all its relevant events (generated, assisted, both = AI and human separately, none)."""
+    ev = [e for e in events if e['after_snapshot'] is True]
+    res = sorted((e for e in ev if e['tier'] in ('resolved', 'claimed')), key=lambda e: str(e.get('date') or '9999'))
+    if res:
+        return res[0]['ai']
+    ai = [e for e in ev if e['ai'] != 'none']
+    if not ai:
+        return 'none'
+    if len(ai) < len(ev):
+        return 'both'
+    return 'generated' if all(e['ai'] == 'generated' for e in ai) else 'assisted'
+
+
+def finding(r):
+    """The record in the shape build.py expects, plus the fields the site shows. The problem-level
+    fields are derived from the events, so they agree with the site's charts."""
+    events = events_of(r)
+    ev = key_event(events) or {}
+    credited = [e for e in events if e['after_snapshot'] is True and e['ai'] != 'none']
+    named = list(dict.fromkeys(n for e in credited for n in e['ai_systems']))
+    models = list(dict.fromkeys(m for e in credited for m in e['ai_models']))
+    return dict(
+        status=status_of(r, events),
+        outcome=r.get('outcome'),
+        year=int(str(ev.get('date'))[:4]) if re.match(r'\d{4}', str(ev.get('date') or '')) else None,
+        month=month_of(ev),
+        by='; '.join(ev.get('people') or []) or None,
+        ai=ai_category(events),
+        ai_systems=named,                       # verbatim, as the sources named them
+        ai_models=models,                       # canonical, for counting
+        ai_labs=sorted({MODELS[m]['lab'] for m in models if m in MODELS and MODELS[m]['lab']}),
+        ai_quote=(r.get('ai') or {}).get('basis_quote'),
+        direction=ev.get('direction'),
+        counterexample=ev.get('object_role') == 'counterexample',
+        note=r.get('summary') or '',
+        competing_reading=r.get('competing_reading'),
+        confidence=(r.get('judgement') or {}).get('confidence'),   # the judge's; research no longer gives one
+        # The schema has an event's sources as URLs; some records give {"url": …} objects instead.
+        sources=[s.get('url') if isinstance(s, dict) else s for s in r.get('status_sources') or []
+                 if (s.get('url') if isinstance(s, dict) else s)],
+        no_change_found=bool(r.get('no_change_found')),
+        corrections=r.get('corrections') or [],
+        events=events,
+        key=r['key'],
+    )
+
+
+RELEASES = release_dates()
+YEARS = years_posed()
+STATEMENTS_ALL = statements(args.revision)
+stmt = STATEMENTS_ALL
+GROUPINGS = groupings(args.revision)
+if not os.path.isdir(RECORDS):
+    sys.exit(f'no records in {os.path.relpath(RECORDS, ROOT)} — run pipeline/stage_2_research_each_problem/deep_dive.py first')
+
+by_statement, by_name, unplaced, unknown_systems, unusable = {}, {}, [], collections.Counter(), []
+n, source, allowed = 0, collections.Counter(), []
+for f in sorted(os.listdir(RECORDS)):
+    if not f.endswith('.json'):
+        continue
+    r, src = load_record(f)
+    key = r.get('key') or f[:-5]
+    # A flagged copy still has derived codes; --allow-rejected lets a preview use them, loudly.
+    if args.allow_rejected and src.startswith('JUDGE REJECTED') and r.get('status'):
+        allowed.append(f'{key}: {src}')
+        src = 'judged'
+    source['judged' if src in ('judged', 'overruled') else 'unusable'] += 1
+    if src not in ('judged', 'overruled'):
+        unusable.append(f'{key}: {src}')
+        continue
+    n += 1
+    _, _, unk = systems_of(r)
+    for u in unk:
+        unknown_systems[u] += 1
+    fnd = finding(r)
+    fnd['year_introduced'] = year_introduced(key, stmt.get(key))
+    if key in BY_NAME:
+        by_name[BY_NAME[key]] = fnd
+    elif key in stmt:
+        by_statement[stmt[key]] = fnd
+    else:
+        unplaced.append(key)
+
+if unusable:
+    print(f'\n{len(unusable)} of {len(unusable) + n} records cannot be used:', file=sys.stderr)
+    for line in unusable[:20]:
+        print('  ' + line, file=sys.stderr)
+    if len(unusable) > 20:
+        print(f'  … and {len(unusable) - 20} more', file=sys.stderr)
+    sys.exit('\nrefusing to write research.json: a problem with no judged codes would be built as '
+             '`open`, which the dataset cannot tell apart from a researched `open`. Judge them '
+             '(pipeline/stage_4_judge_the_records/judge.py), or delete the records you are abandoning so the gap is explicit.')
+
+moved = {k: v for d in (by_statement, by_name) for k, v in d.items() if v['status'] != 'open'}
+out = dict(
+    by_statement=by_statement, by_name=by_name,
+    groupings=sorted(GROUPINGS.values()),
+    # Every model credited anywhere: on a problem's one credit, or on any of its events, since the
+    # site's charts count events and each needs its system's release date.
+    models={m: dict(MODELS[m], **RELEASES.get(m, {}))
+            for m in sorted({m for v in list(by_statement.values()) + list(by_name.values())
+                             for m in v['ai_models'] + [x for e in v.get('events') or [] for x in e['ai_models']]})},
+    meta=dict(version=VERSION, revision=args.revision, n_records=n,
+              n_placed=len(by_statement) + len(by_name), n_moved=len(moved),
+              unplaced=unplaced, unknown_systems=dict(unknown_systems),
+              n_groupings=len(GROUPINGS),
+              year_introduced='stub: not researched in this version'),
+)
+os.makedirs(OUT_DIR, exist_ok=True)
+json.dump(out, open(os.path.join(OUT_DIR, 'research.json'), 'w', encoding='utf-8'), indent=1, ensure_ascii=False)
+
+print('records from: ' + '  '.join(f'{k}={v}' for k, v in source.most_common()))
+print(f'{n} records -> {len(by_statement)} by statement + {len(by_name)} by name = {len(by_statement)+len(by_name)} placed')
+unused = set(CORRECTIONS) - _corrections_used
+if unused:
+    sys.exit('corrections.json: not applied (no such counted event): ' + ', '.join(f'{k} {e}' for k, e in sorted(unused)))
+print(f'corrections applied: {len(_corrections_used)}')
+print('status: ' + '  '.join(f'{k}={v}' for k, v in collections.Counter(
+    v['status'] for v in list(by_statement.values()) + list(by_name.values())).most_common()))
+print('ai:     ' + '  '.join(f'{k}={v}' for k, v in collections.Counter(
+    v['ai'] for v in list(by_statement.values()) + list(by_name.values())).most_common()))
+with_year = sum(1 for v in list(by_statement.values()) + list(by_name.values()) if v['year_introduced'][0])
+print(f'year posed: {with_year} of {len(by_statement) + len(by_name)} problems')
+dated = sum(1 for v in out['models'].values() if v.get('available'))
+print(f'models named: {len(out["models"])} ({dated} with an availability date) | '
+      f'grouping bullets excluded: {len(GROUPINGS)}')
+if unplaced:
+    print(f'UNPLACED ({len(unplaced)}) — no statement match and no join_map entry:')
+    for k in unplaced:
+        print('  ' + k)
+if unknown_systems:
+    print(f'SYSTEM STRINGS NOT IN model_aliases.py ({len(unknown_systems)}):')
+    for s, c in unknown_systems.most_common():
+        print(f'  {c:2}  {s}')
+print('-> ' + os.path.relpath(os.path.join(OUT_DIR, 'research.json'), ROOT))
+
+# Which records this join actually used, and how many it could place: the two numbers that say
+# whether research.json describes the whole denominator or part of it.
+manifest.record(ROOT, VERSION, 'merge', os.path.abspath(__file__),
+                counts=dict(records=n, placed=len(by_statement) + len(by_name),
+                            moved=len(moved), unplaced=len(unplaced),
+                            unknown_systems=len(unknown_systems),
+                            sources=dict(source)),
+                extra=dict(wrote='research.json', revision=args.revision, records=args.records,
+                           preview=bool(allowed), allowed_rejected=allowed), started=STARTED)
+if allowed:
+    print(f'\nPREVIEW: {len(allowed)} flagged judged copies were used anyway (--allow-rejected). '
+          'Do not publish this build:')
+    for line in allowed:
+        print('  ' + line)

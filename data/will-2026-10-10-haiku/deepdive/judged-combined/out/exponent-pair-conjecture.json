@@ -1,0 +1,611 @@
+{
+  "key": "exponent-pair-conjecture",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 no source found proves, disproves or conditionally settles the conjecture that (ε, 1/2+ε) is an exponent pair for every ε > 0; the one in-window event that moves the known set of exponent pairs (Tao, Trudgian and Yang, arXiv:2501.16779, 28 January 2025) adds four explicit pairs, none on the conjectured family, is computer-assisted, and names no AI system.",
+  "problem_asks": "(1) A single universal yes/no question: for every ε > 0, is the point (ε, 1/2+ε) an exponent pair? The answer is yes for all ε > 0 if the conjecture holds, and a single ε with a no would refute it as stated. (2) 'Exponent pair' as defined in the Wikipedia article linked from the bullet (Van der Corput's method, section Exponent pairs): (k, ℓ) with 0 ≤ k ≤ 1/2 ≤ ℓ ≤ 1 such that for each σ > 0 there exist δ and R, depending on k, ℓ and σ, with the exponential-sum bound holding uniformly in the function f. The bullet thus asks for membership of each (ε, 1/2+ε) in that set. The bullet does not ask for the full triangle, the β-formula, or the Lindelöf consequence, although the literature says the conjecture implies Lindelöf and solves the Dirichlet divisor problem up to ε.",
+  "events": [
+    {
+      "id": "tao-trudgian-yang-2025-antedb",
+      "what_happened": "Terence Tao, Tim Trudgian and Andrew Yang post 'New exponent pairs, zero density estimates, and zero additive energy estimates: a systematic approach' (arXiv:2501.16779), launching the Analytic Number Theory Exponent Database (ANTEDB; GitHub teorth/expdb). By optimising, with Python code, over collected relations between exponents, they state four new exponent pairs (Theorem 20), new zero-density estimates for the Riemann zeta function, and new additive-energy estimates for zeros of zeta. Tao's blog post of 28 January 2025 announces the same work. The paper restates the conjecture as Conjecture 17 (see the summary for its exact form).",
+      "date": "2025-01-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv lists only v1 (submitted Tue 28 Jan 2025, 08:03 UTC). The HTML rendering of v1 carries a 'Date: August 24, 2026' stamp that matches no arXiv version date; I could not resolve this.",
+      "delivers": "Four explicit rational exponent pairs in the sense of the paper's Definition 11 (its definition is abridged in the fetch; see summary): (89/1282, 997/1282), (652397/9713986, 7599781/9713986), (10769/351096, 609317/702192), (89/3478, 15327/17390). Each has 0 ≤ k ≤ 1/2 ≤ ℓ ≤ 1 and k+ℓ ≤ 1. k runs from about 0.026 to 0.069 and ℓ from about 0.778 to 0.881, so ℓ−k is about 0.71 to 0.86, against exactly 1/2 for every point (ε, 1/2+ε). None of the four is of that form for any ε > 0. The paper also gives zero-density and additive-energy bounds, which are not part of this bullet. The paper states the exponent-pair conjecture as its Conjecture 17 and proves none of it. Restriction: all four are obtained by computer-optimised combinations of relations, and Theorem 20's proof is given as 'follows from Lemma 15 after some further computer calculation'.",
+      "remains": "The whole bullet: the family (ε, 1/2+ε) for every ε > 0 is not touched by any of the four pairs, and the paper states no result on it. The paper treats Conjecture 17 (every point of the triangle is an exponent pair) as a conjecture.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 20 months to 11 October 2026; I found no public expert reading, verification, or critique. The Stanford seminar by Andrew Yang (19 February 2025, per a search listing) and the 2025 Wikipedia citation of the preprint are presentation or citation, not verification.",
+      "machine_checked": null,
+      "directly_checkable": "The four pairs are explicit rationals and can be checked against the relations used in the paper, which the paper says follow from Lemma 15 plus computer calculation. I did not carry out that check. The GitHub Lean file Expdb.lean (fetched from main) has only 15 lines of module imports, so it contains no formal proof of any of the four pairs.",
+      "doubts": "These are the authors' own caveats, recorded here for the later pass and not as my assessment. (a) Section 1.2: the Python module uses 'routines that are not formally certified to be error-free'. (b) Section 6.1: a machine-generated proof 'is not certifiably correct due to issues of code fidelity', and is manually transcribed into human-readable proofs held in the ANTEDB. (c) Theorem 20 depends on computer calculation after Lemma 15. I found no public error report or retraction. I did not check the arithmetic of the four pairs against Lemma 15.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral towards the conjecture. The four pairs contradict nothing in Conjecture 17 (each lies in the triangle, which I checked by arithmetic) and none approaches the conjectured family (ε, 1/2+ε). The conjecture is not moved on its own terms.",
+      "object": "Four explicit rational exponent pairs (listed in 'delivers'), exhibited as elements of the set of exponent pairs by a computer-optimised combination of known relations. They are explicit, not from an existence argument. They are not a counterexample to anything and do not construct points of the conjectured family.",
+      "people": [
+        "Terence Tao",
+        "Tim Trudgian",
+        "Andrew Yang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2501.16779v1",
+          "https://terrytao.wordpress.com/2025/01/28/"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2501.16779",
+        "https://arxiv.org/html/2501.16779v1",
+        "https://terrytao.wordpress.com/2025/01/28/",
+        "https://github.com/teorth/expdb",
+        "https://github.com/teorth/expdb/blob/main/Expdb.lean"
+      ]
+    },
+    {
+      "id": "trudgian-yang-2023-toward-optimal",
+      "what_happened": "Timothy Trudgian and Andrew Yang, 'Toward optimal exponent pairs' (arXiv:2306.05599): quantifies the known exponent pairs and gives a framework for computing the optimal exponent pair for an arbitrary objective. It is applied to bounds for ζ(s) in the critical strip, moments of ζ(1/2+it), and the generalised Dirichlet divisor problem. The abstract says 'we make progress on several open problems'. It is the survey whose tables the ANTEDB paper builds on.",
+      "date": "2023-06-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 9 June 2023; v3 15 July 2024 (in the window, a revision only). The v2 date was not checked.",
+      "delivers": "A framework and optimisation over known exponent pairs. The abstract announces no particular new pair. The abstract page I read does not state the conjecture and does not define exponent pairs.",
+      "remains": "The whole bullet. This event makes no claim about (ε, 1/2+ε).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 40 months; no independent verification relevant to the bullet found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral. It does not address the conjecture.",
+      "object": null,
+      "people": [
+        "Timothy Trudgian",
+        "Andrew Yang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2306.05599"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2306.05599"
+      ]
+    },
+    {
+      "id": "bourgain-2014-decoupling-zeta",
+      "what_happened": "Jean Bourgain, 'Decoupling, exponential sums and the Riemann zeta function' (arXiv:1408.5794). The paper proves a decoupling inequality for curves giving a new mean-value theorem for exponential sums of the kind used in the Bombieri–Iwaniec method, and deduces a bound on |ζ(1/2+it)| on the critical line. The arXiv abstract page as fetched gives the bound as t^{53/342+ε}. Later literature in search snippets gives 13/84 for the JAMS version, which I did not open.",
+      "date": "2014-08-25",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 22 February 2016. Journal: J. Amer. Math. Soc. 30 (2017), 205–224, per an AMS listing seen in search but not opened.",
+      "delivers": "A critical-line zeta bound, exponent 53/342 + ε according to the arXiv abstract page. The abstract does not state an exponent pair, and does not mention the Lindelöf hypothesis or the exponent pair conjecture. Whether a 13/84 exponent appears in the journal version is unverified, see the 'doubts' field.",
+      "remains": "The whole bullet. This is a result on ζ, not on exponent pairs or on (ε, 1/2+ε).",
+      "checked_by": [
+        {
+          "who": "Journal of the American Mathematical Society (refereed journal)",
+          "qualification": "Journal of record; refereeing process not examined.",
+          "what_they_did": "Published the JAMS version in 2017, per an AMS listing seen in search results. I did not open the listing.",
+          "where": "https://www.ams.org/jams/2017-30-01/S0894-0347-2016-00860-3/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The exponent conflict: the arXiv abstract page gives 53/342, while search snippets attribute 13/84 to the JAMS version. I did not resolve this by reading the journal version, so the figure used in later literature is unconfirmed.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral. A zeta bound, not a statement about the conjectured family.",
+      "object": null,
+      "people": [
+        "Jean Bourgain"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1408.5794"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1408.5794"
+      ]
+    },
+    {
+      "id": "elaissaoui-2024-lindelof-characterisation",
+      "what_happened": "Lahoucine Elaissaoui, 'On the Lindelöf Hypothesis for the Riemann Zeta function and Piltz divisor problem' (arXiv:2406.00331). The abstract gives the Fourier expansion of ζ^k in Re s > 1/2 and says it deduces 'a necessary and sufficient condition for the truth of the Lindelöf Hypothesis', plus an almost-everywhere representation of the Piltz error term Δ_k.",
+      "date": "2024-06-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 15 April 2025.",
+      "delivers": "From the abstract only: a criterion equivalent to the Lindelöf hypothesis. It is not an unconditional proof of Lindelöf. It says nothing about exponent pairs. Discounted for this bullet: the conjecture implies Lindelöf, so a Lindelöf criterion is a consequence, not the conjecture itself.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 28 months; no public engagement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral towards the conjecture. It concerns the neighbouring Lindelöf problem.",
+      "object": null,
+      "people": [
+        "Lahoucine Elaissaoui"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2406.00331"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2406.00331"
+      ]
+    },
+    {
+      "id": "guth-maynard-2024-large-values",
+      "what_happened": "Larry Guth and James Maynard, 'New large value estimates for Dirichlet polynomials' (arXiv:2405.20552). The paper proves new large-value bounds for Dirichlet polynomials, with consequences: the zero-density estimate N(σ,T) ≤ T^{30(1−σ)/13+o(1)} and asymptotics for primes in short intervals of length x^{17/30+o(1)}. The abstract does not mention the growth exponent μ(σ), the Lindelöf hypothesis, exponent pairs, or the conjecture.",
+      "date": "2024-05-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 7 April 2026.",
+      "delivers": "Zero-density and short-interval prime results from large-value estimates. These are not exponent pairs, and the abstract does not bear on the conjectured family.",
+      "remains": "The whole bullet.",
+      "checked_by": [
+        {
+          "who": "Annals of Mathematics",
+          "qualification": "Journal of record.",
+          "what_they_did": "Listed as published in the Annals (2026 issue) in a search result. I did not open that page, so this is unverified.",
+          "where": "https://annals.math.princeton.edu/2026/203-2/p06",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral. Out of scope for this bullet.",
+      "object": null,
+      "people": [
+        "Larry Guth",
+        "James Maynard"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2405.20552"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2405.20552"
+      ]
+    },
+    {
+      "id": "revers-2026-explicit-zeta-critical-line",
+      "what_happened": "Michael Revers, 'A new improved explicit estimate for ζ(1/2+it)' (arXiv:2602.05614): an improved explicit subconvexity result on the critical line, improving Hiary, Patel and Yang (2024), from a refined explicit van der Corput argument combined with computational calculations.",
+      "date": "2026-02-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "An explicit constant improvement for |ζ(1/2+it)|. The abstract states no new exponent and no new exponent pair. The abstract page does not mention exponent pairs, the conjecture, or the Lindelöf hypothesis.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 months; no public engagement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral. It is about explicit constants for ζ, not the conjectured family.",
+      "object": null,
+      "people": [
+        "Michael Revers"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2602.05614"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2602.05614"
+      ]
+    },
+    {
+      "id": "li-2026-largest-prime-factor-short-intervals",
+      "what_happened": "Runbo Li, 'On the largest prime factor of integers in short intervals IV' (Cambridge Open Engage preprint, DOI 10.33774/coe-2026-24kjf, version 1 dated 17 August 2026). By inserting new exponent pairs into earlier exponential-sum estimates, it proves that the interval [x, x+x^{1/2}] contains a number with a prime factor larger than x^{0.744} for all sufficiently large x. The page says it has not been peer-reviewed.",
+      "date": "2026-08-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A prime-factor consequence obtained from exponent pairs. It does not establish or change anything about (ε, 1/2+ε). The page does not name where the new pairs come from; expdb and ANTEDB are not mentioned.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "under 2 months; no engagement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral towards the conjecture. It is a downstream user of exponent pairs.",
+      "object": null,
+      "people": [
+        "Runbo Li"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://client.prod.orp.cambridge.org/engage/coe/article-details/6a81bb22d1922e37d56e7678"
+        ]
+      },
+      "sources": [
+        "https://client.prod.orp.cambridge.org/engage/coe/article-details/6a81bb22d1922e37d56e7678"
+      ]
+    }
+  ],
+  "disputes": [],
+  "summary": "I ran 37 searches and opened about 15 primary or reference pages (listed below). No source proves, disproves, or conditionally settles the conjecture that (ε, 1/2+ε) is an exponent pair for all ε > 0. Each source that states it still treats it as a conjecture: the Wikipedia van der Corput article, Trudgian–Yang (2023), and Tao–Trudgian–Yang (2025, its Conjecture 17). The only in-window event that moves the known set of exponent pairs is the ANTEDB paper, arXiv:2501.16779 (28 January 2025). Its four pairs have k between about 0.026 and 0.069 and ℓ between about 0.778 and 0.881, so ℓ−k is 0.71 to 0.86, against 1/2 for every conjectured point. None is of the form (ε, 1/2+ε), and none lies outside the triangle 0 ≤ k ≤ 1/2 ≤ ℓ ≤ 1, k+ℓ ≤ 1. Conjecture 17 is broader than the bullet: (i) every point of the triangle is an exponent pair, which includes all (ε, 1/2+ε), and (ii) a β-formula β(α) = α/2 for 0 ≤ α ≤ 1, which the paper calls equivalent to (i) by Lemma 15. Section 3 reports that a machine-assisted approach 'uncovers a number of improvements to manually-derived β bounds'. Whether that counts as moving a quantity the bullet names depends on whether those β values approach α/2. I did not read Lemma 15 or Table 1, so I cannot say. The bullet's Wikipedia definition of exponent pair (for each σ > 0 there exist δ and R) and the paper's Definition 11 (a bound with (T/N)^{k+o(1)} N^{ℓ+o(1)}, uniform over phase functions) are stated differently; I did not check that they are equivalent. On AI: no source names an AI system in connection with this bullet. The ANTEDB paper describes 'computer assisted' Python optimisation and machine proofs that are 'not certifiably correct', and the blog post mentions AI only as a future integration. Several AI results in the window concern other bullets. Alpöge and Furman (arXiv:2608.13637, 13 August 2026) credit Claude with discovering a proof about simple zeros of ζ on the critical line; that is Riemann-hypothesis territory, and its abstract page mentions no exponent pairs, van der Corput, or Lindelöf, so I did not record it as an event here. Other AI items (AlphaEvolve on matrix multiplication and sum–difference sets; OpenAI on unit distances) also concern other problems. Three discrepancies I could not resolve: the ANTEDB HTML carries a 'Date: August 24, 2026' stamp against a single arXiv version of 28 January 2025; the first pair's numerator reads 89 in one fetch and 891 in another, and 891 would breach k ≤ 1/2, so I recorded 89/1282; and Bourgain's arXiv abstract gives 53/342 where later sources give 13/84.",
+  "competing_reading": "The 2025 paper's β-bound improvements count as progress on a quantity the conjecture names. The paper declares its Conjecture 17(i) and (ii) equivalent, so any β bound moved toward α/2 moves the conjecture's own quantity, and a reader could record Table 1 as a partial result on the bullet. Against this, the bullet asks about the specific family (ε, 1/2+ε) for every ε > 0. Unless Table 1 shows the new β values reach α/2 at the relevant α, which I did not verify, the four pairs leave that family untouched.",
+  "what_would_settle_it": "(1) The text of Lemma 15, Table 1 and the β definition in arXiv:2501.16779. The PDF fetch returned binary data, and I did not open the saved copy, which lies outside the project directory. Whether any β value in Table 1 reaches α/2. (2) The numerator of the first Theorem 20 pair, 89/1282 or 891/1282, from a clean text source. (3) The JAMS version of Bourgain's paper, to settle 13/84 against 53/342. (4) A journal version of 2501.16779, or any expert reading or citation that treats the four pairs as bearing on Conjecture 17. None was found. (5) Whether the expdb Python code reproduces the four pairs from the stated relations; Expdb.lean contains only imports.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2501.16779",
+      "title": "New exponent pairs, zero density estimates, and zero additive energy estimates: a systematic approach (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2501.16779v1",
+      "title": "New exponent pairs, zero density estimates, and zero additive energy estimates (HTML v1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2501.16779",
+      "title": "New exponent pairs ... (PDF; fetch returned binary data, not read)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://terrytao.wordpress.com/2025/01/28/",
+      "title": "Terence Tao blog post announcing the ANTEDB, 28 January 2025",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/teorth/expdb",
+      "title": "teorth/expdb (ANTEDB repository)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/teorth/expdb/blob/main/Expdb.lean",
+      "title": "expdb Expdb.lean (15 lines, imports only)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2306.05599",
+      "title": "Toward optimal exponent pairs (Trudgian, Yang)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1408.5794",
+      "title": "Decoupling, exponential sums and the Riemann zeta function (Bourgain)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.00331",
+      "title": "On the Lindelöf Hypothesis for the Riemann Zeta function and Piltz divisor problem (Elaissaoui)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.20552",
+      "title": "New large value estimates for Dirichlet polynomials (Guth, Maynard)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.05614",
+      "title": "A new improved explicit estimate for ζ(1/2+it) (Revers)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://client.prod.orp.cambridge.org/engage/coe/article-details/6a81bb22d1922e37d56e7678",
+      "title": "On the largest prime factor of integers in short intervals IV (Li), Cambridge Open Engage",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.11069",
+      "title": "On the sum of Δ_k(n) in the Piltz divisor problem for k=3 and k=4 (Minamide, Tanigawa, Watt)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2302.13444",
+      "title": "An explicit sub-Weyl bound for ζ(1/2+it) (Patel, Yang)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.01779",
+      "title": "Strichartz and dispersive estimates for quantum bouncing ball model (Ivanovici)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.01751",
+      "title": "An extended Vinogradov's mean value theorem (Oh, Yeon)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.13637",
+      "title": "More than two thirds of the zeta zeros are simple and on the critical line (Alpöge, Furman)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics",
+      "title": "List of unsolved problems in mathematics (bullet wording and link, second page of text)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Van_der_Corput%27s_method",
+      "title": "Van der Corput's method (Exponent pairs section)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.ams.org/jams/2017-30-01/S0894-0347-2016-00860-3/",
+      "title": "AMS listing, J. Amer. Math. Soc. 30 (2017) (seen in search only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://annals.math.princeton.edu/2026/203-2/p06",
+      "title": "Annals of Mathematics listing for Guth–Maynard (seen in search only)",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "exponent pair conjecture (epsilon, 1/2 + epsilon) exponent pair",
+      "exponent pairs arXiv 2024 2025 new exponent pair exponential sums",
+      "Wikipedia List of unsolved problems in mathematics exponent pair conjecture",
+      "exponent pair conjecture Lindelöf hypothesis Bourgain 2017 exponent pairs",
+      "\"exponent pair\" conjecture AI proof OR AlphaEvolve OR GPT exponential sum",
+      "Tao Trudgian Yang expdb analytic number theory exponent database blog",
+      "Guth Maynard new large value estimates Dirichlet polynomials zeta function bounds 2024",
+      "Lindelöf hypothesis new bound 2025 arXiv zeta function critical line improvement",
+      "van der Corput B process new exponent pair arXiv 2024",
+      "Vinogradov mean value theorem exponent pairs improvement 2025 arXiv exponential sums",
+      "AlphaEvolve exponent pairs exponential sums van der Corput",
+      "large language model proof Lindelöf hypothesis or exponent pair conjecture",
+      "arXiv 2607.17474 On some sums involving small arithmetic functions",
+      "Bourgain decoupling exponential sums Riemann zeta function 13/84 exponent pair JAMS",
+      "Wikipedia van der Corput's method exponent pairs section Huxley 32/205 269/410",
+      "Hiary Patel Yang 2024 explicit subconvexity zeta critical line bound",
+      "\"exponent pair\" 2026 arXiv new bound exponential sums zeta",
+      "Anthropic model Riemann hypothesis Lindelöf zeta unreleased model claim",
+      "AI-assisted analytic number theory exponential sums 2026 proof language model",
+      "exponent pairs Lean formalization Mathlib van der Corput exponential sum formal proof",
+      "Trudgian Yang exponent pairs 2025 2026 new results optimisation ANTEDB follow-up",
+      "Bombieri Iwaniec exponent pair improvement Huxley 2025 arXiv exponential sums large sieve",
+      "Dirichlet divisor problem exponent 2025 new bound exponent pair conjecture implies",
+      "OpenAI GPT-5 zeta function critical line bound exponential sums proof",
+      "Quanta Magazine exponent pairs exponential sums Lindelöf hypothesis 2025 2026",
+      "Lindelöf hypothesis Piltz divisor problem arXiv 2406.00331 Riemann zeta conditional result",
+      "emergentmind open problem Lindelöf hypothesis growth of zeta on critical line exponent pairs status",
+      "Anthropic Claude zeta zeros simple on critical line 67.2% arXiv 2608.13637 exponent pairs Lindelöf",
+      "Piltz divisor problem k=3 k=4 exponent pairs Trudgian Yang arXiv 2412.11069 improvement",
+      "fourth derivative test exponential sums 2024 2025 new exponent pair Weyl sum improvement arXiv",
+      "FrontierMath open problems benchmark analytic number theory exponent pair conjecture",
+      "\"exponent pair conjecture\" 2025 OR 2026 paper mentions open problem Lindelöf implies",
+      "Terence Tao blog exponent pairs AI tools automated theorem proving analytic number theory 2026",
+      "IEANTN Integrated Explicit Analytic Number Theory Network Tao Lean formalization exponent pairs",
+      "\"New exponent pairs, zero density estimates, and zero additive energy estimates\" journal published citing",
+      "Analytic Number Theory Exponent Database ANTEDB cited paper 2026 new exponent pair derived from expdb",
+      "Lindelöf hypothesis exponent pair conjecture AI-generated proof claim 2026 arXiv Claude GPT Gemini"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages: 2501.16779, 2306.05599, 1408.5794, 2406.00331, 2405.20552, 2412.11069, 2302.13444, 2602.05614, 2510.01779, 2506.01751, 2608.13637",
+      "arXiv PDF of 2501.16779 (attempted; binary data returned, not read)",
+      "Terence Tao blog post of 28 January 2025 (ANTEDB announcement)",
+      "GitHub teorth/expdb repository README and Expdb.lean",
+      "Wikipedia: List of unsolved problems in mathematics (bullet found) and Van der Corput's method (Exponent pairs section)",
+      "Cambridge Open Engage preprint 10.33774/coe-2026-24kjf (Li, 2026)",
+      "Search only, not opened: Epoch AI FrontierMath Open Problems (no exponent-pair item found), Emergentmind open-problem stub, Stanford seminar listing, tagteam feed items, IPAM/IEANTN talk listing, Annals and AMS listings"
+    ],
+    "dead_ends": [
+      "No Lean or Mathlib formalisation of exponent pairs found (Expdb.lean contains only imports; the search found nothing else).",
+      "No AI-generated or AI-assisted result on exponent pairs or on (ε, 1/2+ε) found in any search, including AlphaEvolve, OpenAI/GPT, Gemini and Lean/autoformalisation queries.",
+      "Anthropic/Claude zeta-zero result (arXiv:2608.13637, Alpöge and Furman, 13 August 2026) credits Claude with autonomously discovering the proof; it concerns simple zeros on the critical line, and its abstract page mentions no exponent pairs, van der Corput method or Lindelöf. Out of scope for this bullet, not recorded as an event. Its press reports (including a 'raised lower bound' claim) were not opened as sources.",
+      "Tao's 2026 IEANTN (Integrated Explicit Analytic Number Theory Network) project: secondary reports say AI completed Lean formalisation tasks in explicit analytic number theory. No exponent-pair content found, and the lead attribution conflicts between sources (one names Tao Zhexuan). Primary not found.",
+      "Patel–Yang arXiv:2302.13444 (27 February 2023): explicit sub-Weyl bound |ζ(1/2+it)| ≤ 66.7 t^{27/164}; pre-window, no exponent pair in its abstract, so not recorded as an event.",
+      "Hiary–Patel–Yang arXiv:2207.02366 (2022): pre-window explicit critical-line bound, seen in search only, not opened.",
+      "Oh–Yeon arXiv:2506.01751 (extended Vinogradov mean value theorem, June 2025): opened; the abstract mentions no exponent pairs or conjecture, so not recorded as an event.",
+      "Ivanovici arXiv:2510.01779 (October 2025): opened; a Strichartz paper conditional on exponential-sum bounds; claims no new exponent pair.",
+      "Minamide–Tanigawa–Watt arXiv:2412.11069 (15 December 2024): opened; the abstract does not say whether exponent pairs are used as inputs; no claim on the conjecture.",
+      "Robert–Sargos (arXiv:2307.03562), Robert (2016), Heath-Brown (arXiv:2312.14531, quartic Weyl sums), Holowinsky–Munshi–Qi (arXiv:2104.05157), Zhai (arXiv:2607.17474): seen in search only, not opened. Each is pre-window or about a different exponential-sum problem.",
+      "Shinya arXiv:0706.0357 and Cheng–Wang–Albeverio arXiv:1010.3374 (claimed Lindelöf proofs, 2007 and 2010): pre-window, different problem, seen in search only, not opened; withdrawal status unchecked.",
+      "Fokas arXiv:1708.06607 and the 2026 PDMI preprint arXiv:2602.05731 (heuristic Lindelöf 'formula proof'): Lindelöf-related, not exponent pairs; seen in search only.",
+      "Quanta Magazine, MathOverflow, zbMATH, Google Scholar and Lean Zulip: no relevant article found or not reachable in these searches; not checked directly.",
+      "Journal publication of arXiv:2501.16779: none found in search. Citation count: not found."
+    ]
+  },
+  "incomplete": "(1) The PDF of arXiv:2501.16779 could not be read: the fetch returned binary data. I did not open the saved copy, which is outside the project directory. Lemma 15, Table 1, the definition of β, and the full text of Theorem 20 were therefore read only through the HTML rendering in fragments; I did not check the arithmetic. (2) Bourgain's JAMS version (13/84 or 53/342) was not opened. (3) The Annals and AMS pages were seen only in search results, so their publication claims are unverified. (4) The Elaissaoui, Revers, Guth–Maynard, and Li records rest on abstract pages; I did not read their bodies. (5) A 2025 zeta-function preprint that acknowledges ANTEDB was reported in search, but I did not identify it. (6) The Tao 2026 IEANTN blog post and the Mathstodon posts were not read; only secondary reports were seen. (7) The 'Date: August 24, 2026' stamp in the ANTEDB HTML is unexplained. (8) Whether the ANTEDB's 'Definition 11' and the Wikipedia definition are equivalent was not checked.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "tao-trudgian-yang-2025-antedb",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "trudgian-yang-2023-toward-optimal",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bourgain-2014-decoupling-zeta",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "elaissaoui-2024-lindelof-characterisation",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "guth-maynard-2024-large-values",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "revers-2026-explicit-zeta-critical-line",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "li-2026-largest-prime-factor-short-intervals",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks whether every point (ε, 1/2+ε) is an exponent pair. The only event that adds exponent pairs (Tao–Trudgian–Yang, January 2025) exhibits four explicit pairs with ℓ−k between about 0.71 and 0.86, far from the conjectured family where ℓ−k = 1/2. They are new members of the known set, but they neither settle any point of the family nor bound a quantity the statement names, so the scope is none and not bound. The close call was the competing reading that improved β bounds in Table 1 move the conjecture's quantity. The record never shows any β value reaching α/2, and the statement is about the specific family, not the β-function, so I did not count it. The zeta-bound papers (Bourgain, Guth–Maynard, Revers) concern neighbouring questions, so they are variant. Trudgian–Yang 2023, Elaissaoui and Li bound or settle nothing here, so they are none. No AI system is credited in any event. The Alpöge–Furman Claude result concerns another problem and is correctly not an event here.",
+    "doubts": "Table 1 of arXiv:2501.16779 was not read. If its β improvements were read as moving the conjecture's own quantity, the ANTEDB event could arguably be a bound. Bourgain's 2017 JAMS publication and Guth–Maynard's Annals publication rest on search listings that were not opened.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

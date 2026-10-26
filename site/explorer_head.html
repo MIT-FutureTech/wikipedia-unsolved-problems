@@ -1,0 +1,544 @@
+<title>The Wikipedia Unsolved Problems Tracker</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  /* MIT brand: MIT Red #750014 · Silver Gray #8b959e · Bright Red #ff1423 · Black · White */
+  --mit-red:#750014; --bright-red:#ff1423; --silver:#8b959e;
+  --canvas:#6d0013; --canvas-deep:#4f000d; --canvas-ink:#ffffff; --canvas-ink-2:#eec8ce; --canvas-line:rgba(255,255,255,.16);
+  --bg:#6d0013; --panel:#ffffff; --panel-2:#eceef0; --line:#ccd1d6; --line-soft:#e3e6e9;
+  --ink:#000000; --ink-2:#3f4750; --ink-3:#6f7880;
+  --accent:#750014; --accent-soft:#f6e7e9;
+  --grid:#e3e6e9; --hover:#faf4f5; --focus:#ff1423; --tag-bg:#eef0f1;
+  /* kinds of problem */
+  --c-conj:#750014; --c-q:#c8304a; --c-prob:#dd7c86; --c-other:#7c868f;
+  /* AI involvement, an intensity ramp: most AI -> least */
+  --ai-gen:#750014; --ai-asst:#c8304a; --ai-both:#a8577a; --ai-bound:#dd7c86; --ai-retr:#000000; --ai-none:#7c868f; --st-open:#ccd2d8;
+  --ai:#750014; --ai-bg:#f6e7e9;
+  /* outcome */
+  --o-disproved:#750014; --o-proved:#3f4750; --o-mixed:#a8b0b7;
+  /* status badges */
+  --st-resolved:#750014; --st-resolved-bg:#f6e7e9; --st-claimed:#000000; --st-claimed-bg:#eceef0;
+  --st-partial:#3f4750; --st-partial-bg:#eceef0; --st-stale:#6f7880; --st-stale-bg:#eceef0;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+  color-scheme:dark;
+  --mit-red:#750014; --bright-red:#ff1423; --silver:#8b959e;
+  --canvas:#240409; --canvas-deep:#1a0206; --canvas-ink:#ffffff; --canvas-ink-2:#e0b9bf; --canvas-line:rgba(255,255,255,.14);
+  --bg:#240409; --panel:#1b1d20; --panel-2:#24272b; --line:#383c41; --line-soft:#2b2f33;
+  --ink:#f2f4f5; --ink-2:#c3ccd4; --ink-3:#8b959e;
+  --accent:#ff5f70; --accent-soft:#3a1218;
+  --grid:#2b2f33; --hover:#26201f; --focus:#ff4757; --tag-bg:#24272b;
+  --c-conj:#ff5f70; --c-q:#c03249; --c-prob:#eaa3ab; --c-other:#79838d;
+  --ai-gen:#9e1026; --ai-asst:#cf4257; --ai-both:#d78bab; --ai-bound:#ea9098; --ai-retr:#e9dcde; --ai-none:#8a939b; --st-open:#454e56;
+  --ai:#ff5f70; --ai-bg:#3a1218;
+  --o-disproved:#ff5f70; --o-proved:#c3ccd4; --o-mixed:#6f7880;
+  --st-resolved:#ff8d99; --st-resolved-bg:#3a1218; --st-claimed:#f2f4f5; --st-claimed-bg:#2b2f33;
+  --st-partial:#c3ccd4; --st-partial-bg:#24272b; --st-stale:#8b959e; --st-stale-bg:#24272b;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --mit-red:#750014; --bright-red:#ff1423; --silver:#8b959e;
+  --canvas:#240409; --canvas-deep:#1a0206; --canvas-ink:#ffffff; --canvas-ink-2:#e0b9bf; --canvas-line:rgba(255,255,255,.14);
+  --bg:#240409; --panel:#1b1d20; --panel-2:#24272b; --line:#383c41; --line-soft:#2b2f33;
+  --ink:#f2f4f5; --ink-2:#c3ccd4; --ink-3:#8b959e;
+  --accent:#ff5f70; --accent-soft:#3a1218;
+  --grid:#2b2f33; --hover:#26201f; --focus:#ff4757; --tag-bg:#24272b;
+  --c-conj:#ff5f70; --c-q:#c03249; --c-prob:#eaa3ab; --c-other:#79838d;
+  --ai-gen:#9e1026; --ai-asst:#cf4257; --ai-both:#d78bab; --ai-bound:#ea9098; --ai-retr:#e9dcde; --ai-none:#8a939b; --st-open:#454e56;
+  --ai:#ff5f70; --ai-bg:#3a1218;
+  --o-disproved:#ff5f70; --o-proved:#c3ccd4; --o-mixed:#6f7880;
+  --st-resolved:#ff8d99; --st-resolved-bg:#3a1218; --st-claimed:#f2f4f5; --st-claimed-bg:#2b2f33;
+  --st-partial:#c3ccd4; --st-partial-bg:#24272b; --st-stale:#8b959e; --st-stale-bg:#24272b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.5}
+a{color:var(--accent);text-underline-offset:2px}
+a:hover{color:var(--bright-red)}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;font-variant-numeric:tabular-nums}
+header{padding:30px 32px 0;background:var(--canvas-deep);color:var(--canvas-ink)}
+.rightcol{flex:none;align-self:stretch;display:flex;flex-direction:column;gap:18px}
+.brand{display:block;align-self:flex-end;line-height:0;opacity:.92}
+.brand:hover{opacity:1}
+.brand img{height:76px;width:auto;display:block}
+/* the dropdown is pushed to the foot of the masthead so it lines up with the tab bar below it */
+.scope{margin-top:auto}
+.masthead{max-width:1400px;margin:0 auto;padding-bottom:20px;display:flex;gap:32px;align-items:flex-start;justify-content:space-between}
+.masthead > div:first-child{min-width:0}
+.scope{flex:none;display:flex;flex-direction:column;gap:5px;align-items:stretch;padding-top:6px;max-width:290px}
+.scope .lab{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--canvas-ink-2);opacity:.8}
+.scope select{appearance:none;width:100%;padding:6px 26px 6px 10px;border:1px solid var(--canvas-line);border-radius:4px;background:none;color:var(--canvas-ink);font:inherit;font-size:12.5px;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,currentColor 50%),linear-gradient(135deg,currentColor 50%,transparent 50%);
+  background-position:calc(100% - 14px) 52%,calc(100% - 9px) 52%;background-size:5px 5px,5px 5px;background-repeat:no-repeat}
+.scope select:hover{background-color:rgba(255,255,255,.06)}
+.scope select:focus-visible{outline:2px solid var(--bright-red);outline-offset:1px}
+.scope select option{background:var(--canvas,#1a1a1a);color:var(--canvas-ink)}
+@media (max-width:820px){.masthead{flex-direction:column;gap:18px}.scope{flex-direction:row;flex-wrap:wrap;align-items:center;max-width:none}.scope select{width:auto}
+  .rightcol{align-self:stretch;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}.brand{align-self:center}.brand img{height:50px}.scope{margin-top:0}
+}
+h1{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:500;font-size:46px;line-height:1.06;margin:0;letter-spacing:-.014em;text-wrap:balance;color:var(--canvas-ink)}
+h1 em{font-style:italic;font-weight:300}
+h1 .beta{font-family:system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;vertical-align:super;margin-left:10px;padding:2px 6px;border:1px solid var(--bright-red);border-radius:3px;color:var(--bright-red)}
+.tagline{margin:14px 0 0;color:var(--canvas-ink-2);font-size:21px;line-height:1.45}
+.caveat{margin:18px 0 0;color:var(--canvas-ink-2);font-size:14px;line-height:1.55;font-style:italic;opacity:.75;border-left:2px solid var(--bright-red);padding-left:12px}
+.caveat a{color:var(--canvas-ink)}
+.subcopy{margin:14px 0 0;color:var(--canvas-ink-2);font-size:16px;line-height:1.6;opacity:.85}
+.source{font-size:12px;color:var(--canvas-ink-2);text-align:right;line-height:1.6;opacity:.9}
+.source a{color:var(--canvas-ink)}
+.source a:hover{color:var(--bright-red)}
+nav.tabs{background:var(--canvas-deep);border-bottom:1px solid var(--canvas-line);position:sticky;top:0;z-index:8}
+nav.tabs .inner{max-width:1400px;margin:0 auto;padding:0 32px;display:flex;gap:2px;flex-wrap:wrap}
+nav.tabs button{border:0;background:none;padding:11px 15px 10px;cursor:pointer;font-size:13.5px;color:var(--canvas-ink-2);border-bottom:3px solid transparent;display:inline-flex;gap:7px;align-items:baseline;white-space:nowrap}
+nav.tabs button:hover{color:var(--canvas-ink);background:rgba(255,255,255,.06)}
+nav.tabs button.on{color:var(--canvas-ink);border-bottom-color:var(--bright-red);font-weight:600;background:rgba(255,255,255,.08)}
+nav.tabs button .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:var(--canvas-ink-2);font-weight:400;opacity:.8}
+.view{max-width:1400px;margin:0 auto;padding:22px 32px 44px}
+.view[hidden]{display:none!important}
+.view.explore{display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:start}
+@media (max-width:900px){.view.explore{grid-template-columns:1fr}.rail{position:static;max-height:none;overflow:visible}}
+.lede{max-width:76ch;color:var(--canvas-ink-2);font-size:13.7px;margin:0 0 16px;line-height:1.6}
+.lede i,.lede em{color:var(--canvas-ink)}
+.lede a{color:var(--canvas-ink)}
+.panel{background:var(--panel);border:1px solid var(--line-soft);border-radius:8px;padding:14px 16px;position:relative;min-width:0}
+.panel h3{margin:0 0 2px;font-size:13px;font-weight:600}
+.panel .sub{font-size:12px;color:var(--ink-3);margin-bottom:10px}
+.panel .tip{white-space:normal}
+.cumbar{display:flex;align-items:center;gap:12px;justify-content:space-between;margin-top:14px;flex-wrap:wrap}
+.cumbar .small{color:var(--canvas-ink-2)}
+.cumbar .seg{margin-left:auto}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
+@media (max-width:1000px){.duo{grid-template-columns:1fr}}
+.bars{display:flex;flex-direction:column;gap:3px}
+.brow{display:flex;align-items:center;gap:10px;font-size:12.5px;padding:2px 0}
+.brow .lab{flex:none;min-width:0;color:var(--ink-2);cursor:default;text-align:right;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brow .track{flex:1;height:20px;display:flex;gap:2px;background:var(--panel-2);border-radius:3px;overflow:hidden;position:relative}
+.brow .track i.outline{position:absolute;left:0;top:0;height:100%;min-width:0;background:none;box-shadow:none;border:1px dashed var(--ink-3);border-radius:3px;opacity:.6}
+.brow .track i{display:block;height:100%;min-width:3px;cursor:default;transition:filter .1s;position:relative;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.brow .track i:hover{filter:brightness(1.1) saturate(1.08)}
+.brow .track i b{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:10.5px;font-weight:600;color:#fff;font-family:"IBM Plex Mono",monospace}
+.brow .n{flex:none;width:58px;text-align:right;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);cursor:default}
+.brow.head{color:var(--ink-3);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;padding-top:8px}
+.labgroup{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);margin:10px 0 4px;font-weight:600;display:flex;align-items:baseline;gap:8px}
+.labgroup::after{content:"";flex:1;height:1px;background:var(--line-soft)}
+.seg.small button{padding:4px 9px;font-size:11.5px}
+.strip{display:inline-flex;gap:3px;align-items:center;vertical-align:middle}
+.strip i{min-width:26px;padding:0 3px;height:15px;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;font-size:9px;font-family:"IBM Plex Mono",monospace;font-style:normal;cursor:default;border:1px solid var(--line)}
+.strip i.open{background:var(--panel-2);color:var(--ink-3)}
+.strip i.solved{background:var(--st-resolved-bg);color:var(--st-resolved);border-color:transparent;font-weight:700}
+.strip i.absent{background:transparent;color:var(--ink-3);border-style:dashed;opacity:.7}
+.strip i.split{background:linear-gradient(135deg,var(--panel-2) 50%,var(--st-resolved-bg) 50%);color:var(--st-resolved);font-weight:700}
+.prose{max-width:1000px;margin:0 auto;background:var(--panel);border:1px solid var(--line-soft);border-radius:8px;padding:22px 28px 26px}
+.prose h2{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:19px;margin:26px 0 6px;letter-spacing:-.005em}
+.prose h2:first-child{margin-top:0}
+.prose h3{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:16px;margin:18px 0 4px}
+.prose p{margin:0 0 10px;color:var(--ink-2);font-size:13.8px;line-height:1.65}
+.prose ol,.prose ul{margin:0 0 10px;padding-left:22px;color:var(--ink-2);font-size:13.8px;line-height:1.65}
+.prose li{margin:0 0 6px}
+.prose em{color:var(--ink);font-style:italic}
+.prose p.asof{color:var(--ink-3);font-size:12.5px}
+.prose p.asof b{color:var(--ink-2);font-weight:600}
+.dt{width:100%;border-collapse:collapse;margin:10px 0 4px;font-size:12.5px}
+.dt th{text-align:left;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--ink-3);border-bottom:1px solid var(--line);padding:5px 10px 5px 0;background:none}
+.dt td{padding:6px 10px 6px 0;border-bottom:1px solid var(--line-soft);color:var(--ink-2)}
+.defs{margin:14px 0 12px;padding-left:20px;display:grid;grid-template-columns:auto 1fr;gap:16px 44px;align-items:baseline}
+.defs dt{font-weight:700;font-size:13px;white-space:nowrap}
+.defs dd{margin:0;color:var(--ink-2);font-size:13px}
+.defs .c-res{color:var(--st-resolved)}.defs .c-clm{color:var(--st-claimed)}.defs .c-par{color:var(--st-partial)}.defs .c-prg{color:var(--ai-bound)}.defs .c-stl{color:var(--st-stale)}.defs .c-aig{color:var(--ai-gen)}.defs .c-aia{color:var(--ai-asst)}.defs .c-ain{color:var(--ai-none)}.defs .c-aib{color:var(--ai-both)}
+footer{border-top:1px solid var(--canvas-line);background:var(--canvas-deep)}
+.footrow{max-width:1400px;margin:0 auto;padding:18px 32px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--canvas-ink-2)}
+.footrow span:first-child{color:var(--canvas-ink);font-weight:600}
+.note{font-size:12px;color:var(--ink-3);line-height:1.55;margin-top:10px;max-width:80ch}
+.empty{color:var(--canvas-ink-2)}
+.rail{background:var(--panel);border:1px solid var(--line-soft);border-radius:8px;padding:16px 14px;position:sticky;top:70px;display:flex;flex-direction:column;gap:18px;max-height:calc(100vh - 90px);overflow-y:auto;overscroll-behavior:contain;scrollbar-width:thin}
+.rail::-webkit-scrollbar{width:8px}
+.rail::-webkit-scrollbar-thumb{background:var(--line);border-radius:4px}
+.rail::-webkit-scrollbar-track{background:transparent}
+.block h2{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin:0 0 8px;font-weight:600}
+input[type=search]{width:100%;padding:9px 11px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink);font:inherit}
+input[type=search]::placeholder{color:var(--ink-3)}
+.fieldlist{display:flex;flex-direction:column;gap:2px}
+.fieldrow{display:flex;align-items:center;gap:8px;padding:5px 8px;border-radius:5px;cursor:pointer;border:0;background:none;text-align:left;width:100%}
+.fieldrow:hover{background:var(--hover)}
+.fieldrow.on{background:var(--accent-soft)}
+.fieldrow .n{margin-left:auto;color:var(--ink-3);font-size:12px}
+.fieldrow .bar{height:6px;border-radius:3px;background:var(--accent);opacity:.75;flex:none}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:3px 10px;font-size:12px;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.chip.on{border-color:var(--accent);background:var(--accent-soft);color:var(--accent);font-weight:600}
+.chip .dot{width:9px;height:9px;border-radius:50%;flex:none}
+.range{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--ink-2)}
+.range input{width:74px;padding:5px 7px;border:1px solid var(--line);border-radius:5px;background:var(--panel);color:var(--ink)}
+.small{font-size:12px;color:var(--ink-3);line-height:1.5}
+.reset{background:none;border:0;color:var(--accent);cursor:pointer;padding:0;font-size:12px}
+.content{display:flex;flex-direction:column;gap:20px;min-width:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.stats.two{grid-template-columns:repeat(2,1fr)}
+.stats.three{grid-template-columns:repeat(3,1fr)}
+@media (max-width:760px){.stats,.stats.two,.stats.three{grid-template-columns:1fr}}
+@media (max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+.stat{background:var(--panel);border:1px solid var(--line-soft);border-radius:8px;padding:12px 14px}
+.stat .v{font-family:"Fraunces",Georgia,serif;font-size:30px;font-weight:500;line-height:1.05;font-variant-numeric:tabular-nums}
+.stat .v{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.stat .u{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:14px;font-weight:700;line-height:1.2;color:var(--ink)}
+.stat .v2{margin-top:4px}
+.stat .v2 .n2{font-family:"Fraunces",Georgia,serif;font-size:20px;font-weight:500;font-variant-numeric:tabular-nums}
+.stat .l{font-size:12px;color:var(--ink-3);margin-top:5px}
+.charts{display:grid;grid-template-columns:3fr 2fr;gap:12px}
+@media (max-width:900px){.charts{grid-template-columns:1fr}}
+.chart{background:var(--panel);border:1px solid var(--line-soft);border-radius:8px;padding:14px 16px 10px;min-width:0;position:relative}
+.chart h3{margin:0 0 2px;font-size:13px;font-weight:600}
+.chart .sub{font-size:12px;color:var(--ink-3);margin-bottom:8px}
+.chart svg{width:100%;height:auto;display:block;overflow:visible}
+.chart text{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;fill:var(--ink-3)}
+.panel svg{width:100%;height:auto;display:block;overflow:visible}
+.panel text{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;fill:var(--ink-3)}
+.panel text.axtitle,.chart text.axtitle{font-family:inherit;font-size:11px;fill:var(--ink-2);letter-spacing:.01em}
+.meanhead{position:relative;margin:0 0 20px;padding-bottom:12px;border-bottom:1px solid var(--canvas-line)}
+.meanhead .mh-title{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:20px;margin:0;color:var(--canvas-ink)}
+.meanhead .sub{font-size:12.5px;color:var(--canvas-ink-2);margin:3px 0 4px;max-width:88ch}
+.meanhead .note{color:var(--canvas-ink-2);max-width:92ch}
+#o-mean-svg .alab{font-family:inherit;font-size:11.5px;fill:var(--canvas-ink-2)}
+#o-mean-svg .aval{font-family:"IBM Plex Mono",monospace;font-size:11.5px;font-weight:600}
+#o-mean-svg text{fill:var(--canvas-ink-2)}
+#o-mean-svg g{cursor:default}
+.legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);margin-top:6px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:6px 9px;border-radius:5px;white-space:normal;overflow-wrap:anywhere;width:max-content;max-width:min(320px,86vw);transform:translate(-50%,calc(-100% - 10px));opacity:0;transition:opacity .08s;z-index:9;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.tip b{font-weight:600}
+.toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--canvas-ink-2)}
+.toolbar .count{font-weight:600;color:var(--canvas-ink)}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:6px;overflow:hidden;margin-left:auto}
+.seg button{border:0;background:var(--panel);padding:5px 11px;cursor:pointer;font-size:12px}
+.seg button.on{background:var(--accent);color:var(--panel)}
+select{font:inherit;font-size:12px;padding:5px 8px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)}
+.group{margin-bottom:22px}
+.sechead{display:flex;align-items:center;gap:14px;font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:20px;margin:20px 0 10px;padding-bottom:6px;border-bottom:1px solid var(--canvas-line);color:var(--canvas-ink)}
+.group h2{font-family:"Fraunces",Georgia,serif;font-weight:500;font-size:22px;margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid var(--canvas-line);display:flex;align-items:baseline;gap:10px;color:var(--canvas-ink)}
+.sechead .seg{margin-left:auto;flex:none}
+.cumnote{font-size:12.5px;color:var(--ink-3);margin:-4px 0 10px;max-width:92ch}
+.group h2 .n{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--canvas-ink-2);font-weight:400}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.card{background:var(--panel);border:1px solid var(--line-soft);border-radius:8px;padding:12px 14px;display:flex;flex-direction:column;gap:6px;cursor:pointer;border-left:3px solid var(--tc)}
+.card:hover{background:var(--hover)}
+.card .top{display:flex;gap:8px;align-items:baseline}
+.card .name{font-weight:600;font-size:14px;line-height:1.3;flex:1}
+.card .yr{font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3);flex:none;font-variant-numeric:tabular-nums}
+.card .yr.est::after{content:"~";}
+.card .desc{color:var(--ink-2);font-size:13px;line-height:1.45;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.card.open .desc{display:block}
+.card .meta{display:flex;flex-wrap:wrap;gap:6px;font-size:11px;color:var(--ink-3);align-items:center}
+.tag{background:var(--tag-bg);border-radius:4px;padding:1px 6px;color:var(--ink-2)}
+.tag.prize{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.st{display:inline-flex;align-items:center;gap:5px;border-radius:4px;padding:1px 7px;font-size:11px;font-weight:600;letter-spacing:.01em}
+.st::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.st.resolved{color:var(--st-resolved);background:var(--st-resolved-bg)}
+.st.claimed,.st.progress{color:var(--st-claimed);background:var(--st-claimed-bg)}
+.st.partial{color:var(--st-partial);background:var(--st-partial-bg)}
+.st.open_stale{color:var(--st-stale);background:var(--st-stale-bg)}
+.ai{display:inline-flex;align-items:center;gap:4px;border-radius:4px;padding:1px 7px;font-size:11px;font-weight:600;color:var(--ai);background:var(--ai-bg)}
+.card.changed{border-color:var(--line)}
+.statusbox{background:var(--panel-2);border-radius:6px;padding:8px 10px;margin-top:6px;font-size:12.5px;color:var(--ink-2);position:relative}
+.statusbox .hd{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:4px}
+.statusbox .src{margin-top:5px;display:flex;flex-wrap:wrap;gap:4px 10px;font-size:11.5px}
+/* The written summary is an LLM's account of what happened, so it stays folded away until the row
+   is hovered or focused. It opens in flow — the 0fr/1fr grid trick animates real height — so the
+   content below is pushed down rather than covered. */
+.fold{display:grid;grid-template-rows:0fr;transition:grid-template-rows .16s ease}
+.fold > .fold-body{overflow:hidden;min-height:0}
+.hl li:hover > span > .fold,.hl li:focus-within > span > .fold,
+.card:hover .fold,.card:focus-within .fold{grid-template-rows:1fr}
+.fold-inner{display:block;position:relative;margin-top:5px;padding:9px 11px 20px;border-radius:6px;
+  background:var(--panel-2);border:1px solid var(--line-soft);font-size:12.5px;line-height:1.5;color:var(--ink-2)}
+@media (prefers-reduced-motion:reduce){.fold{transition:none}}
+.llmtag{position:absolute;right:9px;bottom:5px;font-size:10px;letter-spacing:.03em;color:var(--ink-3);opacity:.32;pointer-events:none;font-style:italic}
+.since{background:var(--panel);border:1px solid var(--line-soft);border-radius:8px;padding:14px 16px;display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start;position:relative}
+@media (max-width:900px){.since{grid-template-columns:1fr}}
+.since h3{margin:0 0 2px;font-size:13px;font-weight:600}
+.since .sub{font-size:12px;color:var(--ink-3);margin-bottom:8px}
+.since .row{display:flex;align-items:center;gap:10px;font-size:12.5px;padding:4px 0}
+.since .row .lab{width:190px;flex:none;color:var(--ink-2);cursor:default}
+.since .row .track{flex:1;height:18px;display:flex;gap:2px}
+.since .row .track i{display:block;height:100%;border-radius:2px;min-width:9px;cursor:default;transition:filter .1s;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.since .row .track i:hover{filter:brightness(1.12) saturate(1.1)}
+.since .row .n{cursor:default}
+.since .legend span{cursor:default}
+.since .tip{white-space:normal}
+.since .row .n{width:34px;text-align:right;font-family:"IBM Plex Mono",monospace;font-size:12px;color:var(--ink-3)}
+.since .legend{margin-top:8px}
+.hl{background:var(--panel);border:1px solid var(--line-soft);border-radius:8px;padding:0}
+.hl ol{margin:0;padding:0;list-style:none}
+.hl li{display:grid;grid-template-columns:52px 1fr;gap:10px;padding:7px 12px;border-bottom:1px solid var(--line-soft);font-size:12.5px;align-items:baseline}
+.hl li:last-child{border-bottom:0}
+.hl .d{font-family:"IBM Plex Mono",monospace;color:var(--ink-3);font-size:11.5px}
+.hl b{font-weight:600}
+.hl .who{color:var(--ink-2)}
+
+.more{display:none;border-top:1px dashed var(--line);padding-top:8px;margin-top:2px;font-size:12.5px;color:var(--ink-2)}
+.card.open .more{display:block}
+.more .links{display:flex;flex-wrap:wrap;gap:4px 10px;margin-top:6px}
+.more .links a{font-size:12px}
+.more .k{color:var(--ink-3);font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-right:6px}
+table{width:100%;border-collapse:collapse;font-size:13px;background:var(--panel);border:1px solid var(--line-soft);border-radius:8px;overflow:hidden}
+.tablewrap{overflow-x:auto}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line-soft);vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);background:var(--panel-2);cursor:pointer;white-space:nowrap}
+th.sorted::after{content:" ↓";color:var(--accent)}
+th.sorted.asc::after{content:" ↑"}
+td.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap}
+tr:hover td{background:var(--hover)}
+.solved{background:var(--panel);border:1px solid var(--line-soft);border-radius:8px;padding:14px 16px}
+.solved h3{margin:0 0 2px;font-size:13px}
+.solved .sub{font-size:12px;color:var(--ink-3);margin-bottom:8px}
+.solvedlist{columns:2;column-gap:24px;font-size:12.5px;color:var(--ink-2)}
+@media (max-width:700px){.solvedlist{columns:1}}
+.solvedlist div{break-inside:avoid;padding:3px 0;display:flex;gap:8px}
+.solvedlist .y{font-family:"IBM Plex Mono",monospace;color:var(--ink-3);flex:none}
+.empty{padding:40px;text-align:center;color:var(--ink-3)}
+footer{max-width:1400px;margin:0 auto;padding:0 32px 40px;font-size:12px;color:var(--ink-3);line-height:1.6}
+footer p{max-width:80ch}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<header>
+  <div class="masthead">
+    <div>
+      <h1>Wikipedia Unsolved Problems Tracker<span class="beta">Beta</span></h1>
+      <p class="tagline">A controlled baseline of <span id="n-corpus">__N_PROBLEMS__</span> diverse problems to calibrate the unprecedented progress of AI in mathematics.</p>
+      <p class="subcopy">AI progress in mathematics has been absolutely extraordinary. In a little over a year, frontier models went from barely achieving gold medals at the International Math Olympiad to a claimed resolution of the Navier–Stokes Millennium problem, one of the holy grails of mathematics.</p>
+      <p class="subcopy">Given this rapid rate of progress, it's critical to determine if AI is merely conquering &ldquo;AI shaped&rdquo; problems, or truly conquering mathematics altogether, replacing the role of human insight in proof generation.</p>
+      <p class="subcopy">Measuring this is difficult, since frontier labs don't report failures on open problems, only successes. We need a large, diverse set of open problems which are, with high probability, important to their fields. For this, we argue Wikipedia&rsquo;s public <a href="https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics" target="_blank" rel="noopener"><i>List of unsolved problems in mathematics</i></a>, snapshotted in January 2024, provides a particularly robust sample.</p>
+      <p class="caveat">The dataset is in beta, was generated using LLMs, and has not been reviewed by mathematicians. See <a href="#" data-goto="about">About the Data</a> for more limitations and planned adjustments.</p>
+    </div>
+    <div class="rightcol">
+      <a class="brand" href="https://futuretech.mit.edu" target="_blank" rel="noopener"><img src="__LOGO__" alt="MIT FutureTech — Innovations that Shape the World" width="1200" height="306"></a>
+      <div class="scope" id="scope"></div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs"><div class="inner">
+  <button data-v="attribution" class="on">AI Contributions</button>
+  <button data-v="outcomes">Types of Resolutions</button>
+  <button data-v="origins">Problem Ages</button>
+  <button data-v="explore">Explore All Problems</button>
+  <button data-v="about">About the Data</button>
+</div></nav>
+
+<section class="view" id="view-attribution">
+  <h2 class="sechead">Headline Numbers</h2>
+  <div class="stats" id="a-stats"></div>
+  <h2 class="sechead">AI's Contribution, Over Time<span class="seg small" id="c-mode"><button data-m="count" class="on">Absolute</button><button data-m="share">Percent</button><button data-m="norm">Normalized</button></span></h2>
+  <div class="duo" id="a-cum">
+    <div class="panel" id="cum-a"><div class="tip" id="tip-c1"></div>
+      <h3>Cumulative Resolutions</h3><div class="sub">Every problem which has been resolved (or claimed to be resolved), stacked by how it was produced</div>
+      <svg id="svg-cum-a" role="img" aria-label="Cumulative resolutions by attribution"></svg>
+      <div class="legend" id="leg-cum-a"></div>
+      <div class="note" id="note-cum-a"></div></div>
+    <div class="panel" id="cum-b"><div class="tip" id="tip-c2"></div>
+      <h3>Cumulative Progress</h3><div class="sub">Every problem with progress but no resolution &ndash; a partial result or notable progress &ndash; placed at its first result and stacked by who did the work.</div>
+      <svg id="svg-cum-b" role="img" aria-label="Cumulative progress by attribution"></svg>
+      <div class="legend" id="leg-cum-b"></div>
+      <div class="note" id="note-cum-b"></div></div>
+  </div>
+  <h2 class="sechead">AI's Contribution, by Problem Status</h2>
+    <div class="panel" id="a-status">
+    <div class="tip" id="tip-a1"></div>
+    <div class="head" style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap">
+      <div style="flex:1;min-width:260px"><h3>Every status category, split by who did the work</h3><div class="sub">Hover any band for its count and share</div></div>
+      <div class="seg small" id="a-mode"><button data-m="count" class="on">Absolute</button><button data-m="share">Percent</button></div>
+    </div>
+    <div class="bars" id="a-status-bars"></div>
+    <div class="legend" id="a-legend"></div>
+  </div>
+  <h2 class="sechead">Resolutions by Model Release Date</h2>
+  <div class="chart" id="a-release">
+    <div class="tip" id="tip-a3"></div>
+    <h3>Number of problems resolved, by when the system shipped</h3>
+    <div class="sub">Each AI-involved resolution is placed at the month the system credited on it became available, not the month of the result. A resolution credited to more than one system appears under each of them, so the bars can sum to more than the number of problems.</div>
+    <svg id="svg-release" role="img" aria-label="Problems credited to each AI system, by model release date"></svg>
+    <div class="legend" id="leg-release"></div>
+    <div class="note" id="release-note"></div>
+  </div>
+  <h2 class="sechead">AI Systems Credited</h2>
+  <div class="panel" id="a-models"><div class="tip" id="tip-a2"></div><h3>Individual systems credited</h3><div class="sub">Problems each named system contributed to, a resolution or any progress, grouped by lab and split by kind of contribution; darker where the system was credited on a resolution, lighter where only on progress</div><div class="bars" id="a-model-bars"></div><div class="note">A problem can credit more than one system, so these bars sum to more than the number of problems involved. Proof assistants used for verification (Lean 4, Nanoda) are not counted as AI systems.</div></div>
+</section>
+
+<section class="view" id="view-outcomes" hidden>
+  <h2 class="sechead">Headline Numbers</h2>
+  <div class="stats three" id="x-stats"></div>
+  <h2 class="sechead">Share of Counterexample, by AI Involvement</h2>
+  <div class="panel" id="x-split">
+    <div class="tip" id="tip-x3"></div>
+    <h3>Counterexample share, by who did the work</h3><div class="sub">Each row is 100% of its group; hover a band for the problems in it</div>
+    <div class="bars" id="x-split-bars"></div>
+    <div class="legend" id="leg-x-split"></div>
+  </div>
+  <h2 class="sechead">Results by Field<span class="seg small" id="f-mode"><button data-m="count" class="on">Count</button><button data-m="share">Share of field</button></span></h2>
+  <div class="duo" id="x-fields">
+    <div class="panel" id="x-fields-res"><div class="tip" id="tip-x4"></div>
+      <h3>Resolutions</h3><div class="sub">Problems per field now carrying a proof or counterexample, split by who did the work; the count is resolutions out of that field's total</div>
+      <div class="bars" id="x-field-bars"></div>
+      <div class="legend" id="leg-x-fields"></div></div>
+    <div class="panel" id="x-fields-mov"><div class="tip" id="tip-x5"></div>
+      <h3>Progress</h3><div class="sub">Problems per field with progress but no resolution — a partial result or notable progress — split by who did the work, as in Cumulative Progress</div>
+      <div class="bars" id="x-field-bars-mov"></div>
+      <div class="legend" id="leg-x-fields-mov"></div></div>
+  </div>
+  <h2 class="sechead">Timeline of Resolutions</h2>
+  <div class="panel" style="margin-top:12px" id="x-list">
+    <h3>The resolutions, newest first</h3><div class="sub">Every problem resolved or claimed since the snapshot, dated by its first resolution, with any later resolutions listed beneath; the chip marks how each fell</div>
+    <div class="hl" id="x-hl"></div>
+  </div>
+</section>
+
+<main class="view explore" id="view-explore" hidden>
+  <aside class="rail">
+    <div class="block">
+      <h2>Search</h2>
+      <input type="search" id="q" placeholder="name, statement, person, link…" aria-label="Search problems">
+    </div>
+    <div class="block">
+      <h2>Field</h2>
+      <div class="fieldlist" id="fields"></div>
+    </div>
+    <div class="block">
+      <h2>Year first posed</h2>
+      <div class="range"><input id="y0" type="number" placeholder="from" aria-label="from year"> – <input id="y1" type="number" placeholder="to" aria-label="to year"></div>
+      <label class="small" style="display:flex;gap:6px;align-items:center;margin-top:6px"><input type="checkbox" id="noyear" checked> include problems with no year</label>
+    </div>
+    <div class="block">
+      <h2>Status since Jan 2024</h2>
+      <div class="chips" id="status"></div>
+      <div class="small" style="margin-top:6px">Counts cover all <span class="n-corpus">__N_PROBLEMS__</span> problems in the current corpus, whatever else is selected.</div>
+    </div>
+    <div class="block">
+      <h2>AI involvement</h2>
+      <div class="chips" id="ai"></div>
+    </div>
+    <div class="block">
+      <h2>AI system</h2>
+      <div class="chips" id="models"></div>
+    </div>
+    <div class="block">
+      <h2>Lists</h2>
+      <div class="chips" id="lists"></div>
+    </div>
+    <div class="block"><button class="reset" id="reset">Clear all filters</button></div>
+    <div class="block small">Each problem was researched by an agent against primary sources (arXiv preprints, journals, authors&rsquo; announcements, lab posts), and every result it found was judged separately. Many 2026 results are weeks old and not yet peer reviewed; each card lists its sources. The method and review date are in the <a href="#" data-goto="about">About tab</a>.</div>
+    <div class="block small">Years posed come from the problem&rsquo;s Wikipedia article where it states one, and otherwise from the published literature; each card gives the source. Years marked <span class="mono">~</span> are approximate.</div>
+  </aside>
+
+  <section class="content">
+    <div class="toolbar">
+      <span><span class="count" id="count">0</span> problems shown</span>
+      <label>Sort <select id="sort"><option value="page">page order</option><option value="status">status since 2024</option><option value="year">year posed</option><option value="name">name</option><option value="links">number of links</option></select></label><button id="sort-rev" class="chip" title="Reverse the order">↑↓ reverse</button>
+      <div class="seg"><button id="v-cards" class="on">Cards</button><button id="v-table">Table</button></div>
+    </div>
+    <div id="list"></div>
+    <div class="solved" id="solved"></div>
+  </section>
+</main>
+
+<section class="view" id="view-origins" hidden>
+  <div class="meanhead" id="o-mean">
+    <div class="tip" id="tip-o0"></div>
+    <h2 class="mh-title">Mean age, with standard error</h2>
+    <div class="sub">Years from a problem first being posed to the day it was resolved, or to today for the ones still standing; resolutions only, partial results excluded</div>
+    <svg id="o-mean-svg" role="img" aria-label="Mean problem age"></svg>
+    <div class="note" id="o-mean-note"></div>
+  </div>
+  <div id="o-mini" style="display:flex;flex-direction:column;gap:12px;margin-bottom:12px">
+    <div class="panel" id="o-ai"><div class="tip" id="tip-o3"></div>
+      <h3>AI-involved resolutions, by decade posed</h3><div class="sub" id="o-ai-sub"></div>
+      <svg id="o-ai-svg" role="img" aria-label="AI-involved resolutions by decade posed"></svg></div>
+    <div class="panel" id="o-hum"><div class="tip" id="tip-o4"></div>
+      <h3>Resolutions with no AI, by decade posed</h3><div class="sub" id="o-hum-sub"></div>
+      <svg id="o-hum-svg" role="img" aria-label="Non-AI resolutions by decade posed"></svg></div>
+  </div>
+  <div class="panel" style="margin-top:12px" id="o-hist">
+    <div class="tip" id="tip-o1"></div>
+    <div class="head" style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap">
+      <div style="flex:1;min-width:260px"><h3>Problems posed per decade</h3><div class="sub">All <span class="n-corpus">__N_PROBLEMS__</span> problems, on the same decade axis, colored by status as of __STATUS_MONTH__</div></div>
+    </div>
+    <svg id="o-svg" role="img" aria-label="Problems posed per decade"></svg>
+    <div class="legend" id="o-legend"></div>
+    <div class="note" id="o-note"></div>
+  </div>
+  <div class="panel" style="margin-top:12px" id="o-open">
+    <div class="tip" id="tip-o2"></div>
+    <h3>How long they stood</h3>
+    <div class="sub">Years between first being posed and being resolved or claimed, for the problems resolved or claimed since the snapshot</div>
+    <div class="bars" id="o-open-bars"></div>
+    <div class="note" id="o-open-note"></div>
+  </div>
+</section>
+
+
+<section class="view" id="view-about" hidden>
+  <div class="prose">
+    <h2>Why This Dataset Exists</h2>
+    <p>Lots of great work exists already tracking LLM progress in mathematics. Why introduce another set of problems?</p>
+    <p>Given the recent breakthroughs on some of the hardest problems in mathematics, more compute is being spent on open problems now than ever before. This introduces two failure modes in the existing literature:</p>
+    <ol>
+      <li>Many existing datasets (like <a href="https://vibemathed.com" target="_blank" rel="noopener">VibeMathed</a> or <a href="https://mathdb.com" target="_blank" rel="noopener">MathDB</a>) don&rsquo;t have a fixed list of problems which are causally unrelated to progress in AI. Instead, as more and more mathematicians use these tools, these trackers collect the successful applications comprehensively but have no method of tracking failures. For this, much like in the social sciences, we need a &ldquo;pre-registered&rdquo; list of problems to use as comparison, a denominator.</li>
+      <li>Given the pace of progress on the frontier, even strong existing benchmarks may be near saturation within a few model releases.</li>
+    </ol>
+    <p>Epoch&rsquo;s <a href="https://epoch.ai/frontiermath" target="_blank" rel="noopener">FrontierMath</a> benchmarks are the go-to for tracking progress in mathematics, and deliberately mitigate the issue of selection bias by curating a frozen set of challenging problems. These are tremendously strong benchmarks, especially <a href="https://epoch.ai/benchmarks/frontiermath-erdos" target="_blank" rel="noopener">FrontierMath Erd&#337;s</a> and <a href="https://epoch.ai/frontiermath/open-problems" target="_blank" rel="noopener">FrontierMath Open Problems</a>, due to the effort and expertise invested in curation and formalization (such that they can be verified automatically).</p>
+    <p>But these datasets suffer from their own modest selection effects: Erd&#337;s problems are sampled from the work of a single mathematician, and the Open Problems benchmark is limited to problems with computationally verifiable answers. Depending on the pace of progress, these subsets could quickly become unrepresentative of the true mathematical frontier, as LLMs continue to conquer the most difficult areas of math.</p>
+    <p><b>Hence, the ideal question set would be a large set of problems representing the peak difficulty of open problems: diverse enough to avoid selection effects, unsaturated to allow for continued relevance, and fixed in time to avoid polluting our base rates with selection bias. We think Wikipedia&rsquo;s list of unsolved problems, while far from flawless, captures the necessary conditions nicely: more than 440 problems, across a range of mathematical subfields, notable enough to have a Wikipedia entry (and optionally filtered to have their own Wikipedia page), and fixed in time to a particular point.</b></p>
+    <p>Crucially, this is a strong list of problems, which has only become a viable bellwether with the most recent state-of-the-art models. Given the breadth and strength of the list, saturation (or near-saturation) would be extremely strong evidence of AI possessing superhuman mathematics capacity.</p>
+
+    <h2>How to Read the Data</h2>
+    <p>We mark problems that have a confirmed resolution, a claimed resolution, a partial result, or notable progress. Much of this required judgment calls, by both human and LLM reviewers. See the limitations section for more information.</p>
+    <dl class="defs">
+      <dt class="c-res">Resolution confirmed</dt><dd>A proof or counterexample that the community has broadly accepted, or that is machine-verified and unchallenged.</dd>
+      <dt class="c-clm">Resolution claimed</dt><dd>A preprint or announcement on the whole problem that experts haven&rsquo;t yet checked.</dd>
+      <dt class="c-par">Partial result</dt><dd>A listed sub-question or a major special case settled, with the general problem still open.</dd>
+      <dt class="c-prg">Notable progress</dt><dd>A new bound or a smaller step; the problem itself is still open.</dd>
+    </dl>
+    <p>Two umbrella terms are used throughout this site: &ldquo;Resolved or claimed&rdquo; merges &ldquo;Resolution confirmed&rdquo; and &ldquo;Resolution claimed&rdquo;, and &ldquo;Progress&rdquo; merges &ldquo;Partial result&rdquo; and &ldquo;Notable progress&rdquo;, covering every problem that has moved without being resolved.</p>
+    <p><b>Problems with more than one result.</b> Many problems have seen several results since the snapshot: a bound, then a special case, then a claimed proof, sometimes from different people. We keep every one of them, and each chart counts them in its own way:</p>
+    <ul>
+      <li>A problem&rsquo;s <b>status</b> is the furthest it has got: resolution confirmed, then resolution claimed, then progress.</li>
+      <li>A <b>resolution</b> is credited to the first result that settled the whole problem. Its date, its authors, whether AI was involved, and whether it proved or refuted the problem all come from that result. Later resolutions of the same problem are listed beneath it in the <a href="#outcomes" data-goto="outcomes">Timeline of Resolutions</a>, but they don&rsquo;t change the credit.</li>
+      <li><b>Progress</b> is credited across all of a problem&rsquo;s results.</li>
+    </ul>
+    <p>The research agents recorded any specific reasons to doubt a result, for example a withdrawal, an unanswered error in a key step, or later papers on the same question still calling it open, and the judging pass rated each result&rsquo;s credibility accordingly. Results rated not credible, withdrawn or shown to contain an error are excluded, and so is any claimed resolution of the whole problem rated doubtful. The one exception is the claims OpenAI published in its own repositories, <a href="https://github.com/openai/math" target="_blank" rel="noopener">openai/math</a> (October 2026) and <a href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener">openai/NavierStokesAndEuler</a> (September 2026): they count as claimed resolutions whatever their rating. The releases were weeks old or less when we judged them, and most of the doubts recorded against them were that no expert had yet read it, which is not a reason we apply to any other work. The rating and the reasons for doubt are kept in the data, and claims withdrawn or shown to contain an error are still excluded.</p>
+    <p>Separately, each result is marked by who did the mathematics, based on the authors&rsquo; own account; &ldquo;AI-involved&rdquo; covers every category but &ldquo;No AI&rdquo;:</p>
+    <dl class="defs">
+      <dt class="c-aig">AI-generated</dt><dd>An AI system produced the proof, construction or bound, and humans checked it.</dd>
+      <dt class="c-aia">AI-assisted</dt><dd>Human-led work in which an AI system produced part of the mathematics in the result (e.g. an argument, a construction, or a case).</dd>
+      <dt class="c-ain">No AI</dt><dd>No AI system was used, or it only checked, proofread, searched the literature, debugged code or wrote a formal (Lean) proof of the humans&rsquo; argument.</dd>
+      <dt class="c-aib">AI and human, separately</dt><dd>Used for progress only. The problem&rsquo;s results include both work with AI and work without it, in separate results &mdash; for example, a bound found by an AI system and a special case proved by mathematicians working on their own.</dd>
+    </dl>
+    <p>These categories may need to become more granular in the future, as these tools are used to solve more and more problems.</p>
+
+    <h2>The Wikipedia <i>List of Unsolved Problems</i> Snapshot</h2>
+    <p>The list of problems is Wikipedia&rsquo;s <a href="https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics" target="_blank" rel="noopener"><i>List of unsolved problems in mathematics</i></a> as it stood on 26 January 2024 &mdash; the last edit that month, and earlier than every event recorded here. That revision carries 462 bullets across twelve field sections, as well as five Millennium Prize Problems named only in the introduction. Ten of those 467 bullets are headings the article uses to group the problems beneath them, and thirteen name problems that had in fact already been settled before the snapshot (the list had not caught up with them); setting both aside leaves the <span class="n-snapshot"></span> problems, all open in January 2024, that this tracker counts.</p>
+    <p>This site includes the option to filter the problems based on whether or not they have (or had, at the time of the snapshot) a dedicated Wikipedia page. This is to help mitigate overinclusion on the list. By default, all problems in the snapshot are included.</p>
+    <p>You can explore the data and results in <a href="#explore" data-goto="explore">Explore All Problems</a>.</p>
+
+    <h2>Collecting the Data</h2>
+    <p class="asof">Every status on this site was last reviewed on <b>__STATUS_CHECKED__</b>.</p>
+    <p>Every problem was researched on its own by Claude Haiku 5.5 (<span class="mono">high</span> effort) with web search enabled, given that one problem and a fixed written protocol. Each agent searched for anything that had happened to its problem since the snapshot, opened the primary sources (arXiv preprints, journal pages, the authors&rsquo; own announcements, lab posts, Lean repositories) and recorded every result it found, each with its date, its authors, what it settles, the AI systems involved and supporting links. Agents ran about 40 searches and used about 35 distinct sources per problem on average.</p>
+    <p>A second pass, Claude Opus 5.5 (<span class="mono">low</span> effort), then judged every result separately: how much of the problem it settles (the whole problem, a case or a bound), whether anyone has checked it, whether it is credible, and what role AI played. The statuses and AI credits on this site come from those judgments, not from the research agents.</p>
+    <p>On 6 October 2026, OpenAI released 749 manuscripts in its <a href="https://github.com/openai/math" target="_blank" rel="noopener">openai/math</a> repository, each claiming progress on an open problem. We indexed the repository, used Claude Sonnet 5.5 to match its manuscripts to problems on the list, and used Claude Haiku 5.5 to record what each matched manuscript claims. These were then judged alongside everything else by Claude Opus 5.5.</p>
+    <p>Two smaller passes added dates: the year each problem was first posed (read from its Wikipedia article where it states one, and otherwise researched in the literature with Claude Haiku 4.5), and the release date of each AI system credited (Claude Haiku 5.5). OpenAI&rsquo;s internal model has no public release, so it is placed provisionally at GPT-6 Astra&rsquo;s release.</p>
+
+    <h2>Next Steps and Limitations</h2>
+    <p>This dataset is a beta version, and there are many improvements left to make. As we make changes, we&rsquo;ll include versioning to ensure full reproducibility. But our next steps are roughly as follows:</p>
+    <p>As mentioned above, although Wikipedia tends to be a reliable source, its curation of open problems errs on the side of being overly inclusive. Currently, we control for this with the option to filter problems based on the presence of a dedicated Wikipedia page, but this is still an imperfect proxy of importance. We plan to introduce additional proxies to contextualize these results: total Wikipedia edits, mentions in the scientific literature, subjective LLM or expert ratings of importance.</p>
+    <p>It is also often hard to tell how much an AI system contributed from the authors&rsquo; own account. Disclosures vary widely, from a detailed description of which steps a model produced to a single line thanking it, and a phrase like &ldquo;played a substantial role&rdquo; or &ldquo;used at all stages&rdquo; doesn&rsquo;t say whether the model found the key idea or helped a human who did. Where the account is vague, the line between AI-generated and AI-assisted, or between AI-assisted and No AI, is a judgment call, and some results may be classed differently by another reader.</p>
+    <p>The repository for this project can be found <a href="https://github.com/alexfogelson/wikipedia-unsolved-problems-tracker" target="_blank" rel="noopener">here</a>.</p>
+    <p>If you have any questions about the dataset, please reach out to Alex Fogelson (fogelson - at - mit - dot - edu).</p>
+  </div>
+</section>
+
+<footer>
+  <div class="footrow"><span>Wikipedia Unsolved Problems Tracker</span><span>Corpus frozen 26 January 2024 · problem text CC BY-SA 4.0</span></div>
+</footer>

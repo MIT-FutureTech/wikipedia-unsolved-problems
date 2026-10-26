@@ -1,0 +1,31 @@
+{
+  "family": "189",
+  "entries": [
+    {
+      "problem": "values-of-the-ramsey-numbers-particularly-r-5-5",
+      "relevant": true,
+      "what_happened": "One manuscript, 'Cycle–clique Ramsey numbers' (OpenAI, dated September 25, 2026), claims the exact value R(Cₘ,Kₙ) = (m−1)(n−1)+1 for every pair m ≥ n ≥ 3 other than (m,n)=(3,3), where it gives R(C₃,K₃)=6. R(H,J) is the least N such that every red/blue colouring of the edges of K_N contains a red H or a blue J; Cₘ is a cycle on m vertices and Kₙ a clique on n vertices, and copies need not be induced. The lower bound is an explicit colouring: n−1 disjoint red copies of K_{m−1} with all edges between different copies blue. The upper bound is claimed as a proof of the Erdős–Faudree–Rousseau–Schelp cycle–clique conjecture, by contradiction from a minimal counterexample G with no cycle on k+1 = m vertices and independence number at most a = n−1. Expansion of independent sets (|N[I]| ≥ k|I|+1) and a large-clique lemma give a maximum clique of order t with max{3,⌊k/2⌋} ≤ t ≤ k. The paper then handles k = 3, 4 and t ≥ 9 by hand, and for 5 ≤ k ≤ 17 with 3 ≤ t ≤ 8 (42 parameter pairs, 3,099 pattern instances) it runs a finite enumeration of path-system patterns, which it reports gives a contradiction in every case. The abstract says the paper establishes the conjecture. The R(C₃,K₃)=6 lower bound uses a red 5-cycle with blue complementary 5-cycle on K₅.",
+      "delivers": "Exact values of the two-colour graph Ramsey numbers R(Cₘ,Kₙ) for all m ≥ n ≥ 3, i.e. one two-parameter family of cycle-versus-clique numbers, and with it the Erdős–Faudree–Rousseau–Schelp conjecture in the Keevash–Long–Skokan formulation, which the paper says it establishes in full. The paper does not state the Ramsey problem in the bullet's words and does not claim to settle it. Reading A (classical two-colour numbers R(r,s), complete graphs in both colours): nothing new is determined. The only overlap is R(C₃,K₃)=6, which is the classical value R(3,3)=6 since C₃=K₃; R(5,5) and its bounds 43 ≤ R(5,5) ≤ 46 are not touched, since R(C₅,K₅)=17 by the formula is a different number. Reading B (graph-Ramsey numbers in general): the paper adds exact values for every cycle-versus-clique pair with m ≥ n ≥ 3, and nothing for other pairs of graphs. So the family bears on the bullet only under Reading B, and then only on the cycle–clique subfamily.",
+      "remains": "Reading A: essentially all of it, including the determination of R(r,s) for the complete-graph pairs and the exact value of R(5,5). Reading B: Ramsey numbers for graph pairs other than cycle versus clique, such as R(Kᵣ,Kₛ) with r,s ≥ 4, which the paper does not address, and multicolour, hypergraph and graph-Ramsey numbers outside this family. Within cycle versus clique nothing remains, if the claim is correct.",
+      "direction": "proves the conjecture (exact formula for cycle–clique Ramsey numbers); no bound on R(5,5)",
+      "object": "The lower-bound colouring is explicit: n−1 disjoint red K_{m−1} with all cross edges blue. For R(C₃,K₃) ≥ 6 the colouring of K₅ by a red 5-cycle and a blue complementary 5-cycle is explicit. The upper bound is by contradiction and produces no extremal graph; the finite part is a case enumeration over path-system patterns, not an explicit object.",
+      "conditional_on": "No unproved hypothesis is assumed, and the paper uses no other manuscript. The finite part for 5 ≤ k ≤ 17 and 3 ≤ t ≤ 8 rests on the paper's own computer enumeration (the two programs in verification/code, which the paper says give the same results), not on a written-out hand proof.",
+      "doubts": "(1) The finite part is a computer calculation: 3,049 patterns with output 1 and 50 with output 2 (3,099 in all, over 42 parameter pairs). Section 9 states the inference rules and the pattern-enumeration argument, but the text reproduces only the compact program (Appendix, Section 10); the second implementation and the full deduction traces are supplied as separate files. The paper says the traces are 'not offered as proof objects for an additional independent minimal validator', so checking this part means re-running code, not reading a written proof. (2) The t ≥ 9 exclusion (Section 8) and the clique bound (Section 3) are long hand arguments that rely on many lemmas across Sections 3–8; the introduction describes one step as 'a short numerical classification'. No step in the sections I read is flagged as sketched or conditional. (3) The abstract calls the result the full conjecture; the introduction says the conjectured range was already known for n = 4–7 and partly for n = 8, and that this paper completes the range. I found no inconsistency between the abstract and Theorem 1.1.",
+      "readme_exception": false,
+      "read": [
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/README.md",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/main.tex",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/sections/01-introduction.tex",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/sections/02-reduction.tex",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/sections/03-clique-layers.tex (lines 1–40 and 190–215)",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/sections/04-small.tex (lines 1–20 and 240–260)",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/sections/07-growth.tex (lines 195–215)",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/sections/08-terminal.tex (lines 1–140)",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/sections/09-finite-patterns.tex",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/sections/09-finite-packing.tex (lines 225–270)",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/sections/09-finite-results.tex",
+        "sources/openai-math/preprints/Cycle-clique-Ramsey-numbers-September-25-2026/build/sections/10-implementation.tex"
+      ]
+    }
+  ]
+}

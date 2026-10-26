@@ -1,0 +1,1412 @@
+{
+  "key": "does-every-rational-number-with-an-odd-denominator-have",
+  "nothing_found": false,
+  "outcome": "As of 11 October 2026 the question remains open: no event since 26 January 2024 settles termination of the odd greedy expansion for all rationals with odd denominator, and the only in-window result specific to the odd greedy expansion (Louwsma and Martino, Integers 2025) classifies rationals whose odd greedy expansion has exactly two terms.",
+  "problem_asks": "Part 1, the objects: every rational number with an odd denominator. The statement does not say positive, but the greedy procedure is defined only for positive rationals, so the scope is implicitly positive rationals with odd denominator. Part 2, the procedure: the odd greedy expansion, i.e. repeatedly subtract the largest unit fraction 1/u with u odd and 1/u not exceeding the current remainder, on odd-denominator unit fractions only. Part 3, the claim: each such rational has an odd greedy expansion, meaning the procedure reaches remainder 0 after finitely many steps, so the rational is a finite sum of distinct odd-denominator unit fractions produced by the greedy rule. Nothing else is asked; the existence of some all-odd Egyptian representation (Breusch 1954) is a different question and is not what the bullet asks.",
+  "events": [
+    {
+      "id": "breusch-1954-odd-representation",
+      "what_happened": "R. Breusch, solution to Advanced Problem 4512 (posed by E. P. Starke, 1952), American Mathematical Monthly 61 (1954), 200-201: every x/y with y odd has an Egyptian fraction representation with all denominators odd. The proof does not use the greedy procedure. Some secondary sources credit B. M. Stewart (American Journal of Mathematics 76 (1954), 779-785, titled 'Sums of distinct divisors') jointly; the Stewart paper was not read. Original Breusch paper not opened; known here from secondary sources (Louwsma and Martino arXiv 2309.07280, opened).",
+      "date": "1954",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Existence only: every rational with odd denominator is a finite sum of distinct odd-denominator unit fractions. Does not establish that the greedy rule produces such a sum, so it does not touch termination of the odd greedy procedure.",
+      "remains": "Termination of the odd greedy procedure for every rational with odd denominator (all of problem_asks).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Points to existence of odd representations, not to the greedy claim; it answers a neighbouring question (existence without greedy).",
+      "object": null,
+      "people": [
+        "R. Breusch",
+        "B. M. Stewart",
+        "E. P. Starke"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2309.07280",
+          "https://ar5iv.labs.arxiv.org/html/2309.07280"
+        ]
+      },
+      "sources": [
+        "https://ar5iv.labs.arxiv.org/html/2309.07280",
+        "https://ics.uci.edu/~eppstein/numth/egypt/3-179.html"
+      ]
+    },
+    {
+      "id": "wagon-1996-3-179",
+      "what_happened": "Stan Wagon, emails of October 1996, reported on the Eppstein page: the odd greedy run on 3/179 finished after 19 terms, the last denominator having 439,492 digits; the remainder numerators ran 3 through 17, then 2, 3, 4, 1. Wagon wrote that 'it is a famous open question whether ODD GREEDY always halts'. Source read: Eppstein's page 'Egyptian Fractions - Odd Greediness and 3/179', which quotes the emails.",
+      "date": "1996-10",
+      "precision": "month",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "One finite instance: the odd greedy expansion of 3/179 terminates after 19 terms. This is one more terminating rational; it does not move the universal claim.",
+      "remains": "All of problem_asks: termination for every rational with odd denominator.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": "The 19 terms can be checked by exact arithmetic in principle, but the last denominator has 439,492 digits, so checking needs modular methods; Eppstein's page describes the modular approach used for later examples.",
+      "doubts": "Eppstein's own program did not finish 3/179 in a reasonable time (November 1997, same page), and no 1997 run reproduced Wagon's 1996 finish on that page. The 1996 run is reported in emails, not a paper.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with termination for this one rational. Says nothing about the universal claim.",
+      "object": "The odd greedy expansion of 3/179: 19 distinct odd unit fractions summing to 3/179, the last with a 439,492-digit denominator. Explicit (computed), not existential. Illustrates how long terminating expansions can be.",
+      "people": [
+        "Stan Wagon",
+        "David Eppstein"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ics.uci.edu/~eppstein/numth/egypt/3-179.html"
+        ]
+      },
+      "sources": [
+        "https://ics.uci.edu/~eppstein/numth/egypt/3-179.html"
+      ]
+    },
+    {
+      "id": "bailey-brown-eppstein-1997-long-expansions",
+      "what_happened": "Late 1997 computations reported on Eppstein's 3/179 page: David Bailey's exhaustive search rediscovered 3/2879 (reported finished, last term about 3,000,000 digits, 4 November 1997) and 5/5809 (27 terms; Eppstein's modular computation showed it halts after 27 terms, numerators 5 through 30 then 1, 1 December 1997). Bailey ran 5/3809 to 50,000,000 digits without halting (9 November 1997); Milo Gardner later reported 60,000,000 digits with no halt. K. S. Brown is credited with independently finding 5/5809 (Wikipedia's odd greedy article, opened). Dates are as given on the Eppstein page; day-level detail was not checked against the emails.",
+      "date": "1997-11",
+      "precision": "month",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Further finite instances (3/2879, 5/5809) and non-halting observations for 5/3809 up to 5 x 10^7 digits. None of these is evidence either way for the universal claim, since a computation stopped at a digit count does not show non-termination.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": "5/5809 (27 terms) is checkable by modular arithmetic using the modulus Bailey gave (6(31!)(10!)(6!)(4!)^2), per the MathPages source (opened, undated).",
+      "doubts": "Non-halting at a digit count is not non-termination. Eppstein disputed Helaman Ferguson's suggestion (December 1997) that long expansions arise near even-denominator fractions, and Eppstein's heuristic (numerators falling on average) was cast in doubt by these runs, per the same page.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Instance-level: terminating examples and unfinished runs. Neither direction is a verdict on the universal claim.",
+      "object": "5/5809: odd greedy expansion of 27 terms, remainder numerators rising by one from 5 to 30 and then 1 (computed via modular arithmetic). 3/2879: finished, last term about 3 million digits (computed).",
+      "people": [
+        "David Bailey",
+        "K. S. Brown",
+        "David Eppstein",
+        "Stan Wagon",
+        "Milo Gardner",
+        "Helaman Ferguson"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ics.uci.edu/~eppstein/numth/egypt/3-179.html",
+          "https://mathpages.com/home/kmath478.htm"
+        ]
+      },
+      "sources": [
+        "https://ics.uci.edu/~eppstein/numth/egypt/3-179.html",
+        "https://mathpages.com/home/kmath478.htm",
+        "https://en.wikipedia.org/wiki/Odd_greedy_expansion"
+      ]
+    },
+    {
+      "id": "pihko-2001-greedy-odd",
+      "what_happened": "Jukka Pihko, 'Remarks on the Greedy Odd Egyptian Fraction Algorithm', Fibonacci Quarterly 39(3), 2001. Per a search-result summary, it classifies steps of the odd greedy algorithm as 'good' (numerator decreases) or 'bad' (numerator increases). A 1999 Pihko paper is also said (search summary) to list termination as open. The PDF was not readable with my tools (binary output), so these statements are unverified.",
+      "date": "2001",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Not established: the paper could not be read. Per the search summary it classifies steps; it is not known to state a termination result.",
+      "remains": "All of problem_asks, as far as I could establish.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Content unverified; PDF unreadable in my tools.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not established.",
+      "object": null,
+      "people": [
+        "Jukka Pihko"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.mathstat.dal.ca/FQ/Scanned/39-3/pihko.pdf"
+        ]
+      },
+      "sources": [
+        "https://www.mathstat.dal.ca/FQ/Scanned/39-3/pihko.pdf"
+      ]
+    },
+    {
+      "id": "pihko-2010-greedy-odd-II",
+      "what_happened": "Jukka Pihko, 'Remarks on the Greedy Odd Egyptian Fraction Algorithm II', Fibonacci Quarterly 48(3) (2010), 202-208. Per the abstract text in a search result: for an odd prime p and 1 < a < p there are infinitely many odd b for which the numerator sequence of the odd greedy algorithm runs a, a+1, ..., p-1, 1. The PDF was not readable with my tools; the abstract statement is from the search result, not from the paper.",
+      "date": "2010",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A structural family of denominators with a prescribed numerator pattern. It does not establish termination for any rational outside that construction.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Abstract text from a search result only; paper unread.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Structural; it cuts neither way on the universal claim.",
+      "object": null,
+      "people": [
+        "Jukka Pihko"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.mathstat.dal.ca/FQ/Papers1/48-3/Pihko.pdf"
+        ]
+      },
+      "sources": [
+        "https://www.mathstat.dal.ca/FQ/Papers1/48-3/Pihko.pdf"
+      ]
+    },
+    {
+      "id": "elsholtz-2016-odd-denominator-solutions",
+      "what_happened": "Christian Elsholtz, 'Egyptian Fractions with odd denominators', arXiv:1606.02117 (submitted 7 June 2016). Bounds the number of solutions of sum 1/x_i = 1 in distinct odd positive integers. No greedy procedure. Discarded: a counting result about a different question.",
+      "date": "2016-06-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "One version (v1) per arXiv abstract page.",
+      "delivers": "Counts solutions of sum 1/x_i = 1 with odd distinct x_i. Not about expansions of a given rational, and not about the greedy rule.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem.",
+      "object": null,
+      "people": [
+        "Christian Elsholtz"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1606.02117"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1606.02117"
+      ]
+    },
+    {
+      "id": "chu-2023-ordinary-greedy-two-term",
+      "what_happened": "Hung Viet Chu, 'A Threshold for the Best Two-term Underapproximation by Egyptian Fractions', arXiv:2306.12564 (v1 19 June 2023; v2 20 January 2024). Concerns the ORDINARY greedy expansion G(p/q): Theorem 1.12 says that for odd q with Upsilon(p,q)=2 the partial sums of G(p/q) are the unique best m-term underapproximations for every m. A search summary had described this as concerning the odd greedy expansion; the text I read defines G as the ordinary greedy expansion, so it is not the odd greedy expansion. Discarded as a different expansion. The arXiv HTML was read through its first 100,000 of about 110,000 characters.",
+      "date": "2023-06-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 19 Jun 2023; v2 20 Jan 2024 (the v2 date is before the frozen revision).",
+      "delivers": "For the ordinary greedy Egyptian expansion, best two-term underapproximation under Upsilon(p,q) <= 2 with q odd. A different expansion and a different question. Says nothing about termination of the odd greedy procedure.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not assessed (neighbouring result).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem: the object studied is the ordinary greedy expansion.",
+      "object": null,
+      "people": [
+        "Hung Viet Chu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2306.12564",
+          "https://arxiv.org/html/2306.12564"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2306.12564",
+        "https://arxiv.org/html/2306.12564"
+      ]
+    },
+    {
+      "id": "louwsma-martino-2023-fixed-length",
+      "what_happened": "Joel Louwsma and Joseph Martino, 'Rational numbers with odd greedy expansion of fixed length', arXiv:2309.07280, v1 13 September 2023 (the only version listed). Determines all reduced fractions with fixed numerator n whose odd greedy expansion has length 2; for length m, all rationals whose odd greedy expansion has length m and begins with m-1 prescribed odd denominators; and an infinite family when m-2 denominators are prescribed. The abstract says: 'It is an open question whether this expansion always has finitely many terms.' Acknowledgements (read via ar5iv): Nathan Kaplan suggested studying the odd greedy algorithm; Claire Levaillant; funding from Niagara University. No AI disclosure.",
+      "date": "2023-09-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (13 Sep 2023), per arXiv abstract page.",
+      "delivers": "Classifies rationals with odd greedy expansions of prescribed shape: fixed numerator with length 2, or prescribed leading denominators with length m. Each case is a finite-length family; the paper states termination in general is open. Restricted families only.",
+      "remains": "Termination of the odd greedy expansion for every rational with odd denominator (all of problem_asks).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Restricted classifications; no direction on the universal claim.",
+      "object": null,
+      "people": [
+        "Joel Louwsma",
+        "Joseph Martino",
+        "Nathan Kaplan",
+        "Claire Levaillant"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ar5iv.labs.arxiv.org/html/2309.07280",
+          "https://arxiv.org/abs/2309.07280"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2309.07280",
+        "https://ar5iv.labs.arxiv.org/html/2309.07280",
+        "https://arxiv.org/a/louwsma_j_1"
+      ]
+    },
+    {
+      "id": "louwsma-martino-2025-two-term",
+      "what_happened": "Joel Louwsma and Joseph Martino, 'Rational Numbers with Two-Term Odd Greedy Expansion', Integers 25 (2025). The abstract line 'We find all rational numbers whose odd greedy expansion has two terms' is quoted in a search result. The journal publication date 28 May 2025 and the received/revised/accepted dates (20 May 2024, 30 Jan 2025, 22 Apr 2025) are from front matter quoted in a search result; I could not read the PDF (binary output), so these dates are unverified by me. The earlier arXiv version (2309.07280) is dated September 2023, so the first public written argument on the two-term classification may be earlier than the journal date if a preprint of this paper exists; I found none. The journal date is therefore recorded as the earliest date I could establish.",
+      "date": "2025-05-28",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "Received 20 May 2024; revised 30 Jan 2025; accepted 22 Apr 2025; published 28 May 2025 (per search-result front matter, unverified by me). No arXiv version found.",
+      "delivers": "Classifies every rational whose odd greedy expansion has exactly two terms. This is a classification of a finite-length sub-family (every rational in it terminates after two steps). It sets no bound on lengths and says nothing about rationals outside the family, so it does not establish termination in general.",
+      "remains": "Termination of the odd greedy expansion for every rational with odd denominator; expansions of length other than two.",
+      "checked_by": [
+        {
+          "who": "Integers (peer-reviewed journal); referees not named in what I could read",
+          "qualification": "A peer-reviewed mathematics journal; acceptance date 22 Apr 2025 per front matter quoted in a search result",
+          "what_they_did": "Accepted for publication (per the front matter quoted in a search result). I did not read referee reports and do not know whether any referee was named.",
+          "where": "https://math.colgate.edu/~integers/z46/z46.pdf",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 16 months since journal publication (28 May 2025 to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A classification within a terminating sub-family (length two). It does not cut for or against the universal claim, and does not move the problem's quantity beyond restricted cases.",
+      "object": null,
+      "people": [
+        "Joel Louwsma",
+        "Joseph Martino"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://math.colgate.edu/~integers/z46/z46.pdf",
+          "https://arxiv.org/abs/2309.07280"
+        ]
+      },
+      "sources": [
+        "https://math.colgate.edu/~integers/z46/z46.pdf",
+        "https://arxiv.org/abs/2309.07280"
+      ]
+    },
+    {
+      "id": "kovac-2024-eventually-greedy-best",
+      "what_happened": "Vjekoslav Kovac, 'On eventually greedy best underapproximations by Egyptian fractions', arXiv:2406.07218 (v1 11 June 2024; v2 13 June 2024; v3 26 September 2024). Shows that the set of reals for which the best n-term Egyptian underapproximations are eventually greedy has Lebesgue measure zero, answering a question of Erdos and Graham (listed as Erdos problem 206 per a search result). Neighbouring question; abstract page read, full text not read.",
+      "date": "2024-06-11",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 11 Jun 2024; v2 13 Jun 2024; v3 26 Sep 2024 (current).",
+      "delivers": "A measure-zero statement about reals under the best-underapproximation property. Different question: no odd denominators and no odd greedy expansion.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not assessed (neighbouring result).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem.",
+      "object": null,
+      "people": [
+        "Vjekoslav Kovac"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2406.07218"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2406.07218"
+      ]
+    },
+    {
+      "id": "li-tang-2025-sylvester",
+      "what_happened": "Zheng Li and Quanyu Tang, 'On a conjecture of Erdos and Graham about the Sylvester's sequence', arXiv:2503.12277 (v1 15 March 2025; v4 21 March 2025 is the version shown). Resolves an Erdos-Graham liminf conjecture on Sylvester's sequence; a generalisation is conditional on the unproven Erdos-Graham claim that every rational has eventually greedy best Egyptian underapproximations. Neighbouring question; abstract page read only.",
+      "date": "2025-03-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 15 Mar 2025; v2 18 Mar 2025; v3 20 Mar 2025; v4 21 Mar 2025 (per arXiv abstract page).",
+      "delivers": "A result on Sylvester's sequence and its liminf. Not about odd denominators or the odd greedy expansion.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not assessed (neighbouring result).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem.",
+      "object": null,
+      "people": [
+        "Zheng Li",
+        "Quanyu Tang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2503.12277"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2503.12277"
+      ]
+    },
+    {
+      "id": "czenky-2025-few-primes",
+      "what_happened": "Agustina Czenky, Emily McGovern, Julia Plavnik, Eric Rowell, Abigail Watkins, 'Egyptian fractions for few primes', arXiv:2507.03727 (4 July 2025). Egyptian fraction solutions whose denominators' prime factors lie in a fixed set; evaluates the greedy algorithm for bounds. The abstract page never mentions odd denominators or the odd greedy expansion. Discarded.",
+      "date": "2025-07-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "One version (v1), per arXiv abstract page.",
+      "delivers": "Bounds on Egyptian fraction solutions with prime factors constrained; the greedy algorithm is used for bounds. Not about odd denominators or the odd greedy expansion.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem.",
+      "object": null,
+      "people": [
+        "Agustina Czenky",
+        "Emily McGovern",
+        "Julia Plavnik",
+        "Eric Rowell",
+        "Abigail Watkins"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2507.03727"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2507.03727"
+      ]
+    },
+    {
+      "id": "louwsma-2024-sum-to-one-powers",
+      "what_happened": "Joel Louwsma, 'On solutions of sum 1/x_i = 1 in integers of the form 2^a k^b', arXiv:2402.09515 (v1 14 February 2024; v2 8 July 2024; v3 20 January 2025). Algorithm for solutions of sum 1/x_i = 1 with x_i of the form 2^a k^b. No odd denominators, no greedy procedure. Discarded.",
+      "date": "2024-02-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 14 Feb 2024; v2 8 Jul 2024; v3 20 Jan 2025 (per arXiv abstract page).",
+      "delivers": "Solutions of sum 1/x_i = 1 in a special integer form. Not about odd denominators or the odd greedy expansion.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem.",
+      "object": null,
+      "people": [
+        "Joel Louwsma"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2402.09515"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2402.09515"
+      ]
+    },
+    {
+      "id": "conlon-et-al-2024-representation-count",
+      "what_happened": "David Conlon, Jacob Fox, Xiaoyu He, Dhruv Mubayi, Huy Tuan Pham, Andrew Suk, Jacques Verstraete, 'A question of Erdos and Graham on Egyptian fractions', arXiv:2404.16016 (v1 24 April 2024; v2 17 December 2025). Counts representations of a fixed rational x as sums of reciprocals of distinct positive integers with denominators at most n. No odd denominators, no greedy procedure. Discarded.",
+      "date": "2024-04-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 24 Apr 2024; v2 17 Dec 2025 (current), per arXiv abstract page.",
+      "delivers": "Counting of all representations of x with denominators at most n. Not about odd denominators or the greedy rule.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem.",
+      "object": null,
+      "people": [
+        "David Conlon",
+        "Jacob Fox",
+        "Xiaoyu He",
+        "Dhruv Mubayi",
+        "Huy Tuan Pham",
+        "Andrew Suk",
+        "Jacques Verstraete"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2404.16016"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2404.16016"
+      ]
+    },
+    {
+      "id": "erdos-282-formal-statement-lean",
+      "what_happened": "google-deepmind/formal-conjectures, FormalConjectures/ErdosProblems/282.lean (copyright 2025). Lean statements of Erdos problem 282: theorem erdos_282 says that for x in (0,1) with odd denominator, the greedy remainder using A = odd numbers is eventually 0, with proof 'sorry'. Variants: general (open, answer placeholder), fibonacci (A = all naturals, proof 'sorry'), graham (iff with answer placeholder, proof 'sorry'), sq (square denominators, proof 'sorry'). The only proved declarations are test lemmas. The formal file was read through a text reader; exact dates of the file's commits were not established.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Copyright year 2025 in file header; later commits not checked.",
+      "delivers": "A formal statement of the odd-denominator question, restricted to x in (0,1). Not a proof: the main theorem is sorry-marked.",
+      "remains": "All of problem_asks, since no proof is present. Note that the formal statement restricts x to (0,1) while the Wikipedia wording does not.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": {
+        "system": "Lean (mathlib)",
+        "sorry_free": false,
+        "url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/282.lean"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Formal statement only; no direction.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/282.lean"
+        ]
+      },
+      "sources": [
+        "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/282.lean"
+      ]
+    },
+    {
+      "id": "erdos-282-forum-2025-square-variant-sketch",
+      "what_happened": "Forum comment on Erdos problem 282 on erdosproblems.com by user Vjeko_Kovac, dated 11 August 2025 (per a fetch summary of the thread; the comment was not read verbatim). Sketches, non-constructively, that there exist sets A asymptotically equal to the squares for which the greedy process does not terminate, via an observation on Problem 263. The author says they are 'still undecided' whether this helps with the concrete questions. Concerns the square-denominator variant, not odd denominators.",
+      "date": "2025-08-11",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A sketched claim about a variant (A asymptotic to the squares). It does not address the odd-number version.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A forum sketch; the author says undecided about the concrete questions; not written up as a paper; read through a fetch summary, not verbatim.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Would cut against termination for a square-denominator variant, not for the odd-number question.",
+      "object": null,
+      "people": [
+        "Vjekoslav Kovac"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.erdosproblems.com/forum/thread/282"
+        ]
+      },
+      "sources": [
+        "https://www.erdosproblems.com/forum/thread/282"
+      ]
+    },
+    {
+      "id": "erdos-282-forum-2026-convention",
+      "what_happened": "Forum thread on Erdos problem 282: comment by user trajenta, 7 July 2026, notes that the algorithm as written does not exclude reusing denominators (for x = 2/3 with odd numbers it gives 2/3 = 1/3 + 1/3). Thomas Bloom (maintainer of erdosproblems.com) replied the same day that the intended rule is to choose the largest unit fraction, with denominator in the target set, not yet used. Clarifies the convention; claims no result.",
+      "date": "2026-07-07",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Nothing new mathematically; clarifies that the odd-number version uses distinct unit fractions, largest available at each step.",
+      "remains": "All of problem_asks.",
+      "checked_by": [
+        {
+          "who": "Thomas Bloom",
+          "qualification": "Maintainer of erdosproblems.com; listed as Thomas F. Bloom (University of Manchester) in the FrontierMath Erdos paper (arXiv 2609.25050)",
+          "what_they_did": "Replied in the forum thread clarifying the intended convention (largest unused unit fraction). Not a verification of the problem's answer.",
+          "where": "https://www.erdosproblems.com/forum/thread/282",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction: a scope clarification.",
+      "object": null,
+      "people": [
+        "Thomas Bloom",
+        "trajenta"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.erdosproblems.com/forum/thread/282"
+        ]
+      },
+      "sources": [
+        "https://www.erdosproblems.com/forum/thread/282"
+      ]
+    },
+    {
+      "id": "korsky-2026-approximating-1",
+      "what_happened": "Samuel Korsky, 'Approximating 1 by Sums of Unit Fractions', arXiv:2607.04157 (v1 5 July 2026; v2 8 October 2026). Improves an Erdos-Graham bound on how close a subset sum of a large collection of unit fractions can get to 1 from below. Not about odd denominators or greedy expansions. Discrepancy: a search result listed the same arXiv ID under the title 'A Stretched-Exponential Bound for an Erdos--Graham Unit-Fraction Problem' with a sentence saying the author was assisted by GPT-5.5 Pro. The current abstract page shows a different title and no AI sentence, and I did not open the full text. Unresolved.",
+      "date": "2026-07-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 5 Jul 2026; v2 8 Oct 2026 (per arXiv abstract page).",
+      "delivers": "A bound on subset sums of unit fractions near 1. Not about odd denominators or the odd greedy expansion.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not assessed (neighbouring result).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem.",
+      "object": null,
+      "people": [
+        "Samuel Korsky"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2607.04157"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.04157"
+      ]
+    },
+    {
+      "id": "kovac-tang-2026-eventually-greedy-best",
+      "what_happened": "Vjekoslav Kovac and Quanyu Tang, 'Eventually greedy best Egyptian underapproximations of rational numbers via optimal control', arXiv:2607.28387 (v1 30 July 2026; v2 4 August 2026). Proves every positive rational has eventually greedy best Egyptian underapproximations, both with repeated and with distinct denominators; answers an Erdos-Graham problem as relayed by the abstract, and constructs an irrational answering a Nathanson question. NEIGHBOURING QUESTION: not about odd denominators or the odd greedy expansion. The paper's 'Declaration of AI usage' (read via the arXiv HTML page through a text reader) credits OpenAI's GPT-5.6 Sol with key steps in the proof of Theorem 1 and with Figure 1, and says ChatGPT was used in two conversations (one reported it could not solve the problem; the other produced a candidate approach, which was then organised into a draft). The authors say they rewrote the material and that final statements and proofs were written by the authors. Recorded here as an AI-involvement event for a neighbouring result, not for this problem. Quotes are from a text reader and should be checked character for character against the PDF.",
+      "date": "2026-07-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 30 Jul 2026 (27 KB); v2 4 Aug 2026 (30 pages). Per the arXiv abstract page, v2 comments say Theorem 4, Figure 1, Remark 6 and Section 4 were added after discussions with colleagues.",
+      "delivers": "Every positive rational has eventually greedy best Egyptian underapproximations (repeated and distinct denominators). The restriction is to the best-underapproximation property of the greedy expansion; it does not involve odd denominators. The word 'odd' appears only in an unrelated condition in the introduction (per the first pass of the text reader).",
+      "remains": "All of problem_asks: the odd greedy termination question is untouched.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 weeks (30 Jul to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not assessed as a claim about this problem. Only the authors' declaration is recorded; no reviews or verifications found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem. For its own question it answers the greedy best underapproximation problem affirmatively for all positive rationals.",
+      "object": null,
+      "people": [
+        "Vjekoslav Kovac",
+        "Quanyu Tang",
+        "Xiao Hu (communicated an interpretation for Lemma 5)",
+        "Wouter van Doorn (suggested the generalisation behind Theorem 4)",
+        "Zheng Li",
+        "Yinchen Liu",
+        "Shengtong Zhang"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-5.6 Sol",
+            "what_it_did": "Per the authors' Declaration of AI usage: 'Key steps in the proof of Theorem 1' (the choice and construction of the payoff function, the existence of optimal terminal decompositions, and the study of competing nongreedy underapproximations) were provided by it; it also created Figure 1. The authors say they placed these in optimal-control context and rewrote them. This concerns the neighbouring Theorem 1, not the odd greedy problem. The lab appears in the source as 'OpenAI's GPT-5.6 Sol'.",
+            "basis_quote": "Key steps in the proof of Theorem 1 (the choice and the construction of the payoff function, the existence of optimal terminal decompositions, and the study of competing nongreedy underapproximations) were provided by OpenAI's GPT-5.6 Sol.",
+            "quote_url": "https://arxiv.org/html/2607.28387"
+          },
+          {
+            "name": "ChatGPT",
+            "what_it_did": "Per the authors' Declaration of AI usage: two separate ChatGPT conversations on 13 July 2026. In one ChatGPT reported it could not solve the problem; in the other it produced a candidate approach, which was then organised into a preliminary proof draft that the authors describe as 'an essentially correct but undigested and barely readable proof', after which they carried out 'considerable mathematical verification, restructuring, exposition, and rewriting'. The product name is given without a model version.",
+            "basis_quote": "We subsequently asked ChatGPT to organize the reasoning developed in the latter conversation into a preliminary proof draft.",
+            "quote_url": "https://arxiv.org/html/2607.28387"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2607.28387",
+          "https://arxiv.org/abs/2607.28387"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.28387",
+        "https://arxiv.org/html/2607.28387"
+      ]
+    },
+    {
+      "id": "alphaproof-nexus-2026-erdos-282-attempt",
+      "what_happened": "Google DeepMind's AlphaProof Nexus (preprint, May 2026; sources give 21 May and 26 May, so day is uncertain). The public repository google-deepmind/alphaproof-nexus-results lists erdos_282, erdos_282.variants.graham and erdos_282.variants.sq in erdos_problems_attempted.txt (353 entries in total). The published proof folders (APNOutputs/ErdosProblems and NaturalLanguageProofs/ErdosProblems) show nine problems: erdos_12 (parts i and ii), erdos_125 (positive_lower_density variant), erdos_138 (difference variant), erdos_152, erdos_26 (tenenbaum variant), erdos_741 (parts i and ii), erdos_846. Neither folder shows 282. The DeepMind coverage says 9 of 353 open problems were solved. Recorded as an AI attempt that has no published proof for 282 in the visible listings.",
+      "date": "2026-05",
+      "precision": "month",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "No result for this problem. The visible public outputs show no published AlphaProof Nexus proof for problem 282 or its variants; the attempt itself is recorded in the attempted list only.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The folder listings end in 'View all files', so a 282 proof file could exist beyond the visible list; I did not open individual proof files. The README says the results repository 'contains only problems where successful proofs were discovered by AlphaProof Nexus', which is consistent with 282 having no success, but I did not confirm that from a file.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No claimed direction. Attempted, with no published proof visible.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/google-deepmind/alphaproof-nexus-results/blob/main/erdos_problems_attempted.txt",
+          "https://github.com/google-deepmind/alphaproof-nexus-results/tree/main/APNOutputs/ErdosProblems",
+          "https://github.com/google-deepmind/alphaproof-nexus-results/tree/main/NaturalLanguageProofs/ErdosProblems",
+          "https://aiweekly.co/alerts/deepmind-alphaproof-nexus-solves-9-erds-problems"
+        ]
+      },
+      "sources": [
+        "https://github.com/google-deepmind/alphaproof-nexus-results",
+        "https://github.com/google-deepmind/alphaproof-nexus-results/blob/main/erdos_problems_attempted.txt",
+        "https://github.com/google-deepmind/alphaproof-nexus-results/tree/main/APNOutputs/ErdosProblems",
+        "https://github.com/google-deepmind/alphaproof-nexus-results/tree/main/NaturalLanguageProofs/ErdosProblems",
+        "https://aiweekly.co/alerts/deepmind-alphaproof-nexus-solves-9-erds-problems"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Attribution of the odd-denominator problem varies by source. The Erdos problem 282 page credits the odd case to Stein (and Fibonacci for the unrestricted case). A search summary of the Wikipedia article credits Stein, Selfridge, Graham and others and cites Guy (1981). Louwsma and Martino (2023) attribute the open question to Guy (Section D11) and Klee and Wagon (Problem 15). The Erdos-Graham 1980 p. 30 attribution is unverified. No competing priority claims found.",
+      "sources": [
+        "https://www.erdosproblems.com/282",
+        "https://ar5iv.labs.arxiv.org/html/2309.07280",
+        "https://en.wikipedia.org/wiki/Odd_greedy_expansion"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Breusch (1954) is credited alone in some sources and jointly with Stewart (1954, American Journal of Mathematics) in others for the existence of all-odd Egyptian representations. The Stewart paper was not read.",
+      "sources": [
+        "https://ar5iv.labs.arxiv.org/html/2309.07280",
+        "https://ics.uci.edu/~eppstein/numth/egypt/3-179.html"
+      ]
+    }
+  ],
+  "summary": "No event since 26 January 2024 settles, or moves, the universal question for odd greedy expansions. Wikipedia's live list (number theory, computational number theory) still carries the bullet verbatim without a reference; the odd greedy article's last edit is 28 May 2024 and it still calls the problem open. erdosproblems.com #282 asks the same question (with A equal to the odd numbers); its page, history and forum show no claimed solution, one convention clarification on 7 July 2026, and an unverified sketch on a square-denominator variant (August 2025). The in-window result specific to the odd greedy expansion is Louwsma and Martino's classification of rationals whose odd greedy expansion has exactly two terms (Integers 25, 2025). Their 2023 preprint classifies fixed-numerator and fixed-length cases and says termination is open. Both are finite-length families, so they are restricted cases, not the universal claim. Close call: a pass could read the length-two classification as a set of newly confirmed instances growing (section 2.1) rather than a restricted case; I record it as a classification of a terminating sub-family and leave the call. The Integers PDF was unreadable in my tools (binary output), so its statement, acknowledgements, AI disclosure and exact dates rest on search-result front matter and quotations, not on my reading of the paper. Pre-window computations (Wagon 1996; Bailey, Eppstein and Brown 1997) show terminating long expansions (3/179 in 19 terms, 5/5809 in 27 terms) and non-halting runs at digit counts; they are instances, not evidence either way. AI involvement: none found for this problem. The AlphaProof Nexus preprint (May 2026) lists erdos_282, erdos_282.variants.graham and erdos_282.variants.sq among its 353 attempted problems, but the visible published proof folders list nine other problems and not 282; the Tao AI-contributions wiki (data to 30 June 2026) has no row for 282; the Lean formalisation (DeepMind formal-conjectures) has erdos_282 with a sorry proof; FrontierMath Erdos (6 Sept 2026; 68 open problems as of Aug 2026) does not include 282 (per its appendix as summarised by a reader). I also searched for GPT-6 Astra, GPT-5.6 Sol, Aristotle, Gemini Deep Think and Mathoverflow in connection with this problem and found nothing. The one AI-credited paper in the neighbourhood is Kovac and Tang (arXiv 2607.28387, 30 July 2026), which answers a different question and whose own declaration credits GPT-5.6 Sol with key steps of its Theorem 1 and ChatGPT with a candidate approach and a draft. It is recorded as a neighbour event, not as AI involvement in this problem. Scope notes for the judging pass: the Lean and Erdos 282 statements restrict x to (0,1), whereas Wikipedia's wording is 'every rational number with an odd denominator' (positivity implicit); the Erdos page asks the odd question as a special case of a general question about which pairs (x, A) terminate, which is not part of this bullet. Corrections to search summaries: Chu's Theorem 1.12 concerns the ordinary greedy expansion, not odd greedy; the Korsky arXiv ID now carries a different title from the one a search result showed with a GPT-5.5 Pro sentence, which I could not resolve.",
+  "competing_reading": "Read as an affirmative signal: the odd greedy procedure has been proved to terminate for an infinite family of rationals (all with length-two expansions, Louwsma and Martino 2025), terminates for every long example checked (Wikipedia: all instances tested), and Erdos problem 282 has no claimed counterexample. On that reading the 2025 classification is progress on the problem's own quantity (the set of rationals with finite odd greedy expansions) and a pass could count it as an advance rather than a restricted case. The stronger reading against: terminating families and computed instances never reach the universal claim (section 2.1; the Collatz analogy), and the one 'non-halting' case (3/179 in Eppstein's 1997 program; 5/3809 at 5 x 10^7 digits) is unresolved, so the problem is no closer to settled on the evidence recorded here.",
+  "what_would_settle_it": "A published proof of termination for every rational with odd denominator, or an explicit rational whose odd greedy run is shown never to halt; failing that, a readable copy of Louwsma and Martino (Integers 25, 2025) to confirm the statement, the acknowledgements and any AI disclosure, and the exact first public date; the full AlphaProof Nexus file listing (with the 'View all files' view) to confirm that no erdos_282 proof file exists; and the verbatim PDF text of arXiv 2607.28387 to confirm the declaration's sentences, which I read through a text reader.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Odd_greedy_expansion",
+      "title": "Odd greedy expansion (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics",
+      "title": "List of unsolved problems in mathematics (Wikipedia, live page)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/w/index.php?title=Odd_greedy_expansion&action=history",
+      "title": "Odd greedy expansion: revision history (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2309.07280",
+      "title": "Rational numbers with odd greedy expansion of fixed length (Louwsma, Martino), arXiv:2309.07280",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/2309.07280",
+      "title": "Rational numbers with odd greedy expansion of fixed length (HTML rendering)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/a/louwsma_j_1",
+      "title": "arXiv author listing: Joel Louwsma",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2402.09515",
+      "title": "On solutions of sum 1/x_i = 1 in integers of the form 2^a k^b (Louwsma), arXiv:2402.09515",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2306.12564",
+      "title": "A Threshold for the Best Two-term Underapproximation by Egyptian Fractions (Chu), arXiv:2306.12564",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2306.12564",
+      "title": "A Threshold for the Best Two-term Underapproximation by Egyptian Fractions (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1606.02117",
+      "title": "Egyptian Fractions with odd denominators (Elsholtz), arXiv:1606.02117",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2406.07218",
+      "title": "On eventually greedy best underapproximations by Egyptian fractions (Kovac), arXiv:2406.07218",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.12277",
+      "title": "On a conjecture of Erdos and Graham about the Sylvester's sequence (Li, Tang), arXiv:2503.12277",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.03727",
+      "title": "Egyptian fractions for few primes (Czenky et al.), arXiv:2507.03727",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.10787",
+      "title": "Greedy Beta-expansions for families of Salem numbers (Hare, Orovec), arXiv:2504.10787",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.16016",
+      "title": "A question of Erdos and Graham on Egyptian fractions (Conlon et al.), arXiv:2404.16016",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.28387",
+      "title": "Eventually greedy best Egyptian underapproximations of rational numbers via optimal control (Kovac, Tang), arXiv:2607.28387",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.28387",
+      "title": "Eventually greedy best Egyptian underapproximations (HTML; Declaration of AI usage)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.04157",
+      "title": "Approximating 1 by Sums of Unit Fractions (Korsky), arXiv:2607.04157",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.25050",
+      "title": "FrontierMath Erdos (Adamczewski, Bloom), arXiv:2609.25050",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.25050",
+      "title": "FrontierMath Erdos (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ics.uci.edu/~eppstein/numth/egypt/3-179.html",
+      "title": "Egyptian Fractions - Odd Greediness and 3/179 (Eppstein)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A286720",
+      "title": "OEIS A286720 (odd greedy count for 1-1/(2n+1))",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://mathpages.com/home/kmath478.htm",
+      "title": "Odd-Greedy Unit Fraction Expansions (MathPages; undated)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.erdosproblems.com/282",
+      "title": "Erdos Problem #282 (erdosproblems.com)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.erdosproblems.com/history/282",
+      "title": "Erdos Problem #282: history",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.erdosproblems.com/forum/thread/282",
+      "title": "Erdos Problem #282: forum thread",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/282.lean",
+      "title": "formal-conjectures: FormalConjectures/ErdosProblems/282.lean",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems",
+      "title": "AI contributions to Erdos problems (Tao, GitHub wiki)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/alphaproof-nexus-results",
+      "title": "alphaproof-nexus-results (repository README)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/alphaproof-nexus-results/blob/main/erdos_problems_attempted.txt",
+      "title": "alphaproof-nexus-results: erdos_problems_attempted.txt",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/alphaproof-nexus-results/tree/main/APNOutputs/ErdosProblems",
+      "title": "alphaproof-nexus-results: APNOutputs/ErdosProblems (listing)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/alphaproof-nexus-results/tree/main/NaturalLanguageProofs/ErdosProblems",
+      "title": "alphaproof-nexus-results: NaturalLanguageProofs/ErdosProblems (listing)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://aiweekly.co/alerts/deepmind-alphaproof-nexus-solves-9-erds-problems",
+      "title": "DeepMind AlphaProof Nexus solves 9 Erdos problems (news summary)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://www.quantamagazine.org/how-ai-tore-through-a-mathematical-community-20260803/",
+      "title": "How AI tore through a mathematical community (Quanta, 3 Aug 2026)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://quantamagazine.org/why-the-legendary-erdos-problems-are-falling-to-ai-20260803",
+      "title": "Why the Legendary Erdos Problems Are Falling to AI (Quanta, 3 Aug 2026)",
+      "type": "news",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "rational numbers odd denominator odd greedy expansion Egyptian fraction",
+      "\"odd greedy expansion\" rational",
+      "greedy Egyptian fraction expansion odd denominators conjecture Erdős Graham",
+      "Wikipedia list of unsolved problems in mathematics odd greedy expansion",
+      "greedy algorithm Egyptian fractions odd denominator every rational x/y with y odd greedy expansion all denominators odd",
+      "Egyptian fractions greedy expansion odd denominators arXiv",
+      "Erdős Graham \"greedy\" Egyptian fraction odd numerator denominator open problem",
+      "Curtiss theorem Egyptian fraction odd denominator greedy algorithm",
+      "Egyptian fraction greedy algorithm odd denominators 2026",
+      "greedy expansion odd denominator rational AI proof Egyptian fraction language model",
+      "Louwsma Martino odd greedy expansion Integers 2025",
+      "Erdős problem 282 solved AI",
+      "Erdős problem 282 greedy unit fractions odd denominators proof",
+      "\"odd greedy\" Egyptian fractions arXiv 2025",
+      "Pihko \"Remarks on the greedy odd Egyptian fraction algorithm\" Fibonacci Quarterly",
+      "Egyptian fractions odd denominators AlphaEvolve OR AlphaProof OR \"Deep Think\" greedy",
+      "\"Egyptian fraction\" AI model proof open problem 2026",
+      "erdosproblems.com AI contributions database Ivanisvili Seven Erdős problems status",
+      "Google DeepMind formal-conjectures Erdős 282 Lean odd greedy Egyptian",
+      "Egyptian fractions greedy algorithm odd denominators language model GPT",
+      "Erdős problems AI solved list Tao wiki contributions unit fractions greedy",
+      "Breusch 1954 American Mathematical Monthly odd denominators Egyptian fraction every rational",
+      "Stewart 1954 \"Egyptian fractions\" odd denominators American Journal of Mathematics",
+      "Guy Unsolved Problems in Number Theory D11 Egyptian fractions odd denominators greedy terminate",
+      "Kevin Brown Egyptian fractions 5/5809 odd greedy 27 terms Bailey",
+      "Nathanson Egyptian fractions greedy underapproximation odd denominators question 2024",
+      "Eppstein \"Odd denominators that add to 1\" Egyptian fractions",
+      "Louwsma Martino arXiv odd greedy expansion two terms 2024 rational numbers",
+      "\"Rational numbers with two-term odd greedy expansion\"",
+      "\"Erdős problem 282\" OR \"Erdos problem 282\" odd greedy",
+      "AlphaProof Nexus Erdős problems list solved unit fractions Egyptian",
+      "odd greedy Egyptian fraction termination proof 2026 new result finiteness odd greedy expansion",
+      "Terence Tao blog Egyptian fractions odd denominators greedy",
+      "Egyptian fractions odd greedy Wagon \"always halts\" open question update",
+      "Egyptian fractions survey problems and progress Bloom odd denominators greedy algorithm",
+      "Wikipedia \"Greedy algorithm for Egyptian fractions\" odd",
+      "AlphaProof Nexus erdos_282 OR \"Erdős 282\" Lean proof sorry-free odd denominators greedy",
+      "\"GPT-5.6 Sol\" Egyptian fractions greedy underapproximation Kovač Tang",
+      "odd greedy expansion Egyptian fractions 2026 arXiv new paper termination odd denominators",
+      "Aristotle Harmonic OR \"GPT-5.5 Pro\" OR \"Gemini Deep Think\" Egyptian fractions odd greedy",
+      "mathoverflow odd greedy Egyptian fraction algorithm termination",
+      "\"GPT-6 Astra\" OR \"GPT-5.6 Sol\" Egyptian fractions Erdős unit fractions greedy",
+      "Stein Selfridge Graham odd greedy algorithm Egyptian fractions open problem attribution Erdős Graham 1980 p. 30",
+      "Kovač Tang Egyptian underapproximations ChatGPT declaration AI usage optimal control greedy"
+    ],
+    "places_checked": [
+      "Wikipedia 'Odd greedy expansion' article (lead, open-problem sentence, history, references; read through a reader)",
+      "Wikipedia 'Odd greedy expansion' revision history (last edit 28 May 2024)",
+      "Wikipedia 'List of unsolved problems in mathematics' live page (number theory entry found at offset 100k-200k; no reference attached)",
+      "arXiv 2309.07280 (abstract page, ar5iv HTML; acknowledgements and open-problem sentence read)",
+      "arXiv author listing for Joel Louwsma",
+      "Integers 25 (2025), z46 PDF (binary output; unreadable; front-matter dates taken from search results)",
+      "arXiv 2402.09515; 2306.12564 (abstract and HTML, first 100k of ~110k chars); 1606.02117; 2406.07218; 2503.12277; 2507.03727; 2504.10787; 2404.16016; 2607.04157",
+      "arXiv 2607.28387 (abstract page, HTML first 100k of ~158k chars and HTML from 99k for the Declaration of AI usage; PDF binary unreadable)",
+      "arXiv 2609.25050 FrontierMath Erdos (abstract and HTML; appendix of 68 problems read via reader; 282 not listed)",
+      "Eppstein 'Egyptian Fractions - Odd Greediness and 3/179' page (Wagon 1996 and Bailey/Eppstein 1997 reports)",
+      "MathPages 'Odd-Greedy Unit Fraction Expansions' (undated)",
+      "OEIS A286720 (Eldar, 2017; odd greedy count; no termination statement)",
+      "erdosproblems.com/282 (statement, attributions, status); /history/282 (one dated entry, 20 Oct 2025, text reproduction only); /forum/thread/282 (4 comments: 11 Aug 2025, 9 Aug 2025, 7 Jul 2026 x2)",
+      "google-deepmind/formal-conjectures FormalConjectures/ErdosProblems/282.lean (erdos_282 with sorry; variants general, fibonacci, graham, sq)",
+      "Tao's AI contributions to Erdos problems GitHub wiki (no row for 282; data to 30 June 2026)",
+      "google-deepmind/alphaproof-nexus-results: README, erdos_problems_attempted.txt (282 listed), APNOutputs/ErdosProblems and NaturalLanguageProofs/ErdosProblems listings (282 absent; nine problems visible)",
+      "AlphaProof Nexus news summary (aiweekly.co); other coverage read in search results only",
+      "Quanta Magazine articles of 3 Aug 2026 (no mention of Egyptian fractions or 282)",
+      "Search-only: Mathoverflow (no thread found), Tao blog (no post found), Gatech 'Egyptian fractions: problems and progress' (404), johnbcosgrave course notes (redirect not followed; content from search snippets only), Pihko PDFs (binary; abstracts from search results only)"
+    ],
+    "dead_ends": [
+      "Integers 25 (2025) PDF for Louwsma and Martino (z46.pdf): returned binary; statement, acknowledgements and AI disclosure not verified.",
+      "Pihko 2001 (39-3 scanned PDF) and Pihko 2010 (48-3 PDF): binary; content from search snippets only.",
+      "arXiv 2607.28387 PDF (non-HTML): binary; the Declaration was read from the arXiv HTML page instead.",
+      "arXiv 2306.12564 PDF: binary; Theorem 1.12 read from the HTML page.",
+      "Search for a 2025 or 2026 arXiv preprint specifically on odd greedy termination: none found; the closest are 2309.07280 and the Integers 2025 paper.",
+      "Search for AI involvement in the odd greedy problem (AlphaEvolve, AlphaProof, Deep Think, Aristotle, GPT-5.5 Pro, GPT-6 Astra, GPT-5.6 Sol, Claude): nothing connecting any system to this problem.",
+      "Search for a Tao blog post on odd greedy: none found.",
+      "Search for an MathOverflow thread on odd greedy: none found.",
+      "Erdos-Graham 1980 p. 30 attribution: not verified; Guy 1981 is cited by Wikipedia (page number not verified).",
+      "Erdos problem 282 'Problem 263' and 'Problem 206' cross-references: not followed.",
+      "Louwsma 2024 and Conlon et al. 2024: discarded after abstract pages; full text not read.",
+      "Hare and Orovec (Salem numbers): search hit, unrelated; abstract page only."
+    ]
+  },
+  "incomplete": "(1) The Integers 2025 paper (Louwsma and Martino) could not be read: the PDF returned binary. Its statement, acknowledgements, any AI disclosure, and the first public date (journal 28 May 2025 unless an earlier preprint exists) rest on search-result quotations, and the ai.none_found value for that event is an unverified reading. (2) The Breusch 1954 and Stewart 1954 papers, the Pihko 2001 and 2010 papers, and Guy (1981) / Klee and Wagon (1991) / Erdos-Graham (1980) were not read; those facts come from secondary sources. (3) The Kovac-Tang declaration and other text from arXiv 2607.28387 were read through a text reader; the quoted sentences should be checked character for character against the PDF. (4) The AlphaProof Nexus proof folders were read through their listing pages, which end in 'View all files'; individual proof files were not opened, and the preprint date is given as May 2026 because two sources disagree (21 and 26 May). (5) The Erdos forum comments dated 11 Aug 2025 and 7 Jul 2026 were read through a fetch summary, not verbatim. (6) The Korsky arXiv ID (2607.04157) appeared in one search result under a different title with an AI sentence; the current abstract page does not show that. Unresolved; full text not read. (7) Several neighbouring abstracts (Kovac 2024, Li-Tang 2025, Conlon et al. 2024, Louwsma 2024, Czenky et al. 2025, Chu 2023) were read from abstract pages only. (8) The FrontierMath Erdos appendix (68 problems) was read through a reader; the statement that 282 is absent rests on that reading. (9) The Wikipedia live list was read through a reader, and the reader reported the entry as having no reference; the Wikipedia list is a live page and is not the frozen 26 January 2024 revision.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "breusch-1954-odd-representation",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wagon-1996-3-179",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "checkable",
+        "credibility": "doubtful",
+        "credibility_reason": "Reported in emails only; Eppstein's own 1997 program did not reproduce the finish for 3/179.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bailey-brown-eppstein-1997-long-expansions",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "pihko-2001-greedy-odd",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "pihko-2010-greedy-odd-II",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "elsholtz-2016-odd-denominator-solutions",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chu-2023-ordinary-greedy-two-term",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "louwsma-martino-2023-fixed-length",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "louwsma-martino-2025-two-term",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kovac-2024-eventually-greedy-best",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "li-tang-2025-sylvester",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "czenky-2025-few-primes",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "louwsma-2024-sum-to-one-powers",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "conlon-et-al-2024-representation-count",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "erdos-282-formal-statement-lean",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "erdos-282-forum-2025-square-variant-sketch",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Informal forum sketch, read only through a fetch summary; author says undecided.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "erdos-282-forum-2026-convention",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "korsky-2026-approximating-1",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kovac-tang-2026-eventually-greedy-best",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "Key steps in the proof of Theorem 1 (the choice and the construction of the payoff function, the existence of optimal terminal decompositions, and the study of competing nongreedy underapproximations) were provided by OpenAI's GPT-5.6 Sol.",
+        "ai_systems_credited": [
+          "GPT-5.6 Sol",
+          "ChatGPT"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "alphaproof-nexus-2026-erdos-282-attempt",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks whether the odd greedy procedure halts for every odd-denominator rational. No event proves termination for any independently defined class of rationals or exhibits a non-halting one. The closest call is Louwsma–Martino 2025 (and its 2023 preprint): classifying which rationals have two-term (or prescribed-shape) odd greedy expansions characterises rationals already known to terminate rather than establishing termination for a restriction of the question, so I scored it variant rather than case; the competing reading (an infinite terminating family as a case) was weighed and rejected because the family is defined by terminating. Computations of 3/179, 5/5809 etc. are instances. Breusch, Elsholtz, Chu, Kovac, Li–Tang, Conlon et al., Czenky et al., Korsky and the square-variant sketch are different questions. Kovac–Tang 2026 credits GPT-5.6 Sol with key proof steps, so assisted for that event, but it concerns best underapproximations, not this problem, and is a variant. The Lean statement and AlphaProof Nexus attempt contain no proof: none.",
+    "doubts": "Louwsma–Martino 2025 was not read (PDF unreadable); its scope rests on a quoted abstract line, and it likely overlaps the 2023 preprint. Pihko 2001/2010 content rests on search summaries; the 2010 infinite family with numerators ending in 1 could arguably be read as a case, but it is pre-snapshot and does not change open vs open_stale. Korsky AI discrepancy unresolved but irrelevant here.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

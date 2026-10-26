@@ -1,0 +1,1958 @@
+{
+  "key": "woodalls-conjecture",
+  "nothing_found": false,
+  "outcome": "As of 13 Oct 2026 no source I could read says the conjecture is settled; Wikipedia, Feofiloff's notes and the 2025–26 Cornuéjols–Liu–Ravi papers all still list it as open. Since 26 Jan 2024 the non-AI literature has added partial and restricted results (a p-adic relaxation, a dyadic blow-up relaxation, the weighted Edmonds–Giles statement for chordal underlying graphs, a dual form for 3-trees). In September 2026 a public repository run by AI agents posted merged, sketch-status proofs for the τ=2 case (folklore) and for τ=3 special classes, reviewed only by other AI models.",
+  "problem_asks": "One statement, two quantities, for every digraph (read as finite, unweighted, with a dicut present): (1) τ(D), the minimum number of arcs in a non-empty dicut (a dicut is a non-empty arc set δ+(U) with no arcs entering U); and (2) ν(D), the maximum number of pairwise disjoint dijoins (a dijoin meets every non-empty dicut; equivalently its contraction makes D strongly connected). The conjecture asks that τ(D) = ν(D) for all D. Unpacked: (a) ν(D) ≤ τ(D) is immediate, because each dijoin must contain an arc of a smallest dicut and disjoint dijoins need distinct arcs; (b) the open content is ν(D) ≥ τ(D), i.e. every digraph has τ(D) pairwise disjoint dijoins, for every value of τ. The statement is the unweighted case; the weighted Edmonds–Giles form (refuted by Schrijver, 1980) is a different statement. Reading note: the statement must use the non-empty-dicut convention; a permissive empty-dicut convention makes τ=0 and trivialises small-case checks (see the repo issue #295 discussed below).",
+  "events": [
+    {
+      "id": "chudnovsky-2014-disjoint-dijoins",
+      "what_happened": "Chudnovsky, Edwards, Kim, Scott and Seymour, ‘Disjoint dijoins’ (arXiv 1412.1415, one version). Restates Woodall’s conjecture, says it ‘remains open, but a capacitated version is known to be false’, and proves a k=2 statement about a connected subdigraph S (if S is connected and every dicut has at least two arcs of S, S splits into two dijoins) only when G is planar or S is a subdivided caterpillar. Predates the window.",
+      "date": "2014-12-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only, submitted 3 Dec 2014 (arXiv abstract page).",
+      "delivers": "Two special cases of a connectivity-conditioned k=2 statement about a subdigraph S: G planar; or S a subdivided caterpillar. The plain k=2 case of Woodall is folklore (Wikipedia), so this does not add a new k=2 case for general digraphs.",
+      "remains": "Woodall for general digraphs and all k≥3. A search summary of the introduction (not the abstract) says the k=3 case is open even for planar digraphs.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 12 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial: confirms the k=2 instance inside two classes and clarifies the capacitated counterexample. Does not cut against the conjecture.",
+      "object": null,
+      "people": [
+        "Maria Chudnovsky",
+        "Katherine Edwards",
+        "Ringi Kim",
+        "Alex Scott",
+        "Paul Seymour"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1412.1415"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1412.1415",
+        "https://ar5iv.labs.arxiv.org/html/1412.1415"
+      ]
+    },
+    {
+      "id": "gollin-heuer-stavropoulos-2021-dicut-classes",
+      "what_happened": "Gollin, Heuer and Stavropoulos, ‘Disjoint dijoins for classes of dicuts in finite and infinite digraphs’ (arXiv 2109.03518). Asks a modified question: for a restricted class of dicuts, is the maximum number of disjoint sets meeting every dicut of the class equal to the minimum size of a dicut in the class? Verifies it for nested classes of finite dicuts, for the class of minimum-size dicuts, and for classes of infinite dibonds. Predates the window.",
+      "date": "2021-09-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only, submitted 8 Sep 2021 (arXiv abstract page).",
+      "delivers": "Restricted-class variant in which the packed sets need only meet the dicuts of the class. Not the statement as bulleted.",
+      "remains": "The statement for all dicuts of a finite digraph; the infinite-digraph setting is outside the bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A variant with a weaker packing requirement; success on the variant is not evidence on the original statement.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture on the classes treated; a variant, not the conjecture.",
+      "object": null,
+      "people": [
+        "J. Pascal Gollin",
+        "Karl Heuer",
+        "Konstantinos Stavropoulos"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2109.03518"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2109.03518"
+      ]
+    },
+    {
+      "id": "schrijver-1980-weighted-counterexample",
+      "what_happened": "Schrijver, ‘A counterexample to a conjecture of Edmonds and Giles’, Discrete Mathematics 32(2):213–215 (per Wikipedia’s reference list). Refutes the weighted (capacitated) Edmonds–Giles conjecture. Not an event on the unweighted statement.",
+      "date": "1980",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Refutes the weighted Edmonds–Giles form in general. Its planar digraph has an arc subset S in which every dicut contains at least two arcs of S, yet S contains no two disjoint dijoins. The sources treat this as a capacitated counterexample, not a counterexample to the unweighted statement.",
+      "remains": "Woodall’s unweighted statement, which every source read treats as open.",
+      "checked_by": [
+        {
+          "who": "Discrete Mathematics referees and editors",
+          "qualification": "Refereed journal",
+          "what_they_did": "Accepted for publication (journal of record; I did not open the paper)",
+          "where": "https://en.wikipedia.org/wiki/Woodall%27s_conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 46 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts against the weighted Edmonds–Giles form; does not cut against Woodall’s unweighted statement.",
+      "object": "Schrijver’s planar digraph with an arc subset S such that every dicut has at least two arcs of S, yet S does not split into two disjoint dijoins; in the planar example S consists of three vertex-disjoint paths (described in the Chudnovsky et al. abstract and search summaries). Explicit, not existence-only. I did not read the 1980 paper.",
+      "people": [
+        "Alexander Schrijver"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Woodall%27s_conjecture",
+        "https://arxiv.org/abs/1412.1415"
+      ]
+    },
+    {
+      "id": "schrijver-1982-source-sink-dags",
+      "what_happened": "Schrijver, ‘Min-max relations for directed graphs’, Annals of Discrete Mathematics 16 (1982), 261–280 (per Wikipedia’s reference list). Proves Woodall’s statement for directed acyclic graphs in which every source reaches every sink. Predates the window.",
+      "date": "1982",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Source-sink-connected acyclic digraphs (every source has a path to every sink). Wikipedia notes general digraphs reduce to acyclic ones by contracting strong components, but the reduction does not carry the source-sink hypothesis over.",
+      "remains": "Digraphs whose condensation is not source-sink connected; the general statement.",
+      "checked_by": [
+        {
+          "who": "Annals of Discrete Mathematics editors and referees",
+          "qualification": "Published proceedings volume",
+          "what_they_did": "Published (journal of record; paper not opened)",
+          "where": "https://en.wikipedia.org/wiki/Woodall%27s_conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 44 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on a restricted class.",
+      "object": null,
+      "people": [
+        "Alexander Schrijver"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Woodall%27s_conjecture"
+      ]
+    },
+    {
+      "id": "feofiloff-younger-1987-source-sink",
+      "what_happened": "Feofiloff and Younger, ‘Directed cut transversal packing for source-sink connected graphs’, Combinatorica 7(3):255–263 (per Wikipedia and Feofiloff’s page). The same source-sink-connected case, proved independently. Feofiloff later wrote a detailed rewrite (PDF listed on his page; not opened). Predates the window.",
+      "date": "1987",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Same restricted class as Schrijver 1982: source-sink-connected digraphs.",
+      "remains": "All digraphs outside that class; the general statement.",
+      "checked_by": [
+        {
+          "who": "Combinatorica referees and editors",
+          "qualification": "Refereed journal",
+          "what_they_did": "Accepted for publication (journal of record; not opened)",
+          "where": "https://www.ime.usp.br/~pf/dijoins/",
+          "automated": false
+        },
+        {
+          "who": "Paulo Feofiloff (Universidade de São Paulo)",
+          "qualification": "Research mathematician working on this exact topic; author of the expository notes",
+          "what_they_did": "Published a detailed rewrite of this paper’s source-sink-connected theorem (PDF listed; not opened)",
+          "where": "https://www.ime.usp.br/~pf/dijoins/download/source-sink-connected-woodall-en.pdf",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 39 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on a restricted class.",
+      "object": null,
+      "people": [
+        "Paulo Feofiloff",
+        "Derek H. Younger"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Woodall%27s_conjecture",
+        "https://www.ime.usp.br/~pf/dijoins/"
+      ]
+    },
+    {
+      "id": "lee-wakabayashi-2001-series-parallel",
+      "what_happened": "Lee and Wakabayashi, ‘Note on a min-max conjecture of Woodall’, Journal of Graph Theory 38(1):36–41 (2001), DOI 10.1002/jgt.1022 (per a repository record and later papers). Proves Woodall’s statement for digraphs whose underlying graph is series-parallel, working through the dual dicircuit form. Predates the window. I could not open the paper (closed access); the description is from later papers and Feofiloff’s pages.",
+      "date": "2001",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Digraphs whose underlying graph is series-parallel (treewidth at most 2), per later papers’ descriptions.",
+      "remains": "Digraphs whose underlying graph is not series-parallel; the general statement.",
+      "checked_by": [
+        {
+          "who": "Journal of Graph Theory referees and editors",
+          "qualification": "Refereed journal",
+          "what_they_did": "Accepted for publication (journal of record; not opened)",
+          "where": "https://www.ime.usp.br/~pf/dijoins/bib.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 25 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Content taken from secondary descriptions; the original was not read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on a restricted class.",
+      "object": null,
+      "people": [
+        "Orlando Lee",
+        "Yoshiko Wakabayashi"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://www.ime.usp.br/~pf/dijoins/",
+        "https://www.ime.usp.br/~pf/dijoins/bib.html"
+      ]
+    },
+    {
+      "id": "lee-williams-2006-planar-dicycle-covers",
+      "what_happened": "Lee and Williams, ‘Packing dicycle covers in planar graphs with no K5−e minor’, LATIN 2006, pp. 677–688 (per the LATIN bibliography entry and a Springer abstract reported in search results). The dual form: for weighted digraphs with planar underlying graph and no K5−e minor, the minimum weight of a dicycle equals the maximum number of disjoint dicycle covers. By planar duality this gives the dicut/dijoin statement for planar digraphs under the matching dual minor condition. Predates the window. Not opened; search snippets only.",
+      "date": "2006",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Planar digraphs, in the dual dicycle/feedback-arc-set formulation, whose underlying graph has no K5−e minor; by duality the planar dicut/dijoin case under the dual minor condition. The sources disagree on which minor is stated: K5−e (dicycle form, Springer abstract) or the triangular prism (dijoin form, per arXiv 2109.03518). The two are planar duals of each other.",
+      "remains": "Non-planar digraphs; planar digraphs with the other excluded minor; the general statement.",
+      "checked_by": [
+        {
+          "who": "LATIN 2006 programme committee and referees",
+          "qualification": "Refereed conference proceedings",
+          "what_they_did": "Accepted to LATIN 2006 (not opened)",
+          "where": "https://latintcs.org/bib/l06-p677-688.txt",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 20 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Minor condition unresolved between sources; original not read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on the planar subclass (in dual form).",
+      "object": null,
+      "people": [
+        "Orlando Lee",
+        "Aaron Williams"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://latintcs.org/bib/l06-p677-688.txt",
+        "https://unpaywall.org/10.1007%2F11682462_62"
+      ]
+    },
+    {
+      "id": "hwang-2022-thesis-relaxations",
+      "what_happened": "Steven Hwang, ‘The Edmonds–Giles Conjecture and its Relaxations’, University of Waterloo PhD thesis (2022), listed on UWSpace. Relevant because the 2024 Guenin talk and the 2025 SIAM paper are joint with Hwang, so the priority of the relaxation is open. Only the listing was seen; the thesis was not read.",
+      "date": "2022",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Unknown: the thesis was not read. Title indicates relaxations of the weighted Edmonds–Giles conjecture.",
+      "remains": "Unknown.",
+      "checked_by": [
+        {
+          "who": "University of Waterloo doctoral examining committee",
+          "qualification": "Doctoral committee",
+          "what_they_did": "Approved the thesis (committee not named in the listing)",
+          "where": "https://uwspace.uwaterloo.ca/items/a77186c2-57b6-4ae5-bd4c-2236ffeecd0c",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 4 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Content unread; may contain the dyadic or 2^k relaxation earlier than 2024.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown.",
+      "object": null,
+      "people": [
+        "Steven Hwang"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://uwspace.uwaterloo.ca/items/a77186c2-57b6-4ae5-bd4c-2236ffeecd0c"
+      ]
+    },
+    {
+      "id": "abdi-cornuejols-zlatin-2022-partition",
+      "what_happened": "Abdi, Cornuéjols and Zlatin, ‘On packing dijoins in digraphs and weighted digraphs’ (arXiv 2202.00392; SIAM Journal on Discrete Mathematics 37(4):2417–2461, 2023, per a search result). Main unweighted result (v5 abstract): the arc set A can be partitioned into a dijoin and a (τ−1)-dijoin, τ being the minimum dicut size. Also weighted results depending on ρ(τ,D,w), and a special case: with unit weights, ρ=3 and τ=3, A partitions into three dijoins (the paper states the ρ-condition, which is not automatic). Talk at the Matroid Union, 15 Mar 2022.",
+      "date": "2022-02-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 1 Feb 2022; v2 9 Mar 2022; v3 30 Mar 2022; v4 24 Apr 2023; v5 8 Jun 2023 (arXiv abstract page). Search summaries say v1 stated a partition into a k-dijoin and a (τ−k)-dijoin for every k when w≡1; the v5 abstract states only k=1. Not resolved; v1 PDF not opened.",
+      "delivers": "Partition of A into a dijoin and a (τ−1)-dijoin (unweighted), which is weaker than a partition into τ dijoins. Weighted equitable and ordinary packings under ρ-conditions. The τ=3 partition is conditional on the ρ=3 condition.",
+      "remains": "Partition into τ dijoins (Woodall’s strong form, which would also give the packing), and packings of τ disjoint dijoins for general τ and general digraphs.",
+      "checked_by": [
+        {
+          "who": "SIAM Journal on Discrete Mathematics referees and editors",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published 2023 (per search result; page not opened)",
+          "where": "https://arxiv.org/abs/2202.00392",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4.7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Scope of the stated partition changed between versions (v1 per search summary: every k; v5: k=1 only).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial: a weaker partition statement and special cases; consistent with the conjecture.",
+      "object": null,
+      "people": [
+        "Ahmad Abdi",
+        "Gérard Cornuéjols",
+        "Michael Zlatin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2202.00392"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2202.00392",
+        "https://www.arxiv.org/abs/2202.00392v5",
+        "https://matroidunion.org/?p=4613"
+      ]
+    },
+    {
+      "id": "abdi-cornuejols-zambelli-2023-weaker-variant",
+      "what_happened": "Abdi, Cornuéjols and Zambelli, ‘Arc connectivity and submodular flows in digraphs’ (arXiv 2310.19472, one version). Per the abstract (read through the fetch tool’s summary, not verbatim), proves a weaker variant of Woodall’s conjecture for digraphs whose underlying undirected graph is τ-edge-connected. Also cited as a Combinatorica 2024 paper in a reference list (not checked).",
+      "date": "2023-10-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 submitted 30 Oct 2023; no later version listed on the arXiv page.",
+      "delivers": "A weaker variant (its exact form not established from my reading) for digraphs whose underlying graph is τ-edge-connected, where τ is the minimum dicut size.",
+      "remains": "The full statement; digraphs whose underlying graph is not τ-edge-connected.",
+      "checked_by": [
+        {
+          "who": "Combinatorica (per a reference list in search results; not verified)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Unverified",
+          "where": "https://arxiv.org/abs/2310.19472",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 3 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The variant’s exact form is unknown from the abstract alone.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial: a weaker variant on a class.",
+      "object": null,
+      "people": [
+        "Ahmad Abdi",
+        "Gérard Cornuéjols",
+        "Giacomo Zambelli"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2310.19472"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2310.19472"
+      ]
+    },
+    {
+      "id": "cornuejols-liu-ravi-2023-nowhere-zero-flows",
+      "what_happened": "Cornuéjols, Liu and Ravi, ‘Approximately packing dijoins via nowhere-zero flows’ (arXiv 2311.04337). Main result: if the underlying undirected graph of a digraph with minimum dicut size τ admits a nowhere-zero circular k-flow, the digraph has ⌊τ/k⌋ disjoint dijoins. Seymour’s nowhere-zero 6-flow theorem gives ⌊τ/6⌋ disjoint dijoins for every digraph, findable in polynomial time; 6p-edge-connected underlying graphs give ⌊τp/(2p+1)⌋. The paper was an IPCO 2024 paper (LNCS 14679, pp. 71–84, per its own reference list); Wikipedia cites a Combinatorica 2025 journal version (DOI 10.1007/s00493-025-00159-x in search results; the Springer page was not readable to me). Version 2 also reformulates the conjecture via strongly connected orientations and states it holds for τ=2.",
+      "date": "2023-11-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 submitted 7 Nov 2023; v2 22 May 2025 (arXiv). IPCO 2024 conference version; journal version reported as Combinatorica 2025 (not verified).",
+      "delivers": "A fractional-type bound: ν(D) ≥ ⌊τ/k⌋ under a flow condition, and ν(D) ≥ ⌊τ/6⌋ for all digraphs. Each is a fixed fraction of τ and so does not reach ν=τ. The τ=2 case is covered (folklore).",
+      "remains": "Exact equality ν = τ for all digraphs and all τ≥3; closing the gap between τ/6 and τ (the authors say reaching ⌊τ/2⌋ would need new ideas, per a summary of v2).",
+      "checked_by": [
+        {
+          "who": "IPCO 2024 programme committee and referees",
+          "qualification": "Refereed conference (peer reviewed; reviewers not named in my sources)",
+          "what_they_did": "Accepted to IPCO 2024",
+          "where": "https://arxiv.org/html/2311.04337v2",
+          "automated": false
+        },
+        {
+          "who": "Combinatorica referees and editors (journal version; not verified)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Reported as published 2025 by Wikipedia’s reference list; not verified",
+          "where": "https://en.wikipedia.org/wiki/Woodall%27s_conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 35 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial: a fraction-of-τ approximation under a flow condition. Consistent with the conjecture; no counterexample.",
+      "object": null,
+      "people": [
+        "Gérard Cornuéjols",
+        "Siyue Liu",
+        "R. Ravi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2311.04337v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2311.04337",
+        "https://arxiv.org/html/2311.04337v2",
+        "https://en.wikipedia.org/wiki/Woodall%27s_conjecture"
+      ]
+    },
+    {
+      "id": "abdi-cornuejols-liu-silina-2024-p-adic",
+      "what_happened": "Abdi, Cornuéjols, Liu and Silina, ‘Strongly connected orientations and integer lattices’ (arXiv 2410.13665). For every prime p≥2, a p-adic packing of dijoins of value τ with support at most 2|A| (Theorem 1.4 per the HTML: the dual LP has a p-adic optimal solution with at most 2|A| nonzero entries). The authors call it a relaxation of the conjecture. Published in Mathematics of Operations Research (DOI 10.1287/moor.2025.1030, per a search result; not opened).",
+      "date": "2024-10-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 17 Oct 2024; v2 1 Nov 2024; v3 14 Feb 2026 (arXiv).",
+      "delivers": "A p-adic (not integral) packing of value τ for each prime p, with bounded support. It does not give an integral packing of τ disjoint dijoins.",
+      "remains": "An integral packing of τ disjoint dijoins for every digraph; i.e. the conjecture itself.",
+      "checked_by": [
+        {
+          "who": "Mathematics of Operations Research referees and editors",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published 2025 (per search result; not opened)",
+          "where": "https://pubsonline.informs.org/doi/10.1287/moor.2025.1030",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 24 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Relaxation: consistent with the conjecture; does not settle it. The authors say so.",
+      "object": null,
+      "people": [
+        "Ahmad Abdi",
+        "Gérard Cornuéjols",
+        "Siyue Liu",
+        "Olha Silina"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2410.13665v3",
+          "https://arxiv.org/abs/2410.13665"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2410.13665",
+        "https://arxiv.org/html/2410.13665v3"
+      ]
+    },
+    {
+      "id": "guenin-2024-talk-dyadic-blowup",
+      "what_happened": "Bertrand Guenin, ‘A relaxation of Woodall’s conjecture’, University of Waterloo Graphs and Matroids seminar, Tuesday 2 July 2024 (joint with Steven Hwang). The talk abstract claims that for every digraph there is an integer k such that, after replacing each edge by 2^k parallel copies, Woodall’s minimax relation holds. Published as Guenin and Hwang, ‘Dyadic packing of dijoins’, SIAM Journal on Discrete Mathematics 39(1):593–606 (2025), DOI 10.1137/24M1647692, which per its search-result abstract shows that every integer-weighted digraph has a maximum fractional packing of dijoins with dyadic values, and presents this as settling Seymour’s dyadic conjecture for dijoin clutters. I found no arXiv preprint. The first written argument is not located; the talk abstract is the earliest dated public statement I found.",
+      "date": "2024-07-02",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "No arXiv preprint found. SIAM journal version 2025 (page returned 403; abstract from search metadata). If a written preprint predates 26 Jan 2024, the date moves earlier; not established.",
+      "delivers": "A relaxation: after 2^k parallel copies of each edge (k depending on the digraph), Woodall’s minimax relation holds. The journal version gives a maximum fractional packing with dyadic values for the original digraph, not an integral packing.",
+      "remains": "The integral packing of τ disjoint dijoins in the original digraph, i.e. the conjecture itself.",
+      "checked_by": [
+        {
+          "who": "SIAM Journal on Discrete Mathematics referees and editors",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published 2025 (per search metadata; page not opened)",
+          "where": "https://epubs.siam.org/doi/10.1137/24M1647692",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 27 months (talk)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Talk-abstract claim; the proof was not visible to me in the 2024 material. The journal version was not read. The blow-up gives integrality only after changing the digraph.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Relaxation: consistent with the conjecture; does not settle it in the original digraph.",
+      "object": null,
+      "people": [
+        "Bertrand Guenin",
+        "Steven Hwang"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://uwaterloo.ca/combinatorics-and-optimization/events/graphs-and-matroids-bertrand-guenin",
+        "https://epubs.siam.org/doi/10.1137/24M1647692"
+      ]
+    },
+    {
+      "id": "gutierrez-2024-dual-3-trees",
+      "what_happened": "Juan Gutiérrez (Alva), ‘Towards a conjecture of Woodall for partial 3-trees’ (arXiv 2408.05703 v1, 11 Aug 2024), retitled ‘Towards a Dual Version of Woodall’s Conjecture for Partial 3-Trees’ (v2, 10 Sep 2025). Addresses the dual formulation: for planar digraphs, the introduction says ‘by duality, Conjecture 1 is equivalent to asserting that, for every planar digraph, its girth equals the cardinality of a maximum packing’ (shortest dicycle versus disjoint feedback arc sets). Main theorem (v2, Theorem 2): if G has a dicycle and its underlying graph is a 3-tree then the dual equality holds, and the paper notes this is valid even if G is not planar. Corollary for partial 3-trees of girth 3. Also a tight bound: every 3-tree has a feedback arc set of at most m/3−1 arcs.",
+      "date": "2024-08-11",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 11 Aug 2024 (title ‘Towards a conjecture of Woodall for partial 3-trees’, framed for planar 3-trees per my search summary); v2 10 Sep 2025 (retitled; Theorem 2 extended to all 3-trees, not only planar).",
+      "delivers": "The dual (dicycle/feedback-arc-set) equality for digraphs whose underlying graph is a 3-tree, and for partial 3-trees of girth 3. For planar digraphs the dual is equivalent to the dicut/dijoin statement, so the planar subcase transfers. For non-planar 3-trees the paper’s text does not show equivalence to the dicut/dijoin statement.",
+      "remains": "The dicut/dijoin statement for all digraphs; the dual statement outside 3-trees and partial 3-trees of girth 3; the dual for planar digraphs in general.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 26 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No journal record or citing publication found in my searches; not peer reviewed as far as I found. Scope changed between versions: v1 described a planar 3-tree case; v2 claims all 3-trees, so the planar duality that ties the dual form to Woodall covers only part of the stated class.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the dual form on the stated class; no counterexample.",
+      "object": "Feedback arc sets in 3-trees: a tight bound of m/3−1 on the minimum feedback arc set size (m = number of arcs), with the bound attained. Not a counterexample to anything.",
+      "people": [
+        "Juan Gutiérrez"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2408.05703v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2408.05703",
+        "https://arxiv.org/html/2408.05703v2"
+      ]
+    },
+    {
+      "id": "cornuejols-liu-ravi-2025-chordal",
+      "what_happened": "Cornuéjols, Liu and Ravi, ‘A min-max relation on dicuts and dijoins in weighted chordal digraphs’ (arXiv 2501.10918). Theorem 1.1: the Edmonds–Giles conjecture holds for digraphs whose underlying undirected graph is chordal. The conjecture as the paper states it: in a weighted digraph the minimum weight of a dicut equals the maximum size of a packing of dijoins, with no arc e in more than w(e) members (integral). The paper also gives a strongly polynomial algorithm for the packing. Published in Journal of Graph Theory (2026, DOI 10.1002/jgt.70076 per search result; Wiley page returned 403).",
+      "date": "2025-01-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 submitted 19 Jan 2025; v2 30 May 2026 (arXiv).",
+      "delivers": "The weighted Edmonds–Giles statement for chordal underlying graphs. With unit weights the statement is exactly Woodall’s for digraphs with chordal underlying graph. That specialisation is my inference from the stated packing definition; the paper does not draw it, and states that the unweighted version of Edmonds–Giles, ‘proposed by Woodall’, ‘is still open’.",
+      "remains": "Woodall’s statement for digraphs whose underlying graph is not chordal (the general case, per the authors’ own statement).",
+      "checked_by": [
+        {
+          "who": "Journal of Graph Theory referees and editors",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published 2026 (per search result; page not opened); the preprint thanks two anonymous reviewers",
+          "where": "https://arxiv.org/html/2501.10918v2",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 21 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Tension to resolve: as stated, Theorem 1.1 with w≡1 appears to give Woodall for chordal underlying graphs, yet the authors say the unweighted version remains open. Either the authors intend the statement only for general weights, or the packing notion differs from my reading. I did not read the body of the PDF (compressed; only the HTML main theorem and introduction were read).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Restricted class for the weighted statement, which includes the unweighted statement as a specialisation. The authors’ own reading is that the unweighted version is open.",
+      "object": null,
+      "people": [
+        "Gérard Cornuéjols",
+        "Siyue Liu",
+        "R. Ravi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2501.10918v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2501.10918",
+        "https://arxiv.org/html/2501.10918v2",
+        "https://onlinelibrary.wiley.com/doi/full/10.1002/jgt.70076"
+      ]
+    },
+    {
+      "id": "feofiloff-2025-series-parallel-draft",
+      "what_happened": "Paulo Feofiloff, a draft ‘series-parallel’ note on his USP page (2025), which per search summaries gives a direct (verbose) proof of the Lee–Wakabayashi series-parallel case and a reduction to 2-connected acyclic digraphs. A companion survey, ‘Woodall’s conjecture on packings of dijoins’, is dated ‘12/4/2025’ (ambiguous). The PDFs were unreadable to me; the claim rests on secondary descriptions.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Draft; no refereeing noted.",
+      "delivers": "A re-proof of the series-parallel case already settled by Lee and Wakabayashi (2001). No new class.",
+      "remains": "Same as the 2001 event: digraphs outside series-parallel underlying graphs; the general statement.",
+      "checked_by": [
+        {
+          "who": "Paulo Feofiloff (author; USP)",
+          "qualification": "Research mathematician who works on this problem",
+          "what_they_did": "Authored the draft; not peer reviewed as far as I found",
+          "where": "https://ime.usp.br/~pf/dijoins/download/series-parallel-en.pdf",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 1 year",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Draft, unrefereed, not read by me.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on the series-parallel class (re-proof).",
+      "object": null,
+      "people": [
+        "Paulo Feofiloff"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://ime.usp.br/~pf/dijoins/download/series-parallel-en.pdf",
+        "https://www.ime.usp.br/~pf/dijoins/"
+      ]
+    },
+    {
+      "id": "liu-2025-thesis-proposal",
+      "what_happened": "Siyue Liu, CMU doctoral proposal abstract (2025; file metadata dates it October 2025, search summaries say October 2025). Per search summaries it reports a τ/6 bound, the chordal weighted result, and the weighted version being false for general digraphs. The PDF was unreadable to me.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Unknown: unreadable. Search summaries say it restates the τ/6 and chordal results.",
+      "remains": "Unknown.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 1 year",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unreadable; restates results already listed.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown.",
+      "object": null,
+      "people": [
+        "Siyue Liu"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://www.cmu.edu/sites/default/files/cmu-tepper-site-files/documents/Liu,%20Siyue%20Proposal%20Abstract-2025.pdf"
+      ]
+    },
+    {
+      "id": "steiner-2022-different-woodall",
+      "what_happened": "Raphael Steiner, ‘Disproof of a Conjecture by Woodall’ (arXiv 2201.09115, v1 22 Jan 2022). Refutes Woodall’s 2001 conjecture that graphs with no K_{s,t} minor are (s+t−1)-choosable, in strong form. It is a different problem sharing the name; it does not mention dicuts or dijoins.",
+      "date": "2022-01-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only.",
+      "delivers": "Concerns list-colouring and K_{s,t}-minor-free graphs. Does not touch dicuts or dijoins. Discarded for scope.",
+      "remains": "Not applicable: a different problem.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 4.7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not applicable to this problem.",
+      "object": null,
+      "people": [
+        "Raphael Steiner"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2201.09115"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2201.09115"
+      ]
+    },
+    {
+      "id": "repo-pr159-tau2-proof",
+      "what_happened": "Public repository SzymonPawlus/clanker-solving-riemman-hypothesis-inator (MIT licence; README: ‘Two LLM agents — Claude and Codex — attacking open mathematical problems under a machine-checked, cross-reviewed workflow’). PR #159, ‘tau = 2 Woodall: a self-contained proof, with the Schrijver filter discharged at the weight-0 boundary’, closes issue #152 (which asks for a self-contained proof that minimum dicut size 2 gives two arc-disjoint dijoins). Description posted 2 Sep 2026; merged into main 4 Sep 2026 (merge commit 607a4b7). Labelled ‘sketch’: ‘not assumable by anyone, including its author’. The description lists a condensation reduction, Lemma A, a re-proof of Robbins’s theorem for multigraphs, a colouring argument, red-team checks and 13 numerical checks, and names its own weakness: the Schrijver counterexample could not be reconstructed because primary sources were unreachable from the environment.",
+      "date": "2026-09-02",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Description posted 2 Sep 2026. A later commit corrected an earlier claim of Edmonds–Giles for strictly positive weights at τ_w≥2 to the k=2 case only. Merged 4 Sep 2026.",
+      "delivers": "Woodall’s statement for τ=2: every digraph whose minimum non-empty dicut has two arcs has two disjoint dijoins, by the argument in the PR. Per Wikipedia the τ=2 case is folklore, so this is a self-contained write-up of a known case, not a new case.",
+      "remains": "τ≥3 and the general statement. The PR notes the colouring-to-packing step fails under arc weights.",
+      "checked_by": [
+        {
+          "who": "Claude (red-team reviewer, cited as #153; the PR says ‘the red team is same-family’)",
+          "qualification": "AI model acting as reviewer; not a human",
+          "what_they_did": "Red-team checks; the PR says cross-family review was unavailable this session",
+          "where": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/159",
+          "automated": true
+        },
+        {
+          "who": "Flow-25 (a Codex agent account)",
+          "qualification": "AI agent acting as reviewer; not a human",
+          "what_they_did": "Requested changes on an earlier version, then reviewed; its review says ‘I independently read and reconstructed the full 606-line proof’. Merge actor not established.",
+          "where": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/159",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(i) Labelled ‘sketch’ and not claimed as verified. (ii) The Schrijver filter, the step the argument depends on, could not be reconstructed by the author from primary sources. (iii) Every review is by an AI model; no human mathematician’s reading was found. (iv) An earlier version overstated Edmonds–Giles for positive weights; the claim was corrected. (v) Not among the seven PRs that the repo’s own audit (issue #277) lists as merged without cross-family approval. (vi) The repo’s issue #295 reports false coverage claims in its search tool, which is a different artefact from this proof.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture (proves the τ=2 instance). No counterexample.",
+      "object": null,
+      "people": [
+        "Szymon Pawlus (repository owner who merged; no mathematical authorship claimed in the sources read)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude Opus 5",
+            "what_it_did": "Co-authored the τ=2 proof write-up and commits (commit trailer). The PR description states the work is ‘Generated by Claude Code’ (harness). Load-bearing: the proof is the content of the PR.",
+            "basis_quote": "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+            "quote_url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/159"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/159",
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator"
+        ]
+      },
+      "sources": [
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/159",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/152",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/277"
+      ]
+    },
+    {
+      "id": "repo-pr210-tau3-spanning-trees",
+      "what_happened": "Same repository. PR #210, ‘Prove a three-spanning-tree special case of Woodall at tau=3’ (closes issue #209; branch codex/209-woodall-tau3-ear), by the Flow-25 account, opened 3 Sep 2026; approved by a review that begins ‘Cross-family review (Claude / Opus 5, reviewing’; merged 4 Sep 2026 (commit 8c00551). Claim, per a fetch summary: for digraphs whose underlying undirected multigraph has three pairwise edge-disjoint spanning trees, the arc sets corresponding to those trees are three pairwise disjoint dijoins; a constructive subclass by repeated three-edge vertex attachments; an explicit simple eight-vertex DAG with τ=3 and three spanning trees claimed to lie outside the cited source-sink-connected class; ‘No computation or unverified repository claim is used.’ The reviewer notes the argument holds for τ(D) ≤ 3.",
+      "date": "2026-09-03",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Merged 4 Sep 2026 after cross-family review (per the review journal PR #262, ‘approved and merged’).",
+      "delivers": "Woodall at τ=3 for digraphs whose underlying undirected multigraph has three edge-disjoint spanning trees (a class), with a constructive subclass. It does not cover τ=3 digraphs outside that class, and no τ≥4.",
+      "remains": "τ=3 digraphs without three edge-disjoint spanning trees in the underlying multigraph; τ≥4; the general statement.",
+      "checked_by": [
+        {
+          "who": "Claude / Opus 5 (cross-family reviewer)",
+          "qualification": "AI model acting as reviewer; not a human",
+          "what_they_did": "Approved; the review says ‘Every load-bearing step was reconstructed independently’ and that it wrote its own dicut enumerator from the definition",
+          "where": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/210",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 weeks",
+      "machine_checked": null,
+      "directly_checkable": {
+        "what": "The eight-vertex DAG claimed to be outside the source-sink-connected class",
+        "how": "Claimed separating example; not checked by me. A source that cannot reach one sink, per the PR."
+      },
+      "doubts": "Reviewed only by AI models; the author is an AI agent. The separating-example claim was not checked by me. Whether the class contains the cases the title suggests is not settled from the text I could read (the PR description was summarised, not read verbatim).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture on the restricted class. No counterexample.",
+      "object": "An explicit simple eight-vertex DAG with τ=3 and three spanning trees, claimed to lie outside the source-sink-connected class (a separating example for the class, not a counterexample to the conjecture).",
+      "people": [
+        "Szymon Pawlus (repository owner who merged)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Codex",
+            "what_it_did": "Authored the τ=3 spanning-tree argument (PR author account Flow-25; branch codex/209-woodall-tau3-ear). The PR text itself does not name a model; the identification is from the review journal and the Codex-authored branch naming, and PR #159’s description identifies Flow-25 as ‘Codex (@Flow-25)’.",
+            "basis_quote": "Records verdicts and defects for the six Codex-authored Woodall attack",
+            "quote_url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/210",
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262",
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/159"
+        ]
+      },
+      "sources": [
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/210",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262"
+      ]
+    },
+    {
+      "id": "repo-pr215-arbitrary-k-condensation",
+      "what_happened": "Same repository. PR #215, ‘Generalize condensation tree packings to arbitrary k’ (closes issue #212; branch codex/212-woodall-k-tree-partitions), opened 3 Sep 2026 by the Flow-25 account, approved by a Claude / Opus 5 cross-family review, merged 4 Sep 2026. Claim: for any digraph, after contracting strong components, if every nontrivial weak component of the condensation has k edge-disjoint spanning trees, the digraph has k disjoint dijoins; ‘This gives a non-computational arbitrary-k theorem’. The PR also states a reduction for a hypothetical counterexample (not a result on the conjecture). The reviewer notes the file itself disclaims that the condition is necessary.",
+      "date": "2026-09-03",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Merged 4 Sep 2026 (per PR #262 journal: ‘approved and merged’).",
+      "delivers": "A sufficient condition for k disjoint dijoins for every k: every nontrivial weak component of the condensation has k edge-disjoint spanning trees. A class restriction; not the full statement.",
+      "remains": "Digraphs whose condensation components lack k edge-disjoint spanning trees; the general statement.",
+      "checked_by": [
+        {
+          "who": "Claude / Opus 5 (cross-family reviewer)",
+          "qualification": "AI model acting as reviewer; not a human",
+          "what_they_did": "Approved (per PR #262 journal)",
+          "where": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/215",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "AI-only review. The sufficient condition is stated for a class and is not necessary, as the file itself says. The obstruction reduction is conditional and not checked by a human.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture on a class, for all k. No counterexample.",
+      "object": null,
+      "people": [
+        "Szymon Pawlus (repository owner who merged)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Codex",
+            "what_it_did": "Authored the arbitrary-k sufficient condition (PR author account Flow-25; branch codex/212-woodall-k-tree-partitions). Identification from the branch name and the review journal, not from the PR text.",
+            "basis_quote": "Records verdicts and defects for the six Codex-authored Woodall attack",
+            "quote_url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/215",
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262"
+        ]
+      },
+      "sources": [
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/215",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262"
+      ]
+    },
+    {
+      "id": "repo-pr216-separator-sums",
+      "what_happened": "Same repository. PR #216, ‘Woodall: construct packings across serial and parallel separator sums’ (linked to issue #214; branch codex/214-woodall-separator-composition), by the Flow-25 account, opened 3 Sep 2026; approved by a Claude / Opus 5 review; merged 4 Sep 2026. Claims a closure theorem for an arc-disjoint separator union of two Woodall-positive pieces: serial mode (τ(D)=min(τ1,τ2), with equal-index dijoins unioned) and parallel mode (τ(D)=τ1+τ2 under a shore-compatibility condition). The PR says ‘The mixed trace regime is not claimed’ and ‘Status sketch; verification-critical. Requesting independent Claude or human review.’",
+      "date": "2026-09-03",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Merged 4 Sep 2026 (per PR #262 journal).",
+      "delivers": "Closure of Woodall-positive pieces under two separator compositions, for unions of two arc-disjoint pieces, giving τ(D) disjoint dijoins in each mode. The mixed regime is explicitly excluded.",
+      "remains": "The mixed trace regime; unions of more than two pieces except by induction on the stated trees; the general statement.",
+      "checked_by": [
+        {
+          "who": "Claude / Opus 5 (cross-family reviewer)",
+          "qualification": "AI model acting as reviewer; not a human",
+          "what_they_did": "Approved, but flagged that a condition was imported from unmerged PR #211 without proof; the reviewer supplied its own proof and asked for shore-level wording and the undefined-τ case for strongly connected leaves to be pinned down",
+          "where": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/216",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The PR requests independent human or Claude review; no human review found. A condition was taken from an unmerged, unproven PR and then proved by the reviewer. The result is marked sketch.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture on a closure class. No counterexample.",
+      "object": null,
+      "people": [
+        "Szymon Pawlus (repository owner who merged)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Codex",
+            "what_it_did": "Authored the separator-composition closure argument (PR author account Flow-25; branch codex/214-woodall-separator-composition). Identification from the branch name and the review journal, not from the PR text.",
+            "basis_quote": "Records verdicts and defects for the six Codex-authored Woodall attack",
+            "quote_url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/216",
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262"
+        ]
+      },
+      "sources": [
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/216",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262"
+      ]
+    },
+    {
+      "id": "repo-tau3-attack-prs-open-or-rejected",
+      "what_happened": "Same repository. Roughly 58 PRs with ‘Woodall’ in the title (listing read: 20 open, 38 closed, 6 merged on the first page; 25 of 58 shown). Most are Codex-authored ‘tau=3’ attack PRs opened 3 Sep 2026, and most are open or changes-requested. Review journal PR #264 (merged 7 Sep 2026) records ‘changes requested on all five’ for #249, #253, #255, #238 and #242, with ‘No approvals, no merges’. Review journal PR #262 (merged 4 Sep 2026) records #211, #220 and #221 as changes requested, with specific defects. Merged sub-results include #257 (refutes a proposed local exact-depth linkage theorem; the reviewer says it refutes ‘only’ that theorem, ‘not Woodall or global chain packing’) and #251.",
+      "date": "2026-09-03",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Multiple PRs; merges on 4 Sep and 7 Sep 2026; the review journals are PRs #262 (4 Sep) and #264 (7 Sep).",
+      "delivers": "Sub-lemmas and reformulations for τ=3. The merged ones (#251, #257) are sub-lemma results. None is claimed as a resolution of τ=3 or of the general statement.",
+      "remains": "τ=3 in general; the general statement.",
+      "checked_by": [
+        {
+          "who": "Claude (review journals #262 and #264)",
+          "qualification": "AI model acting as reviewer; not a human",
+          "what_they_did": "Recorded changes requested and specific defects; approvals for some PRs; ‘No approvals, no merges’ for the five in #264",
+          "where": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/264",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Most attack routes have been rejected by the AI reviewer with specific defects; the repo README still says ‘Scaffolding. No mathematical results yet.’ (undated), which conflicts with the sketch results.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Mixed. Specific intermediate criteria are shown false (counterexamples to lemmas, not to the conjecture); no claim against the conjecture itself.",
+      "object": "Counterexamples to intermediate lemmas only. #211: a boxed lifting criterion ‘is false in the forward direction; counterexample given’. #221: ‘not crossing’ does not imply ‘laminar’, with a three-vertex witness. #257: a genuine four-arc acyclic directed piece with prefix minima (2,4,2) whose capped target (2,3,2) is impossible, certified by one empty off-chain cut; this refutes only a proposed local linkage theorem. None is a counterexample to Woodall’s statement.",
+      "people": [
+        "Szymon Pawlus (repository owner who merged)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Codex",
+            "what_it_did": "Authored the tau=3 attack PRs (Flow-25 account; agent:codex labels on issues).",
+            "basis_quote": "Records verdicts and defects for the six Codex-authored Woodall attack",
+            "quote_url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pulls?q=is%3Apr+Woodall",
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues?q=is%3Aissue+Woodall",
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/264"
+        ]
+      },
+      "sources": [
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pulls?q=is%3Apr+Woodall",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/264",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/257"
+      ]
+    },
+    {
+      "id": "repo-issue295-search-coverage",
+      "what_happened": "Same repository. Issue #295 (opened 7 Sep 2026, open; labels area:woodall, bug, kind:numerics, ready). Says five coverage claims in the README of the ‘dijoin-exact-ip-search’ tool are false because the code uses a permissive empty-dicut convention: n≤6 (all τ) is not covered (6,063 of 32,767 nonempty-arc matrices were resolved by an early return at τ=0); n=7 with τ≥2 is incomplete (89,894 instances never searched). Smallest unsearched witness: a diamond (0→1, 0→2, 1→3, 2→3) padded with three isolated vertices (canonical τ=2, but the tool returns 0). Also says ‘the dicuts of a disjoint union are the dicuts of the parts’ is false (two disjoint diamonds have 24 dicut arc-sets, the parts contribute 8). Concludes that the negative result still holds on the canonical boxes. A Codex check was added on 10 Sep 2026.",
+      "date": "2026-09-07",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Open; comments by the Codex account on 10 Sep 2026.",
+      "delivers": "No statement about the conjecture. A computational search over small instances, with coverage corrected: n≤6 is not covered as claimed, and n=7 with τ≥2 is incomplete.",
+      "remains": "The general statement; the small-instance search is not complete as claimed.",
+      "checked_by": [
+        {
+          "who": "Codex account (independent check, comments on 10 Sep 2026)",
+          "qualification": "AI agent acting as reviewer; not a human",
+          "what_they_did": "Added two comments reporting an independent Codex check",
+          "where": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/295",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 weeks",
+      "machine_checked": null,
+      "directly_checkable": {
+        "what": "The diamond witness, padded with three isolated vertices",
+        "how": "Compute dicuts and τ by hand: the diamond has τ=2 under the non-empty-dicut convention; the tool returns 0 under its permissive convention."
+      },
+      "doubts": "The tool’s coverage claims were false as written. The negative result is only on the canonical boxes.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Negative computational result on small instances only. Not evidence about the general conjecture either way.",
+      "object": "A diamond digraph (0→1, 0→2, 1→3, 2→3) padded with three isolated vertices: canonical τ=2 but the search tool returns τ=0. It is a witness to a convention error, not a counterexample to the conjecture.",
+      "people": [
+        "Szymon Pawlus (repository owner)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude Code",
+            "what_it_did": "The issue body is ‘Generated with Claude Code’ (harness). The model is not named in the issue; the issue refers to ‘a Claude worker’.",
+            "basis_quote": "the body states it was ‘Generated with Claude Code’",
+            "quote_url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/295"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/295"
+        ]
+      },
+      "sources": [
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/295"
+      ]
+    },
+    {
+      "id": "repo-pr154-lean-basics",
+      "what_happened": "Same repository. PR #154, by SzymonPawlus, added Lean files lean/Verified/Woodall/* and problems/woodalls-conjecture/results/woodall-lean-basics.md. Opened before PR #159 (2 Sep 2026), exact date not established. Per audit issue #277 (opened 7 Sep 2026), it was merged by its author with no cross-family approval, and the results file ‘asserts an assumable status’. Lean content concerns small fixed digraphs (e.g. a three-vertex ‘cycle3’: its docstring says ‘no natural number is the minimum dicut size’, but the theorem covers only t≤3; ‘the empty arc set is a dijoin’ is checked only for that one set). Docstring overstatements are in issues #270 and #291; #276 reports a strengthened theorem with axioms [propext, Quot.sound].",
+      "date": "2026",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Docstring fixes in PRs #269, #276 (open at the time of reading).",
+      "delivers": "Lean facts about specific small digraphs. They do not bear on the general conjecture.",
+      "remains": "The conjecture in full.",
+      "checked_by": [
+        {
+          "who": "Claude (same-family reviewer, per audit issue #277)",
+          "qualification": "AI model acting as reviewer; not a human",
+          "what_they_did": "Examined the Lean content: it ‘survives’ examination, but this ‘cannot grant verified:review’ because it is same-family review",
+          "where": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/277",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 months",
+      "machine_checked": {
+        "system": "Lean 4 (lake build)",
+        "sorry_free": null,
+        "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/270"
+      },
+      "directly_checkable": null,
+      "doubts": "Merged without cross-family approval (#277). Docstrings overstated theorems (#270, #291). Results file asserted an assumable status without review (#277). Whole-file sorry status not established.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Instance-level facts; no counterexample.",
+      "object": "Lean statements about specific small digraphs (e.g. the three-vertex cycle3), not counterexamples to anything.",
+      "people": [
+        "Szymon Pawlus (repository owner who merged)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/277"
+        ]
+      },
+      "sources": [
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/277",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/270",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/295"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "venue",
+      "summary": "Cornuéjols–Liu–Ravi (arXiv 2311.04337): Wikipedia cites Combinatorica 45(3) (2025); the arXiv version and its reference list cite IPCO 2024 (LNCS 14679, pp. 71–84). A Springer DOI with the Combinatorica prefix appears in search results, but I could not open it. Unresolved.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Woodall%27s_conjecture",
+        "https://arxiv.org/html/2311.04337v2"
+      ]
+    },
+    {
+      "kind": "scope",
+      "summary": "The chordal weighted Edmonds–Giles theorem (arXiv 2501.10918) appears to give Woodall’s unweighted statement for chordal underlying graphs when all weights are 1. The authors state that the unweighted version remains open. My reading of the packing definition may differ from theirs; unresolved.",
+      "sources": [
+        "https://arxiv.org/html/2501.10918v2"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Lee–Williams planar result: sources disagree on the excluded minor, K5−e (dicycle-cover form, Springer abstract as reported in search) or the triangular prism (dijoin form, per arXiv 2109.03518). The two are planar duals of each other; which form is stated is unresolved.",
+      "sources": [
+        "https://latintcs.org/bib/l06-p677-688.txt",
+        "https://arxiv.org/abs/2109.03518"
+      ]
+    },
+    {
+      "kind": "novelty",
+      "summary": "PR #159 presents a self-contained proof of the τ=2 case. Wikipedia describes the τ=2 case as folklore. The repo does not claim the case is new in the sources read, but the write-up is a sketch, reviewed only by AI models.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Woodall%27s_conjecture",
+        "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/159"
+      ]
+    },
+    {
+      "kind": "version",
+      "summary": "Abdi–Cornuéjols–Zlatin: search summaries say v1 stated a partition into a k-dijoin and a (τ−k)-dijoin for every k when w≡1; the v5 abstract states only k=1. The v1 PDF was not opened.",
+      "sources": [
+        "https://arxiv.org/abs/2202.00392"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "The 2^k blow-up relaxation (Guenin talk, July 2024; Guenin–Hwang SIAM 2025) may overlap with Hwang’s 2022 Waterloo thesis on relaxations of the Edmonds–Giles conjecture. The thesis was not read.",
+      "sources": [
+        "https://uwspace.uwaterloo.ca/items/a77186c2-57b6-4ae5-bd4c-2236ffeecd0c",
+        "https://uwaterloo.ca/combinatorics-and-optimization/events/graphs-and-matroids-bertrand-guenin"
+      ]
+    }
+  ],
+  "summary": "Woodall’s conjecture is still open on every source I could read: the Wikipedia article (lead: ‘an unproven relationship between dicuts and dijoins’), Feofiloff’s USP pages (updated 2026-08-18, no new results listed), and the 2025–26 Cornuéjols–Liu–Ravi papers, which state that the unweighted version remains open. The events since 26 January 2024 are restricted or relaxed results. Cornuéjols–Liu–Ravi’s nowhere-zero-flow bound ⌊τ/6⌋ (preprint Nov 2023, before the window; IPCO 2024; journal 2025) is an approximate fraction of τ. Abdi–Cornuéjols–Liu–Silina (Oct 2024) gives a p-adic relaxation. Guenin’s talk (July 2024), published with Hwang in SIAM 2025, gives a dyadic/blow-up relaxation. Gutiérrez (Aug 2024, v2 Sep 2025) proves a dual feedback-arc-set form for 3-trees; I found no peer review. The chordal Edmonds–Giles theorem (Jan 2025, JGT 2026) is the closest to a class-level settlement: with unit weights it appears to give Woodall for chordal underlying graphs, though the authors say the unweighted version is open, which I could not reconcile from the readable text. The AI search found one substantial source. A public GitHub repository (SzymonPawlus/clanker-solving-riemman-hypothesis-inator, README: ‘Two LLM agents — Claude and Codex — attacking open mathematical problems’) posted, between 2 and 7 Sep 2026, Woodall proofs by AI agents. PR #159 gives a τ=2 proof (folklore; merged 4 Sep, labelled ‘sketch’, with its load-bearing Schrijver filter step unreconstructed by the author). PRs #210, #215 and #216 give τ=3 special classes and class-restricted arbitrary-k and closure results (each merged 4 Sep after approval by a Claude review, with no human mathematical review found). About 58 Woodall-titled PRs exist, most still open or changes-requested with specific defects, and issue #295 says the repo’s own exact-search tool misstated its coverage. None of the mainstream papers names an AI system in the text I could read. The close calls are: whether the chordal unit-weight case counts as a class-level settlement; whether the 2024 blow-up is priority-novel given Hwang’s thesis; and whether AI-only-reviewed class results count as a case settled before any human reading. The τ=2 case is folklore, so PR #159 adds write-up, not a new case. I record these as events and leave the weighing to the judging pass.",
+  "competing_reading": "Read the chordal Edmonds–Giles theorem with unit weights as settling Woodall for chordal underlying graphs, so that a class-level case has been settled by a peer-reviewed JGT paper. Against that: the authors say the unweighted version is open, and their definition may differ from mine. Read the repository results as sketch-status arguments from AI agents with no human check, so that none counts as settling any case; against that: PRs #210, #215 and #216 are class-restricted claims that would be new if correct, and they were merged after approval by a second model.",
+  "what_would_settle_it": "The full PDF text of arXiv 2501.10918 (the definition of the packing and whether Theorem 1.1 covers w≡1), and the JGT version. The Combinatorica 2025 record for 2311.04337. The SIAM 2025 paper of Guenin and Hwang and any earlier preprint, with the date of the first written argument. The v1 PDF of arXiv 2202.00392 (the ‘every k’ claim). Hwang’s 2022 thesis, to settle priority of the relaxation. Raw, unsummarised GitHub pages for PRs #159, #210, #215, #216 and their review bodies, to confirm the quotes. Any Lean sorry-free proof of the τ=2 or τ=3 arguments. A named human expert (for example Cornuéjols, Abdi, Seymour or Feofiloff) reading the repository’s claims.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Woodall%27s_conjecture",
+      "title": "Woodall’s conjecture (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.ime.usp.br/~pf/dijoins/",
+      "title": "Woodall’s conjecture on packing dijoins (Feofiloff, USP)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.ime.usp.br/~pf/dijoins/bib.html",
+      "title": "Woodall’s conjecture: Bibliography (Feofiloff)",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://ime.usp.br/~pf/dijoins/download/series-parallel-en.pdf",
+      "title": "Lee–Wakabayashi series-parallel notes (Feofiloff; PDF unreadable)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.ime.usp.br/~pf/dijoins/woodall/survey1-en.pdf",
+      "title": "Woodall’s conjecture on packings of dijoins (survey; PDF unreadable)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1412.1415",
+      "title": "Disjoint dijoins (Chudnovsky, Edwards, Kim, Scott, Seymour)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2109.03518",
+      "title": "Disjoint dijoins for classes of dicuts in finite and infinite digraphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2202.00392",
+      "title": "On packing dijoins in digraphs and weighted digraphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.arxiv.org/abs/2202.00392v5",
+      "title": "On packing dijoins (v5 page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2310.19472",
+      "title": "Arc connectivity and submodular flows in digraphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2311.04337",
+      "title": "Approximately packing dijoins via nowhere-zero flows",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2311.04337v2",
+      "title": "Approximately packing dijoins via nowhere-zero flows (HTML v2)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s00493-025-00159-x",
+      "title": "Springer record for the Combinatorica version (redirected; not read)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.05703",
+      "title": "Towards a Dual Version of Woodall’s Conjecture for Partial 3-Trees",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2408.05703v2",
+      "title": "Towards a Dual Version of Woodall’s Conjecture for Partial 3-Trees (HTML v2)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.13665",
+      "title": "Strongly connected orientations and integer lattices",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2410.13665v3",
+      "title": "Strongly connected orientations and integer lattices (HTML v3)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.10918",
+      "title": "A min-max relation on dicuts and dijoins in weighted chordal digraphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2501.10918v2",
+      "title": "A min-max relation on dicuts and dijoins in weighted chordal digraphs (HTML v2)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2501.10918",
+      "title": "Chordal paper PDF (compressed; unreadable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://onlinelibrary.wiley.com/doi/full/10.1002/jgt.70076",
+      "title": "Wiley record, Journal of Graph Theory (403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://epubs.siam.org/doi/10.1137/24M1647692",
+      "title": "Dyadic Packing of Dijoins (SIAM; 403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://uwaterloo.ca/combinatorics-and-optimization/events/graphs-and-matroids-bertrand-guenin",
+      "title": "Graphs and Matroids seminar: A relaxation of Woodall’s conjecture (Guenin, 2 Jul 2024)",
+      "type": "announcement",
+      "opened": true
+    },
+    {
+      "url": "https://matroidunion.org/?p=4613",
+      "title": "Matroid Union talk: On packing dijoins (Abdi, 15 Mar 2022)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://www.openproblemgarden.org/op/woodalls_conjecture",
+      "title": "Woodall’s Conjecture (Open Problem Garden)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2201.09115",
+      "title": "Disproof of a Conjecture by Woodall (Steiner; different problem)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator",
+      "title": "Repository README (agent-run; MIT)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/159",
+      "title": "PR #159: τ=2 self-contained proof",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/210",
+      "title": "PR #210: τ=3 three-spanning-tree class",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/215",
+      "title": "PR #215: arbitrary-k condensation condition",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/216",
+      "title": "PR #216: serial and parallel separator sums",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/257",
+      "title": "PR #257: capped linkage (refutes a local lemma)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/262",
+      "title": "Review journal PR #262 (cross-family reviews of #210–#221)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pull/264",
+      "title": "Review journal PR #264 (changes requested on #249 etc.)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/pulls?q=is%3Apr+Woodall",
+      "title": "PR listing for ‘Woodall’ (58 results; 25 shown)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues?q=is%3Aissue+Woodall",
+      "title": "Issue listing for ‘Woodall’ (79 results; 25 shown)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/152",
+      "title": "Issue #152: Woodall C1, complete the τ=2 case",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/270",
+      "title": "Issue #270: two Lean docstrings overstate theorems",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/277",
+      "title": "Issue #277: seven PRs merged without cross-family approval (audit)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/SzymonPawlus/clanker-solving-riemman-hypothesis-inator/issues/295",
+      "title": "Issue #295: five coverage statements false (exact search)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.cmu.edu/sites/default/files/cmu-tepper-site-files/documents/Liu,%20Siyue%20Proposal%20Abstract-2025.pdf",
+      "title": "Siyue Liu proposal abstract (PDF unreadable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://latintcs.org/bib/l06-p677-688.txt",
+      "title": "LATIN 2006 bibliography entry (Lee–Williams)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://uwspace.uwaterloo.ca/items/a77186c2-57b6-4ae5-bd4c-2236ffeecd0c",
+      "title": "Hwang, The Edmonds–Giles Conjecture and its Relaxations (listing)",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Woodall's conjecture dicut dijoin",
+      "Woodall conjecture minimum dicut maximum disjoint dijoins proof",
+      "Woodall's conjecture arXiv 2024",
+      "Woodall conjecture digraph packing dijoins 2025",
+      "Woodall's conjecture Wikipedia unsolved problems mathematics graph theory",
+      "Woodall conjecture AI model proof digraph",
+      "Lucchesi-Younger theorem Woodall conjecture dual weighted version",
+      "Abdi Cornuéjols Zlatin packing dijoins digraphs",
+      "Lee Wakabayashi Woodall conjecture series-parallel digraphs dicircuit",
+      "Cornuéjols Liu Ravi approximately packing dijoins nowhere-zero flows Combinatorica",
+      "Lee Williams Woodall conjecture planar digraphs triangular prism minor",
+      "Lee Wakabayashi \"Note on a min-max conjecture of Woodall\" Journal of Graph Theory",
+      "Woodall's Conjecture open problem garden dicut dijoin",
+      "Woodall conjecture dijoins 2026",
+      "Woodall conjecture AI-assisted proof OpenAI GPT-5 graph theory open problem",
+      "AlphaEvolve Woodall dicut dijoin counterexample",
+      "Erdős problems AI solved open problems list Woodall conjecture",
+      "Schrijver counterexample Edmonds Giles conjecture 1980 dijoins packing",
+      "Lee Williams Edmonds-Giles conjecture planar digraphs K5-e minor dijoins",
+      "Guenin \"relaxation of Woodall's conjecture\" 2^k parallel edges",
+      "Siyue Liu Woodall conjecture dijoins thesis 2025 proposal",
+      "Woodall conjecture three disjoint dijoins large minimum dicut size",
+      "Woodall conjecture Menger König systems 1978 dicut",
+      "Feofiloff Woodall conjecture survey talk 2025 Schrijver Cornuéjols Guenin counterexamples",
+      "\"dijoins\" \"Woodall\" arXiv 2025 new result digraph",
+      "Woodall conjecture strongly connected orientations decomposition tau SCO proof",
+      "Woodall conjecture Matroid Union talk dijoins",
+      "Woodall's conjecture disproved counterexample dicut dijoin",
+      "Chudnovsky Edwards Kim Scott Seymour disjoint dijoins Woodall",
+      "Woodall conjecture dijoins Claude Anthropic model mathematics",
+      "Woodall dicut conjecture Gemini DeepMind open conjecture resolved 2026",
+      "\"Woodall\" dijoin conjecture AI tool arXiv acknowledgement LLM assisted",
+      "clanker-solving-riemman-hypothesis-inator Woodall",
+      "Szymon Pawlus Woodall conjecture pull request AI agent proof",
+      "Woodall conjecture AI-generated proof claimed GitHub tau=3 dijoins",
+      "Hwang Guenin dyadic dual solutions Seymour conjecture dijoins arXiv",
+      "Edmonds-Giles conjecture dijoins packing 2026 arXiv new result",
+      "Woodall conjecture Lean formalization Mathlib dicut dijoin",
+      "Cornuéjols Guenin counterexample Edmonds Giles dijoin packing unweighted Woodall k=3 planar",
+      "Woodall dijoins Combinatorica 2025 Cornuéjols Liu Ravi volume 45 journal version",
+      "Gutiérrez Woodall partial 3-trees dicycle feedback arc set journal version 2025",
+      "Edmonds Giles 1977 min-max relation submodular functions dijoin Woodall unweighted conjecture history Lee Wakabayashi 2001 review",
+      "\"Dyadic packing of dijoins\" Guenin Hwang arXiv preprint"
+    ],
+    "places_checked": [
+      "Wikipedia article on Woodall’s conjecture (fetched; current text, not the frozen January 2024 revision)",
+      "Paulo Feofiloff’s dijoins pages (main page, bibliography listing, survey and series-parallel PDFs; PDFs unreadable)",
+      "arXiv abstract pages: 1412.1415, 2109.03518, 2202.00392 (v1–v5 dates), 2201.09115, 2310.19472, 2311.04337 (abstract and HTML v2), 2408.05703 (abstract and HTML v2), 2410.13665 (abstract and HTML v3), 2501.10918 (abstract, HTML v2, PDF unreadable)",
+      "Springer (Combinatorica DOI; redirected to login, not read); Wiley JGT (403); SIAM SIDMA (403)",
+      "Open Problem Garden: Woodall’s Conjecture page (op/woodalls_conjecture), read after a wrong page was fetched first",
+      "University of Waterloo Graphs and Matroids seminar pages (Guenin talk, 2 Jul 2024); Matroid Union talk page (Abdi, 15 Mar 2022)",
+      "GitHub: repository README, PR and issue listings for ‘Woodall’, PRs #159, #210, #215, #216, #257, #262, #264; issues #152, #270, #277, #295; results folder listing. The gh CLI was blocked by the approval gate in this session, so GitHub was read through the web fetch tool only.",
+      "CMU Tepper proposal PDF for Siyue Liu (unreadable)",
+      "Search engine results for AI involvement: OpenAI, DeepMind/AlphaProof, AlphaEvolve, Anthropic/Claude, Lean/Mathlib formalisations; none linked to Woodall apart from the repository above"
+    ],
+    "dead_ends": [
+      "Steiner 2022 ‘Disproof of a Conjecture by Woodall’ (arXiv 2201.09115): a different Woodall conjecture on K_{s,t}-minor choosability. Recorded as an event; discarded for scope.",
+      "Li and Ning (2020), ‘A strengthening of Erdős–Gallai theorem and proof of Woodall’s conjecture’: seen in search results only, not opened. A different Woodall conjecture, judged from its title.",
+      "Lovász–Woodall conjecture (cycles in k-connected graphs): a different problem, from the Wikipedia link only.",
+      "‘Dijoin Conjecture’ (emergentmind summary): a conjecture on inversion numbers under graph joins, not dicuts or dijoins.",
+      "OpenAI unit-distance disproof (May 2026), DeepMind AlphaProof Nexus (21 May 2026), and a July 2026 GPT-5.6 claim on the cycle double cover conjecture: all in news snippets, none mentioning Woodall. Not opened.",
+      "AlphaEvolve papers (arXiv 2509.18057 and 2511.02864) and the LLM Gilbert–Pollak paper (arXiv 2601.22365): unrelated problems.",
+      "An August 2026 Anthropic note on the Riemann zeta function (news snippet): unrelated to this problem.",
+      "Guenin and Tunçel, ‘Generalizations of Total Dual Integrality’ (arXiv 2503.07925): on Seymour’s dyadic conjecture for ideal clutters, not Woodall. Not opened.",
+      "Cornuéjols–Guenin and Williams (2004 Waterloo thesis) counterexamples to the weighted Edmonds–Giles form: weighted only; not read.",
+      "Lean/Mathlib search for a Woodall or dijoin formalisation: none found. The Google DeepMind formal-conjectures repository was not checked.",
+      "Ravi’s Simons Institute talk (28 May 2026) on the 2311.04337 result: a talk on an existing result; no new content found.",
+      "Feofiloff survey dated ‘12/4/2025’ (ambiguous): PDF unreadable, so its content is from search summaries only."
+    ]
+  },
+  "incomplete": "(1) GitHub was read only through the web fetch tool, which summarises pages. The quotes attributed to the repository (commit trailers, review sentences, PR descriptions) come from those summaries and must be checked against the raw pages; the gh CLI was blocked by the approval gate. (2) About 58 Woodall-titled PRs and 79 issues exist; I read the review journals and roughly fifteen PRs and issues in detail. The other PRs are summarised only by their titles and listing states, and the attack PRs (#219–#257 and others) have not been opened individually. (3) The repository’s results file (problems/woodalls-conjecture/results/woodall-lean-basics.md) and the Lean files under lean/Verified/Woodall/ were not read. (4) Not read: the full text of the Springer/Combinatorica version of 2311.04337 (403/redirect); the Wiley JGT version of 2501.10918 (403); the SIAM version of Guenin–Hwang (403); the Lee–Wakabayashi 2001 and Feofiloff–Younger 1987 papers (not accessible); the Schrijver 1980 and 1982 papers; the Lee–Williams 2006 paper; Hwang’s 2022 thesis; the v1 PDF of 2202.00392; the full body of 2501.10918 (PDF compressed; only HTML main theorem and introduction read); the body of 2310.19472 (abstract only, via a summariser); the body of 2109.03518 and 1412.1415 (abstracts only); the acknowledgements of 2410.13665 (cut off). (5) Feofiloff’s 2025 series-parallel draft and survey PDFs were unreadable; Liu’s 2025 proposal was unreadable. (6) I did not establish the first public written argument for the Guenin–Hwang blow-up result; the talk abstract (2 Jul 2024) is the earliest dated statement I found. (7) Pre-window results were searched through the abstract and secondary citations, not full texts. (8) The AI search covered the named labs and tracker sites through search only; I did not check the Erdős problems database, the Open Problem Garden comment history, or the formal-conjectures repository.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "generated",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "gutierrez-2024-dual-3-trees",
+  "no_change_found": false,
+  "event": {
+    "id": "gutierrez-2024-dual-3-trees",
+    "what_happened": "Juan Gutiérrez (Alva), ‘Towards a conjecture of Woodall for partial 3-trees’ (arXiv 2408.05703 v1, 11 Aug 2024), retitled ‘Towards a Dual Version of Woodall’s Conjecture for Partial 3-Trees’ (v2, 10 Sep 2025). Addresses the dual formulation: for planar digraphs, the introduction says ‘by duality, Conjecture 1 is equivalent to asserting that, for every planar digraph, its girth equals the cardinality of a maximum packing’ (shortest dicycle versus disjoint feedback arc sets). Main theorem (v2, Theorem 2): if G has a dicycle and its underlying graph is a 3-tree then the dual equality holds, and the paper notes this is valid even if G is not planar. Corollary for partial 3-trees of girth 3. Also a tight bound: every 3-tree has a feedback arc set of at most m/3−1 arcs.",
+    "date": "2024-08-11",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 11 Aug 2024 (title ‘Towards a conjecture of Woodall for partial 3-trees’, framed for planar 3-trees per my search summary); v2 10 Sep 2025 (retitled; Theorem 2 extended to all 3-trees, not only planar).",
+    "delivers": "The dual (dicycle/feedback-arc-set) equality for digraphs whose underlying graph is a 3-tree, and for partial 3-trees of girth 3. For planar digraphs the dual is equivalent to the dicut/dijoin statement, so the planar subcase transfers. For non-planar 3-trees the paper’s text does not show equivalence to the dicut/dijoin statement.",
+    "remains": "The dicut/dijoin statement for all digraphs; the dual statement outside 3-trees and partial 3-trees of girth 3; the dual for planar digraphs in general.",
+    "checked_by": [],
+    "no_engagement_found": true,
+    "time_since_posted": "about 26 months",
+    "machine_checked": null,
+    "directly_checkable": null,
+    "doubts": "No journal record or citing publication found in my searches; not peer reviewed as far as I found. Scope changed between versions: v1 described a planar 3-tree case; v2 claims all 3-trees, so the planar duality that ties the dual form to Woodall covers only part of the stated class.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Supports the dual form on the stated class; no counterexample.",
+    "object": "Feedback arc sets in 3-trees: a tight bound of m/3−1 on the minimum feedback arc set size (m = number of arcs), with the bound attained. Not a counterexample to anything.",
+    "people": [
+      "Juan Gutiérrez"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/html/2408.05703v2"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2408.05703",
+      "https://arxiv.org/html/2408.05703v2"
+    ]
+  },
+  "credited_humans": [
+    "Juan Gutiérrez"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2408.05703",
+    "https://arxiv.org/html/2408.05703v2"
+  ],
+  "ai": {
+    "systems": [
+      "Codex"
+    ],
+    "from_event": "repo-pr210-tau3-spanning-trees",
+    "basis_quote": "Records verdicts and defects for the six Codex-authored Woodall attack",
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "chudnovsky-2014-disjoint-dijoins",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gollin-heuer-stavropoulos-2021-dicut-classes",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "schrijver-1980-weighted-counterexample",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "schrijver-1982-source-sink-dags",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "feofiloff-younger-1987-source-sink",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "lee-wakabayashi-2001-series-parallel",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "lee-williams-2006-planar-dicycle-covers",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "hwang-2022-thesis-relaxations",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "abdi-cornuejols-zlatin-2022-partition",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "abdi-cornuejols-zambelli-2023-weaker-variant",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "cornuejols-liu-ravi-2023-nowhere-zero-flows",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "abdi-cornuejols-liu-silina-2024-p-adic",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "guenin-2024-talk-dyadic-blowup",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gutierrez-2024-dual-3-trees",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "cornuejols-liu-ravi-2025-chordal",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "feofiloff-2025-series-parallel-draft",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "liu-2025-thesis-proposal",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "steiner-2022-different-woodall",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "repo-pr159-tau2-proof",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Self-labelled sketch; its load-bearing Schrijver-filter step was not reconstructed from sources; AI-only review; re-proves a folklore case.",
+        "ai_role": "generated",
+        "ai_basis": "Co-Authored-By: Claude Opus 5 <noreply@anthropic.com>",
+        "ai_systems_credited": [
+          "Claude Opus 5"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "repo-pr210-tau3-spanning-trees",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "Records verdicts and defects for the six Codex-authored Woodall attack",
+        "ai_systems_credited": [
+          "Codex"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "repo-pr215-arbitrary-k-condensation",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "Records verdicts and defects for the six Codex-authored Woodall attack",
+        "ai_systems_credited": [
+          "Codex"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "repo-pr216-separator-sums",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Marked sketch; relied on a condition from an unmerged PR that only the AI reviewer proved; requests human review that never came.",
+        "ai_role": "generated",
+        "ai_basis": "Records verdicts and defects for the six Codex-authored Woodall attack",
+        "ai_systems_credited": [
+          "Codex"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "repo-tau3-attack-prs-open-or-rejected",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Most routes rejected with specific defects by the reviewer; merged pieces are sub-lemmas only.",
+        "ai_role": "generated",
+        "ai_basis": "Records verdicts and defects for the six Codex-authored Woodall attack",
+        "ai_systems_credited": [
+          "Codex"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "repo-issue295-search-coverage",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "repo-pr154-lean-basics",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Merged without cross-family approval; docstrings overstated theorems; sorry status not established.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement is a single universal equality ν=τ for all digraphs; nothing in the record proves it or bounds it after the snapshot. Relaxations (p-adic packing, dyadic or 2^k blow-up) change the question, so they are variants. The chordal Edmonds–Giles theorem with unit weights is exactly Woodall for chordal underlying graphs. I read the authors' remark that the unweighted version 'is still open' as referring to general digraphs, so I scored it a case, digested via JGT. Gutiérrez's dual form transfers to Woodall for planar 3-trees by planar duality, which makes it an unreviewed case. In the repository, PR #210 (three edge-disjoint spanning trees) and PR #215 (k edge-disjoint spanning trees in the condensation components) are genuine class restrictions. They are elementary: a spanning tree meets every cut of the underlying graph. I scored them unreviewed cases generated by Codex. The Codex attribution rests on the branch names and the review-journal quote. The τ=2 PR re-proves folklore, and PR #216 is a composition lemma rather than a settled class, so both are none. Pre-snapshot events: the source-sink, series-parallel and planar-minor cases are digested cases. The CLR ⌊τ/6⌋ result is a pre-snapshot bound, dated by its Nov 2023 preprint.",
+    "doubts": "The chordal case depends on reading Theorem 1.1 with w≡1 as Woodall, which the record could not reconcile with the authors' remark. If that reading is wrong, the strongest human case is Gutiérrez's unreviewed planar 3-tree case. The Codex attribution for PRs #210, #215 and #216 comes from summarised GitHub pages rather than verbatim text. Gutiérrez's planar-3-tree case may overlap Lee–Williams.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "gutierrez-2024-dual-3-trees",
+      "ai_role": "generated",
+      "ai_from": "repo-pr210-tau3-spanning-trees",
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": [
+        "Codex"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

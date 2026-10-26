@@ -1,0 +1,1698 @@
+{
+  "key": "sidorenkos-conjecture",
+  "nothing_found": false,
+  "outcome": "On 6 October 2026 OpenAI posted, in its public openai/math GitHub repository, a manuscript titled 'A counterexample to Sidorenko's conjecture' that claims a bipartite graph on 35 vertices and 66 edges with a finite host graph violating the inequality; the repository's Lean statement of this is still marked sorry, no independent mathematician's check of the manuscript was found, and every other event since January 2024 is a partial result for a restricted class, a reduction, a negative computer search, or an analogue.",
+  "problem_asks": "The statement, as frozen, is 'Sidorenko's conjecture on homomorphism densities of graphs in graphons'. Parts: (1) for every bipartite graph H, (2) and every graphon W with edge density p = t(K_2, W), the homomorphism density t(H, W) is at least p raised to the number of edges of H. The statement names no further parts; the universal quantifier over bipartite H is the only structure, so each bipartite H is one instance. Non-bipartite graphs are outside the claim. The frozen wording itself was not given beyond this title, so this unpacking is written from the title and the standard formulation.",
+  "events": [
+    {
+      "id": "openai-2026-10-counterexample",
+      "what_happened": "OpenAI released, in the public openai/math GitHub repository, a manuscript 'A counterexample to Sidorenko's conjecture' (folder name dated September 23, 2026; folder README: 'Author: OpenAI', 'Date: September 23, 2026'). The repository's first commit, 'Initial commit' by 'Anonymous', is dated 6 October 2026. The repository's CONTENTS.md entry 161, titled 'Counterexamples to Sidorenko's conjecture and the forcing conjecture', has the abstract 'Disproves Sidorenko's conjecture with a connected bipartite pattern on 35 vertices and 66 edges', and says the same pattern disproves 'the forcing conjecture of Skokan and Thoma'. The manuscript's own abstract line in CONTENTS reads 'We disprove Sidorenko's conjecture with a bipartite graph on 35 vertices and 66 edges.' The Wikipedia article's sentence 'On October 6th, 2026, OpenAI claimed a resolution of Sidorenko's Conjecture in the negative by providing a constructive counter example' links to the paper.pdf in that folder; the sentence was added by one editor on 7 October 2026 with no edit summary. The repo's Lean file lean/ComparatorChallenges/SidorenkoCounterexample.lean states 'theorem main : there exist size > 0 and a SimpleGraph host on Fin size with at least one edge and homDensity H host < (edgeDensity host) ^ 66', where H is a 35-vertex bipartite pattern (13 point vertices and 22 face vertices, adjacency = point lies in face); its proof body is 'sorry'. The paper PDF could not be read by me, so the host graph, the construction and the paper's own proof are not recorded here.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Initial commit 6 Oct 2026 (adc7f12). Commit 3014888 'Update manuscripts and Lean formalizations' dated 8 Oct 2026 (1,185 files changed; the Sidorenko Lean file and folder are not in the visible part of the file list, so what changed in them is unknown). history.md has one dated entry, 7 Oct 2026: three other manuscripts withdrawn (Weil classes on split abelian eightfolds, Kuga-Satake correspondences for K3 surfaces, rational Hodge conjecture for products of K3 surfaces), 14 revised; none is the Sidorenko manuscript. The folder's September 23 date appears only in the folder name and README; the earliest public posting I can date is 6 October.",
+      "delivers": "If the manuscript and the Lean statement are right: one explicit bipartite pattern H with 35 vertices and 66 edges, and a finite simple host graph G with at least one edge, such that t(H, G) < t(K_2, G)^66. In the Lean statement homDensity counts all edge-preserving maps, including non-injective ones, normalised by N^|V(H)|, and edgeDensity is 2|E|/N^2, so these are the densities of the step graphon of G; the finite-host statement therefore transfers to the graphon formulation of the bullet. The claim is about one graph H, so it settles the universal claim 'every bipartite H is Sidorenko' negatively if it holds, and says nothing about any other bipartite graph. The repo's abstract also claims the same pattern disproves the forcing conjecture of Skokan and Thoma; the docs say that consequence is outside the Lean statement. The Lean file as read does not prove even the single-H statement (see doubts).",
+      "remains": "Per the claim, the universal statement is refuted for this H, so no part of the bullet's universal claim is left open for this H. Not established by any file I could read: the existence of the host graph (the Lean statement is existential and carries sorry), the paper's proof, and the status of every other bipartite graph. The forcing-conjecture consequence is a different problem and is not part of this bullet.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about one week as of 13 October 2026",
+      "machine_checked": {
+        "system": "Lean 4 (openai/math, Comparator challenge file)",
+        "sorry_free": false,
+        "url": "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/SidorenkoCounterexample.lean"
+      },
+      "directly_checkable": "The pattern H is explicit in the Lean file: 13 point vertices and 22 face triples, with an edge when the point lies in the triple (22 x 3 = 66 incidences, which matches the stated edge count). Checking the inequality needs the host graph, which the Lean file does not name and the paper, which I could not read, presumably does. A reader with the paper can compute t(H, G) and t(K_2, G)^66 for the host by direct counting.",
+      "doubts": "(a) The Lean theorem main ends in 'sorry' on main (fetched raw, c. 13 Oct 2026) and the same file at the initial commit adc7f12 also ends in 'sorry'. (b) The docs page lean/docs/161.md at adc7f12 says 'The formalization disproves this for the paper's fixed bipartite graph with 35 vertices and 66 edges', which the Lean file does not support; this is a conflict inside the repo, recorded in disputes. (c) The repo README says most results come from one internal-model procedure and that 'Some of the unformalized results could have issues'; the Sidorenko manuscript's Lean status is unknown. (d) No human reading of the manuscript was found in 38 searches. Coverage by Kalai (blog, 7 Oct 2026) describes the counterexample without a verification status; Nature (via aggregator) and Scientific American report expert scepticism about the batch generally (Sutherland: expect some proofs to contain mistakes) but not about this manuscript. (e) One secondary news source (news.lavx.hu, 7 Oct 2026) says none of the batch appears on arXiv under the same titles as of publication; I did not verify this. (f) Date discrepancy: the Wikipedia claim is dated 6 October, the folder and BibTeX label say 23 September. (g) Wikipedia's 'constructive' wording against the Lean statement, which is existential. (h) The Wikipedia article still says 'there are graphs for which Sidorenko's conjecture is still open' in the same article that reports the claim (see disputes).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Against the conjecture as stated: it asserts that a specific bipartite graph H fails the Sidorenko inequality for some finite host graph, which contradicts the universal claim that every bipartite graph has the property.",
+      "object": "A bipartite graph H on 35 vertices with 66 edges: 13 point vertices and 22 face vertices, where each face is a triple of points (the faces are Table 1 of the source; the Lean list begins {0,1,3}, {0,1,9}, {0,2,3}, ...), and a point is adjacent to a face when it lies in that triple. Claimed: a finite simple host graph G with at least one edge and t(H,G) < t(K_2,G)^66. Wikipedia calls the counterexample constructive; the Lean statement is existential and does not name G. Whether the paper gives an explicit G or a non-constructive argument is not recorded because I could not read the paper.",
+      "people": [
+        "OpenAI (corporate author; the folder README names no individual author)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "The repository README says the manuscripts, including this one as far as the README goes, were 'produced by an internal OpenAI model': most results came from one procedure using an unreleased internal OpenAI model, posed roughly 4,000 problems, with about three hours of ChatGPT Pro thinking compute per result on average. The README names two exceptions (the zeta zero-free region and the Hodge conjecture for CM abelian varieties); the Sidorenko manuscript is not listed as an exception. The README is repository-level, not specific to this manuscript; the paper's own declaration could not be read.",
+            "basis_quote": "This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math/blob/main/README.md"
+          }
+        ],
+        "disclosed_cost": "Repository-level, not specific to this manuscript: average of about three hours of ChatGPT Pro thinking compute per result; the model was posed about 4,000 problems. A news summary (not opened) reports that OpenAI released only the average compute figure and no prompts.",
+        "sources": [
+          "https://github.com/openai/math/blob/main/README.md",
+          "https://github.com/openai/math/blob/main/CONTENTS.md",
+          "https://github.com/openai/math/tree/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/tree/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026",
+        "https://github.com/openai/math/blob/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/paper.pdf",
+        "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/161.md",
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://github.com/openai/math/commits/main",
+        "https://github.com/openai/math/commit/3014888",
+        "https://github.com/openai/math/blob/main/history.md",
+        "https://github.com/openai/math/blob/main/README.md",
+        "https://en.wikipedia.org/wiki/Sidorenko%27s_conjecture",
+        "https://en.wikipedia.org/w/index.php?title=Sidorenko%27s_conjecture&action=history",
+        "https://news.lavx.hu/article/openai-dumps-100-plus-mathematical-preprints-on-github-including-counterexamples-to-major-conjectures",
+        "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+        "https://www.scientificamerican.com/article/mathematicians-marvel-and-grumble-at-openais-trove-of-new-results/",
+        "https://retractionwatch.com/?p=136176"
+      ]
+    },
+    {
+      "id": "im-li-liu-2024-08",
+      "what_happened": "Im, Li and Liu, 'Sidorenko's conjecture for subdivisions and theta substitutions' (arXiv:2408.03491). Replacing each edge of a graph H by a generalised theta graph (even paths joining the same two ends) gives a graph with the Sidorenko property provided a divisibility condition on the number of paths holds; unconditionally, for bipartite graphs obtained by replacing each edge of a complete graph by a generalised theta graph (extending Conlon, Kim, Lee and Lee 2018). Later listed in Combinatorics, Probability and Computing 35 (2026) 269-279 (Cambridge Core listing from search, not opened).",
+      "date": "2024-08-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 7 Aug 2024; v2 28 Aug 2024 (current).",
+      "delivers": "Sidorenko's inequality for a restricted family: bipartite graphs made from a complete graph by replacing each edge with a generalised theta graph (unconditional), and a conditional version for general H with a divisibility condition on path counts.",
+      "remains": "Every bipartite graph outside these families, including the general conjecture, and the conditional case where the divisibility fails.",
+      "checked_by": [
+        {
+          "who": "Combinatorics, Probability and Computing (refereed journal)",
+          "qualification": "Journal of record; acceptance follows referee review",
+          "what_they_did": "Published the paper in volume 35 (2026), pp. 269-279, per a Cambridge Core listing that appeared in search (not opened by me)",
+          "where": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7587A22E3A717B29DBAB2A6E99875345/S0963548325100242a.pdf/sidorenkos-conjecture-for-subdivisions-and-theta-substitutions.pdf",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 26 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive, for restricted families only.",
+      "object": null,
+      "people": [
+        "Seonghyuk Im",
+        "Ruonan Li",
+        "Hong Liu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2408.03491v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2408.03491",
+        "https://arxiv.org/html/2408.03491v2",
+        "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7587A22E3A717B29DBAB2A6E99875345/S0963548325100242a.pdf/sidorenkos-conjecture-for-subdivisions-and-theta-substitutions.pdf"
+      ]
+    },
+    {
+      "id": "kiem-parczyk-spiegel-2024-12",
+      "what_happened": "Kiem, Parczyk and Spiegel, arXiv:2412.12904. Establish Sidorenko and forcing-conjecture results for balanced blow-ups of Sidorenko graphs, subdivisions of Sidorenko graphs by a forcing graph, and Cartesian and strong products, via an adjoint identity for graph-substitution operators. Version 2 (21 Sep 2026) is a 'completely rewritten version' with substantially revised proofs.",
+      "date": "2024-12-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 17 Dec 2024; v2 21 Sep 2026, 'completely rewritten version of the original submission'.",
+      "delivers": "Sidorenko property (and forcing) for the named constructions applied to Sidorenko graphs and forcing graphs. Restricted to those operations.",
+      "remains": "The general conjecture, and every bipartite graph not produced by these constructions from known Sidorenko or forcing graphs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 22 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive, for restricted constructions only.",
+      "object": null,
+      "people": [
+        "Aldo Kiem",
+        "Olaf Parczyk",
+        "Christoph Spiegel"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2412.12904"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2412.12904",
+        "https://arxiv.org/html/2412.12904"
+      ]
+    },
+    {
+      "id": "zhao-2025-07-even-subdivisions",
+      "what_happened": "Zhao, 'Sidorenko-Type Inequalities for Even Subdivisions over Finite Abelian Groups' (arXiv:2507.15723). Proves Sidorenko's conjecture for all even subdivisions of arbitrary graphs when the host is a Cayley graph over a finite abelian group, using Fourier analysis on solution sets of linear systems over finite abelian groups; cites Szegedy's reduction of the conjecture to Cayley hosts over finite groups.",
+      "date": "2025-07-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 21 Jul 2025 only.",
+      "delivers": "Sidorenko property for the class of even subdivisions (each edge replaced by a path of even length), with host graphs restricted to Cayley graphs over finite abelian groups.",
+      "remains": "General host graphs (Szegedy's reduction leaves Cayley hosts over arbitrary finite groups, including non-abelian ones), and all bipartite graphs outside the even-subdivision class.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive, for a restricted class and restricted hosts.",
+      "object": null,
+      "people": [
+        "Yuqi Zhao"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2507.15723v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2507.15723",
+        "https://arxiv.org/html/2507.15723v1"
+      ]
+    },
+    {
+      "id": "georgiev-et-al-2025-11-alphaevolve-negative",
+      "what_happened": "Georgiev, Gomez-Serrano, Tao and Wagner, 'Mathematical exploration and discovery at scale' (arXiv:2511.02864), section on Sidorenko's conjecture (section 6.11 in the table of contents I read). They used AlphaEvolve to search for a graphon W violating the Sidorenko inequality for H = K_{5,5} minus a 10-cycle, the smallest bipartite graph not known to be Sidorenko, with a penalty against near-constant graphons. Conclusion: 'we did not manage to find a counterexample to this conjecture.' Terence Tao blogged the paper on 5 November 2025 and quoted the outcome for the search: AlphaEvolve 'did not locate any stronger counterexamples: thus, we did not disprove any major open conjecture.'",
+      "date": "2025-11-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 3 Nov 2025; v3 referenced in a search snippet (not checked).",
+      "delivers": "Nothing toward resolution: a negative computer search for a graphon counterexample to the inequality for K_{5,5} minus C_10.",
+      "remains": "Everything; the search found no counterexample and proved no inequality.",
+      "checked_by": [
+        {
+          "who": "Terence Tao (co-author of the paper; not an independent reader)",
+          "qualification": "Expert in the area; co-author",
+          "what_they_did": "Blog summary of the paper, reporting that AlphaEvolve found no stronger counterexamples",
+          "where": "https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 11 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither way: a negative search; no object exhibited against the conjecture.",
+      "object": null,
+      "people": [
+        "Bogdan Georgiev",
+        "Javier Gomez-Serrano",
+        "Terence Tao",
+        "Adam Zsolt Wagner"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2511.02864",
+          "https://arxiv.org/abs/2511.02864"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2511.02864",
+        "https://arxiv.org/html/2511.02864",
+        "https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/"
+      ]
+    },
+    {
+      "id": "duke-math-plus-2025-amcs-rl-negative",
+      "what_happened": "Duke Math+ / Data+ 2025 project (leader Fan Wei) applying reinforcement learning and adaptive Monte Carlo search (AMCS) to look for counterexamples to the Sidorenko conjecture, treating graphs as matrices with a loss function. The project page says the team 'contributed new approaches and evidence relevant to the Sidorenko Conjecture' and gives no counterexample. The poster reports the hybrid RL plus AMCS method came closer to violating the inequality than either method alone.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Nothing toward resolution: a computer search that reports no counterexample.",
+      "remains": "Everything.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about a year",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The project page is a summary; I could not read the Duke final report PDF (binary, unreadable through WebFetch), so the search details rest on the project page only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither way: a negative search.",
+      "object": null,
+      "people": [
+        "Fan Wei",
+        "Yasir Alhasaniyyah",
+        "Iurii Beliaev",
+        "Thomas Kidane",
+        "Kate Newbold",
+        "Robert Sun",
+        "Kevin Wang",
+        "Raymond Sun"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://math.duke.edu/mathplus/2025/ai-powered-discovery-counterexamples-combinatorics"
+        ]
+      },
+      "sources": [
+        "https://math.duke.edu/mathplus/2025/ai-powered-discovery-counterexamples-combinatorics"
+      ]
+    },
+    {
+      "id": "li-lin-liu-zhang-2026-05-spectral-equivalence",
+      "what_happened": "Li, Lin, Liu and Zhang, 'Spectral Sidorenko inequalities and edge-spectral supersaturation' (arXiv:2605.26614). Shows that Sidorenko's conjecture for bipartite H with v(H) at most e(H) is equivalent to a spectral strengthening; gives operator-norm certificates with direct proofs of the spectral inequality in several unnamed cases; proves supersaturation bounds for K_{t,t} and C_{2t} for degenerate bipartite graphs that already have the Sidorenko property.",
+      "date": "2026-05-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 26 May 2026; v2 3 Jun 2026 (current).",
+      "delivers": "An equivalence between the conjecture and a spectral form for the stated class of H; no graph is shown to be Sidorenko in full generality by this result, and the supersaturation results assume the Sidorenko property.",
+      "remains": "The conjecture itself for every bipartite graph; the spectral inequality for the general class.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4.5 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Reduction, neither way on the conjecture itself.",
+      "object": null,
+      "people": [
+        "Yongtao Li",
+        "Wilson Lin",
+        "Hong Liu",
+        "Shengtong Zhang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2605.26614"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2605.26614",
+        "https://arxiv.org/html/2605.26614"
+      ]
+    },
+    {
+      "id": "zhao-2026-06-conjugacy-averages",
+      "what_happened": "Zhao, 'Conjugacy Class Averages and Sidorenko's Conjecture' (arXiv:2606.15368). Gives a reduction: if for every finite group and every nonnegative weight the Cayley-type host has H-density at least that of its conjugacy-class average, then H is strong Sidorenko and hence Sidorenko. Also proves a Sidorenko-type inequality for 1-subdivision graphs on conjugacy-averaged Cayley kernels.",
+      "date": "2026-06-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 13 Jun 2026 only.",
+      "delivers": "Conditional: the reduction applies to a bipartite H once a density comparison is verified for every Cayley-type host, which the abstract does not establish for any specific H. Unconditional but narrow: a Sidorenko-type inequality for 1-subdivisions on conjugacy-averaged Cayley kernels.",
+      "remains": "The general conjecture; the density comparison for every host; all bipartite H outside 1-subdivisions.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Reduction and partial result; neither way on the conjecture itself.",
+      "object": null,
+      "people": [
+        "Yuqi Zhao"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2606.15368"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2606.15368",
+        "https://arxiv.org/html/2606.15368"
+      ]
+    },
+    {
+      "id": "zhao-2026-07-tensor-amplification",
+      "what_happened": "Zhao, 'Tensor Amplification and Spectral Transfer for Sidorenko-Type Inequalities' (arXiv:2607.02260). A framework for Sidorenko-type inequalities on graphon classes closed under tensor powers and normalised principal restrictions; proves equality regularisation for non-matching C-Sidorenko graphs and a spectral equivalence for graphs with v(H) at most e(H), within admissible classes. Applies to doubly nonnegative graphons.",
+      "date": "2026-07-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 2 Jul 2026 only.",
+      "delivers": "Equivalences and regularity within stated admissible graphon classes; the abstract does not claim the general conjecture and does not identify a newly covered bipartite graph for the unrestricted problem.",
+      "remains": "The conjecture for general graphons and for all bipartite graphs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Equivalence within classes; neither way on the conjecture itself.",
+      "object": null,
+      "people": [
+        "Yuqi Zhao"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2607.02260"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.02260",
+        "https://arxiv.org/html/2607.02260"
+      ]
+    },
+    {
+      "id": "zhao-2026-06-directed-kernels-analogue",
+      "what_happened": "Zhao, 'Sidorenko Inequalities for Two-Sided Group Correlation Kernels' (arXiv:2606.23018). Proves a Sidorenko-type lower bound for every finite directed graph F in a two-sided correlation kernel on a finite group, with a directed 1-subdivision variant. Directed graphs and group kernels, not undirected graphon densities.",
+      "date": "2026-06-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 22 Jun 2026 only.",
+      "delivers": "A different question: directed graphs in group correlation kernels. It does not address the undirected graphon statement in this bullet.",
+      "remains": "The undirected conjecture for graphs and graphons, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue; does not bear on the undirected statement.",
+      "object": null,
+      "people": [
+        "Yuqi Zhao"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2606.23018"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2606.23018"
+      ]
+    },
+    {
+      "id": "github-followups-2026-sidorenko-template-refinements",
+      "what_happened": "Two near-identical GitHub repositories, rohanarun/sidorenko-template-refinements and artuskg/sidorenko-template-refinements (the second not opened; seen in search), describe themselves as a follow-up to 'the OpenAI Sidorenko construction': a computer-assisted minimum of 35 vertices within a specified finite template ('not a minimum for all Sidorenko counterexamples'), exact certificates (nonnegative rational edge weights with every Hamiltonian cycle weight below 1/3, checked over 16,941 cycles, with completeness depending on plantri's enumeration), and an 'independent, AI-generated research draft prepared with Codex'. They say the original authors retain credit for the construction and that mathematical priority and formal verification are not claimed.",
+      "date": "2026",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Refinements inside a finite template built from the OpenAI construction; not a check of the OpenAI counterexample and not a new counterexample.",
+      "remains": "Everything the OpenAI manuscript leaves unverified is untouched by these repositories.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "unknown; posted after the OpenAI manuscript's public release",
+      "machine_checked": null,
+      "directly_checkable": "The repository holds the rational edge weights and a verifier; the README says completeness depends on plantri's enumeration and that the certificates are not Lean proofs.",
+      "doubts": "Self-described independent follow-up that does not claim to verify the original construction; the posting date is not given, so 2026 is the only date I could establish. The README's 'AI-generated' description is of the draft; it does not say which parts of the computation or argument the tool produced.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Refines the OpenAI construction within a template; neither confirms nor refutes it.",
+      "object": "A finite-template minimum of 35 vertices with exact-rational edge weights and a verifier over 16,941 Hamiltonian cycles; the README does not say the OpenAI counterexample is correct.",
+      "people": [
+        "GitHub user 'rohanarun' (mirror 'artuskg'); the author's identity is not established"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Codex",
+            "what_it_did": "Authors' account: the draft is 'an independent, AI-generated research draft prepared with Codex', and the proof.tex file 'has been compiled successfully with the Codex document editor'. The README does not say which mathematics was produced by the tool.",
+            "basis_quote": "An independent, AI-generated research draft prepared with Codex.",
+            "quote_url": "https://github.com/rohanarun/sidorenko-template-refinements"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/rohanarun/sidorenko-template-refinements"
+        ]
+      },
+      "sources": [
+        "https://github.com/rohanarun/sidorenko-template-refinements",
+        "https://github.com/artuskg/sidorenko-template-refinements"
+      ]
+    },
+    {
+      "id": "lee-2025-09-hypergraph-sidorenko-exponents",
+      "what_happened": "Hyunwoo Lee, 'On Sidorenko exponents of hypergraphs' (arXiv:2509.08680). Defines Sidorenko exponents for r-uniform hypergraphs and gives a new class of Sidorenko hypergraphs. Analogue only: the abstract notes the r-uniform version is false for r at least 3.",
+      "date": "2025-09-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 10 Sep 2025; v2 1 Oct 2025.",
+      "delivers": "Hypergraph analogue only; the abstract does not resolve the graph conjecture.",
+      "remains": "The graph conjecture for bipartite graphs, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue (hypergraphs); does not bear on the graph statement.",
+      "object": null,
+      "people": [
+        "Hyunwoo Lee"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2509.08680"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2509.08680"
+      ]
+    },
+    {
+      "id": "he-mani-nie-tung-wei-2025-12-tournaments",
+      "what_happened": "He, Mani, Nie, Tung and Wei, 'New Sidorenko-type inequalities in tournaments' (arXiv:2512.11222). Tournament analogue: oriented trees and cycles, tournament Sidorenko and anti-Sidorenko properties. Analogue only.",
+      "date": "2025-12-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Tournament analogue for oriented trees and cycles; no statement about undirected graphs.",
+      "remains": "The undirected conjecture, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue (tournaments); does not bear on the graph statement.",
+      "object": null,
+      "people": [
+        "Xiaoyu He",
+        "Nitya Mani",
+        "Jiaxi Nie",
+        "Nathan Tung",
+        "Fan Wei"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2512.11222"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2512.11222"
+      ]
+    },
+    {
+      "id": "kral-et-al-2026-02-tournaments",
+      "what_happened": "Kral', Krnc, Kucerak, Lidicky and Volec, 'Sidorenko property and forcing in regular tournaments' (arXiv:2602.12551). Characterises tournaments with the Sidorenko property relative to nearly regular tournaments. Analogue only.",
+      "date": "2026-02-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 13 Feb 2026; v2 14 Jul 2026.",
+      "delivers": "Tournament characterisation; the abstract does not claim a bearing on the graph conjecture.",
+      "remains": "The undirected conjecture, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue (tournaments); does not bear on the graph statement.",
+      "object": null,
+      "people": [
+        "Daniel Kral'",
+        "Matjaz Krnc",
+        "Filip Kucerak",
+        "Bernard Lidicky",
+        "Jan Volec"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2602.12551"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2602.12551"
+      ]
+    },
+    {
+      "id": "chen-lin-2026-09-oriented-paths-tournaments",
+      "what_happened": "Chen and Lin, 'Oriented Paths with Few Direction Flips Are Tournament Anti-Sidorenko' (arXiv:2609.14655). Extends results on oriented paths that are tournament anti-Sidorenko. Analogue only.",
+      "date": "2026-09-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Tournament result for oriented paths with few direction flips; no statement about undirected graphs.",
+      "remains": "The undirected conjecture, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about one month as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue (tournaments); does not bear on the graph statement.",
+      "object": null,
+      "people": [
+        "Hao Chen",
+        "Yupeng Lin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.14655"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.14655"
+      ]
+    },
+    {
+      "id": "luchtrath-monch-2024-08-star-inequality",
+      "what_happened": "Luchtrath and Monch, 'A very short proof of Sidorenko's inequality for counts of homomorphisms between graphs' (arXiv:2408.01478). Proves that among connected graphs on k vertices the k-vertex star gives the largest homomorphism count into any graph (Sidorenko's 1994 result). A different inequality from the bipartite density conjecture; the shared name is the only link.",
+      "date": "2024-08-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 2 Aug 2024; v2 5 Feb 2025.",
+      "delivers": "A different extremal statement (stars maximise homomorphism counts); it does not concern bipartite densities at edge density p.",
+      "remains": "The conjecture, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 14 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Different question; discarded for this bullet.",
+      "object": null,
+      "people": [
+        "Lukas Luchtrath",
+        "Christian Monch"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2408.01478"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2408.01478"
+      ]
+    },
+    {
+      "id": "conlon-lee-sidorenko-2023-07-extremal-numbers",
+      "what_happened": "Conlon, Lee and Sidorenko, 'Extremal numbers and Sidorenko's conjecture' (arXiv:2307.04588). States that the conjecture is still open for graphs while the hypergraph analogue is false; gives hypergraph counterexamples (all linear hypergraphs containing a loose triangle; 3-partite 3-uniform tight cycles) and relates them to improving deletion lower bounds on extremal numbers.",
+      "date": "2023-07-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 10 Jul 2023; v2 26 May 2024.",
+      "delivers": "Hypergraph counterexamples and extremal consequences; for graphs it establishes nothing.",
+      "remains": "The graph conjecture, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 39 months as of 13 October 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Hypergraph analogue; graph case left open.",
+      "object": null,
+      "people": [
+        "David Conlon",
+        "Joonkyung Lee",
+        "Alexander Sidorenko"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2307.04588"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2307.04588"
+      ]
+    },
+    {
+      "id": "li-szegedy-2011-07-logarithmic-calculus",
+      "what_happened": "Li and Szegedy, 'On the logarithmic calculus and Sidorenko's conjecture' (arXiv:1107.1153). Verifies the Erdos-Simonovits and Sidorenko conjectures for new families of graphs; proves the forcing conjecture for bipartite graphs with one vertex complete to the other side. Later listed in Acta Mathematica Hungarica (2025/2026, search snippet only).",
+      "date": "2011-07-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only.",
+      "delivers": "Sidorenko for unnamed new families (per the abstract), and a forcing result for a special class.",
+      "remains": "The general conjecture.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive, for unnamed families.",
+      "object": null,
+      "people": [
+        "Xiang Li",
+        "Balazs Szegedy"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1107.1153"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1107.1153"
+      ]
+    },
+    {
+      "id": "garg-raymond-redlich-2022-06-sos-squares",
+      "what_happened": "Garg, Raymond and Redlich, 'Non-trivial squares and Sidorenko's conjecture' (arXiv:2206.10058). Classifies bipartite graphs with at most 7 edges for which the inequality has a sum-of-squares certificate, separating trivial from non-trivial squares. Journal version in the Electronic Journal of Combinatorics (2025; search snippet only).",
+      "date": "2022-06-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 21 Jun 2022 only.",
+      "delivers": "A proof-method classification for small graphs; it does not prove the conjecture for any graph.",
+      "remains": "The conjecture, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither way on the conjecture; limits on one proof method.",
+      "object": null,
+      "people": [
+        "Pranav Garg",
+        "Annie Raymond",
+        "Amanda Redlich"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2206.10058"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2206.10058"
+      ]
+    },
+    {
+      "id": "blekherman-et-al-2018-12-sos-barrier",
+      "what_happened": "Blekherman, Raymond, Singh and Thomas, 'Simple graph density inequalities with no sum of squares proofs' (arXiv:1812.08820). Shows that some graph density inequalities, including Blakley-Roy-type ones, cannot be certified by sum-of-squares, and that the smallest open case of the Sidorenko conjecture cannot be so certified. Makes no claim about truth of the conjecture. A search snippet attributes the smallest-open-case statement to K_{5,5} minus C_{10}; the abstract page I read does not name the graph.",
+      "date": "2018-12-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 20 Dec 2018 only (as read).",
+      "delivers": "A limit on one proof method for the smallest open case; not a resolution.",
+      "remains": "The conjecture, entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither way; a barrier for one proof method.",
+      "object": null,
+      "people": [
+        "Grigoriy Blekherman",
+        "Annie Raymond",
+        "Mohit Singh",
+        "Rekha R. Thomas"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1812.08820"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1812.08820"
+      ]
+    },
+    {
+      "id": "openai-math-161",
+      "what_happened": "The manuscript 'A counterexample to Sidorenko's conjecture' (OpenAI, dated September 23, 2026) is the only manuscript in this family. It claims one bipartite graph H on 35 vertices and 66 edges, and a finite simple graph G with at least one edge, such that t(H,G) < p(G)⁶⁶. Here t(H,G) is the homomorphism density (non-injective maps counted, normalised by |V(G)|^|V(H)|) and p(G) = 2|E(G)|/|V(G)|² is the edge density. H is the incidence graph of 22 triples on 13 points, listed explicitly in Table 'tab:complex' (sections/complex.tex); it is connected, with parts of size 13 and 22, degrees 4, 5 and 6 on the point side and 3 on the face side. The argument has three steps. (1) A finite symmetric [0,1]-valued kernel U with mean μ > 0 and t(H,U) < μ⁶⁶ is built from a rectangular kernel over random symmetric matrices over F_q, symmetrised by a crossed product and diluted (Proposition 'negative-kernel', sections/kernel.tex). (2) That step is conditional on the rank-layer limit, Lemma 'Rank-layer limit', which the manuscript proves in its own Sections 3 to 6. (3) A finite simple host G on n vertices is sampled from U, with n > (595 + 66μ⁶⁶)/Δ and Δ = μ⁶⁶ − t(H,U) (Lemma 'finite-host'). The same manuscript also refutes the graphon form: the {0,1} adjacency kernel W₀ of G on the uniform measure on V(G) has t(K₂,W₀) = p(G) and t(H,W₀) = t(H,G) < p(G)⁶⁶ (proof of Corollary 'Failure of the forcing conjecture', sections/consequences.tex). The manuscript also claims, for this same H, a failure of the Conlon–Fox–Sudakov forcing conjecture and amplification and injective-copy results. Those are not matched problems here and are not described further.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Disproves Sidorenko's conjecture as the list states it. The conjecture quantifies over every bipartite graph H, so a single bipartite H with t(H,W) < t(K₂,W)^{e(H)} for some graphon W refutes the universal claim. The counterexample is for this one graph, which is connected, bipartite and has 35 vertices and 66 edges. It is given in the finite-graph form (a finite simple host G with at least one edge). The graphon form in the list is also refuted, by the step graphon W₀ of G, since t(K₂,W₀) = p(G) and t(H,W₀) = t(H,G). The manuscript's own statement (its displayed inequality, with p(G) = 2|E|/|V|² for finite simple G, and 'bipartite with at least one edge') matches the list's statement up to the finite-graph versus graphon wording, which W₀ bridges. The manuscript says 'We disprove this conjecture', so it claims a full negative answer to the universal statement, not a partial or sharpened one. The manuscript also notes that H has no vertex adjacent to the whole opposite part, is not weakly norming (its point-side degrees are not regular), and fails the degree-count hypotheses of the positive results it cites. So it does not contradict those positive theorems, which concern other graphs.",
+      "remains": "If the claim is correct, the universal statement as frozen is false and nothing of it remains open. Not addressed: which bipartite graphs do satisfy the inequality, beyond the positive classes already known; whether H is minimal in size or edge count; and whether any local or restricted version holds for H (the manuscript says the local kernel results of Lovász do not apply to its kernel). The host G is given only by existence, not explicitly.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "8 days",
+      "machine_checked": {
+        "system": "Lean 4",
+        "sorry_free": null,
+        "url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/161.md",
+        "scope": "Sidorenko's conjecture predicts that every bipartite graph $H$ has homomorphism density at least the host graph's edge density raised to $|E(H)|$. The formalization disproves this for the paper's fixed bipartite graph with $35$ vertices and $66$ edges: it constructs a nonempty finite simple host graph with $t(H,G)<t(K_2,G)^{66}$. The separate forcing-conjecture consequence in the paper is outside this statement.",
+        "theorems": [
+          "OAI.SidorenkoCounterexample.main"
+        ]
+      },
+      "directly_checkable": null,
+      "doubts": "(1) The rank-layer lemma carries the whole result. Its proof spans about 2,400 lines (Sections 3 to 6). I read its statement, the assembly at the end of tail.tex, and the passages flagged here, not the full proof. (2) The singular-contribution proposition (tail.tex, 'Vanishing singular contribution') bounds the local maximising tuples only by necessary dimension inequalities. The text says these 'need not be realizable simultaneously', so the bound is an upper bound by design. (3) The numerical remainder 1641 and the requirement D > 1641 (tail.tex, 'Costs for the remaining profiles' and the singular-contribution proof) are asserted. The text says D > 1641 'is needed here only for the nondirect residual case and is not asserted to be a threshold for the whole proof'. I did not check the derivation of 1641. (4) The choice of D, ε and q is non-quantitative throughout, so the existence of G is not quantified. (5) In the rank-layer proof, the comparison that drops the prescribed signs off the transverse set is dismissed in one sentence: 'dropping the prescribed signs only enlarges the integrand after the comparable normalizations'. (6) The finite-host proof calls the probability that a map is a homomorphism a 'homomorphism indicator between zero and one'. The quantity is a probability; the collision bound is unaffected. (7) The abstract, the displayed theorem and the corollary statements agree on 35 vertices, 66 edges and a strict inequality for a finite simple graph with at least one edge.; conditional on: No external unproven hypothesis is stated for the Sidorenko disproof. Internally, the finite kernel (Proposition 'negative-kernel') and the host lemma are proved conditional on Lemma 'Rank-layer limit' (kernel.tex). The manuscript proves that lemma itself in Sections 3 to 6 (transverse, orbits, planted, tail), so the dependence is internal rather than on another paper. The sampling step follows the standard graphon sampling construction of Lovász and Szegedy (Section 2.6, Lemma 2.4) and gives its own collision bound. Standard inputs used without re-proof are the quadratic Gauss-sum rank bound (Gowers–Wolf, Lemma 3.3), the association-scheme counts of symmetric matrices by rank and sign (Huo–Wan; Schmidt), the Lagrangian counting formulas (Taylor), and the colour-refinement facts (Weisfeiler–Leman; McKay).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "disproves the conjecture (one bipartite graph on 35 vertices and 66 edges)",
+      "object": "H is explicit: the incidence graph of 22 triples on 13 points, all triples written out in Table 'tab:complex' (sections/complex.tex). The host G is not explicit. It is produced by a probabilistic sampling argument from a finite kernel, after choosing a large fixed even dimension D, a small ε > 0 and a large odd prime q, each chosen only as 'sufficiently large' or 'sufficiently small'. The manuscript does not write G down and does not give its order beyond the existential bound n > (595 + 66μ⁶⁶)/Δ, where Δ depends on the constructed kernel.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "produced the manuscripts, per the repository README",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+          }
+        ],
+        "disclosed_cost": "On average, each result used three hours of ChatGPT Pro thinking compute with that model.",
+        "sources": [
+          "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/paper.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/161.md"
+      ],
+      "origin": {
+        "stage": "openai",
+        "family": "161",
+        "family_title": "Counterexamples to Sidorenko’s conjecture and the forcing conjecture",
+        "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+        "read": [
+          "sources/openai-math/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/build/main.tex",
+          "sources/openai-math/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/build/sections/introduction.tex",
+          "sources/openai-math/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/build/sections/consequences.tex",
+          "sources/openai-math/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/build/sections/kernel.tex (lines 1-101 and 513-680)",
+          "sources/openai-math/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/build/sections/complex.tex (lines 1-72, 86-100, 138-150)",
+          "sources/openai-math/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/build/sections/tail.tex (lines 376-392, 566-600, 655-724)",
+          "sources/openai-math/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/build/sections/planted.tex (lines 200-215, 258-270)",
+          "sources/openai-math/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/build/sections/transverse.tex (lines 186-196)",
+          "sources/openai-math/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/build/figures/proof-overview.tex",
+          "sources/openai-math/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/build/sections/*.tex and figures/*.tex (keyword search for hedges and sketch markers)"
+        ]
+      }
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "formalization-status",
+      "summary": "The OpenAI repo's docs page lean/docs/161.md (at commit adc7f12, 6 Oct 2026) says the formalization 'disproves' the conjecture for the 35-vertex, 66-edge pattern. The Lean file lean/ComparatorChallenges/SidorenkoCounterexample.lean, both at adc7f12 and on main as I read it, states theorem main with proof 'sorry'. The docs claim is not supported by the file; I did not verify whether the file changed in commit 3014888 (8 Oct 2026), whose diff I could not inspect.",
+      "sources": [
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/161.md",
+        "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+        "https://github.com/openai/math/commit/3014888"
+      ]
+    },
+    {
+      "kind": "status-conflict",
+      "summary": "The Wikipedia article reports the OpenAI claim in the negative, but its status text still says there are graphs for which the conjecture is still open (naming the K_{5,5} minus C_{10} 'Mobius strip' graph). The claim's sentence was added 7 Oct 2026 by one editor; another edit on 8 Oct 2026 deduplicated a reference. Whether the article's 'still open' sentence is stale or still correct is not settled by the sources I read; K_{5,5} minus C_{10} has 10 vertices, while the claimed H has 35.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Sidorenko%27s_conjecture",
+        "https://en.wikipedia.org/w/index.php?title=Sidorenko%27s_conjecture&action=history"
+      ]
+    }
+  ],
+  "summary": "Found one in-window claim that would settle the bullet negatively, and a set of partial results. The claim: on 6 October 2026, the public openai/math repository (first commit dated 6 October 2026) posted a manuscript, 'A counterexample to Sidorenko's conjecture', whose folder is dated 23 September 2026 and whose author line reads 'OpenAI'. The repository's catalogue entry 161 (CONTENTS.md, raw fetch) says it disproves the conjecture with a bipartite graph on 35 vertices and 66 edges, and that the same pattern disproves the Skokan-Thoma forcing conjecture. Wikipedia's Sidorenko article reports 'a claimed resolution ... in the negative by providing a constructive counter example', linking the paper; that sentence was added on 7 October 2026. The Lean file for the counterexample states the existence of a finite host graph with homDensity below edgeDensity^66 for the 35-vertex pattern, but its proof is 'sorry' on main and at the initial commit, while the repo's docs page says the formalization disproves the conjecture; I record this as a formalization-status dispute. I could not read the paper PDF: WebFetch returns undecodable binary, and a stdin text-extraction pipeline needed Bash approval that was not granted, so the host graph, the construction, and the paper's own AI declaration are unrecorded. Independent checking: none found. Kalai's blog (7 Oct 2026) describes the counterexample without a verification status; batch-level coverage (Scientific American, Retraction Watch, a Nature aggregator) reports scepticism about the batch and three withdrawn manuscripts, none on Sidorenko. Two near-identical GitHub repositories build on the construction (a 35-vertex minimum within a finite template with exact certificates; described as written with Codex) and disclaim priority and formal verification. AI: the repo README attributes the manuscripts, including this one as far as it goes, to 'an internal OpenAI model' (unreleased), with about three hours of ChatGPT Pro compute per result on average; the Sidorenko manuscript is not among the README's named exceptions. That is repository-level, not paper-specific. Partial results in window: Im-Li-Liu (Aug 2024, restricted families, refereed in CPC), Kiem-Parczyk-Spiegel (Dec 2024, constructions), Zhao (Jul 2025, even subdivisions with abelian Cayley hosts), Li-Lin-Liu-Zhang (May 2026, spectral equivalence), Zhao (Jun 2026, conditional reduction plus a 1-subdivision result), Zhao (Jul 2026, framework within admissible classes). Negative AI searches: AlphaEvolve on K_{5,5} minus C_{10} (Nov 2025; Tao blog confirms no counterexample) and a Duke Math+ RL/AMCS project (2025). Analogues discarded: tournament and hypergraph papers (2025-2026) and a different star inequality (Luchtrath-Monch, 2024). Pre-window: Conlon-Lee-Sidorenko (2023), Li-Szegedy (2011), Garg-Raymond-Redlich (2022), Blekherman et al. (2018). Close call: whether a claimed 35-vertex counterexample with an explicit Lean-style statement, but with a sorry, no visible independent check, and a paper I could not read, counts as 'resolved' or as 'claimed' is for the judging pass; I record it as claimed and unverified. Where the sources disagree, the disagreement is recorded in disputes.",
+  "competing_reading": "The claim could be read as settled negatively already: the bullet asks whether every bipartite graph is Sidorenko, one valid finite counterexample refutes it, the pattern is explicit (13 points, 22 triples, 66 incidences), the Lean statement is a simple existential whose truth could be checked by computing one host, OpenAI's batch has shown some errors being caught and withdrawn, and the repo's own docs say the formalization disproves the conjecture. Against that reading: the repo's Lean file proves nothing (sorry), no host graph is named in any file I could read, the paper was unreadable to me, no mathematician has been found checking the Sidorenko manuscript, and the batch README itself warns that unformalised results 'could have issues'.",
+  "what_would_settle_it": "(1) The paper PDF's text: the host graph, the density computation, and the paper's AI declaration. (2) A Lean build of theorem main with no sorry, or the Comparator result for SidorenkoCounterexample.lean, with the commit in which it changed. (3) A named expert's public check of the host graph's density (computed by hand or by a verified script) or a written review. (4) The commit diff of 3014888 for the Sidorenko Lean file and folder. (5) An arXiv or journal version, or a withdrawal.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Sidorenko%27s_conjecture",
+      "title": "Sidorenko's conjecture (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/w/index.php?title=Sidorenko%27s_conjecture&action=history",
+      "title": "Sidorenko's conjecture - revision history (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math",
+      "title": "openai/math repository",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/README.md",
+      "title": "openai/math README",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+      "title": "openai/math CONTENTS.md (raw; all pages read; entry 161 is the Sidorenko entry)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "title": "openai/math CONTENTS.md (rendered page; no entries shown)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/preprints",
+      "title": "openai/math preprints folder listing",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026",
+      "title": "Sidorenko manuscript folder (README and BibTeX; build/ folder)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/paper.pdf",
+      "title": "paper.pdf (not readable through WebFetch; binary)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/paper.pdf",
+      "title": "paper.pdf raw (not readable; binary)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+      "title": "SidorenkoCounterexample.lean (main)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+      "title": "SidorenkoCounterexample.lean (raw, main)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+      "title": "SidorenkoCounterexample.lean at initial commit adc7f12",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/161.md",
+      "title": "lean/docs/161.md at initial commit adc7f12",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/docs/161.md",
+      "title": "lean/docs/161.md (raw, main)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/README.md",
+      "title": "Comparator challenges README",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/history.md",
+      "title": "openai/math history.md (update log)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/commits/main",
+      "title": "openai/math commit list",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/commit/3014888",
+      "title": "Commit 3014888 (8 Oct 2026) - file list truncated",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/rohanarun/sidorenko-template-refinements",
+      "title": "rohanarun/sidorenko-template-refinements",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/artuskg/sidorenko-template-refinements",
+      "title": "artuskg/sidorenko-template-refinements (search snippet only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://openai.com/index/sharing-ai-progress-in-mathematics/",
+      "title": "OpenAI, Sharing AI progress in mathematics (6 Oct 2026); fetch returned 403; text seen in search only",
+      "type": "press_release",
+      "opened": false
+    },
+    {
+      "url": "https://news.lavx.hu/article/openai-dumps-100-plus-mathematical-preprints-on-github-including-counterexamples-to-major-conjectures",
+      "title": "News summary of the OpenAI batch (7 Oct 2026); contains the arXiv-absence claim",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+      "title": "Gil Kalai blog, 7 Oct 2026",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.scientificamerican.com/article/mathematicians-marvel-and-grumble-at-openais-trove-of-new-results/",
+      "title": "Scientific American, 8 Oct 2026 (no Sidorenko mention)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://retractionwatch.com/?p=136176",
+      "title": "Retraction Watch on the three withdrawn manuscripts",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.02864",
+      "title": "Georgiev, Gomez-Serrano, Tao, Wagner - Mathematical exploration and discovery at scale",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2511.02864",
+      "title": "same, HTML (section on Sidorenko read at offset 180000)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://terrytao.wordpress.com/2025/11/05/mathematical-exploration-and-discovery-at-scale/",
+      "title": "Tao blog, 5 Nov 2025",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://math.duke.edu/mathplus/2025/ai-powered-discovery-counterexamples-combinatorics",
+      "title": "Duke Math+ project page",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.03491",
+      "title": "Im, Li, Liu, arXiv:2408.03491",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2408.03491v2",
+      "title": "same, HTML full text (checked for AI statements)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.cambridge.org/core/services/aop-cambridge-core/content/view/7587A22E3A717B29DBAB2A6E99875345/S0963548325100242a.pdf/sidorenkos-conjecture-for-subdivisions-and-theta-substitutions.pdf",
+      "title": "CPC publication listing (search result; not opened)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.12904",
+      "title": "Kiem, Parczyk, Spiegel, arXiv:2412.12904",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2412.12904",
+      "title": "same, HTML full text (checked for AI statements)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.15723",
+      "title": "Zhao, arXiv:2507.15723",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2507.15723v1",
+      "title": "same, HTML full text (checked for AI statements)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.26614",
+      "title": "Li, Lin, Liu, Zhang, arXiv:2605.26614",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2605.26614",
+      "title": "same, HTML (checked to the first 100,000 characters; truncated)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.15368",
+      "title": "Zhao, arXiv:2606.15368",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2606.15368",
+      "title": "same, HTML full text (AI declaration: ChatGPT for language polishing)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.23018",
+      "title": "Zhao, arXiv:2606.23018",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.02260",
+      "title": "Zhao, arXiv:2607.02260",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.02260",
+      "title": "same, HTML full text",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.08680",
+      "title": "Lee, arXiv:2509.08680",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.11222",
+      "title": "He, Mani, Nie, Tung, Wei, arXiv:2512.11222",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.12551",
+      "title": "Kral' et al., arXiv:2602.12551",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.14655",
+      "title": "Chen and Lin, arXiv:2609.14655",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.01478",
+      "title": "Luchtrath and Monch, arXiv:2408.01478",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2307.04588",
+      "title": "Conlon, Lee, Sidorenko, arXiv:2307.04588",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1107.1153",
+      "title": "Li and Szegedy, arXiv:1107.1153",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2206.10058",
+      "title": "Garg, Raymond, Redlich, arXiv:2206.10058",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1812.08820",
+      "title": "Blekherman, Raymond, Singh, Thomas, arXiv:1812.08820",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.14673",
+      "title": "A Human Audit of OpenAI's AI-Generated Mathematical Proofs (August batch; no Sidorenko content)",
+      "type": "preprint",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "Sidorenko's conjecture graphons homomorphism density",
+      "Sidorenko conjecture 2025 arXiv",
+      "Sidorenko conjecture 2024 new bipartite graphs proof",
+      "Sidorenko conjecture counterexample",
+      "Sidorenko's conjecture AI model proof",
+      "Sidorenko conjecture Wikipedia list of unsolved problems in mathematics",
+      "OpenAI Sidorenko conjecture counterexample preprint GitHub",
+      "OpenAI drops 700 math preprints disproving conjectures",
+      "\"GPT, the Counterexample Machine\" arXiv",
+      "OpenAI Sidorenko counterexample mathematicians reaction",
+      "Sidorenko conjecture disproved",
+      "\"Sidorenko\" conjecture false bipartite graph 35 vertices 66 edges",
+      "\"A counterexample to Sidorenko's conjecture\" OpenAI",
+      "Sidorenko forcing conjecture counterexample 2026",
+      "Nature OpenAI 700 maths preprints mathematicians up in arms",
+      "openai/math GitHub preprints Sidorenko Lean Comparator",
+      "piiiico openai-math-counterexamples Sidorenko check result",
+      "rohanarun sidorenko-template-refinements OpenAI construction",
+      "Sidorenko conjecture Hatami Blekherman counterexample graphs response",
+      "Sidorenko conjecture OpenAI Lean formalization sorry",
+      "\"Sidorenko\" OpenAI October 2026",
+      "openai.com mathematical results internal model 722 manuscripts October 2026",
+      "Conjugacy Class Averages and Sidorenko's Conjecture arXiv 2606.15368",
+      "Human Audit of OpenAI AI-Generated Mathematical Proofs arXiv 2608.14673",
+      "Georgiev Gómez-Serrano Tao Wagner AlphaEvolve Sidorenko K55 minus C10 counterexample search",
+      "Duke Math+ AI powered discovery of counterexamples Sidorenko reinforcement learning AMCS",
+      "Sidorenko property bipartite graph 2026 arXiv new result",
+      "Sidorenko Möbius strip graph K_{5,5} minus C_10 open case",
+      "Sidorenko conjecture Szegedy reduction Cayley graphs finite groups",
+      "Sidorenko conjecture Quanta Magazine OR Tao blog graph homomorphism 2026",
+      "Li Szegedy logarithmic calculus Sidorenko's conjecture arXiv",
+      "Lüchtrath Mönch short proof Sidorenko star inequality arXiv",
+      "Sidorenko counterexample verified mathematicians Lean October 2026",
+      "OpenAI \"Sharing AI progress in mathematics\" blog post",
+      "Sidorenko conjecture Gemini Deep Think OR AlphaProof OR Aristotle proof",
+      "Sidorenko conjecture Claude Anthropic model mathematics graph homomorphism",
+      "Erdős problems AI Sidorenko conjecture LLM counterexample search graph",
+      "Scientific American OpenAI 722 math manuscripts Sidorenko counterexample graph"
+    ],
+    "places_checked": [
+      "en.wikipedia.org article and revision history",
+      "github.com/openai/math: README, CONTENTS.md (all ~636k characters read), history.md, commit list and commit 3014888, preprints folder listing, the Sidorenko manuscript folder, lean/ComparatorChallenges (Sidorenko file at main and at adc7f12; README), lean/docs/161.md",
+      "arXiv abstracts and HTML full texts for the in-window Sidorenko papers, the analogue papers and the pre-window papers listed in events",
+      "arXiv API and arXiv search (blocked: HTTP 404 and 429)",
+      "Terence Tao blog post of 5 Nov 2025; Gil Kalai blog post of 7 Oct 2026",
+      "Duke Math+ project page (poster and final report PDF not readable)",
+      "Scientific American (Oct 8 article), Retraction Watch (batch withdrawals)",
+      "Third-party follow-up repositories (rohanarun opened; artuskg by snippet)"
+    ],
+    "dead_ends": [
+      "Paper PDF (openai/math preprints/...Sidorenko.../paper.pdf): WebFetch returns undecodable binary; a stdin text-extraction pipeline (curl | pdftotext) was refused for Bash approval, and I did not write any file to get around that. The host graph, construction and the paper's AI declaration are therefore unread.",
+      "openai.com/index/sharing-ai-progress-in-mathematics: HTTP 403 on fetch; text came from search snippets only.",
+      "arXiv search pages and the arXiv API: HTTP 404 and 429, so no arXiv-wide listing of Sidorenko papers was obtained; coverage relies on search results and the citations inside opened papers.",
+      "piiiico/openai-math-counterexamples: no page found in search.",
+      "A GitHub user page for 'rohanarun' (to establish the author): no relevant result.",
+      "Quanta Magazine: no article on Sidorenko's conjecture found.",
+      "Duke final report PDF: unreadable binary through WebFetch.",
+      "Nature article (d41586-026-03196-8) and the Scientific American 'hundreds more' article: seen in search snippets only, not opened.",
+      "Ten-proofs repository (openai/ten-proofs) and Comparator README entries for other challenges: not related to the Sidorenko file.",
+      "Count Ex Machina, 'GPT, the Counterexample Machine' (arXiv 2608.29595): search snippet only; not checked for a Sidorenko entry, and it predates the October release.",
+      "Lee and Schülke (weakly norming for K_{5,5} minus C_{10}) and Conlon-Kim-Lee-Lee (2015): seen in search snippets only; not recorded as events.",
+      "Hexagon note 2610.00143 and other AI-counterexample papers surfaced by searches: unrelated to Sidorenko."
+    ]
+  },
+  "incomplete": "(1) The paper PDF of the OpenAI Sidorenko manuscript was not readable: the host graph, the construction, the paper's own proof and its AI declaration are unrecorded, and the paper-level AI attribution rests on the repository README (batch-level). (2) The Lean file on main is recorded as sorry-bearing; I did not diff commit 3014888 (8 Oct 2026) for the Sidorenko file, so a change after that date is possible but not seen. (3) I did not run Lean or the Comparator tool. (4) The journal status of Im-Li-Liu (CPC 2026) and the publication status of Li-Szegedy and Garg-Raymond-Redlich came from search listings, not opened pages. (5) Full text: for 2605.26614 the HTML was read only to about its first 100,000 characters (the tool reported truncation at Section 4), and for 2606.23018 only the abstract was read; the AI check for 2606.23018 is abstract-level. (6) The Duke final report is unreadable; the Duke record rests on the project page. (7) The 'Verification' claims about the batch come from news and blog summaries, not from primary text. (8) The one-time search through arXiv's own listings was blocked (404/429), so there may be in-window Sidorenko papers I did not find outside the search index; the searches covered the name, the counterexample and proof vocabulary, recent work in the area, and AI terms, but the arXiv listing itself was not searchable.",
+  "combined": {
+    "openai_events_added": [
+      "openai-math-161"
+    ],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "claimed",
+  "ai_role": "generated",
+  "resolution_direction": "refuted",
+  "object_role": "counterexample",
+  "counterexample": {
+    "is_counterexample": true
+  },
+  "rests_on": "openai-2026-10-counterexample",
+  "no_change_found": false,
+  "event": {
+    "id": "openai-2026-10-counterexample",
+    "what_happened": "OpenAI released, in the public openai/math GitHub repository, a manuscript 'A counterexample to Sidorenko's conjecture' (folder name dated September 23, 2026; folder README: 'Author: OpenAI', 'Date: September 23, 2026'). The repository's first commit, 'Initial commit' by 'Anonymous', is dated 6 October 2026. The repository's CONTENTS.md entry 161, titled 'Counterexamples to Sidorenko's conjecture and the forcing conjecture', has the abstract 'Disproves Sidorenko's conjecture with a connected bipartite pattern on 35 vertices and 66 edges', and says the same pattern disproves 'the forcing conjecture of Skokan and Thoma'. The manuscript's own abstract line in CONTENTS reads 'We disprove Sidorenko's conjecture with a bipartite graph on 35 vertices and 66 edges.' The Wikipedia article's sentence 'On October 6th, 2026, OpenAI claimed a resolution of Sidorenko's Conjecture in the negative by providing a constructive counter example' links to the paper.pdf in that folder; the sentence was added by one editor on 7 October 2026 with no edit summary. The repo's Lean file lean/ComparatorChallenges/SidorenkoCounterexample.lean states 'theorem main : there exist size > 0 and a SimpleGraph host on Fin size with at least one edge and homDensity H host < (edgeDensity host) ^ 66', where H is a 35-vertex bipartite pattern (13 point vertices and 22 face vertices, adjacency = point lies in face); its proof body is 'sorry'. The paper PDF could not be read by me, so the host graph, the construction and the paper's own proof are not recorded here.",
+    "date": "2026-10-06",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "revisions": "Initial commit 6 Oct 2026 (adc7f12). Commit 3014888 'Update manuscripts and Lean formalizations' dated 8 Oct 2026 (1,185 files changed; the Sidorenko Lean file and folder are not in the visible part of the file list, so what changed in them is unknown). history.md has one dated entry, 7 Oct 2026: three other manuscripts withdrawn (Weil classes on split abelian eightfolds, Kuga-Satake correspondences for K3 surfaces, rational Hodge conjecture for products of K3 surfaces), 14 revised; none is the Sidorenko manuscript. The folder's September 23 date appears only in the folder name and README; the earliest public posting I can date is 6 October.",
+    "delivers": "If the manuscript and the Lean statement are right: one explicit bipartite pattern H with 35 vertices and 66 edges, and a finite simple host graph G with at least one edge, such that t(H, G) < t(K_2, G)^66. In the Lean statement homDensity counts all edge-preserving maps, including non-injective ones, normalised by N^|V(H)|, and edgeDensity is 2|E|/N^2, so these are the densities of the step graphon of G; the finite-host statement therefore transfers to the graphon formulation of the bullet. The claim is about one graph H, so it settles the universal claim 'every bipartite H is Sidorenko' negatively if it holds, and says nothing about any other bipartite graph. The repo's abstract also claims the same pattern disproves the forcing conjecture of Skokan and Thoma; the docs say that consequence is outside the Lean statement. The Lean file as read does not prove even the single-H statement (see doubts).",
+    "remains": "Per the claim, the universal statement is refuted for this H, so no part of the bullet's universal claim is left open for this H. Not established by any file I could read: the existence of the host graph (the Lean statement is existential and carries sorry), the paper's proof, and the status of every other bipartite graph. The forcing-conjecture consequence is a different problem and is not part of this bullet.",
+    "checked_by": [],
+    "no_engagement_found": false,
+    "time_since_posted": "about one week as of 13 October 2026",
+    "machine_checked": {
+      "system": "Lean 4 (openai/math, Comparator challenge file)",
+      "sorry_free": false,
+      "url": "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/SidorenkoCounterexample.lean"
+    },
+    "directly_checkable": "The pattern H is explicit in the Lean file: 13 point vertices and 22 face triples, with an edge when the point lies in the triple (22 x 3 = 66 incidences, which matches the stated edge count). Checking the inequality needs the host graph, which the Lean file does not name and the paper, which I could not read, presumably does. A reader with the paper can compute t(H, G) and t(K_2, G)^66 for the host by direct counting.",
+    "doubts": "(a) The Lean theorem main ends in 'sorry' on main (fetched raw, c. 13 Oct 2026) and the same file at the initial commit adc7f12 also ends in 'sorry'. (b) The docs page lean/docs/161.md at adc7f12 says 'The formalization disproves this for the paper's fixed bipartite graph with 35 vertices and 66 edges', which the Lean file does not support; this is a conflict inside the repo, recorded in disputes. (c) The repo README says most results come from one internal-model procedure and that 'Some of the unformalized results could have issues'; the Sidorenko manuscript's Lean status is unknown. (d) No human reading of the manuscript was found in 38 searches. Coverage by Kalai (blog, 7 Oct 2026) describes the counterexample without a verification status; Nature (via aggregator) and Scientific American report expert scepticism about the batch generally (Sutherland: expect some proofs to contain mistakes) but not about this manuscript. (e) One secondary news source (news.lavx.hu, 7 Oct 2026) says none of the batch appears on arXiv under the same titles as of publication; I did not verify this. (f) Date discrepancy: the Wikipedia claim is dated 6 October, the folder and BibTeX label say 23 September. (g) Wikipedia's 'constructive' wording against the Lean statement, which is existential. (h) The Wikipedia article still says 'there are graphs for which Sidorenko's conjecture is still open' in the same article that reports the claim (see disputes).",
+    "later_work_cites_it": true,
+    "withdrawn": null,
+    "direction": "Against the conjecture as stated: it asserts that a specific bipartite graph H fails the Sidorenko inequality for some finite host graph, which contradicts the universal claim that every bipartite graph has the property.",
+    "object": "A bipartite graph H on 35 vertices with 66 edges: 13 point vertices and 22 face vertices, where each face is a triple of points (the faces are Table 1 of the source; the Lean list begins {0,1,3}, {0,1,9}, {0,2,3}, ...), and a point is adjacent to a face when it lies in that triple. Claimed: a finite simple host graph G with at least one edge and t(H,G) < t(K_2,G)^66. Wikipedia calls the counterexample constructive; the Lean statement is existential and does not name G. Whether the paper gives an explicit G or a non-constructive argument is not recorded because I could not read the paper.",
+    "people": [
+      "OpenAI (corporate author; the folder README names no individual author)"
+    ],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "an unreleased internal OpenAI model",
+          "what_it_did": "The repository README says the manuscripts, including this one as far as the README goes, were 'produced by an internal OpenAI model': most results came from one procedure using an unreleased internal OpenAI model, posed roughly 4,000 problems, with about three hours of ChatGPT Pro thinking compute per result on average. The README names two exceptions (the zeta zero-free region and the Hodge conjecture for CM abelian varieties); the Sidorenko manuscript is not listed as an exception. The README is repository-level, not specific to this manuscript; the paper's own declaration could not be read.",
+          "basis_quote": "This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+          "quote_url": "https://github.com/openai/math/blob/main/README.md"
+        }
+      ],
+      "disclosed_cost": "Repository-level, not specific to this manuscript: average of about three hours of ChatGPT Pro thinking compute per result; the model was posed about 4,000 problems. A news summary (not opened) reports that OpenAI released only the average compute figure and no prompts.",
+      "sources": [
+        "https://github.com/openai/math/blob/main/README.md",
+        "https://github.com/openai/math/blob/main/CONTENTS.md",
+        "https://github.com/openai/math/tree/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026"
+      ]
+    },
+    "sources": [
+      "https://github.com/openai/math/tree/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026",
+      "https://github.com/openai/math/blob/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/paper.pdf",
+      "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+      "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/161.md",
+      "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+      "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+      "https://github.com/openai/math/commits/main",
+      "https://github.com/openai/math/commit/3014888",
+      "https://github.com/openai/math/blob/main/history.md",
+      "https://github.com/openai/math/blob/main/README.md",
+      "https://en.wikipedia.org/wiki/Sidorenko%27s_conjecture",
+      "https://en.wikipedia.org/w/index.php?title=Sidorenko%27s_conjecture&action=history",
+      "https://news.lavx.hu/article/openai-dumps-100-plus-mathematical-preprints-on-github-including-counterexamples-to-major-conjectures",
+      "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+      "https://www.scientificamerican.com/article/mathematicians-marvel-and-grumble-at-openais-trove-of-new-results/",
+      "https://retractionwatch.com/?p=136176"
+    ]
+  },
+  "credited_humans": [
+    "OpenAI (corporate author; the folder README names no individual author)"
+  ],
+  "status_sources": [
+    "https://github.com/openai/math/tree/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026",
+    "https://github.com/openai/math/blob/main/preprints/A-counterexample-to-Sidorenkos-conjecture-September-23-2026/paper.pdf",
+    "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+    "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/161.md",
+    "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/ComparatorChallenges/SidorenkoCounterexample.lean",
+    "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+    "https://github.com/openai/math/commits/main",
+    "https://github.com/openai/math/commit/3014888",
+    "https://github.com/openai/math/blob/main/history.md",
+    "https://github.com/openai/math/blob/main/README.md",
+    "https://en.wikipedia.org/wiki/Sidorenko%27s_conjecture",
+    "https://en.wikipedia.org/w/index.php?title=Sidorenko%27s_conjecture&action=history",
+    "https://news.lavx.hu/article/openai-dumps-100-plus-mathematical-preprints-on-github-including-counterexamples-to-major-conjectures",
+    "https://gilkalai.wordpress.com/2026/10/07/updates-sharing-ai-progress-on-mathematics-amazing-and-my-lecture-plans/",
+    "https://www.scientificamerican.com/article/mathematicians-marvel-and-grumble-at-openais-trove-of-new-results/",
+    "https://retractionwatch.com/?p=136176"
+  ],
+  "ai": {
+    "systems": [
+      "an unreleased internal OpenAI model"
+    ],
+    "from_event": "openai-2026-10-counterexample",
+    "basis_quote": "This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+    "none_found": false,
+    "disclosed_cost": "Repository-level, not specific to this manuscript: average of about three hours of ChatGPT Pro thinking compute per result; the model was posed about 4,000 problems. A news summary (not opened) reports that OpenAI released only the average compute figure and no prompts."
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "openai-2026-10-counterexample",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "AI-produced batch manuscript eight days old with no human reader; the repo's docs say the Lean formalization disproves the conjecture while the Lean file ends in sorry; the README warns unformalised results 'could have issues', and three other batch manuscripts were withdrawn. No specific error identified in this one.",
+        "ai_role": "generated",
+        "ai_basis": "This repository contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      },
+      {
+        "id": "im-li-liu-2024-08",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kiem-parczyk-spiegel-2024-12",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "zhao-2025-07-even-subdivisions",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "georgiev-et-al-2025-11-alphaevolve-negative",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "duke-math-plus-2025-amcs-rl-negative",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "li-lin-liu-zhang-2026-05-spectral-equivalence",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "zhao-2026-06-conjugacy-averages",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "zhao-2026-07-tensor-amplification",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "zhao-2026-06-directed-kernels-analogue",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "github-followups-2026-sidorenko-template-refinements",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Anonymous GitHub author; completeness of certificates depends on plantri enumeration; does not verify the original construction.",
+        "ai_role": "generated",
+        "ai_basis": "An independent, AI-generated research draft prepared with Codex.",
+        "ai_systems_credited": [
+          "Codex"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lee-2025-09-hypergraph-sidorenko-exponents",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "he-mani-nie-tung-wei-2025-12-tournaments",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kral-et-al-2026-02-tournaments",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chen-lin-2026-09-oriented-paths-tournaments",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "luchtrath-monch-2024-08-star-inequality",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "conlon-lee-sidorenko-2023-07-extremal-numbers",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "li-szegedy-2011-07-logarithmic-calculus",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "garg-raymond-redlich-2022-06-sos-squares",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "blekherman-et-al-2018-12-sos-barrier",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "openai-math-161",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Same manuscript as openai-2026-10-counterexample: AI-produced, no human reader after eight days; the decisive 2,400-line rank-layer lemma was not read in full and contains hand-waved steps (sign-dropping comparison in one sentence, asserted constant 1641); the formalization status is disputed (docs say disproved, Lean file carries sorry); batch README warns of possible issues.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      }
+    ],
+    "why": "The statement is a single universal claim over bipartite H, so one valid bipartite counterexample answers it in full: both OpenAI rows (which describe the same manuscript, once from the repo surface and once from its LaTeX source) are scope whole, direction refuted, object counterexample (H explicit, host G existential via sampling). Neither is digested: no named human has read it, the Lean theorem carries sorry, and a docs page claiming formal disproof is not verification (F7); the object is not directly checkable since G is never written down. Doubtful rather than not_credible: a serious, detailed argument with no identified error, but disputed formal status and an AI batch with known withdrawals. AI role is generated from the README, which attributes the manuscripts to the internal model and does not list this one as an exception. Im-Li-Liu and Kiem-Parczyk-Spiegel prove the full inequality for restricted classes of H (case); Im-Li-Liu is counted digested on the CPC publication. Zhao's even-subdivision result restricts the hosts to abelian Cayley graphs, which proves a weaker statement for those H, so variant. Reductions, equivalences, method barriers and negative searches are none; tournament, hypergraph, directed and star-inequality papers are variants. The 2025 and 2026 year-only dates are both unambiguously after January 2024.",
+    "doubts": "The two OpenAI events duplicate one manuscript; answered identically. AI credit for the manuscript rests on a repository-level README, not a paper-specific declaration. Im-Li-Liu's journal publication was seen only in a search listing. Codex role in the follow-up repositories is stated only as 'AI-generated draft'; immaterial since scope is none.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "claimed",
+      "rests_on": "openai-2026-10-counterexample",
+      "ai_role": "generated",
+      "ai_from": "openai-2026-10-counterexample",
+      "resolution_direction": "refuted",
+      "object_role": "counterexample",
+      "ai_systems_credited": [
+        "an unreleased internal OpenAI model"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

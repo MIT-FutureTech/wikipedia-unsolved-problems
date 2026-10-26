@@ -1,0 +1,1544 @@
+{
+  "key": "borel-conjecture",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 the problem has acquired one unreviewed OpenAI claim (first public 6 October 2026) that refutes the homeomorphism-existence form in dimension four, a 2024 smooth-category dimension-four counterexample that leaves the topological question untouched, and several restricted-class or boundary partial results, with no accepted resolution of the topological problem.",
+  "problem_asks": "Bullet: 'Aspherical closed manifolds are determined up to homeomorphism by their fundamental groups.' Parts: (1) for closed aspherical manifolds M and N with isomorphic fundamental groups, M is homeomorphic to N; the bullet does not restrict the dimension, so the claim as worded is universal over dimensions (a failure in one dimension falsifies it as worded). (2) The category is topological (homeomorphism), not smooth or diffeomorphism. (3) The standard stronger formulation, used by Wikipedia and Lueck, asks that every homotopy equivalence between closed aspherical manifolds be homotopic to a homeomorphism; the bullet states only the existence form, so the two must be kept separate. (4) Implicitly, the question is asked for every fundamental group; the known cases are dimensions 1 and 2 (classification), dimension 3 (geometrisation, per the sources), and higher-dimensional results for restricted groups classes (Farrell-Jones type), dimension 4 only under goodness.",
+  "events": [
+    {
+      "id": "openai-2026-borel-dim4",
+      "what_happened": "OpenAI's openai/math release has a first public commit on 6 Oct 2026 (21:58:50 UTC, 'Initial commit', sha adc7f12). It contains preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/, with author line 'OpenAI' and a title block dated October 4, 2026. Abstract (read from build/paper.tex): 'We construct closed connected aspherical topological four-manifolds that are homotopy equivalent but not homeomorphic, disproving the homeomorphism-existence formulation of the Borel conjecture in dimension four. Their common fundamental group is word-hyperbolic. One of the manifolds also has a self-homotopy equivalence not homotopic to a homeomorphism.' The theorems are labelled thm:pair (Theorem 1.1) and thm:self-map (Theorem 1.2); the statements as read in the source are given under direction and object. The construction, as read in hyperbolicity.tex: a reflection extension E = W semidirect H with H a nonabelian free group, a locally finite CAT(0) cube complex with proper cocompact E-action, and a common group Pi of finite index in E, shown word-hyperbolic with Out(Pi) finite. The manuscript relies on two same-day OpenAI manuscripts keyed MT and PD in its references (MT = A marked tensor obstruction to four-dimensional disk embedding; PD = A PD4 group without an aspherical manifold model), and cites Khan 2012, Bartels-Lueck 2012, Davis 1983 and 2008, Block-Weinberger 2008, and the smooth Davis-Hayden-Huang-Ruberman-Sunukjian paper by key only. Secondary trackers list the claim as Disproved (topology index), and as Candidate (review pending), Verification Unreviewed, with no Lean file at the pinned commit (VibeMathed). The manuscript's own title block says October 4; the repository first appears October 6.",
+      "delivers": "If the manuscript is correct, there are closed aspherical topological 4-manifolds M and N, homotopy equivalent but not homeomorphic, with common word-hyperbolic fundamental group Pi (Theorem 1.1). Since aspherical manifolds with the same fundamental group are homotopy equivalent, this refutes the bullet's existence form in dimension four. Theorem 1.2 gives, for one such M, a self-homotopy equivalence not homotopic to any homeomorphism, which refutes the stronger homotopy-to-homeomorphism form in that dimension. Restrictions: topological category; dimension four only, as the abstract states; the group is the specific word-hyperbolic Pi built by reflection; the manifolds are obtained through the MT and PD inputs, which I did not read in full. The intro says the cyclic-cover criterion 'works in every manifold dimension', but no counterexample in another dimension is stated in the text I read; a curator summary says nothing is shown in dimensions five or higher (not checked against the TeX).",
+      "remains": "Dimensions 1-3, and dimensions five and higher, are not addressed by any result stated in the manuscript. In dimension four, the statement covers only the constructed group class, so the status for good fundamental groups is not changed by it. The manuscript does not say whether Pi is good in Freedman's sense, and that point is what the dependencies bear on (see doubts).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "5 days as of 11 Oct 2026 (first public 6 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": "No object checkable by hand. The claim is a 60-page construction (Davis reflection on a Poincare chamber with a CAT(0) cube complex; Pi with Out(Pi) finite) whose realisation of the manifolds and whose homotopy equivalence come from MT and PD sections I did not read. The 60-page argument would have to be checked section by section.",
+      "doubts": "(1) Unreviewed dependency: the claim stands or falls with the two same-day unreviewed OpenAI manuscripts MT and PD (VibeMathed says so; the references file confirms the dependence). (2) Goodness: the dependency MT, as its boundary-only sibling's abstract states, asserts that the free group on two generators is not good in the sense of Freedman-Quinn, and that the same holds for any group containing it. Pi contains a finite-index subgroup of the nonabelian free group H (hyperbolicity.tex), so under that dependency Pi is not good. Freedman's conjecture that non-abelian free groups are not good is, from my search results, still open (a 2026 Krushkal preprint describes it as open), so the Borel claim rests on a claim in the direction of an open conjecture, and I could not read MT's own body to see the argument. (3) Khan tension: the manuscript cites Khan 2012 for rigidity up to topological s-cobordism for closed aspherical 4-manifolds with torsion-free word-hyperbolic fundamental group (Theorem 1.22 and Corollary 1.23 as the manuscript cites them). Khan's abstract, which I read, gives the dimension-four Borel conjecture 'up to s-cobordism' under Farrell-Jones. A homotopy equivalence that is not homotopic to a homeomorphism is compatible with s-cobordism only where the four-dimensional s-cobordism theorem fails, which is where goodness fails; the manuscript does not spell this out in the text I read. (4) Provenance: no human is named; the author is 'OpenAI'; the manuscript has no disclosure or review statement; the release README says the vast majority of results came from an unreleased internal model and that some unformalised results could have issues. (5) No Lean file exists for this manuscript at the pinned commit (per VibeMathed; I did not inspect lean/ directly).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against the bullet's existence form in dimension four: it exhibits homotopy equivalent, non-homeomorphic closed aspherical 4-manifolds with the same word-hyperbolic fundamental group. Theorem 1.2 also cuts against the stronger homotopy-to-homeomorphism form for one of them.",
+      "object": "Theorem 1.1: a pair of closed connected aspherical topological 4-manifolds M and N with common word-hyperbolic fundamental group Pi, homotopy equivalent but with no homeomorphism between them, the conclusion excluding every homeomorphism without prescribing a homotopy class. Pi is a finite-index subgroup of a reflection extension E = W semidirect H, H a nonabelian free group, W acting cocompactly and properly on a CAT(0) cube complex built by a support construction; Out(Pi) is finite and Pi has one end and no splitting over a virtually cyclic subgroup. Theorem 1.2: for one of these M, a homotopy equivalence f: M to M such that no homeomorphism M to M is homotopic to f. Constructive at the group level; the manifolds and the homotopy equivalences are obtained through the realisation and surgery inputs of MT and PD, which I did not read, so I cannot say they are explicit.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "The release README, the authors' own account of the collection, says the vast majority of results were obtained with one fixed procedure using this model, with named exceptions (zeta zero-free region; Hodge conjecture for CM abelian varieties). It does not name this manuscript. The manuscript itself has no statement about production: the author field is OpenAI, there are no acknowledgements or disclosure. So that this model produced the mathematics of this manuscript is an inference from the release-level statement, not a statement about this paper.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://raw.githubusercontent.com/openai/math/main/README.md"
+          }
+        ],
+        "disclosed_cost": "Release-level only, from the README as summarised by the fetch tool (not byte-checked): roughly 4,000 problems posed, and about three hours of ChatGPT Pro thinking compute per result on average. No per-manuscript figure.",
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/README.md",
+          "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/paper.tex",
+          "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/README.md"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/paper.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/introduction.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/hyperbolicity.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/README.md",
+        "https://api.github.com/repos/openai/math/commits?path=preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026&per_page=100",
+        "https://raw.githubusercontent.com/openai/math/main/README.md",
+        "https://kisonecat.github.io/openai-math/topology.html",
+        "https://vibemathed.com/problem/borel-conjecture-dimension-four",
+        "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/"
+      ]
+    },
+    {
+      "id": "openai-2026-pd4-wall",
+      "what_happened": "OpenAI release manuscript 'A PD4 group without an aspherical manifold model' (title block dated September 24, 2026; first public appearance is the repository commit of 6 Oct 2026). Abstract (read from build/paper.tex): 'We construct a finitely presented integral Poincare duality group of dimension four that has a finite classifying space but is not the fundamental group of any closed aspherical topological four-manifold. This gives a negative answer to Wall's manifold-realization question in dimension four.' The body is said to refute the assertion quantified over all n at least 3, without asserting a counterexample in every dimension. The manuscript is cited as PD by the Borel manuscript (reflection and realisation results; controlled filling; support construction, Lemma 3.3). It names as its starting point the marked tensor obstruction MT, and cites Kasprowski-Land four-dimensional surgery and Farrell-Jones via a CAT(0) action; it says it replaces the goodness-dependent null-loop step of Powell-Ray-Teichner. The topology index calls the same result 'disproving Wall's conjecture'.",
+      "delivers": "A finitely presented PD4 group with a finite classifying space that is not the fundamental group of a closed aspherical topological 4-manifold; a negative answer to Wall's realisation question in dimension four for finitely presented groups.",
+      "remains": "Wall's realisation question in other dimensions, and for groups not finitely presented. Nothing about homeomorphism of aspherical manifolds with a given fundamental group, so the Borel bullet is not addressed directly.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "5 days as of 11 Oct 2026 (first public 6 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "It depends on MT, which I could not read (only its preamble was readable through the fetch tool). The paper's own chain of inputs (Kasprowski-Land, Farrell-Jones via CAT(0), Davis-Hillman realisation) is cited, not reproduced, in the sections I could read. Unreviewed.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against Wall's realisation question in dimension four for finitely presented PD4 groups; it does not directly answer the Borel bullet. It enters the Borel claim as an input (PD).",
+      "object": "A finitely presented group G, with a finite oriented four-dimensional aspherical Poincare complex Q, such that H^i(G; ZG) vanishes for i not equal to 4 and is Z for i = 4, but no closed aspherical topological four-manifold has fundamental group G. The manuscript's chamber has nonabelian free fundamental group, and its marked filling obstruction is stated to concern the four-dimensional case outside the elementary amenable hypothesis (quoted sentence fragments from the PD body as fetched).",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "Release-level statement only (see the Borel manuscript event). This manuscript's own text has no production statement.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://raw.githubusercontent.com/openai/math/main/README.md"
+          }
+        ],
+        "disclosed_cost": "Release-level only (see the Borel manuscript event).",
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/preprints/A-PD4-group-without-an-aspherical-manifold-model-September-24-2026/build/paper.tex",
+          "https://raw.githubusercontent.com/openai/math/main/preprints/A-PD4-group-without-an-aspherical-manifold-model-September-24-2026/README.md"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/preprints/A-PD4-group-without-an-aspherical-manifold-model-September-24-2026/build/paper.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/A-PD4-group-without-an-aspherical-manifold-model-September-24-2026/README.md",
+        "https://kisonecat.github.io/openai-math/topology.html",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex"
+      ]
+    },
+    {
+      "id": "openai-2026-marked-tensor-disk",
+      "what_happened": "OpenAI release manuscript 'A marked tensor obstruction to four-dimensional disk embedding' (title block dated September 24, 2026; first public appearance 6 Oct 2026). Only its LaTeX preamble was readable through the fetch tool, so I did not read its abstract or body. Its claims as stated in the index and in the PD and boundary-only manuscripts: the unrestricted four-dimensional disk embedding conjecture is false, and the free group on two generators is not good in the Freedman-Quinn sense, nor is any group containing it.",
+      "delivers": "As reported (not read directly): a counterexample to the unrestricted four-dimensional disk embedding conjecture by a marked tensor obstruction, and the consequence that the free group on two generators, and any group containing it, is not good.",
+      "remains": "Everything bearing on the Borel bullet. The manuscript does not address homeomorphism of closed aspherical manifolds on its own (as far as its reported claims go).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "5 days as of 11 Oct 2026 (first public 6 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The body was not readable, so the claimed non-goodness argument cannot be assessed here. The non-goodness claim for the free group is in the direction of Freedman's open conjecture (see the Borel event doubts). The sibling manuscript 'A boundary-only obstruction' makes the same F2 claim in its abstract, which I read; that is one source, not an independent check.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Asserts non-goodness of the free group on two generators (consistent with the direction of Freedman's conjecture); no direct statement on the Borel bullet.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "Release-level statement only; this manuscript's readable text has no production statement.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://raw.githubusercontent.com/openai/math/main/README.md"
+          }
+        ],
+        "disclosed_cost": "Release-level only.",
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/preprints/A-marked-tensor-obstruction-to-four-dimensional-disk-embedding-September-24-2026/build/paper.tex"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/preprints/A-marked-tensor-obstruction-to-four-dimensional-disk-embedding-September-24-2026/build/paper.tex",
+        "https://kisonecat.github.io/openai-math/topology.html",
+        "https://vibemathed.com/problem/borel-conjecture-dimension-four"
+      ]
+    },
+    {
+      "id": "openai-2026-boundary-only-disk",
+      "what_happened": "OpenAI release manuscript 'A boundary-only obstruction to four-dimensional disk embedding' (title block dated September 24, 2026; first public appearance 6 Oct 2026). Abstract (read from build/paper.tex, key sentence quoted): 'We disprove the four-dimensional disc embedding conjecture without a fundamental-group hypothesis.' It describes a compact oriented smooth four-manifold with finitely many disc maps whose boundary circles bound no disjoint locally flat discs. It states that the free group on two generators is not good in the sense of Freedman-Quinn, and that the same holds for any group containing it. It is not cited by the Borel manuscript (its references list only MT and PD).",
+      "delivers": "As stated in its abstract: a counterexample to the unrestricted four-dimensional disc embedding conjecture needing no fundamental-group hypothesis, and the claim that F2 is not good, with the consequence for groups containing F2.",
+      "remains": "Nothing about homeomorphism of closed aspherical manifolds is addressed. The body (sections) is not in the readable source.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "5 days as of 11 Oct 2026 (first public 6 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Only the preamble and abstract are readable; the sections are referenced by input and not included. The F2 non-goodness claim is in the direction of Freedman's conjecture, which my search results describe as open. The manuscript's own fetch-summary described the claim as conflicting with 'established literature', but my search results show the opposite: Freedman's conjecture is that non-abelian free groups are not good, and it is open. I do not treat that as a finding either way.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Asserts that the unrestricted four-dimensional disc embedding conjecture is false, and that F2 is not good; no direct statement on the Borel bullet.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "Release-level statement only; this manuscript's readable text has no production statement.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://raw.githubusercontent.com/openai/math/main/README.md"
+          }
+        ],
+        "disclosed_cost": "Release-level only.",
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/preprints/A-boundary-only-obstruction-to-four-dimensional-disk-embedding-September-24-2026/build/paper.tex"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/preprints/A-boundary-only-obstruction-to-four-dimensional-disk-embedding-September-24-2026/build/paper.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex"
+      ]
+    },
+    {
+      "id": "krushkal-2026-collision-rank",
+      "what_happened": "Vyacheslav Krushkal, '4-manifold topology and collision rank of groups', arXiv 21 Sep 2026 (single version). Abstract (read): introduces 'collision rank', shows groups of finite collision rank are good in the sense of topological 4-manifold theory, and gives finitely generated examples of collision rank two outside the subexponentially amenable groups (commutator subgroups of topological full groups of Sturmian systems, including continuum many pairwise non-isomorphic infinite simple amenable groups).",
+      "delivers": "Goodness (in the Freedman sense) for the class of groups of finite collision rank. This is a new class of good groups; it does not say that any closed aspherical manifold is determined by its fundamental group.",
+      "remains": "The Borel question for these groups is not addressed by the abstract; any dimension-four consequence would go through the standard reduction for good groups, which the OpenAI manuscript describes as assuming goodness (Bartels-Lueck Proposition 0.3 as cited there). Nonabelian free groups are not addressed by the abstract as read.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "3 weeks as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet's direction for a new class of good groups in dimension four, where goodness is the hypothesis under which rigidity is known. It is not a direct resolution.",
+      "object": null,
+      "people": [
+        "Vyacheslav Krushkal"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.25198"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.25198"
+      ]
+    },
+    {
+      "id": "aria-2025-statement",
+      "what_happened": "Hanyu Wang, Ruohan Xie, Yutong Wang, Guoxiong Gao, Xintao Yu, Bin Dong, 'Aria: An Agent For Retrieval and Iterative Auto-Formalization via Dependency Graph', arXiv 2510.04520, v1 6 Oct 2025, v2 2 Jul 2026 (accepted to ICLR 2026 per a search summary). Appendix E.2 'Case Study: Borel's Conjecture in Topology' (read in the HTML): the Lean theorem borel_conjecture_for_topological_manifolds takes closed aspherical topological manifolds M and N and a homotopy equivalence f, and concludes that f is homotopic to a homeomorphism. The statement ends in sorry, so it has no proof. The section does not say whether the conjecture is proven or open; it says Aria 'successfully formalized' it.",
+      "delivers": "A Lean statement of the bullet's stronger homotopy-to-homeomorphism form for closed aspherical topological manifolds, with no proof. It establishes nothing about the conjecture's truth.",
+      "remains": "Everything. The formalisation is a statement, not a result.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "12 months as of 11 Oct 2026 (v1 6 Oct 2025)",
+      "machine_checked": {
+        "system": "Lean (version not stated in the fetched text)",
+        "sorry_free": false,
+        "url": "https://arxiv.org/html/2510.04520v2"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None on truth. The Lean statement is the bullet's stronger form, stated and left with sorry.",
+      "object": null,
+      "people": [
+        "Hanyu Wang",
+        "Ruohan Xie",
+        "Yutong Wang",
+        "Guoxiong Gao",
+        "Xintao Yu",
+        "Bin Dong"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2510.04520v2",
+          "https://arxiv.org/abs/2510.04520"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2510.04520",
+        "https://arxiv.org/html/2510.04520v2"
+      ]
+    },
+    {
+      "id": "gkeneralis-2026-moment-angle",
+      "what_happened": "Ioannis Gkeneralis, 'Remarks on Topological Rigidity of Real Moment-Angle Manifolds', arXiv 2604.15462, single version submitted 16 Apr 2026 (11 pages). Claims that real moment-angle manifolds associated to flag simplicial complexes, of dimension at least five, satisfy the Borel conjecture. The HTML text states that the real moment-angle complex is aspherical if and only if K is a flag complex (Corollary 2.5), and that the Davis complex is CAT(0) (so the group satisfies Farrell-Jones), and then applies surgery theory (Lemma 4.2, Theorem 4.3). It also says the complex and quaternionic analogues are not aspherical (Lemmas 2.6, 2.7).",
+      "delivers": "Borel rigidity (every homotopy equivalence to such an aspherical manifold is homotopic to a homeomorphism) for the class of real moment-angle manifolds of flag complexes, dimension at least five.",
+      "remains": "All other closed aspherical manifolds, and all other dimensions. My reading, which the judging pass should check: Bartels-Lueck (2012) already covers closed aspherical manifolds of dimension at least five whose fundamental group acts properly and cocompactly on a finite-dimensional CAT(0) space, so this paper's new input is the CAT(0) identification of the group, and its Borel conclusion appears to be an instance of that earlier theorem.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "6 months as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": "Real moment-angle manifolds of flag complexes are explicit cubical manifolds; their asphericity is stated to follow from the flag condition.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet's direction on a class: determined up to homeomorphism by the fundamental group within that class.",
+      "object": null,
+      "people": [
+        "Ioannis Gkeneralis"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2604.15462",
+          "https://arxiv.org/html/2604.15462v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2604.15462",
+        "https://arxiv.org/html/2604.15462v1"
+      ]
+    },
+    {
+      "id": "davis-hillman-2025-boundary",
+      "what_happened": "James F. Davis and J. A. Hillman, 'Aspherical manifolds with boundary', arXiv 2501.12509, v1 21 Jan 2025 (21:41:34 UTC), v2 29 Jun 2026 (comment: 'New title. Added Conjecture B, which gives a homological criterion for the homotopy type of a compact aspherical manifold'). A search summary gives the v1 title as 'The Borel Conjecture for manifolds with boundary'; I did not open v1. Abstract (read): a homological criterion for when a closed manifold, with maps from its components' fundamental groups, can be the boundary of a compact aspherical manifold, proved by building a Poincare pair and applying surgery; illustrated for abelian fundamental groups; a sequel classifies compact aspherical 4-manifolds with elementary amenable fundamental group. The closed case is referred to but not proved here.",
+      "delivers": "A homological criterion for boundaries of compact aspherical manifolds, illustrated for abelian groups. For the Borel question, it concerns compact manifolds with boundary (the relative structure set), not closed manifolds.",
+      "remains": "The closed Borel statement as bulleted; the paper does not claim it.",
+      "checked_by": [
+        {
+          "who": "Secondary AI-generated literature summary on The Moonlight (seen in search results, not opened)",
+          "qualification": "None; automated summary",
+          "what_they_did": "Summarised the paper; not a check",
+          "where": "https://www.themoonlight.io/review/the-borel-conjecture-for-manifolds-with-boundary",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "21 months as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with rigidity direction for compact manifolds with boundary; not a closed-case result.",
+      "object": null,
+      "people": [
+        "James F. Davis",
+        "J. A. Hillman"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2501.12509"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2501.12509"
+      ]
+    },
+    {
+      "id": "davis-hillman-2025-boundary-4d",
+      "what_happened": "James F. Davis and J. A. Hillman, 'Aspherical 4-manifolds with elementary amenable fundamental group', arXiv 2501.12512, v1 21 Jan 2025 (21:50:05 UTC), v2 29 Jun 2026 ('Minor rewrites and corrections'). Abstract (read): classifies possible elementary amenable fundamental groups of compact aspherical 4-manifolds with nonempty boundary (polycyclic or solvable Baumslag-Solitar); because these groups are good and satisfy Farrell-Jones, such manifolds satisfy topological rigidity relative to the boundary (a homotopy equivalence that is a homeomorphism on the boundary is homotopic rel boundary to a homeomorphism); classifies the closed 3-manifolds that bound them; two such manifolds are homeomorphic exactly when their enhanced peripheral group systems are equivalent. A Notre Dame talk (29 Apr 2025, 'The Borel Conjecture for compact aspherical 4-manifolds with elementary amenable fundamental group', read in the seminar page) describes this as proving the Borel conjecture for all compact aspherical 4-manifolds with boundary whose fundamental group is good.",
+      "delivers": "Borel-type rigidity for compact aspherical 4-manifolds with nonempty boundary and elementary amenable (hence good) fundamental group, relative to the boundary; classification of boundaries and of such manifolds up to homeomorphism. The closed statement is not proved here.",
+      "remains": "The closed case in dimension four and all other dimensions, as bulleted. The paper's own abstract restricts to compact manifolds with boundary.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "21 months as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet's direction, restricted to compact manifolds with boundary and good groups. Not a closed-case result.",
+      "object": null,
+      "people": [
+        "James F. Davis",
+        "J. A. Hillman"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2501.12512",
+          "https://math.nd.edu/events/2025/04/29/342876-topology-seminar-jim-davis-indiana-university-bloomington/"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2501.12512",
+        "https://math.nd.edu/events/2025/04/29/342876-topology-seminar-jim-davis-indiana-university-bloomington/"
+      ]
+    },
+    {
+      "id": "davis-hayden-2024-smooth",
+      "what_happened": "Michael Davis, Kyle Hayden, Jingyin Huang, Daniel Ruberman, Nathan Sunukjian, 'Exotic aspherical 4-manifolds', arXiv 2411.19400, v1 28 Nov 2024, v2 9 Dec 2024 ('Second version corrects some introductory remarks'). Comment: 'to appear in Annals of Mathematics'. The OpenAI manuscript bibliography gives Ann. of Math. (2) 204 (2026), no. 2, 777-794. Abstract (read): 'We construct closed, aspherical, smooth 4-manifolds that are homeomorphic but not diffeomorphic. These provide counterexamples to a smooth analog of the Borel conjecture in dimension four.' The paper addresses only the smooth analogue. The Annals listing page returned HTTP 404 and was not read.",
+      "delivers": "Closed aspherical smooth 4-manifolds that are homeomorphic but not diffeomorphic. This refutes the smooth analogue (homotopy equivalent, not diffeomorphic) in dimension four. It does not refute the topological bullet, since the manifolds are homeomorphic.",
+      "remains": "The topological bullet in every dimension, including dimension four for all fundamental groups; the paper says it does not claim the topological statement.",
+      "checked_by": [
+        {
+          "who": "Annals of Mathematics (journal of record)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Accepted the paper; the bibliography in the OpenAI manuscript lists it as volume 204 (2026), issue 2, pages 777-794",
+          "where": "https://arxiv.org/abs/2411.19400",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "23 months as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": "The examples are pairs of exotic 4-manifolds with boundary (Hayden-Piccirillo) closed off by a reflection-group trick; distinguished by the minimal genus of an embedded surface representing the generator of second homology (per the paper's intro, as read in the HTML).",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet's homeomorphism statement; refutes the smooth analogue in dimension four.",
+      "object": "Closed aspherical smooth 4-manifolds homeomorphic but not diffeomorphic, built from pairs of exotic 4-manifolds with boundary (Hayden-Piccirillo) by the reflection group trick of Davis. Explicit in the sense that the invariant distinguishing them is a minimal genus; the existence is by construction.",
+      "people": [
+        "Michael Davis",
+        "Kyle Hayden",
+        "Jingyin Huang",
+        "Daniel Ruberman",
+        "Nathan Sunukjian"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2411.19400v2",
+          "https://arxiv.org/abs/2411.19400"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2411.19400",
+        "https://arxiv.org/html/2411.19400v2"
+      ]
+    },
+    {
+      "id": "farrell-jones-1989",
+      "what_happened": "F. T. Farrell and L. E. Jones, 'Compact negatively curved manifolds (of dim not equal 3,4) are topologically rigid', Proc. Nat. Acad. Sci. 86 (1989), 3461-3463 (per the OpenAI manuscript's bibliography, read in references.tex). The manuscript's introduction describes it as rigidity for closed negatively curved manifolds in dimensions at least five. I did not open the PNAS article. A search summary also mentions a 1993 proceedings paper with a similar title; not checked.",
+      "delivers": "Topological rigidity (Borel form) for closed negatively curved manifolds of dimension not 3 or 4.",
+      "remains": "All closed aspherical manifolds without negative curvature; dimensions 3 and 4 excluded by the title.",
+      "checked_by": [
+        {
+          "who": "Proceedings of the National Academy of Sciences",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published the article (per bibliography)",
+          "where": "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex (bibliography entry only; the PNAS article was not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet's homeomorphism direction, for negatively curved closed manifolds in dimensions other than 3 and 4.",
+      "object": null,
+      "people": [
+        "F. T. Farrell",
+        "L. E. Jones"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/introduction.tex"
+      ]
+    },
+    {
+      "id": "hsiang-wall-1969",
+      "what_happened": "W.-C. Hsiang and C. T. C. Wall, 'On homotopy tori II', Bull. London Math. Soc. 1 (1969), 341-342 (per the OpenAI manuscript's bibliography and introduction). The introduction describes it as rigidity for homotopy tori in dimensions at least five. Not opened.",
+      "delivers": "Rigidity for homotopy tori (aspherical tori of the homotopy type of T^n) in dimensions at least five, as the manuscript describes it.",
+      "remains": "Aspherical manifolds other than tori-type homotopy tori.",
+      "checked_by": [
+        {
+          "who": "Bulletin of the London Mathematical Society",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published the article (per bibliography)",
+          "where": "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the homeomorphism direction for homotopy tori in dimensions at least five.",
+      "object": null,
+      "people": [
+        "W.-C. Hsiang",
+        "C. T. C. Wall"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex"
+      ]
+    },
+    {
+      "id": "roushon-2007-withdrawn",
+      "what_happened": "S. K. Roushon, 'The Borel conjecture for manifolds with virtually solvable fundamental groups', arXiv math/0706.4144, v1 28 June 2007. The v1 claimed the Borel conjecture for aspherical manifolds with virtually solvable fundamental groups, via the vanishing of the Whitehead group of torsion-free virtually solvable groups. The author withdrew it (v2, 19 July 2007). The abstract states that Wolfgang Lueck and Peter Linnell found that the proof of Lemma 3.8 does not apply to the unrestricted wreath product case, so the proof of Theorem 3.1 cannot currently be completed; the author plans to publish the valid results later.",
+      "delivers": "As claimed in v1: Borel for virtually solvable fundamental groups in dimension at least five. Withdrawn; the claim as it stands establishes nothing.",
+      "remains": "The virtually solvable case in dimensions at least five, as far as this record can tell; I did not find whether the valid part was later published (a search summary describing Roushon's virtually solvable results as established is unverified).",
+      "checked_by": [
+        {
+          "who": "Wolfgang Lueck and Peter Linnell",
+          "qualification": "Established experts in the field (named by the author in the withdrawn abstract)",
+          "what_they_did": "Found the gap in Lemma 3.8 (per the author's withdrawal note)",
+          "where": "https://arxiv.org/abs/0706.4144",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "18 years as of 11 Oct 2026 (withdrawn 19 July 2007)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The author's own withdrawal: Lemma 3.8 does not apply to the unrestricted wreath product case.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "v1 claim of the Borel conjecture for aspherical manifolds with virtually solvable fundamental groups, via Whitehead group vanishing and Lemma 3.8",
+        "date": "2007-07-19",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/0706.4144"
+        ]
+      },
+      "direction": "Claimed Borel rigidity for a class; withdrawn.",
+      "object": null,
+      "people": [
+        "S. K. Roushon"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/0706.4144"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/0706.4144"
+      ]
+    },
+    {
+      "id": "bartels-lueck-2009",
+      "what_happened": "Arthur Bartels and Wolfgang Lueck, 'The Borel Conjecture for hyperbolic and CAT(0)-groups', arXiv 0901.0442, v1 5 Jan 2009, v2 25 Mar 2010 (exposition only). Published in Ann. of Math. (2) 175 (2012), no. 2, 631-689 (per the OpenAI manuscript's bibliography). Abstract (read, opening sentence): 'We prove the Borel Conjecture for a class of groups containing word-hyperbolic groups.' The class also includes groups acting properly, isometrically and cocompactly on a finite-dimensional CAT(0) space, for closed aspherical manifolds of dimension at least five.",
+      "delivers": "Borel conjecture (homotopy equivalence to a homeomorphism) for closed aspherical manifolds of dimension at least five whose fundamental group is word-hyperbolic or proper-cocompact-CAT(0). The four-dimensional case is handled only under goodness (per the OpenAI manuscript's description of its Proposition 0.3).",
+      "remains": "Dimensions one to four, and groups outside the class.",
+      "checked_by": [
+        {
+          "who": "Annals of Mathematics (journal of record)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published the article in 2012 (per bibliography)",
+          "where": "https://arxiv.org/abs/0901.0442",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet's homeomorphism direction, for a broad class of groups, in dimension at least five.",
+      "object": null,
+      "people": [
+        "Arthur Bartels",
+        "Wolfgang Lueck"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/0901.0442"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/0901.0442",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex"
+      ]
+    },
+    {
+      "id": "guentner-tessera-yu-2010",
+      "what_happened": "Erik Guentner, Romain Tessera, Guoliang Yu, 'A notion of geometric complexity and its application to topological rigidity', arXiv 1008.0884, first submitted 4 August 2010 (58 pages). Abstract (read): if the fundamental group of a compact aspherical manifold M has finite decomposition complexity and N is homotopy equivalent to M, then M times R^n is homeomorphic to N times R^n for large n; the authors call this the stable Borel conjecture.",
+      "delivers": "The stable form only: after product with R^n for large n. The unstable homeomorphism for M itself is not established.",
+      "remains": "The unstable Borel statement for compact aspherical manifolds with finite-decomposition-complexity groups, and all groups without FDC.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet's direction, in the stable form only.",
+      "object": null,
+      "people": [
+        "Erik Guentner",
+        "Romain Tessera",
+        "Guoliang Yu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1008.0884"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1008.0884"
+      ]
+    },
+    {
+      "id": "frigerio-lafont-sisto-2011",
+      "what_happened": "Roberto Frigerio, Jean-Francois Lafont, Alessandro Sisto, 'Rigidity of high dimensional graph manifolds', arXiv 1107.2019, first submitted 11 July 2011, revised 21 Dec 2013. Abstract (read): the Borel conjecture holds for the graph manifolds in high dimensions (pieces are tori times finite-volume hyperbolic manifolds with toric cusps, with hyperbolic factors of dimension at least three); homotopy equivalence and diffeomorphism coincide within the class. Journal reference: Asterisque 372 (2015).",
+      "delivers": "Borel for the class of high-dimensional graph manifolds in the paper's sense; the abstract gives no numeric dimension threshold, and one search summary says dimensions at least six, not checked in the paper.",
+      "remains": "Aspherical closed manifolds outside the graph-manifold class.",
+      "checked_by": [
+        {
+          "who": "Asterisque (journal)",
+          "qualification": "Refereed series",
+          "what_they_did": "Published the article (per arXiv journal reference)",
+          "where": "https://arxiv.org/abs/1107.2019",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet's homeomorphism direction for a class.",
+      "object": null,
+      "people": [
+        "Roberto Frigerio",
+        "Jean-Francois Lafont",
+        "Alessandro Sisto"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1107.2019"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1107.2019"
+      ]
+    },
+    {
+      "id": "barcenas-et-al-2015",
+      "what_happened": "Noe Barcenas, Daniel Juan-Pineda, Pablo Suarez-Serrato, 'Topological rigidity of higher graph manifolds', arXiv 1509.01328, first submitted 4 September 2015. Abstract (read): 'we prove the Borel conjecture for a family of aspherical manifolds that includes higher graph manifolds.' Journal reference: Bol. Soc. Mat. Mex. (2017) 23: 119. The method uses asymptotic dimension, weak regular coherence and finite decomposition complexity. The dimension is not stated on the arXiv page.",
+      "delivers": "Borel for a family of aspherical manifolds including higher graph manifolds (family as defined in the paper; dimension not stated on the abstract page).",
+      "remains": "Aspherical manifolds outside the family.",
+      "checked_by": [
+        {
+          "who": "Boletin de la Sociedad Matematica Mexicana (journal)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published the note (per arXiv journal reference)",
+          "where": "https://arxiv.org/abs/1509.01328",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet's homeomorphism direction for a family.",
+      "object": null,
+      "people": [
+        "Noe Barcenas",
+        "Daniel Juan-Pineda",
+        "Pablo Suarez-Serrato"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1509.01328"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1509.01328"
+      ]
+    },
+    {
+      "id": "khan-2009",
+      "what_happened": "Qayum Khan, 'Homotopy invariance of 4-manifold decompositions: connected sums', arXiv 0907.0308, v1 2 July 2009, v5 10 Aug 2012. Published in Topology and its Applications 159 (2012), 3432-3444. Abstract (read, partly): 'the Borel Conjecture is true in dimension 4 up to s-cobordism' assuming the fundamental group satisfies the Farrell-Jones Conjecture; the connected-sum decomposition results assume each summand's fundamental group is good in the sense of Freedman-Quinn.",
+      "delivers": "Borel in dimension four only up to s-cobordism, under Farrell-Jones; not up to homeomorphism.",
+      "remains": "Homeomorphism (not only s-cobordism) for groups not known to be good; the OpenAI manuscript cites Khan's Theorem 1.22 and Corollary 1.23 for torsion-free word-hyperbolic groups, which I did not read in the v5 text.",
+      "checked_by": [
+        {
+          "who": "Topology and its Applications (journal)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published the article (per arXiv journal reference)",
+          "where": "https://arxiv.org/abs/0907.0308",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Whether Khan's up-to-s-cobordism result is compatible with the OpenAI homeomorphism failure depends on the goodness of the group; see the OpenAI event's doubts.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial: rigidity up to s-cobordism in dimension four under Farrell-Jones, not homeomorphism.",
+      "object": null,
+      "people": [
+        "Qayum Khan"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/0907.0308"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/0907.0308"
+      ]
+    },
+    {
+      "id": "wang-2015",
+      "what_happened": "Kun Wang, 'Topological Rigidity for FJ by the Infinite Cyclic Group', arXiv 1512.01225, v1 3 December 2015, v2 17 February 2016. Journal reference: Journal of Topology and Analysis (online December 2016; DOI 10.1142/S1793525318500139). Abstract (read, verbatim fragments): the simple Borel conjecture (in dimensions at least five) holds for every group of the form G semidirect Z, where G is Farrell-Jones; the bordism Borel conjecture holds for G semidirect Z, with the extra hypothesis Wh(G times Z) = 0.",
+      "delivers": "Simple Borel (dimensions at least five) for semidirect products G semidirect Z with G Farrell-Jones; bordism Borel under Whitehead-group vanishing.",
+      "remains": "The unrestricted Borel statement; groups not of this form; dimensions below five.",
+      "checked_by": [
+        {
+          "who": "Journal of Topology and Analysis (journal)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published the article (per arXiv journal reference)",
+          "where": "https://arxiv.org/abs/1512.01225",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bullet's direction, for a class of groups in dimensions at least five, in a simple form.",
+      "object": null,
+      "people": [
+        "Kun Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1512.01225"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1512.01225"
+      ]
+    },
+    {
+      "id": "openai-math-320",
+      "what_happened": "One manuscript, 'Nonhomeomorphic closed aspherical four-manifolds with the same homotopy type' (OpenAI, dated October 4, 2026). Theorem 'pair' (thm:pair): there are closed connected aspherical topological four-manifolds M and N that are homotopy equivalent but not homeomorphic, with a common word-hyperbolic fundamental group Π. Theorem 'self-map' (thm:self-map): for the same M there is a homotopy equivalence f: M → M such that no homeomorphism M → M is homotopic to f. Construction in outline: a four-dimensional Poincaré chamber (D, P, S) whose double cyclic cover S₂ has a marked filling, while every odd cyclic cover S_d (d ≥ 3) has none. Reflection quotient Q of P by an elementary abelian label group A = (ℤ/2)^𝒱 / C, where 𝒱 is the vertex set of a flag-no-square triangulation of S with at least 5000 vertices and C is an explicit 8-dimensional subspace; Q₂ is the double cyclic cover of Q, and Π = π₁(Q₂). M = M₀ and N = M_ℓ are two closed manifold models of Q₂, obtained by gluing copies of a topological filling of S₂ with boundary twists given by a linear functional ε on A (ε = 0 for M, ε = ℓ ≠ 0 for N). Self-map: a cyclic-cover criterion realizes the outer automorphism δ of Π by a self-homotopy equivalence of M and rules out any homeomorphism inducing δ. Non-homeomorphism: a Sylow-type criterion for Out(Π) (Proposition 'A Sylow criterion for manifold models'), using that A and B_ℓ are 2-subgroups of equal order, that the normalizer of A in Out(Π) is A × ⟨δ⟩, that δ is not realized on M, and that A and B_ℓ are not conjugate in Out(Π).",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Dimension four only. The objects are closed connected aspherical topological (not smooth) four-manifolds. The pair M, N has one common fundamental group Π, which the text shows is word-hyperbolic, torsion-free, infinite, one-ended, and of finite index in the reflection extension W ⋊ H. Out(Π) is finite. The text claims a disproof of the homeomorphism-existence formulation of the Borel conjecture in dimension four, for this one group. Against the list's bullet, which asks for aspherical closed manifolds with isomorphic fundamental groups to be homeomorphic and does not restrict the dimension, the paper's existence form matches the bullet's wording, and the dimension-four pair falsifies that bullet as worded. The manuscripts do not claim to settle the Borel conjecture as a whole. Their statement is narrower than the bullet in dimension, and the bullet's part (3), the homotopy-realization form, is not the paper's headline. Reading the stated Theorem 'self-map' against the introduction's definition of the topological Borel conjecture (every homotopy equivalence between closed aspherical manifolds is homotopic to a homeomorphism), it also refutes that stronger form in dimension four. The text does not state that consequence in its abstract or introduction. It is my reading of the stated theorem. The text notes that Bartels and Lück prove the prescribed-class formulation in dimensions at least five for a class containing word-hyperbolic groups. The counterexample is in dimension four, so it does not conflict with that.",
+      "remains": "If the claim is correct, the family does not touch these parts of the problem. (a) Dimensions other than four. The text treats dimensions at most two as classical, and dimension three for closed orientable aspherical manifolds via geometrization. It cites Bartels and Lück for dimensions at least five for a class containing hyperbolic groups. It says the cyclic-cover criterion 'works in every manifold dimension', but applies it only at n = 4. (b) Dimension four for other fundamental groups. The text does not characterize which dimension-four groups admit such pairs, and it gives only this one group. (c) The homotopy-realization form for other manifolds or groups. It is refuted only by the single self-map of M. (d) Goodness. The introduction presents goodness as the hypothesis of the dimension-four rigidity results it cites (Bartels–Lück, Freedman–Quinn), and the text does not say whether Π is good. The claim's conclusion is in tension with the good case, and the text does not discuss this.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "8 days",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(1) The two load-bearing inputs are imported, not proved here. Theorem 'Reflection and marked fillings' is presented as extracted from [PD, Sections 3–5]. The odd-cover non-filling (Proposition 'Odd covers do not fill') takes its edge-level input unchanged from [MT, Proposition 4.5 and Theorem 5.1], and the text says that what it verifies is only the assembly at vertices with both kinds of endpoint and the conversion of the four-slot laws. (2) The endpoint-assignment theorem is said to be argued 'in full', yet the same paragraph says its truncated differential forms and its two successive homologies come from [MT, Section 3]. (3) The introduction cites Khan's rigidity up to topological s-cobordism for closed aspherical four-manifolds with torsion-free word-hyperbolic fundamental group, and says the five-dimensional product theorem needs a good group. Theorem 'pair' concerns exactly torsion-free word-hyperbolic Π. The text never says whether Π is good and does not reconcile this with Khan's result. It says only that 'the dimension is essential to their topological conclusion'. (4) Finiteness of Out(Π) is obtained by citing the Bestvina–Feighn splitting theorem and applying the paper's own no-splitting lemma. The cited theorem is not proved in the text. (5) A search of all section files found no step flagged as sketched, conditional, or omitted, and no hedging beyond the imported inputs.; conditional on: Yes. (a) Two companion OpenAI manuscripts, neither read here: 'A marked tensor obstruction to four-dimensional disk embedding' ([MT]) and 'A PD4 group without an aspherical manifold model' ([PD]), both OpenAI Math Release preprints dated September 24, 2026. The reflection input (Theorem 'Reflection and marked fillings') is stated by the authors as extracted from [PD, Sections 3–5] and uses [PD, Propositions 3.2, 4.6, 5.5]. The parity chamber data and the odd-cover non-filling use the plumbing blocks of [MT, Section 2.2], the chamber and cut constructions of [PD, Section 2], the marked algebraicity theorem [MT, Theorem 5.1] with [MT, Proposition 4.5 and Lemma 4.4], and the universal-development argument of [PD, Section 3]. (b) That Out(Π) is finite rests on a splitting theorem of Bestvina and Feighn (using Paulin's construction), cited and not proved in the text. (c) Standard results cited without proof: Davis's reflection-group framework, Chepoi's median-graph facts, Przytycki–Świątkowski's flag-no-square triangulations, Stallings's ends theorem, and the Švarc–Milnor lemma. The argument does not use Khan's results.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "disproves the homeomorphism-existence form of the Borel conjecture in dimension four, for one hyperbolic group; the self-map result also refutes the homotopy-realization form in dimension four",
+      "object": "Two closed aspherical topological four-manifolds M = M₀ and N = M_ℓ, and a self-homotopy equivalence f: M → M. M and N are built explicitly as gluings of copies of one compact topological four-manifold V with boundary S₂ (the double-cover filling, obtained from the smooth chamber double cover D₂ by replacing finitely many punctured S² × S² neighborhoods with four-balls), along a flag-no-square triangulation of S and a choice of linear functional ε on the label group A. Once these choices are fixed, the gluing recipe is explicit. The chamber D itself comes from the plumbing constructions of the companion manuscripts. The non-homeomorphism is proved by contradiction, and no invariant is exhibited. The self-map f is not written down: it is obtained by realizing an outer automorphism through the classification of maps between Eilenberg–MacLane spaces.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "produced the manuscripts, per the repository README",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+          }
+        ],
+        "disclosed_cost": "On average, each result used three hours of ChatGPT Pro thinking compute with that model.",
+        "sources": [
+          "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/paper.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+      ],
+      "origin": {
+        "stage": "openai",
+        "family": "320",
+        "family_title": "Nonhomeomorphic closed aspherical four-manifolds",
+        "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+        "read": [
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/README.md",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/paper.tex (abstract and full file)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex (lines 125–141 for MT and PD entries; bibliography keys grepped)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/introduction.tex (full)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/reflection.tex (full)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/cyclic.tex (full)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/models.tex (full)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/extension.tex (full)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/hyperbolicity.tex (lines 1–30, 182–300, 366–516)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/normalizer.tex (lines 324–466)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/tensors.tex (lines 1–160)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/formal.tex (lines 1–150, 240–349)",
+          "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/chambers.tex (lines 1–30, 673–792)"
+        ]
+      }
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "status",
+      "summary": "The status labels for the OpenAI dimension-four claim conflict across trackers: VibeMathed gives Result 'Disproved' with Status 'Candidate (review pending)' and Verification 'Unreviewed'; the topology index says the result disproves the homeomorphism-existence formulation. The manuscript itself carries no status, and no journal or referee record exists.",
+      "sources": [
+        "https://vibemathed.com/problem/borel-conjecture-dimension-four",
+        "https://kisonecat.github.io/openai-math/topology.html"
+      ]
+    },
+    {
+      "kind": "scope",
+      "summary": "Two different refutations are both called 'the Borel conjecture fails in dimension four'. Davis et al. (2024) refute the smooth analogue (homeomorphic, not diffeomorphic), which leaves the topological bullet untouched. The OpenAI claim refutes the homeomorphism form. A 2026 aggregator and a blog commenter conflate them; the homeomorphic-not-diffeomorphic result is not the one the OpenAI claim asserts.",
+      "sources": [
+        "https://arxiv.org/abs/2411.19400",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/introduction.tex",
+        "https://proofsandprompts.com/2026/10/08/100-reactions-to-100-solutions/"
+      ]
+    },
+    {
+      "kind": "framing",
+      "summary": "The topology index calls the PD manuscript 'disproving Wall's conjecture'. The manuscript's abstract says 'a negative answer to Wall's manifold-realization question in dimension four', and its body refutes the assertion quantified over all dimensions n at least 3 without a counterexample in each dimension.",
+      "sources": [
+        "https://kisonecat.github.io/openai-math/topology.html",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/A-PD4-group-without-an-aspherical-manifold-model-September-24-2026/build/paper.tex"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "The manuscripts list OpenAI as sole author and name no human. The release README attributes the vast majority of results to an unreleased internal OpenAI model. Coverage reports that the prompts, the model name and per-problem compute were withheld. No human is credited with the mathematics of the Borel manuscript.",
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/README.md",
+        "https://raw.githubusercontent.com/openai/math/main/README.md"
+      ]
+    }
+  ],
+  "summary": "Since 26 January 2024 the problem has moved in three ways, and none of them is an accepted resolution of the topological bullet. (1) The one event that bears on the bullet as worded is OpenAI's release, first public on 6 October 2026 (manuscript title block dated 4 October), of a 60-page claim that there are closed aspherical topological 4-manifolds, homotopy equivalent but not homeomorphic, with a common word-hyperbolic fundamental group, which would refute the homeomorphism-existence form in dimension four. I read its abstract, theorem labels, introduction, hyperbolicity section and references from the openai/math source. Its author line is 'OpenAI'; it has no disclosure, review statement or Lean file; the topology index labels it Disproved while VibeMathed labels it Candidate (review pending) and Unreviewed. It rests on two same-day OpenAI manuscripts keyed MT and PD: PD's abstract and main theorem I read, and its starting point is MT, whose body I could not read. The chain's weak point is goodness. The dependencies assert that the free group on two generators is not good in Freedman-Quinn's sense (the boundary-only sibling's abstract, which I read, states it), and Pi contains a finite-index nonabelian free subgroup, so Pi would be non-good. Freedman's conjecture that free groups are not good is, by my search results, still open, so the claim rests on a claim in the direction of an open conjecture. Khan's 2012 result, which the manuscript cites, gives dimension-four rigidity only up to s-cobordism under Farrell-Jones; that is compatible with a non-homeomorphism only where goodness fails, and the manuscript does not spell out this step in the text I read. (2) Davis, Hayden, Huang, Ruberman and Sunukjian (arXiv 28 Nov 2024; Annals vol. 204, 2026) construct closed aspherical smooth 4-manifolds that are homeomorphic but not diffeomorphic; this refutes only the smooth analogue and is consistent with the topological bullet. (3) Restricted partial results: Davis and Hillman's two January 2025 preprints (boundary versions: compact aspherical 4-manifolds with elementary amenable fundamental group are rigid relative to the boundary, and a homological criterion for compact aspherical manifolds with boundary); Gkeneralis (16 April 2026) on real moment-angle manifolds of flag complexes in dimension at least five, which I read as an instance of Bartels-Lueck (2012) since the group is CAT(0); and Krushkal (21 Sept 2026) showing groups of finite collision rank are good, which bears on dimension four only through goodness. The Aria paper (October 2025) gives a Lean statement of the homotopy form for closed aspherical manifolds ending in sorry, which is a statement, not a proof. I list the older partial results as events because the status is worked out from events: Farrell-Jones 1989, Hsiang-Wall 1969 (not opened), Roushon 2007 (withdrawn 19 July 2007 after Lueck and Linnell found a gap in Lemma 3.8), Bartels-Lueck (2009 arXiv; Annals 2012), Guentner-Tessera-Yu 2010 (stable form), Frigerio-Lafont-Sisto 2011, Barcenas et al. 2015, Khan 2009, and Wang 2015. Checking: no mathematician has publicly checked the OpenAI claim, five days after it appeared; one commenter on a compilation blog states the consequence without checking. On AI involvement: the release README, the authors' own account of the collection, says the vast majority of results came from one fixed procedure with an unreleased internal OpenAI model; this manuscript's text says nothing about its production, so the claim that the model produced this manuscript's mathematics is an inference from the release-level statement. The Davis et al., Davis-Hillman, Gkeneralis and Krushkal papers name no system in the parts I read. Aria's authors disclose that LLMs helped prepare their manuscript, with Gemini-2.5-Pro as a language editor; that is writing help, not mathematics. My reading of close calls: on whether the OpenAI claim settles the bullet in dimension four, the evidence is a claim with unreviewed inputs, not a verified result.",
+  "competing_reading": "The OpenAI manuscript can be read as a real dimension-four counterexample to the bullet. Its group is word-hyperbolic, Farrell-Jones applies to it, and the known four-dimensional rigidity (Khan, Bartels-Lueck) needs goodness or stops at s-cobordism, so a non-good word-hyperbolic group is exactly where a non-homeomorphic homotopy-equivalent pair could sit. On that reading the homeomorphism-existence form is refuted in dimension four, and so is the homotopy-to-homeomorphism form for one of the manifolds, whatever becomes of the dependencies' fate. The opposite reading: the claim is unreviewed; it depends on two same-day unreviewed manuscripts; its key input is a non-goodness claim in the direction of Freedman's open conjecture; and the manuscript as read does not show why its non-good group avoids Khan's s-cobordism result, so no result has been established on the present record.",
+  "what_would_settle_it": "Independent checking by four-manifold topologists of: (a) the claim that the free group on two generators is not good, in MT and in the boundary-only manuscript, and its compatibility with the Freedman-Quinn literature; (b) the construction in Sections 3-5 of the Borel manuscript, which produces M, N and the homotopy equivalence from the MT and PD inputs; (c) whether the group Pi of Theorem 1.1 is good, and how Khan's s-cobordism result is avoided. Also: a public response from the Davis/Hillman or Bartels-Lueck circle; a Lean formalisation of the key lemmas, since none exists for this manuscript; and a statement from OpenAI about who wrote or verified the argument and how it was produced.",
+  "sources": [
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/README.md",
+      "title": "openai/math README",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+      "title": "openai/math CONTENTS.md (read only partly; truncated after family 056 in the fetch)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/history.md",
+      "title": "openai/math history.md (7 Oct 2026 corrections; none for this claim)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://api.github.com/repos/openai/math/contents/preprints?ref=main",
+      "title": "openai/math preprints directory listing (truncated)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://api.github.com/repos/openai/math/commits?path=preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026&per_page=100",
+      "title": "Commit history for the Borel manuscript directory (one commit, 6 Oct 2026)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/README.md",
+      "title": "Borel manuscript README (author, date, BibTeX)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/paper.tex",
+      "title": "Borel manuscript LaTeX preamble and abstract",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/introduction.tex",
+      "title": "Borel manuscript introduction (theorem labels, citation keys, dependencies)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/hyperbolicity.tex",
+      "title": "Borel manuscript hyperbolicity section",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex",
+      "title": "Borel manuscript bibliography",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/paper.pdf",
+      "title": "Borel manuscript PDF (binary; not readable through the fetch tool)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/A-PD4-group-without-an-aspherical-manifold-model-September-24-2026/build/paper.tex",
+      "title": "PD manuscript: A PD4 group without an aspherical manifold model (abstract, theorem, dependencies)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/A-PD4-group-without-an-aspherical-manifold-model-September-24-2026/README.md",
+      "title": "PD manuscript README (author, date)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/A-PD4-group-without-an-aspherical-manifold-model-September-24-2026/paper.pdf",
+      "title": "PD manuscript PDF (binary; not readable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/A-marked-tensor-obstruction-to-four-dimensional-disk-embedding-September-24-2026/build/paper.tex",
+      "title": "MT manuscript: A marked tensor obstruction to four-dimensional disk embedding (preamble only readable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/A-boundary-only-obstruction-to-four-dimensional-disk-embedding-September-24-2026/build/paper.tex",
+      "title": "Boundary-only manuscript (abstract readable; sections not included)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://kisonecat.github.io/openai-math/topology.html",
+      "title": "Topology: OpenAI Math index (unofficial third-party index)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://vibemathed.com/problem/borel-conjecture-dimension-four",
+      "title": "VibeMathed: The Borel conjecture for closed aspherical four-manifolds (homeomorphism form)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://proofsandprompts.com/2026/10/08/100-reactions-to-100-solutions/",
+      "title": "100+ reactions to 100+ solutions (Proofs and Prompts)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/",
+      "title": "OpenAI's 722 Math Manuscripts: The Results, Proofs, Compute and Costs (Kingy)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2411.19400",
+      "title": "Exotic aspherical 4-manifolds (Davis, Hayden, Huang, Ruberman, Sunukjian)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2411.19400v2",
+      "title": "Exotic aspherical 4-manifolds, HTML v2 (acknowledgements, funding, footnotes checked)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.12509",
+      "title": "Aspherical manifolds with boundary (Davis, Hillman)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.12512",
+      "title": "Aspherical 4-manifolds with elementary amenable fundamental group (Davis, Hillman)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://math.nd.edu/events/2025/04/29/342876-topology-seminar-jim-davis-indiana-university-bloomington/",
+      "title": "Notre Dame topology seminar, Jim Davis, 29 Apr 2025",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.15462",
+      "title": "Remarks on Topological Rigidity of Real Moment-Angle Manifolds (Gkeneralis)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2604.15462v1",
+      "title": "Remarks on Topological Rigidity of Real Moment-Angle Manifolds, HTML",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2510.04520",
+      "title": "Aria: An Agent for Retrieval and Iterative Auto-Formalization via Dependency Graph",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2510.04520v2",
+      "title": "Aria, HTML v2 (appendices E.2 and F read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.25198",
+      "title": "4-manifold topology and collision rank of groups (Krushkal)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/0706.4144",
+      "title": "The Borel conjecture for manifolds with virtually solvable fundamental groups (Roushon; withdrawn)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1008.0884",
+      "title": "A notion of geometric complexity and its application to topological rigidity (Guentner, Tessera, Yu)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1509.01328",
+      "title": "Topological rigidity of higher graph manifolds (Barcenas, Juan-Pineda, Suarez-Serrato)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1512.01225",
+      "title": "Topological Rigidity for FJ by the Infinite Cyclic Group (Kun Wang)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/0907.0308",
+      "title": "Homotopy invariance of 4-manifold decompositions: connected sums (Khan)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/0901.0442",
+      "title": "The Borel Conjecture for hyperbolic and CAT(0)-groups (Bartels, Lueck)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1107.2019",
+      "title": "Rigidity of high dimensional graph manifolds (Frigerio, Lafont, Sisto)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Borel_conjecture",
+      "title": "Borel conjecture (Wikipedia), current lead",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://annals.math.princeton.edu/articles/22765",
+      "title": "Exotic aspherical 4-manifolds, Annals listing (HTTP 404 on fetch)",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Borel conjecture aspherical manifolds",
+      "Borel conjecture 2025 arXiv aspherical closed manifold homeomorphism",
+      "Borel conjecture counterexample aspherical manifolds",
+      "Borel conjecture disproved",
+      "Borel conjecture AI proof mathematics",
+      "Borel conjecture large language model OR GPT OR Gemini topology",
+      "Borel conjecture Wikipedia",
+      "Borel conjecture topological rigidity 2026",
+      "Borel conjecture Farrell-Jones 2025 new result",
+      "aspherical manifolds homotopy equivalent not homeomorphic fundamental group rigidity new",
+      "Borel conjecture hyperbolic groups structure set surgery",
+      "Borel conjecture nonpositively curved manifolds dimension",
+      "Davis Hillman compact aspherical 4-manifolds elementary amenable fundamental group Borel conjecture classification",
+      "Davis Hayden Huang Ruberman Sunukjian exotic aspherical 4-manifolds arXiv",
+      "real moment-angle manifolds topological rigidity flag complexes Farrell-Jones 2026",
+      "Farrell Jones 1993 topological rigidity compact nonpositively curved manifolds dimension five",
+      "Bartels Lück Borel conjecture hyperbolic groups Annals of Mathematics 2012",
+      "Frigerio Lafont Sisto topological rigidity higher graph manifolds Borel conjecture",
+      "Carlsson Goldfarb Borel conjecture finite decomposition complexity Sapir groups",
+      "Kun Wang simple Borel conjecture aspherical manifolds Whitehead group",
+      "AI model aspherical manifold conjecture counterexample 2026",
+      "AlphaEvolve OR AlphaProof OR \"Gemini Deep Think\" topology conjecture rigidity manifolds",
+      "\"Borel conjecture\" arXiv 2026 preprint aspherical",
+      "\"Borel conjecture\" AI-generated OR \"AI-assisted\" OR \"language model\" manifolds fundamental group",
+      "OpenAI math index topology Borel conjecture",
+      "Wall's conjecture disproved finitely presented Poincaré duality group dimension four aspherical 2026",
+      "Aria agent retrieval iterative auto-formalization dependency graph Borel conjecture Lean",
+      "Davis Hillman \"Aspherical 4-manifolds with elementary amenable fundamental group\" arXiv 2501.12512",
+      "Borel conjecture hyperbolic 4-manifolds open problem good fundamental group Freedman",
+      "Terence Tao blog Borel conjecture OR aspherical manifolds",
+      "Borel conjecture mathoverflow aspherical manifold homotopy equivalence homeomorphic open",
+      "Mark Sapir aspherical manifolds Borel conjecture open groups finite decomposition complexity",
+      "Lück survey aspherical manifolds Farrell-Jones Borel conjecture status 2025 review",
+      "\"GPT, the Counterexample Machine\" arXiv 2608.29595",
+      "Claude Fable AI topology conjecture aspherical rigidity counterexample",
+      "Gemini Deep Think 2026 solves topology conjecture manifolds",
+      "Borel conjecture Quanta Magazine aspherical manifolds rigidity",
+      "Borel conjecture structure set aspherical manifold surgery exact sequence arXiv 2025 new",
+      "Farrell-Jones conjecture proven 2026 new groups arXiv Lück Bartels",
+      "aspherical manifolds 2026 arXiv topological rigidity surgery theory homotopy equivalence homeomorphism new theorem",
+      "Borel conjecture Epoch AI FrontierMath open problems topology list",
+      "Novikov conjecture Borel conjecture survey open problems Farrell-Jones 2025 Kasilingam topological rigidity problems",
+      "Roushon Borel conjecture virtually solvable fundamental groups Whitehead group torsion free",
+      "\"Nonhomeomorphic closed aspherical four-manifolds with the same homotopy type\"",
+      "openai/math GitHub manuscripts CONTENTS.md 722 manuscripts Lean",
+      "OpenAI 722 math manuscripts internal model release topology aspherical four-manifolds Borel disproved",
+      "Borel conjecture dimension four counterexample OpenAI homotopy equivalent aspherical 4-manifolds not homeomorphic",
+      "openai.com index mathematics 722 manuscripts unreleased model October 6 2026 release blog",
+      "OpenAI aspherical four-manifold Borel conjecture dimension four topologist reaction Davis Hillman Agol",
+      "\"Borel conjecture fails in dimension 4\" OpenAI",
+      "Khan 2012 homotopy invariance 4-manifold decompositions connected sums word-hyperbolic Borel s-cobordism Theorem 1.22",
+      "OpenAI marked tensor obstruction four-dimensional disk embedding Wall conjecture PD4 review mathematicians",
+      "pith review \"Nonhomeomorphic closed aspherical four-manifolds\" OR \"homotopy equivalent but not homeomorphic\" aspherical 2026 referee",
+      "free group good in the sense of Freedman-Quinn goodness 4-manifold fundamental group free groups are good"
+    ],
+    "places_checked": [
+      "arXiv abstract pages and HTML versions for every preprint cited in events (2411.19400, 2501.12509, 2501.12512, 2604.15462, 2510.04520, 2609.25198, 0706.4144, 1008.0884, 1509.01328, 1512.01225, 0907.0308, 0901.0442, 1107.2019)",
+      "openai/math repository: README, history.md, CONTENTS.md (partial), preprints directory listing (partial), commit history, and the Borel, PD, MT and boundary-only manuscript directories (README, build/paper.tex, sections, references)",
+      "Topology index of the OpenAI math release (kisonecat.github.io)",
+      "VibeMathed problem page for the dimension-four Borel claim",
+      "Proofs and Prompts compilation of reactions (8 Oct 2026, first 100,000 characters)",
+      "Kingy summary of the 722-manuscript release",
+      "Notre Dame topology seminar page for the 29 April 2025 Davis talk",
+      "English Wikipedia article 'Borel conjecture' (lead and known-case list)",
+      "Web search over arXiv, journal and blog content for the problem's names and the AI terms (see queries)",
+      "Lean/Aria appendices for the Borel formalisation and LLM disclosure",
+      "Epoch FrontierMath open-problems site (search summary only; no Borel entry seen)"
+    ],
+    "dead_ends": [
+      "No accepted or refereed resolution of the topological bullet found anywhere in the sources searched.",
+      "No AI-lab claim about the Borel conjecture other than the OpenAI release found; no Gemini, AlphaEvolve or Claude claim about aspherical manifolds found (the Claude and Gemini hits concern the Jacobian conjecture, Erdos problems and Kakeya).",
+      "Annals listing for the Davis et al. paper returned HTTP 404; not read.",
+      "Hajlasz OpenAI Math catalogue (sites.pitt.edu) exceeds the fetch size limit; not read.",
+      "OpenAI's own primary release post was not found by search; the release was described only through secondary coverage and the repository.",
+      "The repository's CONTENTS.md and the preprints listing are longer than the fetch tool returns; I read only the visible portions, and family 320 is confirmed only through the topology index and the manuscript directory itself.",
+      "The PDFs of the OpenAI manuscripts are compressed and not readable through the fetch tool; their TeX sources were read instead, but only where the source files were present (the MT source gave only the preamble).",
+      "Tao blog, Quanta, MathOverflow: searched; no post about the Borel conjecture found.",
+      "Pith Review and similar AI-referee sites: searched; no review of the OpenAI manuscript found.",
+      "Manifold Atlas page on the Borel conjecture for compact aspherical 4-manifolds: appeared in results but was not opened.",
+      "Carlsson-Goldfarb finite-decomposition-complexity result: appeared in results; the Goldfarb slides (2018) were not opened, and the primary Carlsson-Goldfarb paper was not located.",
+      "Lueck's 2025 survey on the Farrell-Jones conjecture (arXiv 2507.11337): appeared in results; not opened, so not used as an event or as evidence about the Borel status.",
+      "Expert reactions to the OpenAI Borel claim: searched by name (Davis, Hillman, Agol, Lueck, Tao). The only topology-adjacent reaction found is a reader comment on the Proofs and Prompts compilation (attributed to Xiaolei Wu, a group theorist, in the compilation), which states the consequence without checking it. Ian Agol's comment in the same compilation is general and does not address this result.",
+      "Mentions of the Borel conjecture in Epoch's FrontierMath Open Problems list: searched; not found."
+    ]
+  },
+  "incomplete": "Not read: the Borel manuscript's construction sections (chambers, reflection, cyclic, normalizer, models, tensors, formal, extension) and its PDF; the MT manuscript's body and abstract (only its preamble was readable); the PD manuscript's sections beyond its abstract, main theorem and dependency sentences (fetched through its TeX); the boundary-only manuscript's sections; the Davis-Hayden et al. full text beyond the HTML acknowledgements, funding and footnotes; the Davis-Hillman papers' full texts (acknowledgements not checked, so their none_found is provisional); Gkeneralis full text beyond the targeted sentences; the Aria appendix E.2 Lean code (not compiled by me); Khan's Theorem 1.22 in the v5 text; Hsiang-Wall 1969, Farrell-Jones 1989 and Guentner-Tessera-Yu's journal (none opened; journal status for GTY not confirmed, so its no_engagement_found is null); Roushon's valid results after withdrawal; the Carlsson-Goldfarb FDC result; Lueck's 2025 survey; dimension-three geometrisation (Perelman) not recorded as a separate event. Not searched directly: arXiv listing pages (math.GT and math.AT) for the period after 2026-10-06, so later preprints may be missing; the OpenAI primary announcement; OpenAI's history.md corrections beyond 7 Oct; the Pitt catalogue. Quotations taken from pages read through the fetch tool were produced by that tool and were not byte-checked against the source (the README sentence and the Aria LLM-disclosure paraphrase in particular); the Aria LLM disclosure is quoted from the fetch summary and not verbatim. The Sutherland and Tao reactions, the Scientific American, Nature and Futurism coverage, the Moonlight AI summary, and the Pith pages were seen only in search results and are not used as sources. The claim that the Borel manuscript's theorems hold in every dimension, or that a curator summary says nothing is shown in dimensions five or higher, was not checked in the TeX. The free-group goodness status rests on search summaries (Freedman's conjecture reported as open), not on a source I opened in full.",
+  "combined": {
+    "openai_events_added": [
+      "openai-math-320"
+    ],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "claimed",
+  "ai_role": "generated",
+  "resolution_direction": "refuted",
+  "object_role": "counterexample",
+  "counterexample": {
+    "is_counterexample": true
+  },
+  "rests_on": "openai-math-320",
+  "no_change_found": false,
+  "event": {
+    "id": "openai-math-320",
+    "what_happened": "One manuscript, 'Nonhomeomorphic closed aspherical four-manifolds with the same homotopy type' (OpenAI, dated October 4, 2026). Theorem 'pair' (thm:pair): there are closed connected aspherical topological four-manifolds M and N that are homotopy equivalent but not homeomorphic, with a common word-hyperbolic fundamental group Π. Theorem 'self-map' (thm:self-map): for the same M there is a homotopy equivalence f: M → M such that no homeomorphism M → M is homotopic to f. Construction in outline: a four-dimensional Poincaré chamber (D, P, S) whose double cyclic cover S₂ has a marked filling, while every odd cyclic cover S_d (d ≥ 3) has none. Reflection quotient Q of P by an elementary abelian label group A = (ℤ/2)^𝒱 / C, where 𝒱 is the vertex set of a flag-no-square triangulation of S with at least 5000 vertices and C is an explicit 8-dimensional subspace; Q₂ is the double cyclic cover of Q, and Π = π₁(Q₂). M = M₀ and N = M_ℓ are two closed manifold models of Q₂, obtained by gluing copies of a topological filling of S₂ with boundary twists given by a linear functional ε on A (ε = 0 for M, ε = ℓ ≠ 0 for N). Self-map: a cyclic-cover criterion realizes the outer automorphism δ of Π by a self-homotopy equivalence of M and rules out any homeomorphism inducing δ. Non-homeomorphism: a Sylow-type criterion for Out(Π) (Proposition 'A Sylow criterion for manifold models'), using that A and B_ℓ are 2-subgroups of equal order, that the normalizer of A in Out(Π) is A × ⟨δ⟩, that δ is not realized on M, and that A and B_ℓ are not conjugate in Out(Π).",
+    "date": "2026-10-06",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "revisions": null,
+    "delivers": "Dimension four only. The objects are closed connected aspherical topological (not smooth) four-manifolds. The pair M, N has one common fundamental group Π, which the text shows is word-hyperbolic, torsion-free, infinite, one-ended, and of finite index in the reflection extension W ⋊ H. Out(Π) is finite. The text claims a disproof of the homeomorphism-existence formulation of the Borel conjecture in dimension four, for this one group. Against the list's bullet, which asks for aspherical closed manifolds with isomorphic fundamental groups to be homeomorphic and does not restrict the dimension, the paper's existence form matches the bullet's wording, and the dimension-four pair falsifies that bullet as worded. The manuscripts do not claim to settle the Borel conjecture as a whole. Their statement is narrower than the bullet in dimension, and the bullet's part (3), the homotopy-realization form, is not the paper's headline. Reading the stated Theorem 'self-map' against the introduction's definition of the topological Borel conjecture (every homotopy equivalence between closed aspherical manifolds is homotopic to a homeomorphism), it also refutes that stronger form in dimension four. The text does not state that consequence in its abstract or introduction. It is my reading of the stated theorem. The text notes that Bartels and Lück prove the prescribed-class formulation in dimensions at least five for a class containing word-hyperbolic groups. The counterexample is in dimension four, so it does not conflict with that.",
+    "remains": "If the claim is correct, the family does not touch these parts of the problem. (a) Dimensions other than four. The text treats dimensions at most two as classical, and dimension three for closed orientable aspherical manifolds via geometrization. It cites Bartels and Lück for dimensions at least five for a class containing hyperbolic groups. It says the cyclic-cover criterion 'works in every manifold dimension', but applies it only at n = 4. (b) Dimension four for other fundamental groups. The text does not characterize which dimension-four groups admit such pairs, and it gives only this one group. (c) The homotopy-realization form for other manifolds or groups. It is refuted only by the single self-map of M. (d) Goodness. The introduction presents goodness as the hypothesis of the dimension-four rigidity results it cites (Bartels–Lück, Freedman–Quinn), and the text does not say whether Π is good. The claim's conclusion is in tension with the good case, and the text does not discuss this.",
+    "checked_by": [],
+    "no_engagement_found": null,
+    "time_since_posted": "8 days",
+    "machine_checked": null,
+    "directly_checkable": null,
+    "doubts": "(1) The two load-bearing inputs are imported, not proved here. Theorem 'Reflection and marked fillings' is presented as extracted from [PD, Sections 3–5]. The odd-cover non-filling (Proposition 'Odd covers do not fill') takes its edge-level input unchanged from [MT, Proposition 4.5 and Theorem 5.1], and the text says that what it verifies is only the assembly at vertices with both kinds of endpoint and the conversion of the four-slot laws. (2) The endpoint-assignment theorem is said to be argued 'in full', yet the same paragraph says its truncated differential forms and its two successive homologies come from [MT, Section 3]. (3) The introduction cites Khan's rigidity up to topological s-cobordism for closed aspherical four-manifolds with torsion-free word-hyperbolic fundamental group, and says the five-dimensional product theorem needs a good group. Theorem 'pair' concerns exactly torsion-free word-hyperbolic Π. The text never says whether Π is good and does not reconcile this with Khan's result. It says only that 'the dimension is essential to their topological conclusion'. (4) Finiteness of Out(Π) is obtained by citing the Bestvina–Feighn splitting theorem and applying the paper's own no-splitting lemma. The cited theorem is not proved in the text. (5) A search of all section files found no step flagged as sketched, conditional, or omitted, and no hedging beyond the imported inputs.; conditional on: Yes. (a) Two companion OpenAI manuscripts, neither read here: 'A marked tensor obstruction to four-dimensional disk embedding' ([MT]) and 'A PD4 group without an aspherical manifold model' ([PD]), both OpenAI Math Release preprints dated September 24, 2026. The reflection input (Theorem 'Reflection and marked fillings') is stated by the authors as extracted from [PD, Sections 3–5] and uses [PD, Propositions 3.2, 4.6, 5.5]. The parity chamber data and the odd-cover non-filling use the plumbing blocks of [MT, Section 2.2], the chamber and cut constructions of [PD, Section 2], the marked algebraicity theorem [MT, Theorem 5.1] with [MT, Proposition 4.5 and Lemma 4.4], and the universal-development argument of [PD, Section 3]. (b) That Out(Π) is finite rests on a splitting theorem of Bestvina and Feighn (using Paulin's construction), cited and not proved in the text. (c) Standard results cited without proof: Davis's reflection-group framework, Chepoi's median-graph facts, Przytycki–Świątkowski's flag-no-square triangulations, Stallings's ends theorem, and the Švarc–Milnor lemma. The argument does not use Khan's results.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "disproves the homeomorphism-existence form of the Borel conjecture in dimension four, for one hyperbolic group; the self-map result also refutes the homotopy-realization form in dimension four",
+    "object": "Two closed aspherical topological four-manifolds M = M₀ and N = M_ℓ, and a self-homotopy equivalence f: M → M. M and N are built explicitly as gluings of copies of one compact topological four-manifold V with boundary S₂ (the double-cover filling, obtained from the smooth chamber double cover D₂ by replacing finitely many punctured S² × S² neighborhoods with four-balls), along a flag-no-square triangulation of S and a choice of linear functional ε on the label group A. Once these choices are fixed, the gluing recipe is explicit. The chamber D itself comes from the plumbing constructions of the companion manuscripts. The non-homeomorphism is proved by contradiction, and no invariant is exhibited. The self-map f is not written down: it is obtained by realizing an outer automorphism through the classification of maps between Eilenberg–MacLane spaces.",
+    "people": [],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "an unreleased internal OpenAI model",
+          "what_it_did": "produced the manuscripts, per the repository README",
+          "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+          "quote_url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+        }
+      ],
+      "disclosed_cost": "On average, each result used three hours of ChatGPT Pro thinking compute with that model.",
+      "sources": [
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+      ]
+    },
+    "sources": [
+      "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/paper.pdf",
+      "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+    ],
+    "origin": {
+      "stage": "openai",
+      "family": "320",
+      "family_title": "Nonhomeomorphic closed aspherical four-manifolds",
+      "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+      "read": [
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/README.md",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/paper.tex (abstract and full file)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/references.tex (lines 125–141 for MT and PD entries; bibliography keys grepped)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/introduction.tex (full)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/reflection.tex (full)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/cyclic.tex (full)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/models.tex (full)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/extension.tex (full)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/hyperbolicity.tex (lines 1–30, 182–300, 366–516)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/normalizer.tex (lines 324–466)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/tensors.tex (lines 1–160)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/formal.tex (lines 1–150, 240–349)",
+        "sources/openai-math/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/build/sections/chambers.tex (lines 1–30, 673–792)"
+      ]
+    }
+  },
+  "credited_humans": [],
+  "status_sources": [
+    "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Nonhomeomorphic-closed-aspherical-four-manifolds-with-the-same-homotopy-type-October-4-2026/paper.pdf",
+    "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+  ],
+  "ai": {
+    "systems": [
+      "an unreleased internal OpenAI model"
+    ],
+    "from_event": "openai-2026-borel-dim4",
+    "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+    "none_found": false,
+    "disclosed_cost": "Release-level only, from the README as summarised by the fetch tool (not byte-checked): roughly 4,000 problems posed, and about three hours of ChatGPT Pro thinking compute per result on average. No per-manuscript figure."
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "openai-2026-borel-dim4",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Load-bearing inputs are imported from two same-day unreviewed OpenAI manuscripts (MT, PD), one of which asserts non-goodness of F2, a long-open question; the manuscript does not reconcile its result with Khan's s-cobordism rigidity or say whether Pi is good.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      },
+      {
+        "id": "openai-2026-pd4-wall",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Depends on the unread, unreviewed MT manuscript.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "openai-2026-marked-tensor-disk",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Body unreadable; claims non-goodness of F2, an open problem, with no independent check.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "openai-2026-boundary-only-disk",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Only abstract readable; claims non-goodness of F2, an open problem, with no independent check.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "krushkal-2026-collision-rank",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "aria-2025-statement",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gkeneralis-2026-moment-angle",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "davis-hillman-2025-boundary",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "davis-hillman-2025-boundary-4d",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "davis-hayden-2024-smooth",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "farrell-jones-1989",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "hsiang-wall-1969",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "roushon-2007-withdrawn",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn by the author after Lueck and Linnell found Lemma 3.8 fails for unrestricted wreath products.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bartels-lueck-2009",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "guentner-tessera-yu-2010",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "frigerio-lafont-sisto-2011",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "barcenas-et-al-2015",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "khan-2009",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wang-2015",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "openai-math-320",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Same manuscript as openai-2026-borel-dim4: key inputs imported from unreviewed MT and PD; goodness of Pi and the tension with Khan's s-cobordism rigidity are not addressed.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      }
+    ],
+    "why": "The statement is universal and unrestricted in dimension, so a single pair of homotopy-equivalent, non-homeomorphic closed aspherical 4-manifolds with the same fundamental group falsifies it as worded: the OpenAI manuscript is scored whole/refuted/counterexample, unreviewed (no human reader in 8 days, no Lean), and doubtful rather than not_credible because the doubts are specific (unreviewed MT/PD dependencies, the F2 non-goodness claim on an open question, unaddressed Khan tension) but no error is identified and the mechanism (non-good hyperbolic group, where 4-d rigidity is not known) is coherent. AI role is generated: author is 'OpenAI', no human is named, and the release README attributes the results to an internal model; this is release-level, not manuscript-level, but nothing suggests a human produced it. The companion MT/PD/boundary manuscripts answer different questions (disk embedding, goodness, Wall realisation) and are variants. Davis et al. refutes only the smooth analogue (variant); Davis-Hillman concern manifolds with boundary (variant); Khan is up to s-cobordism and GTY is stable (variants); Krushkal (goodness) and Aria (sorry-ended statement) are none. Class results (Farrell-Jones, Hsiang-Wall, Bartels-Lueck, FLS, Barcenas et al., Wang, Gkeneralis) are cases; Roushon is withdrawn.",
+    "doubts": "openai-2026-borel-dim4 and openai-math-320 are the same manuscript recorded twice (research pass and OpenAI stage); I gave them identical answers. The AI attribution rests on a release-level README sentence that does not name this manuscript. Gkeneralis's result may be a direct instance of Bartels-Lueck (2012) and so not new. Whether a counterexample in dimension four alone counts as 'whole' depends on reading the bullet as a universal claim over all dimensions; the statement's wording supports that reading, though the literature treats the conjecture dimension by dimension and dimensions 4 and 5+ have different status.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "claimed",
+      "rests_on": "openai-math-320",
+      "ai_role": "generated",
+      "ai_from": "openai-2026-borel-dim4",
+      "resolution_direction": "refuted",
+      "object_role": "counterexample",
+      "ai_systems_credited": [
+        "an unreleased internal OpenAI model"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

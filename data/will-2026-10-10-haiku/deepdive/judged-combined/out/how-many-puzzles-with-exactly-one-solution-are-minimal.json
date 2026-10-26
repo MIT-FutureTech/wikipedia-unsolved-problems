@@ -1,0 +1,923 @@
+{
+  "key": "how-many-puzzles-with-exactly-one-solution-are-minimal",
+  "nothing_found": false,
+  "outcome": "Nothing since 26 January 2024 counts or bounds the number of minimal 9×9 Sudoku puzzles: the only figures for the total are two statistical estimates by Denis Berthier from 2011 and 2013 (about 3.1055×10³⁷ labelled and 2.5477×10²⁵ up to symmetry), never converted into a count, and the post-2024 items found concern neighbouring questions (a 5×5 analogue with an exact count, the clues a given grid needs, grid counting) or restate the old estimate.",
+  "problem_asks": "(1) The number of puzzles that (a) have exactly one solution and (b) are minimal, meaning that removing any single given leaves more than one solution. (2) The statement names no grid size. Read under the Sudoku heading in the Games and puzzles section, it is about the standard 9×9 game; the wording itself does not say so. (3) It does not say whether puzzles that differ by a symmetry or by relabelling of digits are counted once or separately; the literature uses both conventions, so the labelled count and the count up to isomorphism are two different parts of the question. (4) It asks for the number itself. Nothing in its wording admits an estimate or a bound as the answer.",
+  "events": [
+    {
+      "id": "berthier-2011-estimate",
+      "what_happened": "Denis Berthier, 'Unbiased Statistics of a CSP - A Controlled-Bias Generator' (arXiv:1111.4083, submitted 17 Nov 2011). Per search-result excerpts only, not confirmed in the paper text (the PDF's text streams could not be decoded by the fetch tool): the paper estimates the total number of minimal Sudoku puzzles as about 3.1055×10³⁷ with a stated relative error of 0.065%, and the number up to isomorphism as about 2.5477×10²⁵ with the same stated error. The method per the excerpts is to multiply an estimated mean number of minimal puzzles per completed grid by the number of completed grids, 6,670,903,752,021,072,936,960 (Felgenhauer and Jarvis), and for the isomorphism figure by the 5,472,730,538 essentially different grids. The arXiv abstract page (opened) describes the work as a controlled-bias generator for CSPs with Sudoku as the restricted example, and does not state either estimate.",
+      "date": "2011-11-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (17 Nov 2011), per the arXiv abstract page, which lists no later version.",
+      "delivers": "An estimate, not a count, of the number of minimal 9×9 puzzles: a labelled total of about 3.1055×10³⁷ and an up-to-symmetry figure of about 2.5477×10²⁵, each with a stated relative error of 0.065%, under the author's sampling method. The up-to-symmetry figure equals the labelled total multiplied by 5,472,730,538 ÷ 6,670,903,752,021,072,936,960, that is, the total divided by the sudoku symmetry-group order of about 1.219×10¹²; this is my arithmetic from the figures, not a statement in the paper. Restricted to standard 9×9 Sudoku.",
+      "remains": "The exact labelled count and the exact count up to isomorphism. The estimate is not a count and carries no proof of its error bound in the sources I could read.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 11 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(1) The figures rest on a sampling method whose error bars are the author's own. (2) The up-to-symmetry figure is the total divided by the group order, which is the identity term of a Burnside count; it omits contributions from puzzles with non-trivial symmetry, and the stated 0.065% error does not obviously cover that. (3) The 2013 follow-up (berthier-2013-estimate) quotes a per-grid mean that does not reproduce the 2011 totals exactly (see that event). (4) Sampling estimates of this kind have been wrong before in this area: McGuire et al. (arXiv:1201.0749, section 2.2.1) quote a maximum-likelihood estimate of about 34,550 for the number of 17-clue puzzles, which the list of 49,151 later exceeded. This is a caution, not a finding that the Berthier figures are wrong.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Gives an estimated value for the very quantity the statement asks for (the count of minimal 9×9 puzzles). It is not an exact answer and does not settle the question either way.",
+      "object": null,
+      "people": [
+        "Denis Berthier"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1111.4083"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1111.4083",
+        "https://arxiv.org/pdf/1111.4083"
+      ]
+    },
+    {
+      "id": "berthier-2013-estimate",
+      "what_happened": "Denis Berthier, 'Pattern-Based Constraint Satisfaction and Logic Puzzles' (arXiv:1304.1628, submitted 5 Apr 2013). A book-length posting that uses Sudoku as its main example. Per search-result excerpts only, not confirmed in the paper text: it restates the minimal-puzzle estimates (3.1055×10³⁷ labelled, 2.5477×10²⁵ up to isomorphism, 0.065% relative error), gives a per-grid mean of about 4.6655×10¹⁵ minimal puzzles per completed grid, and gives estimates by clue count from 20 to 25 with relative errors from about 70.7% at 20 clues down to about 0.074% at 25. Publisher listings seen in search (not opened) show second and third print editions dated 2015 and 2021.",
+      "date": "2013-04-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (5 Apr 2013), per the arXiv abstract page.",
+      "delivers": "The same kind of estimate as berthier-2011-estimate, restated with a breakdown by clue count (20 to 25) according to the excerpts. Restricted to standard 9×9 Sudoku and to the sampling method. Internal check on the excerpt: a per-grid mean of 4.6655×10¹⁵ times 6,670,903,752,021,072,936,960 gives about 3.112×10³⁷, not 3.1055×10³⁷; a per-grid mean of about 4.655×10¹⁵ reproduces both the labelled and the up-to-symmetry totals. The excerpt's digits are therefore probably a transcription slip, but I could not confirm that in the paper text.",
+      "remains": "The exact labelled count and the exact count up to isomorphism; the per-clue-count rows are estimates with large stated errors at low clue counts.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(1) The figures are the author's sampling estimates; no independent recomputation or peer-reviewed version was found in these searches. (2) The excerpted per-grid mean does not reproduce the excerpted totals exactly (see delivers). (3) The 20-clue row carries a stated relative error of about 70.7% (excerpt), so the headline 0.065% describes the totals and rows dominated by high clue counts, not each row. (4) The up-to-symmetry figure has the same structure as in berthier-2011-estimate.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Same as berthier-2011-estimate: an estimate for the count the statement asks for, not an answer.",
+      "object": null,
+      "people": [
+        "Denis Berthier"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1304.1628"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1304.1628",
+        "https://arxiv.org/pdf/1304.1628"
+      ]
+    },
+    {
+      "id": "royle-17-clue-list",
+      "what_happened": "Gordon Royle's collection of 17-clue Sudoku puzzles, which he compiled between about 2005 and 2009 and which is cited as 'A collection of 49,151 distinct Sudoku configurations with 17 entries' (reference [15] of McGuire et al., arXiv:1201.0749, opened) and in Lin, Wu and Wei (ICGA Journal, 2013). Earlier counts reported in search snippets, not opened: 36,628 (a 2006 post), 47,621 (a 2008 Danish newspaper), then 49,151 by 2009. Royle's own page could not be reached (see incomplete).",
+      "date": "2009",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": "Counts reported over time: 36,628 (2006 post), 47,621 (2008), 49,151 (2009 and later). A figure of 49,158 appears in a commercial puzzle site and a blog, both unsourced; not in the McGuire et al. text I read.",
+      "delivers": "A list of 49,151 pairwise non-isomorphic puzzles with 17 givens, which the sources describe as having a unique solution. Since no 16-clue unique puzzle exists (McGuire et al.), every such puzzle is minimal, so the list is a lower bound on the number of 17-clue minimal puzzles up to isomorphism. It is a partial enumeration of the 17-clue slice of the question, not a count of that slice.",
+      "remains": "Whether the list is complete for 17 clues; the labelled count; minimal puzzles with 18 or more givens, which no source counts.",
+      "checked_by": [
+        {
+          "who": "Hung-Hsuan Lin, I-Chen Wu and Tinghan Wei",
+          "qualification": "Authors of a peer-reviewed ICGA Journal paper on 17-clue puzzles",
+          "what_they_did": "Checked 95 17-clue puzzles with exactly three givens in the top 9×3 block against the list and found all 95 already in it (see lin-wu-wei-2013-icga)",
+          "where": "https://content.iospress.com/articles/icga-journal/icg36302 (page returned 403; the claim is taken from search excerpts and the NYCU repository record)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 17 years since the list reached 49,151 (2009); the list's current status is unknown",
+      "machine_checked": null,
+      "directly_checkable": "Each puzzle can be checked for a unique solution by a solver, and for the 17-clue minimum by any solver; the file itself was not retrieved.",
+      "doubts": "(1) The list has no completeness proof. (2) Its own maintainers do not claim completeness in the sources read. (3) McGuire et al. call the list 'almost all' of the 17-clue puzzles on the basis of a sampling observation: a correspondent's 700 puzzles yielded only 33 new ones (arXiv:1201.0749, section 2.2.1). That is an inference, not a theorem. (4) The count moved between versions, and the 49,158 figure in later sources is unverified. (5) Royle's hosting pages did not resolve in my fetch attempts, so I could not check the current file.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "A partial count of the 17-clue slice of minimal puzzles. It cuts neither way on the total, since it is a lower bound on one slice.",
+      "object": "The 49,151 17-clue puzzles themselves, each with 17 givens and a unique solution, pairwise non-isomorphic according to the sources. Not examined by me.",
+      "people": [
+        "Gordon Royle"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/1201.0749"
+        ]
+      },
+      "sources": [
+        "https://ar5iv.arxiv.org/html/1201.0749",
+        "https://web.archive.org/web/20140411163430/http://school.maths.uwa.edu.au/~gordon/sudokumin.php"
+      ]
+    },
+    {
+      "id": "mcguire-tugemann-civario-2012",
+      "what_happened": "Gary McGuire, Bastian Tugemann and Gilles Civario, 'There is no 16-Clue Sudoku: Solving the Sudoku Minimum Number of Clues Problem via Hitting Set Enumeration' (arXiv:1201.0749, cs.DS). An exhaustive computer search over grid classes found no 16-clue Sudoku puzzle with a unique solution, so 17 is the minimum number of givens (the arXiv abstract page). The method uses a new hitting-set enumeration. The paper's section 2.2.1 also says that the 49,151-puzzle list 'must be almost all the 17-clue puzzles in existence' and reports that 29 is the largest number of 17-clue puzzles known for any one grid. Published in Experimental Mathematics 23(2), 190–217 (2014), per the citation on the Wikipedia 'Mathematics of Sudoku' page; the journal page returned 403.",
+      "date": "2012-01-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 1 Jan 2012; v2 1 Sep 2013 (arXiv abstract page). Journal version 2014 per Wikipedia citation.",
+      "delivers": "It settles the minimum number of givens for a uniquely solvable 9×9 puzzle as 17, which it proves by showing that none has 16. Since every 17-clue unique puzzle is then automatically minimal, it fixes the smallest size class of the count. It does not count minimal puzzles of any size. The 'almost all 17-clue puzzles' statement is a sampling inference in the text, restricted to 17 givens.",
+      "remains": "The count of minimal puzzles of every size; the exact count of 17-clue puzzles (the statement is an inference); any count of minimal puzzles with 18 or more givens.",
+      "checked_by": [
+        {
+          "who": "Experimental Mathematics (journal of record) referees and editors",
+          "qualification": "Peer review of a journal in experimental mathematics",
+          "what_they_did": "Accepted the 2014 journal version, per the citation on the Wikipedia 'Mathematics of Sudoku' page; the journal page itself was not readable",
+          "where": "https://www.tandfonline.com/doi/full/10.1080/10586458.2013.870056 (returned 403, not opened)",
+          "automated": false
+        },
+        {
+          "who": "Lin, Wu and Wei (ICGA Journal, 2013)",
+          "qualification": "Peer-reviewed follow-up on the 17-clue puzzles",
+          "what_they_did": "Used the same list and the same structural framing of 17-clue puzzles, and relied on the McGuire et al. minimum (see lin-wu-wei-2013-icga)",
+          "where": "https://content.iospress.com/articles/icga-journal/icg36302 (not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 years since v1",
+      "machine_checked": null,
+      "directly_checkable": "The 16-clue non-existence is a computer search; the code and its independent reimplementation were not found in these searches.",
+      "doubts": "(1) The 16-clue non-existence rests on a computer search; I found no independent reimplementation. (2) The 'almost all 17-clue puzzles' claim is an inference from a sampling observation and a maximum-likelihood estimate that the list later exceeded (about 34,550 against 49,151); the paper presents it as an observation, not a proof. (3) Some secondary sources (a search snippet of a 2014 record and the Sudopedia page) describe the 17 minimum as unproven, which conflicts with this result; see disputes.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts toward the minimum of 17 givens. It does not change the count of minimal puzzles, which the statement asks about, and it does not answer the question.",
+      "object": "No object is exhibited. The result is a non-existence statement: no 9×9 puzzle with 16 givens has a unique solution.",
+      "people": [
+        "Gary McGuire",
+        "Bastian Tugemann",
+        "Gilles Civario"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1201.0749",
+          "https://ar5iv.arxiv.org/html/1201.0749"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1201.0749",
+        "https://ar5iv.arxiv.org/html/1201.0749",
+        "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku"
+      ]
+    },
+    {
+      "id": "lin-wu-wei-2013-icga",
+      "what_happened": "Hung-Hsuan Lin, I-Chen Wu and Tinghan Wei, 'On Specific 17-Clue Sudoku Puzzles', ICGA Journal 36(3), pp. 131–138 (2013). Per search excerpts of the NYCU repository record (the landing page I opened carried no metadata): the authors group 17-clue puzzles by how many givens lie in the top 9×3 block and prove that no 17-clue puzzle has fewer than three givens there and that exactly 95 have exactly three. All 95 are already in Royle's list, and the authors conclude, as a conjecture, that most 17-clue puzzles have been found.",
+      "date": "2013-09",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "No arXiv version found. Issue date 2013-09-01 per repository metadata seen in search results.",
+      "delivers": "A partial structural census of 17-clue puzzles (those with exactly three givens in the top 9×3 block: 95 puzzles, all known). It shows the list has no 17-clue puzzles with two or fewer givens in that block. It does not count all 17-clue puzzles or any minimal puzzles of other sizes.",
+      "remains": "The total number of 17-clue puzzles, which the authors conjecture is essentially known but do not prove; all minimal puzzles of other sizes.",
+      "checked_by": [
+        {
+          "who": "ICGA Journal editors and referees",
+          "qualification": "Peer review of a journal devoted to computer games",
+          "what_they_did": "Accepted the paper for publication (inferred from the journal record; the paper page returned 403)",
+          "where": "https://content.iospress.com/articles/icga-journal/icg36302 (returned 403, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 years",
+      "machine_checked": null,
+      "directly_checkable": "The 95 puzzles are a finite, checkable set; the authors' list was not retrieved.",
+      "doubts": "(1) The full text was not readable (publisher page 403), so the claims rest on search excerpts and the repository abstract. (2) The authors' own conjecture that most 17-clue puzzles are found is not a completeness proof. (3) The 95 puzzles are all of the three-givens-in-top-block class, which may be a small subset of the 17-clue puzzles.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the list of 17-clue puzzles being near-complete, but stated as a conjecture. It cuts neither way on the total count.",
+      "object": "The 95 17-clue puzzles with exactly three givens in the top 9×3 block; the authors identify them as already in Royle's list.",
+      "people": [
+        "Hung-Hsuan Lin",
+        "I-Chen Wu",
+        "Tinghan Wei"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ir.lib.nycu.edu.tw/handle/11536/23547?mode=full"
+        ]
+      },
+      "sources": [
+        "https://ir.lib.nycu.edu.tw/handle/11536/23547?mode=full",
+        "https://content.iospress.com/articles/icga-journal/icg36302"
+      ]
+    },
+    {
+      "id": "tjusila-et-al-2023-minimum-clues-given-grid",
+      "what_happened": "Gennesaret Tjusila, Mathieu Besançon, Mark Turner and Thorsten Koch, 'How Many Clues To Give? A Bilevel Formulation For The Minimum Sudoku Clue Problem' (arXiv:2305.01697, math.OC, v1 2 May 2023). For a fixed completed 9×9 grid, the minimum number of clues in any puzzle whose unique solution is that grid. Formulated as a binary bilevel linear program with added valid inequalities; solves 95% of 50 test grids to optimality, per the arXiv abstract. Published as Operations Research Letters 54 (2024), article 107105, DOI 10.1016/j.orl.2024.107105, per the first author's ZIB publication page (opened).",
+      "date": "2023-05-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 2 May 2023 (arXiv abstract page); journal version 2024 per the ZIB page. Later arXiv versions not checked.",
+      "delivers": "For a given grid, the minimum number of givens of a uniquely solvable puzzle with that solution, computed by optimisation on 50 instances. Restricted to a fixed grid and to the minimum clue count. It does not address minimality of puzzles or count them.",
+      "remains": "Everything the statement asks: the number of minimal puzzles, labelled or up to symmetry.",
+      "checked_by": [
+        {
+          "who": "Operations Research Letters referees and editors",
+          "qualification": "Peer review by a journal of record for operations research",
+          "what_they_did": "Accepted the paper for publication in volume 54 (2024), per the ZIB record",
+          "where": "https://iol.zib.de/team/gennesaret-tjusila.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 3 years (arXiv); about 2.5 years (journal)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "None specific to the count question. The optimisation results are computational; the paper's code and instance set were not checked.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A neighbouring problem (the minimum clue count for a given grid), not the count of minimal puzzles. It does not cut either way on the statement.",
+      "object": null,
+      "people": [
+        "Gennesaret Tjusila",
+        "Mathieu Besançon",
+        "Mark Turner",
+        "Thorsten Koch"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2305.01697"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2305.01697",
+        "https://iol.zib.de/team/gennesaret-tjusila.html"
+      ]
+    },
+    {
+      "id": "an-et-al-2026-5x5-perfect-code",
+      "what_happened": "Junmin An, Jae-Hyun Baek, Keon-Hwi Kim, Haeun Lim and Jon-Lark Kim, 'Symmetric Sudoku-Type Games from Perfect Codes' (arXiv:2605.09617, submitted 10 May 2026). In Section 6.1 (Table 2, Algorithm 1) the paper enumerates minimal games on 5×5 perfect-code Sudoku-type grids for hint counts 4 to 7. It reports 15,898,200 minimal games in total and 35,759 up to equivalence. Minimal is defined as having a unique solution with removing any single hint leaving non-uniqueness (Definition 6.1). Per the HTML text (opened), the totals by hint count are 154,200 (4), 5,721,600 (5), 8,908,800 (6) and 1,113,600 (7).",
+      "date": "2026-05-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only as shown on the arXiv abstract page as fetched.",
+      "delivers": "An exact count of minimal puzzles for one analogue setting: 5×5 perfect-code Sudoku-type grids (not standard 9×9), with hint counts 4 to 7 only. It counts the same kind of object as the question, but in a different and much smaller grid family, so it does not give the 9×9 count and does not bear on the 9×9 totals.",
+      "remains": "The 9×9 count, labelled and up to symmetry; minimal games with hint counts outside 4 to 7 in the 5×5 setting, which the paper does not treat.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 months",
+      "machine_checked": null,
+      "directly_checkable": "The 5×5 setting is small enough for a direct check, which the paper does not describe as published code.",
+      "doubts": "(1) The completeness argument depends on a reduction (Theorem 6.2) for which, per the paper's text as read, the detailed proof is omitted. (2) The method of checking uniqueness is not described in the text read beyond the Algorithm 1 step. (3) No public code or independent recount was found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "It answers an analogue of the question in a smaller setting. It does not cut for or against the 9×9 count.",
+      "object": null,
+      "people": [
+        "Junmin An",
+        "Jae-Hyun Baek",
+        "Keon-Hwi Kim",
+        "Haeun Lim",
+        "Jon-Lark Kim"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2605.09617"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2605.09617",
+        "https://arxiv.org/html/2605.09617"
+      ]
+    },
+    {
+      "id": "eppstein-zhang-2026-grids-many-clues",
+      "what_happened": "David Eppstein and Xinyu (Cindy) Zhang, 'Sudoku Grids That Require Many Clues' (arXiv:2607.05728, cs.DM, submitted 7 Jul 2026). Per the abstract (opened): motivated by worst-case time bounds for solving sudoku, the paper studies for a filled-in grid the fewest clues that any puzzle with that solution needs. It shows that a majority of filled-in n²×n² grids require all but a logarithmic fraction of cells to be clues, and constructs 9×9 grids that require 18 clues and 16×16 grids that require 80.",
+      "date": "2026-07-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 7 Jul 2026 per the abstract page; no later version seen.",
+      "delivers": "Per-grid minimum clue counts: some 9×9 grids need 18 clues, so every unique puzzle for them has at least 18 givens and none has 17. That is a structural fact about the sizes of minimal puzzles for particular grids. It does not count minimal puzzles, and its main results are asymptotic for n²×n² grids.",
+      "remains": "The count of minimal 9×9 puzzles, labelled or up to symmetry.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A neighbouring problem: the fewest clues needed for a given grid, not the number of minimal puzzles. It does not cut either way on the count.",
+      "object": "The 9×9 grids that require 18 clues and the 16×16 grids that require 80 clues. Their constructions were not examined beyond the abstract.",
+      "people": [
+        "David Eppstein",
+        "Xinyu (Cindy) Zhang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2607.05728"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.05728"
+      ]
+    },
+    {
+      "id": "pereira-2026-grid-counting",
+      "what_happened": "Fernanda Pereira, 'Counting, Symmetries and Equivalence Classes of Sudoku Grids' (arXiv:2607.20669, submitted 22 Jul 2026; v2 24 Jul 2026). Per the abstract page, of which only part was readable: restates the 6.67×10²¹ complete grids and 5,472,730,538 essentially different grids, and re-derives the 44 equivalence classes of the first band by Burnside's lemma by hand.",
+      "date": "2026-07-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 22 Jul 2026; v2 24 Jul 2026 (per the abstract page).",
+      "delivers": "A re-derivation of a grid-level count (the first-band equivalence classes). It concerns complete grids, not puzzles. It supplies the grid denominators that the estimates use, but it does not count puzzles and does not bear on minimal puzzles.",
+      "remains": "All of the count of minimal puzzles.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2.5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Concerns grids, not minimal puzzles. Does not cut either way on the statement.",
+      "object": null,
+      "people": [
+        "Fernanda Pereira"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2607.20669"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.20669"
+      ]
+    },
+    {
+      "id": "citizen-2026-blog",
+      "what_happened": "Mark Citizen, 'How Many Sudokus Are There?', thesudoku.com blog. The date of 31 March 2026 is taken from the URL; the article text carries no date. Per the fetched text: a sudoku puzzle is a partly filled grid with a unique solution, the '~3 × 10³⁷ figure for puzzles with unique solutions is an estimate', an exact count 'is considered computationally intractable with current methods'; 'Known 17-clue puzzles number in the tens of thousands'; 'How many 17-clue puzzles exist in total?' is listed as open; Royle's database is described as holding over 49,000 17-clue puzzles, 'but no one has proven this list is complete'. The post names no source for the 3×10³⁷ figure.",
+      "date": "2026-03-31",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A restatement of the Berthier estimate, not a new result. It describes the estimated figure as the count of puzzles with unique solutions, which is a different quantity from the count of minimal puzzles.",
+      "remains": "Everything the statement asks; the post itself says the count is open.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 6.5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The 3×10³⁷ figure is given without a source, and it is attributed to unique-solution puzzles where the source paper estimates minimal ones. The blog is a non-academic write-up.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Restates the open status of the count and an old estimate. It does not cut either way.",
+      "object": null,
+      "people": [
+        "Mark Citizen"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://thesudoku.com/blog/2026/03/31/how-many-sudokus-are-there/"
+        ]
+      },
+      "sources": [
+        "https://thesudoku.com/blog/2026/03/31/how-many-sudokus-are-there/"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "figure-conflict",
+      "summary": "Size of Royle's 17-clue list: 49,151 in McGuire et al. reference [15] and in Lin, Wu and Wei (2013); 49,158 in a commercial puzzle site and a blog, unsourced, and not in the McGuire et al. full text I read (ar5iv, both halves).",
+      "sources": [
+        "https://ar5iv.arxiv.org/html/1201.0749",
+        "https://content.iospress.com/articles/icga-journal/icg36302"
+      ]
+    },
+    {
+      "kind": "conflation",
+      "summary": "The March 2026 blog labels the ~3×10³⁷ figure as puzzles with unique solutions, but the Berthier papers estimate minimal puzzles; the two are different quantities.",
+      "sources": [
+        "https://thesudoku.com/blog/2026/03/31/how-many-sudokus-are-there/",
+        "https://arxiv.org/abs/1304.1628"
+      ]
+    },
+    {
+      "kind": "status-claim",
+      "summary": "Sudopedia's 'Minimal' page says the 17-given minimum is 'believed ... but this has not been proven', while McGuire et al. (2012) and the Wikipedia 'Mathematics of Sudoku' article treat it as proven by exhaustive search. The Sudopedia text appears out of date.",
+      "sources": [
+        "https://sudopedia.sudocue.net/index.php/Minimal",
+        "https://arxiv.org/abs/1201.0749",
+        "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku"
+      ]
+    },
+    {
+      "kind": "figure-conflict",
+      "summary": "Largest known minimal puzzle: 40 clues in search snippets attributed to Wikipedia and EPFL pages, and 39 in a SudokuWiki excerpt in search results. Neither figure is in the 'Mathematics of Sudoku' text I read. This bullet's neighbour (maximum givens) is not this problem; recorded because the snippets are repeated in sources about minimal puzzles.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku"
+      ]
+    }
+  ],
+  "summary": "I found no event since 26 January 2024 that counts or bounds the number of minimal 9×9 Sudoku puzzles. The only quantitative attempts to count them are two statistical estimates by Denis Berthier, posted in November 2011 and April 2013 (arXiv:1111.4083 and arXiv:1304.1628), giving about 3.1055×10³⁷ minimal puzzles and about 2.5477×10²⁵ up to symmetry, each with a stated 0.065% relative error. Both predate the window and neither is a count. I could not read the PDF text of either paper (the fetch tool returned compressed streams), so these figures, the 'longstanding open question' wording, the clue-count table and the per-grid mean are taken from search-result excerpts and are unverified in full text. Two internal checks on those excerpts: the up-to-symmetry figure is the labelled total divided by the sudoku symmetry-group order (about 1.219×10¹²), which is only the identity term of a Burnside count; and an excerpted per-grid mean of 4.6655×10¹⁵ does not reproduce the excerpted totals (it gives about 3.112×10³⁷), while about 4.655×10¹⁵ does. The 17-clue slice has a partial enumeration: Royle's list of 49,151 puzzles, compiled 2005–2009. McGuire, Tugemann and Civario (arXiv:1201.0749, 2012; Experimental Mathematics 2014) prove that 16 givens never suffice, which makes every 17-clue unique puzzle minimal, and they say the list 'must be almost all the 17-clue puzzles in existence', an inference from a sampling observation. Lin, Wu and Wei (ICGA Journal 36(3), 2013) prove that 95 17-clue puzzles have exactly three givens in the top 9×3 block, all already in Royle's list, and conjecture that most 17-clue puzzles are known. Post-window items are all on neighbouring questions. An, Baek, Kim, Lim and Kim (arXiv:2605.09617, 10 May 2026) enumerate minimal games on 5×5 perfect-code Sudoku-type grids for hint counts 4 to 7, giving 15,898,200 in total and 35,759 up to equivalence: an exact count for a different and smaller setting, whose completeness argument depends on a reduction whose proof the paper says is omitted. Eppstein and Zhang (arXiv:2607.05728, 7 July 2026) study the fewest clues a given grid needs, and show that some 9×9 grids need 18, which is a fact about per-grid minimal sizes, not a count. Pereira (arXiv:2607.20669, 22 July 2026) re-derives grid equivalence classes. Tjusila, Besançon, Turner and Koch (arXiv:2305.01697, 2023; Operations Research Letters 2024) compute the minimum clue count for a given grid, also a neighbouring question. A March 2026 blog post by Mark Citizen restates the Berthier figure as a count of unique-solution puzzles, a conflation, and lists the total as open. The Wikipedia bullet's footnote (openq-43) cites a 2017 archived page, 'Open Q – Solving and rating of hard Sudoku' on english.log-it-ex.com; I could not open the archive or the live site. On AI: I searched for AI involvement with the problem's name and with AI terms (sudoku with LLMs, FunSearch and AlphaEvolve, OEIS Open, OpenAI's 722-manuscript release of October 2026, and the openai/math repository). No source names an AI system in connection with any minimal-puzzle event, so every event carries none_found true. The openai/math overview lists its Combinatorics section (entries 155–192 visible; entry 163 missing from the fetched text) with no sudoku or puzzle entry, and I read its CONTENTS.md only to 100,000 of 636,312 characters. Where a call was close: the 5×5 result is the only exact enumeration of minimal puzzles in the record, and whether it should move the 9×9 question is a judgement for the later pass; I have only recorded that it is a different setting.",
+  "competing_reading": "The Berthier figures are the only quantitative answer to the question as written, and they have stated error bars and a method; a reader could take 3.1055×10³⁷ (or 2.5477×10²⁵ up to symmetry) as the value of the count, with the open part being only its precision. Against that: the figures are estimates from sampling, the stated relative error does not obviously cover the symmetry step, the excerpted per-grid mean does not reproduce the totals, and the text was not readable to me. A second reading treats the 5×5 exact enumeration as evidence that a 9×9 count is computationally feasible and therefore 'nearly answered'; against that, the 9×9 enumeration has not been done in any source I found. A third reading takes the Royle list plus the McGuire 'almost all' inference as a near-complete count for 17 givens; against that, the claim is inferential, the list's size has changed across sources, and it covers only one slice of the minimal puzzles.",
+  "what_would_settle_it": "An exhaustive count of 9×9 minimal puzzles, labelled and up to symmetry, published with code and an independent recount, or a verified rederivation of the Berthier estimates with its error analysis (the PDF text, in full, plus a check of the symmetry step). For the 17-clue slice, a completeness proof for Royle's list would settle that part. For the 5×5 result, the omitted proof of Theorem 6.2 and an independent recount would show whether that analogue is solid.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics",
+      "title": "List of unsolved problems in mathematics (Games and puzzles section, Sudoku bullet and footnote 42)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Mathematics_of_Sudoku",
+      "title": "Mathematics of Sudoku",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Glossary_of_Sudoku",
+      "title": "Glossary of Sudoku",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://sudopedia.sudocue.net/index.php/Minimal",
+      "title": "Sudopedia: Minimal",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1111.4083",
+      "title": "Unbiased Statistics of a CSP - A Controlled-Bias Generator (Berthier), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/1111.4083",
+      "title": "Unbiased Statistics of a CSP - A Controlled-Bias Generator (Berthier), PDF (text not decodable by the fetch tool)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1304.1628",
+      "title": "Pattern-Based Constraint Satisfaction and Logic Puzzles (Berthier), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/1304.1628",
+      "title": "Pattern-Based Constraint Satisfaction and Logic Puzzles (Berthier), PDF (text not decodable by the fetch tool)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1201.0749",
+      "title": "There is no 16-Clue Sudoku (McGuire, Tugemann, Civario), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.arxiv.org/html/1201.0749",
+      "title": "There is no 16-Clue Sudoku, HTML rendering (both halves read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/1201.0749",
+      "title": "There is no 16-Clue Sudoku, PDF (text not decodable by the fetch tool)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2305.01697",
+      "title": "How Many Clues To Give? A Bilevel Formulation For The Minimum Sudoku Clue Problem (Tjusila et al.), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://iol.zib.de/team/gennesaret-tjusila.html",
+      "title": "ZIB team page for G. Tjusila, publication record (OR Letters 54, 107105, 2024)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.09617",
+      "title": "Symmetric Sudoku-Type Games from Perfect Codes (An et al.), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2605.09617",
+      "title": "Symmetric Sudoku-Type Games from Perfect Codes, HTML (Section 6.1, Table 2, acknowledgements)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.05728",
+      "title": "Sudoku Grids That Require Many Clues (Eppstein, Zhang), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.20669",
+      "title": "Counting, Symmetries and Equivalence Classes of Sudoku Grids (Pereira), abstract page (partial)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.11941",
+      "title": "OEIS Open: How many conjectures can language models turn into theorems? (Adamczewski), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://thesudoku.com/blog/2026/03/31/how-many-sudokus-are-there/",
+      "title": "How Many Sudokus Are There? (Mark Citizen blog)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://ir.lib.nycu.edu.tw/handle/11536/23547?mode=full",
+      "title": "On Specific 17-Clue Sudoku Puzzles (NYCU repository landing page; no metadata returned)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://content.iospress.com/articles/icga-journal/icg36302",
+      "title": "On Specific 17-Clue Sudoku Puzzles (ICGA Journal), publisher page",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.tandfonline.com/doi/full/10.1080/10586458.2013.870056",
+      "title": "There is no 16-Clue Sudoku, Experimental Mathematics publisher page",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0167637724000415",
+      "title": "Operations Research Letters 54 (2024) 107105 publisher page",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/openai/math",
+      "title": "openai/math repository README and layout",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+      "title": "openai/math CONTENTS.md (first 100,000 of 636,312 characters)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/overview.tex",
+      "title": "openai/math overview.tex (full length, read in four parts)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://theprint.in/tech/weeks-after-claiming-ai-cracked-90-yr-old-maths-puzzle-openai-drops-the-mother-lode-on-mathematicians/3064174/",
+      "title": "ThePrint, on the 722 OpenAI manuscripts (7 Oct 2026)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://www.unite.ai/openai-creates-independent-math-panel-as-it-claims-100-plus-problem-solutions/",
+      "title": "Unite.ai, on the OpenAI advisory group and the 100-plus open problems claim",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+      "title": "OpenAI, Advisory Group on Mathematics and Artificial Intelligence",
+      "type": "press_release",
+      "opened": false
+    },
+    {
+      "url": "https://web.archive.org/web/20140411163430/http://school.maths.uwa.edu.au/~gordon/sudokumin.php",
+      "title": "Gordon Royle's Minimum Sudoku page, archived 2014 (blocked by fetch tool)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "http://staffhome.ecm.uwa.edu.au/~00013890/sudokumin.php",
+      "title": "Gordon Royle's Minimum Sudoku page, UWA staff address (host did not resolve)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "http://www.csse.uwa.edu.au/~gordon/sudokumin.php",
+      "title": "Gordon Royle's Minimum Sudoku page, CSSE address (host did not resolve)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://web.archive.org/web/20171110030932/http://english.log-it-ex.com/2.html",
+      "title": "Open Q - Solving and rating of hard Sudoku, archived 2017 (blocked by fetch tool)",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "http://english.log-it-ex.com/2.html",
+      "title": "Open Q - Solving and rating of hard Sudoku, live site (host did not resolve)",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://oeis.org/A198297",
+      "title": "OEIS A198297, minimum clues for a unique n^2×n^2 sudoku (search excerpt only)",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "minimal sudoku puzzles with exactly one solution how many",
+      "number of minimal Sudoku puzzles unknown open problem",
+      "\"minimal sudoku\" count inequivalent puzzles",
+      "Royle minimum sudoku 17 clues 49158 puzzles",
+      "Wikipedia List of unsolved problems in mathematics Sudoku minimal puzzles",
+      "Sudoku minimal puzzle definition unique solution removing any clue",
+      "Wikipedia Sudoku article unsolved problems minimal puzzles count",
+      "arXiv minimal sudoku puzzles enumeration 2024",
+      "arXiv sudoku minimal puzzles 2025 counting",
+      "sudoku minimal puzzles number of minimal puzzles all sizes enumeration unknown",
+      "AI model sudoku minimal puzzles mathematics discovery",
+      "large language model sudoku 17 clue minimum puzzle proof",
+      "AI-assisted enumeration sudoku puzzles arXiv acknowledgements language model",
+      "GPT Claude Gemini solved open problem sudoku combinatorics 2026",
+      "Berthier sudoku minimal puzzles number estimate 2.5 10^25",
+      "Gordon Royle sudoku 17 clue puzzles list minimum sudoku page",
+      "sudoku puzzles with unique solution count 2025 new result minimal puzzles enumerated",
+      "FunSearch AlphaEvolve sudoku puzzle combinatorics open problem",
+      "Jarvis Russell sudoku minimal puzzles count enumeration equivalence classes 9x9",
+      "how many minimal sudoku puzzles exist stack exchange",
+      "\"minimal puzzles\" sudoku \"estimate\" Berthier longstanding open question",
+      "Tjusila Besançon Turner Koch minimum sudoku clue problem Operations Research Letters 2024 doi",
+      "AI assistance acknowledgement sudoku minimal puzzles ChatGPT wrote code enumeration",
+      "irreducible sudoku minimal puzzles count total unknown",
+      "largest minimal sudoku 40 clues found minimal puzzle maximum number of givens",
+      "17-clue sudoku puzzles census completeness Royle 2014 Experimental Mathematics McGuire Tugemann Civario",
+      "sudoku minimal puzzle generator enumerate unique solution arXiv 2025 2026 minimal sudoku algorithm",
+      "Lean formalization sudoku uniqueness minimal puzzle proof assistant",
+      "2026 AI model enumerates sudoku puzzles open problem announced OpenAI DeepMind Anthropic sudoku result",
+      "sudoku 17-clue puzzles number known total 2024 2025 2026 new 17-clue puzzle found",
+      "Lin Wu Wei 17-clue sudoku ICGA journal top block 9x3 three clues 95 puzzles",
+      "log-it-ex open question solving and rating of hard sudoku minimal puzzles",
+      "sudoku minimal puzzles open question mathematicians 2026 unique solution count exact enumeration announced",
+      "Berthier \"Pattern-Based Constraint Satisfaction\" sudoku minimal puzzles per grid estimate table",
+      "OEIS sequence number of minimal sudoku puzzles unique solution",
+      "OEIS Open language models conjectures theorems sudoku",
+      "AI open problems tracker sudoku minimal puzzle count language model mathematics 2026",
+      "OpenAI 722 research papers 17 areas of mathematics released list",
+      "OpenAI advisory group mathematics 100 open problems resolved internal model list sudoku",
+      "github openai math manuscripts sudoku",
+      "OpenAI 722 manuscripts combinatorics families overview catalogue minimal puzzles enumeration"
+    ],
+    "places_checked": [
+      "Wikipedia: List of unsolved problems in mathematics (Games and puzzles, Sudoku bullet and footnote 42)",
+      "Wikipedia: Mathematics of Sudoku",
+      "Wikipedia: Glossary of Sudoku",
+      "Sudopedia: Minimal",
+      "arXiv: 1111.4083 (Berthier 2011), abstract and PDF",
+      "arXiv: 1304.1628 (Berthier 2013), abstract and PDF",
+      "arXiv: 1201.0749 (McGuire et al.), abstract, HTML rendering in full, PDF",
+      "arXiv: 2305.01697 (Tjusila et al.), abstract",
+      "ZIB publication page for G. Tjusila (journal record)",
+      "arXiv: 2605.09617 (An et al., 5×5 minimal games), abstract, HTML, PDF",
+      "arXiv: 2607.05728 (Eppstein and Zhang), abstract",
+      "arXiv: 2607.20669 (Pereira), abstract",
+      "arXiv: 2608.11941 (OEIS Open), abstract, checked for sudoku and named model credits",
+      "thesudoku.com blog, March 2026 post",
+      "NYCU repository record for On Specific 17-Clue Sudoku Puzzles",
+      "ICGA Journal, Experimental Mathematics and Operations Research Letters publisher pages (all 403 or redirect loops)",
+      "Gordon Royle's Minimum Sudoku page (three addresses; two did not resolve, the archive was blocked)",
+      "english.log-it-ex.com (live and archived; did not resolve or was blocked)",
+      "github.com/openai/math: README, CONTENTS.md (partial), overview.tex (full)",
+      "OpenAI advisory group page (403); coverage by ThePrint and Unite.ai",
+      "OEIS A198297 and A107739 (search excerpts only)",
+      "Search engine coverage for AI involvement: LLM, FunSearch, AlphaEvolve, Sakana Sudoku-Bench, OEIS Open, Lean formalisation, OpenAI 2026 releases"
+    ],
+    "dead_ends": [
+      "Berthier PDFs (1111.4083, 1304.1628): compressed streams, no text through the fetch tool; ar5iv and ar5iv.org URLs redirect to arXiv abstract pages; figures known only from search excerpts",
+      "Royle's list: all three addresses unreachable (two DNS failures) and the archive blocked; current file and any updated count not checked",
+      "The 49,158 figure: not found in the McGuire et al. full text; appears only in a blog and a commercial site",
+      "Largest minimal puzzle (40 or 39 clues): not in the Mathematics of Sudoku text read; search snippets only",
+      "Sudopedia's 'not proven' claim for the 17 minimum: contradicts the 2012 result; treated as outdated",
+      "log-it-ex 'Open Q' source of the Wikipedia footnote: archive blocked and live site not resolving",
+      "OEIS: no sequence counting minimal sudoku puzzles found; A198297 is the minimum-clue sequence",
+      "AI: no LLM, FunSearch, AlphaEvolve or Sakana benchmark result connected to minimal-puzzle counting; the OpenAI 722-manuscript Combinatorics section (entries 155–192 visible) has no sudoku or puzzle entry; the OEIS Open paper has no sudoku content and names no model",
+      "Lean/Coq: no formalisation of sudoku uniqueness or minimality found",
+      "Journal pages for Experimental Mathematics, ICGA Journal and Operations Research Letters: blocked (403) or redirecting; journal details rest on search excerpts, the ZIB page and the Wikipedia citation",
+      "A 2024 or 2025 arXiv preprint enumerating 9×9 minimal puzzles: none found"
+    ]
+  },
+  "incomplete": "(1) The Berthier PDFs could not be decoded, so the 3.1055×10³⁷, 2.5477×10²⁵, 4.6655×10¹⁵ per-grid mean, the 0.065% error, the clue-count table and the 'longstanding open question' wording are from search excerpts and are not verified in the papers. (2) Royle's list was not reached: the UWA addresses did not resolve and the archive was blocked, so the current size and completeness statement are unverified. (3) The ICGA 2013 paper (publisher page 403), the Experimental Mathematics paper (403) and the Operations Research Letters paper (redirect loop, then 403) were not read in full; their details rest on search excerpts, the NYCU record, the ZIB page and the Wikipedia citation. (4) The OpenAI advisory group page returned 403; the 722-manuscript release was read through the openai/math repository and two news articles. In the repository, overview.tex was read in full, but its Combinatorics section lost entry 163 in the fetched text, and CONTENTS.md was read only to 100,000 of 636,312 characters, so a keyword check of the rest of the manuscript map is not complete. The Theoretical computer science entries (115–142) were only partly visible. (5) The McGuire et al. paper was read in full through ar5iv for specific passages (49,151, Royle's list, 'almost all', 34,550 estimate), but not checked for an acknowledgements section about AI tools; none was seen in what was read. (6) The Mark Citizen blog's date comes from its URL. (7) The Wikipedia footnote 42 (openq-43) is recorded as 'Open Q – Solving and rating of hard Sudoku' with an archive from 2017, which I could not open. (8) I did not open the Felgenhauer–Jarvis (2005) and Russell–Jarvis (2006) grid-count papers; I cite their counts only as the denominators used by the estimates. (9) The Tjusila et al. journal publication date (2024) and volume are from the ZIB page, not the publisher site.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "berthier-2011-estimate",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Sampling estimate with author-only error bars; figures known only from search excerpts; symmetry step appears to be the identity term of Burnside only.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "berthier-2013-estimate",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Restated sampling estimate; excerpted per-grid mean does not reproduce the excerpted totals; text not read.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "royle-17-clue-list",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "mcguire-tugemann-civario-2012",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lin-wu-wei-2013-icga",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "tjusila-et-al-2023-minimum-clues-given-grid",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "an-et-al-2026-5x5-perfect-code",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "eppstein-zhang-2026-grids-many-clues",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "pereira-2026-grid-counting",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "citizen-2026-blog",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Non-academic restatement that mislabels the Berthier minimal-puzzle estimate as a count of unique-solution puzzles.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks for the number of minimal puzzles; nothing in the record determines or rigorously bounds it after January 2024. The Berthier figures are statistical estimates, not proven bounds, so they score none rather than bound. Royle's 49,151 17-clue list is an explicit lower bound on the count (every 17-clue unique puzzle is minimal), so bound, but it predates the snapshot. McGuire et al. settle the minimum clue count, a fact about minimal puzzles' sizes rather than their number: none. Tjusila et al. and Eppstein–Zhang answer per-grid minimum-clue questions and An et al. count minimal games on 5×5 perfect-code grids: all changed questions, so variant. Pereira counts grids, and the blog restates old figures: none. No AI system appears in any event.",
+    "doubts": "The statement names no grid size or symmetry convention; I read it as standard 9×9 per its Sudoku parent. Treating Royle's list as a bound on the total is generous but immaterial since it predates the snapshot.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

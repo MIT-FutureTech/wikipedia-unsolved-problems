@@ -1,0 +1,1821 @@
+{
+  "key": "tuzas-conjecture",
+  "nothing_found": false,
+  "outcome": "As of 13 October 2026 the general conjecture (tau(G) <= 2 nu(G) for every graph G) is still open in every source I could open. Since 26 January 2024 the record holds: one 2024 class-level result (Chahua and Gutierrez, arXiv 18 May 2024: split graphs with minimum degree at least 3n/5, plus tripartite and complete 4-partite bounds); three 2026 preprints that settle a restricted case or improve the general constant but do not reach 2 (Gupta, arXiv 6 Aug 2026, maximum degree at most 7; an unread Preprints.org split-graph preprint, posted 19 Aug 2026; Yi, arXiv 24 Aug 2026, constant 63/22; Wang, arXiv 12 Sep 2026, constant 165/59 with a Lean 4 formalisation); and one November 2025 GPT-5 literature report that lists Erdos Problem 167 among problems with partial progress found in the literature. I found no proof, counterexample, retraction or published critique of any of these.",
+  "problem_asks": "One question: whether every finite graph G satisfies tau(G) <= 2 nu(G), where nu(G) is the maximum number of pairwise edge-disjoint triangles and tau(G) is the minimum number of edges meeting every triangle. Parts: (a) the universal claim, for all graphs with no restriction on size, density or degree; (b) the constant 2 specifically. The bullet asks nothing about sharpness, algorithms or the trivial bounds nu <= tau <= 3 nu. Reading of the word 'disjoint': the bullet says only 'disjoint triangles'; I read this as edge-disjoint, following the Wikipedia article and the literature. I did not research a vertex-disjoint variant.",
+  "events": [
+    {
+      "id": "tuza-1990-planar",
+      "what_happened": "Tuza, 'A conjecture on triangles of graphs', Graphs and Combinatorics 6 (1990) 373-380, cited in later literature as the source of the planar-graph case (tau <= 2 nu for planar graphs). The conjecture itself was first posed by Tuza in 1981 (Eger colloquium, published 1984 according to Wikipedia). Read only through the Wikipedia article and search snippets; the 1990 paper was not opened.",
+      "date": "1990",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per secondary sources only: tau(G) <= 2 nu(G) for every planar graph G. Restricted to planar graphs.",
+      "remains": "Every non-planar graph; all of problem_asks outside the planar class.",
+      "checked_by": [
+        {
+          "who": "Graphs and Combinatorics (Springer journal)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Published the paper",
+          "where": "https://en.wikipedia.org/wiki/Tuza's_conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 36 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on a class (planar graphs).",
+      "object": null,
+      "people": [
+        "Zsolt Tuza"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Tuza's_conjecture"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Tuza's_conjecture"
+      ]
+    },
+    {
+      "id": "krivelevich-1995",
+      "what_happened": "Krivelevich, 'On a conjecture of Tuza about packing and covering of triangles', Discrete Mathematics 142 (1995) 281-286. Citation confirmed on Krivelevich's publication page (opened); the article itself was not reachable. Content per secondary sources: the fractional-type bound tau <= 2 nu* (nu* = fractional packing number), which the abstract of Chapuy et al. (arXiv 1012.0372) attributes to Krivelevich. One search snippet (a matroid paper by van der Pol and Nomoto, not opened) attributes to Krivelevich the case of graphs with no subdivision of K_{3,3}; I could not confirm this.",
+      "date": "1995",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per Chapuy et al.: tau(G) <= 2 nu*(G) for every graph (fractional packing number nu*). Because nu* >= nu, this does not give tau <= 2 nu. Unverified snippet claim: tau <= 2 nu for graphs with no K_{3,3}-subdivision.",
+      "remains": "The integer statement tau <= 2 nu for all graphs. If the K_{3,3} attribution holds, also all graphs containing a K_{3,3}-subdivision.",
+      "checked_by": [
+        {
+          "who": "Discrete Mathematics (Elsevier journal)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Published the paper",
+          "where": "https://cs.tau.ac.il/~krivelev/papers.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 31 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The content of this paper is known to me only second-hand and the sources disagree (fractional bound versus K_{3,3}-subdivision-free graphs). Neither reading was confirmed from the paper.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture in fractional form; restricted-class claim unverified.",
+      "object": null,
+      "people": [
+        "M. Krivelevich"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://cs.tau.ac.il/~krivelev/papers.html"
+        ]
+      },
+      "sources": [
+        "https://cs.tau.ac.il/~krivelev/papers.html",
+        "https://arxiv.org/abs/1012.0372"
+      ]
+    },
+    {
+      "id": "haxell-1999",
+      "what_happened": "Haxell, 'Packing and covering triangles in graphs', Discrete Mathematics 195 (1999) 251-254. Per Wikipedia: tau(G) <= (66/23) nu(G), about 2.8696, for all graphs. Consistent with erdosproblems.com/167, which records the trivial bound 3k improved to (3 - 3/23 + o(1))k. The paper itself was not opened.",
+      "date": "1999",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "All graphs: tau <= 66/23 nu. This lowers the constant from 3 to about 2.87 but does not reach 2.",
+      "remains": "The constant between 66/23 and 2 for all graphs, which is all of problem_asks.",
+      "checked_by": [
+        {
+          "who": "Discrete Mathematics (Elsevier journal)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Published the paper",
+          "where": "https://en.wikipedia.org/wiki/Tuza's_conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 27 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial: moves the general constant to 66/23. Consistent with the conjecture; does not settle it.",
+      "object": null,
+      "people": [
+        "P. E. Haxell"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Tuza's_conjecture",
+          "https://www.erdosproblems.com/167"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Tuza's_conjecture",
+        "https://www.erdosproblems.com/167"
+      ]
+    },
+    {
+      "id": "lakshmanan-bujtas-tuza-2012",
+      "what_happened": "Lakshmanan, Bujtas, Tuza, 'Small edge sets meeting all triangles of a graph', Graphs and Combinatorics 28 (2012) 381-392, per a search snippet citing the Springer DOI 10.1007/s00373-011-1048-8. The Springer page redirected to a login and was not read. The snippet says the paper proves the conjecture for triangle-3-colourable graphs, a class containing all 4-colourable graphs.",
+      "date": "2012",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per snippet only: triangle-3-colourable graphs, including all 4-colourable graphs: tau <= 2 nu.",
+      "remains": "Graphs outside that class, which is all of problem_asks outside it.",
+      "checked_by": [
+        {
+          "who": "Graphs and Combinatorics (Springer journal)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Published the paper (per snippet)",
+          "where": "https://doi.org/10.1007/s00373-011-1048-8",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Content known only from a search snippet; not verified.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on a class (triangle-3-colourable graphs).",
+      "object": null,
+      "people": [
+        "Aparna Lakshmanan",
+        "Csilla Bujtas",
+        "Zsolt Tuza"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://doi.org/10.1007/s00373-011-1048-8"
+        ]
+      },
+      "sources": [
+        "https://doi.org/10.1007/s00373-011-1048-8"
+      ]
+    },
+    {
+      "id": "haxell-kostochka-thomasse-2012",
+      "what_happened": "Haxell, Kostochka, Thomasse, 'Packing and covering triangles in K4-free planar graphs', Graphs and Combinatorics 28 (2012) 653-662, per a search snippet (not opened). The snippet says tau <= (3/2) nu for K4-free planar graphs, with equality exactly for edge-disjoint unions of 5-wheels plus possibly edges in no triangle, and the same bound for graphs in which each edge lies in at most two triangles.",
+      "date": "2012",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per snippet only: K4-free planar graphs (and graphs where each edge lies in at most two triangles): tau <= 1.5 nu, sharp.",
+      "remains": "Every other graph class, which is all of problem_asks outside them.",
+      "checked_by": [
+        {
+          "who": "Graphs and Combinatorics (Springer journal)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Published the paper (per snippet)",
+          "where": "https://experts.illinois.edu/en/publications/packing-and-covering-triangles-in-k-sub4sub-free-planar-graphs/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known from a search snippet only.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on a class; the 3/2 constant is below 2 on that class.",
+      "object": null,
+      "people": [
+        "P. E. Haxell",
+        "A. V. Kostochka",
+        "S. Thomasse"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://experts.illinois.edu/en/publications/packing-and-covering-triangles-in-k-sub4sub-free-planar-graphs/"
+        ]
+      },
+      "sources": [
+        "https://experts.illinois.edu/en/publications/packing-and-covering-triangles-in-k-sub4sub-free-planar-graphs/"
+      ]
+    },
+    {
+      "id": "puleo-2013",
+      "what_happened": "Puleo, 'Tuza's conjecture for graphs of maximum average degree less than 7', arXiv:1308.2211 (first version 9 Aug 2013; v2 21 Nov 2013; v3 13 Apr 2015), European Journal of Combinatorics 49 (2015) 134-152, DOI 10.1016/j.ejc.2015.03.006. Abstract (opened): 'We prove Tuza's Conjecture for all graphs G having no subgraph with average degree at least 7.' Method: reducible sets, and weak Konig-Egervary graphs.",
+      "date": "2013-08-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 9 Aug 2013; v2 21 Nov 2013; v3 13 Apr 2015 (journal version details, corrections, background added).",
+      "delivers": "All graphs with no subgraph of average degree at least 7 (maximum average degree below 7): tau <= 2 nu. Includes all graphs of maximum degree at most 6 but no 7-regular graph (the gap Gupta's 2026 paper addresses).",
+      "remains": "Every graph with a subgraph of average degree at least 7 (including 7-regular graphs), which is most of problem_asks.",
+      "checked_by": [
+        {
+          "who": "European Journal of Combinatorics (journal)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Accepted and published the paper (2015)",
+          "where": "https://arxiv.org/abs/1308.2211",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on a class (maximum average degree below 7).",
+      "object": null,
+      "people": [
+        "Gregory J. Puleo"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1308.2211"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1308.2211"
+      ]
+    },
+    {
+      "id": "chapuy-et-al-2010",
+      "what_happened": "Chapuy, DeVos, McDonald, Mohar, Scheide, 'Packing triangles in weighted graphs', arXiv:1012.0372 (first version 2 Dec 2010; v2 25 May 2015), SIAM J. Discrete Math. 28 (2014) 226-239. Abstract (opened): 'We prove that tau <= 2 nu* - (1/sqrt(6)) sqrt(nu*) and show that this bound is essentially best possible.' It answers a question of Krivelevich, who proved tau <= 2 nu* and asked whether this is tight.",
+      "date": "2010-12-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 2 Dec 2010; v2 25 May 2015 (corrected version following referee reports).",
+      "delivers": "A sharper bound in terms of the fractional packing number nu*: tau <= 2 nu* - (1/sqrt(6)) sqrt(nu*), essentially best possible. Because nu* >= nu, this does not imply tau <= 2 nu. It is an analogue with a different quantity, not the problem's own statement.",
+      "remains": "The integer statement tau <= 2 nu for all graphs, which is all of problem_asks.",
+      "checked_by": [
+        {
+          "who": "SIAM Journal on Discrete Mathematics",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Published the paper (vol. 28, 2014)",
+          "where": "https://arxiv.org/abs/1012.0372",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 16 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial, for a fractional analogue; consistent with the conjecture; not a bound in nu.",
+      "object": null,
+      "people": [
+        "Guillaume Chapuy",
+        "Matt DeVos",
+        "Jessica McDonald",
+        "Bojan Mohar",
+        "Diego Scheide"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1012.0372"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1012.0372"
+      ]
+    },
+    {
+      "id": "baron-kahn-2014",
+      "what_happened": "Baron, Kahn, 'Tuza's conjecture is asymptotically tight for dense graphs', arXiv:1408.4870 (first version 21 Aug 2014; v2 20 Oct 2015), Combinatorics, Probability and Computing 25 (2016) 645-667. Abstract (opened): for any fixed alpha > 0 there are arbitrarily large graphs G of positive density with tau(G) > (1 - o(1))|G|/2 and nu(G) < (1 + alpha)|G|/4. This disproves a conjecture of Yuster and shows the constant 2 cannot be lowered in general for dense graphs.",
+      "date": "2014-08-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 21 Aug 2014; v2 20 Oct 2015 (typos, clarified introduction; results unchanged).",
+      "delivers": "Dense graphs: the ratio tau/nu can approach 2 arbitrarily closely, so 2 is asymptotically sharp on dense families. This is consistent with the conjecture and is not a counterexample to it.",
+      "remains": "The statement tau <= 2 nu itself, for all graphs, which is all of problem_asks.",
+      "checked_by": [
+        {
+          "who": "Combinatorics, Probability and Computing (Cambridge journal)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Published the paper (2016)",
+          "where": "https://arxiv.org/abs/1408.4870",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture: the constant 2 is asymptotically sharp for dense graphs.",
+      "object": "Asymptotic family: for each fixed alpha > 0, arbitrarily large dense graphs with tau/nu close to 2 (explicit or existence not checked; abstract only).",
+      "people": [
+        "Jacob D. Baron",
+        "Jeff Kahn"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1408.4870"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1408.4870"
+      ]
+    },
+    {
+      "id": "bennett-dudek-zerbib-2018",
+      "what_happened": "Bennett, Dudek, Zerbib, 'Large triangle packings and Tuza's conjecture in sparse random graphs', arXiv:1810.11739 (first version 28 Oct 2018; v2 12 Nov 2019; v3 4 Feb 2020). Abstract (opened): 'We show that Tuza's conjecture holds in the random graph G = G(n,m), when m <= 0.2403 n^{3/2} or m >= 2.1243 n^{3/2},' by analysing a greedy triangle-packing algorithm. The arXiv page lists no journal reference.",
+      "date": "2018-10-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 28 Oct 2018; v2 12 Nov 2019; v3 4 Feb 2020.",
+      "delivers": "The random graph G(n,m) for m <= 0.2403 n^{3/2} or m >= 2.1243 n^{3/2}. Random model only; not a statement for all graphs.",
+      "remains": "Every deterministic graph; and G(n,m) for m between 0.2403 and 2.1243 n^{3/2}. This is all of problem_asks outside that random family.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 years; no engagement found in my searches",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on a random-graph class.",
+      "object": null,
+      "people": [
+        "Patrick Bennett",
+        "Andrzej Dudek",
+        "Shira Zerbib"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1810.11739"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1810.11739"
+      ]
+    },
+    {
+      "id": "chalermsook-et-al-2020",
+      "what_happened": "Chalermsook, Khuller, Sukprasert, Uniyal, 'Multi-transversals for triangles and the Tuza's conjecture', arXiv:2001.00257 (v1 1 Jan 2020; v2 3 Feb 2021), accepted at SODA 2020 per the arXiv comments. Abstract (opened): proves 'a non-trivial consequence of the conjecture': for every k >= 2 there is a multiset F of at most 2k nu edges such that each triangle overlaps at least k elements of F. Described as a strengthening of Krivelevich's fractional result. The abstract says the conjecture 'has remained wide open for almost four decades'.",
+      "date": "2020-01-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 1 Jan 2020; v2 3 Feb 2021.",
+      "delivers": "A consequence that the conjecture implies, for k >= 2 (multi-transversal form). It is not equivalent to the conjecture and does not prove tau <= 2 nu. The k = 1 case, which is the conjecture itself, is not claimed.",
+      "remains": "All of problem_asks: the k = 1 case, i.e. tau <= 2 nu, is not proved.",
+      "checked_by": [
+        {
+          "who": "SODA 2020 (ACM-SIAM symposium, refereed conference)",
+          "qualification": "Refereed conference acceptance",
+          "what_they_did": "Accepted the paper (per arXiv comments)",
+          "where": "https://arxiv.org/abs/2001.00257",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6.5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the conjecture; a consequence of it, not a proof.",
+      "object": null,
+      "people": [
+        "Parinya Chalermsook",
+        "Samir Khuller",
+        "Pattara Sukprasert",
+        "Sumedha Uniyal"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2001.00257"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2001.00257"
+      ]
+    },
+    {
+      "id": "botler-fernandes-gutierrez-2020",
+      "what_happened": "Botler, Fernandes, Gutierrez, 'On Tuza's conjecture for triangulations and graphs with small treewidth', arXiv:2002.07925 (v1 18 Feb 2020; v2 16 Jul 2020), published in Discrete Mathematics 344(4) 2021 per Wikipedia. Abstract (opened): verifies the conjecture for graphs of treewidth at most 6; tau <= (3/2) nu for every planar triangulation other than K4; for maximal graphs of treewidth 3, tau <= (9/5) nu + 1/5; a strengthening of Tuza's chordal-graph result (K_8-free chordal graphs).",
+      "date": "2020-02-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 18 Feb 2020; v2 16 Jul 2020.",
+      "delivers": "Graphs of treewidth at most 6 (tau <= 2 nu); planar triangulations other than K4 (tau <= 1.5 nu); maximal treewidth-3 graphs (tau <= 1.8 nu + 0.2); K_8-free chordal graphs (tau <= 2 nu).",
+      "remains": "Graphs of treewidth 7 or more, and all graphs outside the listed classes. This is all of problem_asks outside those classes.",
+      "checked_by": [
+        {
+          "who": "Discrete Mathematics (Elsevier journal)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Published the paper (2021, per Wikipedia)",
+          "where": "https://en.wikipedia.org/wiki/Tuza's_conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6.5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on several classes; none reaches the general case.",
+      "object": null,
+      "people": [
+        "Fabio Botler",
+        "Cristina G. Fernandes",
+        "Juan Gutierrez"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2002.07925"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2002.07925"
+      ]
+    },
+    {
+      "id": "kahn-park-2020",
+      "what_happened": "Kahn, Park, 'Tuza's conjecture for random graphs', arXiv:2007.04351 (8 Jul 2020; v2 10 Jul 2020, references updated). Abstract (opened): for any p = p(n), the probability that G(n,p) satisfies Tuza's conjecture tends to 1 as n tends to infinity. Published in Random Structures & Algorithms 61(2) (2022) 235-249 per Wikipedia and a search snippet; the arXiv page lists no journal.",
+      "date": "2020-07-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 8 Jul 2020; v2 10 Jul 2020.",
+      "delivers": "Random graphs G(n,p), for every edge-probability function p(n), with probability tending to 1. A random-model statement, not one about every graph.",
+      "remains": "Every deterministic graph, i.e. all of problem_asks outside the random model.",
+      "checked_by": [
+        {
+          "who": "Random Structures & Algorithms (journal)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Published the paper (2022, per Wikipedia)",
+          "where": "https://en.wikipedia.org/wiki/Tuza's_conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on the random-graph model.",
+      "object": null,
+      "people": [
+        "Jeff Kahn",
+        "Jinyoung Park"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2007.04351"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2007.04351"
+      ]
+    },
+    {
+      "id": "bennett-cushman-dudek-2020",
+      "what_happened": "Bennett, Cushman, Dudek, 'Closing the random graph gap in Tuza's conjecture through the online triangle packing process', arXiv:2007.04478 (8 Jul 2020, single version). Abstract (opened): 'we prove that Tuza's conjecture holds in the Erdos-Renyi random graph G(n,m) for all range of m.' Journal per search snippet: SIAM J. Discrete Math. 35(3) (2021); not confirmed on the arXiv page.",
+      "date": "2020-07-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 8 Jul 2020 only.",
+      "delivers": "The random graph G(n,m), for all edge counts m. Random model only.",
+      "remains": "Every deterministic graph, i.e. all of problem_asks outside the random model.",
+      "checked_by": [
+        {
+          "who": "SIAM Journal on Discrete Mathematics (per search snippet)",
+          "qualification": "Refereed journal publication, if the snippet is right",
+          "what_they_did": "Published the paper (per snippet only)",
+          "where": "https://arxiv.org/abs/2007.04478",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on the G(n,m) random model.",
+      "object": null,
+      "people": [
+        "Patrick Bennett",
+        "Ryan Cushman",
+        "Andrzej Dudek"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2007.04478"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2007.04478"
+      ]
+    },
+    {
+      "id": "bonamy-et-al-2021",
+      "what_happened": "Bonamy, Bozyk, Grzesik, Hatzel, Masarik, Novotna, Okrasa, 'Tuza's conjecture for threshold graphs', arXiv:2105.09871 (v1 20 May 2021; v2 14 Mar 2022; v3 10 Aug 2022). Abstract (opened): 'we confirm the conjecture for threshold graphs, i.e. graphs that are both split graphs and cographs', and a second result for co-chain graphs whose two sides have equal size divisible by 4. Published in Discrete Mathematics & Theoretical Computer Science 24(1) (2022), dmtcs:7660.",
+      "date": "2021-05-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 20 May 2021; v2 14 Mar 2022; v3 10 Aug 2022.",
+      "delivers": "Threshold graphs (split and cograph): tau <= 2 nu. Co-chain graphs with equal sides of size divisible by 4 (per abstract).",
+      "remains": "All graphs outside those classes, i.e. all of problem_asks outside them.",
+      "checked_by": [
+        {
+          "who": "Discrete Mathematics & Theoretical Computer Science (journal)",
+          "qualification": "Refereed journal publication (accepted to EUROCOMB 2021 per the record)",
+          "what_they_did": "Published the paper (vol. 24, no. 1, 2022)",
+          "where": "https://arxiv.org/abs/2105.09871",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on classes (threshold graphs; co-chain graphs of a given size).",
+      "object": null,
+      "people": [
+        "Marthe Bonamy",
+        "Lukasz Bozyk",
+        "Andrzej Grzesik",
+        "Meike Hatzel",
+        "Tomas Masarik",
+        "Jana Novotna",
+        "Karolina Okrasa"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2105.09871"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2105.09871"
+      ]
+    },
+    {
+      "id": "van-der-pol-nomoto-2021",
+      "what_happened": "Van der Pol, Nomoto, 'Tuza's conjecture for binary geometries', arXiv:2112.06385 (Dec 2021 per the arXiv identifier; not opened). Per search snippets: generalises Tuza's conjecture to simple binary matroids; the general matroid version fails (the Fano plane F_7 has nu = 1 and tau = 3); the geometric version is proved for cographic matroids; published in SIAM J. Discrete Math. 2024 (snippet). A Matroid Union post by van der Pol is cited for the claim that the geometric version implies the graphic version.",
+      "date": "2021-12",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Matroid analogue: the geometric version for cographic binary matroids (per snippet). The graph problem is a special case of the matroid statement, so this does not settle the graph problem by itself.",
+      "remains": "Binary matroids outside the cographic class, and the graph problem itself, which is all of problem_asks.",
+      "checked_by": [
+        {
+          "who": "SIAM Journal on Discrete Mathematics (per snippet)",
+          "qualification": "Refereed journal publication, if the snippet is right",
+          "what_they_did": "Published the paper (per snippet only)",
+          "where": "https://arxiv.org/pdf/2112.06385",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4.5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only from search snippets; not verified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue (matroid generalisation): partial for cographic matroids; no bearing on the graph case beyond what the matroid statement implies.",
+      "object": null,
+      "people": [
+        "Jorn van der Pol",
+        "Kazuhiro Nomoto"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/2112.06385"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2112.06385"
+      ]
+    },
+    {
+      "id": "basit-galvin-2022",
+      "what_happened": "Basit, Galvin, 'Generalized Tuza's conjecture for random hypergraphs', arXiv:2204.04568 (April 2022 per the arXiv identifier; not opened). Per search snippets: for r in {3, 4, 5} and any p = p(n), the uniform random r-graph satisfies the Aharoni-Zerbib generalisation of Tuza's conjecture with high probability; published in SIAM J. Discrete Math. 38(3) (2024) 2260-2288. The snippet also says that for r >= 6 a weaker linear bound holds.",
+      "date": "2022-04",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Hypergraph generalisation (Aharoni-Zerbib, tau/nu <= ceil((r+1)/2)) on random r-graphs for r in {3, 4, 5}. Not the graph problem.",
+      "remains": "The graph problem (r = 2), and deterministic hypergraphs; all of problem_asks.",
+      "checked_by": [
+        {
+          "who": "SIAM Journal on Discrete Mathematics (per snippet)",
+          "qualification": "Refereed journal publication, if the snippet is right",
+          "what_they_did": "Published the paper (per snippet only)",
+          "where": "https://arxiv.org/abs/2204.04568",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4.5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only from search snippets; not verified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue (hypergraph, random model): not the graph problem.",
+      "object": null,
+      "people": [
+        "Abdul Basit",
+        "David Galvin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2204.04568"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2204.04568"
+      ]
+    },
+    {
+      "id": "norin-sun-2016",
+      "what_happened": "Norin, Sun, 'Triangle-free independent sets vs. cuts' (cited on erdosproblems.com as [NoSu16]; arXiv 1602.04370 per a search snippet). Proves alpha_1(G) + tau_B(G) <= n^2/4, where tau_B is the minimum number of edges to delete to make G bipartite; this gives the Erdos-Gallai-Tuza edge version alpha_1 + tau_1 <= n^2/4 (erdosproblems.com/621, opened: marked solved, with the statement formalised in the google-deepmind formal-conjectures repository). This is a different problem sharing a namesake: it concerns edge sets, not the nu/tau triangle packing and covering.",
+      "date": "2016",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A different problem: the Erdos-Gallai-Tuza edge-version inequality alpha_1 + tau_1 <= n^2/4 for all n-vertex graphs (strengthened to tau_B). It is not a bound on the triangle-packing ratio.",
+      "remains": "The triangle-packing statement tau <= 2 nu, which is all of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not about this problem; a different statement sharing the Erdos-Gallai-Tuza name.",
+      "object": null,
+      "people": [
+        "S. Norin",
+        "Y.-R. Sun"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.erdosproblems.com/621"
+        ]
+      },
+      "sources": [
+        "https://www.erdosproblems.com/621"
+      ]
+    },
+    {
+      "id": "calbet-freschi-2024",
+      "what_happened": "Calbet, Freschi, 'The asymptotic behaviour of sat(n, F)', arXiv:2401.10847 (submitted 19 Jan 2024). Concerns a different conjecture also due to Tuza, on saturation numbers: sat(n,F)/n converges for singleton families. The abstract says an earlier cited proof is flawed and gives a corrected one. Opened (abstract page).",
+      "date": "2024-01-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 19 Jan 2024 only.",
+      "delivers": "A different problem: the saturation-number conjecture of Tuza. It does not touch the triangle-packing and covering statement.",
+      "remains": "The triangle-packing and covering statement, which is all of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2.7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem; a saturation-number conjecture with the same proposer.",
+      "object": null,
+      "people": [
+        "Asier Calbet",
+        "Andrea Freschi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2401.10847"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2401.10847"
+      ]
+    },
+    {
+      "id": "chahua-gutierrez-2024",
+      "what_happened": "Chahua, Gutierrez, 'On Tuza's conjecture in dense graphs', arXiv:2405.11409 (submitted 18 May 2024; single version; 12 pages). Abstract (opened): Tuza's conjecture is valid for split graphs with minimum degree at least 3n/5; for tripartite graphs with minimum degree above 33n/56, tau < (28/15) nu; for complete 4-partite graphs, tau <= (3/2) nu and this is tight. The abstract recalls Tuza's earlier result for minimum degree 7n/8 (probabilistic argument). Journal: Discrete Applied Mathematics 377 (2025) 225-233, per a search snippet; the arXiv page gives no journal reference and this was not verified.",
+      "date": "2024-05-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 18 May 2024 only (per arXiv abstract page).",
+      "delivers": "Restricted classes: split graphs with minimum degree at least 3n/5 (tau <= 2 nu); tripartite graphs with minimum degree above 33n/56 (tau < (28/15) nu); complete 4-partite graphs (tau <= (3/2) nu, tight). Each is a class-level result; none is the general statement.",
+      "remains": "All graphs outside those classes, including split graphs of lower minimum degree and general graphs. This is all of problem_asks outside them.",
+      "checked_by": [
+        {
+          "who": "Discrete Applied Mathematics (journal)",
+          "qualification": "Refereed journal publication, per a search snippet",
+          "what_they_did": "Published the paper (2025, per snippet; not verified on a journal page)",
+          "where": "https://arxiv.org/abs/2405.11409",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 years 5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjecture on the listed classes; does not reach the general case.",
+      "object": null,
+      "people": [
+        "Luis Chahua",
+        "Juan Gutierrez"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2405.11409"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2405.11409"
+      ]
+    },
+    {
+      "id": "terekhov-2025",
+      "what_happened": "Terekhov, 'A short proof of Tuza's conjecture for weak saturation in hypergraphs', arXiv:2504.03816 (v1 4 Apr 2025; v2 24 Apr 2025; v3 6 Jul 2026). Abstract (opened): gives a 'significantly shorter proof' of Tuza's conjecture on the asymptotic behaviour of the weak saturation number wsat(n, H) for r-uniform hypergraphs, which Shapira and Tyomkyn (PAMS 2023) had already proved. Not the triangle-packing statement; the abstract never mentions triangles.",
+      "date": "2025-04-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 4 Apr 2025; v2 24 Apr 2025; v3 6 Jul 2026.",
+      "delivers": "A different problem: weak saturation numbers for hypergraphs (a shorter proof of a result already known). It does not bear on tau <= 2 nu.",
+      "remains": "The triangle-packing and covering statement, which is all of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 1.5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem; a different Tuza conjecture (weak saturation).",
+      "object": null,
+      "people": [
+        "Nikolai Terekhov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2504.03816"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2504.03816"
+      ]
+    },
+    {
+      "id": "sawhney-sellke-2025",
+      "what_happened": "'Early science acceleration experiments with GPT-5', arXiv:2511.16072 (v1 20 Nov 2025; 14 authors including Bubeck, Gowers, Sawhney, Sellke, Weil). Its Erdos-problems section, read from the arXiv HTML rendering, lists Problem 167 among problems where GPT-5 was asked to 'locate a solution if it existed, and otherwise to report significant partial progress'. Quoted list fragment: 'Reporting noteworthy partial progress in the existing literature for ... 32, 167, 188, ...'. The authors write that 'The references provided were generally accurate and easy to verify manually.' The readable text does not say what partial progress GPT-5 found for #167, and does not claim a new proof for it. The HTML was read through a fetch summary and is truncated; the PDF body was not readable.",
+      "date": "2025-11-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (arXiv abstract page).",
+      "delivers": "Nothing new is claimed for Problem 167 in the readable text. GPT-5 is reported to have located partial progress for it in the existing literature. The content of that progress is not stated in what I could read.",
+      "remains": "All of problem_asks: this event does not settle or move the triangle statement.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10.5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The paper's claims about Problem 167 are only as reliable as its literature search; the authors' manual verification of references is their own. Erdos Problems maintainer Thomas Bloom publicly disputed the batch framing in general (search snippet; not specific to #167).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Literature finding about Problem 167 with no new mathematical result claimed.",
+      "object": null,
+      "people": [
+        "Mehtaab Sawhney",
+        "Mark Sellke"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2511.16072v1",
+          "https://arxiv.org/abs/2511.16072"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2511.16072v1",
+        "https://arxiv.org/abs/2511.16072"
+      ]
+    },
+    {
+      "id": "gupta-2026",
+      "what_happened": "Gupta, 'Tuza's conjecture for graphs of maximum degree at most seven', arXiv:2608.06538 (submitted 6 Aug 2026; single version v1; 17 pages; math.CO). Abstract (opened): 'We prove the conjecture for maximum degree at most 7.' Method: Puleo's reducible-set framework applied to a minimal 7-regular counterexample; an exhaustive census of vertex links gives at every vertex an edge lying in 4, 5 or 6 triangles; codegrees 5 and 6 are handled by a packing and covering template and Fano-plane witnesses; codegree 4 by 'an explicit catalogue of 1,144 machine-checked local certificates' from an integer-constraint search, verified by Python code with exact integer arithmetic. The paper states: 'We do not provide a human-readable proof of that catalogue; the certificates and their verifiers accompany the paper.' Companion repository github.com/agupta/tuza-maximum-degree-seven. Preprint; no peer review found.",
+      "date": "2026-08-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 6 Aug 2026 only.",
+      "delivers": "All graphs of maximum degree at most 7: tau <= 2 nu, which includes 7-regular graphs (not covered by Puleo's maximum-average-degree-below-7 result). The paper also notes the constant 2 is already sharp at maximum degree 3.",
+      "remains": "Every graph with a vertex of degree 8 or more, i.e. all graphs outside maximum degree at most 7. This is most of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 weeks; no public review or critique found in my searches",
+      "machine_checked": null,
+      "directly_checkable": "The 1,144 certificates and the checkers are in github.com/agupta/tuza-maximum-degree-seven (README: make check, make check-full). I read the repository page but did not run the code or inspect the verifier source.",
+      "doubts": "(1) The codegree-four step rests on 1,144 computer-verified certificates with no human-readable catalogue, so correctness depends on the verifier code and on the reduction it encodes. (2) The author says AI coding tools were used for 'software development' and 'exact computational checks' as well as proof exploration (see ai below), so the provenance of the verification code is AI-assisted. (3) The finder uses OR-Tools CP-SAT and the paper says no OR-Tools version is pinned; the paper states the finder is not on the verification path. No specific error has been identified and no critique was found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Proves the conjecture for a restricted class (maximum degree at most 7): cuts in favour of tau <= 2 nu on that class. No counterexample.",
+      "object": null,
+      "people": [
+        "Anish Gupta"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Anthropic Claude Code (Claude 5 family)",
+            "what_it_did": "Credited by the author with use 'extensively for proof exploration, software development, exact computational checks, literature discovery, and drafting and editing the manuscript'. The author says they selected the arguments and methods and checked the cited sources and reported computations.",
+            "basis_quote": "Anthropic Claude Code (Claude 5 family) and OpenAI Codex (GPT-5.6 family) were used extensively for proof exploration, software development, exact computational checks, literature discovery, and drafting and editing the manuscript. The author selected the arguments and methods, checked the cited sources and reported computations, and takes full responsibility for the content. These systems are not authors or independent guarantors of correctness.",
+            "quote_url": "https://arxiv.org/html/2608.06538"
+          },
+          {
+            "name": "OpenAI Codex (GPT-5.6 family)",
+            "what_it_did": "Credited by the author with use 'extensively for proof exploration, software development, exact computational checks, literature discovery, and drafting and editing the manuscript', jointly with Claude Code. The author says they selected the arguments and methods and checked the cited sources and reported computations.",
+            "basis_quote": "Anthropic Claude Code (Claude 5 family) and OpenAI Codex (GPT-5.6 family) were used extensively for proof exploration, software development, exact computational checks, literature discovery, and drafting and editing the manuscript. The author selected the arguments and methods, checked the cited sources and reported computations, and takes full responsibility for the content. These systems are not authors or independent guarantors of correctness.",
+            "quote_url": "https://arxiv.org/html/2608.06538"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.06538",
+          "https://arxiv.org/abs/2608.06538"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.06538",
+        "https://arxiv.org/html/2608.06538",
+        "https://github.com/agupta/tuza-maximum-degree-seven"
+      ]
+    },
+    {
+      "id": "split-graphs-eight-clique-2026",
+      "what_happened": "Preprint 'Tuza's Conjecture for Split Graphs with an Eight-Vertex Clique Part and Two Neighborhood Types' on Preprints.org (manuscript 202608.1304). Submitted 17 Aug 2026 and posted 19 Aug 2026 per a search snippet of the page. Per the abstract as quoted in that snippet: proves the conjecture for every split graph with a specified split partition in which the clique part has 8 vertices and the triangle-active independent vertices have at most two distinct neighbourhoods in the clique, with arbitrary multiplicities; reduces the infinite statement to 44,702 canonical cases by an exact multiplicity-truncation lemma and symmetry. The site describes it as not peer-reviewed. The page returned HTTP 403 to my fetch, so authors, affiliations and any AI statement were not established.",
+      "date": "2026-08-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Split graphs with an 8-vertex clique part and at most two neighbourhood types among the triangle-active independent vertices (arbitrary multiplicities). A restricted class, and per the abstract reduced to a finite computation of 44,702 canonical cases.",
+      "remains": "All other split graphs, and all general graphs, i.e. all of problem_asks outside that class.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 weeks; no independent confirmation found",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not peer-reviewed. The finite reduction to 44,702 cases implies a computational component whose code I did not see. The page itself was not readable to me, so the claim rests on a search snippet of the abstract.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Proves the conjecture for a restricted class (split graphs, 8-vertex clique part, two neighbourhood types). No counterexample.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.preprints.org/manuscript/202608.1304"
+        ]
+      },
+      "sources": [
+        "https://www.preprints.org/manuscript/202608.1304"
+      ]
+    },
+    {
+      "id": "yi-2026",
+      "what_happened": "Yi, 'An improved upper bound for Tuza's conjecture via 2-colorable triangle families', arXiv:2608.23010 (submitted 24 Aug 2026; single version; 4 pages; single author Lixing Yi; math.CO). Theorem 1 (opened via HTML rendering): for a 2-colorable triangle family F, tau(F) <= (1 + sqrt(3)) nu(F). Corollary 1: for every graph G, tau(G) <= (63/22) nu(G), about 2.864, improving Haxell's 66/23. The paper does not claim to prove Tuza's conjecture. AI disclosure, quoted from the HTML rendering: 'The results were developed by the author independently without AI tools.' and 'Generative LLMs (ChatGPT and Claude) were used for reviewing and editing the manuscript only.'",
+      "date": "2026-08-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 24 Aug 2026 only.",
+      "delivers": "All graphs: tau <= (63/22) nu, about 2.864. A general improvement of Haxell's constant; the constant 2 is not reached and no class is restricted.",
+      "remains": "The statement tau <= 2 nu for all graphs, which is all of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7 weeks; no review found",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unrefereed single-author preprint. I read the abstract page and the HTML theorem and corollary statements but not the proof, which I did not check line by line.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A universal upper bound above 2: consistent with the conjecture and does not settle it.",
+      "object": null,
+      "people": [
+        "Lixing Yi"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.23010",
+          "https://arxiv.org/abs/2608.23010"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.23010",
+        "https://arxiv.org/html/2608.23010"
+      ]
+    },
+    {
+      "id": "wang-2026",
+      "what_happened": "Wang, 'A Bound Below 2.8 for Tuza's Conjecture', arXiv:2609.13831 (submitted 12 Sep 2026; single version v1; 5 pages; math.CO; sole author Sichen Wang). Abstract and Theorem 1 (opened via arXiv HTML and abstract page): 'Every finite simple graph G satisfies tau(G) <= (165/59) nu(G)', about 2.797; improves Haxell's 66/23; the abstract still describes Tuza's conjecture as open. Method: red-blue edge colouring of the families left over in Haxell's construction, then an exchange argument giving tau(F) <= (8/3) nu(F) for such families. Comments field: 'Formalized in Lean 4 with Mathlib', repository github.com/sichen-wang/tuza-lean. The affiliation 'Shenzhen MSU-BIT University' comes from a search snippet and is not on the arXiv page.",
+      "date": "2026-09-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 12 Sep 2026 only.",
+      "delivers": "All finite simple graphs: tau <= (165/59) nu, about 2.797. This is a general improvement of the constant (from 66/23, and below Yi's 63/22). The constant 2 is not reached.",
+      "remains": "The statement tau <= 2 nu for all graphs, which is all of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 1 month; no human review found",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (toolchain pinned to v4.32.0 per README)",
+        "sorry_free": true,
+        "url": "https://github.com/sichen-wang/tuza-lean"
+      },
+      "directly_checkable": "The repository's Tuza/Main.lean provides tuza_bound_nat (59 tau <= 165 nu), tuza_bound (the same in Q) and exists_small_triangle_transversal (an explicit edge set with 59 |C| <= 165 nu). I read the README only; I did not run the build or inspect the source.",
+      "doubts": "No human reading found. The sorry-free status rests on the README statement that the proof 'depends on no axioms beyond propext, Classical.choice, and Quot.sound'; I did not run #print axioms or check the source. I did not inspect whether the Lean definitions of tau and nu match the paper's.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Universal upper bound on the ratio tau/nu: consistent with the conjecture, does not settle it.",
+      "object": null,
+      "people": [
+        "Sichen Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.13831",
+          "https://arxiv.org/html/2609.13831",
+          "https://github.com/sichen-wang/tuza-lean"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.13831",
+        "https://arxiv.org/html/2609.13831",
+        "https://github.com/sichen-wang/tuza-lean"
+      ]
+    },
+    {
+      "id": "white-2026",
+      "what_happened": "White, 'Tuza's Ryser-conjecture claim for four-partite hypergraphs with matching number two', arXiv:2609.14281 (submitted 13 Sep 2026; single version; 5 pages; math.CO; author Patrick White). This is a different problem: it proves that every 4-partite 4-uniform hypergraph H with matching number 2 has vertex cover number at most 6, closing the (r, nu) = (4, 2) case of Ryser's conjecture. The abstract says it confirms a claim Tuza made in a 1979 manuscript. It does not concern triangle packing and covering. AI disclosure, quoted from the HTML Methods: 'The proof was found through four rounds of structured reasoning with GPT-5.6 Sol (OpenAI, model gpt-5.6-sol-pro),' and 'Claude (Anthropic, model claude-sonnet-4-20250514) served throughout in the framing and verification role'. Every structural claim was 'independently verified by exact computation (MILP + brute force)'. The arXiv comments field instead says 'Proof found via four rounds of GPT-5.6 Pro'.",
+      "date": "2026-09-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 13 Sep 2026 only.",
+      "delivers": "Not this problem: a Ryser-type hypergraph statement for (r, nu) = (4, 2). It does not bear on tau <= 2 nu for graphs.",
+      "remains": "All of problem_asks, which this event does not touch.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 weeks; no review found",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The AI-model strings are as returned by a fetch summary of the HTML; the Methods section was not read in full. The arXiv comments give a different model name ('GPT-5.6 Pro') from the Methods ('GPT-5.6 Sol ... gpt-5.6-sol-pro').",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem. Credits an AI system with a proof of a neighbouring hypergraph statement.",
+      "object": null,
+      "people": [
+        "Patrick White"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-5.6 Sol (OpenAI, model gpt-5.6-sol-pro)",
+            "what_it_did": "Per the authors' Methods: the proof was 'found through four rounds of structured reasoning'. Round 4 is described as finding the projection lemma and the proof. Structural claims returned by the model were checked by the author's own exact computation.",
+            "basis_quote": "The proof was found through four rounds of structured reasoning with GPT-5.6 Sol (OpenAI, model gpt-5.6-sol-pro),",
+            "quote_url": "https://arxiv.org/html/2609.14281"
+          },
+          {
+            "name": "Claude (Anthropic, model claude-sonnet-4-20250514)",
+            "what_it_did": "Per the authors' Methods: 'framing and verification role', throughout, including building checker infrastructure, posing each round's target, and declining to accept unchecked claims.",
+            "basis_quote": "Claude (Anthropic, model claude-sonnet-4-20250514) served throughout in the framing and verification role:",
+            "quote_url": "https://arxiv.org/html/2609.14281"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.14281",
+          "https://arxiv.org/abs/2609.14281"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.14281",
+        "https://arxiv.org/html/2609.14281"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Sources disagree on when the conjecture was posed: Wikipedia gives 1981 (Eger colloquium proceedings, published 1984) and a search snippet gives 1984. Not a priority dispute, but the year is inconsistent across sources; the year-of-posing field belongs to another pass.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Tuza's_conjecture"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Krivelevich (1995): the fractional result tau <= 2 nu* is attributed to him by Chapuy et al.'s abstract. A search snippet of a matroid paper also attributes to him a result for graphs with no K_{3,3}-subdivision. I could not open the 1995 paper to decide which is correct, or whether both are.",
+      "sources": [
+        "https://arxiv.org/abs/1012.0372",
+        "https://cs.tau.ac.il/~krivelev/papers.html"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Erdos Problem 167: the search snippet of erdosproblems.com/167 said the page is marked open, but the fetched page showed no explicit status label, only 'Formalised statement? No' and the remarks. The problem's status on that page is therefore not established by me.",
+      "sources": [
+        "https://www.erdosproblems.com/167"
+      ]
+    }
+  ],
+  "summary": "Tuza's conjecture (tau(G) <= 2 nu(G) for every graph G, with nu the maximum number of edge-disjoint triangles and tau the minimum number of edges meeting every triangle) is open in every source I could open, which runs to 13 October 2026. Since 26 January 2024 the record shows no proof, counterexample or retraction, only partial results. Chahua and Gutierrez (arXiv 18 May 2024) proved it for split graphs of minimum degree at least 3n/5 and gave bounds for tripartite and complete 4-partite graphs. Gupta (arXiv 6 Aug 2026) proved it for maximum degree at most 7, with the codegree-four step resting on 1,144 computer-verified certificates that have no human-readable catalogue. The paper's arXiv abstract page does not mention AI, but its HTML Acknowledgment does: Anthropic Claude Code (Claude 5 family) and OpenAI Codex (GPT-5.6 family) were 'used extensively for proof exploration, software development, exact computational checks, literature discovery, and drafting and editing the manuscript'. I list both as credited systems; whether that use is load-bearing is for the later pass. An unread Preprints.org preprint (posted 19 Aug 2026; the site returned HTTP 403) proves the conjecture for split graphs with an eight-vertex clique part and at most two neighbourhood types; I have only its abstract via a search snippet. Yi (arXiv 24 Aug 2026) proves tau <= 63/22 nu for all graphs, and Wang (arXiv 12 Sep 2026) proves tau <= 165/59 nu, formalised in Lean 4 with Mathlib. Neither reaches 2 and neither claims the conjecture. Yi discloses that the results were developed 'without AI tools' with ChatGPT and Claude used only for reviewing and editing; Wang names no AI. The one AI event that names this problem is Sawhney, Sellke et al. (arXiv 20 Nov 2025), whose GPT-5 literature search lists Erdos Problem 167 among problems with 'noteworthy partial progress in the existing literature'. That is a literature finding, with no new mathematics claimed for #167, and I could not read what the progress was. The neighbouring Ryser-type paper by White (arXiv 13 Sep 2026) credits GPT-5.6 with the proof of a different hypergraph claim; it is recorded as a different problem and not as this one. Pre-window results (Puleo 2013/2015 for maximum average degree below 7; Haxell 1999 for 66/23; Krivelevich 1995 for the fractional bound; Bonamy et al., Botler et al., Kahn-Park, Bennett et al., Baron-Kahn and others) are recorded as events. Every one is a class-level result, a fractional or random-model analogue, or a sharpness result, and none resolves the general statement. Close calls: the bullet's word 'disjoint' is read as edge-disjoint, following the Wikipedia article and the literature. The Gupta paper's AI disclosure is the closest call on whether an AI system is in the result. The Wang and Yi bounds move a universal constant that the bullet does not name, so their weight under section 2.1 is also a close call.",
+  "competing_reading": "For Gupta: the disclosure lists 'proof exploration' first and says AI tools were used 'extensively', which could make an AI system load-bearing for the Delta <= 7 proof. The opposite reading is that the author selected the arguments, checked the sources and computations, and disclaims AI as guarantor, so the AI role is tooling around a human-designed reduction. For the general constant: a strict reading of section 2.1 counts only results about the statement 'tau <= 2 nu for all graphs', so Yi's 63/22 and Wang's 165/59 are not progress on the bullet at all. A looser reading treats the ratio tau/nu as the conjecture's own quantity, so that moving the constant from 66/23 to 165/59 is a bound moved. For the restricted-class results (Gupta, Chahua and Gutierrez, the preprints.org paper, Puleo, Bonamy et al.): a strict reading says none of them touches the general statement; a looser reading counts a class where the statement holds as partial progress. For Sawhney and Sellke: a reader who treats a literature find as a 'partial progress' event could count #167 as having moved, but the event contains no mathematics about the triangle problem. For Krivelevich 1995: if the K_{3,3} attribution is right, that is a class result the record would need to add to; if it is wrong, the fractional bound is the only 1995 content.",
+  "what_would_settle_it": "(1) For Gupta: an independent re-run of the 1,144-certificate checker and a human reading of the reduction (Lemma 4.5 and the codegree-five and six arguments), plus the full Methods text on how AI was used in the proof-exploration step. (2) For the Preprints.org split-graph paper: an open copy of the page (the site returned 403) to get authors, dates, the abstract and any AI statement. (3) For Sawhney and Sellke and Erdos #167: the readable Erdos section of arXiv 2511.16072 giving the partial progress for #167, and the erdosproblems.com contribution history for #167. (4) For Krivelevich 1995: the Discrete Mathematics abstract, to settle the fractional versus K_{3,3} content. (5) For Wang: inspection of the Lean definitions of tau and nu against the paper, and a run of #print axioms. (6) For Yi and Wang: the proofs read by a combinatorialist, and whether either constant is improved again. (7) For the whole question: a later paper that cites Gupta, Yi or Wang as settling or extending the general statement, or any disproof.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Tuza's_conjecture",
+      "title": "Tuza's conjecture (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics",
+      "title": "List of unsolved problems in mathematics (Wikipedia), Subgraphs bullet",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.erdosproblems.com/167",
+      "title": "Erdos Problem #167 (Tuza's triangle problem)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.erdosproblems.com/621",
+      "title": "Erdos Problem #621 (Erdos-Gallai-Tuza edge version)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/sichen-wang/tuza-lean",
+      "title": "sichen-wang/tuza-lean (Lean 4 formalisation of the 165/59 bound)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/agupta/tuza-maximum-degree-seven",
+      "title": "agupta/tuza-maximum-degree-seven (companion repository)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://cs.tau.ac.il/~krivelev/papers.html",
+      "title": "Krivelevich publications page (citation of the 1995 paper)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.06538",
+      "title": "arXiv 2608.06538, Gupta, maximum degree at most seven (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.06538",
+      "title": "arXiv 2608.06538, HTML rendering (AI acknowledgment, certificates)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.14281",
+      "title": "arXiv 2609.14281, White, Ryser-type hypergraph claim (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.14281",
+      "title": "arXiv 2609.14281, HTML rendering (Methods, AI disclosure)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.23010",
+      "title": "arXiv 2608.23010, Yi, 2-colorable triangle families (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.23010",
+      "title": "arXiv 2608.23010, HTML rendering (AI disclosure, Theorem 1, Corollary 1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.13831",
+      "title": "arXiv 2609.13831, Wang, bound below 2.8 (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.13831",
+      "title": "arXiv 2609.13831, HTML rendering (Theorem 1, Lean note)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.11409",
+      "title": "arXiv 2405.11409, Chahua and Gutierrez, dense graphs (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1308.2211",
+      "title": "arXiv 1308.2211, Puleo, maximum average degree below 7",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1012.0372",
+      "title": "arXiv 1012.0372, Chapuy et al., packing triangles in weighted graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2001.00257",
+      "title": "arXiv 2001.00257, Chalermsook et al., multi-transversals",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2002.07925",
+      "title": "arXiv 2002.07925, Botler, Fernandes, Gutierrez, treewidth and triangulations",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2007.04351",
+      "title": "arXiv 2007.04351, Kahn and Park, random graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2007.04478",
+      "title": "arXiv 2007.04478, Bennett, Cushman, Dudek, random graph gap",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1810.11739",
+      "title": "arXiv 1810.11739, Bennett, Dudek, Zerbib, sparse random graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2105.09871",
+      "title": "arXiv 2105.09871, Bonamy et al., threshold graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1408.4870",
+      "title": "arXiv 1408.4870, Baron and Kahn, asymptotically tight for dense graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2401.10847",
+      "title": "arXiv 2401.10847, Calbet and Freschi, saturation sat(n,F)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2504.03816",
+      "title": "arXiv 2504.03816, Terekhov, weak saturation in hypergraphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.16072",
+      "title": "arXiv 2511.16072, Early science acceleration experiments with GPT-5 (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2511.16072v1",
+      "title": "arXiv 2511.16072v1, HTML rendering (Erdos section, Problem 167 mention; truncated)",
+      "type": "preprint",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "Tuza's conjecture triangle packing edges 2nu",
+      "Tuza conjecture 2025 arXiv proof",
+      "Tuza's conjecture AI model proof counterexample",
+      "Tuza conjecture Wikipedia triangle cover edges disjoint triangles",
+      "Tuza conjecture planar graphs proof triangle transversal",
+      "\"Tuza\" conjecture triangles edge-disjoint cover 2 tau nu 2024",
+      "Krivelevich triangle packing covering ratio 2.87 Tuza",
+      "Tuza conjecture fractional version tau* nu* triangle",
+      "Tuza's conjecture Erdős problems database triangle",
+      "Tuza conjecture AlphaEvolve OR \"GPT-5\" OR \"Gemini\" OR \"Deep Think\" triangles",
+      "split graphs Tuza's conjecture eight-vertex clique preprint 2026",
+      "Tuza's conjecture split graphs minimum degree Discrete Applied Mathematics 2025",
+      "Tuza conjecture ChatGPT proof triangles edges 2026",
+      "Tuza conjecture Claude Anthropic mathematics proof",
+      "Tuza triangle transversal conjecture Lean formalization sorry",
+      "Gupta \"Tuza's conjecture\" maximum degree seven arXiv 2608.06538",
+      "Yi \"Tuza\" 2-colorable triangle families 63/22 improved bound",
+      "Haxell 1999 \"Packing and covering triangles in graphs\" 66/23 bound",
+      "Puleo Tuza's conjecture maximum average degree less than 7 European Journal of Combinatorics",
+      "Sichen Wang \"A Bound Below 2.8 for Tuza's Conjecture\"",
+      "Tuza conjecture 165/59 triangle cover bound 2.797",
+      "erdosproblems Tuza triangles edges conjecture forum",
+      "Tuza's conjecture Terence Tao OR Quanta OR \"Matroid Union\" triangles",
+      "Krivelevich 1995 \"On a conjecture of Tuza about packing and covering of triangles\" Discrete Mathematics",
+      "Norin Sun Erdős–Gallai–Tuza conjecture proof arXiv",
+      "Tuza conjecture AI-assisted proof Erdős problem 167 triangles",
+      "Tuza's conjecture counterexample disproved triangle packing cover 2025 2026",
+      "Lakshmanan Bujtás Tuza 4-colorable graphs triangle cover packing Tuza's conjecture",
+      "erdosproblems AI contributions Tuza conjecture triangle 167 GPT Aristotle",
+      "Tuza triangle conjecture 2026 arXiv new result edge-disjoint triangles transversal",
+      "Kahn Park Tuza's conjecture random graphs Random Structures Algorithms 2022",
+      "Chalermsook Khuller Sukprasert Uniyal multi-transversals triangles Tuza SODA 2020",
+      "open problems benchmark LLM Tuza conjecture triangles unsolved list AI evaluation",
+      "Sawhney Sellke GPT-5 Erdős problems literature search partial progress problem 167",
+      "Haxell \"Packing and covering triangles in graphs\" Discrete Mathematics 195 1999",
+      "Tuza \"A conjecture on triangles of graphs\" Graphs and Combinatorics 1990",
+      "Tuza's conjecture degree seven Gupta certificates review critique error 2026",
+      "Haxell Kostochka Thomassé triangle packing K4-free planar 3/2 Tuza",
+      "Aharoni Zerbib generalization Tuza conjecture r-uniform hypergraphs ceil((r+1)/2) Basit Galvin",
+      "\"Tuza\" conjecture triangles news October 2026"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages: 2608.06538, 2609.14281, 2608.23010, 2609.13831, 2405.11409, 1308.2211, 1012.0372, 2001.00257, 2002.07925, 2007.04351, 2007.04478, 1810.11739, 2105.09871, 1408.4870, 2401.10847, 2504.03816, 2511.16072",
+      "Wikipedia: Tuza's conjecture article (last edited 9 July 2026 per the fetched page); List of unsolved problems in mathematics, Subgraphs bullet (read as truncated text)",
+      "erdosproblems.com: problem 167 (last edited 13 October 2025 per fetched page) and problem 621",
+      "GitHub: sichen-wang/tuza-lean README; agupta/tuza-maximum-degree-seven README and About",
+      "Krivelevich publications page (citation list)",
+      "Google-style web search over the 40 queries above, with results opened where a source was named"
+    ],
+    "dead_ends": [
+      "Preprints.org manuscript 202608.1304 returned HTTP 403 to both the manuscript page and the /v1 page; content taken from a search snippet only",
+      "Springer page for Lakshmanan, Bujtas, Tuza (10.1007/s00373-011-1048-8) redirected to a login page; not read",
+      "arXiv PDF fetches for 2609.14281, 2608.06538, 2608.23010, 2511.16072 returned compressed binary; HTML renderings used instead, and those were read through a fetch summary, so quoted sentences are as returned by that summary",
+      "Krivelevich 1995 PDF (cs.tau.ac.il/~krivelev/2.pdf) returned binary; the 1995 paper itself was not read",
+      "A local shell curl to read raw arXiv HTML was blocked by the approval gate; not retried",
+      "Haxell 1999, Tuza 1990, Haxell-Kostochka-Thomasse 2012, Lakshmanan-Bujtas-Tuza 2012 and Basit-Galvin 2022 journal pages were not reached; their content comes from Wikipedia or search snippets",
+      "The Lean source files (Tuza/Main.lean) in sichen-wang/tuza-lean were not read; the Gupta verifier source was not read",
+      "The Erdos #167 forum thread (/forum/discuss/167) was not opened",
+      "AI benchmark problem lists (UnsolvedMath, HorizonMath) were searched but their item lists were not opened; Tuza not confirmed as an item",
+      "Searches for a vertex-disjoint variant of the triangle packing were not run",
+      "Quanta and Terence Tao coverage of Tuza's conjecture: searched, none found"
+    ]
+  },
+  "incomplete": "Not complete in the following respects. (1) The Preprints.org split-graph preprint (posted 19 Aug 2026) was not read: the site returned HTTP 403; its authors, dates and any AI statement are unestablished, and its event is taken from a search snippet of the abstract. (2) Several arXiv PDFs were unreadable binary through the fetch tool and the shell was blocked, so the AI-disclosure and theorem quotes for 2608.06538, 2609.14281, 2608.23010 and 2511.16072 come from HTML renderings read through a fetch summary. The quotes are as returned, not checked against raw text. (3) The Sawhney-Sellke/Erdos #167 mention is confirmed only in the HTML rendering, which was truncated; what GPT-5 found for #167 is not stated in anything I could read. (4) Erdos #167's own status is not shown on the fetched page. (5) Krivelevich 1995, Haxell 1999, Tuza 1990, Haxell-Kostochka-Thomasse 2012, Lakshmanan-Bujtas-Tuza 2012, Basit-Galvin 2022 and van der Pol-Nomoto 2021 were not read at source; they are recorded from Wikipedia, erdosproblems or search snippets and marked as such in their events. (6) Journal publication for Chahua-Gutierrez (DAM 2025), Bennett-Cushman-Dudek (SIAM DM 2021) and Basit-Galvin (SIAM DM 2024) comes from search snippets, not from the journal pages. (7) The Lean repository's sorry-freeness rests on the README's axiom statement; I did not run the build or #print axioms, and did not check that the Lean definitions of tau and nu match the paper. (8) The Gupta companion repository's verifier source was not inspected or run. (9) Only the 2024-2026 window and the major pre-window partial results are recorded; a fuller list of pre-2024 partial results (for example Yuster's asymptotic result and the Haxell-Rodl dense-graph result, both seen only in snippets) is not included. (10) No check was made for an erratum, withdrawal or citation of Gupta, Yi, Wang or the split-graph preprint after 13 Oct 2026.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "none",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "chahua-gutierrez-2024",
+  "no_change_found": false,
+  "event": {
+    "id": "chahua-gutierrez-2024",
+    "what_happened": "Chahua, Gutierrez, 'On Tuza's conjecture in dense graphs', arXiv:2405.11409 (submitted 18 May 2024; single version; 12 pages). Abstract (opened): Tuza's conjecture is valid for split graphs with minimum degree at least 3n/5; for tripartite graphs with minimum degree above 33n/56, tau < (28/15) nu; for complete 4-partite graphs, tau <= (3/2) nu and this is tight. The abstract recalls Tuza's earlier result for minimum degree 7n/8 (probabilistic argument). Journal: Discrete Applied Mathematics 377 (2025) 225-233, per a search snippet; the arXiv page gives no journal reference and this was not verified.",
+    "date": "2024-05-18",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 18 May 2024 only (per arXiv abstract page).",
+    "delivers": "Restricted classes: split graphs with minimum degree at least 3n/5 (tau <= 2 nu); tripartite graphs with minimum degree above 33n/56 (tau < (28/15) nu); complete 4-partite graphs (tau <= (3/2) nu, tight). Each is a class-level result; none is the general statement.",
+    "remains": "All graphs outside those classes, including split graphs of lower minimum degree and general graphs. This is all of problem_asks outside them.",
+    "checked_by": [
+      {
+        "who": "Discrete Applied Mathematics (journal)",
+        "qualification": "Refereed journal publication, per a search snippet",
+        "what_they_did": "Published the paper (2025, per snippet; not verified on a journal page)",
+        "where": "https://arxiv.org/abs/2405.11409",
+        "automated": false
+      }
+    ],
+    "no_engagement_found": false,
+    "time_since_posted": "about 2 years 5 months",
+    "machine_checked": null,
+    "directly_checkable": null,
+    "doubts": null,
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Supports the conjecture on the listed classes; does not reach the general case.",
+    "object": null,
+    "people": [
+      "Luis Chahua",
+      "Juan Gutierrez"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/abs/2405.11409"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2405.11409"
+    ]
+  },
+  "credited_humans": [
+    "Luis Chahua",
+    "Juan Gutierrez"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2405.11409"
+  ],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "tuza-1990-planar",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "krivelevich-1995",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Content known only second-hand; sources disagree between a fractional bound and a K_{3,3}-subdivision-free class result.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "haxell-1999",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lakshmanan-bujtas-tuza-2012",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "haxell-kostochka-thomasse-2012",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "puleo-2013",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "chapuy-et-al-2010",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "baron-kahn-2014",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bennett-dudek-zerbib-2018",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chalermsook-et-al-2020",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "botler-fernandes-gutierrez-2020",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kahn-park-2020",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bennett-cushman-dudek-2020",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bonamy-et-al-2021",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "van-der-pol-nomoto-2021",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "basit-galvin-2022",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "norin-sun-2016",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "calbet-freschi-2024",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chahua-gutierrez-2024",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "terekhov-2025",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "sawhney-sellke-2025",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gupta-2026",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "split-graphs-eight-clique-2026",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Known only from a search snippet of the abstract; page unreadable, authors unknown, computational component unseen, not peer-reviewed.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "yi-2026",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wang-2026",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "white-2026",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The proof was found through four rounds of structured reasoning with GPT-5.6 Sol (OpenAI, model gpt-5.6-sol-pro),",
+        "ai_systems_credited": [
+          "GPT-5.6 Sol (OpenAI, model gpt-5.6-sol-pro)"
+        ],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks whether tau <= 2 nu for all graphs; class results (planar, mad<7, treewidth<=6, threshold, split with high min degree, max degree <=7) are cases, and universal constants (Haxell 66/23, Yi 63/22, Wang 165/59) are bounds on the conjecture's own ratio. Fractional, random-model (with-high-probability), multi-transversal, matroid and hypergraph versions are variants, as are the namesake problems (Norin-Sun, Calbet-Freschi, Terekhov, White). Baron-Kahn shows sharpness of 2 and settles nothing: none. Wang's Lean build is not digestion (F7). The close call is Gupta's AI role: the disclosure lists 'proof exploration' among many tooling uses but says the author selected the arguments and methods, and nothing in the quote identifies an argument, construction or case that a model produced; computational checks and software are checking. On that quote it is none rather than assisted. White's AI-generated proof is of a different problem and earns nothing here (F13).",
+    "doubts": "Gupta's AI role could be 'assisted' if the full Methods showed a model produced part of the reduction or the certificate catalogue; the record's quote does not say so. Chahua-Gutierrez journal publication rests on a snippet, so marked unreviewed. Random-graph results could be read as cases rather than variants; they are pre-snapshot and do not affect the outcome.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "chahua-gutierrez-2024",
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

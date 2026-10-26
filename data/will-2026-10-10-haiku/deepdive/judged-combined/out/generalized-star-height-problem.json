@@ -1,0 +1,1203 @@
+{
+  "key": "generalized-star-height-problem",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 one claimed resolution of the uniform question has appeared: OpenAI's 6 October 2026 repository release (produced by an unreleased internal model, with no named human author) contains a preprint claiming every regular language over a finite alphabet has generalized star height at most 3, plus companions claiming 4 and 13; the Lean file stating the 3-bound contains one sorry, no human expert has publicly engaged with these manuscripts in my searches, and the depth-one question and the algorithm question are untouched by any event found.",
+  "problem_asks": "Read from the statement alone: (1) whether there is a single finite bound N such that every regular language can be expressed by a generalized regular expression (union, concatenation, Kleene star and complement) whose Kleene-star nesting depth is at most N. The statement says 'limited nesting depths', and read per language this is trivially true (every regular language has some finite expression), so the only non-trivial reading is that N must not depend on the language. The statement does not say whether N must also be uniform across alphabets, and does not define complement (the 'generalized' operator is taken to be complement relative to the free monoid over the alphabet). Nothing else is asked by the statement as given.",
+  "events": [
+    {
+      "id": "openai-2026-10-three-bound",
+      "what_happened": "OpenAI's repository release openai/math (initial commit 6 Oct 2026) contains the preprint 'Generalized Star Height at Most Three' (author line 'OpenAI'; self-dated 25 Sep 2026), listed as family 134 'Generalized star height at most three' with three manuscripts. Abstract (as extracted from build/paper.tex): 'Every regular language over a finite alphabet has generalized star height at most three, with complement taken in the same free monoid. We express finite-monoid computations using a prefix code of word pieces.' The introduction frames the question as whether a fixed number of layers suffices for every regular language independently of alphabet and recognising automaton, says Theorem 1 gives a positive answer to the boundedness question, says it does not exhibit a language of generalized height greater than one, and says it does not decide whether one always suffices (it notes a universal finite bound and a universal bound of one are different assertions). The introduction cites a companion proving bound thirteen and a second companion proving bound four.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Self-dated 25 Sep 2026 in the manuscript and folder name; first public posting is the repository's initial commit dated 6 Oct 2026 (GitHub day header). Commit 'Update manuscripts and Lean formalizations' dated 8 Oct 2026 (files changed not identified). The 7 Oct history.md entry lists three withdrawals (Hodge/K3 manuscripts, none of them star-height) and 14 named revisions (none in family 134) plus 13 citation-only updates not itemised.",
+      "delivers": "A uniform upper bound: every regular language over every finite alphabet has a generalized regular expression of Kleene-star nesting depth at most 3, with complement taken in the same free monoid. The bound is stated as uniform across alphabets (the Lean statement quantifies over all finite alphabets). It is an upper bound only: no language of generalized height above one is exhibited, and the manuscript states it does not decide whether height one always suffices.",
+      "remains": "Whether nesting depth one suffices for every regular language (the manuscript says this is not decided). Whether the minimal generalized star height is computable (not addressed in the abstract or introduction I read). Whether the claim itself holds: no independent human verification found, and the repository's Lean file for this statement contains a sorry (see machine_checked).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "4 days as of 10 Oct 2026 (repository first commit 6 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (Comparator challenge file lean/ComparatorChallenges/GeneralizedStarHeight.lean)",
+        "sorry_free": false,
+        "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/GeneralizedStarHeight.lean",
+        "note": "theorem main (for every regular language L over a Finite alphabet, HasHeightAtMost L 3) is proved by sorry at line 44 of the file as read on 10 Oct 2026; no other sorry, admit, axiom or native_decide occurs in the file; imports only Mathlib. lean/docs/134.md says the Lean statement covers the selected uniform-bound statement without separately encoding every construction step of the paper. Not compiled locally. Global review.status in lean/formalization.yaml is 'unchecked'. The Oct 8 commit may have changed this file."
+      },
+      "directly_checkable": null,
+      "doubts": "(1) The repository's own Lean file for the 3-bound statement is unproved (one sorry in theorem main), so no machine check of the claimed bound exists in the release as read. (2) Repo-level verification is partial: README says about 42% of top-line results (300/719) are formalized and that 'Some of the unformalized results could have issues'. (3) No human expert engagement specific to this family was found; general criticism of the release (MIT's Andrew Sutherland: 'we should expect some of the proofs to contain mistakes, possibly serious ones'; NYU's Roland Bauerschmidt on readability) names no family. (4) The producing model is unreleased, so the one-prompt, single-agent process is not reproducible (Sutherland via secondary report). (5) Internal inconsistency to check: the introduction describes the thirteen companion as proved 'by finite computations, a prediction argument, and a decision tree' and says the present proof uses two split steps, while the thirteen companion's own abstract describes 'affine updates' and 'twelve successive split constructions'. (6) Three other manuscripts in this release were withdrawn for a sign error (Hodge/K3, unrelated), which shows the release has had errors. No specific error in the three-bound argument has been identified, and no retraction of this family has been found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts toward a positive answer to the statement's question: it asserts that a single finite bound (3) exists for all regular languages over all finite alphabets. It does not cut toward a depth-one answer, and it explicitly leaves that open.",
+      "object": "No single object is exhibited. The claim is a universal existence statement: for every regular language over every finite alphabet, a generalized expression of height at most 3 exists. The proof is a construction (the abstract mentions a prefix code of word pieces; the sections named in build/paper.tex include algebra, clock, markers, outer-split and inner-split), but I did not read the sections. Whether the construction is effective, which would bear on the algorithm question, is not stated in what I read.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "The repository README describes its contents as 'mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model', and says 'the vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model'. The release's listed exceptions to that procedure are a zero-free region for the Riemann zeta function and the Hodge conjecture for CM abelian varieties, neither of which is this family. The manuscript's own author line is 'OpenAI' with no individual author. The model is described as pre-release and internal, and no model name is given.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math"
+          }
+        ],
+        "disclosed_cost": "README: 'On average, each result used three hours of ChatGPT Pro thinking compute with that model.' Secondary reports (Kingy.ai, unite.ai) say the model was posed about 4,000 problems. No aggregate dollar cost or token count is disclosed (Kingy.ai).",
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/README.md",
+          "https://github.com/openai/math",
+          "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+          "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/paper.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/sections/introduction.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/README.md",
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://raw.githubusercontent.com/openai/math/main/overview.tex",
+        "https://raw.githubusercontent.com/openai/math/main/lean/docs/134.md",
+        "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/GeneralizedStarHeight.lean",
+        "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+        "https://raw.githubusercontent.com/openai/math/main/history.md",
+        "https://github.com/openai/math/commits/main",
+        "https://github.com/openai/math",
+        "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/"
+      ]
+    },
+    {
+      "id": "openai-2026-10-four-bound",
+      "what_happened": "OpenAI's repository release (6 Oct 2026) contains the companion preprint 'Generalized Star Height at Most Four' (author line 'OpenAI'; self-dated 25 Sep 2026), family 134. Abstract (as extracted from build/main.tex): 'Every regular language over a finite alphabet has generalized star height at most four over that same alphabet. We give a complete construction using an affine correction that hides one interval product, a finite clock, and several scales for moving boundaries through periodic words.' Its introduction was not read (section files not retrieved). The three-bound introduction describes a second companion proving bound four.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Self-dated 25 Sep 2026; first public posting is the repository initial commit dated 6 Oct 2026. Not named in the 7 Oct history entry.",
+      "delivers": "A uniform upper bound of 4 for every regular language over every finite alphabet, complement taken over the same alphabet. This class and question are the same as the three-bound event, with a weaker constant; the three-bound manuscript's introduction describes the four-bound as a companion result.",
+      "remains": "Same as the three-bound event: whether height one suffices, whether the minimal height is computable, and whether the claim holds given no human check and no Lean proof of this bound found in the release.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "4 days as of 10 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No Lean file for the four-bound statement was identified in the release: the family's Comparator rows link only to GeneralizedStarHeight.lean, whose statement is the three-bound (sorry, see the three-bound event). The release-level doubts in the three-bound event apply. Its own README gives no scope, status or review statement. No family-specific doubt was found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts toward a positive answer to the uniform question with bound 4, the same direction as the three-bound event but with a weaker constant.",
+      "object": "No single object is exhibited; the claim is a universal existence statement with a stated construction ('a complete construction using an affine correction ... a finite clock ...'). Its effectiveness was not checked.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "Same as the three-bound event: the repository README says the manuscript collection is 'produced by an internal OpenAI model' and that the vast majority of results used the same procedure with that model. The manuscript's author line is 'OpenAI' with no individual author.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math"
+          }
+        ],
+        "disclosed_cost": "README: 'On average, each result used three hours of ChatGPT Pro thinking compute with that model.'",
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/README.md",
+          "https://github.com/openai/math"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026/build/main.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026/README.md",
+        "https://github.com/openai/math/tree/main/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026",
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://raw.githubusercontent.com/openai/math/main/lean/docs/134.md"
+      ]
+    },
+    {
+      "id": "openai-2026-10-thirteen-bound",
+      "what_happened": "OpenAI's repository release (6 Oct 2026) contains the companion preprint 'Finite Monoid Computations and a Uniform Generalized Star-Height Bound' (author line 'OpenAI'; self-dated 25 Sep 2026), family 134. Abstract (as extracted from build/paper.tex): 'Every regular language over a finite alphabet has a generalized regular expression of star height at most thirteen over that same alphabet. We prove this uniform bound by representing finite monoid computations as affine updates and recovering them through twelve successive split constructions.' Its main theorem statement was not separately present in the text read; the section files (introduction, algebra, clock, geometry, outer, aligned, parameters, compilation) were not retrieved.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Self-dated 25 Sep 2026; first public posting is the repository initial commit dated 6 Oct 2026. Not named in the 7 Oct history entry.",
+      "delivers": "A uniform upper bound of 13 for every regular language over every finite alphabet, the same class and complement convention as the three-bound event, with a weaker constant. Its own abstract presents the bound as uniform.",
+      "remains": "Same as the three-bound event: whether height one suffices, whether the minimal height is computable, and whether the claim holds.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "4 days as of 10 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No Lean file for the thirteen-bound statement was identified (the family's Comparator rows point to the three-bound file). The method is described differently in the three-bound manuscript's introduction ('finite computations, a prediction argument, and a decision tree') than in this manuscript's own abstract ('affine updates' and 'twelve successive split constructions'); this discrepancy is recorded for the later pass and is not resolved here. Release-level doubts in the three-bound event apply.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts toward a positive answer to the uniform question with bound 13, in the same direction as the three- and four-bound events and superseded in constant by them.",
+      "object": "No single object is exhibited. The claim is a universal existence statement; the construction is described as a sequence of twelve split constructions over finite monoid computations. Effectiveness not checked.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "Same as the three-bound event: the repository README says the manuscript collection is 'produced by an internal OpenAI model' and that the vast majority of results used the same procedure with that model. The manuscript's author line is 'OpenAI' with no individual author.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math"
+          }
+        ],
+        "disclosed_cost": "README: 'On average, each result used three hours of ChatGPT Pro thinking compute with that model.'",
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/README.md",
+          "https://github.com/openai/math"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Finite-Monoid-Computations-and-a-Uniform-Generalized-Star-Height-Bound-September-25-2026/build/paper.tex",
+        "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/sections/introduction.tex",
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://raw.githubusercontent.com/openai/math/main/lean/docs/134.md"
+      ]
+    },
+    {
+      "id": "proofatlas-workspace-generalized-star-height",
+      "what_happened": "ProofAtlas, a platform describing itself as 'AI agents working together on new mathematics', lists a workspace titled 'Generalized Star-Height Problem' in its 'AI research workspaces' section: tags Graphs & combinatorics; Formal languages; automata theory; algebraic language theory; finite monoids; about 1.1k lines; 3 tasks; status not stated; no stated result; links to a relative path collaboration/generalized-star-height-problem/. No write-up of an outcome was found.",
+      "date": null,
+      "precision": null,
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Nothing stated. The listing shows that work on the problem was attempted on the platform; it establishes no result.",
+      "remains": "The whole problem, as far as this listing shows.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "not shown",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The platform says line counts 'measure mathematical investigation, not proximity to a proof', and the entry has no status, date, stated result or named system. It is not evidence of a result.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction: no result stated.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.proofatlas.ai/"
+        ]
+      },
+      "sources": [
+        "https://www.proofatlas.ai/"
+      ]
+    },
+    {
+      "id": "danieli-2026-05-parikh-star-height",
+      "what_happened": "Yoav Danieli, 'Star Complexity of Parikh Images of Languages over Infinite Alphabets', arXiv:2605.09435 (submitted 10 May 2026; full version of LICS 2026). Studies the star height of Parikh (commutative) images of languages recognised by register automata over infinite alphabets; reports that the star height of the Parikh image of any language recognised by a one-register automaton is universally bounded by two, that Parikh's theorem fails for infinite alphabets, and that one-register context-free languages can have rational commutative images of arbitrarily high star height.",
+      "date": "2026-05-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, 10 May 2026.",
+      "delivers": "Results on the star height of Parikh images over infinite alphabets and register automata, without complement. Discounted for this problem: it concerns ordinary star height (no complement) of commutative images over infinite alphabets, not regular languages over finite alphabets with complement.",
+      "remains": "All of the statement's question.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem; no direction on the generalized question.",
+      "object": null,
+      "people": [
+        "Yoav Danieli"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2605.09435"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2605.09435"
+      ]
+    },
+    {
+      "id": "bourne-ruskuc-2016-03",
+      "what_happened": "Tom Bourne and Nik Ruškuc, 'On the star-height of factor counting languages and their relationship to Rees zero-matrix semigroups', arXiv:1603.06236 (v1 20 Mar 2016; v2 27 Sep 2016). Publication: Theoretical Computer Science 653 (2016) 87–96 (journal reference from a search summary; not opened). Considers a fixed word w and languages where w occurs as a factor exactly k times, or a number of times fixed modulo n; proves generalized star height at most one in three special cases; applies this to show that every language recognised by a Rees zero-matrix semigroup over an abelian group has generalized star height at most one.",
+      "date": "2016-03-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 20 Mar 2016 (title 'factor counting'); v2 27 Sep 2016 (title 'subword counting' in later versions).",
+      "delivers": "Generalized star height at most one for three special families of factor-counting languages (exact count of a fixed factor, count modulo n, and a third case), and for languages recognised by Rees zero-matrix semigroups over abelian groups. Restricted to these classes; no bound for all regular languages.",
+      "remains": "Every part of the statement's question for general regular languages: no uniform bound beyond the restricted classes is delivered by this event.",
+      "checked_by": [
+        {
+          "who": "Theoretical Computer Science (journal of record, per the journal reference found in a search summary)",
+          "qualification": "Peer-reviewed journal; referees not named in sources I could reach",
+          "what_they_did": "Accepted the paper for publication (journal reference only; not opened)",
+          "where": "https://arxiv.org/abs/1603.06236 (journal reference not shown on the arXiv page I opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 8 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial result in the positive direction (height at most one) for restricted classes. Does not bear on whether a height above one is needed for general regular languages, which the authors describe as unknown.",
+      "object": null,
+      "people": [
+        "Tom Bourne",
+        "Nik Ruškuc"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1603.06236"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1603.06236",
+        "https://arxiv.org/abs/1708.03603"
+      ]
+    },
+    {
+      "id": "bourne-thesis-2017-12",
+      "what_happened": "Thomas Bourne, 'Counting subwords and other results related to the generalised star-height problem for regular languages', PhD thesis, University of St Andrews, dated 7 December 2017 (supervisors Nik Ruškuc and Colva Roney-Dougal). Results reported in search summaries (repository page not opened; 503 on fetch): languages where every word has a fixed contiguous subword an exact number of times have generalized star height zero; the modular count case has generalized star height at most one; Rees zero-matrix semigroups over nilpotent groups of class 0 and 1 and over monogenic semigroups; languages recognised by finite groups of a given order via count arrows on semidirect products. The thesis states the generalized star-height problem is open and that it is not known whether a regular language of generalized star height above one exists.",
+      "date": "2017-12-07",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Generalized star height zero (star-free) for exact-subword-count languages with every word containing the subword a fixed number of times; height at most one for modular-count languages and for certain Rees zero-matrix semigroup classes. Restricted classes only.",
+      "remains": "The question for general regular languages: the thesis itself says it is not known whether a regular language of generalized star height above one exists.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 6.8 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial results in the height-zero and height-one directions for restricted classes; no bearing on a uniform bound.",
+      "object": null,
+      "people": [
+        "Thomas Bourne"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://research-portal.st-andrews.ac.uk/en/studentTheses/counting-subwords-and-other-results-related-to-the-generalised-st/"
+        ]
+      },
+      "sources": [
+        "https://research-portal.st-andrews.ac.uk/en/studentTheses/counting-subwords-and-other-results-related-to-the-generalised-st/",
+        "https://research-repository.st-andrews.ac.uk/handle/10023/12024"
+      ]
+    },
+    {
+      "id": "pst-1989-1992",
+      "what_happened": "Jean-Éric Pin, Howard Straubing and Denis Thérien, 'Some results on the generalized star-height problem', Information and Computation 101(2) (1992) 219–250. Results reported in search summaries of Pin's problem page (not opened; 403): languages recognised by a finite commutative group, and by nilpotent groups of class 2 and groups dividing a semidirect product of a commutative group by (Z/2Z)^n, have star height at most one; a rational language recognised by a monoid in the variety generated by wreath products M∘(G∘N) (M, N aperiodic, G a commutative group) has star height at most one; every rational language is the inverse image under a morphism of a language of restricted star height one; one language previously conjectured to have star height two has star height one; the classes of languages of star height at most n are closed under Boolean operations, residuals and inverse length-preserving morphisms. The problem is stated as open. Pin's page dates the nilpotent-class-2 result to 1989.",
+      "date": "1989",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Journal publication 1992. The 1989 date is taken from Pin's problem page as quoted in a search summary; the first written version may be a 1989 report, which I could not confirm.",
+      "delivers": "Height at most one for several group-recognised and wreath-product-recognised classes, and reduction results. Restricted classes only, plus a reduction; no uniform bound for general regular languages.",
+      "remains": "The question for general regular languages: whether height above one is required, and whether a uniform bound holds.",
+      "checked_by": [
+        {
+          "who": "Information and Computation (journal of record)",
+          "qualification": "Peer-reviewed journal; referees not named in sources I could reach",
+          "what_they_did": "Published the paper in 1992",
+          "where": "https://www.sciencedirect.com/science/article/pii/089054019290063L (found in search results; not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 37 years (publication)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial results in the height-one direction for restricted classes, plus reductions. Does not decide the uniform question for general regular languages.",
+      "object": null,
+      "people": [
+        "Jean-Éric Pin",
+        "Howard Straubing",
+        "Denis Thérien"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.irif.fr/~jep/Problemes/starheight.html"
+        ]
+      },
+      "sources": [
+        "https://www.irif.fr/~jep/Problemes/starheight.html",
+        "https://www.irif.fr/~jep/PDF/StarHeight.pdf",
+        "https://www.sciencedirect.com/science/article/pii/089054019290063L"
+      ]
+    },
+    {
+      "id": "bojanczyk-2015-star-height-games",
+      "what_happened": "Mikołaj Bojańczyk, 'Star Height via Games', Proceedings of LICS 2015 (Kyoto), arXiv:1708.03603 (single version, 11 Aug 2017). Gives a new decision procedure for the ordinary (non-generalized) star height problem via a reduction from limitedness to a Gale-Stewart game with an omega-regular winning condition. The abstract does not mention generalized star height.",
+      "date": "2015",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 11 Aug 2017; the LICS 2015 proceedings version is earlier.",
+      "delivers": "Decidability of the ordinary star height problem (for regular languages without complement) via a new algorithm for limitedness. Discounted for this problem: it is about ordinary star height, not generalized star height with complement.",
+      "remains": "All of the generalized question.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 11 years (LICS 2015)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about the generalized question. Relevant only as context for the classic problem.",
+      "object": null,
+      "people": [
+        "Mikołaj Bojańczyk"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1708.03603"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1708.03603",
+        "https://lics.siglog.org/archive/2015/Bojaczyk-StarHeightviaGames.html"
+      ]
+    },
+    {
+      "id": "kirsten-2005-distance-desert",
+      "what_happened": "Daniel Kirsten, 'Distance desert automata and the star height problem', RAIRO Theoretical Informatics and Applications 39(3) (2005) 455–509. Reduces the ordinary star height problem to a limitedness problem for nested distance desert automata, and gives the first complexity bound (doubly exponential space). Discounted for this problem: it concerns ordinary star height. Details taken from search summaries; the paper was not opened.",
+      "date": "2005",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A simpler route to decidability of ordinary star height, with a complexity bound. Discounted for this problem: not generalized star height.",
+      "remains": "All of the generalized question.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 21 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not about the generalized question.",
+      "object": null,
+      "people": [
+        "Daniel Kirsten"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.numdam.org/item/ITA_2005__39_3_455_0"
+        ]
+      },
+      "sources": [
+        "https://www.numdam.org/item/ITA_2005__39_3_455_0"
+      ]
+    },
+    {
+      "id": "hashiguchi-1988-classic-decidability",
+      "what_happened": "Kenji Hashiguchi, a series of papers (roughly 1981–1988; one search summary gives 1983 for the restricted case) showing ordinary star height is decidable. Open Problem Garden credits 'Hashiguchi (1988)' with the full resolution of the algorithmic question for the classic problem. Discounted for this problem: it concerns ordinary star height, not generalized star height. Sources are secondary (Open Problem Garden, Wikipedia 'Star height problem'); the papers were not opened.",
+      "date": "1988",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Decidability of the ordinary star height problem (no complement). Discounted for this problem.",
+      "remains": "All of the generalized question. Hashiguchi's results are for ordinary star height.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 38 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not about the generalized question.",
+      "object": null,
+      "people": [
+        "Kenji Hashiguchi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://openproblemgarden.org/op/star_height_problem"
+        ]
+      },
+      "sources": [
+        "https://openproblemgarden.org/op/star_height_problem",
+        "https://en.wikipedia.org/wiki/Star_height_problem"
+      ]
+    },
+    {
+      "id": "eggan-1963-star-height",
+      "what_happened": "Lawrence C. Eggan, 'Transition graphs and the star-height of regular events', Michigan Mathematical Journal 10(4) (1963) 385–397. Introduces star height, shows regular languages of every star height n exist (over large alphabets). Discounted for this problem: it concerns ordinary star height. Cited from Open Problem Garden and Wikipedia; the paper was not opened.",
+      "date": "1963",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Examples of regular languages of every ordinary star height n. Discounted for this problem.",
+      "remains": "All of the generalized question.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 63 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not about the generalized question; it shows ordinary star height is unbounded, not generalized star height.",
+      "object": null,
+      "people": [
+        "Lawrence C. Eggan"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://openproblemgarden.org/op/star_height_problem"
+        ]
+      },
+      "sources": [
+        "https://openproblemgarden.org/op/star_height_problem"
+      ]
+    },
+    {
+      "id": "openai-math-134",
+      "what_happened": "Three manuscripts in the family claim the same kind of result with different numerical bounds. 'Generalized Star Height at Most Three' (Theorem 1.1) claims that every regular language L over every finite alphabet Σ has h_Σ(L) ≤ 3, where h_Σ(L) is the least height of a generalized expression over Σ built from 0, 1, the letters, union, concatenation, complement relative to Σ*, and Kleene star. 'Generalized Star Height at Most Four' (Theorem 1.1) claims the same with h_Σ(L) ≤ 4. 'Finite Monoid Computations and a Uniform Generalized Star-Height Bound' (Theorem 1.1) claims the same with h_Σ(L) ≤ 13. Height is the maximum over union and concatenation, unchanged by complement, and one more than the body under star, so the bounds are on star nesting depth. The method is shared in outline: a word is cut into a prefix code of episodes plus a remainder; each episode acts on a finite F₂-vector space by an affine update; and the transition-monoid value of an episode sequence is expressed by a split identity that cuts each episode into a prefix test and a suffix test, raising the height bound from a skip bound H to at most max{2, H+1}. The papers differ in how the cut is decoded. The 13-paper uses prediction trials and full decision histories, with twelve split applications in all. The 4-paper uses an affine correction that hides one interval product, a finite tag clock and several marker scales, with heights 0→2→3→4. The 3-paper uses a robust tag clock, markers with periodic continuations, and shift tables in two splits, with heights 0→2→3. In each, the final expression is a finite union of concatenations A_d B_f, where A_d (the episode part) has the claimed height and B_f (the incomplete remainder) has height at most one.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Together the claims give the uniform-boundedness answer to the question as worded: a single finite N, strongest in the family at N = 3, such that every regular language over every finite alphabet has a generalized expression over that same alphabet of star height at most N. The bound does not depend on the alphabet, the language, or the size of the recognising DFA. Restrictions: 'regular' means accepted by a DFA; complement is taken relative to the same Σ*, so the 'generalized' operator is complement relative to the free monoid on the alphabet; complement adds no star height. The manuscripts describe this as an affirmative answer to the uniform-boundedness question (13-paper introduction; 3-paper introduction). The theorem matches the list's question on the uniform reading, which is problem_asks item (1). The manuscripts do not claim to settle the problem as a whole, and they state that the question of whether height one always suffices is a separate one that their bounds do not decide.",
+      "remains": "(a) Whether height one always suffices, that is, whether some regular language has generalized star height greater than one. All three papers state that their bounds do not decide this. (b) The exact value of h_Σ(L) for particular languages; the 13-paper says computing the minimum is a further question. (c) Quantitative size bounds on the finite parameters and on expression length, which are not claimed: the 4-paper says it 'assert[s] no useful bound on their sizes or on expression length', and the 3-paper says its bound comes without a bound on expression size or running time. If the claims are correct, nothing remains open in the uniform-bound reading of the question.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "8 days",
+      "machine_checked": {
+        "system": "Lean 4",
+        "sorry_free": null,
+        "url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/134.md",
+        "scope": "Generalized star height measures the nesting of Kleene stars in regular expressions that also allow Boolean operations. The formalization proves that every regular language over a finite alphabet has a generalized expression over the same alphabet of star height at most three. This is stronger than the bound of thirteen in the accompanying finite-monoid paper. The selected statement asserts the uniform expression bound, without separately encoding every construction step of that paper.\n\nThe formalization proves that every regular language over a finite alphabet has a generalized regular expression over that same alphabet with star height at most three. Generalized expressions allow Boolean operations as well as concatenation and Kleene star. The bound of three implies the accompanying paper's bound of four; the selected statement concerns the expression bound itself.\n\nGeneralized star height measures the nesting of Kleene stars in regular expressions that also allow Boolean operations. The formalization proves that every regular language over a finite alphabet has a generalized regular expression over that same alphabet of star height at most three. Complements are taken in the same free monoid. This is the paper's uniform bound.",
+        "theorems": [
+          "OAI.GeneralizedStarHeight.main",
+          "OAI.GeneralizedStarHeight.main"
+        ]
+      },
+      "directly_checkable": null,
+      "doubts": "Read in part only. The three build folders were searched for hedging language, but most sections were not read in full: 13-paper algebra, clock, geometry, outer, aligned and parameters; 4-paper clock, scales, episodes, splits, and the start of compilation; 3-paper clock, markers, schedule, episodes, decoder, and the outer and inner splits. Within the text read: the 4-paper's introduction says its finite choices 'can be found by exhaustive search; we assert no useful bound on their sizes or on expression length'. The 3-paper's component-language proposition is closed by the summary 'We have checked every allowed source of data' rather than itemised checks. The 3-paper's provisional-clock and rational-approximation step is described only in summary in its introduction. The 13-paper says its bound of 13 records the depth of its own method and that the stronger companion bounds replace no step; each paper says it proves its own needed lemmas and uses no companion's numerical theorem. No step is flagged as sketched, and no hedge is placed on a main theorem. The headline claim answers a question that the manuscripts' own citations present as open: Straubing (2002) is cited as distinguishing the two questions, Place and Zeitoun (2017) record that no language of generalized height above one was then known, and Cotumaccio (2025) still lists the problem as open. These are facts about how strong the claim is, not a judgment on whether it holds.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "proves the uniform bound (N = 3; the family's companions claim 4 and 13 as weaker results); does not address whether height one suffices",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "produced the manuscripts, per the repository README",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+          }
+        ],
+        "disclosed_cost": "On average, each result used three hours of ChatGPT Pro thinking compute with that model.",
+        "sources": [
+          "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Finite-Monoid-Computations-and-a-Uniform-Generalized-Star-Height-Bound-September-25-2026/Finite-Monoid-Computations-and-a-Uniform-Generalized-Star-Height-Bound-September-25-2026.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026/Generalized-Star-Height-at-Most-Four-September-25-2026.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/article.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/134.md"
+      ],
+      "origin": {
+        "stage": "openai",
+        "family": "134",
+        "family_title": "Generalized star height at most three",
+        "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+        "read": [
+          "sources/openai-math/preprints/Finite-Monoid-Computations-and-a-Uniform-Generalized-Star-Height-Bound-September-25-2026/build/paper.tex",
+          "sources/openai-math/preprints/Finite-Monoid-Computations-and-a-Uniform-Generalized-Star-Height-Bound-September-25-2026/build/sections/introduction.tex",
+          "sources/openai-math/preprints/Finite-Monoid-Computations-and-a-Uniform-Generalized-Star-Height-Bound-September-25-2026/build/sections/compilation.tex (lines 160 to end)",
+          "sources/openai-math/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026/build/main.tex",
+          "sources/openai-math/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026/build/sections/01-introduction.tex",
+          "sources/openai-math/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026/build/sections/02-algebra.tex (lines 154 to 253)",
+          "sources/openai-math/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026/build/sections/07-compilation.tex (lines 170 to end)",
+          "sources/openai-math/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/paper.tex",
+          "sources/openai-math/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/sections/introduction.tex",
+          "sources/openai-math/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/sections/algebra.tex (lines 215 to 304)",
+          "sources/openai-math/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/sections/compilation.tex (lines 100 to end)"
+        ]
+      }
+    }
+  ],
+  "disputes": [],
+  "summary": "The problem is listed as open in every secondary source I could open, including Wikipedia (footer last edited 27 Aug 2026, as read through a fetch summary), which still states the depth question as open and does not mention the October 2026 release. The one new development is OpenAI's repository release of 6 Oct 2026 (openai/math; 719 manuscripts in 372 families as of 9 Oct, with 42% of top-line results formalized). Family 134 ('Generalized star height at most three') contains three preprints, each self-dated 25 Sep 2026 and author-credited only to 'OpenAI'. The three-bound abstract states that every regular language over a finite alphabet has generalized star height at most three, complement taken in the same free monoid. The four-bound and thirteen-bound companions state weaker uniform bounds. I read these from their LaTeX sources and README, not from the PDFs, because WebFetch returns PDFs as binary. Three things bear on the call. (a) Scope: the statement asks for a finite bound on nesting depth across all regular languages. A per-language reading is trivially true, so the non-trivial reading is uniform, and the three-bound manuscript claims to answer exactly that positively; it states it does not decide whether depth one suffices, which the Wikipedia article's description also asks. (b) Verification: the repository's Lean file for the three-bound statement (lean/ComparatorChallenges/GeneralizedStarHeight.lean, read 10 Oct 2026) has one sorry, at line 44 inside theorem main, which is the bound itself; lean/docs/134.md says the formalization covers the selected uniform-bound statement without encoding every construction step. The repo's global review status is 'unchecked'. No Lean file for the four or thirteen bounds was identified. (c) Human engagement: I searched for expert reaction specific to this family (Bourne, Pin, Tao, arXiv, Scientific American, the AHM statement, proofsandprompts). I found only general criticism of the release (Sutherland, Bauerschmidt, Agol) that names no family. The Sienicki & Sienicki audit (arXiv 2608.14673) covers the August 2026 Astra results, not this family. Three manuscripts were withdrawn on 7 Oct for a sign error, but they are Hodge/K3 papers, not this family. The Kingy.ai write-up says there was an October 9 update withdrawing three manuscripts, but the repository history lists only the 7 Oct entry. I did not reconcile that discrepancy. Other events: arXiv 2605.09435 (Danieli, May 2026) and a ProofAtlas workspace titled 'Generalized Star-Height Problem' (undated, no result stated) are recorded as discounted or null. The pre-window literature (Bourne and Ruškuc 2016, Bourne 2017, Pin-Straubing-Thérien 1992) gives height-one or height-zero results only for restricted classes; the classic-problem solutions (Eggan 1963, Hashiguchi 1988, Kirsten 2005, Bojańczyk 2015) concern ordinary star height and are recorded as discounted. Nothing in my searches showed an AI system credited with a result in the classic problem or in the 2016-2017 work. The main AI question is whether the family 134 manuscripts were produced by the internal OpenAI model. The README says 'the vast majority of results' used the same procedure with that model, and the listed exceptions do not include this family, so the attribution is strong but still rests on a general statement rather than a family-specific one.",
+  "competing_reading": "The strongest case for counting the three-bound release as a resolution of the statement's question: the statement asks for a uniform finite bound and the manuscript claims exactly that (bound 3, every finite alphabet), the bound is an explicit universal theorem with a Lean statement, and the claim is attributed to the authors without human reservation about its scope. The strongest case against: the claim is unreviewed by any named expert; the only Lean file for it has a sorry at the bound itself; the producer is an unreleased model whose process cannot be reproduced; the release has already had withdrawals for errors; and the manuscript itself says it does not decide the depth-one question, which the Wikipedia article's description of the problem also asks. A second reading of the statement, per-language or 'limited' as 'finite for each language', is trivially true and would make the question vacuous, which argues for the uniform reading. The judging pass has to choose between these.",
+  "what_would_settle_it": "(1) A compiled Lean proof of theorem main in GeneralizedStarHeight.lean with no sorry, checked by lake build and a Comparator run, together with a check that the Lean definitions of language, height and complement (for star, I did not read the definition of language) match the standard generalized star-height definitions. (2) A written verification by a specialist in formal language theory (for example someone who has worked on star height, such as the Bourne/Ruškuc group or Pin/Sakarovitch) of the three-bound manuscript sections (algebra, clock, markers, outer-split, inner-split), posted publicly. (3) An explanation from OpenAI of whether the sorry in the repo's Lean file is resolved, and of the relation between the thirteen-bound method in the three-bound introduction and in the thirteen-bound abstract. (4) An arXiv or journal version that cites the family and states its status. (5) Confirmation of the release date of the family, and whether the Oct 8 commit changed the Lean file.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Generalized_star-height_problem",
+      "title": "Generalized star-height problem (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Star_height_problem",
+      "title": "Star height problem (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://openproblemgarden.org/op/star_height_problem",
+      "title": "Star height problem (Solved) - Open Problem Garden",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.irif.fr/~jep/Problemes/starheight.html",
+      "title": "The star-height problem - Jean-Éric Pin",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://www.irif.fr/~jep/PDF/StarHeight.pdf",
+      "title": "Some results on the generalized star-height problem (Pin, Straubing, Thérien)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://cs.uwaterloo.ca/~shallit/DC2015/pin.pdf",
+      "title": "Open problems about regular languages, 35 years later (Pin, slides)",
+      "type": "press_release",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1603.06236",
+      "title": "On the star-height of factor counting languages and their relationship to Rees zero-matrix semigroups",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1710.04313",
+      "title": "Generic Results for Concatenation Hierarchies (Place, Zeitoun)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1708.03603",
+      "title": "Star Height via Games (Bojańczyk)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://lics.siglog.org/archive/2015/Bojaczyk-StarHeightviaGames.html",
+      "title": "LICS 2015 archive entry: Star Height via Games",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://research-portal.st-andrews.ac.uk/en/studentTheses/counting-subwords-and-other-results-related-to-the-generalised-st/",
+      "title": "Counting subwords and other results related to the generalised star-height problem (Bourne thesis)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://research-repository.st-andrews.ac.uk/handle/10023/12024",
+      "title": "St Andrews Research Repository record (Bourne thesis)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://www.numdam.org/item/ITA_2005__39_3_455_0",
+      "title": "Distance desert automata and the star height problem (Kirsten)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/089054019290063L",
+      "title": "Some results on the generalized star-height problem (Information and Computation)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.09435",
+      "title": "Star Complexity of Parikh Images of Languages over Infinite Alphabets (Danieli)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.24244",
+      "title": "Subregular Expressions and Their Expressive Power (Kutrib, Wendlandt)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.14673",
+      "title": "A Human Audit of OpenAI's AI-Generated Mathematical Proofs (Sienicki, Sienicki)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/search/?query=%22star+height%22&searchtype=all&order=-announced_date_first",
+      "title": "arXiv search: 'star height' (6 results)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math",
+      "title": "openai/math repository",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/README.md",
+      "title": "openai/math README",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/history.md",
+      "title": "openai/math history.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+      "title": "openai/math CONTENTS.md (family index; read in three 100k-character portions)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/overview.tex",
+      "title": "openai/math overview.tex (family 134 catalogue entry; read in portions 0-200k)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+      "title": "openai/math lean/formalization.yaml",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/README.md",
+      "title": "openai/math lean/README.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/docs/134.md",
+      "title": "openai/math lean/docs/134.md (family 134 Lean scope page)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/GeneralizedStarHeight.lean",
+      "title": "openai/math lean/ComparatorChallenges/GeneralizedStarHeight.lean",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/commits/main",
+      "title": "openai/math commit history",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026",
+      "title": "openai/math preprint folder: Generalized Star Height at Most Three",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/paper.tex",
+      "title": "Generalized Star Height at Most Three: build/paper.tex (abstract and metadata)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/sections/introduction.tex",
+      "title": "Generalized Star Height at Most Three: build/sections/introduction.tex",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/README.md",
+      "title": "Generalized Star Height at Most Three: README.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/article.pdf",
+      "title": "Generalized Star Height at Most Three: article.pdf (binary; no text extracted)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Finite-Monoid-Computations-and-a-Uniform-Generalized-Star-Height-Bound-September-25-2026/build/paper.tex",
+      "title": "Finite Monoid Computations and a Uniform Generalized Star-Height Bound: build/paper.tex (abstract and metadata)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Finite-Monoid-Computations-and-a-Uniform-Generalized-Star-Height-Bound-September-25-2026/Finite-Monoid-Computations-and-a-Uniform-Generalized-Star-Height-Bound-September-25-2026.pdf",
+      "title": "Finite Monoid Computations and a Uniform Generalized Star-Height Bound: PDF (binary; no text extracted)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026/build/main.tex",
+      "title": "Generalized Star Height at Most Four: build/main.tex (abstract and metadata)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026/README.md",
+      "title": "Generalized Star Height at Most Four: README.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/preprints/Generalized-Star-Height-at-Most-Four-September-25-2026",
+      "title": "openai/math preprint folder: Generalized Star Height at Most Four",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/",
+      "title": "OpenAI's 722 Math Manuscripts: The Results, Proofs, Compute and Costs (Kingy.ai)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.unite.ai/openai-releases-722-math-manuscripts-from-an-unreleased-ai-model/",
+      "title": "OpenAI Releases 722 Math Manuscripts From an Unreleased AI Model (unite.ai)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://www.scientificamerican.com/article/mathematicians-marvel-and-grumble-at-openais-trove-of-new-results/",
+      "title": "Mathematicians marvel, and grumble, at OpenAI's trove of new results (Scientific American)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://proofsandprompts.com/2026/10/08/100-reactions-to-100-solutions/",
+      "title": "100+ reactions to 100+ solutions (proofsandprompts; truncated at 100k of 188k characters)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.proofatlas.ai/",
+      "title": "ProofAtlas",
+      "type": "repository",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "generalized star height problem",
+      "generalized star height problem 2025 arXiv",
+      "generalized star height problem solved counterexample",
+      "Eggan's conjecture star height generalized star height proof",
+      "generalized star height AI language model proof regular expressions",
+      "Wikipedia List of unsolved problems in mathematics generalized star height",
+      "star height of regular languages Hashiguchi decidability",
+      "star height problem regular languages new result 2025 2026",
+      "\"generalized star-height\" regular languages",
+      "\"generalised star-height\" problem",
+      "star-free languages generalized star height zero Schützenberger new result",
+      "Pin Straubing Thérien star height one commutative group languages",
+      "Brzozowski generalized star height open problem 1980 complement",
+      "Bourne Ruškuc factor counting languages generalised star height",
+      "Bojańczyk star height limitedness Gale-Stewart game arXiv",
+      "Jean-Eric Pin problem star height language of star height 2 open",
+      "star height problem GPT-5 proof",
+      "star height regular languages AlphaEvolve OR \"Gemini Deep Think\" OR \"AlphaProof\" formal languages open problem",
+      "AI solved open problems formal language theory automata 2026",
+      "\"star height\" language model mathematics open problems list AI-generated proof 2026",
+      "Terence Tao blog AI open problems tracker formal languages star height",
+      "Erdős problems AI solved list 2026 OpenAI Google DeepMind mathematics open problems database",
+      "Open Problem Garden star height problem solved",
+      "Lean formalization star height regular expressions Kleene algebra generalized",
+      "arxiv cs.FL 2025 star height",
+      "\"star height\" 2025 regular language complement nesting depth new bound",
+      "Solution to Bucher's density problem for context-free languages arXiv 2609.08571",
+      "Kirsten distance desert automata star height problem 2005 limitedness",
+      "star height language of star height 2 example found new",
+      "Thomas Bourne counting subwords generalised star-height thesis St Andrews 2017 open problem",
+      "generalized star height problem 2026 new result announced",
+      "star height problem regular languages AI model discovered counterexample OR proof 2026 automata theory",
+      "OpenAI 722 math manuscripts unreleased model October 2026 release openai/math repository",
+      "\"Generalized Star Height at Most Three\" OpenAI",
+      "uniform generalized star-height bound every regular language three nested Kleene stars complement",
+      "OpenAI generalized star height result mathematicians reaction automata theory Bourne Pin October 2026",
+      "OpenAI 722 manuscripts formal language theory result star height expert verification review",
+      "\"generalized star height\" \"at most four\" OR \"bound of thirteen\" OR \"thirteen\" OpenAI regular languages",
+      "openai.com index math manuscripts release advisory group AGMAI 722 manuscripts 372 families announcement"
+    ],
+    "places_checked": [
+      "English Wikipedia: Generalized star-height problem; Star height problem; Star height",
+      "Open Problem Garden: Star height problem (Solved)",
+      "Jean-Éric Pin's star-height problem page (irif.fr; 403, not opened)",
+      "Pin, Straubing, Thérien 1992 paper (irif.fr PDF; 403, not opened)",
+      "Pin 2015 slides (uwaterloo PDF; binary, not opened)",
+      "arXiv abstract pages: 1603.06236, 1710.04313, 1708.03603, 2605.09435, 2608.14673, 2608.24244",
+      "arXiv search for 'star height' (6 results; listing read)",
+      "arXiv author page for Bourne (404)",
+      "LICS 2015 archive entry for Bojańczyk",
+      "St Andrews research repository and Bourne thesis record (503 on fetch; snippets only)",
+      "Kirsten 2005 (numdam snippet; not opened), Hashiguchi (secondary only), Eggan 1963 (secondary only)",
+      "openai/math GitHub repository: README, history.md, CONTENTS.md, overview.tex, lean/ (folder listings, formalization.yaml, README, docs/134.md, ComparatorChallenges folder and GeneralizedStarHeight.lean), preprints folders for the three, four and thirteen manuscripts (LaTeX sources read; PDFs binary, not read), commit history",
+      "Kingy.ai write-up on the 722 manuscripts (two portions read)",
+      "unite.ai write-up on the release",
+      "Scientific American and proofsandprompts reaction pieces (search-level and fetch-level reads)",
+      "ProofAtlas site (AI research workspaces section)",
+      "Search for an OpenAI primary announcement page (not found; only secondary coverage located)",
+      "Expert reactions: Bourne, Pin, Tao, Sutherland, Bauerschmidt, Agol (general criticism only; no family-specific engagement found)"
+    ],
+    "dead_ends": [
+      "No arXiv or journal paper in 2024-2026 on generalized star height by a named human author was found in the arXiv search (only Danieli 2026 on the ordinary problem over infinite alphabets).",
+      "No Lean formalization of star height or generalized Kleene algebra found outside the OpenAI repository.",
+      "No AlphaEvolve, Gemini Deep Think, AlphaProof or GPT-5 result on star height found in searches; the GPT-5 and AlphaEvolve hits concern other problems.",
+      "arXiv 2608.24244 (Kutrib and Wendlandt, subregular expressions, Aug 2026): a survey on operator-restricted families; not about generalized star height of all regular languages; discounted.",
+      "arXiv 2609.08571 (Bucher's density problem for context-free languages): a density question about intermediate languages; unrelated to star height.",
+      "Trendshift social mention describing a regular-language problem as 'very easy to understand, but very hard to solve': no link to a star-height result found; not recorded as an event.",
+      "Kingy.ai's claim of an October 9 update withdrawing three manuscripts: repository history lists only the 7 Oct entry; withdrawals concern Hodge/K3 papers, not this family.",
+      "Sienicki and Sienicki human audit (arXiv 2608.14673): audits the ten results announced on 1 Aug 2026 (Astra), not family 134; no mention of star height in the abstract page read.",
+      "ProofAtlas workspace: undated, no status, no named system, no result; recorded as an event with null date rather than dropped.",
+      "Lean repository lean/OAI subfolders (Automata, TwoWayAutomata) concern two-way automata complementation lower bounds, not star height."
+    ]
+  },
+  "incomplete": "(1) The PDFs of the three-bound, four-bound and thirteen-bound manuscripts were not readable through the fetch tool (binary); I read their LaTeX sources, which contain the abstracts and metadata and, for the three-bound manuscript, the introduction. The sections of the four-bound and thirteen-bound manuscripts, and the three-bound sections other than the introduction (algebra, clock, markers, outer-split, inner-split), were not read, so their proof strategies and any AI-attribution sentences inside the body are unchecked. (2) The Lean file was read through a fetch tool that summarises its contents; the single sorry at line 44 is a direct read of the file text but I did not clone the repository or run lake build, and the definitions of language for star and complement were not checked. (3) The October 8 commit 'Update manuscripts and Lean formalizations' is dated but its changed files were not identified, so the Lean status may already differ from what I read. (4) I found no primary OpenAI announcement page; the release facts rest on the repository README and history and on secondary coverage. (5) Pin's problem page, the Pin-Straubing-Thérien PDF and the Pin 2015 slides returned 403 or binary, so the PST results and the 1989 date are taken from search summaries of them. (6) The Bourne thesis repository record returned 503; the thesis details are from search summaries. (7) Kirsten 2005, Hashiguchi (1981-1988) and Eggan 1963 were recorded from secondary sources and were not opened. (8) The proofsandprompts reaction piece was read only to the 100k-character mark of 188k characters, and the AHM statement was not opened. (9) Place and Zeitoun (arXiv 1710.04313) was read at the abstract level only; the claim in some search summaries that it describes the problem as open is unverified. (10) Whether any other AI-assisted or human work on generalized star height exists in 2024-2026 venues that the search engine does not index (for example, DLT, ICALP, MFCS, STACS proceedings or cs.FL listings for individual months) is not established; I searched arXiv by keyword only and did not browse monthly listings.",
+  "combined": {
+    "openai_events_added": [
+      "openai-math-134"
+    ],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "claimed",
+  "ai_role": "generated",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "openai-2026-10-three-bound",
+  "no_change_found": false,
+  "event": {
+    "id": "openai-2026-10-three-bound",
+    "what_happened": "OpenAI's repository release openai/math (initial commit 6 Oct 2026) contains the preprint 'Generalized Star Height at Most Three' (author line 'OpenAI'; self-dated 25 Sep 2026), listed as family 134 'Generalized star height at most three' with three manuscripts. Abstract (as extracted from build/paper.tex): 'Every regular language over a finite alphabet has generalized star height at most three, with complement taken in the same free monoid. We express finite-monoid computations using a prefix code of word pieces.' The introduction frames the question as whether a fixed number of layers suffices for every regular language independently of alphabet and recognising automaton, says Theorem 1 gives a positive answer to the boundedness question, says it does not exhibit a language of generalized height greater than one, and says it does not decide whether one always suffices (it notes a universal finite bound and a universal bound of one are different assertions). The introduction cites a companion proving bound thirteen and a second companion proving bound four.",
+    "date": "2026-10-06",
+    "precision": "day",
+    "kind": "repository",
+    "predates_frozen_revision": false,
+    "revisions": "Self-dated 25 Sep 2026 in the manuscript and folder name; first public posting is the repository's initial commit dated 6 Oct 2026 (GitHub day header). Commit 'Update manuscripts and Lean formalizations' dated 8 Oct 2026 (files changed not identified). The 7 Oct history.md entry lists three withdrawals (Hodge/K3 manuscripts, none of them star-height) and 14 named revisions (none in family 134) plus 13 citation-only updates not itemised.",
+    "delivers": "A uniform upper bound: every regular language over every finite alphabet has a generalized regular expression of Kleene-star nesting depth at most 3, with complement taken in the same free monoid. The bound is stated as uniform across alphabets (the Lean statement quantifies over all finite alphabets). It is an upper bound only: no language of generalized height above one is exhibited, and the manuscript states it does not decide whether height one always suffices.",
+    "remains": "Whether nesting depth one suffices for every regular language (the manuscript says this is not decided). Whether the minimal generalized star height is computable (not addressed in the abstract or introduction I read). Whether the claim itself holds: no independent human verification found, and the repository's Lean file for this statement contains a sorry (see machine_checked).",
+    "checked_by": [],
+    "no_engagement_found": true,
+    "time_since_posted": "4 days as of 10 Oct 2026 (repository first commit 6 Oct 2026)",
+    "machine_checked": {
+      "system": "Lean 4 with Mathlib (Comparator challenge file lean/ComparatorChallenges/GeneralizedStarHeight.lean)",
+      "sorry_free": false,
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/GeneralizedStarHeight.lean",
+      "note": "theorem main (for every regular language L over a Finite alphabet, HasHeightAtMost L 3) is proved by sorry at line 44 of the file as read on 10 Oct 2026; no other sorry, admit, axiom or native_decide occurs in the file; imports only Mathlib. lean/docs/134.md says the Lean statement covers the selected uniform-bound statement without separately encoding every construction step of the paper. Not compiled locally. Global review.status in lean/formalization.yaml is 'unchecked'. The Oct 8 commit may have changed this file."
+    },
+    "directly_checkable": null,
+    "doubts": "(1) The repository's own Lean file for the 3-bound statement is unproved (one sorry in theorem main), so no machine check of the claimed bound exists in the release as read. (2) Repo-level verification is partial: README says about 42% of top-line results (300/719) are formalized and that 'Some of the unformalized results could have issues'. (3) No human expert engagement specific to this family was found; general criticism of the release (MIT's Andrew Sutherland: 'we should expect some of the proofs to contain mistakes, possibly serious ones'; NYU's Roland Bauerschmidt on readability) names no family. (4) The producing model is unreleased, so the one-prompt, single-agent process is not reproducible (Sutherland via secondary report). (5) Internal inconsistency to check: the introduction describes the thirteen companion as proved 'by finite computations, a prediction argument, and a decision tree' and says the present proof uses two split steps, while the thirteen companion's own abstract describes 'affine updates' and 'twelve successive split constructions'. (6) Three other manuscripts in this release were withdrawn for a sign error (Hodge/K3, unrelated), which shows the release has had errors. No specific error in the three-bound argument has been identified, and no retraction of this family has been found.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Cuts toward a positive answer to the statement's question: it asserts that a single finite bound (3) exists for all regular languages over all finite alphabets. It does not cut toward a depth-one answer, and it explicitly leaves that open.",
+    "object": "No single object is exhibited. The claim is a universal existence statement: for every regular language over every finite alphabet, a generalized expression of height at most 3 exists. The proof is a construction (the abstract mentions a prefix code of word pieces; the sections named in build/paper.tex include algebra, clock, markers, outer-split and inner-split), but I did not read the sections. Whether the construction is effective, which would bear on the algorithm question, is not stated in what I read.",
+    "people": [],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "an unreleased internal OpenAI model",
+          "what_it_did": "The repository README describes its contents as 'mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model', and says 'the vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model'. The release's listed exceptions to that procedure are a zero-free region for the Riemann zeta function and the Hodge conjecture for CM abelian varieties, neither of which is this family. The manuscript's own author line is 'OpenAI' with no individual author. The model is described as pre-release and internal, and no model name is given.",
+          "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+          "quote_url": "https://github.com/openai/math"
+        }
+      ],
+      "disclosed_cost": "README: 'On average, each result used three hours of ChatGPT Pro thinking compute with that model.' Secondary reports (Kingy.ai, unite.ai) say the model was posed about 4,000 problems. No aggregate dollar cost or token count is disclosed (Kingy.ai).",
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/README.md",
+        "https://github.com/openai/math",
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/"
+      ]
+    },
+    "sources": [
+      "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/paper.tex",
+      "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/sections/introduction.tex",
+      "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/README.md",
+      "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+      "https://raw.githubusercontent.com/openai/math/main/overview.tex",
+      "https://raw.githubusercontent.com/openai/math/main/lean/docs/134.md",
+      "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/GeneralizedStarHeight.lean",
+      "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+      "https://raw.githubusercontent.com/openai/math/main/history.md",
+      "https://github.com/openai/math/commits/main",
+      "https://github.com/openai/math",
+      "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/"
+    ]
+  },
+  "credited_humans": [],
+  "status_sources": [
+    "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/paper.tex",
+    "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/build/sections/introduction.tex",
+    "https://raw.githubusercontent.com/openai/math/main/preprints/Generalized-Star-Height-at-Most-Three-September-25-2026/README.md",
+    "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+    "https://raw.githubusercontent.com/openai/math/main/overview.tex",
+    "https://raw.githubusercontent.com/openai/math/main/lean/docs/134.md",
+    "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/GeneralizedStarHeight.lean",
+    "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+    "https://raw.githubusercontent.com/openai/math/main/history.md",
+    "https://github.com/openai/math/commits/main",
+    "https://github.com/openai/math",
+    "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/"
+  ],
+  "ai": {
+    "systems": [
+      "an unreleased internal OpenAI model"
+    ],
+    "from_event": "openai-2026-10-three-bound",
+    "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+    "none_found": false,
+    "disclosed_cost": "README: 'On average, each result used three hours of ChatGPT Pro thinking compute with that model.' Secondary reports (Kingy.ai, unite.ai) say the model was posed about 4,000 problems. No aggregate dollar cost or token count is disclosed (Kingy.ai)."
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "openai-2026-10-three-bound",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "A landmark claim with no expert engagement. The repository's own Lean file leaves the bound itself as a sorry. The manuscript's introduction describes the companion thirteen-bound method differently from that companion's own abstract. The same release has already withdrawn other manuscripts for errors. No specific error has been identified in this argument.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "openai-2026-10-four-bound",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "A landmark claim with no expert engagement and no Lean statement of its own. It shares the release-level doubts: the release has withdrawn other manuscripts, and its review status is 'unchecked'.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "openai-2026-10-thirteen-bound",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "A landmark claim with no expert engagement and no Lean statement. The three-bound manuscript describes this paper's method inconsistently with this paper's own abstract. It also shares the release-level doubts.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "proofatlas-workspace-generalized-star-height",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "danieli-2026-05-parikh-star-height",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bourne-ruskuc-2016-03",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "bourne-thesis-2017-12",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "pst-1989-1992",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "bojanczyk-2015-star-height-games",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kirsten-2005-distance-desert",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hashiguchi-1988-classic-decidability",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "eggan-1963-star-height",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "openai-math-134",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "This entry bundles the same three manuscripts as the three per-paper events. The claim is a landmark with no named expert engagement. The only Lean file states the 3-bound, and an earlier read found it proved by sorry. The release has already withdrawn other manuscripts for errors. No specific error has been identified.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks whether all regular languages can be expressed with 'limited' star nesting depth. Read per language, that is trivially true. Its only substantive reading is whether one uniform bound N works for every regular language. A proven uniform bound of 3, 4 or 13 therefore answers the statement as worded, so all three OpenAI manuscripts, and the bundled openai-math-134 entry, are scored 'whole'. They are not scored 'bound': the statement asks only whether some finite bound exists, not for the least one. Whether height one always suffices is the question in the Wikipedia article's wider literature, but the statement does not ask it. None of these events has expert review, and the Lean file leaves the main theorem as a sorry, so all are unreviewed. I scored them doubtful rather than credible because of the landmark claim with no uptake yet, the inconsistent descriptions of the thirteen-bound method, and the release's other withdrawals. Only about a week has passed, and no specific error has been identified, so not_credible would be too strong. The AI role is 'generated' on each OpenAI event. The author line is 'OpenAI' alone, the README credits the internal model with the release's results, and this family is not among the listed exceptions. Among the pre-snapshot events, Pin–Straubing–Thérien and Bourne–Ruškuc settle restricted classes and appeared in journals, so they are 'case' and 'digested'. The Bourne thesis is a 'case', but the record names no committee approval, so it stays unreviewed. Eggan, Hashiguchi, Kirsten and Bojańczyk concern ordinary star height, and Danieli concerns Parikh images over infinite alphabets, so all five are variants. The ProofAtlas entry states no result.",
+    "doubts": "openai-math-134 duplicates the three per-paper events; it is scored identically to them, so double-counting changes nothing. The AI attribution rests on the README's release-wide statement, not on a statement about this family. A reader who takes the problem to ask whether height one suffices would score these events as a bound, or as a case, rather than whole; I followed the statement's wording. The Oct 8 commit may have changed the Lean file, and the record does not say whether it did. The dates of the pre-snapshot classic results come from secondary sources. That does not affect which side of the snapshot they fall on.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "claimed",
+      "rests_on": "openai-2026-10-three-bound",
+      "ai_role": "generated",
+      "ai_from": "openai-2026-10-three-bound",
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": [
+        "an unreleased internal OpenAI model"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

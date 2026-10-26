@@ -1,0 +1,2806 @@
+{
+  "key": "goldbachs-conjecture",
+  "nothing_found": false,
+  "outcome": "Nothing in the sources I could reach settles or moves the binary Goldbach conjecture since 26 January 2024: the verified range is still 4×10^18 and every claimed proof in the window is unrefereed or unopened. The one in-window result claimed as settled is a Lean-verified theorem (repository v1.0.0, 16 September 2026) on a different statement, the Liouville-function analogue (for every even N>2 there are a, b with a+b=N and λ(a)=λ(b)=−1), which Goldbach implies but does not follow from; its AI attribution (to 'GPT-6 Astra') rests on an anonymous announcement and secondary reporting, not on any author's own account.",
+  "problem_asks": "(1) Every even natural number N greater than 2 (all such N, with no finite exceptions allowed; the claim is about infinitely many N, so a finite check does not settle it). (2) Each such N is the sum of two prime numbers: there exist primes p and q with p + q = N. Nothing about odd numbers is asked. The ternary/weak form (odd n > 5 as a sum of three primes) is a separate Wikipedia bullet and is not asked here.",
+  "events": [
+    {
+      "id": "liouville-goldbach-v1-2026-09-16",
+      "what_happened": "A GitHub repository 'CaptainSude/Liouville-Goldbach' (frozen release v1.0.0) containing a Lean 4 / mathlib formalisation of: every even integer N > 2 is a sum a + b of two positive integers with Liouville value λ(a) = λ(b) = −1 (Lean name LiouvilleGoldbach.liouville_goldbach, using ArithmeticFunction.liouville). The repository says the question was asked on MathOverflow by user Pablo in August 2018 and attributed to Shusterman in Mangerel's paper. The repository's paper is described as having no author line. The announcement came from an X account 'Captain Sude' (identity not established), per the tracker and secondary reports, on 15–16 September 2026. A separate multiples-of-four version was announced first (see liouville-goldbach-multiples-of-four-2026-09-15).",
+      "date": "2026-09-16",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Repository shows 3 commits and no dated releases on the page I read. Tracker and vibemathed record v1.0.0 on 16 Sep 2026 (GitHub Actions green twice that day). A later audit reported 30 Sep 2026: 12 Lean files, 1,689 lines, Lean 4.34.0-rc2, zero sorry, zero axiom declarations, zero native_decide. The provenance tracker PR #117 was merged 21 Sep 2026.",
+      "delivers": "For every even N > 2 there exist positive integers a, b with a + b = N and λ(a) = λ(b) = −1 (Liouville function). Restrictions: a and b need not be prime (λ(n) = −1 holds for any n with an odd number of prime factors counted with multiplicity). Goldbach's conjecture implies this statement (if N = p + q with p, q prime, then λ(p) = λ(q) = −1), but the implication does not run the other way. The repository and secondary reports say the result removes the GRH and 'sufficiently large N' hypotheses of Mangerel's arXiv:2412.17199. Within the Lean statement, the result is unconditional; I did not run the build.",
+      "remains": "All of problem_asks: the summands are not required to be prime, so no prime pair is produced for any N, and the binary Goldbach statement is untouched. Odd N are not part of this Liouville statement (though a MathOverflow answer reported in secondary sources claims an odd-N extension; see lingsen-meng-mathoverflow-2026-09-25).",
+      "checked_by": [
+        {
+          "who": "sunnyspot114514 (GitHub user; name and qualification not stated)",
+          "qualification": "Not established. The replay states it is 'not a journal endorsement and does not replace external mathematical peer review'.",
+          "what_they_did": "Replayed frozen v1.0.0 (commit da3c528c16975781e21f3b7270c61331e70da8d2): lake build LiouvilleGoldbach PASS; source hashes 0 mismatches; axiom audit: final theorem depends only on propext, Classical.choice, Quot.sound; zero sorry, custom axioms or native_decide; 249/249 smoke tests for even N from 4 to 500 (stated as 'not a proof'). Route audit file exists; its result is not shown on the page.",
+          "where": "https://github.com/sunnyspot114514/Liouville-Goldbach-audit",
+          "automated": true
+        },
+        {
+          "who": "SUNNY99 (Zhihu content creator, per a 36Kr report)",
+          "qualification": "Not established; no mathematical credentials given in the source.",
+          "what_they_did": "Reported in a secondary article as having 'independently reviewed' the v1.0.0 release. The Zhihu post itself was not reachable. Whether this is the same person as the GitHub replayer sunnyspot114514 is not known.",
+          "where": "https://eu.36kr.com/en/p/3992525310802946 (secondary report; the Zhihu post was not opened)",
+          "automated": false
+        },
+        {
+          "who": "Lingsen Meng (MathOverflow answer, 25 Sep 2026, reported by secondary sources)",
+          "qualification": "Not established.",
+          "what_they_did": "Reported (not read) as crediting the repository at v1.0.0 as an independent unconditional proof of the even case. vibemathed and a review PR both cite it as the prior-art check that let the entry be published. Whether it is independent of the repository is disputed in the sources; see disputes.",
+          "where": "https://mathoverflow.net/questions/307479 (not opened: the fetch was refused)",
+          "automated": false
+        },
+        {
+          "who": "AI4Math Chronicle maintainers (GitHub user Charlie-Wang-03)",
+          "qualification": "Maintainers of an AI-for-mathematics milestone tracker; not a mathematical reading.",
+          "what_they_did": "Provenance review (issue #116, 21 Sep 2026) and editorial classification (PR #117): verification 'E4 / partially_verified', formal assurance 'independently_replayed', AI role 'unclear, with source-attributed Astra provenance'. The issue says 'Do not publish as a canonical Event yet' and then 'Final significance recommendation: H2'. Reviewer Zecyel was requested and the page shows no human review done.",
+          "where": "https://github.com/Charlie-Wang-03/ai4math-chronicle/issues/116 and https://github.com/Charlie-Wang-03/ai4math-chronicle/pull/117",
+          "automated": false
+        },
+        {
+          "who": "vibemathed (repository owner mrconter1; the decision was applied by a script)",
+          "qualification": "Not a mathematical review. The PR says 'Script only; the decisions are applied by running it against production.'",
+          "what_they_did": "Published the problem as 'Resolved', verification 'Lean-verified', significance 22, on 30 Sep 2026. The stated reasons are the prior-art check (the MathOverflow answer) and the policy 'the question must have been posed, by someone else, and been open.'",
+          "where": "https://github.com/mrconter1/vibemathed/pull/81 and https://vibemathed.com/problem/goldbach-s-conjecture-for-the-liouville-function",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 25 days as of 11 Oct 2026. No named professional mathematician's public reading was found in the sources I could reach.",
+      "machine_checked": {
+        "system": "Lean 4 (repository pins v4.34.0-rc2) with mathlib",
+        "sorry_free": true,
+        "url": "https://github.com/CaptainSude/Liouville-Goldbach",
+        "note": "sorry-free status is asserted by the repository and by the independent replay; I did not run the build or read the Lean source. Final theorem's axioms per the repository and replay: propext, Classical.choice, Quot.sound."
+      },
+      "directly_checkable": "The statement is elementary: for a given even N > 2, find a and b with a + b = N and both Liouville values −1. The replay checked 249 even N from 4 to 500 with no failures; this is a smoke test, not a proof.",
+      "doubts": "(a) The paper is authorless; the repository does not name a human or AI author. The tracker says the attribution 'currently comes from Captain Sude's public announcement and secondary reporting' and warns against an 'autonomous_primary' label. (b) The repository says the paper 'credits the ideas used in the proof, including Bloom's scaling observation' and 'Mangerel's rigidity and commuting-defect arguments', so some ideas are credited to named prior work. The README describes an 'elementary proof through two commuting symmetries, a descent, and quadratic reciprocity'. (c) The tracker issue was closed without a human review; the review PR shows a bot comment asking that the artifact be pinned to v1.0.0 and that main not be cited, and the page does not show whether this was addressed before the merge. (d) Secondary reports disagree on the variant ('Liouville' in most; 'Linnik's variant' in a KuCoin flash item), so the variant wording must come from the Lean statement, which I read via the README. (e) The 2-page multiples-of-four result and the 8-page full result were announced a day apart; sources do not agree on which was first and the 2-page paper was not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirms the Liouville-function analogue for all even N > 2 (existence of an (−1,−1) pair). It does not assert or contradict Goldbach's conjecture, which asks for prime summands; it is implied by Goldbach, not the reverse.",
+      "object": "Existence theorem, not a counterexample or a configuration. The Lean statement is ∃ a b : ℕ, 0 < a ∧ 0 < b ∧ a + b = N ∧ liouville a = −1 ∧ liouville b = −1 for even N > 2. The README describes an elementary argument (two commuting symmetries, a descent and quadratic reciprocity) and does not say whether the witness is explicit.",
+      "people": [
+        "Captain Sude (announcer and repository owner; identity not established)",
+        "Alexander P. Mangerel (Durham; prior conditional result, arXiv:2412.17199; credited in the repository)",
+        "Bloom (credited for a scaling observation; first name not given in the source)",
+        "Shusterman (question attributed to him in Mangerel's paper)",
+        "Pablo (MathOverflow question asker, 3 Aug 2018)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Credited, in the announcement and in secondary reports, with finding and proving the result. The tracker lists the AI's role as 'unclear'. The repository and its authorless paper do not name it (tracker issue #116). The radar PR says 'the public release credits GPT-6 Astra' (which conflicts with issue #116; see disputes). The vibemathed entry describes the contribution as 'AI-discovered' with the model 'ChatGPT-6 Astra' from OpenAI and 'AI chose the problem, proved it and then formalized the result in Lean'; that is a third-party tracker's wording, not the authors'.",
+            "basis_quote": "Today, Astra proved the entire conjecture via elementary methods. The proof is 8 pages long. (as reported in a search summary quoting Captain Sude's X posts; the X post itself was not openable, HTTP 402)",
+            "quote_url": "https://x.com/captain_sude/status/2100277626120163664"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://x.com/captain_sude/status/2100277626120163664 (not opened, HTTP 402)",
+          "https://github.com/CaptainSude/Liouville-Goldbach (opened: no AI mention)",
+          "https://raw.githubusercontent.com/CaptainSude/Liouville-Goldbach/main/README.md (opened: no AI mention)",
+          "https://github.com/Charlie-Wang-03/ai4math-chronicle/issues/116 (opened)",
+          "https://github.com/Charlie-Wang-03/ai4math-chronicle/pull/117 (opened)",
+          "https://github.com/Charlie-Wang-03/ai4math-radar/pull/14 (opened)",
+          "https://vibemathed.com/problem/goldbach-s-conjecture-for-the-liouville-function (opened)",
+          "https://eu.36kr.com/en/p/3992525310802946 and https://www.36kr.com/p/3992525310802946 (opened; Chinese text; names 'Captain Sude' as the announcer and 'GPT-6 Astra' as the system)"
+        ]
+      },
+      "sources": [
+        "https://github.com/CaptainSude/Liouville-Goldbach",
+        "https://raw.githubusercontent.com/CaptainSude/Liouville-Goldbach/main/README.md",
+        "https://github.com/CaptainSude/Liouville-Goldbach/blob/main/paper/liouville-goldbach.pdf (opened; the page showed no paper text)",
+        "https://github.com/sunnyspot114514/Liouville-Goldbach-audit",
+        "https://github.com/Charlie-Wang-03/ai4math-chronicle/issues/116",
+        "https://github.com/Charlie-Wang-03/ai4math-chronicle/pull/117",
+        "https://github.com/mrconter1/vibemathed/pull/81",
+        "https://vibemathed.com/problem/goldbach-s-conjecture-for-the-liouville-function",
+        "https://eu.36kr.com/en/p/3992525310802946"
+      ]
+    },
+    {
+      "id": "liouville-goldbach-multiples-of-four-2026-09-15",
+      "what_happened": "A repository 'CaptainSude/Liouville-Goldbach-Multiples-of-Four' posting a Lean proof, conditional on one explicit input (Mangerel's Theorem 1.2 in IMRN 2024, supplied as a parameter), that every positive multiple of 4 is a sum of two positive integers each with Liouville value −1. The announcer's first post (secondary report) was on 15 Sep 2026, a day before the full statement.",
+      "date": "2026-09-15",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Repository shows 2 commits and no dated releases on the page I read.",
+      "delivers": "Every positive integer divisible by four is the sum of two positive integers with Liouville value −1. A special case of the full Liouville statement; the Lean proof is an implication from Mangerel's theorem treated as a parameter. The README says 'The mathematical result is unconditional' and does not mention GRH.",
+      "remains": "All other even N > 2 (not multiples of 4), and all of problem_asks for primes.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 26 days as of 11 Oct 2026",
+      "machine_checked": {
+        "system": "Lean 4 with mathlib",
+        "sorry_free": null,
+        "url": "https://github.com/CaptainSude/Liouville-Goldbach-Multiples-of-Four",
+        "note": "Sorry status not stated on the page I read; I did not run the build."
+      },
+      "directly_checkable": null,
+      "doubts": "Conditional in Lean on Mangerel's correlation theorem supplied as a parameter (its proof is not formalised here). Repository has no author line.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirms the Liouville analogue for multiples of four. Neither confirms nor contradicts Goldbach.",
+      "object": null,
+      "people": [
+        "Captain Sude (announcer; identity not established)",
+        "Alexander P. Mangerel (correlation theorem)",
+        "Shusterman (question attribution)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Credited in the announcement (reported, not repository text) with proving the multiples-of-four case in 'only 2 pages', combining a result from Mangerel's paper with 'results from our earlier work on normality of special constants'. The repository itself names no AI.",
+            "basis_quote": "Today, Astra proved the unconditional conjecture for multiples of 4! The proof is only 2 pages long, it combines a result from Mangerel's paper with results from our earlier work on normality of special constants. (as reported in a search summary; the X post was not openable, HTTP 402)",
+            "quote_url": "https://x.com/captain_sude/status/2100277626120163664"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/CaptainSude/Liouville-Goldbach-Multiples-of-Four (opened: no AI mention)",
+          "https://github.com/Charlie-Wang-03/ai4math-chronicle/pull/117 (opened: 'first public claim 2026-09-15')",
+          "https://x.com/captain_sude/status/2100277626120163664 (not opened)"
+        ]
+      },
+      "sources": [
+        "https://github.com/CaptainSude/Liouville-Goldbach-Multiples-of-Four",
+        "https://github.com/Charlie-Wang-03/ai4math-chronicle/pull/117",
+        "https://eu.36kr.com/en/p/3992525310802946"
+      ]
+    },
+    {
+      "id": "lingsen-meng-mathoverflow-2026-09-25",
+      "what_happened": "An answer to MathOverflow question 307479 (asked 3 Aug 2018 by Pablo, 'for every even N>2 are there a, b with a+b=N and λ(a)=λ(b)=−1') posted by Lingsen Meng on 25 Sep 2026, per secondary sources. Reported content: it credits the repository v1.0.0 as an independent unconditional proof of the even case, and gives an unconditional argument that all four sign pairs occur for every N outside {2,3,4,5,6,9,10}, covering odd N.",
+      "date": "2026-09-25",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Reported only (not read): an unconditional existence result for the Liouville analogue for even N, and per vibemathed an odd-N extension. Scope: the Liouville analogue, not Goldbach.",
+      "remains": "All of problem_asks (primes are not produced).",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 16 days as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not opened: mathoverflow.net refused the fetch, so this answer's content is known only from the vibemathed page and a review PR, both of which cite the answer as corroboration of the repository. Its independence from the repository is disputed in the sources.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Reported as affirming the Liouville analogue, with an odd-N extension. Scope is not Goldbach.",
+      "object": null,
+      "people": [
+        "Lingsen Meng (qualification not established)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://mathoverflow.net/questions/307479 (not opened)",
+          "https://vibemathed.com/problem/goldbach-s-conjecture-for-the-liouville-function (opened; names no AI for this answer)"
+        ]
+      },
+      "sources": [
+        "https://mathoverflow.net/questions/307479 (not opened)",
+        "https://vibemathed.com/problem/goldbach-s-conjecture-for-the-liouville-function",
+        "https://github.com/mrconter1/vibemathed/pull/81"
+      ]
+    },
+    {
+      "id": "mangerel-2024-liouville-correlation-imrn",
+      "what_happened": "A. P. Mangerel, 'On a Goldbach-type problem for the Liouville function', arXiv:2404.12117, posted 18 Apr 2024 (v2 2 May 2024); a journal version appears in IMRN 2024 (vol. 16, article 11865, per an OUP link seen in search, not opened). Proves an unconditional bound |Σ_{1≤n<N} λ(n)λ(N−n)| < N−1 for all sufficiently large N.",
+      "date": "2024-04-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 18 Apr 2024; v2 2 May 2024. IMRN publication 2024 per search link (not opened).",
+      "delivers": "An unconditional correlation estimate for the Liouville convolution sum, for sufficiently large N. It does not establish that λ(a) = λ(b) = −1 for some a + b = N.",
+      "remains": "The (−1,−1) pattern question (Shusterman's problem), for all even N; and all of problem_asks.",
+      "checked_by": [
+        {
+          "who": "International Mathematics Research Notices (Oxford University Press)",
+          "qualification": "Refereed journal of record (publication per search link; referee process not seen).",
+          "what_they_did": "Published (per search-result link; not opened).",
+          "where": "https://academic.oup.com/imrn/article/2024/16/11865/7704606 (seen in search, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 18 months (2024-04)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A secondary report (vibemathed PR review) says this IMRN theorem gives a pair with opposite signs rather than the (−1,−1) pair, so it is not prior art for the Liouville analogue. Not a doubt about its own correctness.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neither affirms nor contradicts Goldbach. A quantitative correlation bound that is a step toward the sign-pattern question.",
+      "object": null,
+      "people": [
+        "Alexander P. Mangerel"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2404.12117 (opened: no AI mention in abstract page)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2404.12117",
+        "https://academic.oup.com/imrn/article/2024/16/11865/7704606 (seen in search, not opened)",
+        "https://github.com/CaptainSude/Liouville-Goldbach-Multiples-of-Four (cites it as IMRN Theorem 1.2)"
+      ]
+    },
+    {
+      "id": "mangerel-2024-liouville-GRH",
+      "what_happened": "A. P. Mangerel, 'On Shusterman's Goldbach-type problem for sign patterns of the Liouville function', arXiv:2412.17199, posted 23 Dec 2024 (v1 only as of my fetch). Assuming GRH for Dirichlet L-functions: for every sufficiently large even N there are a, b ≥ 1 with a+b = N and λ(a) = λ(b) = −1; also a bound on how often each sign pattern occurs (for prime N ≥ N₀).",
+      "date": "2024-12-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 23 Dec 2024 only; 23 pages; no journal reference listed on the arXiv page.",
+      "delivers": "Conditional on GRH: the Liouville analogue for sufficiently large even N (existence of a (−1,−1) pair). Restrictions: GRH; sufficiently large N; Liouville function, not primes.",
+      "remains": "The unconditional statement for all even N > 2; and all of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 22 months (2024-12)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Conditional on GRH, as the abstract states. No journal publication found in the sources.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Conditional affirmation of the Liouville analogue for large even N. Not Goldbach.",
+      "object": null,
+      "people": [
+        "Alexander P. Mangerel"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2412.17199 (opened: no AI mention)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2412.17199",
+        "https://github.com/CaptainSude/Liouville-Goldbach (cites arXiv 2412.17199v1)"
+      ]
+    },
+    {
+      "id": "marchukov-2024-quantum-search",
+      "what_happened": "Marchukov, Trombettoni, Mussardo, Olshanii, 'Achieving quantum advantage in a search for violations of the Goldbach conjecture, with driven atoms in tailored potentials', arXiv:2404.00517. A physics proposal for searching for Goldbach violations with quantum hardware; published as SciPost Phys. Core 8, 074 (2025) per search excerpt.",
+      "date": "2024-03",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v3 25 Mar 2025 (per search excerpt). The search excerpt says 'submitted March 2024'; the arXiv identifier 2404 suggests April 2024. Not resolved.",
+      "delivers": "No mathematical result on the conjecture: a proposed search method for counterexamples. Any counterexample would have to exceed the 4×10^18 verified range.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 19 months (2024-03/04)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the conjecture; a search proposal.",
+      "object": null,
+      "people": [
+        "Marchukov",
+        "Trombettoni",
+        "Mussardo",
+        "Olshanii (credited authors)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2404.00517 (seen in search excerpt, not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2404.00517 (seen in search, not opened)"
+      ]
+    },
+    {
+      "id": "hou-huang-ma-2024-preprints",
+      "what_happened": "Hou, Huang and Ma, 'Proof of Goldbach's Conjecture', Preprints.org manuscript 202409.2235, posted 29 Sep 2024 per search excerpt. Claims two new approaches to a full proof. Preprints.org header reads 'not peer-reviewed' per the excerpt.",
+      "date": "2024-09-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 per the manuscript ID; later versions not checked.",
+      "delivers": "Claimed proof of the full binary conjecture (per excerpt). Not checked.",
+      "remains": "Nothing, if the claim held; the claim has not been checked by me.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 12 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Preprints.org marks the item not peer-reviewed (per the search excerpt). The page returned HTTP 403 to my fetch, so the argument was not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation of the conjecture (not read).",
+      "object": null,
+      "people": [
+        "Hou",
+        "Huang",
+        "Ma (credited authors; first names not given)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.preprints.org/manuscript/202409.2235 (HTTP 403; excerpt names no AI)"
+        ]
+      },
+      "sources": [
+        "https://www.preprints.org/manuscript/202409.2235 (HTTP 403; not opened)"
+      ]
+    },
+    {
+      "id": "preprints-202410-1262-binary-proof",
+      "what_happened": "'Proof of the Binary Goldbach Conjecture', Preprints.org manuscript 202410.1262 (versioned to v10 per search excerpt). Claims a proof of the binary conjecture.",
+      "date": "2024",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v10 per search excerpt; earlier versions not checked.",
+      "delivers": "Claimed proof of the full binary conjecture (not read).",
+      "remains": "Nothing, if the claim held; unchecked.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 12 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Search excerpt says not peer reviewed; the date is inferred from the manuscript ID (202410), not a visible date. Page not openable.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Not established from the excerpt"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.preprints.org/manuscript/202410.1262 (search excerpt only; not opened)"
+        ]
+      },
+      "sources": [
+        "https://www.preprints.org/manuscript/202410.1262 (search excerpt only; not opened)"
+      ]
+    },
+    {
+      "id": "gurgel-2024-bridging-ai",
+      "what_happened": "Gurgel Filho, Jaime, Gouvea and Füchter, 'Bridging Mathematics and AI: A novel approach to Goldbach's Conjecture', Elsevier, ScienceDirect pii S2665917424006792 (2024; journal title and day not seen). Per the search excerpt of the abstract (the page returned HTTP 403): AI-driven programs were developed so non-programmers could engage; LLMs were used to test heuristics computationally, refine them iteratively and expand them; the study started from primes up to 2,000 and extended to larger sets; a 'Comfort function' quantifies results; the authors report a supportive trend in positivity.",
+      "date": "2024",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Heuristic computational evidence for a positivity trend. Not a proof and not a counterexample search with a result. It does not move the problem.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 2 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The authors' own framing is 'heuristic'. Claims of significant contribution are the authors' own. Full text not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjecture heuristically; no counterexample.",
+      "object": null,
+      "people": [
+        "Geraldo Gurgel Filho",
+        "Guilherme Dutra Gonzaga Jaime",
+        "Flavio Murilo de Oliveira Gouvea",
+        "Simone Keller Füchter"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Large Language Models (LLM)",
+            "what_it_did": "Per the abstract excerpt: LLMs were used to computationally test heuristics, refine them iteratively and expand them for experimentation. The excerpt names no specific model. The output is computational evidence, not a proof step, so this is not the load-bearing AI involvement §5.4 describes.",
+            "basis_quote": "Using Large Language Models (LLM), heuristics were computationally tested, refined iteratively, and expanded for experimentation. (search excerpt of the abstract; not opened)",
+            "quote_url": "https://www.sciencedirect.com/science/article/pii/S2665917424006792"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.sciencedirect.com/science/article/pii/S2665917424006792 (HTTP 403; excerpt only)"
+        ]
+      },
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/S2665917424006792 (HTTP 403; not opened)"
+      ]
+    },
+    {
+      "id": "li-2024-chen-type",
+      "what_happened": "Runbo Li, 'On Chen's theorem, Goldbach's conjecture and almost prime twins II', arXiv:2405.05727 (first version May 2024; v4 May 2025 per search excerpt). Gives a lower bound (about 1.97 times a singular-series factor times N/(log N)²) on the number of primes p such that N − p has at most two prime factors. Excerpt garbled; constant unverified.",
+      "date": "2024-05",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v4 May 2025 per excerpt.",
+      "delivers": "A Chen-type (prime plus almost-prime) bound for even N. Does not give two primes.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 17 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Excerpt only; constant not verified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial result toward Goldbach (Chen-type), not Goldbach.",
+      "object": null,
+      "people": [
+        "Runbo Li"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2405.05727 (search excerpt only; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2405.05727 (search excerpt only; not opened)"
+      ]
+    },
+    {
+      "id": "gosar-2025-beyond-4e18",
+      "what_happened": "Gosar, Das and Pardasani, 'Empirical Verification of Goldbach's Conjecture Beyond Four Quintillion', Preprints.org manuscript 202503.0949 (March 2025 by manuscript ID). Per search excerpt: checks even integers above 4×10^18 with probabilistic primality tests and trial division, reports no counterexample; a later version extends to 6×10^18.",
+      "date": "2025-03",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Later version extends to 6×10^18 (per excerpt).",
+      "delivers": "A finite computational extension of the verified range (from 4×10^18 to a claimed 6×10^18). Under the scope test this instance-count move does not change what the conjecture asserts.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 19 months",
+      "machine_checked": null,
+      "directly_checkable": "Individual decompositions can be checked by hand; the excerpt quotes one: 6000000000000000000 = 23 + 5999999999999999977 (not checked).",
+      "doubts": "Preprint, not peer reviewed (per excerpt). Probabilistic primality tests identify probable primes, not proven ones, so the extension is weaker than fully deterministic verification. My own observation, not the source's claim. Page returned HTTP 403, so the excerpt is the only source.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Computational support only; no counterexample.",
+      "object": null,
+      "people": [
+        "Parth Gosar",
+        "Soumyadeep Das",
+        "Sahil Pardasani"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.preprints.org/manuscript/202503.0949 (HTTP 403; excerpt names no AI)"
+        ]
+      },
+      "sources": [
+        "https://www.preprints.org/manuscript/202503.0949 (HTTP 403; not opened)"
+      ]
+    },
+    {
+      "id": "hn-2025-gridbach-extension",
+      "what_happened": "A Hacker News 'Show HN' item (id 43734583) linking a Medium article by 'jay_gridbach' claiming verification of even numbers up to 4×10^18 + 7×10^13 using grid computing. HN commenters say only the increment was computed. Neither the Medium article nor the HN page was opened.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A computational increment of about 7×10^13 beyond the existing record (per search summary). Scope: instance count, not the conjecture.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 18 months (year only)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not peer reviewed; HN commenters say the increment is marginal. Medium article not opened; year inferred from the HN item id range, not confirmed.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Computational support only.",
+      "object": null,
+      "people": [
+        "jay_gridbach (pseudonymous; not established)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://news.ycombinator.com/item?id=43734583 (search excerpt; not opened)"
+        ]
+      },
+      "sources": [
+        "https://news.ycombinator.com/item?id=43734583 (search excerpt; not opened)"
+      ]
+    },
+    {
+      "id": "xin-wang-2025-ijmn",
+      "what_happened": "Xin Wang, 'A Concise Proof of Goldbach Conjecture', International Journal of Media and Networks, January 2025 (per search excerpt; not opened). Claimed method: periodicity of primes and mathematical induction.",
+      "date": "2025-01",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Claimed proof of the full conjecture (not read).",
+      "remains": "Nothing, if the claim held; unchecked.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 21 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Search summary: the journal is not a major mathematics venue, and the claim has not been validated by the field as far as the search could tell. Not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Xin Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "search excerpt only; not opened"
+        ]
+      },
+      "sources": [
+        "search excerpt only; not opened"
+      ]
+    },
+    {
+      "id": "ijaemr-2025-solution",
+      "what_happened": "'Solution to the Goldbach Conjecture', International Journal of Advanced Engineering and Management Research, January 2025 (per search excerpt; ResearchGate listing; not opened). Claims a general proof that every even number above 2 is a sum of two primes.",
+      "date": "2025-01",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Claimed proof of the full conjecture (not read).",
+      "remains": "Nothing, if the claim held; unchecked.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 21 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Venue is an engineering journal per the excerpt. Not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Not established from the excerpt"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.researchgate.net/publication/399396640_Solution_to_the_Goldbach_Conjecture (search excerpt; not opened)"
+        ]
+      },
+      "sources": [
+        "https://www.researchgate.net/publication/399396640_Solution_to_the_Goldbach_Conjecture (search excerpt; not opened)"
+      ]
+    },
+    {
+      "id": "abdelqader-2025-mejsp-collaborative-ai",
+      "what_happened": "Ayaz Saadallah Abdelqader, 'Proving Goldbach's Conjecture with Collaborative AI: An Innovative Mathematical Approach Using Topological, Lattice, Algebraic, and Quantum Frameworks', Middle East Journal for Scientific Publishing (مجلة الشرق الأوسط للنشر العلمي), Issue 26, dated 06 May 2025 on the journal page (the search summary said 4 May 2025). The abstract presents four 'frameworks' claimed to yield a solution; the author credits DeepSeek (R1) and ChatGPT with the development (see ai).",
+      "date": "2025-05-06",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Claimed proof of the full conjecture: a topological framework ('prime pairs form a connected space'), a lattice framework (Minkowski's theorem), an algebraic framework ('the absence of prime pairs would lead to a commutative group structure, which is mathematically impossible'), and a quantum framework (Hamiltonian model of prime pair statistics). Restrictions: none stated; the argument is only sketched in the abstract.",
+      "remains": "Nothing, if the claim held; the abstract gives no derivation of the four frameworks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 17 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Only the abstract was read; the PDF was not readable by my fetch (binary). Journal peer review is not described on the page. The abstract's algebraic step ('absence of prime pairs would lead to a commutative group structure') is stated without a derivation, and I did not find an independent source explaining it. The 'confirming the existence of a solution' sentence is the author's.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation of the full conjecture.",
+      "object": null,
+      "people": [
+        "Ayaz Saadallah Abdelqader"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "DeepSeek application and its Deep Thinking feature (R1)",
+            "what_it_did": "Per the author's abstract: used 'for innovation and solution development'; the author says 'demonstrating how R1 progressively contributed to the resolution'. This is a credit for the solution itself, which §5.4 treats as load-bearing as claimed; whether it is true is not established.",
+            "basis_quote": "Through collaborative intelligence with AI — using the DeepSeek application and its Deep Thinking feature (R1) for innovation and solution development, along with ChatGPT for recommendations — we present this solution, which consists of four mathematical frameworks, demonstrating how R1 progressively contributed to the resolution.",
+            "quote_url": "https://doi.org/10.63085/mejsp/856381 (redirects to journals.mejsp.com; opened the journal page)"
+          },
+          {
+            "name": "ChatGPT",
+            "what_it_did": "Per the author's abstract: 'for recommendations'. A lesser role than R1's, as written.",
+            "basis_quote": "Through collaborative intelligence with AI — using the DeepSeek application and its Deep Thinking feature (R1) for innovation and solution development, along with ChatGPT for recommendations — we present this solution",
+            "quote_url": "https://doi.org/10.63085/mejsp/856381 (redirects to journals.mejsp.com; opened the journal page)"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://journals.mejsp.com/researches/proving-goldbach's-conjecture-with-collaborative-ai:-an-innovative-mathematical-approach-using-topological,-lattice,-algebraic,-and-quantum-frameworks (opened)",
+          "https://journals.mejsp.com/assets/uploads/journals-researches/1747036369_2800721506.pdf (opened; binary, unreadable)"
+        ]
+      },
+      "sources": [
+        "https://journals.mejsp.com/researches/proving-goldbach's-conjecture-with-collaborative-ai:-an-innovative-mathematical-approach-using-topological,-lattice,-algebraic,-and-quantum-frameworks",
+        "https://doi.org/10.63085/mejsp/856381"
+      ]
+    },
+    {
+      "id": "chou-rodriguez-2025-ssrn",
+      "what_happened": "Pedro Alejandro Chou Rodríguez, 'A Simple Proof for Goldbach's Conjecture', SSRN abstract 5807602, posted November 2025 (per search excerpt). Single-author working paper, not peer reviewed per the excerpt. A Medium article titled 'A simple proof for Goldbach's conjecture' by 'pedchoro' also appeared in search; not verified to be the same work.",
+      "date": "2025-11",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Claimed proof of the full conjecture (not read).",
+      "remains": "Nothing, if the claim held; unchecked.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 11 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "SSRN page returned HTTP 403; excerpt only; not peer reviewed per excerpt.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Pedro Alejandro Chou Rodríguez"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ssrn.com/abstract=5807602 (HTTP 403; excerpt names no AI)"
+        ]
+      },
+      "sources": [
+        "https://ssrn.com/abstract=5807602 (HTTP 403; not opened)"
+      ]
+    },
+    {
+      "id": "arxiv-2508.18273-informational-economy",
+      "what_happened": "arXiv:2508.18273, 'The Goldbach Conjecture as an Informational Economy Principle: A Heuristic Framework from Computational Physics' (August 2025 by ID; seen in search, not opened). Per the search summary, the paper states that its argument is not a mathematical proof.",
+      "date": "2025-08",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Heuristic framework; not a proof (per summary). Nothing established.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 14 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Heuristic by its own description.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the conjecture.",
+      "object": null,
+      "people": [
+        "Not established from the excerpt"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/2508.18273 (search excerpt; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2508.18273 (search excerpt; not opened)"
+      ]
+    },
+    {
+      "id": "bahbouhi-2025-upe-formal-proof",
+      "what_happened": "Bahbouhi, 'A Formal Proof for the Goldbach's Strong Conjecture by the Unified Prime Equation and the Z Constant', Preprints.org manuscript 202510.0662 (October 2025 by ID; v1). Per search summary: its main theorem is a conditional equivalence (RH ⇔ bounded Z ⇔ Goldbach), so it is not an unconditional proof.",
+      "date": "2025-10",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 per the manuscript ID.",
+      "delivers": "Per search summary: a conditional equivalence involving the Riemann Hypothesis. Does not establish the conjecture.",
+      "remains": "Everything in problem_asks, unconditionally.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 12 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Preprint; uses a 'Unified Prime Equation', an idiosyncratic framework that search results associate with other unreviewed preprints. Not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Conditional equivalence; no unconditional direction.",
+      "object": null,
+      "people": [
+        "Bahbouhi (first name not given in excerpt)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.preprints.org/manuscript/202510.0662 (search excerpt; not opened)"
+        ]
+      },
+      "sources": [
+        "https://www.preprints.org/manuscript/202510.0662 (search excerpt; not opened)"
+      ]
+    },
+    {
+      "id": "bahbouhi-2025-upe-review",
+      "what_happened": "Preprints.org manuscript 202510.0591, 'The Unified Prime Equation (UPE) Gives ...' (October 2025 by ID; title truncated in search). Appeared with a review label ('Review Not peer-reviewed version'). Not opened; relation to Goldbach not verified.",
+      "date": "2025-10",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Unknown: not read.",
+      "remains": "Unknown.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 12 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read. The label 'Review' on Preprints.org is a site-generated AI review page for this item, not a human reading, if that is what it is; not verified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown.",
+      "object": null,
+      "people": [
+        "Bahbouhi (not verified)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.preprints.org/manuscript/202510.0591/v1/download (search excerpt; not opened)"
+        ]
+      },
+      "sources": [
+        "https://www.preprints.org/manuscript/202510.0591/v1/download (search excerpt; not opened)"
+      ]
+    },
+    {
+      "id": "bahbouhi-2025-lambda-overlap",
+      "what_happened": "Bahbouhi, 'Analytic Resolution of Goldbach's Strong Conjecture Through the Circle Symmetry and the λ–Overlap Law', Preprints.org manuscript 202511.0120 (November 2025 by ID). Per search summary: claims an analytic resolution; not peer-reviewed; no independent verification found.",
+      "date": "2025-11",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Claimed proof of the full conjecture (not read).",
+      "remains": "Nothing, if the claim held; unchecked.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 11 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read; the search summary notes no peer review and no independent verification.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Bahbouhi (not verified)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.preprints.org/manuscript/202511.0120 (search excerpt; not opened)"
+        ]
+      },
+      "sources": [
+        "https://www.preprints.org/manuscript/202511.0120 (search excerpt; not opened)"
+      ]
+    },
+    {
+      "id": "academia-2026-02-rev-proof",
+      "what_happened": "'A Proof of Goldbach's Conjecture (rev Feb 2026)', academia.edu document 108320527 (per search result). Per search summary, the abstract says the conjecture is still unproved 'until now'; no further content read.",
+      "date": "2026-02",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "rev Feb 2026 (per title).",
+      "delivers": "Claimed proof (not read).",
+      "remains": "Nothing, if the claim held; unchecked.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 8 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Self-published; not read. A search summary describes a related 2026 claim's checks as computational only, covering even integers up to 4×10^18, which is verification of cases.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Not established from the search result"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.academia.edu/108320527/A_Proof_of_Goldbachs_Conjecture_rev_Feb_2026_ (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://www.academia.edu/108320527/A_Proof_of_Goldbachs_Conjecture_rev_Feb_2026_ (search result; not opened)"
+      ]
+    },
+    {
+      "id": "voinov-2026-b-trees",
+      "what_happened": "Voinov, 'A Mathematical Proof of the Strong Goldbach's Conjecture', OPAST Publishers PDF (2026 per search summary). The abstract, as summarised, describes a proof based on additive number theory and B-trees. Journal status not clear from the excerpt.",
+      "date": "2026",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Claimed proof of the full conjecture (not read).",
+      "remains": "Nothing, if the claim held; unchecked.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "under 12 months (year only)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read. Peer review status unclear.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Voinov (first name not given)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.opastpublishers.com/open-access-articles/a-mathematical-proof-of-the-strong-goldbachs-conjecture.pdf (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://www.opastpublishers.com/open-access-articles/a-mathematical-proof-of-the-strong-goldbachs-conjecture.pdf (search result; not opened)"
+      ]
+    },
+    {
+      "id": "luka-dev-post-undated",
+      "what_happened": "subhansh (DEV Community), 'I Pointed My AI Research Engine at Goldbach's Conjecture — It Found a Hidden Bias', posted 'Jul 3' (year not shown). The author's AI tool, 'Luka', a research engine the author built, computed Goldbach partition counts for 2,495,001 even integers from 10,000 to 5,000,000, split by residue mod 3, and proposed a Dirichlet character correction to the Hardy–Littlewood formula.",
+      "date": null,
+      "precision": null,
+      "kind": "blog",
+      "predates_frozen_revision": null,
+      "revisions": null,
+      "delivers": "A numerical observation: n ≡ 1 (mod 3) has 0.26% more Goldbach representations than n ≡ 2 (mod 3), which the author ascribes to a Chebyshev bias and says the Hardy–Littlewood formula gets wrong. The author calls it 'a proof of concept'. Claims no proof of the conjecture.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "unknown (year not shown)",
+      "machine_checked": null,
+      "directly_checkable": "The partition counts are reproducible from the stated range; not checked.",
+      "doubts": "The claim that the Hardy–Littlewood heuristic is wrong is a strong claim from a blog post; not checked against the heuristic's literature.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Numerical observation about a heuristic; no direction on the conjecture.",
+      "object": null,
+      "people": [
+        "subhansh (DEV Community profile)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Luka",
+            "what_it_did": "Per the author: computed partition counts over a range of even integers and proposed a Dirichlet character correction to the Hardy–Littlewood formula (author's description). Not a proof step; a computation and a heuristic correction.",
+            "basis_quote": "The Hardy–Littlewood formula says they should be equal. It's wrong.",
+            "quote_url": "https://dev.to/subhansh/i-pointed-my-ai-research-engine-at-goldbachs-conjecture-it-found-a-hidden-bias-44pn"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://dev.to/subhansh/i-pointed-my-ai-research-engine-at-goldbachs-conjecture-it-found-a-hidden-bias-44pn (opened)"
+        ]
+      },
+      "sources": [
+        "https://dev.to/subhansh/i-pointed-my-ai-research-engine-at-goldbachs-conjecture-it-found-a-hidden-bias-44pn"
+      ]
+    },
+    {
+      "id": "auroraaeon-chen-lean-undated",
+      "what_happened": "AuroraAeon, 'goldbach-lean', a GitHub Lean 4 formalisation of Chen's theorem (1+2) that also includes Li–Liu's 1+1.9 result, per search result. Date not seen. Not opened.",
+      "date": null,
+      "precision": null,
+      "kind": "repository",
+      "predates_frozen_revision": null,
+      "revisions": null,
+      "delivers": "Formalises Chen's 1+2 theorem (a prime plus a semiprime for large even N), not the two-prime statement.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "unknown",
+      "machine_checked": {
+        "system": "Lean 4",
+        "sorry_free": null,
+        "url": "https://github.com/AuroraAeon/goldbach-lean",
+        "note": "not opened"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial: formal version of a near miss.",
+      "object": null,
+      "people": [
+        "AuroraAeon (GitHub user)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/AuroraAeon/goldbach-lean (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://github.com/AuroraAeon/goldbach-lean (search result; not opened)"
+      ]
+    },
+    {
+      "id": "seisner-goldbach-horizon-undated",
+      "what_happened": "'goldbach-horizon', a GitHub Lean 4 conditional framework for the binary conjecture (per search result); the README says it does not claim an unconditional proof and exposes analytic work as named obligations. Date not seen; not opened.",
+      "date": null,
+      "precision": null,
+      "kind": "repository",
+      "predates_frozen_revision": null,
+      "revisions": null,
+      "delivers": "A conditional framework; no unconditional result.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "unknown",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Self-described conditional; not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No direction on the conjecture; conditional scaffolding.",
+      "object": null,
+      "people": [
+        "seisner1967-hash (GitHub user)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/seisner1967-hash/goldbach-horizon (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://github.com/seisner1967-hash/goldbach-horizon (search result; not opened)"
+      ]
+    },
+    {
+      "id": "dm-formal-conjectures-issue-3952-2026",
+      "what_happened": "google-deepmind/formal-conjectures issue #3952, 'Erdős Problem 242 (Erdős Straus) and Goldbach Conjecture resolved', opened 6 May 2026 by Suro-One and closed as completed by Paul-Lez on 7 Sep 2026. The issue's body links a personal repository (Suro-One/auro-zera_Erdos-Straus_proof) with a 'GoldbachZera.lean' file. The claim appears only in the title; the body says 'Status: open'.",
+      "date": "2026-05-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Closed 7 Sep 2026 after triage; the Erdős 242 item moved into FormalConjectures/ErdosProblems/242.lean.",
+      "delivers": "Nothing on Goldbach: the title claims a resolution; the linked file did not compile or was not accepted, and a reviewer reported a specific error (see doubts).",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [
+        {
+          "who": "mo271 (GitHub user; qualification not established)",
+          "qualification": "Not established",
+          "what_they_did": "Said the repository did not appear to compile; flagged sorry in 242.lean and GoldbachConjecture.lean; said the Goldbach item seemed unrelated; said lemma goldbach_3_complement_mod3 is false, because for N = 2 Nat subtraction makes (N − 3) % 3 = 0.",
+          "where": "https://github.com/google-deepmind/formal-conjectures/issues/3952",
+          "automated": false
+        },
+        {
+          "who": "Suro-One (author)",
+          "qualification": "Not applicable",
+          "what_they_did": "On 1 Aug 2026 wrote 'Let's ignore the goldbach proof for now.' That is set aside, not a formal withdrawal.",
+          "where": "https://github.com/google-deepmind/formal-conjectures/issues/3952",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 months",
+      "machine_checked": {
+        "system": "Lean (repository-hosted files)",
+        "sorry_free": false,
+        "url": "https://github.com/google-deepmind/formal-conjectures/issues/3952",
+        "note": "A reviewer flagged sorry in GoldbachConjecture.lean (7 May 2026). Only the issue page was read; the linked repository was not opened."
+      },
+      "directly_checkable": null,
+      "doubts": "Specific reported error: goldbach_3_complement_mod3 is false (N = 2 case, Nat subtraction), per mo271 on 7 May 2026, and not answered in the issue beyond setting it aside. An 'external AI-assisted review' by 'pasky' (30 Aug 2026) concerned the Erdős–Straus axiom, not Goldbach.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "Goldbach file set aside by its author ('Let's ignore the goldbach proof for now'); not formally withdrawn.",
+        "date": "2026-08-01",
+        "by": "author",
+        "sources": [
+          "https://github.com/google-deepmind/formal-conjectures/issues/3952"
+        ]
+      },
+      "direction": "Claims a resolution in the title; the linked Lean content did not supply one.",
+      "object": null,
+      "people": [
+        "Suro-One (author)",
+        "mo271 (reviewer)",
+        "Paul-Lez (triage)",
+        "pasky (review comment)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/google-deepmind/formal-conjectures/issues/3952 (opened; names no AI system for the Goldbach file)"
+        ]
+      },
+      "sources": [
+        "https://github.com/google-deepmind/formal-conjectures/issues/3952"
+      ]
+    },
+    {
+      "id": "teorth-ieantn-pr132-2026-09-29",
+      "what_happened": "teorth/IEANTN pull request #132, 'Goldbach: five nodes and a solution, ported from PNT+', opened and merged 29 Sep 2026. Lean file Goldbach.lean converts a verification of the even Goldbach conjecture into verified ranges for the odd one.",
+      "date": "2026-09-29",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Two commits; merged to main 29 Sep 2026.",
+      "delivers": "Odd Goldbach (three primes) verified for ranges up to about 7.86×10^27, conditional on two numerical inputs (even Goldbach to 4×10^14 and to 4×10^18) and two cited prime-gap results. Also an even-to-odd reduction and even Goldbach up to 30. Scope: the odd problem and computations; not the even binary conjecture for all N.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "under 2 weeks",
+      "machine_checked": {
+        "system": "Lean (IEANTN project)",
+        "sorry_free": true,
+        "url": "https://github.com/teorth/IEANTN/pull/132",
+        "note": "Per PR description: no sorryAx and remaining_holes 0 on the six conclusions. The two prime-gap results are cited, not proved here, and are sorry in PNT+ as well."
+      },
+      "directly_checkable": null,
+      "doubts": "Relies on cited inputs (prime gap results and numerical computations) that are not proved in this PR.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Odd-case verified range; no direction on the binary conjecture.",
+      "object": null,
+      "people": [
+        "teorth (GitHub handle; the handle is Terence Tao's, not confirmed in the page)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/teorth/IEANTN/pull/132 (opened; no AI named in description)"
+        ]
+      },
+      "sources": [
+        "https://github.com/teorth/IEANTN/pull/132"
+      ]
+    },
+    {
+      "id": "pandey-2026-intermediate-conjecture",
+      "what_happened": "Tushar Pandey, 'An intermediate conjecture between Goldbach and Dubner: every even number is the sum of a prime and a twin prime', arXiv:2608.02381, v1 3 Aug 2026, v2 26 Aug 2026.",
+      "date": "2026-08-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 26 Aug 2026 extends exhaustive verification to 10^14 and adds a conditional density theorem.",
+      "delivers": "Exhaustive verification for even n ≥ 6 up to 10^14 of 'n is a prime plus a member of a twin prime pair', and a conditional density result under a twin-prime count hypothesis. The abstract states that unconditional results of this type would imply the twin prime conjecture. Not Goldbach: the summand is a twin-prime member, not any prime.",
+      "remains": "Everything in problem_asks; this is a different statement.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 10 weeks",
+      "machine_checked": null,
+      "directly_checkable": "Verification code and data via a Zenodo DOI (linked in the abstract); not checked.",
+      "doubts": "A search snippet says one check was independently confirmed by Tomás Oliveira e Silva; the arXiv abstract page as I read it lists only the author and shows no independent confirmation. Unresolved.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Different statement (prime plus twin prime) verified to 10^14; a conditional density result. Not Goldbach.",
+      "object": null,
+      "people": [
+        "Tushar Pandey"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.02381 (opened; no AI mentioned on the abstract page)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.02381"
+      ]
+    },
+    {
+      "id": "llorente-saguer-2026-goldbachgpu",
+      "what_happened": "Isaac Llorente-Saguer, 'GoldbachGPU: An Open Source GPU-Accelerated Framework for Verification of Goldbach's Conjecture', arXiv:2603.02621, submitted 2 Mar 2026.",
+      "date": "2026-03-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Exhaustive verification of the even binary conjecture up to 10^12 on one RTX 3070, plus a single-number checker to 10^10000 (per abstract) and multi-GPU scaling. Software and performance only; no new mathematics claimed.",
+      "remains": "Everything in problem_asks; the range is below the existing 4×10^18 record.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 7 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Computational support only.",
+      "object": null,
+      "people": [
+        "Isaac Llorente-Saguer"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2603.02621 (opened; no AI mentioned in the abstract page)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2603.02621"
+      ]
+    },
+    {
+      "id": "llorente-saguer-2026-lock-free",
+      "what_happened": "Isaac Llorente-Saguer, 'A Lock-Free, Fully GPU-Resident Architecture for the Verification of Goldbach's Conjecture', arXiv:2603.07850, v1 8 Mar 2026; v2 revised 7 Oct 2026.",
+      "date": "2026-03-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 (7 Oct 2026) states 'the four-GPU results are withdrawn'.",
+      "delivers": "Computational verification to 10^12 (145 s) and 10^13 (3246 s) on one RTX 5090, and to 10^13 in 1577 s on a second machine (GPU model not named in the excerpt). Software architecture; no new mathematics beyond a sieve-cost analysis.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 7 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The four-GPU results were withdrawn in v2 (by author).",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "The four-GPU verification results (v1 claims) withdrawn; the single-machine results stand as stated in v2.",
+        "date": "2026-10-07",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/2603.07850"
+        ]
+      },
+      "direction": "Computational support only.",
+      "object": null,
+      "people": [
+        "Isaac Llorente-Saguer"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2603.07850 (opened; no AI mentioned in the excerpt)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2603.07850"
+      ]
+    },
+    {
+      "id": "krishnamoorthy-2026-corradi-katai",
+      "what_happened": "Krishnamoorthy, 'On a conjecture of Corrádi and Kátai', arXiv:2608.13266 (August 2026 by ID). Per search summary: considers Goldbach-type sums for the Liouville function and proves sufficient cancellation; applications to sign patterns. Not opened.",
+      "date": "2026-08",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A Liouville Goldbach-type cancellation result (per summary). A different question from the prime version.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring (Liouville) result; no direction on Goldbach.",
+      "object": null,
+      "people": [
+        "Krishnamoorthy"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.13266 (search summary; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.13266 (search summary; not opened)"
+      ]
+    },
+    {
+      "id": "agama-2017-binary-progress",
+      "what_happened": "Theophilus Agama, 'A progress on the binary Goldbach conjecture', arXiv:1706.09803, first posted 26 June 2017; current version v9 posted 13 March 2026. The abstract says: 'As an application we prove conditionally the binary Goldbach conjecture' and 'We end the paper by proving the binary Goldbach conjecture for all sufficiently large even numbers'. The abstract does not state the condition for the conditional part.",
+      "date": "2017-06-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 26 Jun 2017; v2 2 Aug 2021; v3 19 Sep 2021; v4 4 Jul 2023; v5 11 Feb 2024; v6 28 Jun 2024; v7 13 Aug 2024; v8 14 Aug 2024; v9 13 Mar 2026. Comment field on the current version: 'the paper has been reformatted and introduction expanded; ideas remain unchanged'.",
+      "delivers": "As claimed in the abstract: the binary Goldbach conjecture for all sufficiently large even numbers (unconditional wording), plus a conditional statement for the full conjecture. No explicit threshold N₀ appears in the abstract; without one, a finite check to 4×10^18 cannot close the gap. The body was not read.",
+      "remains": "Every even N below the (unstated) threshold, and the full all-N statement unless the threshold is below 4×10^18 and the check is accepted; the conditional part remains conditional.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 years since v1; about 7 months since v9",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A claimed unconditional result for all sufficiently large even N has not been published by others, and the abstract gives no threshold. No refereed journal publication and no published rebuttal found in the sources. Related Agama work (arXiv 2012.01329; see agama-2020-circles-of-partition) has an automated desk verdict (Pith) that its Goldbach application has no visible justification; that verdict is about the other paper and was not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims Goldbach for all sufficiently large even N, plus a conditional case.",
+      "object": null,
+      "people": [
+        "Theophilus Agama"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1706.09803 (opened; no AI mention)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1706.09803"
+      ]
+    },
+    {
+      "id": "agama-2020-circles-of-partition",
+      "what_happened": "Agama, 'Studies in Additive Number Theory by Circles of Partition', arXiv:2012.01329 (December 2020 by ID; seen in search, not opened). Central result per Pith summary: every sufficiently large n is a sum of two elements of any set of natural density greater than 1/2; the Goldbach application is said to lack visible justification by Pith's automated desk verdict.",
+      "date": "2020-12",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A density-1/2 sumset statement (per summary). Its Goldbach application is not established.",
+      "remains": "The prime case of the Goldbach application.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Pith's desk verdict (automated) on the Goldbach application. The primes have density zero, so the density-above-1/2 hypothesis does not apply to them (my own observation, not the source's).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring sumset result; no direction on Goldbach beyond the application.",
+      "object": null,
+      "people": [
+        "Theophilus Agama"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://pith.science/paper/2012.01329 (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://pith.science/paper/2012.01329 (search result; not opened)"
+      ]
+    },
+    {
+      "id": "agama-gensel-2022-asymptotic",
+      "what_happened": "Agama and Gensel, 'The Asymptotic Binary Goldbach and Lemoine Conjectures', arXiv:2210.0013 (October 2022 by ID; seen in search, not opened). Asymptotic (almost all) form via a squeeze principle.",
+      "date": "2022-10",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 per search result.",
+      "delivers": "An asymptotic (almost-all) version; not the full statement. Almost all even numbers being sums of two primes is classical (Estermann 1938, per the search summary).",
+      "remains": "Every even N that the asymptotic statement excludes.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 4 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Asymptotic version; not the full conjecture.",
+      "object": null,
+      "people": [
+        "Theophilus Agama",
+        "Berndt Gensel"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://rxiv.org/pdf/2210.0013v2.pdf (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://rxiv.org/pdf/2210.0013v2.pdf (search result; not opened)"
+      ]
+    },
+    {
+      "id": "watanabe-2018-definitive-proof",
+      "what_happened": "Kenneth A. Watanabe, 'Definitive Proof of Goldbach's Conjecture', arXiv:1811.02415. Abstract: 'for all n > 622, the number of prime pairs of n is greater than 1, thus proving Goldbach's conjecture'.",
+      "date": "2018-11-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 2 Nov 2018; v2 8 Nov 2018; v3 21 Nov 2018; v4 27 Nov 2018; v5 3 Dec 2018; v6 5 Dec 2018; v7 11 Aug 2025 (version currently shown; comment field lists changes to the W(n) function, the proof, the error analysis and figures).",
+      "delivers": "As claimed: for every even n > 622 there is more than one prime pair, which with a finite check of smaller cases would give the full conjecture. The argument is via a function W(n) (not read).",
+      "remains": "Nothing, if the claim held.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 years since v1; about 14 months since v7",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No refereed publication, no published review, and no withdrawal found. arXiv does not check correctness. The claim would have to survive a check of the W(n) argument, which I did not read. A small check of the 'more than one pair for n > 622' claim is directly computable for n in a range; not done.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims full affirmation.",
+      "object": null,
+      "people": [
+        "Kenneth A. Watanabe"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1811.02415 (opened; no AI mention)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1811.02415"
+      ]
+    },
+    {
+      "id": "south-2022-algebraic-approach",
+      "what_happened": "Jason R. South, 'An Algebraic Approach to the Goldbach Conjecture', arXiv:2206.01179. Abstract: 'We prove the Goldbach Conjecture using p-adic analysis and algebraic methods', 'requiring no knowledge of prime gaps or distribution'. The comment field says '2 pages + citations page'.",
+      "date": "2022-05-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 31 May 2022; v2 7 Jul 2022; v3 19 Dec 2022; v4 29 Apr 2024; v5 1 May 2024; v6 16 May 2024; v7 8 Jun 2024; v8 12 Jun 2024; v9 23 Jul 2024; v10 19 Aug 2024; v11 7 Jan 2025; v12 31 Mar 2025; v13 16 Feb 2026; v14 13 Aug 2026; v15 26 Aug 2026; v16 9 Sep 2026 (current). Earlier comment: 'significant simplifications made'.",
+      "delivers": "As claimed in the abstract: the full binary conjecture via p-adic analysis. The argument was not read.",
+      "remains": "Nothing, if the claim held.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4.4 years since v1; about 1 month since v16",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A short claimed proof of a problem open since 1742, by a p-adic method; whether that method has been tried on additive prime problems was not checked. Sixteen versions and no refereed publication, no published review found. The argument was not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims full affirmation.",
+      "object": null,
+      "people": [
+        "Jason R. South"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2206.01179 (opened; no AI mention)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2206.01179"
+      ]
+    },
+    {
+      "id": "vega-2023-lean-goldbach",
+      "what_happened": "Frank Vega, 'Lean on Goldbach's Conjecture', EasyChair Preprint 10824, v1 2 Sep 2023 (later versions 2–4 not reviewed). Abstract: for every even N ≥ 4·10^18 a certain inequality holds for some m ≥ 11; 'we prove that the Goldbach's conjecture is true using the artificial intelligence tools' of the Lean 4 math library.",
+      "date": "2023-09-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 2 Sep 2023; v2–v4 later (dates not read).",
+      "delivers": "As claimed: the full conjecture, via an argument for N ≥ 4·10^18 with the finite range below that left implicit (the abstract does not say how the range below is covered).",
+      "remains": "The range below 4·10^18 (not stated in the abstract), and the argument for N ≥ 4·10^18 (not read).",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 3 years since v1",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Abstract only; the Lean development's scope and sorry status are not stated in the abstract. The 'artificial intelligence tools' phrase refers to Lean and mathlib, which are not AI systems.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims full affirmation.",
+      "object": null,
+      "people": [
+        "Frank Vega"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://easychair.org/publications/preprint/MBd4 (opened: names no AI system; phrase refers to Lean's library)"
+        ]
+      },
+      "sources": [
+        "https://easychair.org/publications/preprint/MBd4"
+      ]
+    },
+    {
+      "id": "oliveira-e-silva-herzog-pardi-2013",
+      "what_happened": "Tomás Oliveira e Silva, Siegfried Herzog and Silvio Pardi, 'Empirical verification of the even Goldbach conjecture and computation of prime gaps up to 4·10^18', Mathematics of Computation vol. 83, no. 288 (2014), pp. 2033–2060; published electronically 18 Nov 2013.",
+      "date": "2013-11-18",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Electronic publication 18 Nov 2013; print vol. 83 (2014).",
+      "delivers": "Confirms the even Goldbach conjecture for every even number up to 4×10^18 (abstract). Also, via Ramaré–Saouter, the odd Goldbach conjecture up to 8.37×10^26. A finite check: it does not settle the conjecture, which applies to all even N.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [
+        {
+          "who": "Mathematics of Computation (American Mathematical Society) referees",
+          "qualification": "Refereed journal of record",
+          "what_they_did": "Published (electronic 18 Nov 2013; print 2014). Referee process not seen.",
+          "where": "https://sweet.ua.pt/tos/bib/4.12.html (author's publication page; opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 years",
+      "machine_checked": null,
+      "directly_checkable": "Any single even number up to 4×10^18 can be checked directly; the paper's method is not described in the abstract.",
+      "doubts": "None on the verification's correctness that I found. The 2025–2026 claims of extending the range are weaker and unrefereed (see gosar-2025-beyond-4e18).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Finite verification; no direction on the infinite statement.",
+      "object": null,
+      "people": [
+        "Tomás Oliveira e Silva",
+        "Siegfried Herzog",
+        "Silvio Pardi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://sweet.ua.pt/tos/bib/4.12.html (opened; no AI)"
+        ]
+      },
+      "sources": [
+        "https://sweet.ua.pt/tos/bib/4.12.html",
+        "https://en.wikipedia.org/wiki/Goldbach%27s_conjecture (opened)"
+      ]
+    },
+    {
+      "id": "chen-1973-1plus2",
+      "what_happened": "Chen Jingrun, 'On the representation of a large even integer as a sum of a prime and the product of at most two primes', Scientia Sinica 16 (1973), pp. 157–176 (per search excerpt). An announcement appeared in 1966 (Wikipedia Goldbach history, opened).",
+      "date": "1973",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Every sufficiently large even N is a prime plus a number with at most two prime factors. Near miss: two primes not established.",
+      "remains": "Every even N not excluded by 'sufficiently large', and the two-prime statement for all N.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 53 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial, near miss; not Goldbach.",
+      "object": null,
+      "people": [
+        "Chen Jingrun"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Goldbach%27s_conjecture (opened; history line)"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Goldbach%27s_conjecture (opened)"
+      ]
+    },
+    {
+      "id": "helfgott-2013-ternary",
+      "what_happened": "Harald Andrés Helfgott, 'The ternary Goldbach conjecture is true', arXiv:1312.7748, v1 30 Dec 2013, v2 17 Jan 2014. Proves every odd integer n > 5 is a sum of three primes (the weak conjecture). Helfgott and Platt separately checked numerically up to 8.875×10^30 (arXiv:1305.3062, 2013).",
+      "date": "2013-12-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 17 Jan 2014 ('minimal changes', per the abstract page's comment field).",
+      "delivers": "Ternary (weak) Goldbach for all odd n > 5. Different problem: odd numbers and three primes. It would not settle the binary conjecture; the binary conjecture implies it, not the reverse.",
+      "remains": "Everything in problem_asks (the binary, even case).",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 13 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The Wikipedia lead (opened) says the proof was submitted in 2013 and 'accepted after major revisions were requested'; the journal of record was not confirmed from my reading.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Different problem: the odd, three-prime version.",
+      "object": null,
+      "people": [
+        "Harald Andrés Helfgott"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1312.7748 (opened; no AI)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1312.7748",
+        "https://en.wikipedia.org/wiki/Goldbach%27s_conjecture (opened)"
+      ]
+    },
+    {
+      "id": "math-0005185-ellman-2000",
+      "what_happened": "Roger Ellman, 'A Proof of Goldbach's Conjecture', arXiv:math/0005185 (May 2000 by ID; seen in search, not opened).",
+      "date": "2000-05",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Claimed full proof (not read).",
+      "remains": "Nothing, if the claim held.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 26 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read; no review found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Roger Ellman"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/math/0005185 (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/math/0005185 (search result; not opened)"
+      ]
+    },
+    {
+      "id": "math-0206033-2002",
+      "what_happened": "'Proof of Goldbach's Conjecture', arXiv:math/0206033 (June 2002 by ID; seen in search, not opened).",
+      "date": "2002-06",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Claimed proof (not read).",
+      "remains": "Nothing, if the claim held.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 24 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Not established from the search result"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/math/0206033 (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/math/0206033 (search result; not opened)"
+      ]
+    },
+    {
+      "id": "arxiv-0712.2381-2007",
+      "what_happened": "'A proof of Goldbach's conjecture that all even numbers greater than four are the sum of two primes', arXiv:0712.2381 (December 2007 by ID; seen in search, not opened).",
+      "date": "2007-12",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Claimed full proof (not read).",
+      "remains": "Nothing, if the claim held.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 19 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Not established from the search result"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/0712.2381 (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/0712.2381 (search result; not opened)"
+      ]
+    },
+    {
+      "id": "arxiv-1207.4802-2012",
+      "what_happened": "'The binary Goldbach conjecture is also true', arXiv:1207.4802 (July 2012 by ID; seen in search, not opened).",
+      "date": "2012-07",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Claimed full proof (not read).",
+      "remains": "Nothing, if the claim held.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 14 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims affirmation (not read).",
+      "object": null,
+      "people": [
+        "Not established from the search result"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/1207.4802 (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/1207.4802 (search result; not opened)"
+      ]
+    },
+    {
+      "id": "arxiv-2112.13205-2021",
+      "what_happened": "'New Computing Model of GNeTM Turing Machine On Solving Even Goldbach Conjecture', arXiv:2112.13205 (December 2021 by ID; seen in search, not opened). Claims a computing-model approach to the even Goldbach conjecture.",
+      "date": "2021-12",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Claimed computing-model approach (not read); the Wikipedia Goldbach article notes a 27-state Turing machine that halts exactly if the conjecture is false, a separate fact.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unclear.",
+      "object": null,
+      "people": [
+        "Not established from the search result"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/2112.13205 (search result; not opened)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2112.13205 (search result; not opened)"
+      ]
+    },
+    {
+      "id": "captain-sude-announcement-astra-attribution",
+      "what_happened": "Not a separate proof event: the Captain Sude announcement (15–16 Sep 2026) is the only publicly stated source for the 'GPT-6 Astra' attribution. The X post (status 2100277626120163664) returned HTTP 402 and was not read. Its text, as quoted in search results, is 'The Liouville version of the Goldbach conjecture is now fully proven and Lean verified! Every positive even number greater than 2 is the sum of two positive numbers with Liouville value -1.'",
+      "date": "2026-09-16",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Restates the Liouville-analogue result; the attribution is the only AI-relevant statement.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 25 days",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The announcer's identity is not established; the post itself was not readable by me.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "As the Liouville-analogue event.",
+      "object": null,
+      "people": [
+        "Captain Sude"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Credited by the announcer with finding and proving the result (per secondary reports of the post); the original post was not readable by me.",
+            "basis_quote": "The Liouville version of the Goldbach conjecture is now fully proven and Lean verified! (search-result excerpt of the post; the AI attribution is in secondary reports, not in this quoted sentence)",
+            "quote_url": "https://x.com/captain_sude/status/2100277626120163664"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://x.com/captain_sude/status/2100277626120163664 (HTTP 402; not opened)",
+          "https://eu.36kr.com/en/p/3992525310802946 (opened)"
+        ]
+      },
+      "sources": [
+        "https://x.com/captain_sude/status/2100277626120163664 (HTTP 402; not opened)"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Whether an AI system found the Liouville–Goldbach proof is disputed in the sources. The repository and authorless paper do not name any AI (tracker issue #116). The tracker's PR #117 records the AI role as 'unclear'. The radar PR #14 says 'the public release credits GPT-6 Astra' but 'does not justify inferring fully autonomous AI discovery'. The vibemathed entry records 'AI-discovered' with 'ChatGPT-6 Astra' from OpenAI, and 'AI chose the problem, proved it and then formalized the result in Lean'. These three disagree about what the public release says.",
+      "sources": [
+        "https://github.com/Charlie-Wang-03/ai4math-chronicle/issues/116",
+        "https://github.com/Charlie-Wang-03/ai4math-chronicle/pull/117",
+        "https://github.com/Charlie-Wang-03/ai4math-radar/pull/14",
+        "https://vibemathed.com/problem/goldbach-s-conjecture-for-the-liouville-function"
+      ]
+    },
+    {
+      "kind": "model-name",
+      "summary": "The model is named 'GPT-6 Astra' in most sources and 'ChatGPT-6 Astra' in vibemathed. A KuCoin flash item calls the result 'Linnik's variant'. I could not confirm the model from any OpenAI statement; a search found none.",
+      "sources": [
+        "https://vibemathed.com/problem/goldbach-s-conjecture-for-the-liouville-function",
+        "https://www.kucoin.com/news/flash/gpt-6-astra-proves-linnik-s-variant-of-goldbach-conjecture (search result; not opened)"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "Whether the MathOverflow answer by Lingsen Meng (25 Sep 2026) is independent corroboration of the repository or merely cites it is disputed in the sources. vibemathed and a review PR treat it as an independent prior-art check; the answer itself was not readable by me.",
+      "sources": [
+        "https://github.com/mrconter1/vibemathed/pull/81",
+        "https://vibemathed.com/problem/goldbach-s-conjecture-for-the-liouville-function",
+        "https://mathoverflow.net/questions/307479 (not opened)"
+      ]
+    },
+    {
+      "kind": "sequence",
+      "summary": "Sources disagree on which of the two Captain Sude results came first (the 2-page multiples-of-four result on 15 Sep, or the 8-page full result on 16 Sep). The tracker says first public claim 15 Sep and artifact release around 16 Sep; the Liouville repository's replay says v1.0.0 was frozen; a 36Kr report dates the story to 21 Sep.",
+      "sources": [
+        "https://github.com/Charlie-Wang-03/ai4math-chronicle/pull/117",
+        "https://eu.36kr.com/en/p/3992525310802946"
+      ]
+    },
+    {
+      "kind": "verification-claim",
+      "summary": "Pandey's arXiv abstract page (opened) lists only the author and shows no independent verification; a search summary of the same paper says one check was confirmed by Tomás Oliveira e Silva. Unresolved.",
+      "sources": [
+        "https://arxiv.org/abs/2608.02381",
+        "search result excerpt (not opened)"
+      ]
+    },
+    {
+      "kind": "date",
+      "summary": "Abdelqader's paper: journal page says 06 May 2025; a search summary says 4 May 2025. I used the journal page.",
+      "sources": [
+        "https://journals.mejsp.com/researches/proving-goldbach's-conjecture-with-collaborative-ai:-an-innovative-mathematical-approach-using-topological,-lattice,-algebraic,-and-quantum-frameworks"
+      ]
+    },
+    {
+      "kind": "date",
+      "summary": "Helfgott's ternary preprint: a search summary says a first version appeared in May 2013; the arXiv page (opened) says v1 was submitted 30 Dec 2013. I used arXiv.",
+      "sources": [
+        "https://arxiv.org/abs/1312.7748"
+      ]
+    },
+    {
+      "kind": "identity",
+      "summary": "The Zhihu reviewer 'SUNNY99' (36Kr) and the GitHub replayer 'sunnyspot114514' may or may not be the same person; not established.",
+      "sources": [
+        "https://eu.36kr.com/en/p/3992525310802946",
+        "https://github.com/sunnyspot114514/Liouville-Goldbach-audit"
+      ]
+    }
+  ],
+  "summary": "The binary Goldbach conjecture has no accepted settlement or move in any source I could reach from 26 January 2024 to 11 October 2026; the verified range is still 4×10^18 (Oliveira e Silva, Herzog and Pardi, electronically 18 Nov 2013; Wikipedia's current lead and 2026 papers still cite it). Post-2024 computational claims (Gosar et al. 2025 to 6×10^18; a 2025 HN/Medium +7×10^13 extension) are unrefereed or marginal and were not opened; the 2026 GPU papers add nothing past 4×10^18 and one (arXiv:2603.07850) withdrew its four-GPU results in v2. The main in-window claim is the Lean-verified 'Liouville–Goldbach' theorem (repository CaptainSude/Liouville-Goldbach v1.0.0, 16 Sep 2026; multiples-of-four first, 15 Sep). It proves that every even N > 2 is a + b with λ(a) = λ(b) = −1. That is a different statement: summands need not be prime. Goldbach implies it, and it does not imply Goldbach. It answers an analogue posed by Shusterman (from MathOverflow question 307479, 2018) that Mangerel had settled only under GRH and for large N (arXiv:2412.17199, Dec 2024). I read the repository, the replay and the tracker and found them consistent on the Lean facts (no sorry, axioms propext/Classical.choice/Quot.sound), but I did not run the build, and no mathematician's public reading was found; the only verifiers are a Lean replay by one individual, a tracker classification, and a script-applied publication on vibemathed. Its AI attribution is the closest thing to a close call. The announcer (Captain Sude, identity unestablished) says GPT-6 Astra found and proved it; the authorless repository does not name any AI; the tracker records the AI role as 'unclear' and warns against an autonomous label. I could not open the announcement (X returned HTTP 402) or the MathOverflow answer (refused), so the AI claim and the Meng corroboration rest on secondary reporting. Separately, Abdelqader (Middle East Journal for Scientific Publishing, 6 May 2025) is an in-window paper whose authors credit DeepSeek (R1, Deep Thinking) with 'innovation and solution development' and say R1 'progressively contributed to the resolution'; that is a load-bearing AI credit as the authors state it, on a claimed full proof sketched only in the abstract, with no review found. Gurgel Filho et al. (2024, ScienceDirect, page not openable, excerpt only) used LLMs for computational heuristics and not for a proof. Luka (an author-built 'AI research engine', DEV, year unknown) produced partition counts and a claimed Hardy–Littlewood correction, not a proof. Among the other in-window preprints, Agama's arXiv:1706.09803 (v9 13 Mar 2026) claims the binary conjecture for all sufficiently large even N with no threshold in the abstract; Watanabe (v7 Aug 2025) and South (v16 Sep 2026) claim full proofs; none has a refereed publication or a published reading. Ten further in-window proof claims (Hou–Huang–Ma 2024; the 202410.1262 preprint; Xin Wang 2025; the IJAEMR 2025 paper; Chou Rodríguez 2025; Bahbouhi 2025 ×3; Voinov 2026; the academia.edu rev Feb 2026) and two Lean partial formalisations were seen only through search excerpts, and are recorded as not opened. Claude and Anthropic: no Claude-credited result on the Goldbach conjecture was found; the Vibemathed review commit is credited to Claude Code, which is site bookkeeping, not mathematics. DeepMind's formal-conjectures issue #3952 (titled 'Goldbach resolved') was set aside by its author; a reviewer identified a false lemma. The 2020 Metamath thread and a 2023 ChatGPT exchange (Hackaday) are AI discussions with no mathematical result and are recorded in places_checked/dead_ends only. Ambiguities: whether 'GPT-6 Astra' is a shipped model or an internal build (not established); whether the Liouville repository is the output of the model or of a human who used it (not established); whether the Meng answer is independent (disputed).",
+  "competing_reading": "On the Liouville–Goldbach result: (a) a reader who takes the Lean theorem as a genuine resolution of a long-standing open question (Shusterman's analogue) and the announcer's attribution as the authors' own account would say the AI found and proved a result in the window; (b) a reader who takes the authorless repository, the tracker's 'unclear' AI role and the absence of any named author would say no AI attribution can be made from an account at all, and that the only supported statement is that a Lean-checked Liouville analogue exists. On the scope question: the result does not touch the prime summands the problem asks for, so the most defensible reading is that nothing about Goldbach moved. On Abdelqader 2025: a reader could treat the DeepSeek/ChatGPT statement as a credit of a load-bearing role (as §5.4 requires for authors' own credit), or as a generic collaboration statement with no checkable content; the abstract is all that was read.",
+  "what_would_settle_it": "For the Liouville–Goldbach AI question: the original Captain Sude post (text, date, whether it names an author or an AI as author); a named author or statement from the repository; an arXiv or journal posting with an author line; the MathOverflow answer 307479 (Lingsen Meng, 25 Sep 2026) read directly, including whether it is independent of the repository; a human mathematician's written reading (for example from a number theorist working on sign patterns of λ). For the binary conjecture: for Agama 1706.09803, an explicit N₀ and the unconditional argument; for Watanabe 1811.02415 and South 2206.01179, a referee report or an identified error in the W(n) or p-adic step; for the 2024–2026 claims listed as not opened, the arXiv or Preprints.org full text and any review. For the computational record: a refereed report of the 4×10^18+ extensions.",
+  "sources": [
+    {
+      "url": "https://github.com/CaptainSude/Liouville-Goldbach",
+      "title": "CaptainSude/Liouville-Goldbach (repository)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/CaptainSude/Liouville-Goldbach/main/README.md",
+      "title": "Liouville-Goldbach README",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/CaptainSude/Liouville-Goldbach/blob/main/paper/liouville-goldbach.pdf",
+      "title": "Liouville-Goldbach paper PDF (page only; no text readable)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/CaptainSude/Liouville-Goldbach-Multiples-of-Four",
+      "title": "Liouville-Goldbach-Multiples-of-Four (repository)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/sunnyspot114514/Liouville-Goldbach-audit",
+      "title": "Liouville-Goldbach-audit (independent replay)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/Charlie-Wang-03/ai4math-chronicle/issues/116",
+      "title": "AI4Math Chronicle issue #116 (provenance & review watch)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/Charlie-Wang-03/ai4math-chronicle/pull/117",
+      "title": "AI4Math Chronicle PR #117 (event classification)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/Charlie-Wang-03/ai4math-radar/pull/14",
+      "title": "AI4Math Radar PR #14 (daily maintenance, 30 Sep 2026)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://vibemathed.com/problem/goldbach-s-conjecture-for-the-liouville-function",
+      "title": "VibeMathed: Goldbach's conjecture for the Liouville function",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/mrconter1/vibemathed/pull/81",
+      "title": "vibemathed PR #81 (review of 30 Sep 2026)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://eu.36kr.com/en/p/3992525310802946",
+      "title": "36Kr (Chinese; 'GPT-6 Astra' report, 21 Sep 2026)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://www.36kr.com/p/3992525310802946",
+      "title": "36Kr (same article, Chinese page)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.17199",
+      "title": "Mangerel, On Shusterman's Goldbach-type problem for sign patterns of the Liouville function",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.12117",
+      "title": "Mangerel, On a Goldbach-type problem for the Liouville function",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1706.09803",
+      "title": "Agama, A progress on the binary Goldbach conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1811.02415",
+      "title": "Watanabe, Definitive Proof of Goldbach's Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2206.01179",
+      "title": "South, An Algebraic Approach to the Goldbach Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.02381",
+      "title": "Pandey, An intermediate conjecture between Goldbach and Dubner",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.02621",
+      "title": "Llorente-Saguer, GoldbachGPU",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.07850",
+      "title": "Llorente-Saguer, A Lock-Free, Fully GPU-Resident Architecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1312.7748",
+      "title": "Helfgott, The ternary Goldbach conjecture is true",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://easychair.org/publications/preprint/MBd4",
+      "title": "Vega, Lean on Goldbach's Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://sweet.ua.pt/tos/bib/4.12.html",
+      "title": "Oliveira e Silva publication page (Goldbach to 4e18)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Goldbach%27s_conjecture",
+      "title": "Goldbach's conjecture (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://doi.org/10.63085/mejsp/856381",
+      "title": "Abdelqader DOI (redirects to journal page)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://journals.mejsp.com/researches/proving-goldbach's-conjecture-with-collaborative-ai:-an-innovative-mathematical-approach-using-topological,-lattice,-algebraic,-and-quantum-frameworks",
+      "title": "Abdelqader, journal page (abstract)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://journals.mejsp.com/assets/uploads/journals-researches/1747036369_2800721506.pdf",
+      "title": "Abdelqader PDF (binary; unreadable)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://dev.to/subhansh/i-pointed-my-ai-research-engine-at-goldbachs-conjecture-it-found-a-hidden-bias-44pn",
+      "title": "DEV Community: 'I Pointed My AI Research Engine at Goldbach's Conjecture'",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://groups.google.com/g/metamath/c/DOXS4pg0h8w",
+      "title": "Metamath: Goldbach's conjecture(s) - a challenge for (open)AI? (2020)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/issues/3952",
+      "title": "formal-conjectures issue #3952",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/teorth/IEANTN/pull/132",
+      "title": "IEANTN PR #132 (odd Goldbach from even)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://epochai.substack.com/p/introducing-frontiermath-open-problems",
+      "title": "Epoch AI: Introducing FrontierMath: Open Problems (27 Jan 2026)",
+      "type": "blog",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "Goldbach conjecture proof 2025",
+      "Goldbach conjecture 2026 new result",
+      "Goldbach conjecture AI proof",
+      "Goldbach conjecture large language model",
+      "Goldbach conjecture arXiv 2024 preprint",
+      "Goldbach's conjecture disproved counterexample",
+      "binary Goldbach verification 4 × 10^18 Oliveira e Silva Herzog Pardi",
+      "Goldbach conjecture Lean formalization",
+      "Goldbach's conjecture Wikipedia",
+      "GPT-6 Astra Goldbach Liouville conjecture Lean (extended mode)",
+      "Captain Sude Astra Liouville Goldbach",
+      "Mangerel Liouville function Goldbach sign patterns Shusterman",
+      "Shusterman Liouville Goldbach problem sum of two numbers with Liouville value -1",
+      "Proving Goldbach's Conjecture with Collaborative AI journal",
+      "Bridging Mathematics and AI novel approach Goldbach's Conjecture Comfort function",
+      "Goldbach conjecture Helfgott ternary 2013 binary remains open survey",
+      "Chen 1973 theorem every sufficiently large even number sum of prime and semiprime Goldbach",
+      "Goldbach conjecture verified beyond 4 × 10^18 new record computation 2025",
+      "Goldbach Liouville Astra unconditional proof audit Lean sorry-free replay",
+      "AI4Math chronicle Astra Goldbach provenance review",
+      "Lingsen Meng MathOverflow Liouville sign pairs Goldbach unconditional",
+      "Zhihu Astra Liouville Goldbach independent review v1.0.0",
+      "Goldbach conjecture Terence Tao 2026 AI",
+      "Goldbach conjecture Erdős problems AI solved prime sums",
+      "Goldbach conjecture AlphaProof OR AlphaEvolve OR Aristotle OR FrontierMath",
+      "Goldbach conjecture Claude Anthropic AI proof",
+      "Goldbach conjecture OpenAI OR Google DeepMind model proof 2026",
+      "formal-conjectures Goldbach Lean DeepMind repository",
+      "Empirical Verification of Goldbach's Conjecture Beyond Four Quintillion",
+      "Goldbach strong conjecture arXiv 2025 new bound prime pairs circle method",
+      "Agama circle of partitions binary Goldbach review criticism",
+      "Liouville-Goldbach GPT-6 Astra authorship \"found by\" AI model announcement Captain Sude paper eight pages"
+    ],
+    "places_checked": [
+      "arXiv abstract pages (2404.12117, 2412.17199, 1706.09803, 1811.02415, 2206.01179, 2608.02381, 2603.02621, 2603.07850, 1312.7748)",
+      "GitHub: CaptainSude/Liouville-Goldbach (and README raw), Liouville-Goldbach-Multiples-of-Four, Liouville-Goldbach-audit, paper PDF page",
+      "AI4Math Chronicle issue #116, PR #117; AI4Math Radar PR #14",
+      "vibemathed problem page and PR #81",
+      "google-deepmind/formal-conjectures issue #3952; teorth/IEANTN PR #132",
+      "Wikipedia Goldbach's conjecture (lead, history, status)",
+      "Oliveira e Silva publication page (Mathematics of Computation, 2014)",
+      "Middle East Journal for Scientific Publishing (Abdelqader) journal page",
+      "EasyChair preprint 10824 (Vega)",
+      "Epoch AI FrontierMath open problems post (27 Jan 2026)",
+      "Metamath Google group thread (2020)",
+      "DEV Community post (Luka)",
+      "36Kr report (21 Sep 2026)",
+      "Attempted but not opened: mathoverflow.net/questions/307479 (refused); x.com status 2100277626120163664 (HTTP 402); sciencedirect pii S2665917424006792 (HTTP 403); preprints.org 202409.2235, 202503.0949, 202410.1262 (HTTP 403); ssrn 5807602 (HTTP 403); PROOF.md (HTTP 404)",
+      "Search results (not opened): Preprints.org 202510.0591, 202510.0662, 202511.0120; academia.edu 108320527; OPAST Voinov PDF; ResearchGate 399396640; arXiv 2508.18273, 2405.05727, 2404.00517, 2608.13266, 2012.01329 (via Pith); arXiv 2210.0013; arXiv math/0005185, math/0206033, 0712.2381, 1207.4802, 2112.13205; GitHub AuroraAeon/goldbach-lean and seisner1967-hash/goldbach-horizon; Hacker News item 43734583"
+    ],
+    "dead_ends": [
+      "Repository, tracker and vibemathed pages name no AI for the Liouville–Goldbach authorship beyond the announcement attribution (recorded in events).",
+      "No OpenAI or Google DeepMind announcement of a Goldbach result was found in searches for the lab names with Goldbach.",
+      "No Claude/Anthropic-credited Goldbach result was found. Anthropic's FLT formalisation write-up mentions Helfgott's 2013 weak-Goldbach result only in a footnote; other Claude results found (Riemann-hypothesis bound, Jacobian conjecture) concern other problems.",
+      "The Epoch AI FrontierMath open-problems post (27 Jan 2026) says Goldbach-style counterexample problems were deliberately left out; this is a benchmark policy, not a result on the problem.",
+      "The Goldbach-related Erdős problem results found (#728, #1196) concern other problems; the 'prime sums' link was a different Erdős problem.",
+      "Tao's 2026 AI writing (ICM lecture, living summary) does not mention Goldbach; his Goldbach work is the 2012 odd-number result, which predates the window.",
+      "DeepMind formal-conjectures: the full repository was not browsed; only issue #3952 and search snippets were read.",
+      "A 2023 Hackaday project in which ChatGPT was asked to prove Goldbach and declined: not opened; a chat exchange, not a mathematical event.",
+      "Metamath 2020 thread (opened): speculation about formalisation and AI; no result.",
+      "arXiv titles only, no proof claim read, not recorded individually: 1007.3659 ('Can We Prove Goldbach's Conjecture?'), 1210.1516, math/0209232, 1704.08117, 1710.04081, 1306.0795, 2211.02865, 1706.00317, 2306.17769 (survey-like discussion, 2023), 2304.00024 (generalisation to 10^12/10^13, 2023), 1801.01813 (numerical bound on extended Goldbach, 2018), 2510.21870 (ranking minimal primes in generalised Goldbach partitions, 2025), 2504.14353 (unknown title, 2025), 2608.24961 ('The Gold Rush in AI4Math', survey, 2026). Recorded here, not as events, because none claims a proof or a result on the binary conjecture; see incomplete.",
+      "The Pith automated desk verdict pages were seen via search but not opened.",
+      "Ying Shan and Weijie Su X posts (commentary on the Astra claims, and an unrelated prime-gap claim): not opened; not events on the problem.",
+      "Medium article by jay_gridbach and HN item 43734583: not opened; recorded as unopened event.",
+      "The 'Captain Sude' GitHub dissertation 'The-constant-the-curve-and-a-paradox' (credits 'Astra and Sol' as authors) is a different project; not opened.",
+      "vibemathed commit credited to Claude Code ('Claude Opus 5' co-author) concerns site bookkeeping, not the mathematics."
+    ]
+  },
+  "incomplete": "Not opened, so the record is weaker than it should be: (1) the Captain Sude X posts (HTTP 402), which are the only account of the AI role in the Liouville–Goldbach result; (2) MathOverflow 307479 (refused), including Lingsen Meng's answer; (3) the Liouville repository's paper PDF (binary/no text) and PROOF.md (404), so the paper's own contents, length and any author line were not read; (4) the Zhihu review by SUNNY99; (5) the ScienceDirect article (403; Gurgel et al. known from an excerpt only); (6) the Abdelqader PDF (binary; abstract only); (7) the Preprints.org items 202409.2235, 202410.1262, 202503.0949, 202510.0662, 202510.0591, 202511.0120 (403, or excerpt only); (8) SSRN 5807602 (403); (9) Hou–Huang–Ma, Xin Wang, IJAEMR, Chou Rodríguez, Voinov, academia.edu, Bahbouhi and Li: all known from search excerpts only; (10) the bodies of Agama 1706.09803, Watanabe 1811.02415 and South 2206.01179 (abstracts only); (11) the Oliveira e Silva paper itself (abstract via the author's page); (12) the Chen 1973 and Helfgott papers themselves (Wikipedia and abstracts); (13) the Lean sources of the Liouville theorem were not built or run by me; sorry-free and axiom claims come from the repository and its replay; (14) the DEV 'Luka' post's year and the HN/Medium item; (15) the AuroraAeon and goldbach-horizon repositories' dates; (16) the 2025 Lean-based GitHub 'Multiples of Four' repo's commit dates; (17) the 2024–2026 claims are a sample, not an exhaustive list of unrefereed Goldbach 'proofs', which arXiv, Preprints.org, SSRN, ResearchGate and academia.edu carry in quantity; the searches surfaced a subset; (18) the older arXiv 'proof' claims (2000–2021) are recorded only where a search result stated a claim, and many others were not searched for individually. Scope of the AI search: searches named Claude/Anthropic, OpenAI, Google DeepMind, AlphaProof, AlphaEvolve, Aristotle, FrontierMath, DeepSeek, ChatGPT, LLM, Lean/formal-conjectures; the GPT-6 Astra attribution is the only lab-model credit for a result on Goldbach found. The model 'GPT-6 Astra' was not confirmed from any official source.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "liouville-goldbach-v1-2026-09-16",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Authorless repository from an unidentified announcer; only verification is a Lean replay and tracker bookkeeping, no named mathematician's reading.",
+        "ai_role": "generated",
+        "ai_basis": "Today, Astra proved the entire conjecture via elementary methods. The proof is 8 pages long. (as reported in a search summary quoting Captain Sude's X posts; the X post itself was not openable, HTTP 402)",
+        "ai_systems_credited": [
+          "GPT-6 Astra"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "liouville-goldbach-multiples-of-four-2026-09-15",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Authorless repository; Lean proof conditional on Mangerel's theorem supplied as a parameter; sorry status unknown.",
+        "ai_role": "generated",
+        "ai_basis": "Today, Astra proved the unconditional conjecture for multiples of 4! The proof is only 2 pages long, it combines a result from Mangerel's paper with results from our earlier work on normality of special constants. (as reported in a search summary; the X post was not openable, HTTP 402)",
+        "ai_systems_credited": [
+          "GPT-6 Astra"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lingsen-meng-mathoverflow-2026-09-25",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Content known only from secondary reports; answer not read; independence disputed.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "mangerel-2024-liouville-correlation-imrn",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "mangerel-2024-liouville-GRH",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "marchukov-2024-quantum-search",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hou-huang-ma-2024-preprints",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Claimed proof of a landmark problem on an unrefereed preprint server with no uptake in two years; the field still calls the problem open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "preprints-202410-1262-binary-proof",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Unrefereed landmark claim, ten versions, no uptake, problem still treated as open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "gurgel-2024-bridging-ai",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "li-2024-chen-type",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gosar-2025-beyond-4e18",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Probabilistic primality tests; excerpt only; unrefereed.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hn-2025-gridbach-extension",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Unopened Medium/HN claim; year inferred from item id.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "xin-wang-2025-ijmn",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Landmark claim in a non-mathematics venue, no uptake, problem still called open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "ijaemr-2025-solution",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Landmark claim in an engineering journal, no uptake, problem still called open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "abdelqader-2025-mejsp-collaborative-ai",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Landmark claim in a marginal venue, argument only sketched (unexplained 'commutative group' step), no uptake, problem still called open.",
+        "ai_role": "assisted",
+        "ai_basis": "Through collaborative intelligence with AI — using the DeepSeek application and its Deep Thinking feature (R1) for innovation and solution development, along with ChatGPT for recommendations — we present this solution, which consists of four mathematical frameworks, demonstrating how R1 progressively contributed to the resolution.",
+        "ai_systems_credited": [
+          "DeepSeek application and its Deep Thinking feature (R1)"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "chou-rodriguez-2025-ssrn",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "'Simple proof' of a landmark problem on SSRN, no uptake, problem still called open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "arxiv-2508.18273-informational-economy",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bahbouhi-2025-upe-formal-proof",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Idiosyncratic framework; only a conditional equivalence per summary.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bahbouhi-2025-upe-review",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Not read; relation to Goldbach unverified.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bahbouhi-2025-lambda-overlap",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Series of idiosyncratic unrefereed claims by the same author, no uptake, problem still called open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "academia-2026-02-rev-proof",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Self-published landmark claim, no uptake, problem still called open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "voinov-2026-b-trees",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Landmark claim in a marginal open-access venue via 'B-trees', no uptake, problem still called open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "luka-dev-post-undated",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Blog claim that Hardy–Littlewood is wrong, unchecked.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "auroraaeon-chen-lean-undated",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "seisner-goldbach-horizon-undated",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "dm-formal-conjectures-issue-3952-2026",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Reviewer identified a false lemma (goldbach_3_complement_mod3) and sorry in the file; author set the Goldbach proof aside.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "teorth-ieantn-pr132-2026-09-29",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "pandey-2026-intermediate-conjecture",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "llorente-saguer-2026-goldbachgpu",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "llorente-saguer-2026-lock-free",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Four-GPU results withdrawn by the author in v2.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "krishnamoorthy-2026-corradi-katai",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "agama-2017-binary-progress",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Claimed unconditional Goldbach for large N with no threshold, nine versions over nine years, no uptake; related work flagged as lacking justification; field still calls even large-N case open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "agama-2020-circles-of-partition",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Density hypothesis cannot apply to the primes.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "agama-gensel-2022-asymptotic",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "watanabe-2018-definitive-proof",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Landmark claim, many revisions over seven years, no uptake or publication, problem still called open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "south-2022-algebraic-approach",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Two-page p-adic proof of a 1742 problem, sixteen versions, no uptake, problem still called open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "vega-2023-lean-goldbach",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Landmark claim on EasyChair, no uptake, problem still called open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "oliveira-e-silva-herzog-pardi-2013",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chen-1973-1plus2",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "helfgott-2013-ternary",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "math-0005185-ellman-2000",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Unrefereed landmark claim, 26 years without uptake, problem still open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "math-0206033-2002",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Unrefereed landmark claim, decades without uptake, problem still open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "arxiv-0712.2381-2007",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Unrefereed landmark claim, nearly two decades without uptake, problem still open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "arxiv-1207.4802-2012",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Unrefereed landmark claim, over a decade without uptake, problem still open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "arxiv-2112.13205-2021",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Not read; unclear claim.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "captain-sude-announcement-astra-attribution",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Unidentified announcer; post not readable; duplicates the repository event.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks only for two primes summing to every even N > 2. The Liouville–Goldbach work answers a different question: the summands need only have λ = −1, and the result is implied by Goldbach but does not imply it. So both repositories, the MathOverflow answer, the announcement and Mangerel's two papers are variants. Their AI attribution (GPT-6 Astra, 'generated' on the announcer's reported word, though disputed) has no bearing on this problem. Computational extensions are instances, and Chen-type, ternary, twin-prime and odd-range results are variants. Each whole-problem proof claim (Preprints.org, SSRN, marginal journals, academia.edu, old arXiv claims) shows several F10 signals together: it claims a landmark, nobody took it up, some sit in marginal venues or have had many revisions, and the field still calls the problem open. I marked these not_credible. Abdelqader's DeepSeek R1 credit reads as assisted on its own quote, but the event is not_credible. The formal-conjectures claim is knocked_down by the identified false lemma. Close call on dates: preprints 202410.1262 is dated year-only, but its manuscript ID places it in October 2024, so I answered after_snapshot true. Gurgel 2024 has no such anchor, so it is null.",
+    "doubts": "Agama 2017 is scored case (large N) pre-snapshot; v9 says ideas unchanged, so not re-dated. Watanabe v7 (Aug 2025) reportedly changed the proof but was kept at its 2018 date; it is not_credible either way. The GPT-6 Astra attribution rests only on unopened social-media posts reported secondarily.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}
