@@ -1,0 +1,557 @@
+{
+  "key": "do-any-odd-noncototients-exist",
+  "nothing_found": false,
+  "outcome": "No odd noncototient has been exhibited, and no proof that none exist has appeared, since 26 January 2024; the parity conjecture (every noncototient is even) remains open and is known only conditionally on a strong Goldbach statement, while the in-window noncototient activity concerns the neighbouring even-side infinitude question (settled by Browkin and Schinzel in 1995, formalised in Lean in late 2025 with AI help) and the open density question.",
+
+  "problem_asks": "One existence question. Does there exist at least one odd positive integer n that is a noncototient, meaning that no positive integer m satisfies m − φ(m) = n, where φ is Euler's totient function? Parts: (a) the objects are positive integers n; (b) the restriction is that n is odd; (c) the property is that the equation m − φ(m) = n has no positive-integer solution m; (d) the answer asked for is yes or no. The statement gives no bound on n and names no other quantity. A 'yes' answer needs one witness: an odd n with no solution m. A 'no' answer is a universal claim that every odd positive integer is a cototient (of the form m − φ(m)). The statement does not separately ask for the even case, the infinitude of noncototients, or their density; those belong to neighbouring bullets.",
+
+  "events": [
+    {
+      "id": "cloitre-oeis-2002-conditional",
+      "what_happened": "OEIS A005278 (noncototients) carries a comment by Benoit Cloitre dated 3 Mar 2002: if the strong Goldbach conjecture holds, the sequence contains only even values, and so every odd number is x − φ(x) for some x. The identity behind it is that for distinct primes p and q, pq − φ(pq) = p + q − 1, so an odd m is a cototient whenever m + 1 is a sum of two distinct primes. The same conditional claim is stated, undated, on the Erdős problem #418 page ('It follows from the Goldbach conjecture that every odd number can be written as n − φ(n)'), and in Wikipedia's Noncototient article, last edited 25 July 2025, which says probably no odd number larger than 5 is a noncototient.",
+      "date": "2002-03-03",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": "OEIS entry displayed as last modified 11 Oct 2026; the comment itself is dated 3 Mar 2002 on the page.",
+      "delivers": "Conditional only. If every even number greater than 6 is a sum of two distinct primes, then every odd number is a cototient, so no odd noncototient exists. Unconditionally it gives the identity and the small odd cases 1 = 2 − φ(2), 3 = 9 − φ(9), 5 = 25 − φ(25), and nothing for odd m above 5.",
+      "remains": "The unconditional question: whether every odd m is a cototient, equivalently whether any odd noncototient exists. The Goldbach-type hypothesis it relies on is itself unproven.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "About 24 years (2002 to Oct 2026) with the conditional claim restated on the Erdős page and in a 21 Nov 2025 forum comment, but no unconditional proof found.",
+      "machine_checked": null,
+      "directly_checkable": "The identity pq − φ(pq) = p + q − 1 for distinct primes p and q can be checked by hand. The odd claim reduces to whether m + 1 is a sum of two distinct primes for each odd m.",
+      "doubts": "The odd claim is conditional on an unproven Goldbach-type statement. The comment gives a one-line identity and no argument for the unconditional case, which is the part that is open. Wikipedia calls the odd-case answer 'expected' and not proved.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Points toward the parity conjecture (no odd noncototient), but only conditionally on a strong Goldbach statement.",
+      "object": null,
+      "people": ["Benoit Cloitre (OEIS comment author, as displayed on the page)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A005278"]
+      },
+      "sources": ["https://oeis.org/A005278", "https://en.wikipedia.org/wiki/Noncototient", "https://www.erdosproblems.com/418"]
+    },
+    {
+      "id": "banks-luca-2004",
+      "what_happened": "William D. Banks and Florian Luca, 'Noncototients and Nonaliquots', arXiv math/0409231, submitted 14 Sep 2004 (one version). From the abstract (opened): a lower bound on the number of m ≤ x for which m = n − φ(n) has no solution; a parallel lower bound for σ(n) − n; and positive lower asymptotic density for the set of m not of the form (p−1)/2 − φ(p−1). From search snippets of the full PDF (not opened): 2p is a noncototient for almost all primes p.",
+      "date": "2004-09-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only, per the arXiv version history shown on the abstract page.",
+      "delivers": "Even-side and counting results: lower bounds on how many noncototients lie below x, and (per snippets) that 2p is a noncototient for almost all primes p. It settles nothing about odd n. The positive-density statement in the abstract concerns numbers of the form (p−1)/2 − φ(p−1) and nonaliquots, not odd noncototients.",
+      "remains": "Every odd-n part of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A forum post (Woett, 8 Dec 2025) reports that Florian Luca confirmed the positive lower density result applies only to nonaliquots, not to noncototients. I did not verify this and it concerns density, not parity.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral on parity. Points toward noncototients being numerous enough to bound below, not toward any odd example.",
+      "object": null,
+      "people": ["William D. Banks", "Florian Luca"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/math/0409231"]
+      },
+      "sources": ["https://arxiv.org/abs/math/0409231", "https://www.erdosproblems.com/forum/thread/418"]
+    },
+    {
+      "id": "browkin-schinzel-1995",
+      "what_happened": "J. Browkin and A. Schinzel, 'On integers not of the form n − φ(n)', Colloquium Mathematicum 68 (1995) 55–58. Answers the question asked by Sierpiński (the abstract says 1959) in the affirmative: 'None of the numbers 2^k·509203 (k = 1, 2, ...) is of the form n − φ(n).' Opened abstract, which states the theorem verbatim.",
+      "date": "1995",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Journal publication; no earlier preprint date found.",
+      "delivers": "Infinitely many noncototients, all of them even (2^k·509203 for k ≥ 1). Answers the infinitude question only. Says nothing about odd integers or about density.",
+      "remains": "Parity: whether any odd noncototient exists. Density.",
+      "checked_by": [
+        {
+          "who": "Colloquium Mathematicum (journal of record, refereed)",
+          "qualification": "Peer-reviewed mathematics journal",
+          "what_they_did": "Accepted and published the note",
+          "where": "https://impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/68/1/108751/on-integers-not-of-the-form-n-n",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": "The result is for an explicit family. The proof relies on a cited result about 509203 (per a secondary snippet, Riesel's result that 2^k·509203 − 1 is composite for all k ≥ 1). I did not read the proof.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Answers the infinitude question in the affirmative. Cuts toward noncototients being infinite. Nothing toward or away from an odd example.",
+      "object": "The infinite family 2^k·509203, k ≥ 1: explicit even integers, each proved not of the form n − φ(n). Explicit family, not a non-constructive existence proof.",
+      "people": ["J. Browkin", "A. Schinzel"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/68/1/108751/on-integers-not-of-the-form-n-n"]
+      },
+      "sources": ["https://impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/68/1/108751/on-integers-not-of-the-form-n-n", "https://www.erdosproblems.com/418"]
+    },
+    {
+      "id": "flammenkamp-luca-2000",
+      "what_happened": "A. Flammenkamp and F. Luca, 'Infinite families of noncototients', Colloquium Mathematicum 86 (2000) 37–41. Opened abstract: gives a sufficient condition on a positive integer k under which every term of (2^m·k), m ≥ 1, is a noncototient, and uses computation to detect seven such k. The condition itself is not in the abstract. Secondary sources (not verified) give six values beyond 509203: 2554843, 9203917, 9545351, 10645867, 11942443, 65484763.",
+      "date": "2000",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Journal publication; no earlier date found.",
+      "delivers": "Further infinite families of even noncototients (2^m·k for each of seven k). Nothing about odd n.",
+      "remains": "Parity: whether any odd noncototient exists. Density.",
+      "checked_by": [
+        {
+          "who": "Colloquium Mathematicum (journal of record, refereed)",
+          "qualification": "Peer-reviewed mathematics journal",
+          "what_they_did": "Accepted and published the note",
+          "where": "https://impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/86/1/111641/infinite-families-of-noncototients",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Same direction as Browkin–Schinzel: noncototients in infinitely many even numbers.",
+      "object": "A sufficient condition on k and seven computed values of k for which the whole progression 2^m·k consists of noncototients. Explicit values, found by computation. The six values beyond 509203 come from secondary sources that I did not verify against the paper.",
+      "people": ["A. Flammenkamp", "F. Luca"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/86/1/111641/infinite-families-of-noncototients"]
+      },
+      "sources": ["https://impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/86/1/111641/infinite-families-of-noncototients"]
+    },
+    {
+      "id": "grytczuk-medryk-2005",
+      "what_happened": "M. Grytczuk and M. Mędryk, 'On a result of Flammenkamp–Luca concerning noncototient sequence', Tsukuba Journal of Mathematics 29(2) (2005) 533–538. Not opened. Per a later paper's summary (secondary, not verified): for prime k, 2^n·k is a noncototient for every n ≥ 1 if and only if 2k is a noncototient and k is a Riesel number that is not a Mersenne prime.",
+      "date": "2005",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per secondary summary only: a characterisation for prime k of the Flammenkamp–Luca family. Even noncototients only.",
+      "remains": "Parity and density. Nothing odd.",
+      "checked_by": [
+        {
+          "who": "Tsukuba Journal of Mathematics (refereed journal)",
+          "qualification": "Peer-reviewed mathematics journal",
+          "what_they_did": "Published the paper (per the citation; the article itself not opened)",
+          "where": "https://tsukuba.repo.nii.ac.jp/record/29686/files/11.pdf",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only from search snippets and a secondary summary. Not opened.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Even side only.",
+      "object": null,
+      "people": ["M. Grytczuk", "M. Mędryk"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://tsukuba.repo.nii.ac.jp/record/29686/files/11.pdf"]
+      },
+      "sources": ["https://tsukuba.repo.nii.ac.jp/record/29686/files/11.pdf"]
+    },
+    {
+      "id": "pomerance-yang-2012",
+      "what_happened": "C. Pomerance and H.-S. Yang, 'Variant of a theorem of Erdős on the sum-of-proper-divisors function', preprint (cited as 2012, keywords include noncototients), published Math. Comp. 83 (2014) 1903–1913. Per search snippets only (not opened): computations to x = 10^8 used to conjecture densities for untouchable-type and nontotient sets, and noncototient lower density recorded as open.",
+      "date": "2012",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Preprint 2012; journal version 2014 (per citations).",
+      "delivers": "Computational evidence and density questions for neighbouring sets. No odd-noncototient result.",
+      "remains": "Every odd-n part of problem_asks.",
+      "checked_by": [
+        {
+          "who": "Mathematics of Computation (refereed journal)",
+          "qualification": "Peer-reviewed mathematics journal",
+          "what_they_did": "Published the paper (2014, per citation; article not opened)",
+          "where": "https://mathstat.dal.ca/~yanghs/papers/varianterdos.pdf",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only from search snippets. Not opened.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral on parity.",
+      "object": null,
+      "people": ["C. Pomerance", "H.-S. Yang"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://mathstat.dal.ca/~yanghs/papers/varianterdos.pdf"]
+      },
+      "sources": ["https://mathstat.dal.ca/~yanghs/papers/varianterdos.pdf"]
+    },
+    {
+      "id": "semchankau-2018",
+      "what_happened": "Aliaksei Semchankau, 'On Differences of Multiplicative Functions and Solutions of the Equation n − φ(n) = c', arXiv 1901.01846 (v1 31 Dec 2018, under an earlier title per secondary summaries; v2 4 Oct 2020; v3 15 Apr 2021); published Mathematical Notes 109 (2021) 623–629. Theorem 1.1 (ar5iv text, opened): 'The amount of solutions n to ψ(n)=c for given c>1 equals to G(c+1)+O(c^{0.75+o(1)})', where ψ(n) = n − φ(n) and G(k) is the number of representations of k as a sum of two primes. Theorem 4.1 restates it. The paper does not state an existence or almost-all consequence for n − φ(n) = c.",
+      "date": "2018-12-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 31 Dec 2018; v2 4 Oct 2020; v3 15 Apr 2021 (current). Journal version Math. Notes 2021 (DOI 10.1134/S0001434621030329, metadata from a search snippet).",
+      "delivers": "An asymptotic count of solutions to n − φ(n) = c for each fixed c > 1, with main term G(c+1) and error O(c^{0.75+o(1)}). It gives no existence statement for any specific odd c. For even c the main term is O(1), per the paper's introduction.",
+      "remains": "Existence for each odd c is not decided by the stated count, which is only asymptotic. See the summary for the density-one consequence, which I derive but the paper does not state.",
+      "checked_by": [
+        {
+          "who": "Mathematical Notes (Springer), journal of record",
+          "qualification": "Peer-reviewed mathematics journal",
+          "what_they_did": "Published the paper (2021)",
+          "where": "https://link.springer.com/article/10.1134/S0001434621030329",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The error term O(c^{0.75+o(1)}) only yields positive counts where the Goldbach term G(c+1) is large, and the paper does not discuss odd c existence. The Springer article was not opened (metadata from a snippet).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral on the existence claim as stated. For odd c where the Goldbach term dominates the error term, the count gives solutions, which would make c a cototient and so not a noncototient. The paper does not draw this conclusion.",
+      "object": null,
+      "people": ["Aliaksei Semchankau"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1901.01846", "https://ar5iv.labs.arxiv.org/html/1901.01846"]
+      },
+      "sources": ["https://arxiv.org/abs/1901.01846", "https://ar5iv.labs.arxiv.org/html/1901.01846", "https://link.springer.com/article/10.1134/S0001434621030329"]
+    },
+    {
+      "id": "gonzalez-et-al-2021",
+      "what_happened": "M. J. González, A. Mendoza, F. Luca, V. J. Mejía Huguet, 'On Composite Odd Numbers k for Which 2^n·k is a Noncototient for All Positive Integers n', Journal of Integer Sequences 24 (2021), Article 21.9.6, published 17 Oct 2021 (received 9 Mar 2021). Abstract, verbatim (opened): 'We provide some results relating Riesel numbers with families of cototients and noncototients.' The word 'odd' qualifies the multiplier k. The noncototients 2^n·k for n ≥ 1 are even. The body was not read.",
+      "date": "2021-10-17",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Journal publication; received 9 Mar 2021, revised 15 Oct 2021.",
+      "delivers": "Per title and abstract only: families of composite odd k for which all 2^n·k (n ≥ 1) are noncototients. These are even noncototients, so the 'odd' in the title refers to k, not to the noncototients. Nothing about odd noncototients.",
+      "remains": "Every odd-n part of problem_asks.",
+      "checked_by": [
+        {
+          "who": "Journal of Integer Sequences (refereed journal)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published the paper",
+          "where": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Gonzalez/gonz13.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Only the abstract and title were read. The body may contain results on cototients of odd numbers that I did not read, so this is not established either way.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Even side. The noncototients are 2^n·k, which are even.",
+      "object": null,
+      "people": ["Marcos J. González", "Alberto Mendoza", "Florian Luca", "V. Janitzio Mejía Huguet"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://cs.uwaterloo.ca/journals/JIS/VOL24/Gonzalez/gonz13.html"]
+      },
+      "sources": ["https://cs.uwaterloo.ca/journals/JIS/VOL24/Gonzalez/gonz13.html"]
+    },
+    {
+      "id": "formal-conjectures-conditional-2025",
+      "what_happened": "Google DeepMind's formal-conjectures repository, file FormalConjectures/ErdosProblems/418.lean, contains a variant erdos_418.variants.conditional. Per my fetch summary of the current file (not a verbatim read), it states that, assuming a strengthened Goldbach statement (every even n > 6 is a sum of two distinct primes), every odd number is n − φ(n) for some n, and it is proved, with no sorry. The earliest commit-log entries touching it that I saw are 'fix: erdos 418 (#32)' (27 May 2025, b-mehta and callesonne) and 'Correct conditional version of Erdos 418 (#56)' (28 May 2025, b-mehta). I did not read the diffs.",
+      "date": "2025-05-28",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Commit log: 27 May 2025 (#32); 28 May 2025 (#56, conditional correction). Later commits touch the file through 18 Sep 2026.",
+      "delivers": "A machine-checked conditional result: assuming strong Goldbach, every odd number is a cototient, so no odd noncototient exists. Restricted entirely to that hypothesis. The argument is the same as the 2002 OEIS comment (event cloitre-oeis-2002-conditional). Nothing unconditional.",
+      "remains": "The unconditional odd question. The same file keeps this as the variant odd_noncototient, which is still sorry (see event formal-conjectures-odd-variant-2026).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "About 16 months (May 2025 to Oct 2026) with no public human review of this variant found. The Erdős forum discussed the Goldbach dependence (Dogmachine, 21 Nov 2025) without referring to the file.",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (Mathlib bump to v4.25.0 per the commit log, Feb 2026)",
+        "sorry_free": true,
+        "url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/418.lean"
+      },
+      "directly_checkable": "The sorry-free status applies to the conditional variant only. Per my fetch summary, the file as a whole still contains sorry in five theorems, including the main erdos_418 and odd_noncototient.",
+      "doubts": "The hypothesis is an unproven Goldbach-type statement, so the variant adds nothing unconditional. I read the file only through a summarising fetch, not verbatim.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Conditional support for the parity conjecture: under strong Goldbach, no odd noncototient exists.",
+      "object": null,
+      "people": ["b-mehta (GitHub handle; identity not verified)", "callesonne (GitHub handle; co-author of commit #32)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://github.com/google-deepmind/formal-conjectures/commits/main/FormalConjectures/ErdosProblems/418.lean"]
+      },
+      "sources": ["https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/418.lean", "https://github.com/google-deepmind/formal-conjectures/commits/main/FormalConjectures/ErdosProblems/418.lean"]
+    },
+    {
+      "id": "alexeev-lean-browkin-schinzel-2025",
+      "what_happened": "Boris Alexeev's Lean formalisation of the Browkin–Schinzel 1995 theorem (2^k·509203, k ≥ 1, is not of the form n − φ(n)), which is the infinitude answer to Erdős #418. Announced in a forum comment on 22 Nov 2025 ('I have shepherded the formalization of this result into Lean'), linking a GitHub repository (plby/lean-proofs, not opened). In a 5 Dec 2025 writeup on the Xena blog he says he picked #418 for an experiment: 'I asked ChatGPT to explain the solution to the problem and then Aristotle to auto-formalize the resulting LaTeX file.' The forum comment says: 'I asked ChatGPT to explain the proof by Browkin and Schinzel.' The Formal Conjectures docstring for the main theorem credits 'Alexeev using Aristotle'. The AI step explained an existing 1995 human proof. The posts describe no new argument from the AI.",
+      "date": "2025-11-22",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Forum comment 22 Nov 2025; writeup on the Xena blog 5 Dec 2025; teorth wiki entry dated 22 Nov 2025.",
+      "delivers": "Per the author, a Lean formalisation of the 1995 even-side infinitude theorem: the family 2^k·509203, k ≥ 1, consists of noncototients. Restricted to that even family. Nothing odd. It does not settle the infinitude question as a new result, since the mathematics is Browkin–Schinzel's.",
+      "remains": "All odd parts of problem_asks, and density.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": {
+        "system": "Lean (proof produced via Aristotle, per the author; repository as named in the forum comment)",
+        "sorry_free": null,
+        "url": "https://github.com/plby/lean-proofs"
+      },
+      "directly_checkable": "The 1995 argument, which relies on a cited result about 509203 (not read by me).",
+      "doubts": "The Lean artifact in plby/lean-proofs was not opened, so its sorry status and exact statement are unchecked. The Formal Conjectures main theorem erdos_418 is still sorry in that file, so any 'PROVED (LEAN)' status shown for #418 rests on the external repository, not on the file. I found no public human check of the Lean proof.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts toward 'yes' for the infinitude question, which Browkin and Schinzel answered in 1995. Nothing toward or away from an odd noncototient.",
+      "object": null,
+      "people": ["Boris Alexeev (forum user BorisAlexeev)", "J. Browkin", "A. Schinzel"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": "ChatGPT: under half an hour in total to answer two questions. Aristotle: about 6 hours for the main task and under 10 minutes to finish the final statement (forum comment, 22 Nov 2025).",
+        "sources": ["https://www.erdosproblems.com/forum/thread/418", "https://xenaproject.wordpress.com/2025/12/05/formalization-of-erdos-problems/", "https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems"]
+      },
+      "sources": ["https://www.erdosproblems.com/forum/thread/418", "https://xenaproject.wordpress.com/2025/12/05/formalization-of-erdos-problems/", "https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems", "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/418.lean"]
+    },
+    {
+      "id": "seed-prover-1.5-2025",
+      "what_happened": "ByteDance Seed's report 'Seed-Prover 1.5: Mastering Undergraduate-Level Theorem Proving via Learning from Experience', arXiv 2512.17260 (v1 19 Dec 2025). Its section 4.2 says: 'Seed-Prover 1.5 solved problem numbers 124, 198, 303, 316, 330, 350, 370, 379, 418, 449, 493, 499, 645, 728 and 958.' The same section says these problems are 'mathematically relatively simple' and that some results were 'a trivial or simplified version of them due to mis-formalization (these mis-formalized problems are not listed here)'. On the forum thread for #330 (19–21 Dec 2025), Terence Tao writes: 'It seems that there was a misstatement and misformalization of the problem that has since been fixed both here' and 'Most likely ByteDance (dis)proved the misformalized version'. Zheng Yuan (Seed-Prover team) replies that one listed entry (303) is a typo and that the team did not prove 330, which was an old version. Nat Sothanaphan says 'there is no claim'. The abstract, opened, describes Seed-Prover 1.5 as 'a formal theorem-proving model trained via large-scale agentic reinforcement learning'.",
+      "date": "2025-12-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv v1 19 Dec 2025 (the only version I saw). Forum corrections 19–21 Dec 2025.",
+      "delivers": "Unresolved for #418. The report lists 418 among its solved problems, but which version was proved (the intended infinitude question, or a misformalised variant) is not determined from what I read. At most it bears on the infinitude question, which is the even side. Nothing about odd n.",
+      "remains": "The odd question and density entirely. For infinitude, it depends on which version of 418 the report proved.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The authors say some listed results were trivial or simplified versions due to mis-formalisation. Tao says the misformalised version was likely what was proved. The thread shows at least one error in the list (303). I did not examine the Lean artifacts for 418.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claimed in the report to answer the infinitude question for 418 affirmatively, with scope disputed. Not about odd noncototients.",
+      "object": null,
+      "people": ["Seed-Prover 1.5 authors (ByteDance Seed; author list on arXiv 2512.17260)", "Terence Tao (forum comment)", "Zheng Yuan (Seed-Prover team, forum comment)"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Seed-Prover 1.5",
+            "what_it_did": "The authors describe it as a formal theorem-proving model. Their report lists 418 among fifteen Erdős problems it solved. For 418 the solved version is disputed (see doubts). Nothing in the report credits it with the odd question.",
+            "basis_quote": "Seed-Prover 1.5 solved problem numbers 124, 198, 303, 316, 330, 350, 370, 379, 418, 449, 493, 499, 645, 728 and 958.",
+            "quote_url": "https://arxiv.org/html/2512.17260v1"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2512.17260", "https://arxiv.org/html/2512.17260v1"]
+      },
+      "sources": ["https://arxiv.org/abs/2512.17260", "https://arxiv.org/html/2512.17260v1", "https://www.erdosproblems.com/forum/thread/330"]
+    },
+    {
+      "id": "formal-conjectures-odd-variant-2026",
+      "what_happened": "Formal Conjectures commit 'feat(ErdosProblems/418): state the Odd Noncototient Conjecture (#4361)', dated 2 Sep 2026, authors Sanexxxx777 and Paul-Lez per the log. The file contains the variant erdos_418.variants.odd_noncototient, stating the parity claim 'every non-cototient is even', labelled 'research open', with sorry (per my summary of the file). This is the negation of the bullet's existence question, stated in Lean as open. It records the problem as open and proves nothing. I did not read the diff, so I cannot say whether the variant was new in that commit or restated.",
+      "date": "2026-09-02",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Later commits to the file: 12 Sep 2026 ('state positive lower density for nonaliquots', #5795); 18 Sep 2026 (modularisation, #4688).",
+      "delivers": "Nothing. A formal statement of the parity conjecture, labelled open with sorry. It establishes no answer in either direction.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "States the 'no odd noncototient' answer as the open conjecture, which is the expected answer but unproved.",
+      "object": null,
+      "people": ["Sanexxxx777 (GitHub handle)", "Paul-Lez (GitHub handle)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://github.com/google-deepmind/formal-conjectures/commits/main/FormalConjectures/ErdosProblems/418.lean"]
+      },
+      "sources": ["https://github.com/google-deepmind/formal-conjectures/commits/main/FormalConjectures/ErdosProblems/418.lean", "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/418.lean"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "scope",
+      "summary": "Density. A forum comment (Woett, 8 Dec 2025) reports that Florian Luca confirmed the positive lower density result applies only to nonaliquots, not to noncototients. The Formal Conjectures file keeps a separate nonaliquot density variant and leaves the noncototient density variant open.",
+      "sources": ["https://www.erdosproblems.com/forum/thread/418", "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/418.lean"]
+    },
+    {
+      "kind": "misformalization",
+      "summary": "Seed-Prover 1.5's list of solved problems includes 418. The report says some listed results are trivial or simplified versions due to mis-formalisation. Tao (19 Dec 2025): 'Most likely ByteDance (dis)proved the misformalized version.' Zheng Yuan (21 Dec 2025) says one entry is a typo and 330 was not proved. Sothanaphan says the report makes no claim. Which version of 418 was proved is unresolved.",
+      "sources": ["https://arxiv.org/html/2512.17260v1", "https://www.erdosproblems.com/forum/thread/330"]
+    },
+    {
+      "kind": "status",
+      "summary": "The erdosproblems.com/418 page as fetched shows no explicit status label and lists 'Formalised statement? Yes'. A search snippet reports a 'PROVED (LEAN)' banner and a last edit on 8 Dec 2025. The history page shows two entries (one dated 20 Oct 2025, with a garbled solution sentence). I could not resolve the label from the pages I read.",
+      "sources": ["https://www.erdosproblems.com/418", "https://www.erdosproblems.com/history/418"]
+    },
+    {
+      "kind": "priority",
+      "summary": "Date of the Sierpiński question: the Browkin–Schinzel abstract says Sierpiński asked in 1959; a Zentralblatt review of Erdős's 1973 paper (snippet) says Sierpiński and Erdős discussed it in 1955. Not relevant to parity; recorded for completeness.",
+      "sources": ["https://impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/68/1/108751/on-integers-not-of-the-form-n-n"]
+    }
+  ],
+
+  "summary": "Nothing in the window moves the odd question itself. The bullet asks whether any odd noncototient exists, where φ is Euler's totient. Every source I opened agrees that the expected answer is no. Wikipedia's Noncototient article (last edited 25 Jul 2025) says it is conjectured that all noncototients are even and that probably no odd number larger than 5 is a noncototient, with 1 = 2 − φ(2), 3 = 9 − φ(9), 5 = 25 − φ(25). The reason given is the identity pq − φ(pq) = p + q − 1 together with the strong Goldbach conjecture. That observation appears in an OEIS comment from 2002 (A005278), and undated on the Erdős #418 page. The Lean file's conditional variant (May 2025) formalises it. No unconditional odd result appears in any source I opened, and no odd-specific AI result turned up in 41 searches and the AI-specific checks. The in-window noncototient activity concerns neighbouring questions. (a) Erdős #418 asks about infinitely many noncototients. Browkin and Schinzel answered it in 1995 on the even side, with the family 2^k·509203. In Nov–Dec 2025 Alexeev formalised that proof in Lean. He reports asking ChatGPT to explain the 1995 proof and Aristotle to formalise its LaTeX. The AI explained a human proof and did not supply new mathematics. Under §5.4 that does not enter ai.systems, but I record it, with none_found false. (b) ByteDance's Seed-Prover 1.5 report (19 Dec 2025) lists 418 among problems it solved. The report itself says some listed results were trivial or simplified versions because of mis-formalisation, and forum comments say the misformalised version was likely what was proved. Which version was proved is unresolved, and nothing about odd n follows either way. (c) The Formal Conjectures file for #418 has five sorry'd theorems, including the main erdos_418 and the odd variant. Its conditional variant is proved. Its odd variant (every non-cototient is even, labelled 'research open') was stated in a commit of 2 Sep 2026. That variant is the bullet's negated existence question in Lean and records the problem as open. (d) Density of noncototients is open per the Erdős page. The density results in the literature (Banks–Luca, Chen–Zhao) concern nonaliquots.\n\nOne point the judging pass should weigh, which is my own derivation and not stated in any source. The classical result that almost all even numbers are sums of two distinct primes (van der Corput and Chudakov, 1930s, cited from memory and not checked) gives, through n = pq, that almost all odd m are cototients. Equivalently, the odd noncototients have density zero. Semchankau's count G(c+1) + O(c^{0.75+o(1)}) points the same way for large c, but the paper does not state the consequence; its text (ar5iv) discusses odd c only through G(c+1). So the odd side has a density-one partial result that I did not find published, and that does not decide existence for any particular odd number. I have not dated it as an event because it is not in a source. Close call: a density-one statement about the odd noncototients could be read as moving a quantity the bullet names (how many odd noncototients there are), or as falling short of the existence question the bullet asks.",
+
+  "competing_reading": "The default reading is that nothing happened to the odd question: no event in the window proves, disproves or bounds it, and the in-window formal artifacts are conditional or a statement of the open conjecture. A stronger reading treats the density-one consequence of Goldbach-type density results (my derivation above) as a partial result on the odd side. Its inputs are classical, so it would have to be dated to whenever it was first written, which I could not establish from any source. A second reading takes the Erdős #418 'PROVED (LEAN)' label and the Seed-Prover list as settling 'the' noncototient problem; both concern the infinitude question on the even side, and the site's own odd variant is marked open. A third reading counts Alexeev's ChatGPT-assisted Lean work as AI contribution to this bullet. The authors say ChatGPT explained a 1995 proof, which the §5.4 test does not treat as load-bearing for the odd question, and which is about a neighbouring bullet.",
+
+  "what_would_settle_it": "(1) A 2024–2026 paper proving that every odd number is a cototient, or exhibiting an odd noncototient. arXiv search for 'noncototient' returns only the 2004 Banks–Luca paper and for 'cototient' returns nothing, so none is indexed there; a web search found none. (2) The diff of Formal Conjectures commit #4361 and the earliest commits introducing erdos_418.variants.conditional and erdos_418.variants.odd_noncototient, to date those statements precisely. (3) The Seed-Prover 1.5 Lean artifact for 418, to see which statement was proved and whether it has sorry. (4) The plby/lean-proofs repository, for the sorry status and exact statement of the Browkin–Schinzel formalisation. (5) Whether Semchankau's journal text, or any later paper, states the density-one corollary for odd cototients; that would decide whether the odd density result is already in the literature and therefore which date it carries. (6) Any new post on erdosproblems.com forum thread 418 after 8 Dec 2025, since the thread as fetched has no 2026 comments.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Noncototient", "title": "Noncototient (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.erdosproblems.com/418", "title": "Erdős Problem #418 (erdosproblems.com)", "type": "repository", "opened": true},
+    {"url": "https://www.erdosproblems.com/forum/thread/418", "title": "Erdős #418 forum thread (9 comments, 2025)", "type": "repository", "opened": true},
+    {"url": "https://www.erdosproblems.com/history/418", "title": "Erdős #418 revision history", "type": "repository", "opened": true},
+    {"url": "https://www.erdosproblems.com/forum/thread/330", "title": "Erdős #330 forum thread (Seed-Prover list dispute)", "type": "repository", "opened": true},
+    {"url": "https://oeis.org/A005278", "title": "OEIS A005278 Noncototients", "type": "repository", "opened": true},
+    {"url": "https://oeis.org/A053194", "title": "OEIS A053194 (inverse cototient; Goldbach comment)", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/math/0409231", "title": "Banks & Luca, Noncototients and Nonaliquots (abstract)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1901.01846", "title": "Semchankau, arXiv 1901.01846 (version metadata)", "type": "preprint", "opened": true},
+    {"url": "https://ar5iv.labs.arxiv.org/html/1901.01846", "title": "Semchankau, arXiv 1901.01846 (ar5iv text)", "type": "preprint", "opened": true},
+    {"url": "https://link.springer.com/article/10.1134/S0001434621030329", "title": "Semchankau, Mathematical Notes 2021 (DOI 10.1134/S0001434621030329)", "type": "journal", "opened": false},
+    {"url": "https://impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/68/1/108751/on-integers-not-of-the-form-n-n", "title": "Browkin & Schinzel, On integers not of the form n − φ(n) (Colloq. Math. 68, 1995)", "type": "journal", "opened": true},
+    {"url": "https://impan.pl/en/publishing-house/journals-and-series/colloquium-mathematicum/all/86/1/111641/infinite-families-of-noncototients", "title": "Flammenkamp & Luca, Infinite families of noncototients (Colloq. Math. 86, 2000)", "type": "journal", "opened": true},
+    {"url": "https://tsukuba.repo.nii.ac.jp/record/29686/files/11.pdf", "title": "Grytczuk & Mędryk, On a result of Flammenkamp–Luca (Tsukuba J. Math. 2005)", "type": "journal", "opened": false},
+    {"url": "https://mathstat.dal.ca/~yanghs/papers/varianterdos.pdf", "title": "Pomerance & Yang, Variant of a theorem of Erdős on the sum-of-proper-divisors function", "type": "preprint", "opened": false},
+    {"url": "https://cs.uwaterloo.ca/journals/JIS/VOL24/Gonzalez/gonz13.html", "title": "González, Mendoza, Luca, Mejía Huguet, On Composite Odd Numbers k (JIS 24, 2021)", "type": "journal", "opened": true},
+    {"url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/ErdosProblems/418.lean", "title": "formal-conjectures FormalConjectures/ErdosProblems/418.lean (summarised fetch)", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/commits/main/FormalConjectures/ErdosProblems/418.lean", "title": "formal-conjectures commit log for 418.lean", "type": "repository", "opened": true},
+    {"url": "https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems", "title": "teorth/erdosproblems wiki: AI contributions to Erdős problems", "type": "repository", "opened": true},
+    {"url": "https://xenaproject.wordpress.com/2025/12/05/formalization-of-erdos-problems/", "title": "Boris Alexeev, guest post on formalising Erdős problems (Xena, 5 Dec 2025)", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/2512.17260", "title": "Seed-Prover 1.5 (arXiv 2512.17260), abstract", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2512.17260v1", "title": "Seed-Prover 1.5 (arXiv 2512.17260v1), HTML, section 4.2 read", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2601.22401v2", "title": "Semi-Autonomous Mathematics Discovery with Gemini: A Case Study on the Erdős Problems (arXiv 2601.22401), HTML, first 100,000 characters read", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.11941", "title": "OEIS Open: How many conjectures can language models turn into theorems? (arXiv 2608.11941), HTML, first 100,000 characters read", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2607.25628", "title": "Mian & Siddique, Kernel-Checked Exclusions for the Erdős-Selfridge Odd Covering Problem (arXiv 2607.25628), checked for 418 mentions", "type": "preprint", "opened": true},
+    {"url": "https://officechai.com/ai/openai-has-also-included-proofs-for-23-erdos-problems-in-its-latest-math-proof-drop/", "title": "OfficeChai, OpenAI's Erdős problem proofs batch (9 Oct 2026)", "type": "news", "opened": true},
+    {"url": "https://arxiv.org/search/?query=noncototient&searchtype=all&order=-announced_date_first", "title": "arXiv search results for 'noncototient'", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/search/?query=cototient&searchtype=all&order=-announced_date_first", "title": "arXiv search results for 'cototient'", "type": "repository", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "odd noncototients exist",
+      "noncototient conjecture odd noncototient",
+      "noncototient Wikipedia",
+      "cototient n - φ(n) noncototients arXiv",
+      "\"noncototient\" 2025",
+      "\"noncototients\" arXiv",
+      "\"noncototient\" 2026",
+      "cototient n minus Euler totient function number of solutions m - φ(m) = n",
+      "Euler totient cototient Erdős Pillai noncototients infinitely many",
+      "odd noncototient AI proof OR counterexample OR language model",
+      "Erdős problem 418 n - φ(n) not of the form infinitely many",
+      "Pollack Pomerance noncototients density heuristic 0.17",
+      "Browkin Schinzel noncototients 2^n 509203 Erdős Sierpiński",
+      "Goldbach conjecture every odd number n - φ(n) cototient representation",
+      "OEIS A005278 noncototients sequence",
+      "Flammenkamp Luca noncototients 2554843 9203917",
+      "Grytczuk Mędryk noncototient Riesel number 2^n k",
+      "\"Infinite families of noncototients\" Colloquium Mathematicum 2000",
+      "Banks Luca cototient noncototients almost all primes 2p",
+      "Erdős problems forum thread 418 noncototients Lean proof",
+      "Semchankau cototient n − φ(n) = c number of solutions Goldbach",
+      "every odd number is a cototient unconditionally n − φ(n) odd integers proof",
+      "cototient Goldbach odd numbers arXiv 2024 OR 2025 totient n-φ(n)",
+      "Erdős problem 418 Seed-Prover ByteDance solved",
+      "formal-conjectures ErdosProblems 418.lean noncototient",
+      "Erdős problems AI solved list Aristotle AlphaProof GPT-5 totient problems 2025",
+      "Erdős problems database AI-assisted solutions noncototients infinitely many not of the form n − φ(n)",
+      "González Mendoza Luca Mejía Huguet cototients noncototients Riesel numbers composite odd k Journal of Integer Sequences",
+      "Guy Unsolved Problems in Number Theory B36 noncototients odd",
+      "Pomerance Yang untouchable numbers nontotients noncototients density Mathematics of Computation",
+      "noncototient mathoverflow OR math.stackexchange odd noncototients Goldbach",
+      "Chen Zhao nonaliquots lower density 0.06 untouchable",
+      "Terence Tao Erdős problems AI 418 totient cototient",
+      "Myerson Western number theory problems noncototient Ng introduction to noncototients",
+      "Lean Mathlib Euler totient cototient noncototient formalization odd",
+      "Erdős problem 418 odd noncototient conjecture Lean 2026",
+      "noncototient GPT-5.4 OR \"Gemini Deep Think\" OR \"Claude\" Erdős totient problem solved",
+      "plby lean-proofs Alexeev Erdős 418 Browkin Schinzel formalization",
+      "Erdős problems AI contributions wiki 418 Aristotle GPT Browkin Schinzel",
+      "almost all odd numbers are cototients n − φ(n) density one Goldbach exceptional set",
+      "Semchankau \"n-φ(n)=c\" OR \"n - φ(n) = c\" Mathematical Notes 2021 cototient solutions Goldbach almost all",
+      "arXiv search: noncototient (search page, all dates)",
+      "arXiv search: cototient (search page, all dates)"
+    ],
+    "places_checked": [
+      "Wikipedia Noncototient article (opened; page shows last edit 25 July 2025)",
+      "erdosproblems.com #418 page, forum thread 418 (9 comments, all dated 2025), revision history 418, forum thread 330",
+      "OEIS A005278 and A053194 (opened, comments read)",
+      "arXiv math/0409231 (abstract), arXiv 1901.01846 (abstract page and ar5iv text), arXiv 2512.17260 (abstract and HTML v1 section 4.2), arXiv 2607.25628 (abstract)",
+      "arXiv 2601.22401 (HTML, first 100,000 of 104,367 characters) and arXiv 2608.11941 (HTML, first 100,000 of 137,632 characters), both searched for 418, noncototient, cototient, totient, Goldbach, Browkin",
+      "arXiv search pages for 'noncototient' (1 result: math/0409231) and 'cototient' (0 results)",
+      "formal-conjectures FormalConjectures/ErdosProblems/418.lean (fetched through a summarising step) and its commit log",
+      "teorth/erdosproblems wiki 'AI contributions to Erdős problems' (418 entry found: section 2(b), dated 22 Nov 2025)",
+      "Alexeev's Xena guest post (5 Dec 2025)",
+      "OfficeChai article on OpenAI's Erdős batch (9 Oct 2026); 418 not named; 416 and 821 named as totient-value problems",
+      "Browkin–Schinzel, Flammenkamp–Luca, González et al. (listing or abstract pages opened)",
+      "Not opened: Pomerance–Yang preprint; Grytczuk–Mędryk (Tsukuba); Semchankau Springer article; plby/lean-proofs; Mathlib source; Guy's book; ProofWiki; MathWorld; Myerson's WCNT problem sets; MathOverflow and Math.SE (search only, nothing found)"
+    ],
+    "dead_ends": [
+      "No 2024–2026 arXiv paper on cototients or noncototients found: arXiv search for 'noncototient' returns only the 2004 Banks–Luca paper; 'cototient' returns none; web searches returned no 2024–2026 odd-noncototient work.",
+      "No AI-related claim about odd noncototients found in web search, the Erdős forum, the teorth AI-contributions wiki (only the 418 infinitude entry), or lab announcements.",
+      "Gemini Aletheia paper (arXiv 2601.22401) and OEIS Open (arXiv 2608.11941): no hits for 418, noncototient, cototient, Browkin or Goldbach in the first 100,000 characters read. Remainder unread.",
+      "OpenAI's October 2026 Erdős batch (per OfficeChai): 418 not named; only totient-value problems 416 and 821 are named.",
+      "Searches for GPT-5.4, Gemini Deep Think or Claude on noncototient or totient Erdős problems: nothing on noncototients; the totient-related AI results found concern other problems.",
+      "Mathlib: no cototient or noncototient declaration found in search results. Not verified in source.",
+      "Pollack–Pomerance 0.17 heuristic: concerns non-aliquot numbers, not noncototients. No noncototient heuristic found.",
+      "Forum thread 418 (all 9 comments, 2025): no comment claims the odd case is proved or disproved; Dogmachine (21 Nov 2025) says it needs a strong Goldbach form.",
+      "arXiv 2607.25628 (Mian & Siddique, July 2026): about Erdős–Selfridge covering, not noncototients; checked because a search returned it.",
+      "Myerson's WCNT problem sets and a 'Ng introduction to noncototients': not opened; the Ng source was not found."
+    ]
+  },
+
+  "incomplete": "(1) The Seed-Prover report's list for 418 comes from one HTML fetch of section 4.2; the PDF text was not extractable, and I did not read the rest of the report or its Lean artifacts, so which version of 418 was proved is unresolved. (2) The plby/lean-proofs repository was not opened, so the sorry status and exact statement of the Browkin–Schinzel formalisation are unchecked. (3) The Formal Conjectures file was read through a summarising fetch, not verbatim, and commit diffs were not read; the dates of first appearance of the conditional and odd variants are the commit-title dates only. (4) The Gemini (2601.22401) and OEIS Open (2608.11941) papers were only partly searched (first 100,000 characters of each); their remaining text, including any appendix, is unread and could mention 418 or noncototients. (5) Opened only through abstracts or snippets: Banks–Luca full text, Browkin–Schinzel full text, Flammenkamp–Luca full text, the González et al. body, Semchankau's journal version, Grytczuk–Mędryk, Pomerance–Yang. (6) The density-one consequence for odd cototients is my derivation; the classical Goldbach-density input (van der Corput, Chudakov) is cited from memory and was not checked against a source. (7) The 418 status label is unresolved: the fetched page shows no explicit label, while a search snippet reports 'PROVED (LEAN)'. (8) arXiv was searched only for the two terms and cannot be filtered by date in the tool, so the 2024–2026 arXiv coverage rests on those two result pages and on web search. (9) The Sierpiński question date (1955 or 1959) is unresolved; it does not bear on parity."
+}

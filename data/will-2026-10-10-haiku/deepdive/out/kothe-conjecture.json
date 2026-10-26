@@ -1,0 +1,554 @@
+{
+  "key": "kothe-conjecture",
+  "nothing_found": false,
+  "outcome": "Claimed refuted in September 2026: a Lean-checked disproof of Krempa's matrix form of the conjecture, found by a pre-release version of GPT-6 Astra and posted 3 Sep 2026; a human-written preprint (arXiv:2609.07996, submitted 7 Sep 2026) extends it to every countable field and says it refutes Köthe's conjecture as stated; a second, independent preprint (arXiv:2609.15080, 14 Sep 2026) gives a graded point-module construction it says refutes the conjecture, with AI-suggested arguments. No independent expert reading or erratum was found in searches to 12 Oct 2026. The 2019 to 2025 work found is partial, conditional, or a reformulation.",
+
+  "problem_asks": "Whether, for every ring R, the following implication holds: if R has no nonzero nil two-sided ideal, then R has no nonzero nil one-sided ideal. Parts: (1) the implication, asserted for all rings (the bullet names no class); (2) the one-sided part, covering nil left ideals and nil right ideals. The two cases are interchangeable by passing to the opposite ring, though no source I read says so; (3) the answer the bullet points to is 'yes' for every ring, i.e. no ring has a nonzero nil one-sided ideal while having no nonzero nil two-sided ideal. Wikipedia's lead gives this exact wording. Its other listed forms (the sum of two one-sided nil ideals is nil in any ring; every nil left or right ideal lies in the upper nil radical; M2(J) is nil for every nil ideal J) are how sources state the same question, not extra parts of the bullet.",
+
+  "events": [
+    {
+      "id": "lean-matrix-disproof-2026-09-03",
+      "what_happened": "A Lean 4 (Mathlib) disproof of Krempa's matrix form of Köthe's conjecture, in the public repository github.com/tadamcz/koethe by Tom Adamczewski (Epoch AI). The README says the disproof was 'found autonomously by a pre-release version of GPT-6 Astra (OpenAI) in an evaluation run by Epoch AI', that 'No human saw or steered the proof search', and that 'This entire repository was machine-written by AI assistants at the direction of Tom Adamczewski'. The earliest commit in the history (opened) is dated 3 Sep 2026 and reads 'Package the GPT-6 Astra resolution (Köthe conjecture: disproof (Krempa's matrix form)) for Palomar'. The README places the run in Epoch AI's LeanOpenProblems harness, evaluation 'wikipedia-vega-1000usd' (2026-09), which attempted all 222 research-open statements of the Formal Conjectures Wikipedia collection. This bullet was one of those statements.",
+      "date": "2026-09-03",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Repository commits (opened): 3 Sep 2026 two commits (the Palomar packaging commit and 'Report cost at GPT-6 Astra's actual prices and working time'); 6 Sep 'Update authorship note at top of README'; 13 Sep 'Cite the arXiv paper by Adamczewski, Böhmler and Marczinzik'; 17 Sep 'Remove references to Palomar from the README'. The README says the Lean/Mathlib version was moved to v4.28.0 after edits; the original run used Lean v4.27.0.",
+      "delivers": "Establishes that the matrix form is false. There is a unital ring R, a nil two-sided ideal I of R (R a unital algebra over the algebraic closure of F_2, per search summaries of the README and VibeMathed), and a 2x2 matrix with entries in I that is not nilpotent, so M2(I) is not nil. The README says this refutes Krempa's matrix form. It says the refutation of the conjecture as originally stated follows, 'but that implication is not part of the formal development' of that repository. The Formal Conjectures file (summarised fetch) lists a proved reduction KotherConjecture.variants.general_matrix_of_KotheConjecture; that is the direction needed (Köthe's conjecture implies the matrix form), so the implication is formalised there. Restriction: the Lean-checked statement is the matrix form with two-sided ideals. It is not the one-sided ideal-sum statement the bullet names.",
+      "remains": "Within the koethe repository the step from the matrix form to the one-sided bullet is not formalised, by the README's own account. The Formal Conjectures statement KotheConjecture is written for two-sided ideals (I + J with IsNil I and IsNil J), so whether it matches the bullet's one-sided wording is not established in the sources I read. Whether the matrix counterexample yields a ring with no nonzero nil two-sided ideal but a nonzero nil one-sided ideal (the bullet's exact form) is asserted by the arXiv abstract and by Wikipedia; I found no Lean check of that exact step.",
+      "checked_by": [
+        {
+          "who": "Rasmus Lindahl (approver of the VibeMathed listing)",
+          "qualification": "Not stated on the site, and I could not establish his mathematical background",
+          "what_they_did": "Approved the VibeMathed listing on 5 Sep 2026 and later changed its verification note. The note in the snapshot I read says 'No independent mathematician has checked this yet'.",
+          "where": "https://vibemathed.com/problem/kothe-conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5.5 weeks (39 days at 12 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (v4.28.0 after edits; original run on v4.27.0). Comparator checks that the proof proves the trusted Challenge.lean statement and uses only propext, Quot.sound and Classical.choice",
+        "sorry_free": true,
+        "url": "https://github.com/tadamcz/koethe"
+      },
+      "directly_checkable": "The matrix counterexample is explicit: a ring, a nil two-sided ideal I, and a 2x2 matrix over I that is not nilpotent. The sources describe R as k plus A, with A generated by three weighted backward shifts over the algebraic closure of F_2 (VibeMathed, secondary). The README excerpt gives the Lean statement: theorem KotherConjecture.variants.general_matrix.disproof, the negation of 'for every ring, nil I implies matrix n I nil for all finite n'. Challenge.lean holds one sorry by design. A reader can check Challenge.lean against Solution.lean and run Comparator. I did not open either file.",
+      "doubts": "(a) The Lean target is the matrix form with two-sided ideals, not the bullet's one-sided statement; the README says the implication to Köthe's conjecture is not in its development. (b) No mathematician's public reading found after 39 days. MathWorld (as of 7 Sep) and VibeMathed both record no independent ring-theorist check. (c) Dates disagree. VibeMathed gives a 'Lean check on the repository: 5 Sep 2026 (commit b052755)', but the commit history shows b052755 on 3 Sep. The AI4Math radar entry gives 'discoveredAt' 1 Oct 2026 and its own review flags an 8h40m offset that may be a timezone mislabel. (d) The 3 Sep commit says 'for Palomar' and the search titles say 'Palomar submission repository', but the 17 Sep commit removes Palomar references, and I found no Palomar registry record for this result. Whether an automated Palomar check was run is unknown. (e) A VibeMathed comment (GoldenGander206, 8 Sep 2026) says the commenter asked Claude to translate the Lean code into English and links a Google Drive file. That is an AI translation, not a reading, and I did not open the file. (f) Lean verification is not the same as statement faithfulness. Comparator confirms only that the proof proves the stated Challenge.lean theorem.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts against the conjecture. It refutes the matrix form, which the README and Wikipedia treat as implying the failure of Köthe's conjecture. Sources read this as a refutation of the conjecture.",
+      "object": "A 2x2 matrix over a nil two-sided ideal I of a unital ring R (R over the algebraic closure of F_2, per search summaries) that is not nilpotent. So I is nil but M2(I) is not nil, which falsifies the matrix form for n = 2. The object is explicit: the ring and matrix are given, and the Lean proof checks the claim. I did not read the construction itself.",
+      "people": ["Tom Adamczewski (Epoch AI), who the README says directed the machine-written repository"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Found the disproof of the matrix form, and the Lean proof of it. The README calls the model 'a pre-release version of GPT-6 Astra (OpenAI)'. Its proof search ran with no human seeing or steering it. The README's authorship note says the repository was machine-written by AI assistants (unnamed in the excerpt I read) at Adamczewski's direction.",
+            "basis_quote": "found autonomously by a pre-release version of GPT-6 Astra (OpenAI) in an evaluation run by Epoch AI.",
+            "quote_url": "https://github.com/tadamcz/koethe"
+          }
+        ],
+        "disclosed_cost": "README: the attempt 'cost $432 at GPT-6 Astra's standard rates as provided by OpenAI on 3 September 2026'. The harness metered it at stand-in GPT-5.6 Sol prices. Working time was 26.1 hours, excluding waits on API retries and rate limits. Budget $1,000 and 96 hours per statement.",
+        "sources": ["https://github.com/tadamcz/koethe", "https://github.com/tadamcz/koethe/commits/main", "https://vibemathed.com/problem/kothe-conjecture"]
+      },
+      "sources": ["https://github.com/tadamcz/koethe", "https://github.com/tadamcz/koethe/commits/main", "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/Koethe.lean", "https://vibemathed.com/problem/kothe-conjecture", "https://mathworld.wolfram.com/KothesConjecture.html", "https://github.com/Charlie-Wang-03/ai4math-radar/pull/37"]
+    },
+
+    {
+      "id": "adamczewski-bohmler-marczinzik-2026-09-07",
+      "what_happened": "Preprint 'A counterexample to Köthe's conjecture and a question of Rowen' by Tom Adamczewski (Epoch AI), Bernhard Böhmler (Leibniz University of Hannover) and René Marczinzik (University of Bonn), arXiv:2609.07996 [math.RA]. Abstract: 'We construct a counterexample to Köthe's conjecture and use this to also answer a question due to Rowen.' The paper says the initial construction was found by GPT-6 Astra in an experiment run by the first author. Böhmler and Marczinzik developed the formulation over arbitrary countable fields and the answer to Rowen's question (Theorem 6.1). arXiv lists v1 only, submitted 7 Sep 2026 at 21:31 UTC; the manuscript's own date line reads '5 September 2026'.",
+      "date": "2026-09-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (7 Sep 2026) on the abstract page as of 12 Oct 2026.",
+      "delivers": "For every countable field F, including finite fields, a nil F-algebra N = F<b,c>+ in which the matrix W = (b^2+c, bc; b, c) in M2(N) is not nilpotent (Theorem 1.1, per the HTML excerpt). Taking R = F1 + N, M2(R) has nil left ideals L0 and L1 whose sum is the non-nil M2(N). That refutes the sum-of-two-nil-left-ideals form, which the abstract calls a counterexample to Köthe's conjecture. Theorem 6.1 gives S~ = FI2 + S with S = M2(N), where the sum K(S~) of nil left ideals equals S and the intersection over d of K(S~)^d is 0. That is a negative answer to Rowen's Question 1.1 (if the intersection over d of K(D)^d is 0 then K(D) equals the upper nil radical). Restrictions: the construction is over countable fields; the nil left ideals are the ones the sum statement concerns; the excerpts I read do not state the bullet's exact one-sided-or-two-sided form.",
+      "remains": "The abstract does not claim any part of the bullet is left open. The remaining gaps are verification and the bridge. Per VibeMathed's summary, the Lean-checked part covers only the original matrix construction, while the arbitrary countable field extension and the direct bridge to Köthe's original formulation are checked in the paper but not formalised. I could not read the full text (the PDF was unreadable to my tools), so this rests on HTML excerpts and a secondary summary.",
+      "checked_by": [
+        {
+          "who": "Bernhard Böhmler and René Marczinzik",
+          "qualification": "Ring theorists, as Wikipedia describes them. Marczinzik has a 2017 Stuttgart dissertation in algebra (Mathematics Genealogy). Böhmler's background was not confirmed.",
+          "what_they_did": "Co-authors who write that they developed the mathematics and exposition and that 'All AI-generated material incorporated into this paper was independently reviewed and checked by the second and third authors'. They are co-authors, not independent readers.",
+          "where": "https://arxiv.org/html/2609.07996v1",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "35 days (at 12 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4, for the matrix-form construction in the koethe repository (event lean-matrix-disproof-2026-09-03). Per VibeMathed's summary, the countable-field extension and the bridge to Köthe's original formulation are not formalised.",
+        "sorry_free": null,
+        "url": "https://github.com/tadamcz/koethe"
+      },
+      "directly_checkable": "The matrix W = (b^2+c, bc; b, c) over N = F<b,c>+ is given explicitly. Whether it is non-nilpotent is checkable by a ring theorist from the paper's argument, which I did not read in full.",
+      "doubts": "(a) I could not read the full text. My account rests on arXiv HTML excerpts and secondary summaries. (b) The two co-authors who checked the AI-generated material are co-authors, not independent readers. No outside reading was found in 35 days. (c) The paper's own text did not say, in the excerpt I read, that the result refutes Köthe's conjecture in its original unmatrixed form. The abstract does say 'a counterexample to Köthe's conjecture', and the bridge is not formalised per VibeMathed. (d) The first author's role is described as 'limited to setting up and conducting this experiment'. The README says no human saw or steered the proof search. These are compatible but describe the human role differently. (e) The manuscript's date line (5 Sep) is earlier than the arXiv submission (7 Sep).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts against the conjecture. The abstract calls it a counterexample to Köthe's conjecture, and the object is a non-nilpotent matrix over a nil algebra. Whether it refutes the one-sided bullet exactly, rather than the matrix or sum-of-nil-left-ideals form, is not stated in the excerpt I read.",
+      "object": "For each countable field F, a nil F-algebra N = F<b,c>+ and the matrix W = (b^2+c, bc; b, c) in M2(N), which is not nilpotent. With R = F1 + N, two nil left ideals L0 and L1 of M2(R) have a sum that is the non-nil M2(N). The matrix and generators are explicit. The nil property of N is proved in the paper, which I did not read, so I cannot say whether that step is constructive.",
+      "people": ["Tom Adamczewski", "Bernhard Böhmler", "René Marczinzik"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Found the initial construction (the matrix-form counterexample) in an experiment run by the first author. The model was given a Lean formalisation of the matrix form of Köthe's conjecture, with the statement taken from the Formal Conjectures repository, and asked to prove or disprove it. The paper does not call the model pre-release. The README does. The paper does not say whether the model contributed to the countable-field extension or to the Rowen application.",
+            "basis_quote": "The initial construction was found by GPT-6 Astra in an experiment run by the first author, whose contribution to this paper was limited to setting up and conducting this experiment.",
+            "quote_url": "https://arxiv.org/html/2609.07996v1"
+          },
+          {
+            "name": "ChatGPT",
+            "what_it_did": "Per the authors: 'ChatGPT also assisted with selected aspects of the technical development,' and the sentence continues with formulation, literature searches, consistency checks and LaTeX preparation. Whether any of this is load-bearing is not stated. The authors say the AI-generated material was checked by the second and third authors.",
+            "basis_quote": "ChatGPT also assisted with selected aspects of the technical development,",
+            "quote_url": "https://arxiv.org/html/2609.07996v1"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2609.07996v1", "https://arxiv.org/abs/2609.07996"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.07996", "https://arxiv.org/html/2609.07996v1", "https://vibemathed.com/problem/kothe-conjecture"]
+    },
+
+    {
+      "id": "greenfeld-king-vendramin-2026-09-14",
+      "what_happened": "Preprint 'The Köthe conjecture via point modules' by B. Greenfeld (CUNY Hunter College), G. King (University of Washington) and L. Vendramin (Vrije Universiteit Brussel), arXiv:2609.15080 [math.RA]. Abstract: 'We give a short construction refuting the Köthe Conjecture. The construction is based on the point module approach to the problem, introduced by the first-named and second-named authors together with Easton and Ford.' The introduction says 'A counterexample was recently found autonomously by a pre-release version of GPT-6 Astra, running in Epoch AI's LeanOpenProblems harness without human steering, and verified in Lean 4'. That refers to the 3 Sep result. The authors' own Theorem 1.1 is a different construction. arXiv lists v1 only, submitted 14 Sep 2026.",
+      "date": "2026-09-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (14 Sep 2026) on the abstract page as of 12 Oct 2026.",
+      "delivers": "Theorem 1.1 (per the excerpt): there exists a finitely generated, graded, nil algebra admitting a point module, 'and therefore refuting the Köthe Conjecture'. Graded-nil means every homogeneous element is nilpotent. The Strategy section, as my summarised fetch read it, puts the algebra over a countable algebraically closed field and generated in degree one. A later proposition, quoted in the excerpt, gives a counterexample to the Köthe conjecture ('hence a counterexample to the Köthe conjecture'). Restriction: the construction is for graded nil algebras. The intro states the conjecture as 'the sum of two nil left ideals of a ring is again nil', so the refutation is of that form.",
+      "remains": "Nothing in the bullet is left open by the authors' own claim. The gap is verification. I found no Lean check of this construction in the sources I read. The Lean verification mentioned in the intro refers to the 3 Sep result.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "28 days (at 12 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": "The algebra is defined in the body of the paper (Sections 2 to 4), which I did not read in full, so I cannot say whether it is hand-checkable.",
+      "doubts": "(a) One version (v1) and no outside reading found. (b) The authors say AI-proposed arguments, including the main argument of Lemma 4.2, were 'checked and rewritten by the authors'. That is self-checking. (c) Wikipedia says this counterexample was found 'with some assistance from GPT-6 Astra', which understates the authors' own account of the AI's role. (d) The paper's own Theorem 1.1 relies on a point-module approach that Easton, Ford, Greenfeld and King introduced earlier, and the intro says their earlier graded-nil algebras were not sufficient alone. Whether the new construction carries the refutation rests on the authors' argument, which I read only in excerpts.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against the conjecture. Both the abstract and Theorem 1.1 say it refutes Köthe's conjecture.",
+      "object": "A finitely generated, positively graded, graded-nil algebra over a countable algebraically closed field, admitting a point module (Theorem 1.1, per the excerpt). A later proposition, as quoted, gives that for such an algebra A, the polynomial ring A[t] is not Jacobson radical, which the paper calls a counterexample to the conjecture. Explicit or existence-only is not stated in the excerpts I read.",
+      "people": ["B. Greenfeld", "G. King", "L. Vendramin"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Per the 'Use of AI' subsection: suggested the main argument proving Lemma 4.2, which the authors say is analogous to part of the proof of [6, Theorem 3.4]. Suggested an earlier version of the sparsity of the set of prescribed points. Helped complete the proof of the second case in Lemma 3.1. Observed that segments of length deg(f) of homogeneous elements of the point module suffice. Proposed the extension of the argument in [6, Proposition 6.1] to Proposition 6.1. The authors say all AI-proposed arguments were checked and rewritten by the authors. The intro calls the model a 'pre-release version'.",
+            "basis_quote": "The main argument proving Lemma 4.2 was suggested to us by GPT-6 Astra.",
+            "quote_url": "https://arxiv.org/html/2609.15080v1"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2609.15080v1", "https://arxiv.org/abs/2609.15080"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.15080", "https://arxiv.org/html/2609.15080v1"]
+    },
+
+    {
+      "id": "bihonegn-abebaw-arega-2024",
+      "what_happened": "Teklemichael Worku Bihonegn, Tilahun Abebaw and Nega Arega, 'On the generalization of the torsion functor and P-semiprime modules over noncommutative rings', Journal of Hyperstructures 13(1) (2024), pp. 1 to 14, DOI 10.22098/jhs.2024.14375.1002. Per the DOAJ listing and journal abstract snippets (the PDF was unreadable to my tools), the paper works with associative Noetherian unital rings and defines a functor PΓP. It gives a one-sided right ideal PΓP(R) and poses Question 4.8 (equivalent to a negative answer to Köthe's conjecture) and Question 4.9 (equivalent to a positive answer). The abstract does not claim to settle the conjecture.",
+      "date": "2024-06",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "A 2025 PhD dissertation by the first author (Addis Ababa University) carries similar material under a different title, per a search snippet.",
+      "delivers": "A reformulation only. The conjecture is restated as equivalent questions about a one-sided ideal PΓP(R) of a Noetherian ring. Restriction: the setting is associative Noetherian unital rings, a class in which the conjecture is already known (right Noetherian rings are a listed positive case on Wikipedia). It establishes no resolution, either in general or for the class.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 2 years 4 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The journal PDF was unreadable to my tools. The description rests on a DOAJ listing and abstract snippets.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither proves nor refutes. It reformulates the conjecture as two equivalent questions, one for each answer.",
+      "object": null,
+      "people": ["Teklemichael Worku Bihonegn", "Tilahun Abebaw", "Nega Arega"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://doaj.org/article/b7675eb3eaac4115b792db6c93ab3c4d", "https://jhs.uma.ac.ir:443/article_3032_b02124bc63a3058d662ac40248ecb1e4.pdf"]
+      },
+      "sources": ["https://doaj.org/article/b7675eb3eaac4115b792db6c93ab3c4d", "https://jhs.uma.ac.ir:443/article_3032_b02124bc63a3058d662ac40248ecb1e4.pdf"]
+    },
+
+    {
+      "id": "preprints-202409-0039",
+      "what_happened": "A preprints.org manuscript, ID 202409.0039, posted September 2024. Per a search summary, it describes Köthe's conjecture as remaining open for certain special classes of rings and algebras, and treats special cases. The manuscript page returned HTTP 403, so I could not read the title, authors or abstract. A related download, titled 'On Some Special Cases of Köthe's Conjecture', appeared in search. I could not confirm that it is the same manuscript.",
+      "date": "2024-09",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Restricted special cases only, according to the search summary. Not a resolution. The classes are not identified in what I could read.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 2 years 1 month",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read. The scope comes from a search summary only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unclear. Described as covering special cases only.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.preprints.org/manuscript/202409.0039/v1"]
+      },
+      "sources": ["https://www.preprints.org/manuscript/202409.0039/v1"]
+    },
+
+    {
+      "id": "pandey-ssrn-2025",
+      "what_happened": "Santosh Kumar Pandey, 'Some Aspects of Koethe Conjecture', SSRN abstract 5129999, posted March 2025 per a search summary. The SSRN page returned HTTP 403, so I read only the search summary. It reportedly gives necessary and sufficient conditions for and against Köthe's conjecture in the case where the set of all nilpotent elements of a ring is not closed under addition.",
+      "date": "2025-03",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Conditional criteria for a restricted case (the nilpotent elements not closed under addition), per the summary. Not a resolution.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 1 year 7 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read. The scope comes from a search summary only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unclear. Described as criteria in a restricted case.",
+      "object": null,
+      "people": ["Santosh Kumar Pandey"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5129999"]
+      },
+      "sources": ["https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5129999"]
+    },
+
+    {
+      "id": "symmetry-nrw-rings-2025",
+      "what_happened": "A paper on NRW rings in Symmetry 17(11): 1815 (MDPI, 2025). Per a search summary, it introduces nilpotent-semicommuting rings, shows the prime radical equals the intersection of an inductively built ideal W̄(R) with the sum of all nil right ideals, and gives a positive answer to Köthe's conjecture only for rings with R = W̄(R). The MDPI page returned HTTP 403, so the authors and exact date were not confirmed.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A conditional positive answer for rings with R = W̄(R) only, per the summary. Not a resolution in general.",
+      "remains": "The whole bullet, except the restricted class.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 1 year",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read. The scope comes from a search summary only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive for a restricted class only.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.mdpi.com/2073-8994/17/11/1815"]
+      },
+      "sources": ["https://www.mdpi.com/2073-8994/17/11/1815"]
+    },
+
+    {
+      "id": "goodson-taylor-2019-compact",
+      "what_happened": "Scott Goodson and Alex Taylor, 'A Short Proof of Köthe's Conjecture for Compact Rings', arXiv:1911.04262. v1 was submitted 8 Nov 2019. v2 (25 Nov 2019) says 'An error in the proof of the main theorem has been corrected.' Abstract (opened): 'We provide a new proof that the upper nilradical of a compact ring coincides with the sum of its left nil ideals using the properties of orthogonal idempotents in compact rings.'",
+      "date": "2019-11-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 25 Nov 2019 corrects an error in the proof of the main theorem.",
+      "delivers": "For compact rings only, the upper nilradical equals the sum of the left nil ideals, which is the conjecture's conclusion for that class. The restriction to compact rings is the whole scope.",
+      "remains": "The conjecture for all other rings.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The v1 proof had an error in its main theorem, corrected in v2. The correction is the authors' own.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for a class (compact rings).",
+      "object": null,
+      "people": ["Scott Goodson", "Alex Taylor"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1911.04262"]
+      },
+      "sources": ["https://arxiv.org/abs/1911.04262"]
+    },
+
+    {
+      "id": "kalnai-zemlicka-2019",
+      "what_happened": "Peter Kálnai and Jan Žemlička, 'Self-injective von Neumann regular rings and Köthe's Conjecture', arXiv:1912.12159. v1 27 Dec 2019; v2 29 Jan 2020. Abstract (abstract page opened): one equivalent form of the conjecture is 'there exists no ring which contains two nil right ideals whose sum is not nil'. If the conjecture fails, a counterexample exists as a countable local subring of a suitable self-injective prime von Neumann regular ring. The authors discuss several consequences.",
+      "date": "2019-12-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 29 Jan 2020; content of v2 not compared to v1.",
+      "delivers": "A conditional reduction: a counterexample, if one exists, can be taken to be a countable local subring of a self-injective prime von Neumann regular ring. It settles nothing about the conjecture.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 6.8 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither; a reduction.",
+      "object": null,
+      "people": ["Peter Kálnai", "Jan Žemlička"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1912.12159"]
+      },
+      "sources": ["https://arxiv.org/abs/1912.12159"]
+    },
+
+    {
+      "id": "jin-piao-yun-2019",
+      "what_happened": "Hai-lan Jin, Zhelin Piao and Sang Jo Yun, 'On a ring property related to nilradicals', Korean Journal of Mathematics 27(1) (2019), pp. 141 to 150, DOI 10.11568/kjm.2019.27.1.141. Per a search snippet (the journal PDF was not opened), the paper shows the conjecture holds for quasi-2-primal rings, meaning rings where the lower nilradical equals the upper nilradical. Accepted 13 Feb 2019 per the snippet.",
+      "date": "2019",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The conjecture for quasi-2-primal rings only. A restricted class.",
+      "remains": "All other rings.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 7.7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read. The scope comes from a search snippet.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for a class (quasi-2-primal rings).",
+      "object": null,
+      "people": ["Hai-lan Jin", "Zhelin Piao", "Sang Jo Yun"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://koreascience.or.kr/article/JAKO201912742272952.pdf"]
+      },
+      "sources": ["https://koreascience.or.kr/article/JAKO201912742272952.pdf"]
+    },
+
+    {
+      "id": "krempa-1972-sands-1973",
+      "what_happened": "Jan Krempa, 'Logical connections between some open problems concerning nil rings', Fundamenta Mathematicae 76 (1972), pp. 121 to 130, DOI 10.4064/fm-76-2-121-130. A. D. Sands independently published the matrix-ring equivalence in 1973. Per search summaries (paywalled; not read), the results show Köthe's problem is equivalent to: for every nil ring R, M2(R) is nil (and the n x n version). Krempa also gives forms such as J(R[x]) = N(R)[x], and the statement that Mn(J) is nil for every nil ideal J.",
+      "date": "1972",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Equivalences only. These are the reformulations under which the matrix counterexamples above refute the conjecture. They are not a resolution.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 54 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read. Equivalences are from search summaries of later surveys and slides.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neither. Equivalences.",
+      "object": null,
+      "people": ["Jan Krempa", "A. D. Sands"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.impan.pl/en/publishing-house/journals-and-series/fundamenta-mathematicae/all/76/2/98271/logical-connections-between-some-open-problems-concerning-nil-rings"]
+      },
+      "sources": ["https://www.impan.pl/en/publishing-house/journals-and-series/fundamenta-mathematicae/all/76/2/98271/logical-connections-between-some-open-problems-concerning-nil-rings"]
+    },
+
+    {
+      "id": "smoktunowicz-2000-amitsur",
+      "what_happened": "Agata Smoktunowicz, 'Polynomial rings over nil rings need not be nil', J. Algebra 233 (2000), pp. 427 to 436. Per search summaries (not opened), it shows Amitsur's conjecture fails: for a nil ideal J, J[x] need not be nil. Wikipedia notes it is not a disproof of Köthe's conjecture but 'fueled suspicions that the Köthe conjecture may be false'.",
+      "date": "2000",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A polynomial-ring analogue: nil rings R need not have nil R[x]. It answers Amitsur's question, not Köthe's. It is an analogue, so it settles nothing here.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 26 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read. Scope is from a summary of the paper and from Wikipedia.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Refutes an analogue (Amitsur's conjecture), not Köthe's conjecture.",
+      "object": null,
+      "people": ["Agata Smoktunowicz"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://en.wikipedia.org/wiki/K%C3%B6the_conjecture"]
+      },
+      "sources": ["https://en.wikipedia.org/wiki/K%C3%B6the_conjecture"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Who did the mathematics in the matrix counterexample. Wikipedia says GPT-6 Astra 'found an explicit counterexample ... after being prompted by Tom Adamczewski of Epoch AI'. The README says it was 'found autonomously ... No human saw or steered the proof search'. arXiv:2609.07996 says the first author's role was 'limited to setting up and conducting this experiment', and that Böhmler and Marczinzik developed the countable-field formulation and the Rowen application. Greenfeld, King and Vendramin say the model 'suggested the main argument' for their Lemma 4.2. Wikipedia describes their paper as having 'some assistance' from the model, which understates the authors' own account. Wikipedia's framing ('prompted by') and the papers' framing ('setting up and conducting this experiment') are not the same account of the human role.",
+      "sources": ["https://en.wikipedia.org/wiki/K%C3%B6the_conjecture", "https://github.com/tadamcz/koethe", "https://arxiv.org/html/2609.07996v1", "https://arxiv.org/html/2609.15080v1"]
+    },
+    {
+      "kind": "date",
+      "summary": "First public date of the matrix counterexample. The repository's first commit, the README's cost quote ('as provided by OpenAI on 3 September 2026') and VibeMathed's 'Solved: 2026-09-03' all point to 3 Sep 2026. arXiv:2609.07996 was submitted 7 Sep, and its own date line reads 5 Sep. VibeMathed gives a 'Lean check on the repository: 5 Sep 2026 (commit b052755)', but the commit history shows b052755 on 3 Sep. The AI4Math radar gives 'discoveredAt' 1 Oct 2026 and its review flags a possible timezone mislabel. I dated the event to the first public written argument, the repository, on 3 Sep.",
+      "sources": ["https://github.com/tadamcz/koethe/commits/main", "https://github.com/tadamcz/koethe", "https://vibemathed.com/problem/kothe-conjecture", "https://github.com/Charlie-Wang-03/ai4math-radar/pull/37", "https://arxiv.org/abs/2609.07996"]
+    },
+    {
+      "kind": "provenance",
+      "summary": "Palomar. The repository's 3 Sep commit says 'for Palomar', and search titles call it a 'Palomar submission repository'. The 17 Sep commit removes Palomar references. The README I read does not mention Palomar. I found no Palomar registry record for the Köthe result, so whether the result was checked by Palomar's automated pipeline is unknown.",
+      "sources": ["https://github.com/tadamcz/koethe/commits/main", "https://github.com/tadamcz/koethe"]
+    }
+  ],
+
+  "summary": "Searches (36 web searches, plus about 30 page opens or attempts) show the conjecture was claimed refuted in September 2026 by two independent constructions, each with AI at the core, and by a third human-written extension. The first is a Lean 4/Mathlib disproof of Krempa's matrix form in github.com/tadamcz/koethe. Its README (opened) says it was 'found autonomously by a pre-release version of GPT-6 Astra (OpenAI) in an evaluation run by Epoch AI', that 'No human saw or steered the proof search', and that the repository 'was machine-written by AI assistants at the direction of Tom Adamczewski'. The earliest commit is dated 3 Sep 2026 (commit history opened). The run was Epoch AI's 'wikipedia-vega-1000usd' sweep of all 222 research-open statements of the Formal Conjectures Wikipedia collection, so this bullet was one of a systematic set, not a case a human chose. The README gives a cost of $432 at 'GPT-6 Astra's standard rates' and 26.1 hours of working time. The second is arXiv:2609.07996 (Adamczewski, Böhmler, Marczinzik; submitted 7 Sep 2026; manuscript date line 5 Sep). It says 'The initial construction was found by GPT-6 Astra' and extends it to a nil algebra over every countable field, claiming 'a counterexample to Köthe's conjecture' and a negative answer to Rowen's question. Its contribution statement also says 'ChatGPT also assisted with selected aspects of the technical development' and that AI-generated material was checked by the co-authors. The third is arXiv:2609.15080 (Greenfeld, King, Vendramin; 14 Sep 2026). It gives a graded point-module construction it says refutes the conjecture. Its 'Use of AI' section says 'The main argument proving Lemma 4.2 was suggested to us by GPT-6 Astra', and that AI arguments were checked and rewritten. Wikipedia (opened) gives the same story at lead level. Nothing independent has been published. MathWorld (as of 7 Sep) and VibeMathed both say no ring theorist had checked it. Searches to 12 Oct found no review, erratum, journal decision, or commentary from Quanta, Tao or MathOverflow. Several points are close. The Lean target is the matrix form with two-sided ideals, while the bullet is one-sided. The README says the step from the matrix form to Köthe's conjecture is not in its development. Formal Conjectures' file (read through a summariser) has a proved reduction, general_matrix_of_KotheConjecture, which is the needed direction, but its KotheConjecture statement is also for two-sided ideals. The PDFs of both 2026 preprints were unreadable to my tools, so their mathematics rests on arXiv HTML excerpts. The history before the window is partial. Krempa 1972 and Sands 1973 give the matrix equivalence. Smoktunowicz 2000 is an analogue (Amitsur's conjecture), not Köthe's. The 2019 compact-ring, quasi-2-primal and conditional reduction papers cover special cases. The 2024 to 2025 items are reformulations or restricted-class results, and I could read most of them only from search summaries. Epoch's results repository has no Köthe entry. Lean Pool lists 'Disproof of the Köthe conjecture (Krempa's matrix form)' as project 52, from a search snippet only.",
+
+  "competing_reading": "The bullet is one-sided, while the Lean target is the two-sided matrix form. The step from the matrix form to the bullet's statement is not formalised in the koethe repository, and the human extension in arXiv:2609.07996 is unreviewed and partly unformalised (per VibeMathed). On that reading, the only machine-checked item refutes a neighbouring formulation, and the claim that the bullet itself is refuted rests on two preprints no outside mathematician has read. Against that: Formal Conjectures has a proved reduction from Köthe's conjecture to the matrix form, so the matrix refutation does carry to the Köthe statement in that framework. Two separate constructions (arXiv:2609.07996 and arXiv:2609.15080) both state they refute the conjecture in the sum-of-nil-left-ideals form.",
+
+  "what_would_settle_it": "A written check by a qualified ring theorist of arXiv:2609.07996 (the countable-field construction and the step from it to the one-sided sum formulation) and of arXiv:2609.15080 (Theorem 1.1, Proposition 6.1 and Lemma 4.2). A Lean formalisation of the one-sided statement, or of the chain from the matrix form to the bullet's wording. The Formal Conjectures entry for the matrix variant updated to disproved, and a check that its two-sided KotheConjecture matches the one-sided bullet. Any erratum, withdrawal or journal decision on either preprint.",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2609.07996", "title": "A counterexample to Köthe's conjecture and a question of Rowen (abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.07996v1", "title": "A counterexample to Köthe's conjecture and a question of Rowen (HTML v1, read via summariser)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2609.07996", "title": "A counterexample to Köthe's conjecture and a question of Rowen (PDF; binary, unreadable)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/2609.15080", "title": "The Köthe conjecture via point modules (abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2609.15080v1", "title": "The Köthe conjecture via point modules (HTML v1, read via summariser)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2609.15080", "title": "The Köthe conjecture via point modules (PDF; binary, unreadable)", "type": "preprint", "opened": false},
+    {"url": "https://github.com/tadamcz/koethe", "title": "tadamcz/koethe: Lean 4 disproof of the Köthe conjecture (Krempa's matrix form), README", "type": "repository", "opened": true},
+    {"url": "https://github.com/tadamcz/koethe/commits/main", "title": "tadamcz/koethe commit history", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/Koethe.lean", "title": "Formal Conjectures, FormalConjectures/Wikipedia/Koethe.lean (read via summariser)", "type": "repository", "opened": true},
+    {"url": "https://github.com/epoch-research/LeanOpenProblems-results", "title": "epoch-research/LeanOpenProblems-results (no Köthe entry found)", "type": "repository", "opened": true},
+    {"url": "https://github.com/Charlie-Wang-03/ai4math-radar/pull/37", "title": "AI4Math radar PR #37 (daily maintenance for 2026-09-07)", "type": "repository", "opened": true},
+    {"url": "https://vibemathed.com/problem/kothe-conjecture", "title": "VibeMathed: Köthe's Conjecture (read via summariser)", "type": "blog", "opened": true},
+    {"url": "https://mathworld.wolfram.com/KothesConjecture.html", "title": "MathWorld: Köthe's Conjecture", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/K%C3%B6the_conjecture", "title": "Wikipedia: Köthe conjecture (read via summariser)", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/1911.04262", "title": "A Short Proof of Köthe's Conjecture for Compact Rings (Goodson, Taylor)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1912.12159", "title": "Self-injective von Neumann regular rings and Köthe's Conjecture (Kálnai, Žemlička)", "type": "preprint", "opened": true},
+    {"url": "https://doaj.org/article/b7675eb3eaac4115b792db6c93ab3c4d", "title": "DOAJ listing: Journal of Hyperstructures (Jun 2024), Bihonegn et al.", "type": "journal", "opened": false},
+    {"url": "https://jhs.uma.ac.ir:443/article_3032_b02124bc63a3058d662ac40248ecb1e4.pdf", "title": "Bihonegn, Abebaw, Arega, Journal of Hyperstructures 13(1) 2024 (PDF; binary, unreadable)", "type": "journal", "opened": false},
+    {"url": "https://www.preprints.org/manuscript/202409.0039/v1", "title": "preprints.org 202409.0039 (HTTP 403)", "type": "preprint", "opened": false},
+    {"url": "https://www.preprints.org/frontend/manuscript/fc35ebff0910f1ced7a8408731e3a7de/download_pub", "title": "On Some Special Cases of Köthe's Conjecture (download; HTTP 403)", "type": "preprint", "opened": false},
+    {"url": "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5129999", "title": "SSRN 5129999, Pandey, Some Aspects of Koethe Conjecture (HTTP 403)", "type": "preprint", "opened": false},
+    {"url": "https://www.mdpi.com/2073-8994/17/11/1815", "title": "Symmetry 17(11): 1815, NRW rings (HTTP 403)", "type": "journal", "opened": false},
+    {"url": "https://koreascience.or.kr/article/JAKO201912742272952.pdf", "title": "Jin, Piao, Yun, Korean J. Math. 27(1) 2019 (search snippet only)", "type": "journal", "opened": false},
+    {"url": "https://www.impan.pl/en/publishing-house/journals-and-series/fundamenta-mathematicae/all/76/2/98271/logical-connections-between-some-open-problems-concerning-nil-rings", "title": "Krempa 1972, Fundamenta Mathematicae 76 (IMPAN listing; search snippet only)", "type": "journal", "opened": false},
+    {"url": "https://x.com/tmkadamcz/status/2095785941193404457", "title": "Adamczewski announcement post on X (HTTP 402, unreadable)", "type": "news", "opened": false},
+    {"url": "https://openai.com/index/gpt-6-astra/", "title": "OpenAI, GPT-6 Astra (HTTP 403)", "type": "press_release", "opened": false},
+    {"url": "https://arxiv.org/pdf/2609.25199", "title": "Lean Pool: An AI-Maintained Archive of Formalized Mathematics (search snippet; lists project 52)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/pdf/2110.12128", "title": "Köthe's Problem, Kurosch-Levitzki Problem and Graded Rings (search snippet only)", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Köthe conjecture nil one-sided ideals 2024",
+      "Köthe conjecture arXiv",
+      "Köthe conjecture counterexample Smoktunowicz",
+      "Kothe conjecture nil ideal left ideal ring 2025",
+      "Köthe conjecture AI proof model",
+      "Köthe's problem nil radical Wikipedia list of unsolved problems in mathematics",
+      "Adamczewski GPT-6 Astra Köthe counterexample GitHub",
+      "VibeMathed Köthe conjecture",
+      "Palomar submission Köthe conjecture Lean disproof Krempa matrix form",
+      "Epoch AI GPT-6 Astra Köthe conjecture LeanOpenProblems",
+      "Köthe conjecture disproof review ring theorist October 2026",
+      "Köthe conjecture Greenfeld King Vendramin point modules graded nil algebra",
+      "Formal Conjectures Koethe.lean KotherConjecture general_matrix google-deepmind",
+      "Epoch AI LeanOpenProblems wikipedia-vega-1000usd run results",
+      "Rowen question 1989 nil left ideals sum matrix ring Köthe",
+      "Krempa 1972 Köthe conjecture matrix rings nil Sands equivalence",
+      "Köthe conjecture MathOverflow counterexample GPT-6 Astra",
+      "Smoktunowicz Köthe conjecture 2026 response counterexample nil algebra",
+      "Bihonegn Abebaw Arega Köthe conjecture torsion functor one-sided ideal Journal of Hyperstructures",
+      "Köthe conjecture quasi-2-primal rings Korean Journal of Mathematics 2019",
+      "List of mathematical discoveries by artificial intelligence Köthe",
+      "GPT-6 Astra Köthe conjecture news Quanta Nature mathematicians react",
+      "Palomar Lean-verified mathematics registry Köthe disproof record",
+      "Köthe conjecture formal statement faithful Challenge.lean Comparator critique",
+      "arXiv 2026 nil ideals sum nil Köthe conjecture open problem remains",
+      "Krempa's matrix form Köthe nil ring M2 not nil counterexample 2026",
+      "Smoktunowicz 2000 counterexample Amitsur conjecture countable field nil algebra polynomial ring Köthe",
+      "Easton Ford Greenfeld King nilpotent elements noncommutative points point modules graded nil",
+      "Köthe conjecture Greenfeld King Vendramin Lemma 4.2 GPT-6 Astra arXiv v2",
+      "\"Köthe\" conjecture 1930 nil ideal ring theory open problem preprint 2025 counterexample attempt",
+      "2025 NRW rings Köthe prime radical sum of all nil right ideals arXiv",
+      "Krempa Logical connections between some open problems concerning nil rings Fundamenta Mathematicae 1972",
+      "Adamczewski Epoch AI Köthe conjecture blog post explanation",
+      "Böhmler Marczinzik ring theory 2026 Köthe Rowen arXiv",
+      "Terence Tao blog Köthe conjecture GPT-6 Astra counterexample",
+      "Wikipedia Nil ideal article Köthe conjecture disproof 2026 GPT-6 Astra"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2609.07996, 2609.15080, 1911.04262, 1912.12159",
+      "GitHub tadamcz/koethe README and commit history",
+      "Formal Conjectures Wikipedia/Koethe.lean (summarised fetch)",
+      "Epoch AI epoch-research/LeanOpenProblems-results (no Köthe entry)",
+      "AI4Math radar PR #37 and PR #41 (search summary)",
+      "VibeMathed problem page",
+      "MathWorld Köthe's Conjecture",
+      "Wikipedia Köthe conjecture and Nil ideal (search snippet for Nil ideal)",
+      "DOAJ listing for Journal of Hyperstructures 2024 (search snippet)",
+      "preprints.org, SSRN, MDPI (HTTP 403)",
+      "X post by Adamczewski (HTTP 402)",
+      "OpenAI GPT-6 Astra page (HTTP 403)",
+      "Palomar registry news and listing summaries (search only; no Köthe record found)",
+      "Lean Pool arXiv 2609.25199 (search snippet)",
+      "MathOverflow (search only; no thread found)",
+      "Quanta and Nature (search only; no article found)",
+      "Terence Tao's blog (search only; no post found)",
+      "Epoch AI blog (search only; no post on Köthe found)"
+    ],
+    "dead_ends": [
+      "No Epoch AI blog post on the Köthe result found in search.",
+      "No Quanta, Nature or Tao commentary on the Köthe result found.",
+      "No MathOverflow thread found.",
+      "No Palomar registry record for the Köthe result found.",
+      "The Adamczewski X announcement (x.com/tmkadamcz/status/2095785941193404457) returned HTTP 402; not read.",
+      "The OpenAI GPT-6 Astra page returned HTTP 403; not read.",
+      "Formal Conjectures Koethe.lean read only through a summariser; the sorry status of the proved reductions is taken from that summary.",
+      "No Smoktunowicz response to the 2026 disproofs found.",
+      "Rowen's original 1989 question not found; the paper's Question 1.1 is the version I have.",
+      "Lemma 4.2 and any v2 changelog for 2609.15080 not found; both arXiv abstract pages show v1 only.",
+      "Easton, Ford, Greenfeld and King, 'Nilpotent elements, noncommutative points and base field sensitivity' (J. Algebra 688, 2026): a neighbouring graded-nil result cited by GKV. Not a Köthe result, and not read; not recorded as an event.",
+      "The 2021 arXiv paper 2110.12128, 'Köthe's Problem, Kurosch-Levitzki Problem and Graded Rings': search snippet only; not opened.",
+      "A VibeMathed comment links a Google Drive file (GoldenGander206, 8 Sep 2026) described as a Claude translation of the Lean code. Not opened.",
+      "No later paper citing 2609.07996 or 2609.15080 found beyond bibliography snippets. Google Scholar and MathSciNet not searched directly."
+    ]
+  },
+
+  "incomplete": "(1) Both 2026 preprints: the PDF text was unreadable to my tools, so I used arXiv HTML excerpts that the fetch tool summarised. Theorem statements are as quoted in those excerpts. (2) Solution.lean and Challenge.lean were not opened; the Lean details come from the README excerpt. (3) The X post (HTTP 402) and the OpenAI page (HTTP 403) were not read. Whether the model is released, and its status, rest on the README, the GKV paper and Wikipedia. (4) Not read in full, and described from search summaries only: preprints.org 202409.0039, SSRN 5129999, MDPI Symmetry 17(1815), the Jin-Piao-Yun Korean journal paper, the Bihonegn journal PDF, Krempa 1972 (paywalled), Smoktunowicz 2000, and Kálnai-Žemlička beyond the abstract. (5) Rowen's 1989 question as originally stated was not found. (6) No Palomar record was found, so it is not established whether Palomar checked the result. (7) The VibeMathed approver (Rasmus Lindahl) and the Google Drive comment were not checked further. (8) Epoch's full run outcomes for the 222 statements were not found, so the record cannot say how many other statements the run solved. (9) Citing papers beyond the GKV bibliography snippet were not established. Google Scholar and MathSciNet were not searched directly, so 'no later review' means none found in web search to 12 Oct 2026."
+}

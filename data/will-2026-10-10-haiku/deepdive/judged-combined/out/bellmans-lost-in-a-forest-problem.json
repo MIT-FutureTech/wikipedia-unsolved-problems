@@ -1,0 +1,1585 @@
+{
+  "key": "bellmans-lost-in-a-forest-problem",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 the problem has gained one exact worst-case answer for a single isosceles triangle (the golden gnomon, arXiv 2607.24483, posted 27 July 2026, with large-language-model involvement disclosed by its authors), a preprint claiming a general numerical framework for arbitrary shapes (Deng, arXiv 2412.10686, December 2024), and exact answers to two neighbouring expected-time or average-case variants (Treeby and Wang for balls, January 2026; Georgiou for average-case disk inspection, September 2025); the Wikipedia article still lists the general problem as unsolved.",
+  "problem_asks": "Read from the frozen statement alone. (1) For a given forest shape K (the statement says ‘a given shape’, so the question is posed for every shape), find the shortest route that is guaranteed to reach the boundary of K. (2) The starting point is an unknown point of K and the heading is unknown, so the route must succeed for every starting point and every orientation. ‘Guaranteed’ is the worst-case (min-max) reading over starting point and heading; Wikipedia, Finch and Wetzel, Deng and Temerev–Doria all read it that way. (3) The question asks for the route itself and for its length, i.e. the minimal worst-case distance travelled, as a function of K. (4) The statement does not mention the expected-time reading that Bellman's original note offered as an alternative ‘best’ (minimise expected escape time). That reading is a changed question for this bullet, though it is part of the literature on the problem. (5) A solution for one shape answers one case of (1)–(3); the bullet as worded asks for the general answer.",
+  "events": [
+    {
+      "id": "gross-1955",
+      "what_happened": "R. Gross's RAND research memorandum on a search problem due to Bellman. Per Treeby and Wang (arXiv 2601.21867v1, introduction), Gross solved the worst-case (min-max) disk case in 1955, and Finch and Wetzel note it as the first variation investigated. The memorandum itself was not opened: RAND pages returned HTTP 403 and a load error. The attribution rests on the Treeby–Wang text and on RAND catalogue entries that appeared only in search results (RM1243 ‘A Search Problem Due to Bellman’; RM1603).",
+      "date": "1955",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Worst-case escape from a disk of known radius with unknown start and heading. As reported by Wikipedia and Deng, the optimal guaranteed route is a straight walk of length equal to the diameter. This covers the disk only, as reported; not checked against the memorandum.",
+      "remains": "Every non-disk shape; the general problem.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 71 years",
+      "machine_checked": null,
+      "directly_checkable": "The diameter walk is a straight segment; checkable by hand.",
+      "doubts": "Attribution conflict: the disk worst-case case is credited to Gross 1955 (Treeby and Wang), to Isbell 1957 (Georgiou, for disk inspection), and to Finch and Ward (as cited in Deng). See disputes.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the worst-case problem for a circle in the direction the question points: a guaranteed escape exists and the optimum is the diameter walk.",
+      "object": "A straight walk from the start of length equal to the forest's diameter; explicit. Reported as the optimal guaranteed escape for a disk.",
+      "people": [
+        "Gross (first name not established)"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/html/2601.21867v1",
+        "https://en.wikipedia.org/wiki/Bellman%27s_lost-in-a-forest_problem"
+      ]
+    },
+    {
+      "id": "isbell-1957",
+      "what_happened": "J. R. Isbell, ‘An optimal search pattern’, Naval Research Logistics Quarterly 4(4):357–359 (1957). Solves the worst-case (min-max) search for a half-plane at known distance, the ‘shoreline problem with known distance’. Credited by Georgiou (2025, reference [30]), by Deng (reference [7]), by Treeby and Wang and by Finch and Wetzel as quoted in search results. Georgiou also says Isbell solved the worst-case disk-inspection version in 1957. The original was not opened.",
+      "date": "1957",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Worst-case escape from a half-plane at known distance (shoreline). Per Finch and Wetzel, as quoted in search results, the minimax path is unique up to congruence for this case and for the infinite strip.",
+      "remains": "Every shape other than the half-plane; the general problem.",
+      "checked_by": [
+        {
+          "who": "Naval Research Logistics Quarterly (refereed journal)",
+          "qualification": "Journal of record for the result",
+          "what_they_did": "Published the paper; cited as the worst-case solution in later reference lists",
+          "where": "https://arxiv.org/html/2509.06334v3 (reference [30])",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 69 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the worst-case half-plane case in the direction the question points.",
+      "object": "The minimax search path for a half-plane at known distance. Its shape is not recorded in any source I read; not established as explicit.",
+      "people": [
+        "J. R. Isbell"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/html/2509.06334v3",
+        "https://arxiv.org/html/2412.10686v3"
+      ]
+    },
+    {
+      "id": "zalgaller-1961",
+      "what_happened": "V. A. Zalgaller, ‘How to get out of the woods. On a problem of Bellman’ (in Russian), Matematicheskoe Prosveshchenie 6:191–195 (1961). Worst-case (min-max) escape from an infinite strip of width w. The optimal route is a V-shaped path of four straight segments and two shallow arcs, length ≈2.278292w. Reported through Deng's reference list, the Wikipedia article (which cites Finch and Wetzel) and search-result quotations. The original was not opened.",
+      "date": "1961",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The infinite strip of width w, worst-case: exact optimal guaranteed route, length ≈2.278292w. Within the strip, rectangles of height w with diameter at least that length also have this path as optimal (per Wikipedia's summary of Finch and Wetzel).",
+      "remains": "Every shape other than the strip and rectangles of the described kind; the general problem.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 65 years",
+      "machine_checked": null,
+      "directly_checkable": "The four-segment-two-arc path can be drawn and its length computed; not done by me.",
+      "doubts": "Deng's section 4.2.10 reproduces a length-2.297 path that Zalgaller calls suboptimal; the optimum 2.278292 is approximated only in Deng's section 6.2.1 (N = 12, M = 26, ‘very close to Zalgaller's’). Finch and Shonder, on the expected-time criterion, call Zalgaller's path far from optimal; that is a different criterion.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the strip case of the worst-case problem in the direction the question points.",
+      "object": "Infinite strip of width w: four straight segments and two shallow circular arcs forming a V-shaped guaranteed escape route, length ≈2.278292w. Explicit up to the parameters of the arcs; not checked by me.",
+      "people": [
+        "Viktor A. Zalgaller"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/html/2412.10686v3",
+        "https://en.wikipedia.org/wiki/Bellman%27s_lost-in-a-forest_problem"
+      ]
+    },
+    {
+      "id": "gluss-1961-expected",
+      "what_happened": "B. Gluss, ‘An alternative solution to the “lost at sea” problem’, Naval Research Logistics Quarterly 8(1):117–122 (March 1961). Shoreline with known distance, expected-distance criterion. Gives a sequence of approximations to the optimal policy and heuristic upper bounds. Treeby and Wang say the expected-time version has received little attention. Read through an IDEAS abstract that appeared in search results; the paper itself was not opened.",
+      "date": "1961-03",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Heuristic approximations and upper bounds for the expected-distance shoreline problem. No exact optimum. This is the expected-time criterion, a different question from the guaranteed-escape wording of this bullet. Conley and Georgiou (2024) report Gluss's numbers as mis-evaluated: Gluss's heuristics reported at 3.4795 and 3.4691 evaluate correctly to 3.64529 and 3.63489; the Isbell-type algorithm reported at 3.6276 evaluates to 3.71386 at θ = π/3, with optimum 3.70737 over θ.",
+      "remains": "The exact average-case (expected-time) optimum for the shoreline and for disk inspection, which Georgiou (2025) later gives for disk inspection; the guaranteed-escape problem for any shape.",
+      "checked_by": [
+        {
+          "who": "Conley and Georgiou",
+          "qualification": "Authors of arXiv 2411.15391 (2024), which recomputes Gluss's formulas",
+          "what_they_did": "Re-evaluated Gluss's formulas and reported different numbers",
+          "where": "https://arxiv.org/html/2411.15391v4",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 65 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Source discrepancy: the IDEAS abstract describes a straight shore; a 2023 Bulletin of Buryat State University paper (search snippet) describes Gluss's work as an island of radius S and spells the author ‘Glass’. I relied on the IDEAS abstract; the original was not checked.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Approximate, not exact, answers to the expected-time criterion. Cuts away from the bullet's guaranteed-escape wording.",
+      "object": "Heuristic search policies for the expected-distance shoreline. Reported averages are the numbers listed in ‘delivers’, as corrected by Conley and Georgiou.",
+      "people": [
+        "Brian Gluss"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/html/2411.15391v4",
+        "https://ideas.repec.org/a/wly/navlog/v8y1961i1p117-122.html"
+      ]
+    },
+    {
+      "id": "gluss-1961-minimax-circle",
+      "what_happened": "B. Gluss, ‘The minimax path in a search for a circle in a plane’, Naval Research Logistics Quarterly 8(4):357–360 (1961). Listed as reference [29] in Georgiou (2025). Not opened; its content is not established by any source I read.",
+      "date": "1961",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Not established. The title suggests a worst-case search for a circle, a neighbouring setting rather than the forest question itself.",
+      "remains": "Not established.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 65 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not opened. Do not read Gluss's disk-touching conjecture into this entry: Georgiou attributes that conjecture to reference [28], the expected-time paper.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not established.",
+      "object": null,
+      "people": [
+        "B. Gluss"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/html/2509.06334v3"
+      ]
+    },
+    {
+      "id": "finch-shonder-2004",
+      "what_happened": "S. R. Finch and Shonder, ‘Lost at Sea’, unpublished note, arXiv math/0411518 (November 2004). Expected-time (min-mean) version. Gives the best two- and three-segment paths for the infinite strip, numerical two-segment paths for a disk, and conjectures that for a disk the straight line is optimal, giving mean 8/(3π) ≈ 0.8488. Proves straight-line optimality only for paths of small curvature. Read through the arXiv abstract in search results and through Treeby and Wang's description; the PDF was not opened.",
+      "date": "2004-11",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "A v2 exists (arXiv abs math/0411518v2 appeared in search results); its content not read.",
+      "delivers": "Expected-time variant only: strip paths and the disk conjecture under a small-curvature restriction. Not the worst-case question.",
+      "remains": "Straight-line optimality for the disk without the curvature restriction; the expected-time problem for other shapes.",
+      "checked_by": [
+        {
+          "who": "Treeby and Wang",
+          "qualification": "Authors of arXiv 2601.21867 (2026)",
+          "what_they_did": "Removed the small-curvature restriction for balls in every dimension",
+          "where": "https://arxiv.org/abs/2601.21867v1",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 22 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Treeby and Wang describe the note as unpublished; treat it as a preprint.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Conjectures that the straight line is optimal for the expected-time disk problem, with partial proof. Cuts toward the conjecture, on a different criterion from the bullet.",
+      "object": "The conjectured optimal expected-time escape for a disk is a straight line, with mean 8/(3π). Explicit.",
+      "people": [
+        "Steven R. Finch",
+        "Shonder (initials not established)"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/abs/2601.21867v1",
+        "https://arxiv.org/html/2601.21867v1"
+      ]
+    },
+    {
+      "id": "finch-zhu-2005",
+      "what_happened": "S. R. Finch and Zhu, ‘Searching for a Shoreline’, arXiv math/0501123 (January 2005). Treats the shoreline search setting and notes that logarithmic spirals are conjectured optimal escape paths from a half-plane. Known only from a search-result snippet; not opened.",
+      "date": "2005-01",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Not established from the snippet. Neighbouring shoreline setting.",
+      "remains": "Not established.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 21 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not established.",
+      "object": null,
+      "people": [
+        "Steven R. Finch",
+        "Zhu (initials not established)"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/pdf/math/0501123"
+      ]
+    },
+    {
+      "id": "finch-wetzel-2004-survey",
+      "what_happened": "S. R. Finch and J. E. Wetzel, ‘Lost in a forest’, American Mathematical Monthly 111(8):645–654 (2004). Survey of Bellman's problem; the MAA gave it an award in 2005. Reports the known cases (disk: diameter walk; semicircle and circular sectors of at least 60°; regular polygons with more than three sides; 60° rhombus criterion; infinite strip; rectangles). Also claims a connection to Moser's worm problem and uses it to identify a class of regions whose best escape path is a straight segment (search-result quotation). The journal PDF was not retrieved: HTTP 521 from the MAA host; JSTOR and DOI returned 403 and 429. Content comes from Wikipedia's account and search-result quotations.",
+      "date": "2004",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A survey of the known solved cases listed above, plus the Moser-worm link. Gives the expected-time version ‘little is known’ (as quoted). Not a new general result as far as I can tell from the quoted parts.",
+      "remains": "The general problem; shapes beyond the listed cases.",
+      "checked_by": [
+        {
+          "who": "Refereed Monthly editorial process; MAA award (2005)",
+          "qualification": "Refereed journal article with an award",
+          "what_they_did": "Published; award given",
+          "where": "https://www.maa.org/node/113720 (returned 403; award details taken from search results)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 22 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Survey content not read directly; relies on Wikipedia's account and search-result quotations.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Records the known solved cases in the direction the question points; adds a link to Moser's worm.",
+      "object": null,
+      "people": [
+        "Steven R. Finch",
+        "John E. Wetzel"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Bellman%27s_lost-in-a-forest_problem",
+        "https://old.maa.org/sites/default/files/pdf/upload_library/22/Ford/Finch645-654.pdf"
+      ]
+    },
+    {
+      "id": "coulton-movshovich-2006",
+      "what_happened": "P. Coulton and Y. Movshovich, ‘Besicovitch triangles cover unit arcs’, Geometriae Dedicata 123(1):79–88 (2006). Per Langetepe and Kübel (2016) and Deng (2024, section 6.2.3), this paper gives the proof that the Besicovitch zig-zag is the optimal worst-case escape path for the equilateral triangle. The golden-gnomon paper lists the equilateral triangle among previously known exact cases, citing two references. The 2006 paper itself was not opened; its content is known only through citers.",
+      "date": "2006",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per citers: the worst-case optimal escape path for the equilateral triangle (side 1) is Besicovitch's zig-zag. Not checked; I could not confirm from the paper how the escape claim is derived from a covering result.",
+      "remains": "Other triangles outside the family the citers name; the general problem.",
+      "checked_by": [
+        {
+          "who": "Langetepe and Kübel (SWAT 2016)",
+          "qualification": "Researchers in computational geometry working on escape paths",
+          "what_they_did": "Cite the proof and state that the zig-zag is the optimal escape path for the equilateral triangle; they give their own triangle proofs in a different model",
+          "where": "https://arxiv.org/abs/1604.05972",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 20 years",
+      "machine_checked": null,
+      "directly_checkable": "The zig-zag path is three segments; checkable by hand once the path is fixed.",
+      "doubts": "(1) Langetepe and Kübel give the zig-zag's total length as 0.981918; three segments of length √(3/28) each total ≈0.98198, so the figures disagree in the fifth digit (my arithmetic). (2) Wikipedia (as fetched) does not mention equilateral triangles; the futilitycloset post of 3 September 2024 says equilateral triangles remain unresolved; Deng (2024), Langetepe–Kübel (2016) and Temerev–Doria (2026) say they are known. The 2006 paper was not read to resolve this.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Positive: a worst-case optimum for the equilateral triangle, in the direction the question points.",
+      "object": "Besicovitch's zig-zag for the equilateral triangle of side 1: a symmetric three-segment path with each segment √(3/28) long, total ≈0.981918 per Langetepe–Kübel (see doubts). Explicit.",
+      "people": [
+        "P. Coulton",
+        "Y. Movshovich"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/abs/1604.05972",
+        "https://arxiv.org/html/2412.10686v3",
+        "https://arxiv.org/html/2607.24483v1"
+      ]
+    },
+    {
+      "id": "langetepe-kubel-2016",
+      "what_happened": "E. Langetepe and D. Kübel, ‘Optimal online escape path against a certificate’, arXiv 1604.05972 (20 April 2016), in the SWAT 2016 proceedings per a search-result link. A different model: escape from a forest of unknown shape when a certificate gives distances from the start to the boundary. Gives a competitive ratio upper bound 3.318764 and lower bound 3.313126. Cites Coulton and Movshovich for the equilateral triangle.",
+      "date": "2016-04-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (per the arXiv abstract page read).",
+      "delivers": "A competitive-ratio result for online escape with a certificate. Different question: not the offline guaranteed-escape problem.",
+      "remains": "The offline guaranteed-escape problem for the bullet's shapes.",
+      "checked_by": [
+        {
+          "who": "SWAT 2016 programme committee",
+          "qualification": "Refereed conference (Dagstuhl LIPIcs proceedings link seen in search results)",
+          "what_they_did": "Accepted the paper for SWAT 2016 (not verified individually)",
+          "where": "https://drops.dagstuhl.de/opus/volltexte/2016/6041 (search-result link; not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not the bullet's question: a competitive-ratio result for a different model.",
+      "object": null,
+      "people": [
+        "Elmar Langetepe",
+        "David Kübel"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/abs/1604.05972",
+        "https://ar5iv.labs.arxiv.org/html/1604.05972"
+      ]
+    },
+    {
+      "id": "zalgaller-2005",
+      "what_happened": "V. A. Zalgaller, ‘A question of Bellman’, Journal of Mathematical Sciences 131(1):5286–5306 (2005). Listed in Deng's reference list. Not opened; content not established.",
+      "date": "2005",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Not established.",
+      "remains": "Not established.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 21 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not opened.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not established.",
+      "object": null,
+      "people": [
+        "Viktor A. Zalgaller"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/html/2412.10686v3"
+      ]
+    },
+    {
+      "id": "movshovich-wetzel-2011",
+      "what_happened": "Y. Movshovich and J. E. Wetzel, ‘Escape paths of Besicovitch triangles’, Journal of Combinatorics (2011), as listed in a 2025 reference list seen in search results. Not opened.",
+      "date": "2011",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Not established. The title concerns escape paths of Besicovitch triangles, plausibly the triangle family relevant to the equilateral case.",
+      "remains": "Not established.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 15 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not opened; relation to the 2006 paper unknown.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not established.",
+      "object": null,
+      "people": [
+        "Y. Movshovich",
+        "J. E. Wetzel"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": []
+    },
+    {
+      "id": "haviger-2023-thesis",
+      "what_happened": "V. Haviger, ‘Bellmanův Lost in a Forest Problem a jeho analýza’ (Bellman's Lost in a Forest Problem and its analysis), bachelor's thesis, Brno University of Technology, Faculty of Mechanical Engineering. Supervisor Jan Čermák, referee Jana Hoderová. Accepted 13 June 2023, graded B. Covers shortest escape paths for the disc, circular sector, infinite strip, rectangle, regular polygon, triangle, half-plane and circle. Its English abstract describes building and summarising the results and listing open problems.",
+      "date": "2023-06-13",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "An expository survey of known escape paths. The abstract does not claim new results; not confirmed from the full PDF.",
+      "remains": "The general problem.",
+      "checked_by": [
+        {
+          "who": "Thesis committee (supervisor Jan Čermák; referee Jana Hoderová)",
+          "qualification": "University staff examining a bachelor's thesis",
+          "what_they_did": "Accepted and defended the thesis; the defence was reported successful",
+          "where": "https://dspace.vut.cz/items/776d8768-a0c7-47a1-9d18-6b785480c892",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 3 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Expository: consistent with the known results; changes nothing.",
+      "object": null,
+      "people": [
+        "Vojtěch Haviger"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://dspace.vut.cz/items/776d8768-a0c7-47a1-9d18-6b785480c892"
+      ]
+    },
+    {
+      "id": "hopkins-2024",
+      "what_happened": "Hopkins, Ong, Previte, Previte and Wittmershaus, ‘The Average Directional Distance To The Boundary Of A Ball Or Disk’, Applied Mathematics E-Notes (2024). Computes the average distance from an interior point to the boundary of a ball or disk over points and directions, as a Wallis-type sequence. Used by Treeby and Wang (Proposition 4.1) for the expected-time formula. A neighbouring computation, not an escape result. Known only from a search snippet; not opened.",
+      "date": "2024",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": null,
+      "revisions": null,
+      "delivers": "A calculation of the average distance to the boundary of a ball; not a result about the forest problem.",
+      "remains": "Not applicable.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 2 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Year only; I cannot say whether publication fell before or after 26 January 2024.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not applicable: a computation, not an answer to the problem.",
+      "object": null,
+      "people": [
+        "Hopkins",
+        "Ong",
+        "Previte",
+        "Wittmershaus"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/abs/2601.21867"
+      ]
+    },
+    {
+      "id": "agama-2021",
+      "what_happened": "T. Agama, ‘Simple close curve magnetization and application to Bellman's lost in the forest problem’, arXiv 2101.00120 (January 2021). Applies a magnetization viewpoint to the forest problem under special geometric assumptions between the hiker and the boundary. Known from a search snippet; not opened.",
+      "date": "2021-01",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "A v3 exists (arXiv pdf 2101.00120v3 appeared in search results).",
+      "delivers": "Not established: the snippet describes special geometric assumptions only.",
+      "remains": "Not established.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not established.",
+      "object": null,
+      "people": [
+        "T. Agama"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2101.00120"
+      ]
+    },
+    {
+      "id": "deng-2024-12",
+      "what_happened": "Zhipeng Deng, ‘A General Solution to Bellman's Lost-in-a-forest Problem’, arXiv 2412.10686 (v1 14 December 2024; v2 30 December 2024; v3 1 June 2025). Recasts the problem as minimisation over translations and rotations of the forest boundary, and discretises it into a constrained travelling-salesman or Hamiltonian-path-type problem. Theorem 3 asserts that discretised solutions converge to the original problem's solution as the grids of starting points and orientations refine, with the proof sketched (Γ-convergence, asserted liminf and recovery inequalities). Reports numerical reproductions: the half-plane value 7π/6 + 1 + √3 matched; circle results said to agree with earlier papers; the strip approximated (‘very close to Zalgaller's’). Says the method extends to Moser's worm and the shortest opaque set problem. The abstract calls the work ‘a general solution and formulation framework’; the introduction calls the problem an ‘unsolved minimization problem’ and says a general algorithm ‘remains highly challenging’. Read: abstract page, arXiv HTML v3 (first 100,000 characters and the tail).",
+      "date": "2024-12-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 14 Dec 2024; v2 30 Dec 2024 (no version comment); v3 1 Jun 2025, comment: ‘V3 corrects typos, clarifies definitions, and provides more results and references.’",
+      "delivers": "A general reformulation and numerical discretisation for a boundary of any shape, with a sketched claim that discretised optima converge to the original problem's solution (Theorem 3). Reproduces known exact values for the half-plane and gives approximations for the strip and circle. Gives no exact new optimal route for a shape I could identify in the text read. Its own Theorem 3 hypothesis (compactness of the region) is not imposed by its definition, per the fetched text.",
+      "remains": "Exact optimal routes for general shapes; a rigorous proof of Theorem 3; any exact answer beyond the cases already known.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 22 months",
+      "machine_checked": null,
+      "directly_checkable": "The discretised optimisation is said to be reproducible from the Mathematica notebooks in Appendices I–III (per the fetch); not run by me.",
+      "doubts": "(1) Theorem 3 needs a compact region, which Definition 3.4 does not impose; its liminf and recovery inequalities are asserted with brief justification (‘The proof is standard in shape optimization’). (2) The title says ‘General Solution’; the abstract says ‘general solution and formulation framework’; the introduction says a general algorithm remains highly challenging. (3) The strip is only approximated (N = 12, M = 26); the exact 2.278292 is not reached in what I read. (4) No journal publication or expert write-up found. (5) The live Wikipedia article (read through a summariser) still lists the problem as unsolved and does not mention this preprint.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Claims to answer the general worst-case question computationally. The answers are numerical approximations and consistency checks on known cases, not exact new routes.",
+      "object": null,
+      "people": [
+        "Zhipeng Deng"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2412.10686v3"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2412.10686",
+        "https://arxiv.org/html/2412.10686v3",
+        "https://arxiv.org/html/2601.21867v2"
+      ]
+    },
+    {
+      "id": "conley-georgiou-2024-11",
+      "what_happened": "James Conley and Konstantinos Georgiou, arXiv 2411.15391, first posted 23 November 2024 as ‘Multi-Agent Disk Inspection’; the current version (v4, 9 September 2025) is titled ‘Disk and Partial Disk Inspection: Worst- to Average-Case and Pareto Upper Bounds’ and is the full version of a SIROCCO 2025 paper (Delphi, June 2025). Studies n unit-speed agents starting at the centre of a unit disk and inspecting its perimeter. Gives worst-case optimal partial inspection, average-case upper bounds by discretisation and nonlinear programming (best n = 1 bound 3.5509015), Pareto bounds, and corrected values for Gluss's 1961 heuristics. Read: abstract page for v1 (date) and the v4 HTML (first 100,000 of 184,477 characters).",
+      "date": "2024-11-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 23 Nov 2024 as ‘Multi-Agent Disk Inspection’; v4 9 Sep 2025 under the current title. Versions v2 and v3 not seen.",
+      "delivers": "Upper bounds, not exact values, for average-case disk inspection (n = 1: 3.5509015), with a multi-agent and partial-inspection extension and corrected Gluss figures. A variant of the lost-in-a-forest setting (agents starting at the disk centre, expected inspection time). Not the guaranteed-escape question.",
+      "remains": "The exact average-case optimum (given for disk inspection in Georgiou, 2025); the worst-case forest problem for any shape.",
+      "checked_by": [
+        {
+          "who": "SIROCCO 2025 programme committee",
+          "qualification": "Refereed conference; this arXiv version is its full version",
+          "what_they_did": "Accepted the conference version (per the v4 text)",
+          "where": "https://arxiv.org/html/2411.15391v4",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 23 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The upper bounds come from numerical nonlinear programming, which certifies values not optimality; the paper itself finds Gluss's published numbers mis-evaluated.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Moves an upper bound for a variant; corrects earlier numerical values. Not a move in the bullet's own quantity.",
+      "object": "Average-case disk-inspection trajectories giving the numerical upper bound 3.5509015 for n = 1; not explicit.",
+      "people": [
+        "James Conley",
+        "Konstantinos Georgiou"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2411.15391v4"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2411.15391v1",
+        "https://arxiv.org/html/2411.15391v4"
+      ]
+    },
+    {
+      "id": "georgiou-2025-09",
+      "what_happened": "Konstantinos Georgiou, ‘Optimal Average Disk-Inspection via Fermat's Principle’, arXiv 2509.06334 (v1 8 September 2025; v2 9 September 2025; v3 5 January 2026). Full version of a paper at STACS 2026 (43rd Symposium, Grenoble, 9–13 March 2026; LIPIcs vol. 364, pp. 44:1–44:19). Claims the exact optimal average-case cost for Disk-Inspection, ≈3.549259 (certified to six digits), and that the optimal trajectory avoids the unit disk, disproving Gluss's conjecture that optimal trajectories touch the disk. Method: Fermat's principle of least time applied to a discretisation, reducing to a one-parameter family of recurrences, with a continuum limit as a one-parameter optimal-control problem; numerics by Brent minimisation and nonlinear programming (Julia, JuMP, Ipopt). Abstract and introduction via arXiv HTML v3; acknowledgements and section 5.4 read. A Toronto Metropolitan University news release (14 May 2026) reports the result.",
+      "date": "2025-09-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 8 Sep 2025 (abstract: ‘A crucial step is proving that the optimal initial condition generates a trajectory that avoids the unit disk’); v2 9 Sep 2025; v3 5 Jan 2026 (the HTML I read presents avoidance as shown by numerical minimisation, with Lemma 4.3 assuming non-intersection; a search-result excerpt of a later version says ‘Assuming an optimal trajectory does not touch the disk, we show…’).",
+      "delivers": "The exact average-case (expected inspection time) optimum for disk inspection, with a numerically certified value ≈3.549259. Restriction: the disk-inspection setting, with agents starting at the disk centre and a uniformly random perimeter target; the paper frames this within Bellman's general setting and the shoreline problem with known distance (a half-plane specialisation). Expected-time criterion, not guaranteed escape.",
+      "remains": "The worst-case (guaranteed) escape problem for any shape; the expected-time problem for shapes other than the disk-inspection setting.",
+      "checked_by": [
+        {
+          "who": "STACS 2026 programme committee",
+          "qualification": "Refereed conference with blind peer review",
+          "what_they_did": "Accepted the paper for STACS 2026. A Toronto Metropolitan University release (14 May 2026) says the reviewers gave clear-accept scores; this is the university's account, not the committee's record",
+          "where": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol364-stacs2026/LIPIcs.STACS.2026.44/LIPIcs.STACS.2026.44.pdf (metadata only; not readable) and https://www.torontomu.ca/research/news-events/2026/05/inspired-by-physics-tmu-mathematics-professor-finds-solution-to-70-year-old-problem/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(a) The disk-avoidance step, which the paper calls crucial, is established numerically: a 2,000-point grid in Lemma 5.10 and Brent minimisation in section 5.4 (‘τ ≥ 0.2 throughout’), with Lemma 4.3 assuming non-intersection. The paper's own framing moved between versions (v1 ‘proving’; a later excerpt ‘assuming’). (b) The disproof of Gluss's conjecture rests on this numerical certificate. (c) No independent reading found beyond the venue's refereeing.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Gives an exact optimal value for the average-case disk-inspection problem and cuts against Gluss's conjecture that optimal trajectories touch the disk. Not the guaranteed-escape question.",
+      "object": "The optimal average-case inspection trajectory from the disk centre, determined by one initial condition of a one-parameter family derived from Fermat's principle; value 3.54925958…, certified to six digits; the paper says it avoids the unit disk. Explicit only up to a numerically computed parameter.",
+      "people": [
+        "Konstantinos Georgiou"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2509.06334v3"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2509.06334",
+        "https://arxiv.org/html/2509.06334v3",
+        "https://www.torontomu.ca/research/news-events/2026/05/inspired-by-physics-tmu-mathematics-professor-finds-solution-to-70-year-old-problem/"
+      ]
+    },
+    {
+      "id": "treeby-wang-2026-01",
+      "what_happened": "David Treeby and Edward Wang, arXiv 2601.21867: ‘Escaping the unit ball’ (v1, 29 January 2026), retitled ‘Straight-line optimality in Bellman's lost-in-a-forest problem for Euclidean balls’ (v2, revised 20 April 2026). Proves that among all unit-speed paths a straight line minimises the expected (min-mean) escape time from a ball in Rⁿ, for every n. The planar case uses the Kneser–Poulsen theorem in R², which the paper cites as proved by Bezdek and Connelly; higher dimensions use a polygonal-chain straightening argument. Computes the minimal expected time through the expected linear distance to the boundary of the n-ball (Proposition 4.1; for the disk 8/(3π), per the paper as read). Removes the small-curvature restriction in Finch and Shonder's conjecture for balls. The abstract scope (all Rⁿ) is the same in v1 and v2. Read: abstract pages v1 and v2, HTML v1 introduction, HTML v2 in two segments; PDFs unreadable.",
+      "date": "2026-01-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 29 Jan 2026 as ‘Escaping the unit ball’; v2 20 Apr 2026 retitled; abstract scope unchanged between v1 and v2.",
+      "delivers": "The expected-time (min-mean) version for ball-shaped forests in every dimension: a straight line is optimal among unit-speed paths. Restrictions: expected rather than guaranteed escape; balls only; the unit-speed convention. The planar step cites the Kneser–Poulsen theorem in R² as proved; the higher-dimensional extension rests on a polygonal-chain argument I did not check. The introduction says the worst-case (min-max) problem for such forests ‘was solved long ago’ (quoted).",
+      "remains": "The guaranteed (min-max) escape question for every shape (the paper says balls are settled there long ago); the expected-time question for every other shape. The paper's Section 2 says the Kneser–Poulsen conjecture for arbitrary expansions ‘remains wide open’ beyond R², so the higher-dimensional argument needs the polygonal-chain result to carry the weight.",
+      "checked_by": [
+        {
+          "who": "themoonlight.io (AI-generated literature review of ‘Escaping the unit ball’)",
+          "qualification": "None; an automated review site",
+          "what_they_did": "Summarised the paper (search-result snippet only; not opened)",
+          "where": "https://www.themoonlight.io/review/escaping-the-unit-ball",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8.5 months",
+      "machine_checked": null,
+      "directly_checkable": "The expected linear distance formula for the unit ball in Rⁿ is a chord-length integral that can be checked by hand; the planar Kneser–Poulsen input is a published theorem. Not checked by me.",
+      "doubts": "Preprint only; no journal version found. The higher-dimensional extension relies on a polygonal-chain straightening result I did not check. The criterion is expected time, not the guaranteed-escape wording of the bullet.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Answers the expected-time version for balls in the direction Finch and Shonder conjectured. Nothing changes for the worst-case problem.",
+      "object": null,
+      "people": [
+        "David Treeby",
+        "Edward Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2601.21867v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2601.21867",
+        "https://arxiv.org/abs/2601.21867v1",
+        "https://arxiv.org/html/2601.21867v1",
+        "https://arxiv.org/html/2601.21867v2"
+      ]
+    },
+    {
+      "id": "temerev-doria-2026-07",
+      "what_happened": "Alexander Temerev and Alessio Doria, ‘The exact solution of Bellman's lost-in-a-forest problem for the golden gnomon’, arXiv 2607.24483 (v1, 27 July 2026; math.MG). Authors: Alexander Temerev (University of Geneva) and Alessio Doria (independent researcher). Claims that the shortest curve guaranteed to reach the boundary of the golden gnomon (isosceles triangle, legs 1, apex 108°, base angles 36°), from an unknown start and heading, is a symmetric seven-piece path of segments, circular shoulders and tangents, of length C = 1.282676025459…, and that this value is exact (transcendental; from one isolated quartic root). Equivalently C⁻¹G is the smallest homothetic golden-gnomon copy covering all unit arcs. Claims the first proved exact optimum for an isosceles triangle with base angle below 45°. Lean 4 verifies two finite algebraic certificate families (calibration and geometry); the repository atemerev/gnomon holds the Lean files and Python audit scripts; section B.3 states which steps are machine-checked. Footnote on the title: ‘Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.’ Read: arXiv abstract page; arXiv HTML v1 in two segments (footnote, section B.3 and the abstract as returned by the fetch tool); GitHub README. The arXiv PDF returned binary only.",
+      "date": "2026-07-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version (v1) seen.",
+      "delivers": "For the single shape G (golden gnomon) only: the worst-case guaranteed-escape question, with a claimed exact optimal curve and length C. Restrictions: one isosceles triangle with apex 108°. The paper's Lean checks cover the two certificate families; compactness, hull surgery, planar incidence, reading the seven-piece total as the length, and Lemma A.5's planar combinatorics are stated as prose. The paper lists the equilateral triangle among previously known exact cases and claims its own isosceles result is the first proved exact answer below base angle 45°.",
+      "remains": "Every other triangle except those the paper treats as known; every other shape; the general problem for arbitrary shapes. The prose-only steps remain human-checkable arguments, not machine-checked.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2.5 months",
+      "machine_checked": {
+        "system": "Lean 4",
+        "sorry_free": true,
+        "claimed_by_authors": true,
+        "url": "https://github.com/atemerev/gnomon",
+        "note": "The authors state (section B.3) that the development contains no sorry, no native_decide and no added axiom. The repository README describes AxiomAudit.lean as failing the build if any axiom beyond propext, Classical.choice and Quot.sound is used. I did not clone or build the repository, so this is the authors' and README's claim, not my verification. Lean covers only the two certificate families, not the whole proof."
+      },
+      "directly_checkable": "The seven-piece curve is given by segments, arcs and tangents with parameters from one quartic root; its length C ≈ 1.282676025459 can be recomputed from those parameters. Not done by me.",
+      "doubts": "(1) The authors say large language models were used ‘throughout this work’, including ‘to search for the extremal curve’ and ‘to draft the arguments given here’; the prose argument was drafted with model help, and the footnote does not say which model did which step. (2) Only the certificate parts are Lean-checked; compactness, hull surgery, planar incidence, the length reading and Lemma A.5's combinatorics are prose. (3) No independent human reading or expert write-up found as of 11 October 2026. (4) Date: a search snippet said 26 July; the arXiv listing gives 27 July 2026, which I use. (5) The paper's claim that equilateral triangles are already solved conflicts with the futilitycloset (2024) statement that they are not; I could not resolve that from the 2006 paper, which I did not open. (6) The second author is an independent researcher with no institutional affiliation listed.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Answers the worst-case guaranteed-escape question for one shape in the direction the question points: a shortest guaranteed curve exists, is a seven-piece curve, and has length ≈1.2827. No counterexample; no contradiction of the problem's assertions.",
+      "object": "A symmetric seven-piece curve (segments, circular shoulders and tangents) for the golden gnomon G (isosceles, legs 1, apex 108°): the shortest curve guaranteed to reach the boundary from any start and heading, of length C = 1.282676025459…, claimed exact. C is the isolated root-derived constant, and C⁻¹G is the smallest homothetic copy of G covering all unit arcs. Explicit up to one quartic root, which Lean certifies.",
+      "people": [
+        "Alexander Temerev",
+        "Alessio Doria"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude Fable 5",
+            "what_it_did": "Named in the authors' footnote as one of three large language models ‘used throughout this work’, to ‘search for the extremal curve’, ‘draft the arguments given here’ and ‘write the accompanying Lean development’. The footnote credits the three together and does not assign a step to a particular model.",
+            "basis_quote": "Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.",
+            "quote_url": "https://arxiv.org/html/2607.24483v1"
+          },
+          {
+            "name": "GPT 5.6 Sol",
+            "what_it_did": "Named in the same footnote with the same three uses (search for the extremal curve; drafting the arguments; writing the Lean development). No step is assigned to this model individually.",
+            "basis_quote": "Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.",
+            "quote_url": "https://arxiv.org/html/2607.24483v1"
+          },
+          {
+            "name": "Claude Opus 5",
+            "what_it_did": "Named in the same footnote with the same three uses (search for the extremal curve; drafting the arguments; writing the Lean development). No step is assigned to this model individually.",
+            "basis_quote": "Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.",
+            "quote_url": "https://arxiv.org/html/2607.24483v1"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2607.24483v1",
+          "https://arxiv.org/abs/2607.24483"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.24483",
+        "https://arxiv.org/html/2607.24483v1",
+        "https://github.com/atemerev/gnomon"
+      ]
+    },
+    {
+      "id": "keller-2026-09",
+      "what_happened": "Ethan Keller, ‘Improved bounds for universal convex covers of unit arcs’, arXiv 2609.21968 (September 2026 by identifier; exact date not read). Bounds the area α of the smallest convex set containing a copy of every unit arc: 0.239 ≤ α ≤ 0.24633. Related to Moser's worm problem, which the golden-gnomon paper's equivalence touches. Known only from a search snippet, which also says the proof is formalised in Lean 4; not opened.",
+      "date": "2026-09",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Bounds for universal convex covers of unit arcs (the Moser worm family). A different problem from the bullet; discounted.",
+      "remains": "Not applicable to this bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 1 month",
+      "machine_checked": {
+        "system": "Lean 4",
+        "sorry_free": null,
+        "url": null,
+        "note": "Per the search snippet only; not checked by me."
+      },
+      "directly_checkable": null,
+      "doubts": "Snippet only; not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not this problem.",
+      "object": "A quadrilateral of area 0.24633 claimed to cover every unit arc (per the snippet); not checked.",
+      "people": [
+        "Ethan Keller"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.21968"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Who first solved the worst-case disk case: Gross 1955 (Treeby and Wang, via their introduction), Isbell 1957 (Georgiou 2025 for disk inspection), or Finch and Ward (as cited in Deng 2024). Wikipedia states the disk answer without attribution. The original papers were not opened.",
+      "sources": [
+        "https://arxiv.org/html/2601.21867v1",
+        "https://arxiv.org/html/2509.06334v3",
+        "https://arxiv.org/html/2412.10686v3"
+      ]
+    },
+    {
+      "kind": "status",
+      "summary": "Equilateral triangle: Wikipedia (as summarised) does not mention it; the futilitycloset post of 3 September 2024 says equilateral triangles are unresolved; Deng (2024), Langetepe and Kübel (2016) and Temerev and Doria (2026) say the Besicovitch zig-zag is the known optimum, citing Coulton and Movshovich (2006), which I did not open.",
+      "sources": [
+        "https://www.futilitycloset.com/2024/09/03/the-right-track/",
+        "https://arxiv.org/html/2412.10686v3",
+        "https://arxiv.org/abs/1604.05972",
+        "https://arxiv.org/html/2607.24483v1"
+      ]
+    },
+    {
+      "kind": "status",
+      "summary": "Deng's 2024 preprint is titled ‘A General Solution’ and its abstract calls the work a ‘general solution and formulation framework’, while its introduction calls the problem an unsolved minimisation problem and the Wikipedia article (live) still lists it as unsolved. The disagreement is over whether a numerical framework with a sketched convergence theorem counts as a solution.",
+      "sources": [
+        "https://arxiv.org/html/2412.10686v3",
+        "https://en.wikipedia.org/wiki/Bellman%27s_lost-in-a-forest_problem"
+      ]
+    },
+    {
+      "kind": "version",
+      "summary": "Georgiou's disk-avoidance claim: v1 abstract says the paper proves that the optimal initial condition yields a trajectory avoiding the unit disk; the v3 HTML I read presents it as shown numerically, with Lemma 4.3 assuming non-intersection; a search-result excerpt of a later version says ‘Assuming an optimal trajectory does not touch the disk’.",
+      "sources": [
+        "https://arxiv.org/abs/2509.06334",
+        "https://arxiv.org/html/2509.06334v3"
+      ]
+    },
+    {
+      "kind": "description",
+      "summary": "Gluss (1961): the IDEAS abstract describes a straight shore; a 2023 Bulletin of Buryat State University paper (search snippet) describes an island of radius S and spells the author ‘Glass’.",
+      "sources": [
+        "https://ideas.repec.org/a/wly/navlog/v8y1961i1p117-122.html"
+      ]
+    }
+  ],
+  "summary": "The live Wikipedia article (read through a summariser on 11 October 2026) still calls the problem an unsolved minimisation problem and lists no result after 2004 beyond the works it cites; it mentions neither Deng, nor Treeby and Wang, nor Georgiou, nor the golden gnomon. Within the window the events are: (i) Deng, arXiv 2412.10686 (14 December 2024; v3 June 2025), a general numerical framework for any boundary shape with a sketched convergence theorem (Theorem 3), which reproduces the half-plane value and gives approximations for the strip and circle; no journal version or expert check was found, and Treeby and Wang cite it as a preprint. (ii) Temerev and Doria, arXiv 2607.24483 (27 July 2026), an exact worst-case curve and length C ≈ 1.282676025459 for one isosceles triangle, the golden gnomon, whose proof is Lean-checked only for two certificate families while the rest is prose; this matches the bullet's guaranteed-escape wording most closely, but for one shape only, and the authors disclose that large language models were used throughout, including to search for the extremal curve and to draft the arguments. (iii) Treeby and Wang, arXiv 2601.21867 (29 January 2026), show the straight line minimises expected escape time for balls in every dimension, and (iv) Georgiou, arXiv 2509.06334 (8 September 2025; STACS 2026), give the exact average-case cost ≈3.549259 for disk inspection and disprove Gluss's conjecture; both answer expected-time or average-case questions, which I record as different questions under the frozen guaranteed-escape wording (Bellman's original note did offer expected time as a reading of ‘best’, so this is a close call). Conley and Georgiou (arXiv 2411.15391, 23 November 2024) give upper bounds for the average-case variant and correct Gluss's numbers. Pre-window events establish the strip (Zalgaller 1961), the half-plane (Isbell 1957), the disk (Gross 1955, attribution disputed) and, per citers, the equilateral triangle (Coulton and Movshovich 2006, not opened, status disputed by a 2024 blog). AI: the only AI involvement found for this problem is the golden-gnomon footnote. I searched for AI results on the problem with AI model names, lab announcements, and AI-result trackers (Erdős-problem databases, the Neuron list); none mentions this problem, and the other AI-credited work I saw (the Jacobian counterexample reported in July 2026, the OpenAI Erdős unit-distance disproof) is on other problems and was not researched. Close calls: whether Deng's framework is a ‘solution’; whether expected-time or average-case results count under the guaranteed wording; whether one isosceles triangle counts for a question posed for a given shape; whether the footnote's ‘to search for the extremal curve’ is load-bearing (I record it as written and do not decide). Date check: a search snippet gave 26 July for the golden-gnomon paper, while the arXiv listing gives 27 July; I use 27 July. Wikipedia's lead says Bellman posed the problem in 1955 while its reference cites a 1956 note; that is for the posing-year pass.",
+  "competing_reading": "The golden-gnomon paper is the first exact worst-case answer to the question as the bullet words it. Read as a per-shape question (the bullet says ‘a given shape’), it would count as one resolved case; read as the general problem, it resolves nothing. Its AI disclosure makes its AI status the first AI-involved item in this record, but the footnote's ‘to search for the extremal curve’ is ambiguous about whether a model found the curve or only tested it. In the other direction, Deng's 2024 ‘general solution’ could be read as settling the general worst-case problem numerically two years before the golden gnomon, which would move the problem's status earlier; the paper's own introduction says the problem remains unsolved, and its Theorem 3 is sketched rather than proved.",
+  "what_would_settle_it": "For the golden gnomon: an independent human reading of the proof, a clean lake build and axiom audit of atemerev/gnomon, and a check of the prose-only steps named in section B.3; the authors' own statement of which model did which step. For Deng: a journal version or expert check of Theorem 3's convergence argument, and whether the framework gives exact (not approximate) routes for any new shape. For the disk and triangle attributions: the Gross 1955 RAND memorandum, Isbell 1957, and the Coulton and Movshovich 2006 text. For Georgiou: a reading of the v1 and v3 disk-avoidance argument to see whether it is proved or assumed. For the expected-time and average-case events: a ruling on whether ‘guaranteed’ in the frozen wording means the worst case only.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Bellman%27s_lost-in-a-forest_problem",
+      "title": "Bellman's lost-in-a-forest problem (Wikipedia, read via summariser)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.10686",
+      "title": "Zhipeng Deng, A General Solution to Bellman's Lost-in-a-forest Problem (abstract page, v1–v3)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2412.10686v3",
+      "title": "Deng, A General Solution to Bellman's Lost-in-a-forest Problem (HTML v3)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.21867",
+      "title": "Treeby and Wang, Straight-line optimality in Bellman's lost-in-a-forest problem for Euclidean balls (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.21867v1",
+      "title": "Treeby and Wang, Escaping the unit ball (v1 abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2601.21867v1",
+      "title": "Treeby and Wang, Escaping the unit ball (HTML v1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2601.21867v2",
+      "title": "Treeby and Wang, Straight-line optimality ... Euclidean balls (HTML v2)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2601.21867",
+      "title": "Treeby and Wang (PDF; returned binary, unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.24483",
+      "title": "Temerev and Doria, The exact solution of Bellman's lost-in-a-forest problem for the golden gnomon (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.24483v1",
+      "title": "Temerev and Doria (HTML v1; footnote and section B.3 read via fetch tool)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2607.24483",
+      "title": "Temerev and Doria (PDF; returned binary, metadata only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/atemerev/gnomon",
+      "title": "atemerev/gnomon (README; repository not cloned or built)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.06334",
+      "title": "Georgiou, Optimal Average Disk-Inspection via Fermat's Principle (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2509.06334v3",
+      "title": "Georgiou (HTML v3; acknowledgements and section 5.4 read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol364-stacs2026/LIPIcs.STACS.2026.44/LIPIcs.STACS.2026.44.pdf",
+      "title": "STACS 2026 LIPIcs 44 (PDF; returned binary, outline and metadata only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.torontomu.ca/research/news-events/2026/05/inspired-by-physics-tmu-mathematics-professor-finds-solution-to-70-year-old-problem/",
+      "title": "Toronto Metropolitan University news release on Georgiou's result (14 May 2026)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2411.15391v1",
+      "title": "Conley and Georgiou, Multi-Agent Disk Inspection (v1 abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2411.15391v4",
+      "title": "Conley and Georgiou, Disk and Partial Disk Inspection (HTML v4, first 100,000 characters)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2411.15391",
+      "title": "Conley and Georgiou (PDF; metadata only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1604.05972",
+      "title": "Langetepe and Kübel, Optimal online escape path against a certificate (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/1604.05972",
+      "title": "Langetepe and Kübel (ar5iv HTML; reference list read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://dspace.vut.cz/items/776d8768-a0c7-47a1-9d18-6b785480c892",
+      "title": "Haviger, Bellmanův Lost in a Forest Problem a jeho analýza (bachelor's thesis, 2023; DSpace item)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://dspace.vut.cz/items/0ca8ac4d-1a17-4936-99f0-acfd20669afa",
+      "title": "Analýza vybraného Bellmanova problému ‘Lost in a Forest’ (second Czech thesis; HTTP 429)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://www.futilitycloset.com/2024/09/03/the-right-track/",
+      "title": "Futility Closet, The Right Track (3 September 2024)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://old.maa.org/sites/default/files/pdf/upload_library/22/Ford/Finch645-654.pdf",
+      "title": "Finch and Wetzel, Lost in a Forest (MAA PDF; HTTP 521)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.maa.org/node/113720",
+      "title": "MAA award listing for Finch and Wetzel (HTTP 403)",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://doi.org/10.2307/4145038",
+      "title": "DOI for Finch and Wetzel (HTTP 429)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.jstor.org/stable/4145038",
+      "title": "JSTOR for Finch and Wetzel (page did not load)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.rand.org/pubs/research_memoranda/RM1243.html",
+      "title": "RAND RM-1243 (HTTP 403)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://www.rand.org/pubs/research_memoranda/RM1603.html",
+      "title": "RAND RM-1603 (page did not load)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://ideas.repec.org/a/wly/navlog/v8y1961i1p117-122.html",
+      "title": "IDEAS record for Gluss 1961 (abstract in search results)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0411518",
+      "title": "Finch and Shonder, Lost at Sea (arXiv math/0411518; search snippet)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/math/0501123",
+      "title": "Finch and Zhu, Searching for a Shoreline (arXiv math/0501123; search snippet)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2101.00120",
+      "title": "Agama, Simple close curve magnetization ... (arXiv 2101.00120; search snippet)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.21968",
+      "title": "Keller, Improved bounds for universal convex covers of unit arcs (search snippet)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.themoonlight.io/review/escaping-the-unit-ball",
+      "title": "themoonlight.io automated review of Escaping the unit ball (search snippet)",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2007.08965",
+      "title": "Escaping a Polygon (pursuit-evasion; rejected as a different problem; search snippet)",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Bellman's lost in a forest problem",
+      "\"lost in a forest\" problem Bellman 2025",
+      "\"lost in a forest\" search problem convex set arXiv",
+      "Bellman lost in a forest problem Wikipedia",
+      "Zalgaller lost in a forest equilateral triangle search optimal path",
+      "lost in a forest problem AI model proof",
+      "Bellman search problem unknown orientation shortest escape path boundary convex region new result",
+      "\"lost in a forest\" Bellman problem Finch Wetzel",
+      "\"lost in a forest\" Bellman open problem unsolved",
+      "Bellman lost in forest problem Gal search theory circle optimal",
+      "Temerev Doria golden gnomon escape path Lean 4",
+      "Alessio Doria Alexander Temerev lost in a forest",
+      "Coulton Movshovich optimal escape path equilateral triangle Besicovitch zigzag",
+      "Besicovitch zig-zag escape equilateral triangle optimal path proof",
+      "Zhipeng Deng lost-in-a-forest Bellman general solution citation",
+      "Georgiou Disk-Inspection STACS 2026 average case Fermat principle",
+      "Treeby Wang straight line expected escape time ball Kneser-Poulsen",
+      "Moser's worm problem 2025 new result proof",
+      "Gluss average case search disk inspection conjecture Bellman",
+      "\"escape path\" convex region shortest curve congruent copy not contained interior",
+      "\"golden gnomon\" Bellman lost in forest 2026",
+      "lost-in-a-forest problem large language model discovered escape path",
+      "Bellman lost in a forest AlphaEvolve OR \"GPT-5\" OR \"Gemini\" OR \"Claude\" escape path",
+      "Zhipeng Deng A General Solution Bellman lost-in-a-forest journal published 2025 2026",
+      "Finch Shonder \"Lost at sea\" straight line optimal expected escape time conjecture",
+      "Temerev lost in a forest Bellman golden gnomon blog review verification",
+      "Coulton Movshovich escape path triangle optimal proof year",
+      "Hopkins Wallis-type integral expected distance boundary ball lost at sea",
+      "Gluss 1961 \"alternative solution to the lost at sea problem\" Naval Research Logistics",
+      "Isbell 1957 lost in a forest half-plane minimax escape path",
+      "Bellman minimization problem 1955 research problems Bulletin AMS lost forest",
+      "Lean 4 formalization lost in a forest escape Bellman sorry-free repository atemerev",
+      "AI-assisted proof 2026 geometry search problem escape path Claude Fable OR \"Claude Opus 5\" OR \"GPT 5.6\"",
+      "\"Claude Fable 5\" mathematics proof open problem",
+      "AI solved open problems list 2026 geometry Wikipedia unsolved problems tracker lost in a forest"
+    ],
+    "places_checked": [
+      "Wikipedia article 'Bellman's lost-in-a-forest problem' (read via summariser)",
+      "arXiv abstract and HTML pages of 2412.10686, 2601.21867 (v1, v2), 2607.24483 (v1), 2509.06334 (v1, v3), 2411.15391 (v1, v4), 1604.05972",
+      "GitHub repository atemerev/gnomon (README)",
+      "Toronto Metropolitan University news release, 14 May 2026",
+      "Futility Closet post, 3 September 2024",
+      "VUT Brno thesis repository (Haviger 2023)",
+      "Search-result listings for: Finch and Wetzel 2004 survey; Finch and Shonder 2004; Finch and Zhu 2005; Gluss 1961; Isbell 1957; Coulton and Movshovich 2006; Movshovich and Wetzel 2011; Hopkins et al. 2024; Agama 2021; Keller 2026",
+      "AI search: lab announcements and AI-result trackers surfaced by search (Erdős-problem databases, Tao's wiki, Neuron list, OpenAI and Anthropic items), checked by snippet for any mention of this problem; none found",
+      "Model-name search for 'Claude Fable 5', 'GPT 5.6', 'Claude Opus 5' (as mathematical claims)"
+    ],
+    "dead_ends": [
+      "Finch and Wetzel 2004 survey: MAA PDF returned HTTP 521; JSTOR and DOI returned 403, 429 and a load error. Its content rests on Wikipedia's account and search-result quotations.",
+      "RAND memoranda RM-1243 and RM-1603 (Gross 1955): 403 and a load error.",
+      "Second Czech thesis 'Analýza vybraného Bellmanova problému' (dspace 0ca8ac4d): HTTP 429. Its year is unverified; one search summary called it a 2024 thesis, the other Czech thesis is dated 2023 by its DSpace record.",
+      "PDFs of 2607.24483, 2601.21867, 2509.06334, 2411.15391 and the STACS LIPIcs PDF returned raw compressed streams; only HTML renderings were read.",
+      "Searches for a Lean formalisation of the forest problem in a repository other than atemerev/gnomon: found only an unrelated Lean project (arXiv 2603.13798).",
+      "Searches for AI credit on this problem outside the golden-gnomon footnote (AlphaEvolve, GPT, Gemini, Claude in escape-path contexts): none found.",
+      "AI trackers (Bloom Erdős problems database, Tao's wiki, Ivanisvili–Seven database, Neuron list): surfaced by search, not opened; none names this problem in the snippets seen.",
+      "Escaping a Polygon (arXiv 2007.08965): a pursuit-evasion game with speed ratios, a different problem.",
+      "Golden-gnome and Bellman searches returned games, puzzles and fiction; no connection to 2026 mathematics.",
+      "Searches on Gross's first name and on Shonder's initials: not established from any source read.",
+      "Search for a published version of Deng 2412.10686 (journal or conference): none found.",
+      "Searches for later citations of 2607.24483 (Temerev and Doria): none found in web search; Google Scholar and journal citation indexes not accessible from here."
+    ]
+  },
+  "incomplete": "Not opened in full: the PDF of 2607.24483, 2601.21867, 2509.06334 and 2411.15391 (binary returned; I read HTML renderings only); the STACS 2026 LIPIcs PDF (metadata only). Not retrieved: Finch and Wetzel's survey (MAA HTTP 521; JSTOR and DOI blocked); RAND RM-1243 and RM-1603; the second Czech thesis (HTTP 429). Known only from reference lists or search snippets (marked opened: false): Gross 1955, Isbell 1957, Zalgaller 1961 and 2005, both Gluss 1961 papers, Coulton and Movshovich 2006, Movshovich and Wetzel 2011, Finch and Shonder 2004, Finch and Zhu 2005, Hopkins et al. 2024, Agama 2021, Keller 2026, and the 2007 pursuit-evasion paper (rejected). The Lean repository atemerev/gnomon was read through its README only; I did not clone, build or audit it, so the sorry-free claim is the authors' claim. The footnote quote for the golden-gnomon paper was assembled from two extracts returned by the fetch tool's rendering of the HTML; check its punctuation against arxiv.org/html/2607.24483v1 before relying on it verbatim. Section B.3 was read in part; the rest of the paper's proof was not read, so I cannot say whether the proof has gaps beyond those the authors flag. The acknowledgements and AI statements of Deng, Treeby and Wang, and Conley and Georgiou were checked only in the portions the fetch tool returned: the Conley and Georgiou v4 read covered 100,000 of 184,477 characters and the Treeby and Wang tail returned no acknowledgements. The live Wikipedia article was read through a summariser, so its wording is quoted from that summary. No citation search was possible beyond web search, so later_work_cites_it is null where I did not find a citing paper. The Jacobian-conjecture counterexample credited to Claude Fable 5 in July 2026 is a different problem and was not researched.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "assisted",
+  "resolution_direction": "confirmed",
+  "object_role": "witness",
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "temerev-doria-2026-07",
+  "no_change_found": false,
+  "event": {
+    "id": "temerev-doria-2026-07",
+    "what_happened": "Alexander Temerev and Alessio Doria, ‘The exact solution of Bellman's lost-in-a-forest problem for the golden gnomon’, arXiv 2607.24483 (v1, 27 July 2026; math.MG). Authors: Alexander Temerev (University of Geneva) and Alessio Doria (independent researcher). Claims that the shortest curve guaranteed to reach the boundary of the golden gnomon (isosceles triangle, legs 1, apex 108°, base angles 36°), from an unknown start and heading, is a symmetric seven-piece path of segments, circular shoulders and tangents, of length C = 1.282676025459…, and that this value is exact (transcendental; from one isolated quartic root). Equivalently C⁻¹G is the smallest homothetic golden-gnomon copy covering all unit arcs. Claims the first proved exact optimum for an isosceles triangle with base angle below 45°. Lean 4 verifies two finite algebraic certificate families (calibration and geometry); the repository atemerev/gnomon holds the Lean files and Python audit scripts; section B.3 states which steps are machine-checked. Footnote on the title: ‘Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.’ Read: arXiv abstract page; arXiv HTML v1 in two segments (footnote, section B.3 and the abstract as returned by the fetch tool); GitHub README. The arXiv PDF returned binary only.",
+    "date": "2026-07-27",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "Single version (v1) seen.",
+    "delivers": "For the single shape G (golden gnomon) only: the worst-case guaranteed-escape question, with a claimed exact optimal curve and length C. Restrictions: one isosceles triangle with apex 108°. The paper's Lean checks cover the two certificate families; compactness, hull surgery, planar incidence, reading the seven-piece total as the length, and Lemma A.5's planar combinatorics are stated as prose. The paper lists the equilateral triangle among previously known exact cases and claims its own isosceles result is the first proved exact answer below base angle 45°.",
+    "remains": "Every other triangle except those the paper treats as known; every other shape; the general problem for arbitrary shapes. The prose-only steps remain human-checkable arguments, not machine-checked.",
+    "checked_by": [],
+    "no_engagement_found": true,
+    "time_since_posted": "about 2.5 months",
+    "machine_checked": {
+      "system": "Lean 4",
+      "sorry_free": true,
+      "claimed_by_authors": true,
+      "url": "https://github.com/atemerev/gnomon",
+      "note": "The authors state (section B.3) that the development contains no sorry, no native_decide and no added axiom. The repository README describes AxiomAudit.lean as failing the build if any axiom beyond propext, Classical.choice and Quot.sound is used. I did not clone or build the repository, so this is the authors' and README's claim, not my verification. Lean covers only the two certificate families, not the whole proof."
+    },
+    "directly_checkable": "The seven-piece curve is given by segments, arcs and tangents with parameters from one quartic root; its length C ≈ 1.282676025459 can be recomputed from those parameters. Not done by me.",
+    "doubts": "(1) The authors say large language models were used ‘throughout this work’, including ‘to search for the extremal curve’ and ‘to draft the arguments given here’; the prose argument was drafted with model help, and the footnote does not say which model did which step. (2) Only the certificate parts are Lean-checked; compactness, hull surgery, planar incidence, the length reading and Lemma A.5's combinatorics are prose. (3) No independent human reading or expert write-up found as of 11 October 2026. (4) Date: a search snippet said 26 July; the arXiv listing gives 27 July 2026, which I use. (5) The paper's claim that equilateral triangles are already solved conflicts with the futilitycloset (2024) statement that they are not; I could not resolve that from the 2006 paper, which I did not open. (6) The second author is an independent researcher with no institutional affiliation listed.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Answers the worst-case guaranteed-escape question for one shape in the direction the question points: a shortest guaranteed curve exists, is a seven-piece curve, and has length ≈1.2827. No counterexample; no contradiction of the problem's assertions.",
+    "object": "A symmetric seven-piece curve (segments, circular shoulders and tangents) for the golden gnomon G (isosceles, legs 1, apex 108°): the shortest curve guaranteed to reach the boundary from any start and heading, of length C = 1.282676025459…, claimed exact. C is the isolated root-derived constant, and C⁻¹G is the smallest homothetic copy of G covering all unit arcs. Explicit up to one quartic root, which Lean certifies.",
+    "people": [
+      "Alexander Temerev",
+      "Alessio Doria"
+    ],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "Claude Fable 5",
+          "what_it_did": "Named in the authors' footnote as one of three large language models ‘used throughout this work’, to ‘search for the extremal curve’, ‘draft the arguments given here’ and ‘write the accompanying Lean development’. The footnote credits the three together and does not assign a step to a particular model.",
+          "basis_quote": "Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.",
+          "quote_url": "https://arxiv.org/html/2607.24483v1"
+        },
+        {
+          "name": "GPT 5.6 Sol",
+          "what_it_did": "Named in the same footnote with the same three uses (search for the extremal curve; drafting the arguments; writing the Lean development). No step is assigned to this model individually.",
+          "basis_quote": "Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.",
+          "quote_url": "https://arxiv.org/html/2607.24483v1"
+        },
+        {
+          "name": "Claude Opus 5",
+          "what_it_did": "Named in the same footnote with the same three uses (search for the extremal curve; drafting the arguments; writing the Lean development). No step is assigned to this model individually.",
+          "basis_quote": "Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.",
+          "quote_url": "https://arxiv.org/html/2607.24483v1"
+        }
+      ],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/html/2607.24483v1",
+        "https://arxiv.org/abs/2607.24483"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2607.24483",
+      "https://arxiv.org/html/2607.24483v1",
+      "https://github.com/atemerev/gnomon"
+    ]
+  },
+  "credited_humans": [
+    "Alexander Temerev",
+    "Alessio Doria"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2607.24483",
+    "https://arxiv.org/html/2607.24483v1",
+    "https://github.com/atemerev/gnomon"
+  ],
+  "ai": {
+    "systems": [
+      "Claude Fable 5",
+      "GPT 5.6 Sol",
+      "Claude Opus 5"
+    ],
+    "from_event": "temerev-doria-2026-07",
+    "basis_quote": "Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.",
+    "none_found": false,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "gross-1955",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": "witness"
+      },
+      {
+        "id": "isbell-1957",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": "witness"
+      },
+      {
+        "id": "zalgaller-1961",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": "witness"
+      },
+      {
+        "id": "gluss-1961-expected",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Conley and Georgiou report Gluss's published numbers as mis-evaluated.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gluss-1961-minimax-circle",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "finch-shonder-2004",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "finch-zhu-2005",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "finch-wetzel-2004-survey",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "coulton-movshovich-2006",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Content known only through citers; a 2024 blog calls the equilateral case unresolved and Wikipedia omits it.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": "witness"
+      },
+      {
+        "id": "langetepe-kubel-2016",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "zalgaller-2005",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "movshovich-wetzel-2011",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "haviger-2023-thesis",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hopkins-2024",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "agama-2021",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "deng-2024-12",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Title claims a general solution while the paper's own introduction calls the problem unsolved; the convergence theorem is sketched and its compactness hypothesis is not imposed by the definition; it delivers only numerical approximations of known cases.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "conley-georgiou-2024-11",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "georgiou-2025-09",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "The crucial disk-avoidance step is established numerically and later versions frame it as an assumption.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "treeby-wang-2026-01",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "temerev-doria-2026-07",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "Large language models were used throughout this work—Claude Fable 5, GPT 5.6 Sol, and Claude Opus 5—to search for the extremal curve, to draft the arguments given here, and to write the accompanying Lean development.",
+        "ai_systems_credited": [
+          "Claude Fable 5",
+          "GPT 5.6 Sol",
+          "Claude Opus 5"
+        ],
+        "direction": "confirmed",
+        "object_role": "witness"
+      },
+      {
+        "id": "keller-2026-09",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks for the shortest guaranteed (worst-case) escape route for a given shape; a solution for one shape is a case. The golden-gnomon paper is the only post-snapshot event giving an exact worst-case answer, so it is a case; it is unreviewed because only certificate families are Lean-checked and no human has read it (F7). Its AI role is assisted rather than none because the footnote says the models were used 'to search for the extremal curve' — the construction in the result — and to draft the arguments; it is not generated because the footnote does not say the models produced the proof, and the human authors frame and own the work. Expected-time and average-case results (Treeby–Wang, Georgiou, Conley–Georgiou, Finch–Shonder, Gluss) answer a changed criterion and are variants. Deng's framework gives no new exact route and only a sketched convergence theorem, so it is none. Pre-snapshot disk, half-plane, strip and equilateral results are cases with witness routes.",
+    "doubts": "Close call on Temerev–Doria AI role (assisted vs generated): the footnote does not assign the discovery of the curve to models or humans. Expected-time results would be cases rather than variants if 'guaranteed' were read loosely; I followed the statement's wording. Hopkins 2024 is year-only, so its date cannot be placed.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "temerev-doria-2026-07",
+      "ai_role": "assisted",
+      "ai_from": "temerev-doria-2026-07",
+      "resolution_direction": "confirmed",
+      "object_role": "witness",
+      "ai_systems_credited": [
+        "Claude Fable 5",
+        "GPT 5.6 Sol",
+        "Claude Opus 5"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

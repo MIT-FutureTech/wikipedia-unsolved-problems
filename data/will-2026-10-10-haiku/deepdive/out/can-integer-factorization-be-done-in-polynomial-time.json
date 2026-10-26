@@ -1,0 +1,906 @@
+{
+  "key": "can-integer-factorization-be-done-in-polynomial-time",
+
+  "nothing_found": false,
+  "outcome": "Nothing in the window settles or moves the classical question. No classical polynomial-time factoring algorithm has appeared, and no accepted proof that factoring is outside P has appeared either. In-window events are: an unrefereed 2024 preprint claiming factoring is not in P; conditional or subexponential factoring methods (2024, 2025); quantum resource and correctness results (quantum only); a withdrawn quantum claim about LWE, which is not factoring; a 2025 preprint claiming a sqrt(n) method, which is not polynomial in the bit length; and 2026 GNFS engineering records (RSA-260 by Cognition using its Devin agent; RSA-896 by Steve Weis using Claude) whose authors say they do not improve the algorithm.",
+
+  "problem_asks": "Can integer factorization be done in polynomial time? Parts: (1) Is there an algorithm that, given any positive integer N with n bits, outputs its prime factorization (or a nontrivial factor when N is composite) in time polynomial in n, on every input? (2) The statement names no machine model and no randomisation. Read literally it asks the unqualified question. The usual reading in the field is classical (non-quantum) computation, so the classical case is the one the bullet is taken to ask. The quantum case is a separate question with a positive answer (Shor, 1994), recorded below as an event. (3) The decision version (does N have a factor in a given range?) is part of the same question, because the search and decision versions are polynomially related.",
+
+  "events": [
+    {
+      "id": "shor-1994-quantum",
+      "what_happened": "Peter W. Shor, polynomial-time randomised algorithms for factoring integers and computing discrete logarithms on a hypothetical quantum computer. Per the arXiv comments field, the first version appeared in the Proceedings of the 35th Annual Symposium on Foundations of Computer Science (Santa Fe, 20–22 Nov 1994). The arXiv version quant-ph/9508027 (v1 30 Aug 1995, withdrawn; v2 25 Jan 1996, current) is an expanded version. Journal reference SIAM J. Sci. Statist. Comput. 26 (1997) 1484. Opened the arXiv abstract page; did not read the full text.",
+      "date": "1994-11",
+      "precision": "month",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv quant-ph/9508027: v1 30 Aug 1995 (withdrawn); v2 25 Jan 1996 (current). Journal: SIAM J. Sci. Statist. Comput. 26 (1997) 1484.",
+      "delivers": "A randomised polynomial-time factoring algorithm, but only on a quantum computer (Shor's model); also covers discrete logarithms. Answers the question affirmatively for quantum computation and says nothing about classical computation.",
+      "remains": "Whether factoring can be done in polynomial time on a classical machine, which is the unqualified question as the field usually reads it.",
+      "checked_by": [
+        {
+          "who": "SIAM Journal on Scientific and Statistical Computing (journal of record)",
+          "qualification": "Refereed journal in the field",
+          "what_they_did": "Published the expanded version (SIAM J. Sci. Statist. Comput. 26 (1997) 1484, per the arXiv journal reference)",
+          "where": "https://arxiv.org/abs/quant-ph/9508027",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 31 years since the 1994 conference version.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative for quantum computation; cuts toward yes only under the quantum model. Not a classical result and no counterexample.",
+      "object": null,
+      "people": ["Peter W. Shor"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/quant-ph/9508027"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/quant-ph/9508027", "title": "Shor, Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer (arXiv:quant-ph/9508027)", "type": "preprint", "opened": true},
+        {"url": "https://en.wikipedia.org/wiki/Integer_factorization", "title": "Integer factorization (Wikipedia, current lead and complexity section)", "type": "encyclopedia", "opened": true}
+      ]
+    },
+    {
+      "id": "carella-2008-note-iv",
+      "what_happened": "N. A. Carella, 'Note on Integer Factoring Methods IV' (arXiv:0802.4242). The abstract says the note 'continues the theoretical development of deterministic integer factorization algorithms based on systems of polynomials equations' and that 'the main result establishes a new deterministic time complexity bench mark in integer factorization'. No bound is stated in the abstract. Opened the abstract page only.",
+      "date": "2008-02-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 28 Feb 2008; v2 25 Sep 2008 (current; comments 'New Version').",
+      "delivers": "Unclear. The abstract claims a deterministic complexity benchmark but states no bound, so I cannot tell whether it claims polynomial time.",
+      "remains": "All of the bullet, as far as the abstract shows.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "About 18 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The abstract gives no bound and no algorithm. I did not read the body. Its status is unknown.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unclear: a claimed benchmark with no stated bound.",
+      "object": null,
+      "people": ["N. A. Carella"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/0802.4242v2"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/0802.4242v2", "title": "Carella, Note on Integer Factoring Methods IV (arXiv:0802.4242)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "shipilevsky-2012-integer-factorization-in-p",
+      "what_happened": "Yuly Shipilevsky, 'Integer Factorization is in P' (Optimization Online, posted 31 Aug 2012, updated 7 Apr 2014). The landing-page abstract claims 'a polynomial-time algorithm for integer factorization, wherein integer factorization is reduced to solution of a convex polynomial-time integer maximization problem'. The page mentions no verification, acceptance, erratum or withdrawal. Opened the landing page; did not open the PDF.",
+      "date": "2012-08-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Posted 31 Aug 2012; updated 7 Apr 2014 (the page describes no change).",
+      "delivers": "If correct, a deterministic polynomial-time classical factoring algorithm, which would answer the bullet affirmatively for classical computation. Not checked by anyone I found.",
+      "remains": "Everything, unless the reduction is valid and the optimisation subproblem is polynomial in general.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "14 years at 11 October 2026.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(a) No review, endorsement or refutation found in my searches. (b) A search snippet of De Loera, Hemmecke, Onn, Rothblum and Weismantel says convex integer maximization is intractable even for fixed d, since it contains linear integer programming, which is NP-hard for d=1. The reduction would therefore have to avoid the general problem. I did not open that paper. (c) A search snippet says the PDF abstract reads 'minimization', while the landing page reads 'maximization'. I did not open the PDF to resolve this. (d) A 2012 Lipton post titled 'How not to prove integer factoring is in P' appeared in one search; I could not open it or confirm that it concerns this paper.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims yes for classical computation, if correct. No accepted support found.",
+      "object": null,
+      "people": ["Yuly Shipilevsky"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://optimization-online.org/2012/08/3591/"]
+      },
+      "sources": [
+        {"url": "https://optimization-online.org/2012/08/3591/", "title": "Shipilevsky, Integer Factorization is in P (Optimization Online, landing page)", "type": "preprint", "opened": true},
+        {"url": "https://optimization-online.org/wp-content/uploads/2012/08/3591.pdf", "title": "Shipilevsky, Integer Factorization is in P (PDF)", "type": "preprint", "opened": false}
+      ]
+    },
+    {
+      "id": "agrawal-saxena-srivastava-2016",
+      "what_happened": "Manindra Agrawal, Nitin Saxena and Shubham Sahai Srivastava, 'Integer Factoring Using Small Algebraic Dependencies', MFCS 2016 (LIPIcs vol. 58, pp. 6:1–6:14, Schloss Dagstuhl; DOI 10.4230/LIPIcs.MFCS.2016.6). Abstract: 'Our algorithm is polynomial time (on number theoretic conjectures) if we know a small algebraic dependence between p,q' for semiprimes n = pq. It adapts AKS-style comparison of Frobenius maps over F_p and F_q. Opened the Dagstuhl record (abstract only).",
+      "date": "2016-08",
+      "precision": "month",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "LIPIcs publication (Dagstuhl record dated 19 Aug 2016). Earlier arXiv or ePrint versions not checked.",
+      "delivers": "Polynomial time for semiprimes pq when a small algebraic dependence between p and q is supplied, conditional on unnamed number-theoretic conjectures. Restricted to inputs with that extra information.",
+      "remains": "Unconditional polynomial-time factoring of general integers.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "About 10 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Conditional on conjectures the abstract does not name, and restricted to inputs with a known algebraic dependence. The full PDF (host copy at cse.iitk.ac.in, per search) was not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Conditional and restricted. Cuts neither way on the bullet as stated.",
+      "object": null,
+      "people": ["Manindra Agrawal", "Nitin Saxena", "Shubham Sahai Srivastava"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2016.6"]
+      },
+      "sources": [
+        {"url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2016.6", "title": "Agrawal, Saxena, Srivastava, Integer Factoring Using Small Algebraic Dependencies (LIPIcs MFCS 2016)", "type": "journal", "opened": true}
+      ]
+    },
+    {
+      "id": "morain-renault-smith-2018",
+      "what_happened": "François Morain, Guénaël Renault and Benjamin Smith, 'Deterministic factoring with oracles' (arXiv:1802.08444). Abstract: factoring can be done deterministically in polynomial time given φ(N) under certain size conditions on the prime factors (for example, squarefree N with a prime factor above √N). The paper also studies sum-of-divisors, Carmichael and order oracles. Per a search snippet (not opened), it was published in Applicable Algebra in Engineering, Communication and Computing 34 (2023) 663–690. Opened the arXiv abstract page.",
+      "date": "2018-02-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 23 Feb 2018; v2 13 Aug 2021 (current). No journal reference on the arXiv page.",
+      "delivers": "Deterministic polynomial-time factoring given the totient φ(N) as an oracle, under size conditions. Conditional on extra information, so not an unconditional algorithm.",
+      "remains": "Unconditional factoring, and general N without the φ oracle.",
+      "checked_by": [
+        {
+          "who": "Applicable Algebra in Engineering, Communication and Computing (journal)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published 2023, per search snippet only (the journal page was not opened)",
+          "where": "https://arxiv.org/abs/1802.08444",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "About 8.5 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Conditional on an oracle. No direct bearing on the unconditional question.",
+      "object": null,
+      "people": ["François Morain", "Guénaël Renault", "Benjamin Smith"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1802.08444"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/1802.08444", "title": "Morain, Renault, Smith, Deterministic factoring with oracles (arXiv:1802.08444)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "gidney-ekera-2019",
+      "what_happened": "Craig Gidney and Martin Ekerå, 'How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits' (arXiv:1905.09749). Quantum resource estimate for Shor-type factoring. The abstract says the construction's spacetime volume is 'a hundredfold less than comparable estimates from earlier works'; the 20 million qubit and 8 hour figures appear in the title. Journal version in Quantum (2021, per search snippet). Opened the arXiv abstract page.",
+      "date": "2019-05-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 23 May 2019; v2 5 Dec 2019; v3 13 Apr 2021.",
+      "delivers": "A resource estimate for quantum factoring of 2048-bit RSA under stated hardware assumptions. Not a new algorithm with new complexity, and not classical.",
+      "remains": "The classical question. The estimate says nothing about complexity.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "About 7 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral for complexity. Quantum resource estimate.",
+      "object": null,
+      "people": ["Craig Gidney", "Martin Ekerå"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1905.09749"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/1905.09749", "title": "Gidney, Ekerå, How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits (arXiv:1905.09749)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "schnorr-2021-svp-factoring",
+      "what_happened": "Claus Peter Schnorr, 'Fast Factoring Integers by SVP Algorithms' (IACR ePrint 2021/232, received 2 Mar 2021; corrected version ePrint 2021/933, received 9 Jul 2021, not opened). The abstract, as opened, claims to factor N≈2^400 with lattice dimension 48 and N≈2^800 with dimension 96, with operation counts it describes as beating the quadratic and number field sieves, and ends 'This destroys the RSA cryptosystem.' ePrint 2021/232 was withdrawn on 5 Jun 2021; the record gives no reason. Search snippets (not opened) say the claimed dimension scales as O(n/log n), and that Léo Ducas published an implementation whose results did not support the claims.",
+      "date": "2021-03-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "ePrint 2021/232: received 2 Mar 2021; revised by the editors 9 Apr 2021 at the author's request (basis-matrix diagonal changed); withdrawn 5 Jun 2021. Corrected version ePrint 2021/933, received 9 Jul 2021.",
+      "delivers": "Claims a lattice (SVP) method that factors specific sizes, and by extension RSA. On the abstract as opened, the claims are for specific sizes and operation counts, not a polynomial bound. The O(n/log n) dimension scaling in a snippet, if it were the claim, would need checking before it could bear on polynomial time.",
+      "remains": "A polynomial-time algorithm for general integers.",
+      "checked_by": [
+        {
+          "who": "Léo Ducas",
+          "qualification": "Lattice-cryptography researcher",
+          "what_they_did": "Published an open-source implementation, per a search snippet. The snippet says the experiments did not support the claims at practical sizes.",
+          "where": "Not opened. Search snippets only (cryptography.fireside.fm/14 appeared as a result).",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "5 years 7 months at 11 October 2026.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Withdrawn (ePrint 2021/232, 5 Jun 2021, no reason given; opened). A corrected version exists (2021/933). Snippet-level reports that experiments fail at practical sizes (Ducas; a 2023 arXiv comparison, arXiv:2308.07804, not opened).",
+      "later_work_cites_it": null,
+      "withdrawn": {"what": "ePrint 2021/232 withdrawn; corrected version posted as ePrint 2021/933", "date": "2021-06-05", "by": "unknown (no reason on the record)", "sources": ["https://eprint.iacr.org/2021/232"]},
+      "direction": "Claims a classical lattice method breaks RSA. Not a polynomial-time claim on the abstract as opened. Withdrawn, and snippets report failed experiments.",
+      "object": null,
+      "people": ["Claus Peter Schnorr"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://eprint.iacr.org/2021/232", "https://eprint.iacr.org/2021/933"]
+      },
+      "sources": [
+        {"url": "https://eprint.iacr.org/2021/232", "title": "Schnorr, Fast Factoring Integers by SVP Algorithms (ePrint 2021/232, withdrawn)", "type": "preprint", "opened": true},
+        {"url": "https://eprint.iacr.org/2021/933", "title": "Schnorr, Fast Factoring Integers by SVP Algorithms, corrected (ePrint 2021/933)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "hittmeir-2022-subset-sum",
+      "what_happened": "Markus Hittmeir, 'Integer Factorization as Subset-Sum Problem' (arXiv:2205.10074, submitted 20 May 2022, v1 only). Abstract: generalises a sieve to obtain 'a polynomial-time reduction from integer factorization to a specific instance of the multiple-choice subset-sum problem'. The practical results are improved special-purpose runtimes, such as Fermat factorization by a large subexponential factor. Opened the arXiv abstract page.",
+      "date": "2022-05-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (20 May 2022).",
+      "delivers": "A polynomial-time reduction to a subset-sum instance. This is not a polynomial-time factoring algorithm unless that instance is solvable in polynomial time, which the abstract does not claim.",
+      "remains": "Everything, including solving the subset-sum instance in polynomial time.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "About 4 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral: a reduction, not an algorithm.",
+      "object": null,
+      "people": ["Markus Hittmeir"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2205.10074"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2205.10074", "title": "Hittmeir, Integer factorization as subset-sum problem (arXiv:2205.10074)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "regev-2023-quantum",
+      "what_happened": "Oded Regev, 'An Efficient Quantum Factoring Algorithm' (arXiv:2308.06572). Abstract: circuits of Õ(n^{3/2}) gates, run about √n+4 times, followed by polynomial-time classical post-processing with lattice reduction. Correctness relies on a number-theoretic heuristic assumption. Opened the arXiv abstract page; the heuristic statement is in the full text, which I did not read.",
+      "date": "2023-08-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 12 Aug 2023; v2 17 Aug 2023; v3 7 Jan 2024 (current; the window opens after this).",
+      "delivers": "A quantum factoring algorithm with fewer gates than Shor's, conditional on a heuristic assumption. Quantum only.",
+      "remains": "Unconditional correctness (addressed by Pilatte, 2024); the classical question.",
+      "checked_by": [
+        {
+          "who": "Cédric Pilatte (University of Oxford)",
+          "qualification": "Analytic number theorist",
+          "what_they_did": "Proved a version of the heuristic number-theoretic conjecture, so Regev's algorithm and later variants are unconditionally correct",
+          "where": "https://arxiv.org/abs/2404.16450",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 3 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Correctness was conditional on a heuristic; the condition was removed by Pilatte (2024). Regev's own abstract says it is 'currently not clear' whether the algorithm improves physical implementations.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Quantum poly-size circuits for factoring; cuts toward quantum polynomial time only. Not a classical result.",
+      "object": null,
+      "people": ["Oded Regev"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2308.06572"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2308.06572", "title": "Regev, An Efficient Quantum Factoring Algorithm (arXiv:2308.06572)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "ragavan-vaikuntanathan-2023",
+      "what_happened": "Seyoon Ragavan and Vinod Vaikuntanathan, 'Space-Efficient and Noise-Robust Quantum Factoring' (arXiv:2310.00899; earlier title 'Optimizing Space in Regev's Factoring Algorithm'; CRYPTO 2024 per the comments field). Abstract: a quantum factoring circuit with O(n log n) qubits and O(n^{3/2} log n) gates, run O(√n) times with Regev's classical post-processing. Also a post-processing that tolerates a constant fraction of corrupted runs. The abstract does not say whether the result is unconditional. Opened the arXiv abstract page.",
+      "date": "2023-10-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 2 Oct 2023; v2 15 Feb 2024; v3 16 Feb 2024; v4 26 Jun 2024; v5 30 Apr 2025 (current).",
+      "delivers": "Quantum factoring circuit with fewer qubits and the same gate order as Regev's, plus noise tolerance. Quantum only.",
+      "remains": "The classical question.",
+      "checked_by": [
+        {
+          "who": "CRYPTO 2024 programme committee (IACR)",
+          "qualification": "Refereed conference in cryptography",
+          "what_they_did": "Accepted the paper, per the arXiv comments field. Proceedings not opened.",
+          "where": "https://arxiv.org/abs/2310.00899",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "About 3 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Quantum resource improvement; cuts toward quantum polynomial time only.",
+      "object": null,
+      "people": ["Seyoon Ragavan", "Vinod Vaikuntanathan"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2310.00899"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2310.00899", "title": "Ragavan, Vaikuntanathan, Space-Efficient and Noise-Robust Quantum Factoring (arXiv:2310.00899)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "ekera-gartner-2023",
+      "what_happened": "Martin Ekerå and Johan Gärtner, 'Extending Regev's factoring algorithm to compute discrete logarithms' (preprint Nov 2023; PQCrypto 2024, DOI 10.1007/978-3-031-62746-0_10, presented 14 Jun 2024). Per search snippets only, not opened: a quantum extension to discrete logarithms and orders, with factoring via order finding, relying on a slightly stronger heuristic than Regev's.",
+      "date": "2023-11",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "PQCrypto 2024 version per search snippet; the arXiv record was not opened.",
+      "delivers": "Per snippet: a quantum method for discrete logarithms and, by order finding, for factoring; conditional on a stronger heuristic. Quantum only.",
+      "remains": "The classical question.",
+      "checked_by": [
+        {
+          "who": "PQCrypto 2024 programme committee (Springer LNCS)",
+          "qualification": "Refereed conference in post-quantum cryptography",
+          "what_they_did": "Published the paper (per search snippet)",
+          "where": "https://doi.org/10.1007/978-3-031-62746-0_10",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "About 3 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Recorded from search snippets only. The heuristic gap was later closed by Pilatte (2024).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Quantum extension; cuts toward quantum polynomial time only.",
+      "object": null,
+      "people": ["Martin Ekerå", "Johan Gärtner"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://doi.org/10.1007/978-3-031-62746-0_10"]
+      },
+      "sources": [
+        {"url": "https://doi.org/10.1007/978-3-031-62746-0_10", "title": "Ekerå, Gärtner, Extending Regev's Factoring Algorithm to Compute Discrete Logarithms (PQCrypto 2024; not opened)", "type": "journal", "opened": false}
+      ]
+    },
+    {
+      "id": "chevignard-2024-qubits",
+      "what_happened": "Clémence Chevignard, Pierre-Alain Fouque and André Schrottenloher, 'Reducing the Number of Qubits in Quantum Factoring' (IACR ePrint 2024/222; received 13 Feb 2024; last of three revisions 31 Dec 2025). Abstract, as fetched: factoring n-bit RSA moduli with about n/2+o(n) logical qubits; for RSA-2048, '1730 logical qubits and 2^{36} Toffoli gates will suffice for a single run' and 'the algorithm needs on average 40 runs'. An IACR news item of 16 Feb 2024 (search snippet, not opened) gave earlier estimates of under 1700 qubits, 2^36 Toffoli gates and 60 runs. Opened the ePrint abstract page; did not read the PDF.",
+      "date": "2024-02-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Received 13 Feb 2024; three revisions, last 31 Dec 2025. Earlier estimate of 60 runs (IACR news item 16 Feb 2024, snippet) against 40 in the current abstract.",
+      "delivers": "A quantum factoring circuit with fewer logical qubits (about n/2+o(n)), plus RSA-2048 resource estimates. Quantum resource result only.",
+      "remains": "All classical questions. A resource estimate is not a complexity result.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "About 2 years 8 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "One fetch summary describes the resulting algorithm as 'classical' and 'implemented and tested'. That conflicts with the title and the quantum context, and I could not check the PDF. I read it as a quantum-circuit result. The run count changed between versions (60 to 40).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Quantum resource reduction. Neutral for classical complexity.",
+      "object": null,
+      "people": ["Clémence Chevignard", "Pierre-Alain Fouque", "André Schrottenloher"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://eprint.iacr.org/2024/222"]
+      },
+      "sources": [
+        {"url": "https://eprint.iacr.org/2024/222", "title": "Chevignard, Fouque, Schrottenloher, Reducing the Number of Qubits in Quantum Factoring (ePrint 2024/222)", "type": "preprint", "opened": true},
+        {"url": "https://iacr.org/news/item/22521", "title": "IACR News item, 16 Feb 2024 (search snippet only)", "type": "news", "opened": false}
+      ]
+    },
+    {
+      "id": "garimella-2024-not-in-p",
+      "what_happened": "Rama Garimella, 'Integer Factorization Is Not in P: Logical Proof' (EasyChair Preprint 12579). Version 1 dated 18 Mar 2024; version 2 dated 1 Jul 2024, which adds a subsection 'Towards determination of NP COMPLETENESS of INTEGER FACTORIZATION PROBLEM'. Abstract, as fetched: using Ramanujan's theorem, 'the unique factorization of Highly Composite Number cannot be performed using a polynomial time algorithm'; because the class of Highly Composite Numbers is countably infinite, 'integer factorization is NOT in class P'. Opened the EasyChair landing page and versions page.",
+      "date": "2024-03-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 18 Mar 2024 (EasyChair 12579); v2 1 Jul 2024 (adds NP-completeness subsection).",
+      "delivers": "Claims a negative answer for general integer factorization (not in P). The derivation shown concerns only the highly composite numbers. The abstract as fetched reaches the general conclusion from that subfamily and from countability.",
+      "remains": "All of the bullet. The argument as summarised does not reach general integers.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "About 2 years 7 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(a) The argument as summarised concerns only highly composite numbers. The abstract and landing page show no step from that subfamily to arbitrary integers. (b) Countability of a class is not, on its face, a complexity-theoretic property. (c) The page gives Ramanujan's theorem only as the basis of the claim; the theorem and the application are not stated. (d) Not peer reviewed; EasyChair preprints are not refereed. (e) A search snippet lists a Mahindra University (Hyderabad) affiliation; the EasyChair page I opened lists no affiliation. (f) Version 2 adds a subsection 'Towards determination of NP COMPLETENESS', which, per a search snippet, treats NP-completeness as not yet determined; the main claim about P is unaffected by that subsection.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims a negative answer, cutting against polynomial-time factoring. Unvetted.",
+      "object": null,
+      "people": ["Rama Garimella"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://easychair.org/publications/preprint/xrGZ"]
+      },
+      "sources": [
+        {"url": "https://easychair.org/publications/preprint/xrGZ", "title": "Garimella, Integer Factorization Is Not in P: Logical Proof (EasyChair landing page)", "type": "preprint", "opened": true},
+        {"url": "https://easychair.org/publications/preprint/xrGZ/versions", "title": "Garimella, same preprint, version history", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "chen-2024-lwe-withdrawn",
+      "what_happened": "Yilei Chen, 'Quantum Algorithms for Lattice Problems' (IACR ePrint 2024/555; received 10 Apr 2024, revised 19 Apr 2024). The abstract claimed a polynomial-time quantum algorithm for LWE with polynomial modulus-noise ratios, and through Regev's reductions, quantum algorithms for GapSVP and SIVP. On 18 Apr 2024 the author's note states that 'Step 9 of the algorithm contains a bug, which I don't know how to fix' and that the claim 'does not hold'. This is about LWE, not factoring. Opened the ePrint page.",
+      "date": "2024-04-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Received 10 Apr 2024; revised 19 Apr 2024 (after the bug note of 18 Apr).",
+      "delivers": "Claimed a quantum polynomial-time algorithm for LWE in a parameter regime. Not factoring. The claim is withdrawn by the author.",
+      "remains": "All of the bullet. The claim concerns a different problem.",
+      "checked_by": [
+        {
+          "who": "Hongxun Wu and Thomas Vidick",
+          "qualification": "Researchers in quantum computing and theoretical computer science",
+          "what_they_did": "Found the bug in Step 9 during informal review, per The Quantum Insider",
+          "where": "https://thequantuminsider.com/2024/04/20/update-scientists-spot-mistake-in-proposed-pqc-cracking-algorithm/ (search snippet, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 2.5 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The claim is withdrawn by the author's note. The ePrint abstract snippet in search still showed the original claim, so the current version should be checked before citation.",
+      "later_work_cites_it": null,
+      "withdrawn": {"what": "Author note: Step 9 contains a bug the author cannot fix; the claim of a polynomial-time quantum algorithm for LWE 'does not hold'. The rest of the paper stays online.", "date": "2024-04-18", "by": "author", "sources": ["https://eprint.iacr.org/2024/555"]},
+      "direction": "Claimed quantum poly-time for LWE, now withdrawn. A neighbouring problem; no bearing on factoring beyond shared lattice tools.",
+      "object": null,
+      "people": ["Yilei Chen", "Hongxun Wu", "Thomas Vidick"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://eprint.iacr.org/2024/555"]
+      },
+      "sources": [
+        {"url": "https://eprint.iacr.org/2024/555", "title": "Chen, Quantum Algorithms for Lattice Problems (ePrint 2024/555)", "type": "preprint", "opened": true},
+        {"url": "https://thequantuminsider.com/2024/04/20/update-scientists-spot-mistake-in-proposed-pqc-cracking-algorithm/", "title": "The Quantum Insider, Update: Scientists Spot Mistake in Proposed PQC-Cracking Algorithm (search snippet only)", "type": "news", "opened": false}
+      ]
+    },
+    {
+      "id": "pilatte-2024-unconditional",
+      "what_happened": "Cédric Pilatte, 'Unconditional correctness of recent quantum algorithms for factoring and computing discrete logarithms' (arXiv:2404.16450, 25 Apr 2024; also IACR ePrint 2024/629 per search). Proves a version of the number-theoretic conjecture on which Regev's algorithm and its variants depend, using zero-density estimates, so those quantum algorithms are unconditionally correct. Extends the same to the Ekerå–Gärtner discrete-log algorithm. Journal version: Forum of Mathematics, Pi 14 (2026) e5, DOI 10.1017/fmp.2025.10023. Opened the arXiv abstract page.",
+      "date": "2024-04-25",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 25 Apr 2024; v2 11 Dec 2025; v3 24 Aug 2026 (current; 'Minor typos corrected'). Journal: Forum Math. Pi 14 (2026) e5; received 8 May 2024, accepted 8 Oct 2025 (search snippet of the journal record, not opened).",
+      "delivers": "Makes Regev's quantum factoring algorithm and its later variants unconditionally correct. Quantum only. Says nothing about classical factoring.",
+      "remains": "Classical polynomial-time factoring, and the bullet read classically.",
+      "checked_by": [
+        {
+          "who": "Forum of Mathematics, Pi (Cambridge University Press)",
+          "qualification": "Refereed mathematics journal",
+          "what_they_did": "Accepted for publication 8 Oct 2025 (per search snippet of the journal record; not opened)",
+          "where": "https://doi.org/10.1017/fmp.2025.10023",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 2.5 years since v1.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Removes a conditional assumption from quantum factoring. Cuts toward unconditional quantum polynomial time; not classical.",
+      "object": null,
+      "people": ["Cédric Pilatte"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2404.16450"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2404.16450", "title": "Pilatte, Unconditional correctness of recent quantum algorithms for factoring and computing discrete logarithms (arXiv:2404.16450)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "murru-salvatori-2024-regulator",
+      "what_happened": "Nadir Murru and Giulia Salvatori, 'Integer Factorization via Continued Fractions and Quadratic Forms' (arXiv:2409.03486, math.NT, 21 pages). Builds on SQUFOF and Elia's work. The abstract gives complexity O(exp((3/√8)√(ln N ln ln N))), beating classical SQUFOF and CFRAC, and says the method is polynomial-time 'provided knowledge of a (not too large) multiple of the regulator of Q(√N)'. Salvatori gave a seminar talk (IRIF slides dated 4 Feb 2025, per search URL; not opened). Opened the arXiv abstract page.",
+      "date": "2024-09-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 5 Sep 2024; v2 20 Jan 2025 (current). No journal reference on the arXiv page.",
+      "delivers": "A subexponential method in general. Polynomial time only when a regulator multiple is supplied as extra input. Conditional on that input.",
+      "remains": "Polynomial time without the regulator input. The general bound is subexponential.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "About 2 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The polynomial case needs the regulator multiple. The general complexity is subexponential per the abstract. No peer review or journal version shown on the arXiv page.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Conditional and subexponential. Neither way on the unconditional polynomial-time question.",
+      "object": null,
+      "people": ["Nadir Murru", "Giulia Salvatori"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2409.03486v2"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2409.03486v2", "title": "Murru, Salvatori, Integer Factorization via Continued Fractions and Quadratic Forms (arXiv:2409.03486)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "wang-2024-dwave-rsa2048",
+      "what_happened": "Chao Wang, Jingjing Yu, Zhi Pei, Qidi Wang and Chunlei Hong, 'A First Successful Factorization of RSA-2048 Integer by D-Wave Quantum Computer', Tsinghua Science and Technology 30(3) (June 2025) 1270–1282. The abstract claims 'the first successful factorization of RSA-2048 by D-Wave quantum computer' for 'a class of special integers' N = p×q, and that the experiment 'verifies that the QA algorithm based on D-Wave is an effective method to attack RSA'. Published online 30 Dec 2024. Press coverage on 7 Jan 2025 (postquantum) says the target was 'a specially structured 2048-bit semiprime chosen to be extremely easy'. Opened the sciopen record and the press article.",
+      "date": "2024-12-30",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "Received 21 Nov 2023; revised 25 Jan 2024; accepted 26 Jan 2024; published online 30 Dec 2024; issue June 2025. The earliest public version I found is the 30 Dec 2024 publication.",
+      "delivers": "Claims one factorisation of a 2048-bit integer from a special class by quantum annealing. Does not establish a polynomial-time method, and the abstract does not show scaling to general RSA moduli.",
+      "remains": "All of the bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "About 2 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The target was chosen to be easy. The abstract says 'a class of special integers', and the press summary says 'specially structured … chosen to be extremely easy'. A commentary (a Substack, from search, not opened) argues that a near-square semiprime is factored by Fermat's method in polynomial time, so the claim does not reach general RSA. I did not read the full paper, so the annealing scaling is unchecked.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims a quantum-annealing factorisation of one special 2048-bit integer. Does not bear on polynomial time for general integers.",
+      "object": "One special 2048-bit semiprime N = p×q from a class of special integers. The abstract does not give the factors. The claim is that annealing factored it. It is not a general method.",
+      "people": ["Chao Wang", "Jingjing Yu", "Zhi Pei", "Qidi Wang", "Chunlei Hong"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.sciopen.com/article/10.26599/TST.2024.9010028"]
+      },
+      "sources": [
+        {"url": "https://www.sciopen.com/article/10.26599/TST.2024.9010028", "title": "Wang et al., A First Successful Factorization of RSA-2048 Integer by D-Wave Quantum Computer (Tsinghua Sci. Technol. 2025)", "type": "journal", "opened": true},
+        {"url": "https://postquantum.com/industry-news/factorization-rsa-2048-chinese-claim", "title": "Post-Quantum, Chinese claim of RSA-2048 factorisation (7 Jan 2025)", "type": "news", "opened": true}
+      ]
+    },
+    {
+      "id": "friedlander-2025-summation",
+      "what_happened": "Justin Friedlander, 'A Summation-Based Algorithm For Integer Factorization' (arXiv:2504.21168, math.NA with cs.CR cross-list, submitted 29 Apr 2025, v1 only). The fetched abstract says 'an algorithm on the order of √n time complexity can convert that sum to a product of two integers'. The method converts an integer into a base-2 sum and combines base-10 and base-2 representations. Opened the arXiv abstract page; did not read the full text.",
+      "date": "2025-04-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (29 Apr 2025).",
+      "delivers": "As stated in the abstract, a method of order √n, where n is the integer. That is exponential in the bit length, so not polynomial. A √N bound is what trial division already gives.",
+      "remains": "Polynomial time in the bit length.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "About 1.5 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A √N bound is already achieved by trial division. The abstract does not say how the sum is obtained or what that step costs. Not peer reviewed. I did not check the paper's content.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims a √n-time method. Not a polynomial-time claim as stated; cuts neither way on the bullet.",
+      "object": null,
+      "people": ["Justin Friedlander"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2504.21168"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2504.21168", "title": "Friedlander, A Summation-Based Algorithm For Integer Factorization (arXiv:2504.21168)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "gidney-2025-million-qubits",
+      "what_happened": "Craig Gidney, 'How to factor 2048 bit RSA integers with less than a million noisy qubits' (arXiv:2505.15917, quant-ph, 21 May 2025). Resource estimate: a 2048-bit RSA integer could be factored in less than a week by a quantum computer with under a million noisy qubits, under stated hardware assumptions (square grid with nearest-neighbour connections, 0.1% gate error, 1 µs surface-code cycle, 10 µs reaction time). Methods named in search snippets (not the abstract): approximate residue arithmetic, yoked surface codes, magic state cultivation. Opened the arXiv abstract page.",
+      "date": "2025-05-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (21 May 2025).",
+      "delivers": "A resource estimate for quantum factoring of RSA-2048 under stated assumptions. Not a classical algorithm and not a new complexity bound.",
+      "remains": "The classical question, and the bullet as a complexity question.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "About 17 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Resource estimate under assumptions. Search snippets say the code is archived on Zenodo; I did not check whether anyone has reproduced the numbers.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral for complexity. Quantum resource estimate.",
+      "object": null,
+      "people": ["Craig Gidney"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2505.15917"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2505.15917", "title": "Gidney, How to factor 2048 bit RSA integers with less than a million noisy qubits (arXiv:2505.15917)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "umans-wang-2025-conditional",
+      "what_happened": "Chris Umans and Siki Wang (Caltech), 'A number-theoretic conjecture implying faster algorithms for polynomial factorization and integer factorization' (arXiv:2511.10851, cs.DS, submitted 13 Nov 2025, v1 only, no comments field). The abstract proposes a number-theoretic conjecture about sets S, T of size n^β with elements up to exp(n^α), such that every i in [n] divides some s−t. If it holds, the exponent for univariate polynomial factorization over finite fields improves, and the best deterministic exponential-time exponent for integer factorization falls from 1/5 to 1/6. Opened the arXiv abstract page; did not read the full text.",
+      "date": "2025-11-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (13 Nov 2025).",
+      "delivers": "Conditional on an unproven conjecture: faster deterministic exponential-time integer factorisation (exponent 1/5 to 1/6). Not polynomial time.",
+      "remains": "Polynomial-time factoring, and the conjecture itself.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "About 11 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The improvement depends on a conjecture the authors do not prove. The bound stays exponential, so it does not touch polynomial time.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Conditional. Cuts toward speed-ups of exponential algorithms, not toward polynomial time.",
+      "object": null,
+      "people": ["Chris Umans", "Siki Wang"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2511.10851"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2511.10851", "title": "Umans, Wang, A number-theoretic conjecture implying faster algorithms for polynomial factorization and integer factorization (arXiv:2511.10851)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "cognition-2026-rsa260-devin",
+      "what_happened": "Eric Lu (Cognition), 'Factoring RSA-260' (company blog, 9 Sep 2026; the post says factoring finished 3 Sep 2026). Factored RSA-260 (260 digits, 862 bits) with the general number field sieve, using a significantly modified CADO-NFS with a GPU lattice siever. The post says: 'my Devins built the world's highest-performance GPU lattice siever' and 'Devin otherwise autonomously handled measurements, cluster operations, and optimization end-to-end'. It says: 'I report essentially no algorithmic advancements.' Opened the blog post via fetch summary; not read in full.",
+      "date": "2026-09-09",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Single blog post as found. Factoring finished 3 Sep 2026 per the post; the write-up of 9 Sep 2026 is the first public written account I found, so it is the dated event.",
+      "delivers": "A factorisation of one 862-bit RSA challenge number by the general number field sieve, which coverage calls the largest public RSA challenge number factored. Engineering record. No new algorithm, and no change to the complexity of factoring.",
+      "remains": "All of the bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "About 1 month.",
+      "machine_checked": null,
+      "directly_checkable": "The two factors can be checked by multiplication. The post gives them as two 130-digit primes.",
+      "doubts": "Company self-report. The GPU and engineering claims are not independently verified in what I read. Coverage gives 3 Sep and 9 Sep as dates for different events, so the dating is not uniform.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A factoring record by the standard classical method. Does not cut on polynomial time.",
+      "object": "A factorisation of RSA-260 into two 130-digit primes, produced by the general number field sieve on a GPU-accelerated fork of CADO-NFS. The method is not new.",
+      "people": ["Eric Lu"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": "About 4,900 GPU-days (13.5 GPU-years), about $400k at current market prices, per the author's estimate. Split: polynomial selection 643 GPU-days; sieving 3,813; linear algebra 467. Run on spare cluster capacity.",
+        "sources": ["https://cognition.com/blog/factoring-rsa-260"]
+      },
+      "sources": [
+        {"url": "https://cognition.com/blog/factoring-rsa-260", "title": "Eric Lu, Factoring RSA-260 (Cognition blog, 9 Sep 2026)", "type": "blog", "opened": true}
+      ]
+    },
+    {
+      "id": "weis-2026-rsa896-claude",
+      "what_happened": "Steve (Stephen A.) Weis, RSA-896 factored 'with Claude' on 19 Sep 2026 (write-up saweis.net/posts/rsa-896.html; X posts). The write-up says: 'RSA-896 is a RSA challenge number I factored with Claude on September 19, 2026.' It also says: 'Briefly, Claude was used to port CADO-NFS to run on GPUs.' and 'It orchestrated running on a fleet of up to 2048 GPUs as a low-priority job during unused idle time between regular jobs.' It says: 'This work did not meaninfgully [sic] improve the runtime of the General Number Field Sieve (GNFS) algorithm.' Coverage (postquantum, 19 Sep 2026) matches the date. Opened the write-up and the coverage.",
+      "date": "2026-09-19",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "The write-up's own posting date is given only as 'September 2026'. The factoring date and the coverage date are both 19 Sep 2026, so the event is dated to 19 Sep.",
+      "delivers": "Factors one RSA challenge number (RSA-896, 270 digits, two 135-digit primes) by GNFS on GPUs. The author says the GNFS running time is not meaningfully improved. Engineering computation. No change to the complexity of factoring.",
+      "remains": "All of the bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "About 3 weeks.",
+      "machine_checked": null,
+      "directly_checkable": "The two published 135-digit primes multiply to the RSA-896 modulus. Coverage says this was confirmed by multiplication.",
+      "doubts": "Self-report. The write-up says 'More details will follow'. It does not name the Claude model version or say how the work was divided between the author and the model.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A factoring record by the standard classical method, with the author stating no algorithmic improvement. Does not cut on polynomial time.",
+      "object": "A factorisation of RSA-896 into two 135-digit primes, produced by GNFS on GPUs with a CADO-NFS port. The method is not new.",
+      "people": ["Steve (Stephen A.) Weis"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": "Per the write-up: about 30 GPU-years at Anthropic over 10 days; timing section gives 870,124 seconds on up to 256 preemptible nodes of 8 H100 GPUs each, about 177,929 GPU-hours.",
+        "sources": ["https://saweis.net/posts/rsa-896.html", "https://postquantum.com/security-pqc/rsa-896-factored-claude-gpus/"]
+      },
+      "sources": [
+        {"url": "https://saweis.net/posts/rsa-896.html", "title": "Steve Weis, RSA-896 write-up", "type": "blog", "opened": true},
+        {"url": "https://postquantum.com/security-pqc/rsa-896-factored-claude-gpus/", "title": "Marin Ivezic, Post-Quantum, coverage of RSA-896 factored with Claude (19 Sep 2026)", "type": "news", "opened": true}
+      ]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "claim",
+      "summary": "Opposite claims about the classical question: Shipilevsky (2012) says factoring is in P, and Garimella (2024) says it is not. Neither has accepted support, and they cannot both be right. I record both and do not pick one.",
+      "sources": ["https://optimization-online.org/2012/08/3591/", "https://easychair.org/publications/preprint/xrGZ"]
+    },
+    {
+      "kind": "claim",
+      "summary": "The D-Wave RSA-2048 claim (Wang et al., published 30 Dec 2024) is presented as the first RSA-2048 factorisation by annealing. Press coverage and a commentary say the target was specially structured and easy, so the claim does not reach general RSA moduli.",
+      "sources": ["https://www.sciopen.com/article/10.26599/TST.2024.9010028", "https://postquantum.com/industry-news/factorization-rsa-2048-chinese-claim"]
+    },
+    {
+      "kind": "statement",
+      "summary": "The RSA-2048 run count in Chevignard, Fouque and Schrottenloher differs between the February 2024 IACR news item (60 runs, snippet) and the current abstract (40 runs on average).",
+      "sources": ["https://eprint.iacr.org/2024/222", "https://iacr.org/news/item/22521"]
+    },
+    {
+      "kind": "scope",
+      "summary": "Whether the unqualified bullet asks a classical question. Shor (1994) gives polynomial time on a quantum computer, and the Wikipedia article says factoring is known to be in BQP. A reader who takes the bullet literally could count it as answered for quantum computers. The record treats the classical reading as the question asked, and records the quantum events separately.",
+      "sources": ["https://arxiv.org/abs/quant-ph/9508027", "https://en.wikipedia.org/wiki/Integer_factorization"]
+    },
+    {
+      "kind": "attribution",
+      "summary": "The date of the Cognition RSA-260 factorisation: the post says factoring finished 3 Sep 2026 and was written up 9 Sep 2026; a secondary report describes the factorisation as 3 Sep. I dated the event to the write-up, following the first-public-written-argument rule.",
+      "sources": ["https://cognition.com/blog/factoring-rsa-260"]
+    }
+  ],
+
+  "summary": "The question is open for the classical case, and nothing in the window moved it. I searched for classical polynomial-time claims, quantum and conditional advances, and AI involvement, and opened the primary sources for each event I could reach. The most significant in-window events are: Garimella's 18 March 2024 EasyChair preprint claiming factoring is NOT in P (unrefereed; its derivation covers only highly composite numbers, and I found no visible step from that subfamily to all integers; I found no endorsement or refutation); Murru and Salvatori's September 2024 method, polynomial only given a regulator multiple; Umans and Wang's November 2025 conjecture, which improves the exponent of exponential-time factoring from 1/5 to 1/6 if true; Friedlander's April 2025 sqrt(n) summation claim, which is not polynomial in the bit length; and the quantum results (Pilatte 2024 removing Regev's conditional assumption; Chevignard et al. 2024 qubit reductions; Gidney 2025 resource estimate), none of which speaks to classical complexity. Shor's 1994 quantum algorithm is the only accepted polynomial-time factoring result, and it is quantum. Two 2026 GNFS records carry AI involvement: Cognition's RSA-260 (9 Sep 2026), where the post credits its Devin agent with building the GPU lattice siever and running the cluster, and Weis's RSA-896 (19 Sep 2026), where the write-up says 'Claude was used to port CADO-NFS to run on GPUs' and that it 'orchestrated' the GPU fleet. Both authors say the algorithm was not improved (Cognition: 'I report essentially no algorithmic advancements'; Weis: 'did not meaninfgully [sic] improve the runtime of the General Number Field Sieve'). Under the AI rule, this is engineering around the mathematics rather than mathematics the work would have had to establish otherwise, so I put none in ai.systems and set none_found to false for both. A judging pass may weigh it differently, since both systems wrote and ran the factoring code. Several events are dated from search snippets or fetch summaries and are flagged as such. The Garimella affiliation conflicts: a search snippet lists Mahindra University, but the EasyChair page I opened lists none. The Epoch AI FrontierMath 'Prime Factorization' open problem asks for a better constant in the GNFS exponent, which is not a polynomial-time question; it shows status Unsolved, and I found no solution. The page I opened lists no model evaluations, while a search snippet claimed a table with GPT-5.2 Pro and Gemini 3 Deep Think results; I could not reconcile the two and did not record either as an event.",
+
+  "competing_reading": "(1) The bullet names no machine model. Read as written, Shor's 1994 result, together with the 2024 unconditional correctness proof (Pilatte) and Wikipedia's note that factoring is in BQP, answers the question affirmatively, so the bullet could be counted as settled in the window's prior history. I record that reading and the classical reading separately. (2) Garimella's claim is a complete negative answer if it is right, which would settle the classical bullet negatively; I found nothing that supports it. (3) The Weis and Cognition events could be read as AI-assisted progress on factoring, since the systems wrote and ran the factoring code, and the RSA-896 record is the largest public RSA challenge number factored after the RSA-260 record. Both authors say the mathematics is unchanged, so this reading treats engineering as the substantive development, which the rule in DEEP_DIVE 5.4 does not count.",
+
+  "what_would_settle_it": "For the classical question: a refereed proof of a polynomial-time classical factoring algorithm, or of a superpolynomial lower bound (or non-membership in P), accepted by experts. For the Garimella claim: an expert reading that either closes the step from highly composite numbers to all integers or identifies the gap. For the Shipilevsky claim: a refereed evaluation of the reduction to convex integer maximization. For the quantum reading: a decision by the judging pass on whether the bullet means classical computation. For the AI events: a source from the authors giving the substance of the contribution (not only engineering), or a claim that the algorithm was changed.",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/quant-ph/9508027", "title": "Shor, Polynomial-Time Algorithms for Prime Factorization and Discrete Logarithms on a Quantum Computer", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/0802.4242v2", "title": "Carella, Note on Integer Factoring Methods IV", "type": "preprint", "opened": true},
+    {"url": "https://optimization-online.org/2012/08/3591/", "title": "Shipilevsky, Integer Factorization is in P (landing page)", "type": "preprint", "opened": true},
+    {"url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.MFCS.2016.6", "title": "Agrawal, Saxena, Srivastava, Integer Factoring Using Small Algebraic Dependencies (MFCS 2016)", "type": "journal", "opened": true},
+    {"url": "https://arxiv.org/abs/1802.08444", "title": "Morain, Renault, Smith, Deterministic factoring with oracles", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1905.09749", "title": "Gidney, Ekerå, How to factor 2048 bit RSA integers in 8 hours using 20 million noisy qubits", "type": "preprint", "opened": true},
+    {"url": "https://eprint.iacr.org/2021/232", "title": "Schnorr, Fast Factoring Integers by SVP Algorithms (ePrint 2021/232, withdrawn)", "type": "preprint", "opened": true},
+    {"url": "https://eprint.iacr.org/2021/933", "title": "Schnorr, Fast Factoring Integers by SVP Algorithms, corrected (ePrint 2021/933)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2205.10074", "title": "Hittmeir, Integer factorization as subset-sum problem", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2308.06572", "title": "Regev, An Efficient Quantum Factoring Algorithm", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2310.00899", "title": "Ragavan, Vaikuntanathan, Space-Efficient and Noise-Robust Quantum Factoring", "type": "preprint", "opened": true},
+    {"url": "https://doi.org/10.1007/978-3-031-62746-0_10", "title": "Ekerå, Gärtner, Extending Regev's Factoring Algorithm to Compute Discrete Logarithms (PQCrypto 2024)", "type": "journal", "opened": false},
+    {"url": "https://eprint.iacr.org/2024/222", "title": "Chevignard, Fouque, Schrottenloher, Reducing the Number of Qubits in Quantum Factoring", "type": "preprint", "opened": true},
+    {"url": "https://iacr.org/news/item/22521", "title": "IACR News item, 16 Feb 2024", "type": "news", "opened": false},
+    {"url": "https://easychair.org/publications/preprint/xrGZ", "title": "Garimella, Integer Factorization Is Not in P: Logical Proof (EasyChair landing page)", "type": "preprint", "opened": true},
+    {"url": "https://easychair.org/publications/preprint/xrGZ/versions", "title": "Garimella, version history", "type": "preprint", "opened": true},
+    {"url": "https://eprint.iacr.org/2024/555", "title": "Chen, Quantum Algorithms for Lattice Problems (ePrint 2024/555)", "type": "preprint", "opened": true},
+    {"url": "https://thequantuminsider.com/2024/04/20/update-scientists-spot-mistake-in-proposed-pqc-cracking-algorithm/", "title": "The Quantum Insider, bug in Chen's LWE claim (search snippet only)", "type": "news", "opened": false},
+    {"url": "https://arxiv.org/abs/2404.16450", "title": "Pilatte, Unconditional correctness of recent quantum algorithms for factoring and computing discrete logarithms", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2409.03486v2", "title": "Murru, Salvatori, Integer Factorization via Continued Fractions and Quadratic Forms", "type": "preprint", "opened": true},
+    {"url": "https://www.sciopen.com/article/10.26599/TST.2024.9010028", "title": "Wang et al., A First Successful Factorization of RSA-2048 Integer by D-Wave Quantum Computer", "type": "journal", "opened": true},
+    {"url": "https://postquantum.com/industry-news/factorization-rsa-2048-chinese-claim", "title": "Post-Quantum, Chinese claim of RSA-2048 factorisation (7 Jan 2025)", "type": "news", "opened": true},
+    {"url": "https://arxiv.org/abs/2504.21168", "title": "Friedlander, A Summation-Based Algorithm For Integer Factorization", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2505.15917", "title": "Gidney, How to factor 2048 bit RSA integers with less than a million noisy qubits", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2511.10851", "title": "Umans, Wang, A number-theoretic conjecture implying faster algorithms for polynomial factorization and integer factorization", "type": "preprint", "opened": true},
+    {"url": "https://cognition.com/blog/factoring-rsa-260", "title": "Eric Lu, Factoring RSA-260 (Cognition blog, 9 Sep 2026)", "type": "blog", "opened": true},
+    {"url": "https://saweis.net/posts/rsa-896.html", "title": "Steve Weis, RSA-896 write-up", "type": "blog", "opened": true},
+    {"url": "https://postquantum.com/security-pqc/rsa-896-factored-claude-gpus/", "title": "Post-Quantum (Marin Ivezic), RSA-896 factored with Claude (19 Sep 2026)", "type": "news", "opened": true},
+    {"url": "https://epoch.ai/frontiermath/open-problems/prime-factorization", "title": "Epoch AI, FrontierMath Open Problems: Prime Factorization", "type": "repository", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Integer_factorization", "title": "Integer factorization (Wikipedia)", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "integer factorization polynomial time algorithm 2025",
+      "integer factorization polynomial time classical algorithm arXiv 2024",
+      "factoring integers in polynomial time proof claim 2026",
+      "AI system integer factorization polynomial time result",
+      "Shor's algorithm polynomial time factoring 1994 quantum computer",
+      "Regev efficient quantum factoring algorithm n^{3/2} gates",
+      "Gidney how to factor 2048 bit RSA integers with less than a million noisy qubits",
+      "Integer factorization Wikipedia polynomial time open problem computational complexity",
+      "\"integer factorization\" \"polynomial time\" preprint proof disproved OR claimed 2025",
+      "LLM GPT Claude Gemini factoring large integers breakthrough mathematics 2026",
+      "Yilei Chen quantum lattice algorithm LWE claim bug retracted",
+      "Garimella \"Integer Factorization Is Not in P\" logical proof highly composite numbers",
+      "Shipilevsky \"Integer factorization is in P\" convex integer maximization",
+      "Umans Wang arXiv 2511.10851 factoring polynomial factorization finite fields conjecture",
+      "Murru Salvatori SQUFOF regulator multiple factoring arXiv 2409.03486",
+      "Pilatte quantum factoring discrete logarithm unconditional correctness arXiv 2404.16450",
+      "Cognition Devin RSA-260 factored GPU CADO-NFS blog",
+      "Epoch AI FrontierMath open problems prime factorization GNFS constant exponent",
+      "Chevignard Fouque Schrottenloher 2024 RSA integer factoring Toffoli count quantum",
+      "Hittmeir integer factorization multiple-choice subset sum polynomial reduction arXiv",
+      "Schnorr factoring lattice reduction claim 2021 quantum factoring refuted",
+      "factoring NP-intermediate complexity result proof 2025 integer factorization hardness",
+      "Regev factoring algorithm improvement space-efficient quantum circuit Ragavan Vaikuntanathan",
+      "Steve Weis RSA-896 factored Claude CADO-NFS GPUs",
+      "Anthropic Claude RSA-896 factoring challenge engineer blog post",
+      "Quanta Magazine integer factoring new algorithm 2025 2026",
+      "AlphaEvolve OR AlphaProof OR \"Deep Think\" integer factorization algorithm discovered",
+      "OpenAI model proof factoring polynomial time complexity theory result 2026",
+      "Terence Tao integer factorization AI tools blog 2026",
+      "\"factoring\" \"in P\" arXiv 2026 new claim classical algorithm integers polynomial",
+      "P versus NP proof claim AI generated preprint 2026 complexity theorists response",
+      "Gidney 2026 RSA-2048 qubit reduction new architecture estimate",
+      "Lipton \"How not to prove integer factoring is in P\" Gödel's Lost Letter",
+      "Shipilevsky integer factorization P claim withdrawn erratum Optimization Online",
+      "Gidney Ekerå 2019 RSA-2048 20 million noisy qubits eight hours",
+      "\"deterministic factoring with oracles\" integer factoring",
+      "\"Integer Factoring Using Small Algebraic Dependencies\" Agrawal Saxena Srivastava",
+      "quantum annealing factoring RSA claim 2024 2025 D-Wave factor large integers polynomial",
+      "Ekerå Gärtner discrete logarithm quantum short logarithm 2024 factoring short-cut"
+    ],
+    "places_checked": [
+      "arXiv abstract pages and version histories (quant-ph, math.NT, cs.DS, cs.CC, math.NA, cs.CR), via search and direct fetch",
+      "IACR ePrint (2021/232, 2021/933, 2024/222, 2024/555) via direct fetch",
+      "EasyChair preprint 12579 (landing page and version history)",
+      "Optimization Online landing page for Shipilevsky (PDF not opened)",
+      "Dagstuhl LIPIcs record for MFCS 2016",
+      "Tsinghua Science and Technology record on sciopen (D-Wave RSA-2048)",
+      "Cognition blog (RSA-260) and Steve Weis write-up (RSA-896), plus coverage of each",
+      "Epoch AI FrontierMath Open Problems page for Prime Factorization",
+      "Wikipedia article Integer factorization (current lead and complexity section)",
+      "Google Research and Google Quantum AI publications, via search only",
+      "Terence Tao's blog and OpenAI Academy coverage, via search only (no factoring post found)",
+      "Quanta Magazine (no 2025 or 2026 factoring article found; a mirror of an undated one-qubit quantum factoring story appeared)",
+      "AlphaEvolve, AlphaProof and Deep Think coverage, via search only (no factoring result found)"
+    ],
+    "dead_ends": [
+      "No 2025 or 2026 arXiv or ePrint claim of a classical polynomial-time factoring algorithm surfaced in any of the searches.",
+      "No AI-system claim about factoring in P, or about a factorisation result by an AI model, surfaced. AI involvement appears only in the 2026 GNFS engineering records (Cognition/Devin, Weis/Claude).",
+      "OpenAI 2026 coverage (First Proof challenge; a reported Erdős unit-distance result) concerns other problems, not factoring.",
+      "Terence Tao 2026 coverage concerns AI in general research and a prime-factors-of-consecutive-integers paper, not integer factoring.",
+      "Lance Fortnow's June 2026 blog on AI and P vs NP (search snippet only) is about P vs NP generally, not factoring. An AI-authored Zenodo P≠NP preprint (2025 edition) is not a claim about factoring.",
+      "Lipton's 2012 post 'How not to prove integer factoring is in P' (search only) could not be found in the book contents or opened; I cannot confirm that it concerns Shipilevsky's paper.",
+      "Yan et al. (2022) 372-qubit annealing claim and the Khattar–Yosri analysis: known only from secondary snippets; not opened and not recorded as events.",
+      "A Subexponential Reduction from Product Partition to Subset Sum (arXiv:2405.12555): a reduction from another problem that relies on factoring; not a factoring result.",
+      "Quantum single-qubit factoring story (Munich team, arXiv 17 Dec 2024, via a Quanta mirror): not opened; quantum and exponential in energy per the mirror. Not recorded.",
+      "Epoch AI FrontierMath open problem: the fetched page lists no model evaluations, while a search snippet claimed a table with GPT-5.2 Pro and Gemini 3 Deep Think results. Not reconciled; not recorded as an event.",
+      "Agrawal's conjecture (a different bullet on the Wikipedia list) appeared near these results. It is not this problem and was not researched here."
+    ]
+  },
+
+  "incomplete": "(1) Full texts were not read for most preprints; the record uses abstracts, landing pages and fetch summaries, and says so per event. This applies to Umans–Wang, Murru–Salvatori, Friedlander, Garimella, Shipilevsky (PDF), Carella, Hittmeir, Morain et al., Regev, Ragavan–Vaikuntanathan, Chevignard et al., Gidney 2025 and Gidney–Ekerå 2019. (2) Ekerå–Gärtner (2023) and the IACR news item of 16 Feb 2024 were seen only in search snippets. (3) The Forum of Mathematics Pi, AAECC, PQCrypto and CRYPTO 2024 records were checked only through search snippets or the arXiv comments field. (4) Chevignard et al.: one fetch summary calls the algorithm 'classical'; I could not check the PDF to resolve this. (5) The Cognition post and the Weis write-up were read through fetch summaries, not as full text. Weis's X posts were not reachable, and the write-up says more details will follow. (6) The D-Wave RSA-2048 paper's full text was not read. (7) No systematic citation search was run for later papers citing the in-window preprints (for example, whether anyone cites Garimella or Umans–Wang), so later_work_cites_it is null for most events. (8) Garimella's affiliation conflicts between a search snippet (Mahindra University) and the page (none listed). (9) The Epoch AI model-evaluation conflict (page: none; snippet: a table) is unresolved. (10) Google Scholar and arXiv listing searches were not run directly; coverage relies on the search tool's index, which may miss recent submissions in cs.CC and math.NT."
+}

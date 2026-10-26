@@ -1,0 +1,449 @@
+{
+  "key": "kung-traub-conjecture",
+  "nothing_found": false,
+  "outcome": "No event since 26 January 2024 settles or moves the Kung-Traub upper bound: the window holds only constructions of optimal methods at specific evaluation counts (2025-2026) that cite the conjecture as a benchmark, a 2025 discussion paper that restates it and claims nothing about it, and a January 2026 arbitrary-order preprint restricted to the equation t^M - a = 0; the conjecture is still described as open in every post-2024 source I could read.",
+  "problem_asks": "The statement, as frozen, names only 'the Kung-Traub conjecture on the optimal order of a multipoint iteration without memory'; it gives no exponent and no scope. Unpacked: (1) an upper bound: a multipoint iteration without memory that uses n function evaluations per step cannot have order of convergence above 2^(n-1) (equivalently 2^m with m+1 evaluations); (2) the bound is the 'optimal order', so the conjecture also asserts that methods attaining 2^(n-1) exist for each n; (3) the scope the literature gives, which the bullet does not spell out: iterations for a single scalar nonlinear equation f(x)=0, for simple roots, with general smooth f. The exponent 2^(n-1) is taken from the literature (Kung and Traub 1974, as cited by later papers), not from the frozen wording. Several later papers write the bound as 2m-1 for m evaluations, which is a notational slip for 2^(m-1) by the authors' own examples (order 4 from 3 evaluations, order 8 from 4).",
+  "events": [
+    {
+      "id": "kung-traub-1974",
+      "what_happened": "H. T. Kung and J. F. Traub, 'Optimal order of one-point and multipoint iteration', Journal of the ACM 21(4):643-651, October 1974 (DOI 10.1145/321850.321860). This is where the conjecture originates: a multipoint iteration without memory based on d evaluations has optimal order 2^(d-1). I did not open the paper or its DOI; the ACM bibliographic record and the statement come from search snippets and from later papers that cite it.",
+      "date": "1974",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per later citations, states the conjectured bound 2^(d-1) for multipoint iteration without memory and calls methods attaining it optimal. Whether the 1974 paper proves any part of the bound, and for which classes, is not verified here.",
+      "remains": "Everything in problem_asks, as far as this event is concerned; it is the origin of the conjecture, not a result on it.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 52 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "States the upper bound 2^(d-1) on the order of memoryless multipoint methods, as a conjecture.",
+      "object": null,
+      "people": ["H. T. Kung", "Joseph F. Traub"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://projects.csail.mit.edu/jacm/References/kungt1974:643.html"]
+      },
+      "sources": [
+        "https://projects.csail.mit.edu/jacm/References/kungt1974:643.html",
+        "https://institucional.us.es/blogimus/?p=10822"
+      ]
+    },
+    {
+      "id": "wasilkowski-1981",
+      "what_happened": "G. W. Wasilkowski, 'n-Evaluation Conjecture for Multipoint Iterations for the Solution of Scalar Nonlinear Equations', Journal of the ACM 28(1):71-80, 1981 (DOI 10.1145/322234.322240). The abstract, read through the University of Kentucky repository page, says the Kung-Traub conjecture is known to hold for n <= 3 and for Hermite information, and proves it for a wider class of iterations, for example when the problem is well poised in the sense of Birkhoff complex interpolation. The scraped abstract is garbled in two places: it renders the bound as 'no higher than 2' and the case as 'n --< 3'. The full text was not opened.",
+      "date": "1981",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per the abstract: the upper bound 2^(n-1) for n <= 3 (described as already known) and for Hermite information, and a proof of the same bound for a wider class of iterations, including well-poised problems in the Birkhoff sense. Each of these is restricted by information type or iteration class; the abstract does not claim the general case for n >= 4 with arbitrary information.",
+      "remains": "The conjecture for general scalar nonlinear equations and arbitrary memoryless multipoint iterations with n >= 4 evaluations; the attainment half is not addressed by this abstract.",
+      "checked_by": [
+        {
+          "who": "Journal of the ACM editorial and refereeing process",
+          "qualification": "Refereed computer-science journal of record; the paper appeared in it",
+          "what_they_did": "Accepted and published the paper (acceptance-level engagement only; no review text available)",
+          "where": "https://scholars.uky.edu/es/publications/n-evaluation-conjecture-for-multipoint-iterations-for-the-solutio/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 45 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The abstract as scraped is garbled ('no higher than 2' for 2^(n-1); 'n --< 3'), so the exact scope should be checked against the full text, which I did not open.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the upper bound 2^(n-1) in the cases it covers; does not contradict it.",
+      "object": null,
+      "people": ["G. W. Wasilkowski"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://scholars.uky.edu/es/publications/n-evaluation-conjecture-for-multipoint-iterations-for-the-solutio/"]
+      },
+      "sources": [
+        "https://scholars.uky.edu/es/publications/n-evaluation-conjecture-for-multipoint-iterations-for-the-solutio/"
+      ]
+    },
+    {
+      "id": "babajee-2015",
+      "what_happened": "Diyashvir Babajee, 'On the Kung-Traub Conjecture for Iterative Methods for Solving Quadratic Equations', Algorithms 9(1):1, published 24 December 2015 (DOI 10.3390/a9010001). The abstract, read via Crossref metadata because the MDPI page returned HTTP 403, claims the conjecture fails for quadratic functions ('we show that the conjecture fails for quadratic functions'), by a two-point method using three function evaluations that reaches fifth-order convergence. The paper also develops weight-function methods for quadratic equations, proves their local convergence, extends them to systems of quadratic equations, and tests on Chandrasekhar's integral equation. The full text was not read.",
+      "date": "2015-12-24",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Claims, for scalar quadratic equations only, a two-point method with three evaluations of order five; presented as a failure of the conjecture on that class. The restriction to quadratic f is stated in the claim itself, so this does not address general smooth f.",
+      "remains": "Everything in problem_asks for general f; the claim, as the abstract states it, is confined to quadratic functions.",
+      "checked_by": [
+        {
+          "who": "Fayyaz Ahmad",
+          "qualification": "Author of iterative-method papers; affiliations listed as Universita dell'Insubria (Como) and Universitat Politecnica de Catalunya (per the comment record)",
+          "what_they_did": "Published a comment in the same journal disputing priority: says the iterative method was first reported in Ahmad's own 2015 preprint. The comment, as read through its abstract, does not claim an error in the mathematics.",
+          "where": "https://doi.org/10.3390/a9020030",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 years 9 months",
+      "machine_checked": null,
+      "directly_checkable": "The method is an explicit iteration on quadratic polynomials and could be checked by hand against the claimed order; the MDPI full text was not reachable, so no check was done here.",
+      "doubts": "(1) Priority dispute: Ahmad's 2016 comment, and a 2018 Springer paper (s40324-018-0174-0, not opened; known only from search summaries) that reports Babajee's method is a special case of a family Ahmad reported in a 2015 ResearchGate preprint. (2) Order discrepancy: the abstract claims fifth order for three evaluations, while a search summary of the body describes an eighth-order two-point method with three evaluations for quadratics; this is unverified because the full text was not read. (3) The stated class is quadratic functions, so the claim does not on its face refute the conjecture for general f.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Claims the bound 2^(d-1) fails for scalar quadratic equations, that is, cuts against the conjecture within a restricted function class.",
+      "object": "A two-point iteration using three function evaluations per step, claimed to have order five for quadratic f (abstract). Weight-function families for quadratics of orders up to eight are described in the body, according to an unverified search summary. The explicit formula was not read. Explicit construction, not an existence proof.",
+      "people": ["Diyashvir Babajee"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://api.crossref.org/works/10.3390/A9010001"]
+      },
+      "sources": [
+        "https://api.crossref.org/works/10.3390/A9010001",
+        "https://www.mdpi.com/1999-4893/9/1/1"
+      ]
+    },
+    {
+      "id": "ahmad-2016-comment",
+      "what_happened": "Fayyaz Ahmad, 'Comment on: On the Kung-Traub Conjecture for Iterative Methods for Solving Quadratic Equations', Algorithms 9(2):30, published online 26 April 2016 (DOI 10.3390/a9020030). Disputes priority for the method in Babajee (2015): states that 'we have shown that we first reported the aforementioned iterative method', pointing to Ahmad's 2015 ResearchGate preprint (DOI 10.13140/RG.2.1.1519.2487, not opened). The comment does not, in the abstract read, dispute the mathematics. I found no reply from Babajee in the searches or on the MDPI listing I could read.",
+      "date": "2016-04-26",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Nothing on the bound. A priority claim about the quadratic-equation method, which Ahmad says he had reported earlier.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 years 6 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The priority claim rests on Ahmad's 2015 ResearchGate preprint, which I did not find or open; the claim is also reported secondhand by the 2018 Springer paper, which I did not open either.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral on the bound; contests the originality of the Babajee method.",
+      "object": null,
+      "people": ["Fayyaz Ahmad"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://api.crossref.org/works/10.3390/A9020030"]
+      },
+      "sources": [
+        "https://api.crossref.org/works/10.3390/A9020030",
+        "https://www.mdpi.com/1999-4893/9/2/30"
+      ]
+    },
+    {
+      "id": "varona-2022",
+      "what_happened": "Juan Luis Varona, 'An Optimal Thirty-Second-Order Iterative Method for Solving Nonlinear Equations and a Conjecture', Qualitative Theory of Dynamical Systems 21(2), article 39 (2022), DOI 10.1007/s12346-022-00572-3. Gives an explicit optimal method of order 32 from a weight-function scheme, which the author says has not been described before; closes with a conjecture about optimal-order multipoint methods with weights (a different conjecture from Kung-Traub). Received 11 August 2021, accepted 2 February 2022. No preprint for this paper was found; arXiv 2111.14234 is an unrelated Varona paper on primes.",
+      "date": "2022",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Attainment: an explicit method of order 32 at the 2^(d-1) form, which is d = 6 evaluations (2^5 = 32). The abstract does not state the evaluation count explicitly; d = 6 is implied by the bound. Confirms attainability at this one value of d. Does not touch the upper bound. Its own weighted-method conjecture is a separate question.",
+      "remains": "The upper bound for all methods and all n; attainment for every n other than n = 6 by this result.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No public engagement with the paper was found in my searches; the check was not exhaustive (a citation-index search was not run).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the bound: attains 2^(d-1) at d = 6.",
+      "object": "An explicit iterative method of order 32 for simple roots of scalar nonlinear equations, built from weight functions; by the bound it uses six evaluations per step. The weight functions are in the full paper, which I did not read. Explicit construction.",
+      "people": ["Juan Luis Varona"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://investigacion.unirioja.es/documentos/621728b1b180c333d5659f48?lang=en"]
+      },
+      "sources": [
+        "https://investigacion.unirioja.es/documentos/621728b1b180c333d5659f48?lang=en"
+      ]
+    },
+    {
+      "id": "cima-2025-arxiv",
+      "what_happened": "Anna Cima, Armengol Gasull, Victor Manosa, Francesc Manosas, 'On two families of iterative methods without memory', arXiv:2503.18815 (math), v1 submitted 24 March 2025, one version. Studies two families of order-n methods for f(x)=0: the first uses x, f and derivatives up to order n-1 (includes Newton, Chebyshev and Halley); the second uses iterates of g(x)=f(x)+x (includes Steffensen). Section 3 is titled 'Efficiency and some explicit methods in Class I' and subsection 3.1 'Around the definition of efficiency and Kung-Traub's conjecture'. The paper states the conjecture (citing Kung and Traub 1974 as its references [5,6]) and says methods attaining it are called optimal. It does not claim to prove, settle or refute it. The HTML body was read through a summariser; the quoted sentences are from that summary.",
+      "date": "2025-03-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, per the arXiv abstract page",
+      "delivers": "Nothing on the bound. The paper restates the conjecture and discusses efficiency. Its one related remark (Theorem A) says a given order is the highest 'in this class' (Class I, methods using derivatives up to order n-1); that is a restricted-class statement, not the general conjecture.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 19 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral: restates the conjecture; makes no claim for or against it.",
+      "object": null,
+      "people": ["Anna Cima", "Armengol Gasull", "Victor Manosa", "Francesc Manosas"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2503.18815"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2503.18815",
+        "https://arxiv.org/html/2503.18815",
+        "https://arxiv.org/pdf/2503.18815"
+      ]
+    },
+    {
+      "id": "chang-2025-matcom",
+      "what_happened": "Chih-Wen Chang, Sania Qureshi, Ioannis K. Argyros, Francisco I. Chicharro, Amanullah Soomro, 'A modified two-step optimal iterative method for solving nonlinear models in one and higher dimensions', Mathematics and Computers in Simulation 229 (2025) 448-467, DOI 10.1016/j.matcom.2024.09.021. The abstract (IDEAS page) says the method 'necessitates only three function evaluations per iteration to achieve a fourth-order optimal iterative process' and 'exhibits the optimal convergence, adhering to the Kung-Traub conjecture'. Includes local and semilocal convergence analysis and a stability study. The full text was not opened.",
+      "date": "2024",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Attainment of order 4 at d = 3 by a two-step scheme (and its extension to systems, per the claim). Order 4 from three evaluations was already attained by earlier methods, including Ostrowski's two-point method, which the Sagar and Sharma abstract builds on. No effect on the upper bound.",
+      "remains": "The upper bound for all methods and all n; attainment for n other than 3 by this result.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about two years (online date not verified)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The first public date is not verified. The DOI suffix suggests 2024, probably September, but if a public version predates 26 January 2024 the event falls outside the window. No later engagement was found in the searches.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bound (order 4 at d = 3); does not cut against it.",
+      "object": null,
+      "people": ["Chih-Wen Chang", "Sania Qureshi", "Ioannis K. Argyros", "Francisco I. Chicharro", "Amanullah Soomro"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://ideas.repec.org/a/eee/matcom/v229y2025icp448-467.html"]
+      },
+      "sources": [
+        "https://ideas.repec.org/a/eee/matcom/v229y2025icp448-467.html"
+      ]
+    },
+    {
+      "id": "ullah-2022-pujm",
+      "what_happened": "Malik Zaka Ullah, 'An optimal eighth-order multipoint numerical iterative method to find simple root of scalar nonlinear equations', Punjab University Journal of Mathematics 54(11) (2022), pp. 689-702 (article 245). Three evaluations of f and one of f' give eighth order with four evaluations. The paper says 'According to Kung-Traub conjecture (KTC), an iterative numerical multipoint method without memory...' and 'following the KTC, the proposed method in this article is optimal'. The journal listing gives publication date 2025-05-12 while the volume is dated 2022; I could not resolve which is the first public date. The full text was not read.",
+      "date": "2022",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Journal listing shows 'Published' 2025-05-12 for an issue dated 2022; the earlier date is used here. If 2025-05-12 is the first public date, the event falls in the window.",
+      "delivers": "Attainment of order 8 at d = 4. Order 8 from four evaluations was already attained by earlier methods (Thukral 2012 and Matthies et al. 2015/2016, per search summaries). No effect on the upper bound.",
+      "remains": "The upper bound for all methods and all n; attainment for other n.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 years from 2022, or about 1 year 5 months from the 2025 listing date",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The date ambiguity is recorded above. No later engagement was found in the searches.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bound (order 8 at d = 4); does not cut against it.",
+      "object": null,
+      "people": ["Malik Zaka Ullah"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://pujm.pu.edu.pk/index.php/pujm/article/view/245"]
+      },
+      "sources": [
+        "https://pujm.pu.edu.pk/index.php/pujm/article/view/245"
+      ]
+    },
+    {
+      "id": "sagar-sharma-2026-matcom",
+      "what_happened": "Prem Sagar and Janak Raj Sharma, 'An extension of Ostrowski's method with improved convergence and complex geometry', Mathematics and Computers in Simulation 241 (PB) (2026), pp. 238-256, DOI 10.1016/j.matcom.2025.10.013. A three-point scheme built on Ostrowski's two-point fourth-order method. The abstract (IDEAS page) says it 'achieves eighth-order convergence with just four function evaluations per iteration', 'it is optimal according to the Kung-Traub conjecture, with an efficiency index of 1.682', and includes basin-of-attraction and noisy-data tests. The full text was not opened.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Attainment of order 8 at d = 4, which was already known. No effect on the upper bound.",
+      "remains": "The upper bound for all methods and all n; attainment for other n.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about one year (online date not verified)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The first public date is not verified; the DOI suffix suggests October 2025. The abstract places the method against earlier eighth-order three-point methods built on Ostrowski's method, whose novelty comparison I did not verify.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the bound (order 8 at d = 4); does not cut against it.",
+      "object": null,
+      "people": ["Prem Sagar", "Janak Raj Sharma"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://ideas.repec.org/a/eee/matcom/v241y2026ipbp238-256.html"]
+      },
+      "sources": [
+        "https://ideas.repec.org/a/eee/matcom/v241y2026ipbp238-256.html"
+      ]
+    },
+    {
+      "id": "schiessl-2026-arxiv",
+      "what_happened": "Alois Schiessl, 'A root finding method with arbitrary order of convergence', arXiv:2601.22187 (math.GM), v1 submitted 28 January 2026, v2 revised 9 February 2026; bilingual English/German, single author. Treats t^M - a = 0 for positive a and M a natural number, and presents a fixed-point iteration whose function F is a polynomial of degree P*M+1 with P+1 terms. The theorem, as summarised from the HTML, gives order of convergence exactly P+1 (so arbitrary order), and computational tests are reported. The summary reads 'converges to aM', which is probably a^(1/M) and should be checked. Kung and Traub are cited in the PDF's bookmarks but not in the HTML text I read. No evaluation count is stated.",
+      "date": "2026-01-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 28 Jan 2026; v2 9 Feb 2026",
+      "delivers": "For the single equation t^M = a (with f(t) = 1 - t^M/a), an iteration of order P+1 for each P, per the theorem. The method is a fixed-point iteration whose step is a polynomial evaluation. The result is restricted to that equation; it does not address general scalar nonlinear equations or the evaluation count of f and its derivatives, which is what the bound counts.",
+      "remains": "The conjecture for general scalar nonlinear equations; whether the iteration's per-step cost fits the bound's counting.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 months",
+      "machine_checked": null,
+      "directly_checkable": "The fixed-point polynomial and the order claim for t^M = a could be checked by hand or numerically; the paper reports computational tests, which I did not examine.",
+      "doubts": "(1) The per-step cost is not stated. The bound counts evaluations of f and its derivatives; the method evaluates a polynomial F of degree P*M+1 with P+1 terms. Whether that is one evaluation in the Kung-Traub sense depends on which function is counted, and the paper does not settle it. (2) The HTML summary reads 'converges to aM'; if taken literally, that misstates the theorem, so the summary may be wrong. (3) Single-author preprint; no review or engagement found. (4) The PDF was not readable by my tool, so the HTML was read via a summariser and the quoted sentences come from that summary.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Arbitrary order for one specific equation. Read as a general-f method, it would contradict the bound only if its evaluation count were bounded, which the paper does not state; the judging pass has to settle that.",
+      "object": "An explicit fixed-point polynomial F(x) of degree P*M+1 with P+1 terms for t^M = a, claimed by theorem to converge with order exactly P+1 near the M-th root. Explicit construction, not an existence proof.",
+      "people": ["Alois Schiessl"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2601.22187v2"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2601.22187",
+        "https://arxiv.org/html/2601.22187v2",
+        "https://arxiv.org/pdf/2601.22187"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Babajee (2015) presents a two-point quadratic-equation method as a counterexample to the Kung-Traub conjecture. Ahmad (2016 comment) says he first reported the same method in a 2015 ResearchGate preprint. A 2018 Springer paper (not opened; known only from search summaries) reports that Ahmad showed Babajee's method is a special case of Ahmad's family, and that Babajee's reply treats the earlier structure as a special case of his own more general method with a free parameter. I did not find a Babajee reply in the listing I could read, and the reply claim comes only from that search summary.",
+      "sources": [
+        "https://api.crossref.org/works/10.3390/A9010001",
+        "https://api.crossref.org/works/10.3390/A9020030",
+        "https://link.springer.com/doi/10.1007/s40324-018-0174-0"
+      ]
+    }
+  ],
+  "summary": "Nothing in the window (26 January 2024 to 13 October 2026) settles or moves the Kung-Traub bound as far as I could find. The post-2024 events are of three kinds. (i) Constructions of optimal methods at specific evaluation counts that cite the conjecture as a benchmark: Chang et al. (MCS 2025; d = 3, order 4), Sagar and Sharma (MCS 2026; d = 4, order 8), and Ullah (PUJM, volume 2022 but listed 2025-05-12; d = 4, order 8). These attain values already known, so they cannot move the upper bound; the Varona blog (2020) says optimal methods are known for every number of evaluations, which I did not check independently. (ii) Cima et al. (arXiv 2503.18815, March 2025), which restates the conjecture in a section on efficiency, makes no claim to settle it, and has one restricted-class remark (Theorem A, Class I). I read its HTML through a summariser, and its PDF was unreadable. (iii) Schiessl (arXiv 2601.22187, January 2026), an arbitrary-order fixed-point iteration for the single equation t^M = a. No evaluation count is stated, so whether it falls within the bound's counting, as applied to general f, is unresolved; the paper's own scope does not address general f. Pre-window events: Kung and Traub 1974 (origin), Wasilkowski 1981 (the bound is proved for n <= 3 with Hermite information and for well-poised Birkhoff problems, per the abstract), Babajee 2015 (a claimed failure for quadratic functions only; abstract says fifth order from three evaluations), Ahmad 2016 (a priority comment), and Varona 2022 (an explicit order-32 optimal method, d = 6, plus a separate conjecture about weighted methods). Every post-2024 source I could read still treats the conjecture as open: Chang et al. say 'adhering to', Sagar and Sharma say 'optimal according to', and Cima et al. and Schiessl say nothing that settles it. Chun and Neta (2017, SeMA) discuss the barrier and memory-based methods; I saw only the abstract and it is pre-window, so I did not record it as an event. AI involvement: none of the events has an AI system named in any source I read. The only software named is Maple 2025.2 in Schiessl's HTML, which is a computer algebra system. The AI-specific searches (about ten queries pairing the conjecture with AI, LLM, GPT, Claude, Gemini, AlphaEvolve, and Lean) turned up nothing on this conjecture. Nearby AI hits were off-topic and recorded as discarded leads only: arXiv 2609.04659 (Forsythe's conjecture for restarted conjugate gradients, with GPT-5.6 disclosed in the authors' text as seen in a search summary; different problem), arXiv 2608.29595 (Sra, 'GPT, the Counterexample Machine'; no Kung-Traub mention on its abstract page), and arXiv 2511.02864 (the AlphaEvolve mathematics paper; its problem list, per search snippets, does not include root finding; full list not read). The AI-negative findings for Chang, Sagar and Ullah rest on abstracts and metadata, not full texts, so their 'none found' values are weak. Close calls: (a) Whether attainment-only constructions are events on this bullet. I recorded them, because the bullet asks about the optimal order and each one is a new instance of attainment; they do not change the status of the bound. (b) Ullah's date, which is 2022 by volume and 2025-05-12 by listing; both are in the record. (c) Schiessl's evaluation count, unstated, which decides whether it can be read as a general-f counterexample. (d) Babajee's claim, which is restricted to quadratic functions and so does not, on its face, refute the conjecture for general f.",
+  "competing_reading": "The strongest reading against this record: the bullet's 'optimal order' names the value 2^(n-1) only, so the post-2024 constructions are attainments already known for those n and the problem's status is unchanged in the window. The one candidate counterexample (Babajee) is pre-window and restricted to quadratic f, so it does not count either. The opposite reading: Schiessl's arbitrary-order iteration is a single-point method whose order is unbounded, which would contradict the bound if the bound applies to any iteration whose steps are cheap polynomial evaluations; that reading needs F, not f, to be the function the bound counts, which the bound's definition (evaluations of f and its derivatives) does not obviously allow. A third reading treats Wasilkowski's 1981 result as the strongest positive result on the upper bound, which it is only for n <= 3, Hermite information and well-poised Birkhoff problems.",
+  "what_would_settle_it": "(1) The 1974 Kung-Traub paper, to see exactly what it claims and how it counts evaluations. (2) The full text of Babajee (2015) to check whether the counterexample is order five or eight and is confined to quadratic f. (3) The 2018 Springer paper (s40324-018-0174-0), to check the priority account and whether Babajee replied. (4) The Schiessl PDF, to check the theorem (the 'aM' reading), the evaluation cost of F, and whether the method is multipoint in the Kung-Traub sense. (5) The first public dates of Chang et al. and Ullah, including any earlier preprint, and of Sagar and Sharma. (6) Full texts of Chang, Sagar and Ullah for any AI acknowledgement. (7) A citing-works search for the conjecture for 2024-2026 (Google Scholar or Scopus), to see whether any paper claims a bound or a refutation for general f.",
+  "sources": [
+    {"url": "https://arxiv.org/abs/2601.22187", "title": "A root finding method with arbitrary order of convergence (arXiv abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2601.22187v2", "title": "A root finding method with arbitrary order of convergence (arXiv HTML, via summariser)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2601.22187", "title": "A root finding method with arbitrary order of convergence (arXiv PDF, binary)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/2503.18815", "title": "On two families of iterative methods without memory (arXiv abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2503.18815", "title": "On two families of iterative methods without memory (arXiv HTML, via summariser)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2503.18815", "title": "On two families of iterative methods without memory (arXiv PDF, binary)", "type": "preprint", "opened": false},
+    {"url": "https://api.crossref.org/works/10.3390/A9010001", "title": "Babajee 2015, On the Kung-Traub Conjecture for Iterative Methods for Solving Quadratic Equations (Crossref metadata)", "type": "journal", "opened": true},
+    {"url": "https://api.crossref.org/works/10.3390/A9020030", "title": "Ahmad 2016, Comment on Babajee (Crossref metadata)", "type": "journal", "opened": true},
+    {"url": "https://www.mdpi.com/1999-4893/9/1/1", "title": "Babajee 2015, MDPI page", "type": "journal", "opened": false},
+    {"url": "https://www.mdpi.com/1999-4893/9/2/30", "title": "Ahmad 2016, MDPI page", "type": "journal", "opened": false},
+    {"url": "https://www.mdpi.com/1999-4893/9/1/1/htm", "title": "Babajee 2015, MDPI HTML", "type": "journal", "opened": false},
+    {"url": "https://link.springer.com/doi/10.1007/s40324-018-0174-0", "title": "2018 Springer paper on Babajee and Ahmad (redirected to login)", "type": "journal", "opened": false},
+    {"url": "https://scholars.uky.edu/es/publications/n-evaluation-conjecture-for-multipoint-iterations-for-the-solutio/", "title": "Wasilkowski 1981, n-Evaluation Conjecture for Multipoint Iterations (repository record)", "type": "repository", "opened": true},
+    {"url": "https://projects.csail.mit.edu/jacm/References/kungt1974:643.html", "title": "Kung and Traub 1974, ACM bibliography record (search snippet)", "type": "repository", "opened": false},
+    {"url": "https://investigacion.unirioja.es/documentos/621728b1b180c333d5659f48?lang=en", "title": "Varona 2022, An Optimal Thirty-Second-Order Iterative Method (repository record)", "type": "repository", "opened": true},
+    {"url": "https://institucional.us.es/blogimus/?p=10822", "title": "Varona, The Kung-Traub conjecture turns 46 years old (blog, 2020)", "type": "blog", "opened": true},
+    {"url": "https://pujm.pu.edu.pk/index.php/pujm/article/view/245", "title": "Ullah, An optimal eighth-order multipoint numerical iterative method (journal landing page)", "type": "journal", "opened": true},
+    {"url": "https://ideas.repec.org/a/eee/matcom/v229y2025icp448-467.html", "title": "Chang et al. 2025, A modified two-step optimal iterative method (bibliographic record)", "type": "journal", "opened": true},
+    {"url": "https://ideas.repec.org/a/eee/matcom/v241y2026ipbp238-256.html", "title": "Sagar and Sharma 2026, An extension of Ostrowski's method (bibliographic record)", "type": "journal", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.29595", "title": "Sra, GPT, the Counterexample Machine (abstract page; no Kung-Traub mention)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2111.14234", "title": "Varona, On the Solution of the Equation n = ak + bp_k (unrelated; checked to rule out)", "type": "preprint", "opened": true},
+    {"url": "https://doaj.org/article/55f97be7b3494795a783a5e728987308", "title": "Journal of Mathematics 2021 record (HTTP 403)", "type": "journal", "opened": false},
+    {"url": "https://en.wikipedia.org/wiki/Kung%E2%80%93Traub_conjecture", "title": "Wikipedia article URL (HTTP 404)", "type": "encyclopedia", "opened": false},
+    {"url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12268847/", "title": "Sixteenth-order five-evaluation method, PMC12268847 (browser verification page; date unknown)", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/pdf/2609.04659", "title": "Forsythe's conjecture for restarted conjugate gradients (search snippet only; different problem)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/pdf/2511.02864", "title": "Georgiev, Gomez-Serrano, Tao, Wagner, Mathematical exploration and discovery at scale (search snippets only)", "type": "preprint", "opened": false},
+    {"url": "https://en.wikipedia.org/wiki/List_of_conjectures", "title": "Wikipedia, List of conjectures (search snippet only; lists Kung-Traub under iterative methods)", "type": "encyclopedia", "opened": false}
+  ],
+  "search": {
+    "queries": [
+      "Kung-Traub conjecture",
+      "Kung-Traub conjecture optimal order multipoint iteration without memory",
+      "Kung-Traub conjecture 2025 arXiv",
+      "Kung-Traub conjecture 2024 new iterative method order 2^{n-1}",
+      "Kung-Traub conjecture counterexample",
+      "Kung-Traub conjecture disproved",
+      "Kung Traub conjecture AI model proof iterative method",
+      "Kung-Traub conjecture AlphaEvolve OR LLM OR GPT iterative root-finding",
+      "optimal multipoint iterative methods without memory Kung Traub 1974 open problem",
+      "Kung-Traub optimal eighth-order iterative method nonlinear equations 2025",
+      "Kung-Traub conjecture 2026",
+      "Kung-Traub conjecture proof optimal order 2^{d-1} multipoint",
+      "Kung and Traub's conjecture multipoint iteration without memory Babajee quadratic counterexample",
+      "Wasilkowski 1981 optimal multipoint iteration Kung Traub conjecture Journal of the ACM",
+      "Kung Traub 1974 \"Optimal order of one-point and multipoint iteration\" J. ACM",
+      "Varona optimal thirty-second-order iterative method conjecture weights Qualitative Theory of Dynamical Systems",
+      "\"Kung-Traub\" conjecture Wikipedia list of unsolved problems in mathematics iterative methods",
+      "AI discovered optimal root-finding iterative method order of convergence conjecture 2026",
+      "Kung-Traub conjecture Lean formalization OR formalized OR sorry",
+      "\"Kung-Traub\" iterative methods 2026 arXiv optimal order without memory",
+      "Chun Neta 2017 barrier Kung Traub conjecture r+1 function evaluations order without memory",
+      "Ahmad 2015 higher order iterative methods for solving matrix vector equations Kung Traub",
+      "Babajee reply Ahmad comment Kung-Traub conjecture quadratic equations Algorithms 2016 response",
+      "optimal sixteenth-order iterative method without memory 2025 Kung-Traub conjecture five evaluations",
+      "optimal eighth-order method four function evaluations 2024 Kung-Traub conjecture efficiency index 1.682",
+      "Sagar Sharma extension of Ostrowski's method improved convergence complex geometry Kung-Traub",
+      "Kung-Traub conjecture survey review optimal multipoint methods status open problem 2024 2025",
+      "AI language model contributed proof numerical analysis iterative method optimal order conjecture authors acknowledge ChatGPT OR Claude OR Gemini",
+      "AlphaEvolve root finding iterative method discovered new optimal convergence order",
+      "OpenAI GPT-5 open problems numerical analysis conjecture solved iterative methods 2026",
+      "Kung-Traub conjecture Terence Tao OR Quanta OR Matroid OR blog",
+      "Wikipedia Kung–Traub conjecture optimal order multipoint iteration without memory article"
+    ],
+    "places_checked": [
+      "arXiv abstract, HTML and PDF pages (2503.18815, 2601.22187, 2608.29595, 2111.14234)",
+      "Crossref metadata for Babajee 2015 and Ahmad 2016 (MDPI article records)",
+      "University of Kentucky repository (Wasilkowski 1981)",
+      "University of La Rioja repository (Varona 2022)",
+      "Universidad de Sevilla blog (Varona 2020)",
+      "Punjab University Journal of Mathematics (Ullah)",
+      "IDEAS/RePEc records for Chang et al. 2025 and Sagar and Sharma 2026",
+      "ACM bibliography record for Kung and Traub 1974 (search snippet)",
+      "Wikipedia article URL for the conjecture (404) and List of conjectures (snippet)",
+      "PubMed Central for PMC12268847 (blocked by browser verification)",
+      "Springer link for the 2018 paper (redirected to login)",
+      "Search engine results for AI-linked mathematics announcements in 2026 (only off-topic hits)"
+    ],
+    "dead_ends": [
+      "Wikipedia article for the conjecture: en.wikipedia.org/wiki/Kung–Traub_conjecture returned 404; the List of conjectures entry appears only in a search snippet.",
+      "Lean formalisation: no formal-conjectures entry for this problem appeared in search results. I did not browse the google-deepmind formal-conjectures GitHub repository directly.",
+      "Tao, Quanta and matroid coverage: none for this conjecture; the only Kung-hits are unrelated (J. P. S. Kung on Merino-Welsh).",
+      "AI tracker sites and announcements: no AI result on this conjecture in any search. I did not browse Erdős-problem or AI-tracker sites directly, because they cover other areas.",
+      "arXiv listing search for 'Kung-Traub' by date: not run directly; searches covered the same ground through the search engine.",
+      "Ahmad 2015 ResearchGate preprint (DOI 10.13140/RG.2.1.1519.2487): not found or opened.",
+      "Babajee reply to Ahmad: not found in MDPI listings I could read or in search results.",
+      "Chun and Neta 2017 (SeMA), 'How good are methods with memory': abstract only, via search; pre-window and about memory methods, so not recorded as an event.",
+      "Matthies, Salimi, Sharifi and Varona (arXiv 1508.01748; Japan J. Ind. Appl. Math. 2016): pre-window eighth-order method at d = 4; search snippet only, not opened.",
+      "arXiv 1410.2633 (four-point order 16, 2014) and arXiv 1410.5097 (Newton-secant, 2014): pre-window constructions; search snippets only.",
+      "arXiv 2609.04659 (Forsythe's conjecture, AI-assisted): a different problem; search snippet only.",
+      "arXiv 2511.02864 (AlphaEvolve mathematics, Georgiev et al.): search snippets only; no root-finding problem seen in the snippets, but the full list was not read."
+    ]
+  },
+  "incomplete": "(1) The Kung-Traub 1974 paper was not opened; its content is taken from later citations. (2) Babajee 2015, Ahmad 2016 and the 2018 Springer paper were not read in full (MDPI and Springer blocked); the order-five versus order-eight discrepancy and the priority account rest on abstracts and search summaries. (3) Schiessl 2026: the PDF is unreadable with my tools, so the HTML was read via a summariser; the 'aM' wording and the evaluation count are unresolved. (4) Cima et al. 2025: the PDF is unreadable; the HTML was read via a summariser; quoted sentences come from that summary. (5) Chang et al. 2025, Ullah (2022/2025) and Sagar and Sharma 2026: only abstracts and metadata were read; their first public dates are unverified, and AI-absence findings for them are based on those abstracts. (6) PMC12268847 (an order-16 method with five evaluations, optimal under the conjecture per a search snippet): not opened, date unknown; not recorded as an event. (7) Varona's 2022 order-32 paper: the full text was not read; the evaluation count of six is implied by the bound. (8) The 2014-2015 optimal-method papers and the 2016 Matthies et al. paper are pre-window constructions I saw only in search snippets. (9) The Wikipedia article for the conjecture does not exist at the URL I tried; the frozen bullet's link target was not checked. (10) Citation-index searches (Google Scholar, Scopus) for post-2024 citers of the 1974 and 1981 papers were not run; 'later work cites it' fields are therefore null or from search summaries."
+}

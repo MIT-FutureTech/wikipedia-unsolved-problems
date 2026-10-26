@@ -1,0 +1,29 @@
+{
+  "family": "017",
+  "entries": [
+    {
+      "problem": "flint-hills-series",
+      "relevant": true,
+      "what_happened": "The single manuscript, 'The irrationality exponent of pi is 2' (build/main.tex), claims two results. (1) Theorem 1.1 (thm:main): for every real ν>2 there is an integer Q(ν) such that |π − p/q| ≥ q^(−ν) for all integers p and all integers q ≥ Q(ν); fractions need not be reduced. With the pigeonhole bound μ(π) ≥ 2 this gives μ(π) = 2. (2) Corollary 1.2 (thm:flinthills): the classical Flint–Hills series Σ_{n≥1} 1/(n³ sin²n), angles in radians, converges. The corollary is proved in sections/series.tex. Fix ν in (2, 5/2); Theorem 1.1 gives ‖qπ‖ ≥ c·q^(1−ν) for all q ≥ 1, with c > 0 absorbing the finitely many q below Q. A dyadic spacing lemma (series:dyadic) turns this into Σ 1/(q³‖qπ‖²) < ∞. Each n is grouped by its nearest multiple q of π, and each group's contribution is bounded by (8/π)/(q³‖qπ‖²). The proof does not use the cited Alekseyev (μ ≤ 5/2 is necessary) or Meiburg (μ < 5/2 is sufficient) results. The same manuscript also states Corollary (series:generalized): for fixed a, b > 0, Σ 1/(n^a |sin n|^b) with angles in radians converges if and only if a > max{1, b}. The abstract and introduction present both results as proved.",
+      "delivers": "Convergence of the classical Flint–Hills series 1/(n³ sin²n), angles in radians: the manuscript claims the answer to the question is yes. Its framing matches the problem_asks reading. The introduction states the problem as whether Σ 1/(n³ sin²n) converges with angles in radians, and the claim answers that question affirmatively. The only hypothesis is the manuscript's own Theorem 1.1. That theorem's threshold Q(ν) is ineffective, but convergence needs only existence. The generalized criterion (a > max{1, b}) goes beyond the problem's single series.",
+      "remains": "Nothing that problem_asks requires. The bullet asks only whether the series converges. The manuscript gives no value of the sum, no rate of the tail, and no explicit threshold Q(ν).",
+      "direction": "proves convergence (positive answer)",
+      "object": null,
+      "conditional_on": null,
+      "doubts": "No step is flagged as sketched, and the abstract, Corollary 1.2 and its proof contain no hedges. Points that bear on trust: (a) the manuscript states that the threshold Q(ν) in Theorem 1.1 is not given effectively (main.tex, lines 74–75); (b) the proof of Theorem 1.1 rests on a new separated-weight interpolation theorem (sections/interpolation.tex) that the paper proves itself rather than citing, and the outline says a dimension count alone does not establish the needed full-rank statement (main.tex, lines 183–185); the Flint–Hills claim inherits whatever holds for that argument; (c) the task's description of the repository's Lean formalisation (lean/docs/017.md) says it covers the exponent-two statement but not the Flint–Hills consequence, so by that description the convergence step is not formally covered. I did not open the Lean file.",
+      "readme_exception": false,
+      "read": [
+        "sources/openai-math/preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026/build/main.tex",
+        "sources/openai-math/preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026/build/sections/series.tex",
+        "sources/openai-math/preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026/build/sections/conclusion.tex",
+        "sources/openai-math/preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026/build/sections/interpolation.tex (lines 1–62: section opening and Theorem 'Separated-weight interpolation')",
+        "sources/openai-math/preprints/The-irrationality-exponent-of-pi-is-2-September-24-2026/build/sections/determinant.tex (setup, arithmetic lemma and collision lemma statements, comparison proposition statement)"
+      ]
+    },
+    {
+      "problem": "are-gamma-the-euler-mascheroni-constant-pi-e-pi",
+      "relevant": false,
+      "not_relevant_because": "The manuscripts concern only π: they prove its irrationality exponent is 2 and derive the Flint–Hills convergence from that. None of the fourteen numbers asked about (γ, π+e, π−e, πe, π/e, π^e, π^√2, π^π, e^(π²), ln π, 2^e, e^e, Catalan's constant, Khinchin's constant) is π or is treated, and the irrationality measure of π is not one of the requested measures; the matching pass's link runs only through π."
+    }
+  ]
+}

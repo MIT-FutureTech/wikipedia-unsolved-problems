@@ -1,0 +1,1039 @@
+{
+  "key": "map-folding",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 nothing has settled any part of the problem as listed: no closed form or polynomial-time counting method for stamp-folding numbers t(n), no general map-folding count, and no polynomial-time map-folding algorithm has appeared. In-window movement is confined to neighbouring or restricted work: a closed-form count for fixed mountain-valley assignments (Hull et al., arXiv March 2025, DMTCS October 2025), one pair of new terms in the 2×n map-folding table (OEIS, 21 March 2025), a flat-folding complexity preprint that restates the map-folding question as open (arXiv October 2024), and a classification for period-2 assignments on 2×2k maps (arXiv 15 September 2026). Separately, an algorithm listing stamp foldings in Gray-code order (Liu, Wong, Lam, Im) was first posted at IWOCA in June 2023; its arXiv and TCS versions, from November 2024 and March 2025, add an iterative generator to the same claim.",
+  "problem_asks": "Read from the statement and the Wikipedia article's list of open problems for this topic (live article, see incomplete). (a) Stamp folding: a closed form for the number t(n) of foldings of a labelled 1×n strip of stamps, or a polynomial-time algorithm for computing it. (b) Map folding: a formula, or a general count, for the number of ways to fold a rectangular M×N map (the article gives exact counts only for small n, up to 7). (c) Map folding complexity: whether a polynomial-time folding or counting algorithm exists for general maps; the article says one is known for 2×n maps. (d) Flat-foldability of maps: whether an efficient test exists for deciding whether a given mountain-valley crease assignment on a map can be folded flat. The bullet's own wording, 'various problems in map folding and stamp folding', names nothing further. Whether the Sawada–Li Gray-code problem for stamp foldings (not in the article's list) belongs under the bullet is a scope question I have recorded in the events rather than decided.",
+  "events": [
+    {
+      "id": "liu-wong-2023-iwoca",
+      "what_happened": "Bowie Liu and Dennis Wong, 'Generating Cyclic Rotation Gray Codes for Stamp Foldings and Semi-meanders', IWOCA 2023 (34th International Workshop on Combinatorial Algorithms, Tainan, 7–10 June 2023), Lecture Notes in Computer Science 13889, pp. 271–281, DOI 10.1007/978-3-031-34347-6_23. Gives a recursive algorithm producing cyclic rotation Gray codes (consecutive strings differ by one stamp rotation) for stamp foldings and semi-meanders, and claims these are the first known such Gray codes: 'we thus solve an open problem posted by Sawada and Li (2012)'. The claim is taken from the abstract as reproduced on the Macao Polytechnic University record; the Springer page redirected to a login and was not opened.",
+      "date": "2023-06",
+      "precision": "month",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv 2411.05458 (v1 8 Nov 2024) and Theoretical Computer Science 1031:115053 (21 Mar 2025) state the same Gray-code claim and add an iterative algorithm; recorded as a separate event below. The IWOCA paper is described by the authors as a preliminary version.",
+      "delivers": "Cyclic rotation Gray codes listing all stamp foldings of n stamps and all semi-meanders, for every n, by a recursive generator running in constant amortised time per stamp folding. This is an existence-and-listing result, quantified over all n. It gives no count, no closed form and no bound on t(n).",
+      "remains": "Counting and closed-form questions (a) and (b) are untouched. Gray codes for open meanders are not claimed here. Whether this result belongs under the bullet at all is a scope call: the article's list does not mention Gray codes.",
+      "checked_by": [
+        {
+          "who": "IWOCA 2023 programme committee and Springer LNCS (referees not named on the record)",
+          "qualification": "Peer review at an established combinatorial algorithms workshop",
+          "what_they_did": "Accepted the paper for the proceedings",
+          "where": "https://research.mpu.edu.mo/en/publications/generating-cyclic-rotation-gray-codes-forstamp-foldings-andsemi-m/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 40 months since the proceedings (June 2023); no named expert commentary found",
+      "machine_checked": null,
+      "directly_checkable": "The cyclic listing can be checked for small n by generating foldings and confirming that every folding appears once and that consecutive entries differ by one stamp rotation. The arXiv version (appendices A and B) includes C implementations of both algorithms. Not run here.",
+      "doubts": "No active doubt found. The 'first known' and 'open problem' claims rest on the authors' reading of Sawada and Li (2012); I could not read the 2012 paper's wording of the problem (see that event), so whether the problem is exactly this one is unverified. The record shows one citation (Scopus) from an unidentified paper.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirmative for the question it addresses: Gray codes exist for stamp foldings and semi-meanders, which the authors say is the first such result. It cuts neither way on counting.",
+      "object": "A recursive algorithm (and, in the later version, an iterative one) that outputs a cyclic sequence of all stamp foldings, with successive foldings differing by one stamp rotation. The construction is explicit, not a non-constructive existence proof, and has constant amortised time per stamp folding and linear memory.",
+      "people": [
+        "Bowie Liu",
+        "Dennis Wong"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://research.mpu.edu.mo/en/publications/generating-cyclic-rotation-gray-codes-forstamp-foldings-andsemi-m/",
+          "https://arxiv.org/html/2411.05458v1"
+        ]
+      },
+      "sources": [
+        "https://research.mpu.edu.mo/en/publications/generating-cyclic-rotation-gray-codes-forstamp-foldings-andsemi-m/",
+        "https://link.springer.com/chapter/10.1007/978-3-031-34347-6_23"
+      ]
+    },
+    {
+      "id": "liu-wong-lam-im-2024-arxiv",
+      "what_happened": "Bowie Liu, Dennis Wong, Chan-Tong Lam and Marcus Im, 'Recursive and iterative approaches to generate rotation Gray codes for stamp foldings and semi-meanders', arXiv 2411.05458 (v1 submitted 8 Nov 2024). An expanded version of the 2023 IWOCA paper. It adds an iterative algorithm that yields the same codes (O(n) amortised per semi-meander, linear memory), includes C implementations (appendices A and B), and repeats the claim to solve Sawada and Li's open problem. The paper states: 'we were unable to produce a Gray code for open meanders. We leave this as an open problem.' Acknowledgements cite a Macao Polytechnic grant and a Korean NRF grant. No AI statement.",
+      "date": "2024-11-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv lists v1 only. Published as Theoretical Computer Science vol. 1031, article 115053, 21 March 2025, per a search summary of the Macao Polytechnic publication record; the journal page and the record page were not opened.",
+      "delivers": "The same listing result as the 2023 event for all n, plus the iterative generator for semi-meanders. Adds no count, closed form or bound on t(n).",
+      "remains": "Counting and closed-form questions (a) and (b). Gray codes for open meanders, which the authors explicitly leave open.",
+      "checked_by": [
+        {
+          "who": "Referees of Theoretical Computer Science (Elsevier), not named",
+          "qualification": "Peer review at a refereed journal",
+          "what_they_did": "Accepted for publication (per the publication record reported by search; not opened)",
+          "where": "https://research.mpu.edu.mo/en/publications/recursive-and-iterative-approaches-to-generate-rotation-gray-code/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 23 months since arXiv v1 (Nov 2024)",
+      "machine_checked": null,
+      "directly_checkable": "As for the 2023 event: small-n enumeration of the cyclic listing; the appendix code is the authors' own. Not run here.",
+      "doubts": "Only secondary reviews (themoonlight.io summaries, which are AI-generated) were found, and they were not used as evidence. No sentence in the paper says its outputs were compared with OEIS A000136 or A000682, though the paper cites both and prints their first terms.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative for the Gray-code question, with the same scope as the 2023 event. The claim is unchanged; the iterative algorithm is new.",
+      "object": "Recursive algorithm, and an iterative equivalent, producing cyclic rotation Gray codes for stamp foldings and semi-meanders. Explicit construction with C code in the appendices; constant amortised time per stamp folding (recursive), O(n) amortised per string for semi-meanders (iterative), linear memory.",
+      "people": [
+        "Bowie Liu",
+        "Dennis Wong",
+        "Chan-Tong Lam",
+        "Marcus Im"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2411.05458v1",
+          "https://arxiv.org/abs/2411.05458"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2411.05458",
+        "https://arxiv.org/html/2411.05458v1",
+        "https://oeis.org/A000136"
+      ]
+    },
+    {
+      "id": "hull-et-al-2025-arxiv",
+      "what_happened": "Thomas C. Hull, Adham Ibrahim, Jacob Paltrowitz, Natalya Ter-Saakov and Grace Wang, 'The Stamp Folding Problem From a Mountain-Valley Perspective' (arXiv v1 title: 'Enumerations and Bounds'), arXiv 2503.23661, first posted 31 March 2025 (later versions 20 Sep, 28 Sep and 6 Oct 2025). Published in Discrete Mathematics and Theoretical Computer Science vol. 27:3 (DOI 10.46298/dmtcs.15454); DMTCS lists submission 1 Apr 2025, acceptance 3 Oct 2025, publication 8 Oct 2025. It fixes the mountain or valley type of every crease in a 1×n strip and counts the legal foldings c(μ) for that fixed assignment μ. Main results: for M^aV^b with a > b+1 and b > 4 the count is ab + b² − b + 1 (edge cases 2a²−a+1 at a−b=1 and 2a²−3a+2 at a=b); for 2-alternating assignments on a 1×(2m+1) strip the count is a product of two Catalan numbers, C(⌊m/2⌋+1)·C(⌈m/2⌉+1); two-sided bounds on c(μ) for general μ; conjectures 4.1–4.3 and open questions 4.1–4.3.",
+      "date": "2025-03-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 20 Sep 2025; v3 28 Sep 2025; v4 6 Oct 2025 (arXiv); DMTCS vol. 27:3 published 8 Oct 2025. The text read is v4 (HTML). The v4 text refers to 'the expanded prior version' for Theorem 4.1.",
+      "delivers": "For the fixed-assignment count c(μ) only: exact formulas for two families of mountain-valley assignments (two-block M^aV^b, with the stated hypotheses; and 2-alternating patterns), and two-sided bounds on c(μ) for arbitrary μ. It is not a result on the unrestricted count t(n), which is the object of question (a). The paper cites the unrestricted problem as open, with 3.065^n < t(n) < 4^n (Uehara 2011) and t(n) computed to n = 45.",
+      "remains": "Question (a): a closed form or polynomial-time method for t(n) over all assignments. Within the paper's own question, the closed form for c(μ) for general μ (its Open Question 4.1), faster computation of c(μ) (4.2), and the 2×n analogue (4.3). Question (b) and the flat-foldability and map questions are untouched.",
+      "checked_by": [
+        {
+          "who": "Referees of Discrete Mathematics and Theoretical Computer Science (DMTCS), not named on the page",
+          "qualification": "Peer review at a refereed journal; the paper was revised in April and September 2025 before acceptance",
+          "what_they_did": "Accepted on 3 Oct 2025 (per the DMTCS listing)",
+          "where": "https://dmtcs.episciences.org/16660",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 18 months since arXiv v1; about 12 months since DMTCS publication",
+      "machine_checked": null,
+      "directly_checkable": "The closed forms can be checked for small m and a by enumerating legal foldings of the 1×(a+b+1) strip for the given assignment. The paper says the counts were produced by modifying an algorithm from Sawada and Li (2009). Not run here.",
+      "doubts": "(i) Read from the HTML version: Theorem 3.1 states the hypothesis b > 4, but the proof's case analysis uses b ≥ 4. The paper's own text is the source, but this was read through a summarising fetch and not checked against the PDF. (ii) Conjectures 4.1–4.3, including the asymptotic 2ⁿ/n^(5/4) for the maximal count, are unproven. (iii) The paper also reports experimental evidence for more general results. (iv) The text refers to an 'expanded prior version'; the versions were not compared.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative for its own question: closed forms and bounds for fixed-assignment counts. Relative to the unrestricted problem it gives no closed form for t(n); the paper itself says that remains open. Relative to the bullet's questions it is an analogue, because each assignment is fixed in advance, so it should not be read as progress on question (a) in the unrestricted sense. Both readings are in the summary.",
+      "object": "No single extremal object is exhibited. The results are explicit counts c(μ) of legal foldings for specific assignments μ (the two families above) with explicit two-sided bounds for general μ. The maximal-count assignment is conjectured (Conjecture 4.2: blocks of size 1, 2 and 3 only) and not proved.",
+      "people": [
+        "Thomas C. Hull",
+        "Adham Ibrahim",
+        "Jacob Paltrowitz",
+        "Natalya Ter-Saakov",
+        "Grace Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2503.23661v4"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2503.23661",
+        "https://arxiv.org/html/2503.23661v4",
+        "https://dmtcs.episciences.org/16660",
+        "https://oeis.org/A000136"
+      ]
+    },
+    {
+      "id": "hogan-2025-oeis-a001415",
+      "what_happened": "OEIS A001415 ('Number of ways of folding a 2 X n strip of stamps') gains two terms, a(19) = 28980175671212 and a(20) = 149302889205120, credited on the entry as 'from Hunter Hogan, Mar 21 2025'. The entry links Hogan's mapFolding GitHub repository. The repository README says 'Earlier versions of this project computed the terms for 2 × 19 and 2 × 20 stamp strips, extending' the sequence, and describes the project, in paraphrase from the README summary, as a Python package for exact enumeration of map foldings, stamp foldings, semi-meanders and meanders. The repository is licensed CC BY-NC 4.0.",
+      "date": "2025-03-21",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "OEIS page lists a(12)–a(18) by Lunnon (Dec 2013) and a(19)–a(20) by Hogan (Mar 2025). The repository README lists planned computations, not completed ones. No release date is visible on the repository.",
+      "delivers": "Two further finite values of the 2×n count, n = 19 and 20. Each is a single instance of a count family, so it moves no general quantity, gives no formula and no bound.",
+      "remains": "Everything in the bullet: general map counts, the stamp-folding closed form, and the polynomial-time questions.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 19 months; no public discussion found",
+      "machine_checked": null,
+      "directly_checkable": "The two values can be checked by an independent enumeration of 2×19 and 2×20 foldings. The OEIS entry carries an older comment by Lunnon (Dec 2013) that a(n) is divisible by 4n for n ≥ 2; I did not test this against the new values. Neither check was run here.",
+      "doubts": "No paper and no stated method on the OEIS page. The repository is small (2 stars, 0 forks at the snapshot read) and has one maintainer. Scope ambiguity: the OEIS title says 'strip of stamps', while the repository describes the same sequence as 2×n map folding. The values are not independently verified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirmative for the table of 2×n values only. Does not touch any question the bullet asks.",
+      "object": null,
+      "people": [
+        "Hunter Hogan"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/hunterhogan/mapFolding",
+          "https://github.com/hunterhogan/mapFolding/blob/main/AGENTS.md",
+          "https://oeis.org/A001415"
+        ]
+      },
+      "sources": [
+        "https://oeis.org/A001415",
+        "https://github.com/hunterhogan/mapFolding"
+      ]
+    },
+    {
+      "id": "fofonov-2026-arxiv",
+      "what_happened": "Michael Fofonov, 'Exact Labelled Layer-Order Classification for Period-2 Mountain–Valley Assignments on 2 × 2k Maps', arXiv 2609.16776 (v1 submitted 15 Sep 2026; single version listed). For ordinary orthogonal 2×2k maps (k ≥ 2) with period-2 mountain-valley assignments, it classifies the labelled final layer orders. It reports that 16 of 64 period words pass the local flat-foldability test; eight 'pleat' words each have one labelled state; the other eight reduce to two constant-row families. Counts of realizable labelled states are 0, 1, 6k−5 and 4k−3 across the cases (Corollary 8.3). Theorems 7.1 and 7.2 give pivot-compatibility conditions for MMMMVV and MVMMMM. Section 11 states the result 'does not classify arbitrary-period assignments, other map geometries, fold-sequence multiplicity, or unlabelled symmetry orbits'. Section 2.3 disclaims any priority for the pleat mechanism.",
+      "date": "2026-09-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv lists v1 only",
+      "delivers": "For 2×2k maps (k ≥ 2) and period-2 mountain-valley assignments only, a classification of realizable labelled layer orders with counts 0, 1, 6k−5 and 4k−3. The paper's own scope excludes arbitrary periods, other map geometries, fold-sequence multiplicity and unlabelled orbits.",
+      "remains": "Counting for general M×N maps and general mountain-valley assignments; unlabelled counts; fold-sequence multiplicity; other map shapes; the stamp-folding closed form. Question (c) and (d) are untouched.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 weeks as of 13 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": "For small k the counts can be checked by brute force over layer orders of a 2×4 or 2×6 map with a given period-2 assignment. Section 10 describes a reproducibility package that regenerates tables and reruns bounded semantic checks, and the abstract links a GitHub repository with code and validation data. Neither was run or opened.",
+      "doubts": "Single author; the first readable pages give no affiliation beyond a search snippet naming Alferov University, St Petersburg. Not peer reviewed, and only four weeks old. The 'exact' classification rests on bounded checks and a reproducibility package that I did not assess. The paper itself declines a priority claim for the uniform-sign row family and the pleat mechanism and says two prior sources were not used as sole authority (Section 2.4).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirmative within its own class: a complete classification with counts for period-2 assignments on 2×2k maps. It is a fixed-assignment analogue of the counting question and cuts neither way on the general problem.",
+      "object": "The labelled layer orders for each admissible period-2 word on 2×2k maps, with counts 1 for pleat words, 6k−5 and 4k−3 for the two constant-row families, and explicit pivot conditions (Theorems 7.1–7.2). These are explicit counts, not existence proofs.",
+      "people": [
+        "Michael Fofonov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.16776v1",
+          "https://arxiv.org/abs/2609.16776"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.16776",
+        "https://arxiv.org/html/2609.16776v1"
+      ]
+    },
+    {
+      "id": "eppstein-2024-arxiv",
+      "what_happened": "David Eppstein, 'Computational Complexities of Folding', arXiv 2410.07666 (v1 10 Oct 2024); Journal of Information Processing 33: 954–973 (2025). Shows that flat-folding of finite origami crease patterns is fixed-parameter tractable in the ply and in the treewidth of the cell adjacency graph, with a single-exponential treewidth dependence that is necessary under ETH; gives further hardness results for other folding problems. Section 3 treats map folding as the special case with trivial cell adjacency graph, notes that it is polynomial for 1×n and 2×n grids and that 'for larger grids its complexity is a major open problem', and states that 'if it could be eliminated, we could solve map folding in polynomial time' (the ply dependence). The abstract says: 'Improving the dependence on ply would require progress on the unsolved map folding problem.'",
+      "date": "2024-10-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "arXiv lists v1 only; journal version Journal of Information Processing 33 (2025), 954–973 per the abstract page. A 2023 precursor, 'A Parameterized Algorithm for Flat Folding' (arXiv 2306.11939), was merged into this paper; it was not opened.",
+      "delivers": "A general flat-foldability algorithm for finite origami crease patterns, fixed-parameter tractable in ply and treewidth. For map folding this gives a bound that is not polynomial in general, because ply grows with the grid. No new count, no polynomial algorithm for maps, and no new result on stamp folding.",
+      "remains": "Question (c) for general grids beyond 2×n, and question (d) as posed in the article. Counting questions (a) and (b) are untouched. The paper restates the map-folding complexity question as open.",
+      "checked_by": [
+        {
+          "who": "Referees of the Journal of Information Processing, not named",
+          "qualification": "Peer review at a refereed journal",
+          "what_they_did": "Published the paper (vol. 33, pp. 954–973); journal page not opened, so the acceptance is recorded from the abstract page",
+          "where": "https://arxiv.org/abs/2410.07666",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 24 months since arXiv v1 (Oct 2024); no follow-up on the map-folding remark found",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A search summary of an AI-generated review described the ply dependence as factorial; the talk slides found in search describe (ply!)^(width+1) n. The abstract says the treewidth dependence is single-exponential for bounded ply. These descriptions disagree and were not reconciled against the full text (the HTML was read only to about 100,000 of 145,000 characters).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring. The result is a decision (flat-foldability) result for general crease patterns, not a counting result. It leaves map folding open and states a conditional consequence of removing ply dependence.",
+      "object": null,
+      "people": [
+        "David Eppstein"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2410.07666v1",
+          "https://arxiv.org/abs/2410.07666"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2410.07666",
+        "https://arxiv.org/html/2410.07666v1"
+      ]
+    },
+    {
+      "id": "sawada-li-2012-ejc",
+      "what_happened": "Joe Sawada and Roy Li, 'Stamp Foldings, Semi-Meanders, and Open Meanders: Fast Generation Algorithms', Electronic Journal of Combinatorics 19(2), article P43, 13 June 2012. Uses a permutation representation and tree-like data structures to generate stamp foldings and semi-meanders in constant amortised time, and gives the fastest known generation for open meanders. The Gray-code problem that the 2023–2025 papers say they solve is attributed to this paper by Liu et al. The abstract does not mention Gray codes, and the PDF was unreadable, so the exact wording of that problem is not verified.",
+      "date": "2012-06-13",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Constant-amortised-time generation of stamp foldings and semi-meanders. Gives no count, closed form or bound on t(n).",
+      "remains": "Counting and closed-form questions (a) and (b); Gray codes, as posed (per Liu et al.).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not a result on the counts. It is a generation algorithm, and the Gray-code problem it is said to have posed is a listing question.",
+      "object": null,
+      "people": [
+        "Joe Sawada",
+        "Roy Li"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i2p43"
+        ]
+      },
+      "sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i2p43",
+        "https://oeis.org/A000136"
+      ]
+    },
+    {
+      "id": "legendre-2013-arxiv",
+      "what_happened": "Stéphane Legendre, 'Foldings and Meanders', arXiv 1302.2025 (first submitted 8 Feb 2013); Australasian Journal of Combinatorics 58 (2014), p. 275 (per search and OEIS; the journal page was not opened). Reviews the stamp folding problem, gives extended tables of folding and meander sequences, and relates folding and meander counts. OEIS A001011 attributes an n = 1..45 table to Legendre (2013). The OEIS A000136 links include Noe's table for n = 1..45. Hull et al. cite t(n) as computed to n = 45.",
+      "date": "2013-02-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Journal version Australasian J. Combinatorics 58 (2014) p. 275, per search and OEIS",
+      "delivers": "Extended tables for t(n) and semi-meander counts up to about n = 45: finite instances of the count. No formula.",
+      "remains": "Counting and closed-form questions (a) and (b).",
+      "checked_by": [
+        {
+          "who": "Referees of the Australasian Journal of Combinatorics, not named",
+          "qualification": "Peer review at a refereed journal",
+          "what_they_did": "Published (AJC 58, p. 275), per search and OEIS; journal page not opened",
+          "where": "https://ajc-new.maths.uq.edu.au/v58.p275",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Finite-instance extension of the tables. Cuts neither way on the open questions.",
+      "object": null,
+      "people": [
+        "Stéphane Legendre"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1302.2025"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1302.2025",
+        "https://oeis.org/A001011"
+      ]
+    },
+    {
+      "id": "uehara-2011-bound",
+      "what_happened": "Exponential bounds for the total number of foldings of a 1×n strip: 3.065^n < t(n) < 4^n, attributed by Hull et al. (2025) to Uehara (2011). The original paper was not located or opened; the venue and month are unverified.",
+      "date": "2011",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Exponential-growth bounds on t(n), the quantity named in question (a). Bounds only; no closed form and no exact growth constant.",
+      "remains": "The closed form for t(n) and the exact growth constant; question (a).",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 15 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only through the Hull et al. citation (their text was read) and an OEIS-related search summary. I did not confirm the constant 3.065 against the original.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Bounds on the growth of t(n); moves no part of the bullet to a closed form.",
+      "object": null,
+      "people": [
+        "Uehara"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2503.23661v4"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2503.23661v4"
+      ]
+    },
+    {
+      "id": "lunnon-1968-stamp",
+      "what_happened": "W. F. Lunnon, 'A map-folding problem', Mathematics of Computation 22 (1968), 193–199: a backtracking enumeration of foldings of a one-dimensional map (strip). A secondary summary in a search result says Lunnon computed t(n)/2n up to n = 24; the source of that summary was not confirmed. The OEIS A000136 references cite this paper; the AMS page was not opened.",
+      "date": "1968",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Exact values of the stamp-folding count (as t(n)/2n) for n up to 24, by exhaustive backtracking. Finite instances; no formula.",
+      "remains": "Counting and closed-form questions (a) and (b).",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 58 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The n = 24 figure is from a secondary summary. Wikipedia credits Koehler and Lunnon with reaching 28 stamps in the 1960s; see the dispute recorded below.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Finite-instance computation of the count. No bearing on the open questions.",
+      "object": null,
+      "people": [
+        "W. F. Lunnon"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://oeis.org/A000136"
+        ]
+      },
+      "sources": [
+        "https://oeis.org/A000136",
+        "https://en.wikipedia.org/wiki/Map_folding"
+      ]
+    },
+    {
+      "id": "lunnon-1971-map",
+      "what_happened": "W. F. Lunnon, 'Multi-dimensional map-folding', The Computer Journal 14(1) (February 1971), pp. 75–80, DOI 10.1093/comjnl/14.1.75. Gives computed values for multidimensional map foldings. OEIS A001418 (n×n sheets) cites it for a(1)–a(7). MathWorld says Lunnon's paper gives values up to n = 28; the page pagination in MathWorld differs (75–79).",
+      "date": "1971-02",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "OEIS A001416 and A001417 record later extensions by Irvine and Lunnon (2017) and Irvine (2017)",
+      "delivers": "Exact values of multidimensional map-folding counts for small grids (n×n up to 7 per OEIS; up to 28 per MathWorld, which I did not verify). Finite instances; no general formula.",
+      "remains": "Counting and closed-form questions for general M×N maps (question b).",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 55 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The n = 28 claim is attributed to Lunnon 1971 by MathWorld, and to 1960s Koehler and Lunnon by Wikipedia. The original paper was not opened.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Finite-instance computation of map-folding counts. No bearing on the open questions beyond those values.",
+      "object": null,
+      "people": [
+        "W. F. Lunnon"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://oeis.org/A001418"
+        ]
+      },
+      "sources": [
+        "https://oeis.org/A001418",
+        "https://oeis.org/A001416",
+        "https://mathworld.wolfram.com/StampFolding.html"
+      ]
+    },
+    {
+      "id": "arkin-2000-fold-a-map",
+      "what_happened": "Esther M. Arkin, Michael A. Bender, Erik D. Demaine, Martin L. Demaine, Joseph S. B. Mitchell, Saurabh Sethia and Steven S. Skiena, 'When Can You Fold a Map?', arXiv cs/0011026 (first submitted 20 Nov 2000; the version read is v3, 31 Aug 2003). Asks whether a crease pattern with mountain and valley labels can be flat-folded by a sequence of simple folds. For rectangular sheets with orthogonal creases (the 'map' case) they give a linear-time algorithm. Slight generalizations are weakly NP-complete.",
+      "date": "2000-11-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 20 Nov 2000; a later version dated 31 Aug 2003 (v3) per the abstract page; the v2 date was not seen",
+      "delivers": "A linear-time test for flat-foldability of orthogonal, mountain-valley-assigned crease patterns on a rectangular sheet, by sequences of simple folds. This addresses question (d) as posed by the article only if its flat-foldability notion is the simple-fold one; the article's wording does not specify a model. The paper does not extend this to flat-folding by arbitrary motions, or to other map shapes, which it reports as NP-complete.",
+      "remains": "Whether the simple-fold result settles question (d) as the article words it is a judging call. Counting questions (a) and (b) are untouched.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 26 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Read from the arXiv abstract page only. The venue was not checked. The main-results summary is from a fetched abstract page, not the full paper.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative for simple-fold flat-foldability of rectangular orthogonal MV maps, which is the case the article calls 'map folding' and, as Eppstein reports, polynomial for 1×n and 2×n grids. Whether this is the question (d) asks is a judgement for the later pass.",
+      "object": null,
+      "people": [
+        "Esther M. Arkin",
+        "Michael A. Bender",
+        "Erik D. Demaine",
+        "Martin L. Demaine",
+        "Joseph S. B. Mitchell",
+        "Saurabh Sethia",
+        "Steven S. Skiena"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/cs/0011026"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/cs/0011026",
+        "https://arxiv.org/html/2410.07666v1"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Who first reached the 28-stamp (or 28-term) computation: Wikipedia says 1960s algorithms by Koehler and Lunnon reached 28 stamps; a survey summary attributes to Lunnon's 1968 paper the values t(n)/2n up to n = 24; MathWorld attributes values up to n = 28 to Lunnon 1971 for maps. These do not agree on paper or n.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Map_folding",
+        "https://mathworld.wolfram.com/StampFolding.html",
+        "https://oeis.org/A001418"
+      ]
+    },
+    {
+      "kind": "dating",
+      "summary": "The Gray-code result has two dates. The IWOCA 2023 proceedings paper by Liu and Wong carries the core claim (first Gray codes for stamp foldings and semi-meanders, solving Sawada–Li's open problem). The arXiv 2024 and TCS 2025 versions by Liu, Wong, Lam and Im carry the same claim with an added iterative algorithm. Under the first-written-argument rule the core result is dated June 2023; the in-window material is the expansion. The judging pass should decide which date the result carries.",
+      "sources": [
+        "https://research.mpu.edu.mo/en/publications/generating-cyclic-rotation-gray-codes-forstamp-foldings-andsemi-m/",
+        "https://arxiv.org/abs/2411.05458"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Liu et al. say the Gray-code problem was posed by Sawada and Li (2012) and is also listed in Mütze's Gray-code survey. The Sawada–Li abstract page does not mention Gray codes, the PDF was unreadable, and the 2024 survey's stamp-folding entry was not located (the text was truncated). The problem's exact wording and origin remain unverified.",
+      "sources": [
+        "https://arxiv.org/abs/2411.05458",
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i2p43",
+        "https://arxiv.org/abs/2202.01280"
+      ]
+    }
+  ],
+  "summary": "The bullet asks about stamp-folding and map-folding counts and about the complexity of folding maps; the article itself gives four open questions (closed form or polynomial method for stamp-folding counts; a general map-folding count; polynomial map-folding algorithms; efficient flat-foldability of maps with given mountain-valley assignments). Searches covered the names of the problem, the OEIS sequences (A000136, A001011, A001415–A001418), arXiv, the Mütze Gray-code survey, MathWorld, the Wikipedia article and AI-specific terms. Nothing in the window settles any part of the problem as listed. Five in-window items were found and opened: (1) Hull et al., arXiv March 2025 and DMTCS October 2025, giving closed forms and bounds for counts with a fixed mountain-valley assignment; the paper itself says the unrestricted closed form remains open, so this is an analogue of question (a), not a settlement of it. (2) Liu et al., the expanded arXiv (November 2024) and TCS (March 2025) versions of a Gray-code listing result for stamp foldings, which was first posted at IWOCA in June 2023; so the core result predates the window and only the iterative generator is new. Whether Gray codes belong under the bullet at all is a scope call, since the article does not mention them. (3) An OEIS term extension for the 2×n sequence (a(19), a(20), credited to Hogan, 21 March 2025), a finite instance with no bearing on the general question. (4) Fofonov, arXiv 15 September 2026, a classification with counts for period-2 mountain-valley assignments on 2×2k maps, scoped by its author to exclude general maps. (5) Eppstein, arXiv October 2024, a flat-folding complexity result that restates map folding as open and says removing a ply dependence would give polynomial map folding; this is neighbouring work. Pre-window background is recorded as events: Arkin et al. (2000) give a linear-time test for flat-foldability of rectangular orthogonal mountain-valley maps under simple folds, which may already settle the flat-foldability question depending on which notion of folding the article means; Sawada–Li (2012); Legendre's tables to n ≈ 45 (2013); a bound 3.065^n < t(n) < 4^n attributed to Uehara (2011); and Lunnon's 1968 and 1971 computations. Several sources were read only in part or through summarising fetches, so exact quotations are not guaranteed verbatim (see incomplete). On AI: no source I opened credits an AI system with any of the mathematics in these results. The Liu, Hull, Fofonov and Eppstein papers' readable text has no AI statement, and the Hull and Liu full texts list only funding. The mapFolding repository is the one place with AI-adjacent traces: its README says 'Ironically, LLMs can't figure it out either because I guess my idea was novel', and the repository contains an AGENTS.md file of agent-style instructions. Neither names a model or says what it did, so I have recorded none_found as false for that event with an empty systems list rather than reading a system into it. Searches for AI-credited stamp- or map-folding results (AlphaEvolve, FunSearch, AlphaProof, Deep Think, GPT, Claude, Gemini, Aristotle, Lean) found nothing.",
+  "competing_reading": "Four readings are open. (1) Gray codes: read the bullet as covering any problem in stamp folding and the Liu et al. result is an in-scope event, dated June 2023 (pre-window) with an in-window expansion; read the bullet as counting-only and it is out of scope entirely. (2) Hull et al.: read as progress on question (a) because it gives exact closed forms with Catalan numbers, the result is in-window but restricted to fixed assignments; read as an analogue, which is how the paper frames its own question, it settles nothing in the bullet. (3) Fofonov: read as a complete classification of a restricted class, with counts that are counts of labelled layer orders (which MathWorld treats as the definition of a folding), or read as a niche case with the paper's own scope exclusions; the counts are for fixed period-2 assignments only. (4) Arkin et al. (2000): read question (d) as simple-fold flat-foldability, in which case it is answered before the window; read it as flat-foldability by arbitrary motions, in which case it is not. A further reading of the Hogan event: a table extension is a finite instance and should count for nothing, or it may be the only computational progress on question (b) in the window.",
+  "what_would_settle_it": "(a) The Wikipedia article as it stood on 26 January 2024, to fix which open questions the bullet actually lists. (b) The full text of Sawada and Li (2012) to see whether they posed the Gray-code problem, and Mütze's survey (2024 version) to see whether it lists the problem. (c) The full text of Hull et al. to confirm the Theorem 3.1 hypothesis (b > 4 or b ≥ 4) and whether any statement addresses the unrestricted t(n). (d) The acknowledgements and AI statement of Fofonov (arXiv 2609.16776) and Eppstein (arXiv 2410.07666), which were not readable in full here. (e) The OEIS history pages for A000136 and A001415, to confirm that no other term changes or extensions were made after January 2024. (f) The Hogan repository's commit history and any authors' note on how the 2×19 and 2×20 values were computed and checked. (g) The Arkin et al. (2000) paper, to see which folding model its linear-time result uses, and whether the article's wording of question (d) refers to it.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Map_folding",
+      "title": "Map folding (Wikipedia, live article; read through a summarising fetch)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2411.05458",
+      "title": "Recursive and iterative approaches to generate rotation Gray codes for stamp foldings and semi-meanders (arXiv 2411.05458)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2411.05458v1",
+      "title": "Same, HTML v1",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://research.mpu.edu.mo/en/publications/generating-cyclic-rotation-gray-codes-forstamp-foldings-andsemi-m/",
+      "title": "Generating Cyclic Rotation Gray Codes for Stamp Foldings and Semi-meanders (Macao Polytechnic record)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://link.springer.com/chapter/10.1007/978-3-031-34347-6_23",
+      "title": "Springer LNCS chapter, DOI 10.1007/978-3-031-34347-6_23 (redirected to login; not read)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://research.mpu.edu.mo/en/publications/recursive-and-iterative-approaches-to-generate-rotation-gray-code/",
+      "title": "Recursive and iterative approaches ... (Macao Polytechnic record; search snippet only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.23661",
+      "title": "The Stamp Folding Problem From a Mountain-Valley Perspective (arXiv 2503.23661)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2503.23661v4",
+      "title": "Same, HTML v4 (full text read through a summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://dmtcs.episciences.org/16660",
+      "title": "DMTCS 27:3, #16660 (Hull et al.)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A000136",
+      "title": "OEIS A000136: Number of ways of folding a strip of n labeled stamps",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A001011",
+      "title": "OEIS A001011: Number of ways to fold a strip of n blank stamps",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A001415",
+      "title": "OEIS A001415: Number of ways of folding a 2 X n strip of stamps",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A001416",
+      "title": "OEIS A001416: Number of ways of folding a 3 X n strip of stamps",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A001417",
+      "title": "OEIS A001417: 2 X 2 X ... X 2 n-dimensional map",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A001418",
+      "title": "OEIS A001418: Number of ways of folding an n X n sheet of stamps",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/hunterhogan/mapFolding",
+      "title": "hunterhogan/mapFolding (GitHub README)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/hunterhogan/mapFolding/blob/main/AGENTS.md",
+      "title": "hunterhogan/mapFolding AGENTS.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://pypi.org/project/mapFolding/",
+      "title": "mapFolding on PyPI (error page; not read)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.16776",
+      "title": "Exact Labelled Layer-Order Classification for Period-2 Mountain–Valley Assignments on 2 x 2k Maps (arXiv 2609.16776)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.16776v1",
+      "title": "Same, HTML v1 (first ~100,000 of ~119,000 characters read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.16776",
+      "title": "Same, PDF (compressed stream; unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.07666",
+      "title": "Computational Complexities of Folding (arXiv 2410.07666)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2410.07666v1",
+      "title": "Same, HTML v1 (first ~100,000 of ~145,000 characters read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2410.07666",
+      "title": "Same, PDF (compressed stream; unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v19i2p43",
+      "title": "Sawada & Li, EJC 19(2) P43, abstract page",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v19i2p43/pdf",
+      "title": "Sawada & Li, EJC PDF (compressed; unreadable)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.cis.uoguelph.ca/~sawada/papers/stamp2.pdf",
+      "title": "Sawada & Li PDF from author site (compressed; unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1302.2025",
+      "title": "Legendre, Foldings and Meanders (arXiv 1302.2025)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/cs/0011026",
+      "title": "Arkin et al., When Can You Fold a Map? (arXiv cs/0011026)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/StampFolding.html",
+      "title": "MathWorld: Stamp Folding (no references visible in fetch)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2202.01280",
+      "title": "Mütze, Combinatorial Gray codes — an updated survey (arXiv 2202.01280)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2202.01280v4",
+      "title": "Same, HTML v4 (first ~100,000 of ~267,000 characters read; stamp section not reached)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2306.11939",
+      "title": "Eppstein, A Parameterized Algorithm for Flat Folding (2023 precursor; search snippet only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.ams.org/mcom/1968-22-101/S0025-5718-1968-0221957-8/",
+      "title": "Lunnon, A map-folding problem, Math. Comp. 22 (1968) (not opened)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.themoonlight.io/review/recursive-and-iterative-approaches-to-generate-rotation-gray-codes-for-stamp-foldings-and-semi-meanders",
+      "title": "themoonlight.io AI-generated review of Liu et al. (not used as evidence)",
+      "type": "blog",
+      "opened": false
+    },
+    {
+      "url": "https://ajc-new.maths.uq.edu.au/v58.p275",
+      "title": "Legendre, Foldings and meanders, AJC 58 (journal page; not opened)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.11941",
+      "title": "OEIS Open: How many conjectures can language models turn into theorems? (search snippet only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://epoch.ai/data-insights/math-preprints-disclosed-ai-use",
+      "title": "Epoch AI data insight on AI acknowledgements in math preprints (search snippet only; no folding breakdown)",
+      "type": "blog",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "map folding stamp folding open problem",
+      "stamp folding enumeration A001011 new terms",
+      "Map folding Wikipedia",
+      "stamp folding asymptotic growth constant Lunnon",
+      "map folding arXiv 2025",
+      "map folding AI model proof counting AlphaEvolve OR LLM",
+      "Lunnon map folding algorithm transfer matrix 2024",
+      "Sawada Li stamp foldings semi-meanders open problems",
+      "arXiv 2503.23661 Hull mountain-valley stamp folding Catalan",
+      "Liu Wong Lam Im rotation Gray codes stamp foldings semi-meanders",
+      "Jensen stamp folding enumeration n=50 transfer matrix",
+      "OEIS A000136 number of ways of folding a strip of n labeled stamps",
+      "Hull \"stamp folding\" mountain-valley assignment 2025 paper",
+      "\"map folding\" Lunnon conjecture 2025",
+      "stamp folding LLM OR \"large language model\" OR GPT OR Claude OR Gemini conjecture",
+      "\"stamp folding\" 2026",
+      "\"map folding\" 2026 new result counting",
+      "Mütze Gray code survey stamp foldings open problem",
+      "open meanders Gray code 2025 semi-meanders generation",
+      "Liu Wong Lam Im Theoretical Computer Science 2025 stamp foldings Gray codes 115053",
+      "AlphaEvolve OR FunSearch OR AlphaProof stamp folding OR map folding OR meander combinatorics result",
+      "Sawada Li 2012 Electronic Journal of Combinatorics stamp foldings semi-meanders open problem Gray code",
+      "stamp foldings t(n) computed n = 46 OR n=50 new terms Jensen Sawada 2024",
+      "Generating Cyclic Rotation Gray Codes for Stamp Foldings and Semi-meanders IWOCA 2023",
+      "Torsten Mütze combinatorial Gray codes updated survey stamp foldings semi-meanders open problem list",
+      "\"stamp folding\" OR \"map folding\" Lean formalization OR \"formal proof\" OR \"sorry\"",
+      "\"stamp folding\" AI-generated OR \"AI-assisted\" OR \"with the help of\" mathematics paper acknowledgements",
+      "Lunnon 1971 multi-dimensional map-folding Computer Journal 14 75 values n 28 history",
+      "Sakai 2026 stamp folding labeled foldings boundary decomposition",
+      "stamp folding problem new result 2025 2026 arXiv labeled foldings closed formula progress",
+      "mapFolding python package hunterhogan map folding counts OEIS",
+      "\"complexity of the stamp folding problem\" NP-complete Bodlaender OR Hoang OR Uehara",
+      "Michael Fofonov mountain-valley map folding 2 x 2k maps arXiv",
+      "Hunter Hogan mapFolding AI assisted OR Claude OR GPT stamp folding code",
+      "stamp folding open problem 2025 paper \"open problem\" Sawada Li closed form stamp foldings cites Hull",
+      "Terence Tao OR Quanta stamp folding OR map folding counting unsolved",
+      "AI model discovered OEIS sequence terms stamp folding OR map folding OR meanders 2025 2026",
+      "\"Gray code\" stamp foldings AI OR LLM generated algorithm open problem solved 2025",
+      "Epoch AI math preprints disclosed AI use combinatorics enumeration folding",
+      "\"map folding\" OR \"stamp folding\" GPT-5 OR \"Deep Think\" OR Gemini OR Aristotle Harmonic Lean",
+      "Eppstein \"map folding\" ply treewidth flat-folding FPT 2025 follow-up"
+    ],
+    "places_checked": [
+      "Wikipedia article Map folding (live version read; frozen January 2024 revision not read)",
+      "OEIS A000136, A001011, A001415, A001416, A001417, A001418 (data, extensions, references, links)",
+      "arXiv: 2411.05458 (abstract and HTML v1); 2503.23661 (abstract and HTML v4); 2609.16776 (abstract and HTML v1; PDF unreadable); 2410.07666 (abstract and HTML v1; PDF unreadable); 1302.2025 (abstract); cs/0011026 (abstract); 2202.01280 (abstract and HTML v4, truncated)",
+      "DMTCS 27:3 article page for Hull et al.",
+      "Sawada & Li, EJC 19(2) P43 abstract page (PDF and author-site PDF unreadable)",
+      "Macao Polytechnic University publication record for the IWOCA 2023 paper",
+      "Springer LNCS chapter (redirect; not read)",
+      "MathWorld Stamp Folding entry (no references visible)",
+      "GitHub hunterhogan/mapFolding README and AGENTS.md",
+      "PyPI mapFolding (error page)",
+      "Search-only (snippets, not opened): Epoch AI data, UWEC CERCA 2026 session, arXiv 2608.11941, thatsmaths.com, mappingignorance.org, AJC v58 p275, themoonlight.io reviews (AI-generated, not used as evidence)",
+      "Not searched: arXiv full-text search (unavailable through the tools), Google Scholar, Jensen's home page, Sawada 2009 algorithm paper, OEIS edit histories, Lean or Coq repositories, MathOverflow, Quanta, Tao's blog"
+    ],
+    "dead_ends": [
+      "Sakai (2026): a search snippet suggested MathWorld cites a 2026 Sakai paper on boundary decomposition of labelled foldings. The fetched MathWorld page contained no references, and the search found no such paper. Unconfirmed; not recorded as an event.",
+      "A 'Lunnon conjecture' on map-folding growth: no source found. The search summary's '3.59' growth constant was not traced to any source and is not recorded.",
+      "2026 stamp-folding news: only a UWEC CERCA 2026 session (27 April 2026) on counting methods; no new result. Not recorded as an event.",
+      "n > 45 values of t(n): no source found after the 2013 table. OEIS A000136 shows data to n = 29 and links the n ≤ 45 table; the OEIS edit history was not opened.",
+      "Gray codes for open meanders: the Liu et al. paper leaves it open; no later result found.",
+      "AI credit: no source names an AI system that contributed to any stamp- or map-folding result. Searches for AlphaEvolve, FunSearch, AlphaProof, Deep Think, GPT, Claude, Gemini, Aristotle and Lean found nothing relevant. The mapFolding repository's README and AGENTS.md are the only AI-adjacent traces (see the Hogan event).",
+      "Lean, Coq or Isabelle formalisations of stamp or map folding: none found.",
+      "NP-completeness of stamp folding attributed to Bodlaender, Hoang or Uehara: not found. The Uehara-group results found concern related crease problems (minimising crease width, crease-retrieve), not the counting problem.",
+      "Terence Tao or Quanta coverage of stamp or map folding: none found.",
+      "Mütze 2024 survey's stamp-folding entry: not located; the fetched text stopped about a third of the way through.",
+      "Springer LNCS page for IWOCA 2023 (redirected to a login); the dates come from the Macao Polytechnic record.",
+      "PyPI mapFolding page (error); the package's details come from the GitHub README and a search summary.",
+      "Epoch AI's AI-acknowledgement data has no folding or enumeration breakdown in the snippets read."
+    ]
+  },
+  "incomplete": "(1) The Wikipedia article was read as the live page (last edited 17 September 2026 per the fetch), not as the frozen 26 January 2024 revision. The four open questions in problem_asks come from that live page and may differ from the January 2024 text. (2) Several quotations from Wikipedia, the Hull et al. HTML, the Liu et al. HTML and the Eppstein HTML come from a summarising fetch and may not be verbatim; they are marked as paraphrase where that matters. (3) Fofonov (arXiv 2609.16776): the PDF was unreadable and the HTML was read only to about 100,000 of about 119,000 characters; acknowledgements, funding and any AI statement in the unread part, and the front matter if it lies beyond that point, were not seen. (4) Eppstein (arXiv 2410.07666): the HTML was read to about 100,000 of about 145,000 characters; the acknowledgements in the front matter were seen, and later end-matter was not. (5) Liu et al.: the TCS journal page and the Macao 'recursive-and-iterative' record were not opened; the TCS date comes from a search summary. The Springer IWOCA page redirected and was not read, so the IWOCA date is month precision from the Macao record. (6) Sawada and Li (2012): the open-problem wording was not verified, because the EJC PDF and the author-site PDF were unreadable. (7) Mütze's 2024 survey: the stamp-folding entry, if any, was not located; the text was truncated at about 100,000 of about 267,000 characters. (8) Pre-window events (Uehara 2011, Lunnon 1968 and 1971, Legendre 2013, Arkin et al. 2000) were checked only from abstracts, OEIS entries, or secondary summaries; the originals were not read, and their AI attribution is recorded as none_found on the basis of date and the absence of any named system in what was read, not on a full read. (9) The mapFolding PyPI page errored; the repository's commit history and release dates were not visible. (10) OEIS edit histories for A000136, A000682 and A001011 were not opened, so I cannot rule out in-window term changes that the entry pages do not show. (11) No Epoch AI subfield data, Quanta, Tao blog, MathOverflow, Lean repository or arXiv full-text search was available. (12) The Hull et al. statement that Theorem 3.1 uses b > 4 versus b ≥ 4 is from a summarising fetch and was not checked in the PDF. (13) No dataset-level claims are made here.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "liu-wong-2023-iwoca",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "liu-wong-lam-im-2024-arxiv",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hull-et-al-2025-arxiv",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hogan-2025-oeis-a001415",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "fofonov-2026-arxiv",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "eppstein-2024-arxiv",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "sawada-li-2012-ejc",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "legendre-2013-arxiv",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "uehara-2011-bound",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lunnon-1968-stamp",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lunnon-1971-map",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "arkin-2000-fold-a-map",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement is a pointer to the open problems of the Map folding article: the stamp-folding count t(n) (closed form or polynomial algorithm), general map-folding counts, and the complexity of folding/flat-folding maps. No in-window event touches these. Hull et al. and Fofonov count foldings for a fixed mountain-valley assignment, which the papers themselves frame as a different question from the unrestricted count: variant. The Liu et al. Gray-code listing answers a Sawada-Li listing question that the article does not name, and its core claim dates to June 2023 anyway: variant both times. Hogan's two new OEIS terms are finite instances. Eppstein's FPT flat-folding algorithm restates map folding as open and gives no polynomial algorithm: none. Arkin et al. (2000) is the long-known simple-fold result; the article's open question concerns flat-foldability beyond that, so variant. Uehara's exponential bounds on t(n) are a pre-snapshot bound. The Hogan repository has AI-adjacent traces but no system credited with mathematics, so its ai_role is none.",
+    "doubts": "The researcher read the live Wikipedia article rather than the 26 January 2024 revision, so the list of open questions under the bullet is not confirmed. Arkin et al. could be read as a pre-snapshot case of the flat-foldability question if the article meant simple folds; that would not change the outcome. Verification for the old papers rests on journal publication reported by the record, and some of those journal pages were not opened.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

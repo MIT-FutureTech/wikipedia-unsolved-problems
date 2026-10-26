@@ -1,0 +1,780 @@
+{
+  "key": "is-it-true-that-out-of-all-bipartite-graphs",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 the question has been answered affirmatively in the representation-number (uniform-length) sense: Colbrook and Drysdale's arXiv:2609.35842 (24 Sep 2026, v1 only, no human engagement found 18 days later) proves that every bipartite graph on N>=9 vertices has representation number at most ceil(N/4) and that crown graphs attain the maximum among bipartite graphs of each even order 2n; the answer for the minimum-length reading of 'word-representants' is not established by the sources I read.",
+  "problem_asks": "(a) Whether crown graphs H_{n,n} (K_{n,n} with a perfect matching removed) require the longest word-representants among ALL bipartite graphs. The statement fixes no order; the only non-vacuous comparison is among bipartite graphs with the same number of vertices (2n, since crown graphs exist only at even order). (b) 'Longest word-representants' is a claim about length of representing words, and the statement does not say which length: (b1) the minimum length of any word representing the graph (Gaetz and Ji's absolute minimal length, ell(G)), or (b2) the minimum length of a uniform representing word, i.e. k times the vertex count with k the representation number, which is the reading the 2026 paper adopts. Kitaev's survey phrases the crown fact as 'the longest known shortest word-representants', so (b1) is probably the intended reading. (c) The question is yes/no ('Is it true that'). Context only: the statement is listed under the open problems of word-representable graphs (Wikipedia 'Word-representable graph', Kitaev-Lozin tradition). No parent.",
+  "events": [
+    {
+      "id": "colbrook-drysdale-2026",
+      "what_happened": "Matthew J. Colbrook and Catherine Drysdale posted 'Crown graphs maximise the representation number of bipartite graphs' (arXiv:2609.35842, math.CO, cross-listed cs.DM). Theorem 1.1: every bipartite graph G on N>=9 vertices has representation number R(G) <= ceil(N/4). Corollary 1.2: for every n>=1, max{R(G): G bipartite, |V(G)|=2n} = R(H_{n,n}), which is 2 for 1<=n<=3, 3 for n=4, and ceil(n/2) for n>=5. The paper states that Corollary 1.2 'answers affirmatively the question' (quoting the problem wording), reads word length as 'the minimum length of a uniform representation', and gives the maximum length as N*ceil(N/4) for even N>=10. The authors' AI declaration (Section 6.2) is recorded under ai. The proof builds on a Mozhui-Krishna construction, reduces to an ordering problem on neighbourhoods, uses probability estimates for large balanced bipartitions, and closes two finite cases by Boolean unsatisfiability certificates (Z3 4.13.3, per the paper). Lean 4 formalisation is claimed for the main theorem and corollary.",
+      "date": "2026-09-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (Thu, 24 Sep 2026, 17:59:34 UTC) on the arXiv abstract page as checked on 12 Oct 2026; no comments field.",
+      "delivers": "For every bipartite G on N>=9 vertices, R(G) <= ceil(N/4); and for each n>=1 the crown graph H_{n,n} attains max R over bipartite graphs on 2n vertices. Restrictions: the comparison is among bipartite graphs of equal (even) order; the length notion is the uniform one (minimum length of a k-uniform representing word, k = R); the corollary as read states the maximum is attained by the crown, not that crowns are the unique maximisers; odd-order bipartite graphs have no crown, so Corollary 1.2 says nothing for them.",
+      "remains": "(b1) The minimum-length-over-all-representing-words reading: the paper does not, as far as I read it, show that minimum-length representants are uniform, so it is not established that crown graphs have the longest minimum-length representants. Also not stated: whether the maximiser is unique, and any comparison for odd-order graphs. Under the uniform reading (b2) and the same-order reading (a), nothing listed in the statement is left open by this paper.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "18 days as of 12 Oct 2026",
+      "machine_checked": {
+        "system": "Lean 4 (repo README: Lean 4.33.1; Lean Comparator used to check statements against separately reviewed specifications)",
+        "sorry_free": true,
+        "url": "https://github.com/miinadietrich/crown_graphs_maximise",
+        "note": "sorry_free is the README's claim: Solution.lean's axioms are said to be only propext, Classical.choice and Quot.sound (or a subset), which excludes sorryAx. I did not build the project or read the verification/ axiom reports. Challenge.lean contains intentional placeholders for the comparison protocol, per the README. The finite SAT assertions (Z3 4.13.3 unsat certificates, checked by validation/verify.py per the paper and README) were not replayed by me."
+      },
+      "directly_checkable": "The finite certificates in the repo's validation/ directory, run as python3 validation/verify.py (README: certificate replay can take several hours and substantial disk). The crown graph H_{n,n} is explicit and anyone can build it; its value ceil(n/2) for n>=5 comes from Glen, Kitaev and Pyatkin. The general bound R(G) <= ceil(N/4) is not checkable by hand from what I read.",
+      "doubts": "(1) Single v1 preprint, 18 days old; I found no public review, blog post, MathOverflow thread, or citing paper. (2) Two finite assertions rest on SAT certificates and the main theorem on a Lean formalisation; I did not replay either. (3) The AI declaration says the approach, the obstruction classification and the odd-part distinguished-coordinate argument 'arose through' or 'led from' discussions with ChatGPT models (see ai.systems); the authors state they reviewed and adopted all content. A later reader should judge how much these credited ideas carry. (4) The word-length reading is the paper's own (uniform minimum length); the question's 'word-representants' may mean minimum length over all representing words, and the match is not confirmed for that reading. (5) No withdrawal, concession, or identified error found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts toward the question's suggested answer: crown graphs are the maximisers of the representation number among bipartite graphs of the same order, for every n>=1, so in the uniform-length sense crowns require the longest representants. Nothing in it contradicts the question; it answers it affirmatively in the reading the authors adopt.",
+      "object": "No new counterexample. The extremal object is the existing crown graph H_{n,n} (K_{n,n} minus a perfect matching), with R(H_{n,n}) = 2 for n in 1..3, 3 for n=4, and ceil(n/2) for n>=5 (the n>=5 value from Glen, Kitaev and Pyatkin). The new content is the general upper bound R(G) <= ceil(N/4) for all bipartite G on N>=9 vertices, proved by a neighbourhood-ordering construction building on Mozhui and Krishna, with two finite cases closed by SAT certificates.",
+      "people": [
+        "Matthew J. Colbrook",
+        "Catherine Drysdale"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "ChatGPT 5.5",
+            "what_it_did": "Per the authors' AI declaration (Section 6.2): the approach that yields the principal advance, namely choosing the orders within the blocks of the Mozhui-Krishna construction so that the additional permutation is unnecessary in the previously unresolved case of two parts of equal even size, 'arose through discussions between the authors and' ChatGPT 5.5 and 5.6 (the sentence names both). This is the authors crediting a model with the idea the proof turns on, so load-bearing on the authors' account; weighing is for the later pass.",
+            "basis_quote": "This approach arose through discussions between the authors and ChatGPT 5.5 and 5.6.",
+            "quote_url": "https://arxiv.org/html/2609.35842v1"
+          },
+          {
+            "name": "ChatGPT 5.6",
+            "what_it_did": "Per the AI declaration: the obstruction classification used in the probability estimates and the four-pair certificate 'emerged from discussions between the authors and ChatGPT 5.6', after the authors directed attention to implications between the possible assignments of unspecified ranks. Also named in the approach sentence above. Separately, see the Codex entry.",
+            "basis_quote": "The classification also emerged from discussions between the authors and ChatGPT 5.6,",
+            "quote_url": "https://arxiv.org/html/2609.35842v1"
+          },
+          {
+            "name": "ChatGPT 6",
+            "what_it_did": "Per the AI declaration: after the classification, 'the authors directed further discussions with ChatGPT 6 towards the remaining odd part sizes', and 'These discussions led to the distinguished-coordinate argument' (adjoining an isolated vertex restricts the possible obstructions, and a suitable choice of its partner excludes those that remain). The odd-part argument is part of the main theorem's proof as described; load-bearing on the authors' account.",
+            "basis_quote": "Building on this classification, the authors directed further discussions with ChatGPT 6 towards the remaining odd part sizes.",
+            "quote_url": "https://arxiv.org/html/2609.35842v1"
+          },
+          {
+            "name": "ChatGPT 5.6 through Codex",
+            "what_it_did": "Per the AI declaration: used 'to assist with combinatorial counting and with the construction and verification of the finite computational certificates'. Codex looks like an agent harness through which the model was run; the name is recorded as the paper gives it. The counting is a mathematical input, so the later pass should decide whether it is load-bearing.",
+            "basis_quote": "We used ChatGPT 5.6 through Codex to assist with combinatorial counting and with the construction and verification of the finite computational certificates.",
+            "quote_url": "https://arxiv.org/html/2609.35842v1"
+          },
+          {
+            "name": "ChatGPT 6 through Codex",
+            "what_it_did": "Per the AI declaration: used, 'after developing the manuscript', 'to assist with a Lean formalisation of the proof'. The authors add that 'the formalisation also informed subsequent revisions to the mathematical arguments and their exposition'. On the authors' account this is formalisation work, with a feedback effect on the arguments; not an AI-generated idea.",
+            "basis_quote": "After developing the manuscript, we used ChatGPT 6 through Codex to assist with a Lean formalisation of the proof.",
+            "quote_url": "https://arxiv.org/html/2609.35842v1"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.35842v1",
+          "https://arxiv.org/abs/2609.35842",
+          "https://github.com/miinadietrich/crown_graphs_maximise"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.35842",
+        "https://arxiv.org/html/2609.35842v1",
+        "https://arxiv.org/pdf/2609.35842",
+        "https://github.com/miinadietrich/crown_graphs_maximise",
+        "https://mathworld.wolfram.com/RepresentationNumber.html"
+      ]
+    },
+    {
+      "id": "mozhui-krishna-2025",
+      "what_happened": "Khyodeno Mozhui and K. V. Krishna post 'On the Conjecture of the Representation Number of Bipartite Graphs' (arXiv:2506.01057, math.CO, cross-list cs.DM). Per the abstract and the paper as read through a summary: every bipartite graph is (1+ceil(m/2))-representable, m being the smaller part size; for odd m with 5<=m<=n the graph is ceil(m/2)-representable; the Glen et al. bound R <= ceil((m+n)/4) (m+n>=9) holds for all bipartite graphs except those with equal even parts, where it is proved only for subclasses (Theorems 4.1 and 4.2, with m=2k, k>=3 and conditions on the height of the neighbourhood poset). The paper discusses crown graphs and says it 'partially establish[es] the conjecture of' Akgun et al. for odd n.",
+      "date": "2025-06-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (Sun, 1 Jun 2025, 15:52:23 UTC) on the page read; no comments field.",
+      "delivers": "Upper bounds for bipartite representation numbers: R <= 1+ceil(m/2) always; R <= ceil(m/2) for odd m>=5; R <= ceil((m+n)/4) for the classes listed and, per the abstract, for all bipartite graphs except equal even parts; in the equal even case R <= k for m=2k only on the subclasses of Theorems 4.1 and 4.2. Crown graphs with odd n are covered in the sense that the paper says it partially establishes the Akgun et al. extremal conjecture for odd n.",
+      "remains": "The general equal-even-parts case, which includes crown graphs H_{n,n} with n even, and so the crown-extremal statement for those graphs, is left open in this paper. The minimum-length reading is not addressed.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 16 months as of 12 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Single v1 preprint by the authors who built the construction; the paper itself marks the equal-even case as open outside subclasses. Nothing identified as an error. Later work (arXiv:2609.35842) says it closes the equal-even case.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts toward the crown-extremal conjecture: holds for all bipartite graphs outside the equal-even-parts class and partially inside it; so it does not settle the question for crown graphs with n even.",
+      "object": null,
+      "people": [
+        "Khyodeno Mozhui",
+        "K. V. Krishna"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2506.01057",
+          "https://arxiv.org/html/2506.01057"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2506.01057",
+        "https://arxiv.org/html/2506.01057"
+      ]
+    },
+    {
+      "id": "mozhui-thesis-2025",
+      "what_happened": "Khyodeno Mozhui's PhD thesis at IIT Guwahati (supervisor K. V. Krishna), listed in the institutional repository, reportedly proves the Glen et al. conjecture for all bipartite graphs except equal even parts, and classifies extended crown graphs and stacked book graphs with respect to representation number. Seen only in search snippets of the repository record; not opened.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Per the snippet: the same partial result as arXiv:2506.01057 (equal-even parts remain open); plus classification results for extended crown graphs, which per the snippet concern representation number and permutation-representation number of that class. Claimed, not checked by me.",
+      "remains": "Same as mozhui-krishna-2025: the equal-even general case, per the snippet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Seen only in search snippets. The snippets disagree on the thesis date (one gives a viva on 2 December 2025, another gives July 2025). Not opened, so the content is unverified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Per snippet: same direction as mozhui-krishna-2025.",
+      "object": null,
+      "people": [
+        "Khyodeno Mozhui"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://gyan.iitg.ac.in/handle/123456789/3274"
+      ]
+    },
+    {
+      "id": "akgun-gent-kitaev-zantema-2018",
+      "what_happened": "Ozgur Akgun, Ian P. Gent, Sergey Kitaev and Hans Zantema post 'Solving computational problems in the theory of word-representable graphs' (arXiv:1808.01215). Section 1.4 states, as its 'Conjecture 1', that H_{n,n} has the highest representation number among all bipartite graphs on 2n vertices. The text names no originator, presents it as an open question, and Section 5 suggests testing it on larger bipartite graphs. Published Journal of Integer Sequences 22 (2019), Article 19.2.5. The computations use SMT and constraint-programming tools. Colbrook and Drysdale cite the same statement as Conjecture 5 of this paper, which does not match the arXiv numbering I read.",
+      "date": "2018-08-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (Fri, 3 Aug 2018, 14:54:46 UTC) on the arXiv page read. The journal version was not read.",
+      "delivers": "Establishes nothing about the question: it states the conjecture (the crown-extremal claim for bipartite graphs) as open. Its own computations cover small graphs (per search summary, up to 9 vertices for representation numbers).",
+      "remains": "Everything in problem_asks, since the event poses the question rather than answering it.",
+      "checked_by": [
+        {
+          "who": "Journal of Integer Sequences (refereed journal)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published the paper, vol. 22 (2019), Article 19.2.5. The conjecture is stated, not proved.",
+          "where": "https://arxiv.org/abs/1808.01215 (journal reference on the arXiv page)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 8 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Poses the conjecture that crowns are extremal; neither proves nor refutes it.",
+      "object": null,
+      "people": [
+        "Ozgur Akgun",
+        "Ian P. Gent",
+        "Sergey Kitaev",
+        "Hans Zantema"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1808.01215"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1808.01215",
+        "https://ar5iv.labs.arxiv.org/html/1808.01215"
+      ]
+    },
+    {
+      "id": "glen-kitaev-pyatkin-2016",
+      "what_happened": "Marc Glen, Sergey Kitaev and Artem Pyatkin post 'On the representation number of a crown graph' (arXiv:1609.00674). For n>=5 the representation number of H_{n,n} (K_{n,n} minus a perfect matching) is ceil(n/2). The abstract says this 'provides a complete solution to the open Problem 7.4.2' of Kitaev and Lozin's book and gives a negative answer to the question of Problem 7.2.7 (whether every bipartite graph is 3-word-representable). Concluding remarks (Section 4, per the ar5iv summary) describe bipartite graphs 'in the sense that they require longest words for representation', which is close to the wording of the present question. Published Discrete Applied Mathematics 244 (2018) 89-93 (metadata from repository records; the journal page was not opened).",
+      "date": "2016-09-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 only (Fri, 2 Sep 2016, 17:25:47 UTC). Published DAM 2018.",
+      "delivers": "The crown value R(H_{n,n}) = ceil(n/2) for n>=5. Says nothing about crowns being longest among bipartite graphs. Colbrook and Drysdale cite a 'Conjecture 1' of this paper for an extremal conjecture, but my read of the ar5iv text found no conjecture wording, so the attribution is unconfirmed.",
+      "remains": "Extremality among bipartite graphs and any minimum-length comparison; the paper provides only the crown value.",
+      "checked_by": [
+        {
+          "who": "Discrete Applied Mathematics (refereed journal)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Accepted for publication, vol. 244 (2018), pp. 89-93",
+          "where": "https://doi.org/10.1016/j.dam.2018.03.013 (from repository metadata; not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Gives the crown graphs' exact representation number; neither confirms nor refutes extremality.",
+      "object": null,
+      "people": [
+        "Marc Glen",
+        "Sergey Kitaev",
+        "Artem Pyatkin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1609.00674"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1609.00674",
+        "https://ar5iv.arxiv.org/html/1609.00674"
+      ]
+    },
+    {
+      "id": "mozhui-krishna-2021",
+      "what_happened": "Khyodeno Mozhui and K. V. Krishna post 'On the Representation Number of Bipartite Graphs' (arXiv:2109.03458). Per the abstract as summarised to me, a polynomial-time relabelling algorithm produces a word for a given bipartite graph, giving an upper bound on bipartite representation numbers and on the dimension of the associated posets. It cites an earlier, unnamed conjecture that bipartite graphs on n vertices have representation number at most n/4.",
+      "date": "2021-09-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (Wed, 8 Sep 2021, 07:00:42 UTC) on the abs page read.",
+      "delivers": "A general upper bound for bipartite representation numbers via relabelling. It does not, as far as I read, address crown graphs or the crown-extremal claim. The exact bound statement was not read.",
+      "remains": "Everything in problem_asks; no crown-extremality claim found in it.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Upper bound only; no direction on whether crowns are extremal, as far as I read.",
+      "object": null,
+      "people": [
+        "Khyodeno Mozhui",
+        "K. V. Krishna"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2109.03458"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2109.03458"
+      ]
+    },
+    {
+      "id": "hefty-horn-muir-owens-2024",
+      "what_happened": "Zion Hefty, Paul Horn, Colby Muir and Andrew Owens publish 'Word-Representable Graphs: Orientations, Posets, and Bounds' in the Electronic Journal of Combinatorics 31(4) (2024), #P4.2, published 4 Oct 2024. Per the abstract (summary only; full text not read), they use tools from posets, Ramsey theory and probabilistic methods to settle open problems on the existence and length of word-representations for various graph classes.",
+      "date": "2024",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Not established as bearing on this question. The abstract mentions length of word-representations for unspecified classes; I did not read the full text, so I cannot say whether crown or bipartite graphs are among them.",
+      "remains": "Unknown.",
+      "checked_by": [
+        {
+          "who": "Electronic Journal of Combinatorics (refereed journal)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Accepted and published, vol. 31(4), P4.2",
+          "where": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown from the abstract.",
+      "object": null,
+      "people": [
+        "Zion Hefty",
+        "Paul Horn",
+        "Colby Muir",
+        "Andrew Owens"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "The originator of the crown-extremal conjecture is inconsistent across sources. The 2018 Akgun et al. arXiv text (1808.01215) states it as Conjecture 1 with no originator. Colbrook and Drysdale cite it as Conjecture 5 of Akgun et al. and also cite a Glen-Kitaev-Pyatkin Conjecture 1 for the same extremal claim; my read of the Glen et al. text found no conjecture wording at all. Mozhui and Krishna credit Akgun et al. Unresolved; the JIS 2019 text and the DAM 2018 text would settle it.",
+      "sources": [
+        "https://arxiv.org/abs/1808.01215",
+        "https://ar5iv.labs.arxiv.org/html/1808.01215",
+        "https://ar5iv.arxiv.org/html/1609.00674",
+        "https://arxiv.org/html/2609.35842v1",
+        "https://arxiv.org/html/2506.01057"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Colbrook and Drysdale credit the approach, the obstruction classification and the odd-part distinguished-coordinate argument to discussions with ChatGPT models (5.5, 5.6, 6), and state that the authors reviewed and adopted all content and take full responsibility. This is the authors' own account of AI contribution, recorded in ai.systems for the later pass to weigh; it is not a dispute between parties.",
+      "sources": [
+        "https://arxiv.org/html/2609.35842v1"
+      ]
+    }
+  ],
+  "summary": "Background. Glen, Kitaev and Pyatkin (arXiv 2 Sep 2016; DAM 2018) fixed the crown value R(H_{n,n}) = ceil(n/2) for n>=5, which settled Kitaev-Lozin Problems 7.4.2 and 7.2.7; that paper contains no extremality result I could confirm, though its concluding remarks use the phrase 'require longest words for representation'. Akgun, Gent, Kitaev and Zantema (arXiv 3 Aug 2018; JIS 2019) state as their Conjecture 1 that H_{n,n} has the highest representation number among bipartite graphs on 2n vertices, unattributed in the text; Colbrook and Drysdale cite it as Conjecture 5. Mozhui and Krishna (arXiv 8 Sep 2021) gave a relabelling upper bound. Their arXiv 2506.01057 (1 Jun 2025, in the window; also in a thesis reported only by search snippet) proves R <= 1+ceil(m/2) for all bipartite graphs, the Glen et al. bound ceil((m+n)/4) for all bipartite graphs except equal even parts, and partial results on crowns for odd n; the equal-even case, which contains crowns with n even, was open. Event. Colbrook and Drysdale (arXiv:2609.35842, 24 Sep 2026, v1 only) prove R(G) <= ceil(N/4) for bipartite G with N>=9, and Corollary 1.2 gives max R over bipartite graphs on 2n vertices equal to R(H_{n,n}); the paper explicitly says this answers the question affirmatively, reading word length as the minimum length of a uniform representation (maximum length N*ceil(N/4)). Human engagement: none found. I searched arXiv comments, MathOverflow, blogs, reviews and later citing papers (two extended searches, several standard), and found none; 18 days after posting this is the normal state, and I record it as silence rather than as a doubt. Withdrawal or concession: none found. The Wikipedia 'Word-representable graph' article (last edited 9 Aug 2026) still lists the question under open problems, but that revision predates the preprint. The Lean repository (Apache-2.0, github.com/miinadietrich/crown_graphs_maximise) is said to prove the main theorem and corollary in Lean 4 with Lean Comparator checking statements; I did not build it. AI. The authors' AI declaration credits ChatGPT 5.5 and 5.6 with the approach, ChatGPT 5.6 with the obstruction classification, and ChatGPT 6 with the odd-part distinguished-coordinate argument, and records ChatGPT 5.6 and ChatGPT 6 (both through Codex) for counting, certificate construction and Lean formalisation. These are recorded under ai.systems with the authors' sentences. I found no other AI involvement tied to this question: searches of AI results, Erdos and FrontierMath trackers, and lab announcements returned nothing on this problem (OpenAI's July 2026 cycle double cover claim is unrelated). The 'ChatGPT' quotes come from a summarising fetch of the arXiv HTML page, which quoted them but did not give me a raw text copy; they should be checked against the PDF. Close calls. (i) Scope of 'longest word-representants': the paper reads it as the uniform length; Kitaev's survey phrase 'longest known shortest word-representants' and Gaetz-Ji's absolute minimal length ell(G) suggest the minimum over all representing words. I did not establish that minimum-length representants are uniform, so on that reading the crown result may not transfer. (ii) Comparison class: the statement does not fix an order; the paper compares within equal order. (iii) The status of the equal-even case before Sept 2026: Mozhui-Krishna left it open outside subclasses and the 2026 paper closes it, so the 2026 contribution is that case. Nothing relevant was found in Hefty-Horn-Muir-Owens (2024), whose abstract mentions length of word-representations for unspecified classes; its full text was not read.",
+  "competing_reading": "The uniform-length reading is not the most natural one for 'word-representants': Kitaev's usage is about shortest representing words, and Gaetz and Ji define the absolute minimum length. On that reading the 2026 corollary answers a neighbouring question unless minimum-length representants are always uniform, which I did not verify. A stricter reader would also say the result is one unrefereed preprint, 18 days old, whose finite cases and Lean formalisation I did not replay, whose key ideas the authors credit to ChatGPT models, and so would keep the question open until a qualified reader checks it. A more generous reader would say the 2025 Mozhui-Krishna work already settled every case but equal even parts and that the 2026 paper merely completes that case, so the question was effectively answered in the reading the authors use. The Akgun et al. 2018 text also calls the extremal statement a question, so the question's status before 2026 is a matter of reading as well.",
+  "what_would_settle_it": "(1) The preliminaries of arXiv:2609.35842 (definition of word length) and Gaetz and Ji's arXiv 1909.00019 definition of ell(G): whether a minimum-length representant of a bipartite graph is always uniform. If not, whether ell(H_{n,n}) is maximal among bipartite graphs of order 2n. (2) An expert write-up or referee report on the neighbourhood-ordering argument and the odd-part distinguished-coordinate argument; and a replay of the SAT certificates (validation/verify.py) and a Lean build checking that the formal statements match the paper's definitions. (3) Later papers citing arXiv:2609.35842, or a journal acceptance. (4) The JIS 2019 text of Akgun et al. and the DAM 2018 text of Glen et al., to settle the conjecture numbering and originator. (5) The full text of Hefty, Horn, Muir and Owens (EJC 2024), to exclude a crown or bipartite length result.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2609.35842",
+      "title": "Crown graphs maximise the representation number of bipartite graphs (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.35842v1",
+      "title": "Crown graphs maximise the representation number of bipartite graphs (arXiv HTML v1; read via summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.35842",
+      "title": "Crown graphs maximise the representation number of bipartite graphs (arXiv PDF; body not readable via the fetch tool, metadata only)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/miinadietrich/crown_graphs_maximise",
+      "title": "miinadietrich/crown_graphs_maximise (repository README)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/RepresentationNumber.html",
+      "title": "MathWorld: Representation Number (reports the 2026 result; not a verification)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Word-representable_graph",
+      "title": "Word-representable graph (Wikipedia; open problems list includes the question; last edited 9 Aug 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Crown_graph",
+      "title": "Crown graph (Wikipedia; no word-representability content found; last edited 20 Jul 2025)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1609.00674",
+      "title": "Glen, Kitaev, Pyatkin: On the representation number of a crown graph (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.arxiv.org/html/1609.00674",
+      "title": "Glen, Kitaev, Pyatkin (ar5iv HTML; read via summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://doi.org/10.1016/j.dam.2018.03.013",
+      "title": "Glen, Kitaev, Pyatkin, Discrete Applied Mathematics 244 (2018) 89-93 (DOI from repository metadata)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1808.01215",
+      "title": "Akgun, Gent, Kitaev, Zantema: Solving computational problems in the theory of word-representable graphs (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/1808.01215",
+      "title": "Akgun, Gent, Kitaev, Zantema (ar5iv HTML; read via summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2109.03458",
+      "title": "Mozhui, Krishna: On the Representation Number of Bipartite Graphs (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.01057",
+      "title": "Mozhui, Krishna: On the Conjecture of the Representation Number of Bipartite Graphs (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2506.01057",
+      "title": "Mozhui, Krishna (arXiv HTML; read via summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://gyan.iitg.ac.in/handle/123456789/3274",
+      "title": "Mozhui PhD thesis, IIT Guwahati repository record (search snippets only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/html/1705.05924",
+      "title": "Kitaev: A Comprehensive Introduction to the Theory of Word-Representable Graphs (ar5iv HTML used; arXiv PDF fetch failed)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1909.00019",
+      "title": "Gaetz, Ji: Enumeration and Extensions of Word-representants (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2402.17105",
+      "title": "Srinivasan, Hariharasubramanian: Minimum length word-representants of graph products (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2",
+      "title": "Hefty, Horn, Muir, Owens: Word-Representable Graphs: Orientations, Posets, and Bounds (EJC 31(4) P4.2 landing page; full text not read)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0097316526000580",
+      "title": "Word-representation numbers of graphs: Bottlenecks and bounds (ScienceDirect; HTTP 403 on fetch; seen in search snippet only)",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "crown graphs word-representants bipartite graphs longest representation number open problem",
+      "representation number of crown graph word-representable",
+      "Kitaev Words and Graphs open problems word-representable graphs",
+      "\"Is it true that out of all bipartite graphs, crown graphs require longest word-representants\"",
+      "Glen Kitaev Pyatkin representation number crown graph H_{n,n} ceil(n/2)",
+      "word-representable graphs representation number bipartite graphs arXiv 2024",
+      "word-representable graph representation number 2025 arXiv crown graph",
+      "word-representability graphs survey Kitaev 2024 open problems representation number",
+      "Wikipedia List of unsolved problems in mathematics word-representation of graphs crown graphs",
+      "AI model proves word-representable graph conjecture representation number",
+      "Akgün Mezei representation number bipartite graphs crown graph conjecture highest representation number 2n vertices",
+      "Kitaev Lozin \"Problem 7.2.7\" word-representable bipartite graphs 3-word-representable",
+      "Glen Kitaev Pyatkin \"On the representation number of a crown graph\" Discrete Applied Mathematics 2018 journal page",
+      "Hefty Horn Muir Owens word-representable graphs orientations posets bounds Electronic Journal of Combinatorics open problems",
+      "Hefty Horn Muir Owens arXiv word-representable graphs crown graph representation number",
+      "\"Crown Graphs Maximise the Representation Number of Bipartite Graphs\"",
+      "Colbrook Drysdale bipartite graphs representation number word-representable",
+      "crown graphs maximise representation number bipartite graphs Colbrook blog Lean formalisation review",
+      "Colbrook ChatGPT Codex bipartite graph representation number proof",
+      "Akgün Gent Kitaev Zantema representation number word-representable graphs Journal of Integer Sequences 2019",
+      "Enumeration and Extensions of Word-representants Akgün Kitaev Zantema arXiv 1909.00019",
+      "Mozhui Colbrook Drysdale crown graph representation number 2026",
+      "Word-representation numbers of graphs: Bottlenecks and bounds arXiv",
+      "word-representable graphs representation number bipartite 2026 new result conjecture resolved",
+      "longest word-representants crown graphs bipartite word length N ceil(N/4)",
+      "Glen Kitaev Pyatkin conjecture bipartite graph representation number ceil((m+n)/4) Conjecture 1 crown extremal",
+      "ChatGPT 6 Codex mathematics proof combinatorics graph theory preprint 2026 AI declaration",
+      "OpenAI model contributed proof graph theory word-representable graphs crown 2026",
+      "Kitaev word-representable graphs 2026 crown graph result comment",
+      "Colbrook Drysdale crown graphs representation number",
+      "crown graphs maximise representation number mathoverflow OR blog OR review Drysdale Colbrook comment",
+      "Erdős problems AI solved graph theory word-representable crown graph tracker 2026",
+      "Epoch AI open problems solved by AI mathematics tracker 2026 graph theory representation number",
+      "Colbrook arXiv 2026 AI-assisted mathematics ChatGPT Lean formalisation paper",
+      "word-representable graph minimum length word uniform representant minimal length lemma Kitaev",
+      "Mozhui crown graph word-representation Lean formal proof representation number bipartite 2026 arXiv"
+    ],
+    "places_checked": [
+      "arXiv abstract pages and HTML/ar5iv renderings: 2609.35842, 1609.00674, 1808.01215, 2109.03458, 2506.01057, 1705.05924, 1909.00019, 2402.17105",
+      "GitHub repository miinadietrich/crown_graphs_maximise (README)",
+      "MathWorld RepresentationNumber page (reports the 2026 result)",
+      "Wikipedia: Word-representable graph (open problems list; revision 9 Aug 2026), Crown graph",
+      "Electronic Journal of Combinatorics landing page for Hefty et al.",
+      "Search-level checks (not opened): Journal of Integer Sequences listing, DAM/ScienceDirect and Strathclyde/NSU repository metadata for Glen et al., IIT Guwahati repository for Mozhui thesis, Colbrook's DAMTP publications page",
+      "MathOverflow, blogs and reviews for 2609.35842: searched twice, nothing found",
+      "AI searches: lab announcements and AI-result trackers (Erdos problems database and Tao's wiki references, Epoch AI FrontierMath Open Problems), AI-declaration searches for ChatGPT/Codex/Lean usage in graph theory preprints: no entry for this problem"
+    ],
+    "dead_ends": [
+      "No MathOverflow thread, blog post, review, or comment on arXiv:2609.35842 found (two extended searches and one standard).",
+      "No other 2026 Colbrook paper with AI-assisted mathematics found (search 34); Colbrook's DAMTP page appeared in results but was not opened.",
+      "Epoch AI FrontierMath Open Problems and Erdos problem trackers: no entry for the crown / representation-number question found.",
+      "OpenAI's July 2026 cycle double cover claim (GPT-5.6 Sol Ultra) surfaced in AI searches; unrelated graph problem, no bearing.",
+      "Mozhui-Krishna melon graphs (arXiv 2602.14179, Feb 2026): representation number three, not bearing.",
+      "Dwary-Mozhui-Krishna split graphs (arXiv 2502.00872, Feb 2025): not bearing.",
+      "Dwary-Krishna split recomposition (arXiv 2401.01954, Jan 2024), square-free representations (arXiv 2402.14426, Feb 2024), co-bipartite graphs (arXiv 2509.03064 and 2501.10112), lexicographic products (arXiv 2603.29629, Mar 2026): results on other classes; not bearing.",
+      "Permutation-representation number of bipartite graphs (arXiv 2311.13980, Nov 2023): different quantity and pre-window; discounted.",
+      "Gaetz-Ji (arXiv 1909.00019, 2019): pre-window; relevant only for the absolute minimal-length definition ell(G); its PDF was not readable via the fetch tool, abstract only.",
+      "Srinivasan-Hariharasubramanian (arXiv 2402.17105, Feb 2024): minimum-length representants of graph products; nothing on crowns or uniformity found in its abstract page.",
+      "ScienceDirect 'Word-representation numbers of graphs: Bottlenecks and bounds' (S0097316526000580): HTTP 403. A search snippet claims bounds for bipartite graphs including a statement that almost every balanced bipartite graph has representation number about n/2, but the excerpt was garbled. Not opened; may bear on the question and needs checking.",
+      "Kitaev-Lozin 'Words and Graphs' (Springer, 2015): the open-problems chapter was not retrieved; the exact original wording of the question was not located in a primary source. The Wikipedia article quotes it.",
+      "Kitaev-Pyatkin survey (J. Appl. Industr. Math. 2018): not opened.",
+      "Mozhui PhD thesis (IIT Guwahati repository): not opened; snippets only."
+    ]
+  },
+  "incomplete": "(1) The AI declaration sentences and the main-theorem wording of arXiv:2609.35842 come from a summarising fetch of the arXiv HTML v1 page, which returned them in quotation marks but not as a raw text copy; they must be checked against the PDF. The PDF body itself could not be read through the fetch tool (binary), so the preliminaries (word-length definition), the proof and the Lean/SAT details were not verified by me. (2) The word-length question is open: I did not establish whether minimum-length (non-uniform) representants of bipartite graphs are uniform, so the minimum-length reading of 'longest word-representants' is not settled by the sources I read; Gaetz-Ji's PDF was unreadable through the tool. (3) I did not build the Lean project or replay the SAT certificates; the repository's sorry-freeness is taken from its README. (4) Glen et al. (2016/2018) and Akgun et al. (2018/2019): I read the arXiv abstract and an ar5iv summary, not full texts or the DAM/JIS versions; the Conjecture numbering and originator conflict in the disputes array is unresolved. (5) Mozhui-Krishna 2021 and 2025 and the Mozhui thesis were read through abstract-level summaries; the thesis was seen only in search snippets. (6) Hefty-Horn-Muir-Owens (EJC 2024) full text not read, so I cannot exclude a crown or bipartite length result there. (7) The ScienceDirect 2026 'Bottlenecks and bounds' paper was not opened (HTTP 403); it may bear on bipartite representation numbers. (8) I found no journal or human verification of arXiv:2609.35842 as of 12 Oct 2026; this is a search finding, not a guarantee that none exists outside indexed sources. (9) Wikipedia's Word-representable graph article (revision 9 Aug 2026) predates the 2026 preprint, so it does not reflect the result.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "claimed",
+  "ai_role": "assisted",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "colbrook-drysdale-2026",
+  "no_change_found": false,
+  "event": {
+    "id": "colbrook-drysdale-2026",
+    "what_happened": "Matthew J. Colbrook and Catherine Drysdale posted 'Crown graphs maximise the representation number of bipartite graphs' (arXiv:2609.35842, math.CO, cross-listed cs.DM). Theorem 1.1: every bipartite graph G on N>=9 vertices has representation number R(G) <= ceil(N/4). Corollary 1.2: for every n>=1, max{R(G): G bipartite, |V(G)|=2n} = R(H_{n,n}), which is 2 for 1<=n<=3, 3 for n=4, and ceil(n/2) for n>=5. The paper states that Corollary 1.2 'answers affirmatively the question' (quoting the problem wording), reads word length as 'the minimum length of a uniform representation', and gives the maximum length as N*ceil(N/4) for even N>=10. The authors' AI declaration (Section 6.2) is recorded under ai. The proof builds on a Mozhui-Krishna construction, reduces to an ordering problem on neighbourhoods, uses probability estimates for large balanced bipartitions, and closes two finite cases by Boolean unsatisfiability certificates (Z3 4.13.3, per the paper). Lean 4 formalisation is claimed for the main theorem and corollary.",
+    "date": "2026-09-24",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 only (Thu, 24 Sep 2026, 17:59:34 UTC) on the arXiv abstract page as checked on 12 Oct 2026; no comments field.",
+    "delivers": "For every bipartite G on N>=9 vertices, R(G) <= ceil(N/4); and for each n>=1 the crown graph H_{n,n} attains max R over bipartite graphs on 2n vertices. Restrictions: the comparison is among bipartite graphs of equal (even) order; the length notion is the uniform one (minimum length of a k-uniform representing word, k = R); the corollary as read states the maximum is attained by the crown, not that crowns are the unique maximisers; odd-order bipartite graphs have no crown, so Corollary 1.2 says nothing for them.",
+    "remains": "(b1) The minimum-length-over-all-representing-words reading: the paper does not, as far as I read it, show that minimum-length representants are uniform, so it is not established that crown graphs have the longest minimum-length representants. Also not stated: whether the maximiser is unique, and any comparison for odd-order graphs. Under the uniform reading (b2) and the same-order reading (a), nothing listed in the statement is left open by this paper.",
+    "checked_by": [],
+    "no_engagement_found": true,
+    "time_since_posted": "18 days as of 12 Oct 2026",
+    "machine_checked": {
+      "system": "Lean 4 (repo README: Lean 4.33.1; Lean Comparator used to check statements against separately reviewed specifications)",
+      "sorry_free": true,
+      "url": "https://github.com/miinadietrich/crown_graphs_maximise",
+      "note": "sorry_free is the README's claim: Solution.lean's axioms are said to be only propext, Classical.choice and Quot.sound (or a subset), which excludes sorryAx. I did not build the project or read the verification/ axiom reports. Challenge.lean contains intentional placeholders for the comparison protocol, per the README. The finite SAT assertions (Z3 4.13.3 unsat certificates, checked by validation/verify.py per the paper and README) were not replayed by me."
+    },
+    "directly_checkable": "The finite certificates in the repo's validation/ directory, run as python3 validation/verify.py (README: certificate replay can take several hours and substantial disk). The crown graph H_{n,n} is explicit and anyone can build it; its value ceil(n/2) for n>=5 comes from Glen, Kitaev and Pyatkin. The general bound R(G) <= ceil(N/4) is not checkable by hand from what I read.",
+    "doubts": "(1) Single v1 preprint, 18 days old; I found no public review, blog post, MathOverflow thread, or citing paper. (2) Two finite assertions rest on SAT certificates and the main theorem on a Lean formalisation; I did not replay either. (3) The AI declaration says the approach, the obstruction classification and the odd-part distinguished-coordinate argument 'arose through' or 'led from' discussions with ChatGPT models (see ai.systems); the authors state they reviewed and adopted all content. A later reader should judge how much these credited ideas carry. (4) The word-length reading is the paper's own (uniform minimum length); the question's 'word-representants' may mean minimum length over all representing words, and the match is not confirmed for that reading. (5) No withdrawal, concession, or identified error found.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Cuts toward the question's suggested answer: crown graphs are the maximisers of the representation number among bipartite graphs of the same order, for every n>=1, so in the uniform-length sense crowns require the longest representants. Nothing in it contradicts the question; it answers it affirmatively in the reading the authors adopt.",
+    "object": "No new counterexample. The extremal object is the existing crown graph H_{n,n} (K_{n,n} minus a perfect matching), with R(H_{n,n}) = 2 for n in 1..3, 3 for n=4, and ceil(n/2) for n>=5 (the n>=5 value from Glen, Kitaev and Pyatkin). The new content is the general upper bound R(G) <= ceil(N/4) for all bipartite G on N>=9 vertices, proved by a neighbourhood-ordering construction building on Mozhui and Krishna, with two finite cases closed by SAT certificates.",
+    "people": [
+      "Matthew J. Colbrook",
+      "Catherine Drysdale"
+    ],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "ChatGPT 5.5",
+          "what_it_did": "Per the authors' AI declaration (Section 6.2): the approach that yields the principal advance, namely choosing the orders within the blocks of the Mozhui-Krishna construction so that the additional permutation is unnecessary in the previously unresolved case of two parts of equal even size, 'arose through discussions between the authors and' ChatGPT 5.5 and 5.6 (the sentence names both). This is the authors crediting a model with the idea the proof turns on, so load-bearing on the authors' account; weighing is for the later pass.",
+          "basis_quote": "This approach arose through discussions between the authors and ChatGPT 5.5 and 5.6.",
+          "quote_url": "https://arxiv.org/html/2609.35842v1"
+        },
+        {
+          "name": "ChatGPT 5.6",
+          "what_it_did": "Per the AI declaration: the obstruction classification used in the probability estimates and the four-pair certificate 'emerged from discussions between the authors and ChatGPT 5.6', after the authors directed attention to implications between the possible assignments of unspecified ranks. Also named in the approach sentence above. Separately, see the Codex entry.",
+          "basis_quote": "The classification also emerged from discussions between the authors and ChatGPT 5.6,",
+          "quote_url": "https://arxiv.org/html/2609.35842v1"
+        },
+        {
+          "name": "ChatGPT 6",
+          "what_it_did": "Per the AI declaration: after the classification, 'the authors directed further discussions with ChatGPT 6 towards the remaining odd part sizes', and 'These discussions led to the distinguished-coordinate argument' (adjoining an isolated vertex restricts the possible obstructions, and a suitable choice of its partner excludes those that remain). The odd-part argument is part of the main theorem's proof as described; load-bearing on the authors' account.",
+          "basis_quote": "Building on this classification, the authors directed further discussions with ChatGPT 6 towards the remaining odd part sizes.",
+          "quote_url": "https://arxiv.org/html/2609.35842v1"
+        },
+        {
+          "name": "ChatGPT 5.6 through Codex",
+          "what_it_did": "Per the AI declaration: used 'to assist with combinatorial counting and with the construction and verification of the finite computational certificates'. Codex looks like an agent harness through which the model was run; the name is recorded as the paper gives it. The counting is a mathematical input, so the later pass should decide whether it is load-bearing.",
+          "basis_quote": "We used ChatGPT 5.6 through Codex to assist with combinatorial counting and with the construction and verification of the finite computational certificates.",
+          "quote_url": "https://arxiv.org/html/2609.35842v1"
+        },
+        {
+          "name": "ChatGPT 6 through Codex",
+          "what_it_did": "Per the AI declaration: used, 'after developing the manuscript', 'to assist with a Lean formalisation of the proof'. The authors add that 'the formalisation also informed subsequent revisions to the mathematical arguments and their exposition'. On the authors' account this is formalisation work, with a feedback effect on the arguments; not an AI-generated idea.",
+          "basis_quote": "After developing the manuscript, we used ChatGPT 6 through Codex to assist with a Lean formalisation of the proof.",
+          "quote_url": "https://arxiv.org/html/2609.35842v1"
+        }
+      ],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/html/2609.35842v1",
+        "https://arxiv.org/abs/2609.35842",
+        "https://github.com/miinadietrich/crown_graphs_maximise"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2609.35842",
+      "https://arxiv.org/html/2609.35842v1",
+      "https://arxiv.org/pdf/2609.35842",
+      "https://github.com/miinadietrich/crown_graphs_maximise",
+      "https://mathworld.wolfram.com/RepresentationNumber.html"
+    ]
+  },
+  "credited_humans": [
+    "Matthew J. Colbrook",
+    "Catherine Drysdale"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2609.35842",
+    "https://arxiv.org/html/2609.35842v1",
+    "https://arxiv.org/pdf/2609.35842",
+    "https://github.com/miinadietrich/crown_graphs_maximise",
+    "https://mathworld.wolfram.com/RepresentationNumber.html"
+  ],
+  "ai": {
+    "systems": [
+      "ChatGPT 5.5",
+      "ChatGPT 5.6",
+      "ChatGPT 6"
+    ],
+    "from_event": "colbrook-drysdale-2026",
+    "basis_quote": "This approach arose through discussions between the authors and ChatGPT 5.5 and 5.6.",
+    "none_found": false,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "colbrook-drysdale-2026",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "This approach arose through discussions between the authors and ChatGPT 5.5 and 5.6. / The classification also emerged from discussions between the authors and ChatGPT 5.6, / Building on this classification, the authors directed further discussions with ChatGPT 6 towards the remaining odd part sizes.",
+        "ai_systems_credited": [
+          "ChatGPT 5.5",
+          "ChatGPT 5.6",
+          "ChatGPT 6"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "mozhui-krishna-2025",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "mozhui-thesis-2025",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Seen only in search snippets, never opened; on the snippet it restates the mozhui-krishna-2025 result, so it is treated as a duplicate rather than a separate advance.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "akgun-gent-kitaev-zantema-2018",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "glen-kitaev-pyatkin-2016",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "mozhui-krishna-2021",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hefty-horn-muir-owens-2024",
+        "after_snapshot": null,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "Colbrook-Drysdale proves R(G) <= ceil(N/4) for bipartite G and that the crown attains the maximum representation number at every even order, which is the yes/no question as the word-representability literature (Akgun et al.'s conjecture) poses it, so I answered whole. The close call is the reading of 'longest word-representants': if it means minimum length over all, possibly non-uniform, representing words, the paper answers a neighbouring question. I took the representation-number reading because the conjecture this question comes from is stated that way, and I record the alternative in doubts. The paper is an 18-day-old preprint with no human reading, so it is unreviewed; the Lean build and SAT certificates do not count as digestion (F7). Nothing specific counts against it, so it is credible. On AI: the authors' own declaration says the approach behind the principal advance, the obstruction classification and the odd-part argument came out of discussions with ChatGPT 5.5/5.6/6. Those are parts of the proof's mathematics inside human-led work, so the role is assisted, not generated. The Codex entries (counting, certificates, Lean) add nothing beyond that. Mozhui-Krishna 2025 settles every bipartite class except equal even parts, so it is a case. The thesis duplicates it and is snippet-only, so I scored it none. Hefty et al. has only a year-only 2024 date and no shown bearing on the question. The pre-snapshot papers only pose the conjecture or give the crown's value (none), apart from a general upper bound (bound).",
+    "doubts": "The word-length reading is unresolved. Under the minimum-length-over-all-words reading (Gaetz-Ji ell(G)), crown extremality is not shown unless minimum-length representants are uniform. On that reading the 2026 event would be a variant. The AI declaration quotes came from a summarising fetch, not raw text. The ScienceDirect 2026 'Bottlenecks and bounds' paper was never opened and may bear on the question.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "claimed",
+      "rests_on": "colbrook-drysdale-2026",
+      "ai_role": "assisted",
+      "ai_from": "colbrook-drysdale-2026",
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": [
+        "ChatGPT 5.5",
+        "ChatGPT 5.6",
+        "ChatGPT 6"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

@@ -1,0 +1,865 @@
+{
+  "key": "gnrs-conjecture",
+
+  "nothing_found": false,
+
+  "outcome": "No human-verified resolution of the GNRS conjecture was found as of 11 October 2026. The one new development that bears directly on it is an OpenAI repository release, first public on 6 October 2026, whose manuscripts claim (a) a single constant for ℓ1 distortion of all planar graphs and (b) a constant C(k) for graphs of bounded treewidth. Both are attributed in the repository to an unreleased internal OpenAI model, both Lean main theorems are proved by sorry in the copies I read, and neither has a named human author or any public expert verification. Partial progress in the same window: Chang, Conroy, Eliot, Le and Vinayak (arXiv 2610.10888, 7 October 2026) give poly(k) ℓ1 distortion for k-outerplanar graphs, improving 2^O(k).",
+
+  "problem_asks": "Read as the bullet states it, with 'minor-closed' taken as 'proper minor-closed'. The family of all graphs is minor-closed and has unbounded distortion, so the bullet cannot mean it; Wikipedia and ProofAtlas both say 'other than the family of all graphs'. Parts: (1) For each proper minor-closed family F of finite graphs, a real constant c(F) such that every connected finite graph G in F, with arbitrary positive edge lengths, has its shortest-path metric embed into an L1 (ℓ1) space with distortion at most c(F). (2) The constant depends only on F, not on the number of vertices of G or on its edge lengths; this uniformity is what makes 'bounded' non-trivial. (3) The question is asked for all proper minor-closed families at once, so a yes answer needs every such family, and a result for some families is a case, not the whole question. Not asked by the bullet but part of the literature's statement: the converse (a family has bounded distortion only if it excludes some minor), and the equivalent flow form (the multicommodity max-flow/min-cut gap is bounded on each such family, since c1(G) equals the flow-cut gap of G).",
+
+  "events": [
+    {
+      "id": "openai-planar-2026-10",
+      "what_happened": "OpenAI's openai/math repository, first public commit 6 Oct 2026 ('Initial commit'), contains a manuscript titled 'Planar Graph Metrics Embed into L1 with Constant Distortion'. Its folder is labelled 'Planar-Graph-Metrics-Embed-into-L1-with-Constant-Distortion-September-23-2026'; that date is a label inside the repository, not a recorded public posting date. The repository lists it as an accompanying paper of lean/ComparatorChallenges/PlanarL1.lean (the Lean docs file lean/docs/089.md names both papers). My tools could not extract the PDF's text, so the content is known only from the Lean statement, the Lean docs, the repository README, and a reader's blog (minorfree.github.io/OpenAIDump, entries 7 to 11 Oct 2026). I found no arXiv, journal, or referee posting of it, and no human author is named in what I could read.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Repository commit 3014888 on 8 Oct 2026, 'Update manuscripts and Lean formalizations'. The commit page does not show whether the planar folder or PlanarL1.lean changed. The folder label reads September-23-2026.",
+      "delivers": "Per the Lean MainStatement in PlanarL1.lean: one real constant C of at least 1, the same for all graphs, such that every finite connected planar graph on Fin n with symmetric positive edge lengths admits a map f from its vertices into an L1 space (Lp Ω ℝ 1 with an arbitrary measure) satisfying graphDistance(x,y) ≤ ‖f x − f y‖ ≤ C · graphDistance(x,y). That covers all planar graphs with no restriction on size or edge-length ratios. Only the planar family is claimed. The Lean file gives no numerical value for C. The manuscript's own text was not read.",
+      "remains": "Every other proper minor-closed family, that is, every proper minor-closed family not contained in the planar graphs. The general GNRS statement is not addressed. Lee and Sidiropoulos's reduction, as cited in the search summaries (full text not opened), puts the general conjecture into the planar conjecture plus a k-sum embedding conjecture, and the manuscript as read does not address k-sums. The reader's blog says the minor-free case is 'not included among Open AI solution'.",
+      "checked_by": [
+        {
+          "who": "Hung Le (author of the 'Rambling on Graphs' blog, minorfree.github.io)",
+          "qualification": "Co-author of the 2026 k-outerplanar ℓ1 paper (arXiv 2610.10888) and of the 2024 planar-to-bounded-treewidth embedding paper (arXiv 2411.00216). The blog says he and Arnold Filtser have studied these two problems for over a decade.",
+          "what_they_did": "Read the manuscript from 7 to 11 Oct 2026, by his own account for about 3 to 6 hours a day. Says the lemmas in the first 12 pages are 'straightforward'; calls Section 3 'only 4 pages long, but full of gibberish'; reports the proof introduces a 'non-crossing column model' he had not seen before; reads the statement of Theorem 4.1 and skips its proof; says 'the details are not in Section 5'; says the writing is 'so compressed and dense' and that the expanded version he produced with an AI assistant runs to 90+ pages. Gives no verdict on correctness, and on 11 Oct says he is still reading.",
+          "where": "https://minorfree.github.io/OpenAIDump/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "5 days as of 11 Oct 2026. The only public reading I found is the reader's partial one above; I found no reply from Filtser, Gupta, Newman, Rabinovich, Sinclair, Lee, Sidiropoulos or Naor.",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib",
+        "sorry_free": false,
+        "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PlanarL1.lean",
+        "note": "51-line file, read at repository main on 11 Oct 2026 through a fetch tool, not built locally. The statement MainStatement is written out in full. The main theorem planar_graph_metrics_embed_L1 : MainStatement is proved by sorry (line 47), so the file formalizes the statement but does not prove it. The docs file cites commit adc7f12, which I did not check separately."
+      },
+      "directly_checkable": null,
+      "doubts": "(1) In the copy read, the Lean main theorem is proved by sorry, so the formalization is not a machine check of the claim. (2) The repository's own README warns that 'Some of the unformalized results could have issues', and about 42% of top-line results are formalized according to its summary. (3) The reader's reactions (blog, 7 to 11 Oct): the proof rests on a model and a 'chart' that the reader found hard to follow, Section 3 'full of gibberish', Theorem 4.1's proof skipped, Sections 5 and 6 unclear to the reader. These are one partial reader's impressions, not a refutation. (4) No named human author, no arXiv or journal record and no referee report. (5) The same batch saw three manuscripts withdrawn one day after release for a sign error and fourteen revised with proof repairs, according to secondary summaries; per those summaries none of the withdrawn items is on ℓ1 embeddings, and the revision status of this manuscript is unknown.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirmative for the planar family. It asserts that planar graphs have bounded ℓ1 distortion, which is the direction the conjecture predicts for that family. It says nothing about the other proper minor-closed families.",
+      "object": "No counterexample. The object is an embedding: for each planar graph with positive edge lengths, a map of its vertices into an L1 space with distortion at most one universal constant C. The Lean statement is existential (there exist C, a measure space, and f), so the construction is not visible in the statement. The reader describes the argument as built on a 'non-crossing column model' and a 'chart'. Whether the construction is explicit or non-constructive was not established from what I read.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "According to the repository README, the 'vast majority of results' in the batch were obtained with one procedure using this model. The README names two exceptions, a zero-free-region result for the Riemann zeta function and a proof of the Hodge conjecture for CM abelian varieties; this planar manuscript is not among them. Humans grouped the outputs into families and applied a significance threshold, and the README describes human editing only for a readability edit to one zeta writeup. The repository text attributes the mathematics to the model, but I could not read the manuscript's own account of how it was produced, so the attribution here is the repository's.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math"
+          }
+        ],
+        "disclosed_cost": "Repository-wide, not per manuscript: each accepted result averaged about three hours of ChatGPT Pro thinking compute, and the model was posed roughly 4,000 problems (README).",
+        "sources": [
+          "https://github.com/openai/math",
+          "https://github.com/openai/math/tree/main/preprints",
+          "https://github.com/openai/math/commits/main/preprints",
+          "https://github.com/openai/math/blob/main/preprints/Planar-Graph-Metrics-Embed-into-L1-with-Constant-Distortion-September-23-2026/paper.pdf"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/tree/main/preprints",
+        "https://github.com/openai/math/commits/main/preprints",
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/089.md",
+        "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PlanarL1.lean",
+        "https://github.com/openai/math/blob/main/preprints/Planar-Graph-Metrics-Embed-into-L1-with-Constant-Distortion-September-23-2026/paper.pdf",
+        "https://minorfree.github.io/OpenAIDump/"
+      ]
+    },
+    {
+      "id": "openai-bounded-treewidth-2026-10",
+      "what_happened": "Same repository and same first public commit (6 Oct 2026). A manuscript titled 'L1 Embeddings of Graphs of Bounded Treewidth' (folder label 'L1-Embeddings-of-Graphs-of-Bounded-Treewidth-September-23-2026') is listed as the companion of the planar manuscript, with lean/ComparatorChallenges/BoundedTreewidthL1.lean as its formalization. The reader's blog lists it with an 'Open AI solution' link and gives no reading of it. A third-party catalogue (sites.pitt.edu, not opened; search snippet only) describes it as resolving the bounded-treewidth case positively. The PDF text was not extracted by my tools.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Same as the planar event: repository commit 3014888 on 8 Oct 2026; the commit page does not show which folders changed.",
+      "delivers": "Per the Lean MainStatement in BoundedTreewidthL1.lean: for every k of at least 2 there is a constant C of at least 1 such that every connected finite simple graph with a tree decomposition of the stated bag-size parameter k, with arbitrary positive edge lengths, admits an ℓ1 embedding of its shortest-path metric with distortion at most C. The constant depends on k, which the statement allows. Each bounded-treewidth minor-closed family is thereby covered, with one constant per k. I did not check the file's definition of the tree-decomposition predicate, so whether the parameter is the bag size or the width is not confirmed.",
+      "remains": "Every proper minor-closed family without bounded treewidth, and the general GNRS statement. Bounded-treewidth families contain all trees, so the Lee–Sidiropoulos result for families that do not contain all trees (arXiv 0910.1409, opened) does not cover them. Per the sources, treewidth 2 was known (Chakrabarti et al. 2008), so the treewidth k at least 3 case would be new if this manuscript is correct. The Lee–Sidiropoulos k-sum reduction also still applies to the general case.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "5 days as of 11 Oct 2026. The reader's blog names this manuscript but records no reading of it.",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib",
+        "sorry_free": false,
+        "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BoundedTreewidthL1.lean",
+        "note": "Read at repository main on 11 Oct 2026 through a fetch tool, not built locally. The main theorem main_theorem : MainStatement is written as 'by sorry', so the copy read contains the statement and no proof."
+      },
+      "directly_checkable": null,
+      "doubts": "(1) The Lean main theorem is 'by sorry' in the copy read. (2) The README's warning that some unformalized results 'could have issues' applies. (3) No reader report on the treewidth manuscript was found. (4) The batch-level issues in the planar event apply here too; per secondary summaries the three withdrawn manuscripts concern Hodge-conjecture and Kuga–Satake topics, not this one. (5) The Pitt catalogue's description of it as 'resolving' the case is a third-party characterization I did not open.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirmative for bounded-treewidth families: each gets an ℓ1 distortion constant depending on k. It says nothing about families of unbounded treewidth.",
+      "object": "No counterexample. The object is an embedding statement: for each k, a constant C(k) and, for each graph with a width-k tree decomposition and positive lengths, an ℓ1 embedding with distortion at most C(k). The Lean statement is existential. The construction, if any, is not visible in the statement.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "Same repository-level statement as for the planar manuscript: the 'vast majority of results' in the batch come from one procedure with this model. This manuscript is not one of the two exceptions named in the README. The manuscript's own account of its production was not readable.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math"
+          }
+        ],
+        "disclosed_cost": "Repository-wide, as in the planar event: about three hours of ChatGPT Pro thinking compute per accepted result on average (README).",
+        "sources": [
+          "https://github.com/openai/math",
+          "https://github.com/openai/math/blob/main/preprints/L1-Embeddings-of-Graphs-of-Bounded-Treewidth-September-23-2026/paper.pdf"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BoundedTreewidthL1.lean",
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/089.md",
+        "https://github.com/openai/math/blob/main/preprints/L1-Embeddings-of-Graphs-of-Bounded-Treewidth-September-23-2026/paper.pdf",
+        "https://minorfree.github.io/OpenAIDump/"
+      ]
+    },
+    {
+      "id": "chang-et-al-kouterplanar-2026-10",
+      "what_happened": "arXiv 2610.10888, 'Peeling Half the Onion: Embedding k-Outerplanar Graphs into ℓ1 and Trees with a Polynomial Distortion (in k)', by Hsien-Chih Chang, Jonathan Conroy, William Eliot, Hung Le and Vinayak. Submitted 7 Oct 2026, cs.DS with cs.CG cross-listing, marked as a SODA'27 submission. The method removes k/2 layers per step, giving embeddings of k-outerplanar graphs into trees and into ℓ1 with distortion poly(k). The abstract states the previous best bound was 2^O(k), from Chekuri et al. (SODA 2003).",
+      "date": "2026-10-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, per the arXiv abstract page.",
+      "delivers": "For the family of k-outerplanar graphs, for each fixed k: ℓ1 distortion poly(k), improving 2^O(k). The family already had a constant depending on k from Chekuri et al. What moves is the dependence on k, which the GNRS statement does not ask for. Restricted to k-outerplanar graphs. A search snippet of the full text, not the abstract I opened, says O(1) distortion for planar graphs follows when k is constant; that is a restricted planar case.",
+      "remains": "All other proper minor-closed families, the general GNRS statement, and planar graphs of unbounded outerplanarity depth. The abstract calls the planar ℓ1-embedding conjecture 'still-open'.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "4 days as of 11 Oct 2026.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No active doubt raised. The 'still-open' sentence was most likely written before the 6 Oct repository release, since the paper is a SODA'27 submission, so it is not a rebuttal of the OpenAI planar claim. One of the authors, Hung Le, is also the reader who wrote the critical blog about the OpenAI manuscript; that is a relationship for the judging pass to note, not a doubt about this paper.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial and in the affirmative direction for k-outerplanar graphs: it improves the constant's dependence on k without changing the GNRS question for that family.",
+      "object": "A construction, not an object: for each k-outerplanar graph, an embedding into a tree metric or ℓ1 with distortion poly(k), via onion peeling that removes k/2 layers per step. The abstract does not say whether the construction is explicit beyond its method.",
+      "people": ["Hsien-Chih Chang", "Jonathan Conroy", "William Eliot", "Hung Le", "Vinayak"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2610.10888"]
+      },
+      "sources": ["https://arxiv.org/abs/2610.10888"]
+    },
+    {
+      "id": "chang-et-al-treewidth-host-2024-10",
+      "what_happened": "arXiv 2411.00216, 'Embedding Planar Graphs into Graphs of Treewidth O(log³ n)', by Chang, Cohen-Addad, Conroy, Le, M. Pilipczuk and P. Pilipczuk, submitted 31 Oct 2024. It gives a stochastic embedding of planar graphs into bounded-treewidth hosts with treewidth O(ε⁻¹ log³ n).",
+      "date": "2024-10-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, per the arXiv abstract page.",
+      "delivers": "A stochastic embedding into bounded-treewidth graph hosts, not into ℓ1. It does not bear on the ℓ1 distortion question the GNRS conjecture asks.",
+      "remains": "The whole GNRS question, which concerns ℓ1 distortion.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 1 year as of 11 Oct 2026.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not in the direction of the ℓ1 question. A different embedding target.",
+      "object": null,
+      "people": ["Hsien-Chih Chang", "Vincent Cohen-Addad", "Jonathan Conroy", "Hung Le", "Marcin Pilipczuk", "Michał Pilipczuk"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2411.00216"]
+      },
+      "sources": ["https://arxiv.org/abs/2411.00216"]
+    },
+    {
+      "id": "filtser-linf-2024-01",
+      "what_happened": "arXiv 2401.14060, 'On Sparse Covers of Minor Free Graphs, Low Dimensional Metric Embeddings, and other applications', by Arnold Filtser. v1 25 Jan 2024, v2 14 Apr 2024, v3 29 Oct 2024. The abstract states that every K_r-minor-free graph embeds into ℓ∞ with distortion O(r) in dimension Õ(r²)·log n.",
+      "date": "2024-01-25",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 14 Apr 2024; v3 29 Oct 2024.",
+      "delivers": "ℓ∞ embeddings of K_r-minor-free graphs with distortion O(r). No ℓ1 statement in the abstract.",
+      "remains": "The GNRS question, which concerns ℓ1.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 years 8 months as of 11 Oct 2026.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not an ℓ1 result. Discarded as a different target (ℓ∞), though the topic is adjacent.",
+      "object": null,
+      "people": ["Arnold Filtser"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2401.14060"]
+      },
+      "sources": ["https://arxiv.org/abs/2401.14060"]
+    },
+    {
+      "id": "kalantarzadeh-kumar-2025-07",
+      "what_happened": "arXiv 2507.06576, 'Improved Lower Bounds on Multiflow-Multicut Gaps', by Sina Kalantarzadeh and Nikhil Kumar. v1 9 Jul 2025, v2 5 Oct 2025, v3 7 Oct 2025; a preliminary version appeared at APPROX-RANDOM 2025. The paper shows the multiflow–multicut gap is at least 16/7 for planar graphs, improving a lower bound of 2.",
+      "date": "2025-07-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 5 Oct 2025; v3 7 Oct 2025.",
+      "delivers": "A lower bound of 16/7 on the multiflow–multicut gap (minimum multicut against maximum multiflow) for planar graphs. Per the paper's own definition this is a related but different gap, not the multicommodity flow–cut gap or ℓ1 distortion that the GNRS question concerns. The abstract page does not mention GNRS or ℓ1.",
+      "remains": "Not applicable: it does not address the GNRS quantity.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 months as of 11 Oct 2026.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Lower bound on a different planar gap. Discarded as a neighbouring question, though the Filtser 'Fil+24' bounded-treewidth multiflow–multicut result cited in this paper is a lead I did not identify.",
+      "object": null,
+      "people": ["Sina Kalantarzadeh", "Nikhil Kumar"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2507.06576"]
+      },
+      "sources": ["https://arxiv.org/abs/2507.06576"]
+    },
+    {
+      "id": "chekuri-jain-directed-2026-01",
+      "what_happened": "arXiv 2601.20038, 'Node-Weighted Multicut in Planar Digraphs', by Chandra Chekuri and Rhea Jain, submitted 27 Jan 2026. The abstract cites Kawarabayashi and Sidiropoulos's O(log² n)-approximation for multicut in planar digraphs, which also bounds the multicommodity flow–cut gap of planar digraphs, against an Ω̃(n^{1/7}) lower bound for general digraphs due to Chuzhoy and Khanna.",
+      "date": "2026-01-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, per the arXiv abstract page.",
+      "delivers": "Directed planar graphs. Not undirected ℓ1 embeddings, so not the GNRS quantity. Discarded as a directed analogue.",
+      "remains": "Not applicable.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 months as of 11 Oct 2026.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not in the direction of the undirected GNRS question. A directed-graph result.",
+      "object": null,
+      "people": ["Chandra Chekuri", "Rhea Jain"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2601.20038"]
+      },
+      "sources": ["https://arxiv.org/abs/2601.20038"]
+    },
+    {
+      "id": "duan-gns-namesake-2026-09",
+      "what_happened": "arXiv 2609.09637, 'Counterexamples to GNS Conjecture 1.8', by Xiuqing Duan, submitted 9 Sep 2026. The conjecture is due to Gabrielov, Novikov and Shapiro (GNS), not Gupta, Newman, Rabinovich and Sinclair. The paper claims counterexamples in a Coulomb-potential setting and for proper-line and product-suspension constructions.",
+      "date": "2026-09-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "Counterexamples to a different conjecture, the GNS conjecture of Gabrielov, Novikov and Shapiro. It is a namesake with no bearing on ℓ1 embeddings of minor-closed families.",
+      "remains": "Not applicable.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 1 month as of 11 Oct 2026.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unresolved, and irrelevant to this problem: a search summary said the acknowledgements credit a Claude model with help revising the manuscript, but the abstract page I opened mentions no AI, and I did not read the PDF.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not applicable. A namesake.",
+      "object": null,
+      "people": ["Xiuqing Duan"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.09637"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.09637"]
+    },
+    {
+      "id": "gupta-newman-rabinovich-sinclair-1999-2004",
+      "what_happened": "Gupta, Newman, Rabinovich and Sinclair, 'Cuts, trees and ℓ1-embeddings of graphs', Combinatorica 24 (2004) 233–269, with a preliminary version at FOCS 1999. Per Wikipedia and secondary citations, this paper formulates the conjecture (the search summaries and ProofAtlas both date it to 2004) and gives constant-distortion ℓ1 embeddings for series-parallel graphs and for graphs of bounded circuit rank, with an Ω(log n) lower bound for series-parallel graphs into distributions over dominating-tree metrics. I did not open the paper itself, so which version first states the conjecture is not confirmed.",
+      "date": "1999",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "Combinatorica 2004 journal version, DOI 10.1007/s00493-004-0015-x (not opened).",
+      "delivers": "Constant ℓ1 distortion for series-parallel graphs and bounded-circuit-rank graphs (restricted classes). The conjecture is posed for minor-closed families. Its flow–cut equivalence is recorded in the same line of work.",
+      "remains": "The general conjecture.",
+      "checked_by": [
+        {
+          "who": "Combinatorica referees (2004 journal version) and FOCS 1999 program committee",
+          "qualification": "Peer review at a journal of record and at a conference",
+          "what_they_did": "Accepted the paper for publication",
+          "where": "https://www.doi.org/10.1007/S00493-004-0015-X (not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 27 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Poses the conjecture; the partial results are affirmative for the restricted classes named.",
+      "object": null,
+      "people": ["Anupam Gupta", "Ilan Newman", "Yuri Rabinovich", "Alistair Sinclair"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://en.wikipedia.org/wiki/GNRS_conjecture"]
+      },
+      "sources": ["https://en.wikipedia.org/wiki/GNRS_conjecture", "https://www.doi.org/10.1007/S00493-004-0015-X"]
+    },
+    {
+      "id": "chekuri-et-al-k-outerplanar-2003",
+      "what_happened": "Chekuri, Gupta, Newman, Rabinovich and Sinclair, 'Embedding k-outerplanar graphs into ℓ1', SODA 2003; SIAM Journal on Discrete Mathematics 20(1), 2006, pp. 119–136 (the journal details come from a search result). It shows that k-outerplanar graphs, for fixed k, have constant-distortion ℓ1 embeddings, via distributions over tree metrics. The 2^O(k) dependence is attributed to it by the 2026 Chang et al. abstract, which I opened. The paper itself was not opened.",
+      "date": "2003",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "SIDMA 2006 journal version.",
+      "delivers": "Constant-distortion ℓ1 embeddings for k-outerplanar graphs, for each fixed k (a proper minor-closed family for each k). The GNRS question is thereby answered for this family. The distortion is 2^O(k) in k, per the 2026 abstract.",
+      "remains": "All other proper minor-closed families, and the general conjecture.",
+      "checked_by": [
+        {
+          "who": "SIAM Journal on Discrete Mathematics referees and SODA 2003 program committee",
+          "qualification": "Peer review at a journal of record and at a conference",
+          "what_they_did": "Accepted the paper for publication",
+          "where": "https://cris.haifa.ac.il/en/publications/embedding-k-outerplanar-graphs-into-lsub1sub/ (not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 23 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative for k-outerplanar graphs, for each fixed k.",
+      "object": null,
+      "people": ["Chandra Chekuri", "Anupam Gupta", "Ilan Newman", "Yuri Rabinovich", "Alistair Sinclair"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2610.10888"]
+      },
+      "sources": ["https://arxiv.org/abs/2610.10888", "https://cris.haifa.ac.il/en/publications/embedding-k-outerplanar-graphs-into-lsub1sub/"]
+    },
+    {
+      "id": "rao-1999",
+      "what_happened": "S. Rao, SoCG 1999: every n-vertex planar graph embeds into ℓ1 with distortion O(√log n). This remains the best known upper bound for planar graphs. The bound is confirmed by an opened source (Filtser's 2019 abstract, which states it as the best known upper bound), and by Wikipedia. The 1999 paper itself was not opened.",
+      "date": "1999",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "ℓ1 distortion O(√log n) for every n-vertex planar graph. Not constant; the planar case of the conjecture is open with this bound.",
+      "remains": "The planar conjecture (constant distortion), and therefore the general conjecture.",
+      "checked_by": [
+        {
+          "who": "SoCG 1999 program committee",
+          "qualification": "Peer review at a conference",
+          "what_they_did": "Accepted the paper for presentation",
+          "where": "Not located; cited by Wikipedia's GNRS article (opened) and by Filtser's 2019 abstract (opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 27 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial: an O(√log n) bound, which is unbounded in n and so does not settle boundedness for planar graphs.",
+      "object": null,
+      "people": ["S. Rao"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1903.02758"]
+      },
+      "sources": ["https://arxiv.org/abs/1903.02758", "https://en.wikipedia.org/wiki/GNRS_conjecture"]
+    },
+    {
+      "id": "lee-sidiropoulos-2009",
+      "what_happened": "James R. Lee and Anastasios Sidiropoulos, 'On the geometry of graphs with a forbidden minor', STOC 2009 (per a search result), and the arXiv paper 'Pathwidth, trees, and random embeddings' (arXiv 0910.1409, first submitted 8 Oct 2009). The arXiv abstract, which I opened, states that every shortest-path metric on a pathwidth-k graph embeds into a distribution over trees with distortion c(k), and that 'the preceding embedding theorem is used to prove this conjecture whenever the family F does not contain all trees'. Per search summaries of the STOC paper (not opened), it also reduces the GNRS ℓ1 conjecture to a planar conjecture and a k-sum embedding conjecture.",
+      "date": "2009",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv 0910.1409: v1 8 Oct 2009; v2 29 Aug 2011; v3 6 Oct 2012.",
+      "delivers": "Settles the GNRS conjecture, in the affirmative, for proper minor-closed families that do not contain all trees, that is, families that exclude some tree as a minor. Those families have bounded pathwidth. It does not settle families containing all trees, which includes the planar family and every bounded-treewidth family of width at least 2.",
+      "remains": "Families that contain all trees, including the planar graphs and bounded-treewidth families of width at least 2, and the general statement, which the search summaries say reduces to a planar conjecture and a k-sum conjecture.",
+      "checked_by": [
+        {
+          "who": "STOC 2009 program committee",
+          "qualification": "Peer review at a refereed conference",
+          "what_they_did": "Accepted the paper for STOC 2009",
+          "where": "https://home.ttic.edu/~tasos/papers/geoforbid_stoc2009.pdf (not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 16 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative for families that do not contain all trees. Reduces the rest of the problem to the planar and k-sum statements, per the search summaries.",
+      "object": null,
+      "people": ["James R. Lee", "Anastasios Sidiropoulos"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/0910.1409"]
+      },
+      "sources": ["https://arxiv.org/abs/0910.1409", "https://home.ttic.edu/~tasos/papers/geoforbid_stoc2009.pdf"]
+    },
+    {
+      "id": "lee-poore-2013",
+      "what_happened": "James R. Lee and Daniel E. Poore, 'On the 2-sum embedding conjecture', SoCG 2013. Per the abstract on Lee's publication page (opened), the paper 'prove[s] the conjecture holds for any finite family of graphs F', where the conjecture is the Lee–Sidiropoulos 2-sum embedding conjecture, and it gives an O(log n) distortion bound for path metrics on 2-sums of copies of K_n. Wikipedia lists the 2-clique-sum case as a known bounded-distortion result citing this paper.",
+      "date": "2013",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Claims the 2-sum (k = 2) embedding conjecture for every finite family F. The 2-sum conjecture is one of the two pieces the Lee–Sidiropoulos reduction names for the general GNRS statement, so the claim would remove the k = 2 piece if correct. It addresses k = 2 only; the planar conjecture is separate.",
+      "remains": "The planar conjecture, and any k-sum statement for k of at least 3 that the abstract does not address. The status of k = 2 is disputed (see disputes).",
+      "checked_by": [
+        {
+          "who": "SoCG 2013 program committee",
+          "qualification": "Peer review at a refereed conference",
+          "what_they_did": "Accepted the paper for SoCG 2013 (per the author's publication list)",
+          "where": "https://homes.cs.washington.edu/~jrl/pubs-multiflow.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unresolved conflict rather than a verified doubt. A search summary attributes to Sidiropoulos's 2013 work the sentence that even for k = 2 'the problem remains open' after Lee–Poore. I could not find that sentence in the arXiv version of Sidiropoulos's paper, which I opened and which does not mention Lee–Poore, and the FOCS 2013 PDF returned HTTP 401.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative for the k = 2 reduction piece, if the abstract is right. Disputed.",
+      "object": null,
+      "people": ["James R. Lee", "Daniel E. Poore"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://homes.cs.washington.edu/~jrl/pubs-multiflow.html"]
+      },
+      "sources": ["https://homes.cs.washington.edu/~jrl/pubs-multiflow.html", "https://en.wikipedia.org/wiki/GNRS_conjecture"]
+    },
+    {
+      "id": "sidiropoulos-2013-npc",
+      "what_happened": "Anastasios Sidiropoulos, 'Non-positive curvature, and the planar embedding conjecture', arXiv 1304.7512, submitted 28 Apr 2013; a FOCS 2013 version is listed on the IEEE site (its PDF returned HTTP 401, so it was not read). The arXiv abstract, which I opened, says every planar metric of non-positive curvature admits a constant-distortion ℓ1 embedding, 'confirm[ing] the planar embedding conjecture for the case of non-positively curved metrics', and calls the conjecture 'a well-known open problem with important algorithmic implications'.",
+      "date": "2013-04-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only, per the arXiv abstract page. The FOCS 2013 version may differ.",
+      "delivers": "Constant-distortion ℓ1 embeddings for planar metrics of non-positive curvature. A geometric subclass; not the general planar case.",
+      "remains": "General planar metrics, and so the planar conjecture and the general GNRS statement.",
+      "checked_by": [
+        {
+          "who": "FOCS 2013 program committee",
+          "qualification": "Peer review at a refereed conference",
+          "what_they_did": "Accepted the FOCS 2013 version (per the IEEE listing; not read)",
+          "where": "https://ieee-focs.org/FOCS-2013-Papers/5135a177.pdf (returned HTTP 401)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial, in the affirmative direction for the non-positively curved planar subclass.",
+      "object": null,
+      "people": ["Anastasios Sidiropoulos"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1304.7512"]
+      },
+      "sources": ["https://arxiv.org/abs/1304.7512", "https://ieee-focs.org/FOCS-2013-Papers/5135a177.pdf"]
+    },
+    {
+      "id": "krauthgamer-lee-rika-2018",
+      "what_happened": "Robert Krauthgamer, James R. Lee and Havana Rika, 'Flow-Cut Gaps and Face Covers in Planar Graphs' (arXiv 1811.02685, 2018; SODA 2019). Per search summaries, with terminals on γ faces the multicommodity flow–cut gap is O(log γ), tight up to a constant, and vertex-capacitated variants have O(γ). An early 2018 version gives O(γ) for the non-capacitated case. The arXiv and SODA papers were not opened.",
+      "date": "2018",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "Early 2018 version with O(γ); SODA 2019 version with O(log γ) (per search summaries).",
+      "delivers": "Restricted terminal sets, covered by γ faces: flow–cut gap O(log γ). Not constant for all planar terminal sets.",
+      "remains": "Planar terminal sets not covered by few faces, which is the general planar flow–cut question.",
+      "checked_by": [
+        {
+          "who": "SODA 2019 program committee",
+          "qualification": "Peer review at a refereed conference",
+          "what_they_did": "Accepted the paper (per search summary; not read)",
+          "where": "https://www.wisdom.weizmann.ac.il/~robi/papers/KLR-EmbeddingFaceCover-SODA19.pdf (not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 7 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial, affirmative for terminals covered by few faces.",
+      "object": null,
+      "people": ["Robert Krauthgamer", "James R. Lee", "Havana Rika"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://cris.iucc.ac.il/en/publications/flow-cut-gaps-and-face-covers-in-planar-graphs/"]
+      },
+      "sources": ["https://cris.iucc.ac.il/en/publications/flow-cut-gaps-and-face-covers-in-planar-graphs/"]
+    },
+    {
+      "id": "abraham-filtser-gupta-neiman-2017",
+      "what_happened": "Ittai Abraham, Arnold Filtser, Anupam Gupta and Ofer Neiman, 'Metric Embedding via Shortest Path Decompositions', arXiv 1708.04073, v1 14 Aug 2017 (later v2 12 Jun 2019, v3 3 Jan 2022, v4 2 Jan 2023); a SIAM journal DOI 10.1137/19M1296021 appears in a search result, not confirmed on the arXiv page. The abstract, which I opened, gives pathwidth-k graphs an ℓp embedding with distortion O(k^min{1/p, 1/2}); for p = 1 that is O(√k), which it describes as improving Lee and Sidiropoulos's bound, exponential in k.",
+      "date": "2017-08-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 12 Jun 2019; v3 3 Jan 2022; v4 2 Jan 2023.",
+      "delivers": "Pathwidth-k graphs into ℓ1 with distortion O(√k), an improved k-dependence for pathwidth. Pathwidth families are already covered by the 2009 result for families excluding a tree. The bound moves, but the GNRS question is not settled further.",
+      "remains": "The same as the Lee–Sidiropoulos event: families containing all trees, and the general statement.",
+      "checked_by": [
+        {
+          "who": "Journal referees (SIAM journal, per a DOI in a search result, not confirmed on the arXiv page)",
+          "qualification": "Peer review at a journal of record",
+          "what_they_did": "Accepted for publication (not verified)",
+          "where": "https://doi.org/10.1137/19M1296021 (not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial improvement for pathwidth families in the affirmative direction.",
+      "object": null,
+      "people": ["Ittai Abraham", "Arnold Filtser", "Anupam Gupta", "Ofer Neiman"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1708.04073"]
+      },
+      "sources": ["https://arxiv.org/abs/1708.04073"]
+    },
+    {
+      "id": "filtser-face-cover-2019",
+      "what_happened": "Arnold Filtser, 'A face cover perspective to ℓ1 embeddings of planar graphs', arXiv 1903.02758, v1 7 Mar 2019 (v2 21 Jul 2019, v3 25 Oct 2023, v4 28 Jul 2024). A preliminary version appeared at SODA 2020, and the journal version at ACM, DOI 10.1145/3686800, was not opened. The abstract, which I opened, gives O(√log γ) distortion when the terminals are covered by γ faces, and a polynomial-time O(√log γ)-approximation for sparsest cut on such demands. It describes an improvement on Rao's bound as a major breakthrough.",
+      "date": "2019-03-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 21 Jul 2019; v3 25 Oct 2023; v4 28 Jul 2024. Journal version at dl.acm.org/doi/10.1145/3686800 (not opened).",
+      "delivers": "Planar graphs with terminals covered by γ faces: ℓ1 distortion O(√log γ). Restricted terminal set. Does not give constant distortion for all planar terminal sets.",
+      "remains": "Planar terminal sets not covered by a bounded number of faces, which includes the general planar case.",
+      "checked_by": [
+        {
+          "who": "SODA 2020 program committee and the ACM journal referees",
+          "qualification": "Peer review at a conference and then at a journal",
+          "what_they_did": "Accepted the preliminary version and the journal version (per listings; the journal version not opened)",
+          "where": "https://dl.acm.org/doi/10.1145/3686800 (not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 7 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial, affirmative for terminals covered by a bounded number of faces.",
+      "object": null,
+      "people": ["Arnold Filtser"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1903.02758"]
+      },
+      "sources": ["https://arxiv.org/abs/1903.02758", "https://dl.acm.org/doi/10.1145/3686800"]
+    },
+    {
+      "id": "chakrabarti-et-al-2008",
+      "what_happened": "Chakrabarti, Jaffe, Lee and Vincent, FOCS 2008. Per secondary citations (not opened), it shows that graphs of treewidth 2 (which exclude K4) embed into ℓ1 with distortion 2, which is tight; that the 2-sum conjecture holds for the family {K4}; and that graphs excluding the minor K5 minus an edge have constant ℓ1 distortion. The paper itself was not located.",
+      "date": "2008",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Treewidth-2 graphs at distortion 2 (tight), the K4 case of the 2-sum conjecture, and K5-minus-edge-minor-free graphs at constant distortion, per secondary citations. Restricted classes.",
+      "remains": "Treewidth at least 3 and the general statement. Planar graphs of treewidth 3 are stated as open in the 2013 and 2026 sources.",
+      "checked_by": [
+        {
+          "who": "FOCS 2008 program committee",
+          "qualification": "Peer review at a refereed conference",
+          "what_they_did": "Accepted the paper (per secondary citations)",
+          "where": "Not located; cited by the Lee–Poore abstract page (https://homes.cs.washington.edu/~jrl/pubs-multiflow.html, opened) and by secondary metric-embedding papers",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 18 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The K5-minus-edge claim rests on secondary summaries, not on the paper.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial, affirmative for the restricted classes named.",
+      "object": null,
+      "people": ["Chakrabarti", "Jaffe", "James R. Lee", "Vincent"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://homes.cs.washington.edu/~jrl/pubs-multiflow.html"]
+      },
+      "sources": ["https://homes.cs.washington.edu/~jrl/pubs-multiflow.html"]
+    },
+    {
+      "id": "lee-raghavendra-2010",
+      "what_happened": "Lee and Raghavendra, 2010 (per secondary citations, not opened): a lower bound of 2 on the ℓ1 distortion of some planar graphs, which is the best known lower bound for planar graphs and the tight value for treewidth 2 cited above.",
+      "date": "2010",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A lower bound of 2 for some planar graphs. It limits the constant's size from below and does not bear on whether a constant exists.",
+      "remains": "The whole question of boundedness for planar graphs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 16 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with boundedness; a lower bound on the constant.",
+      "object": null,
+      "people": ["Lee", "Raghavendra"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://en.wikipedia.org/wiki/GNRS_conjecture"]
+      },
+      "sources": ["https://en.wikipedia.org/wiki/GNRS_conjecture"]
+    },
+    {
+      "id": "kumar-same-face-2022",
+      "what_happened": "Nikhil Kumar, 'An Approximate Generalization of the Okamura–Seymour Theorem', arXiv 2208.00795, v1 1 Aug 2022, v2 29 Oct 2022, v3 10 Jan 2025; a FOCS 2022 version and a SIAM DOI 10.1137/23M1545938 appear in search results. The abstract, which I opened, gives an ℓ1 embedding of a planar metric that approximately preserves distances between all pairs of points on the same face, with an approximate max-flow min-cut consequence for same-face demands. No constant is stated in the abstract.",
+      "date": "2022-08-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 29 Oct 2022; v3 10 Jan 2025.",
+      "delivers": "Planar metrics, for pairs of points on the same face only. A restricted setting, and the abstract does not give a constant.",
+      "remains": "Pairs not on a common face, which is the general planar case.",
+      "checked_by": [
+        {
+          "who": "FOCS 2022 program committee",
+          "qualification": "Peer review at a refereed conference",
+          "what_they_did": "Accepted the paper (per a search result listing the FOCS 2022 version; not read)",
+          "where": "https://ieee-focs.org/FOCS-2022-Papers/pdfs/ (search result; not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4 years as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial, affirmative for same-face pairs in planar graphs.",
+      "object": null,
+      "people": ["Nikhil Kumar"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2208.00795"]
+      },
+      "sources": ["https://arxiv.org/abs/2208.00795"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "result-status",
+      "summary": "Lee and Poore (SoCG 2013) claim the 2-sum embedding conjecture for every finite family F (abstract on Lee's publication page, opened). A search-result summary attributes to Sidiropoulos's 2013 work the sentence that even for k = 2 the problem remains open. I could not find that sentence in the arXiv version of Sidiropoulos (opened; it does not mention Lee–Poore), and the FOCS 2013 PDF returned HTTP 401. Unresolved.",
+      "sources": ["https://homes.cs.washington.edu/~jrl/pubs-multiflow.html", "https://arxiv.org/abs/1304.7512", "https://ieee-focs.org/FOCS-2013-Papers/5135a177.pdf"]
+    },
+    {
+      "kind": "implication",
+      "summary": "The reader's blog says the minor-free case would follow from the planar and bounded-treewidth results by the Robertson–Seymour decomposition. Search summaries of Lee and Sidiropoulos (STOC 2009; full text not opened) say the general conjecture reduces to the planar conjecture plus a k-sum embedding conjecture. The blog's sketch does not mention a k-sum step. Unresolved, and it decides whether the 2026 claims would reach the general problem.",
+      "sources": ["https://minorfree.github.io/OpenAIDump/", "https://arxiv.org/abs/0910.1409"]
+    },
+    {
+      "kind": "claim-vs-status",
+      "summary": "The OpenAI repository claims the planar case, which conflicts with the status 'open' given by the Wikipedia article (last edited 27 Dec 2025, cached copy), Sidiropoulos 2013, Kumar 2022 and the 7 Oct 2026 k-outerplanar paper. The last of these was most likely written before the 6 Oct release. No named expert has confirmed or refuted the OpenAI claim.",
+      "sources": ["https://en.wikipedia.org/wiki/GNRS_conjecture", "https://arxiv.org/abs/1304.7512", "https://arxiv.org/abs/2610.10888", "https://github.com/openai/math"]
+    }
+  ],
+
+  "summary": "Thirty-five web searches and about forty page fetches turned up no human-verified resolution of the GNRS conjecture as of 11 October 2026. The Wikipedia article (cached copy, last edited 27 December 2025) lists no developments after 2013. The development that bears directly on the problem is an OpenAI repository, openai/math, whose first public commit is dated 6 October 2026 ('Initial commit' on the commit page; a later commit on 8 October updated manuscripts and Lean formalizations). It contains two manuscripts that bear on this problem: one claiming a single constant for ℓ1 distortion of all planar graphs, and one claiming a constant C(k) for graphs of bounded treewidth. The README attributes the batch to 'an unreleased internal OpenAI model' and gives the batch as 719 manuscripts in 372 families (aggregator reports say 722; I used the README). I could not extract either PDF's text, so my knowledge of the content comes from the Lean statements (PlanarL1.lean and BoundedTreewidthL1.lean, fetched on 11 October) and the Lean docs file. In both copies read, the main theorem is proved by sorry; the files state the claims but do not prove them. A third-party catalogue (sites.pitt.edu, not opened because it exceeded the fetch size limit) describes both as resolving their cases positively. A reader's blog (Hung Le, 7 to 11 October; read through a summarising fetch) describes partial reading, calls parts of the argument hard to follow, and says the minor-free case is not among OpenAI's solutions. The planar claim, if correct, settles the planar family; the treewidth claim, if correct, gives per-k constants for bounded-treewidth families. Both are new cases on the sources' account: bounded-treewidth families contain all trees, so the 2009 Lee–Sidiropoulos result for families that do not contain all trees does not reach them, and treewidth 2 was already known (Chakrabarti et al. 2008). Neither claim, taken alone, settles the general conjecture, because the Lee–Sidiropoulos reduction (as cited in search summaries) also needs a k-sum statement, and the k = 2 case of that statement is disputed. The repository's own README says that the attribution covers 'the vast majority' of results, that the planar and treewidth manuscripts are not among its two named exceptions, and that some unformalized results 'could have issues'. The planar and treewidth manuscripts have no named human author in what I could read, and I found no arXiv, journal or referee record for them. A second 2026 item, Chang, Conroy, Eliot, Le and Vinayak (arXiv 2610.10888, 7 Oct 2026), improves the k-dependence for k-outerplanar graphs from 2^O(k) to poly(k); that family was already settled in 2003, so this is a bound moving for a settled family, not a resolution. Discarded items, each recorded with its reason: Kalantarzadeh and Kumar (2025), a lower bound on the planar multiflow–multicut gap, a related but different quantity; Chekuri and Jain (2026), directed planar graphs; Duan (2026), a namesake, the GNS conjecture of Gabrielov, Novikov and Shapiro; Filtser (2024), an ℓ∞ result; and Chang et al. (2024), a stochastic embedding into bounded-treewidth hosts. Three OpenAI manuscripts were withdrawn one day after release for a sign error, and fourteen were revised; per secondary summaries (not opened) none of the withdrawn items concerns ℓ1 embeddings. On AI: the authors of the planar and treewidth manuscripts are not named, and the one system credited is the repository's 'unreleased internal OpenAI model', recorded as the repository's statement rather than the manuscript's, since I could not read the manuscript. The reader used a ChatGPT-family assistant to work through the manuscript; that is a reader's aid, not an author credit, and I have not recorded it as a system. The OpenAI 'Ten advances' batch of 1 August 2026, checked through the ten-proofs Lean repository, contains nothing on ℓ1 embeddings.",
+
+  "competing_reading": "The strongest case for taking the 6 October 2026 manuscripts seriously: they are the first claims to settle the planar family and bounded-treewidth families outright, they come with formal statements, and the one qualified reader found the early lemmas straightforward and the method new rather than wrong. If the same method handles k-sums, the full GNRS conjecture would follow, which the reader's blog predicts. On that reading the event is a resolution of the conjecture's planar and treewidth cases with a plausible path to the general case. The contrary case: the Lean main theorems are proved by sorry in the copies read, the qualified reader reports that parts of the argument are incomplete or unclear, no named human has verified the work, and it arrived in a batch in which other manuscripts were withdrawn within a day. On that reading the event is an unverified partial claim, and the general case is not shown to follow.",
+
+  "what_would_settle_it": "(a) A sorry-free Lean proof of planar_graph_metrics_embed_L1 and main_theorem (BoundedTreewidthL1.lean), checked by someone other than the authors, or a reported build of the current files with a sorry count. (b) A public verification, refereed publication, or explicit error report from a named ℓ1-embedding specialist (for example Filtser, Lee, Sidiropoulos, Naor or Rabinovich). (c) A statement from OpenAI or the repository identifying the exact model and prompt chain for each of these two manuscripts, and whether any human wrote part of the argument. (d) The k-sum step: a proof, or a published reduction, from the planar and bounded-treewidth results to all proper minor-closed families. (e) The full text of Lee and Poore (SoCG 2013) and of the FOCS 2013 version of Sidiropoulos, to settle the k = 2 dispute. (f) Opening the Pitt-hosted catalogue and the Nature report, which I could not open, to compare their descriptions with the repository.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/GNRS_conjecture", "title": "GNRS conjecture (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://handwiki.org/wiki/GNRS_conjecture", "title": "GNRS conjecture (HandWiki mirror, search result only)", "type": "encyclopedia", "opened": false},
+    {"url": "https://www.proofatlas.ai/collaboration/gnrs-conjecture/", "title": "ProofAtlas GNRS Conjecture workspace", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/0910.1409", "title": "Lee and Sidiropoulos, Pathwidth, trees, and random embeddings", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1304.7512", "title": "Sidiropoulos, Non-positive curvature, and the planar embedding conjecture", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1903.02758", "title": "Filtser, A face cover perspective to ℓ1 embeddings of planar graphs", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1708.04073", "title": "Abraham, Filtser, Gupta, Neiman, Metric Embedding via Shortest Path Decompositions", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2208.00795", "title": "Kumar, An Approximate Generalization of the Okamura-Seymour Theorem", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2401.14060", "title": "Filtser, On Sparse Covers of Minor Free Graphs, Low Dimensional Metric Embeddings, and other applications", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2411.00216", "title": "Chang et al., Embedding Planar Graphs into Graphs of Treewidth O(log^3 n)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2507.06576", "title": "Kalantarzadeh and Kumar, Improved Lower Bounds on Multiflow-Multicut Gaps", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2601.20038", "title": "Chekuri and Jain, Node-Weighted Multicut in Planar Digraphs", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.09637", "title": "Duan, Counterexamples to GNS Conjecture 1.8", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2610.10888", "title": "Chang, Conroy, Eliot, Le, Vinayak, Peeling Half the Onion: Embedding k-Outerplanar Graphs into ℓ1 and Trees with a Polynomial Distortion", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2503.00798", "title": "Chakraborty, K_{2,3}-induced minor-free graphs admit quasi-isometry with additive distortion (not related)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.14673", "title": "Sienicki and Sienicki, A Human Audit of OpenAI's AI-Generated Mathematical Proofs (August batch; not on ℓ1)", "type": "preprint", "opened": true},
+    {"url": "https://homes.cs.washington.edu/~jrl/pubs-multiflow.html", "title": "James R. Lee, publications (Lee–Poore 2013 abstract)", "type": "repository", "opened": true},
+    {"url": "https://github.com/openai/math", "title": "openai/math repository README", "type": "repository", "opened": true},
+    {"url": "https://github.com/openai/math/tree/main/preprints", "title": "openai/math preprints directory listing", "type": "repository", "opened": true},
+    {"url": "https://github.com/openai/math/commits/main/preprints", "title": "openai/math commits (preprints)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PlanarL1.lean", "title": "PlanarL1.lean (planar Lean statement; main theorem by sorry)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/BoundedTreewidthL1.lean", "title": "BoundedTreewidthL1.lean (bounded-treewidth Lean statement; main theorem by sorry)", "type": "repository", "opened": true},
+    {"url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/089.md", "title": "openai/math lean/docs/089.md (scope of the two formalizations)", "type": "repository", "opened": true},
+    {"url": "https://github.com/openai/math/blob/main/preprints/Planar-Graph-Metrics-Embed-into-L1-with-Constant-Distortion-September-23-2026/paper.pdf", "title": "Planar Graph Metrics Embed into L1 with Constant Distortion (PDF; page opened, text not extracted)", "type": "preprint", "opened": false},
+    {"url": "https://github.com/openai/math/blob/main/preprints/L1-Embeddings-of-Graphs-of-Bounded-Treewidth-September-23-2026/paper.pdf", "title": "L1 Embeddings of Graphs of Bounded Treewidth (PDF; page opened, text not extracted)", "type": "preprint", "opened": false},
+    {"url": "https://minorfree.github.io/OpenAIDump/", "title": "Hung Le, OpenAI Math Dump Hits My Home (Rambling on Graphs)", "type": "blog", "opened": true},
+    {"url": "https://galoisrepresentations.org/2026/10/06/the-openai-problem-dump/", "title": "Persiflage, The OpenAI problem dump (context only; no GNRS content)", "type": "blog", "opened": true},
+    {"url": "https://github.com/openai/ten-proofs", "title": "openai/ten-proofs (August batch; Lean repository listing)", "type": "repository", "opened": true},
+    {"url": "https://openai.com/index/ten-advances-in-mathematics/", "title": "OpenAI, Ten advances in mathematics and theoretical computer science", "type": "press_release", "opened": false},
+    {"url": "https://cdn.openai.com/pdf/ten-proofs-oai.pdf", "title": "OpenAI ten-proofs PDF (binary; not readable)", "type": "preprint", "opened": false},
+    {"url": "https://sites.pitt.edu/~hajlasz/OpenAI_Math_Catalogue.html", "title": "OpenAI Mathematics Searchable Preprint Catalogue (fetch exceeded size limit; search snippet only)", "type": "repository", "opened": false},
+    {"url": "https://ieee-focs.org/FOCS-2013-Papers/5135a177.pdf", "title": "Sidiropoulos FOCS 2013 PDF (HTTP 401)", "type": "preprint", "opened": false},
+    {"url": "https://home.ttic.edu/~tasos/papers/geoforbid_stoc2009.pdf", "title": "Lee and Sidiropoulos, On the geometry of graphs with a forbidden minor (STOC 2009 PDF; not opened)", "type": "preprint", "opened": false},
+    {"url": "https://www.doi.org/10.1007/S00493-004-0015-X", "title": "Gupta, Newman, Rabinovich, Sinclair, Combinatorica 2004 (DOI; not opened)", "type": "journal", "opened": false},
+    {"url": "https://dl.acm.org/doi/10.1145/3686800", "title": "Filtser, A Face Cover Perspective to ℓ1 Embeddings of Planar Graphs (ACM journal; not opened)", "type": "journal", "opened": false},
+    {"url": "https://cris.haifa.ac.il/en/publications/embedding-k-outerplanar-graphs-into-lsub1sub/", "title": "Chekuri et al., Embedding k-outerplanar graphs into ℓ1 (listing; not opened)", "type": "journal", "opened": false},
+    {"url": "https://aiweekly.co/alerts/openai-posts-722-ai-generated-math-preprints-pulls-three", "title": "AI Weekly summary of the OpenAI release and withdrawals (secondary; not opened)", "type": "news", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "GNRS conjecture minor-closed graph families l1 embedding bounded distortion",
+      "GNRS conjecture Wikipedia unsolved problems graph embedding",
+      "GNRS conjecture AI proof 2026",
+      "minor-closed families l1 embeddable bounded distortion arXiv 2025",
+      "Goddyn Linial Naor Rabinovich Seymour conjecture minor-closed l1 metrics",
+      "planar graphs l1 embedding distortion improvement 2025 flow-cut gap",
+      "planar embedding conjecture Lee Sidiropoulos k-sum l1 embedding",
+      "Lee Poore 2-clique-sums l1 embedding bounded distortion",
+      "multicommodity flow-cut gap minor-free graphs 2024 arXiv",
+      "Gupta Newman Rabinovich Sinclair \"Cuts, trees and l1-embeddings of graphs\"",
+      "Chakrabarti treewidth 2 l1 distortion 2 excluded minor K5 minus edge embedding",
+      "\"GNRS\" conjecture 2026",
+      "excluded minor graphs embed into l1 constant distortion new result 2025 2026",
+      "AlphaEvolve OR GPT-5 OR Claude graph embedding l1 distortion conjecture AI discovered",
+      "AI-assisted proof planar graphs metric embedding L1 constant distortion",
+      "OpenAI math preprints planar graph metrics embed into L1 constant distortion Filtser",
+      "OpenAI math dump preprints September 2026 open problems GitHub openai/math",
+      "\"Planar Graph Metrics Embed into L1 with Constant Distortion\"",
+      "OpenAI planar embedding conjecture mathematicians reaction Filtser Le Gupta Newman Rabinovich Sinclair 2026",
+      "Nature OpenAI 372 open problems 722 manuscripts mathematicians verify",
+      "OpenAI 722 manuscripts withdrawn three papers sign error Retraction Watch planar",
+      "Lee Sidiropoulos \"On the geometry of graphs with a forbidden minor\" STOC 2009 pathwidth trees",
+      "Cohen-Addad Le Pilipczuk Pilipczuk low treewidth embeddings planar minor-free metrics FOCS 2022",
+      "Rambling on Graphs Hung Le OpenAI dump planar graphs L1 embedding update",
+      "Chekuri Gupta Newman Rabinovich Sinclair k-outerplanar graphs embedding l1 distortion 2^O(k) SODA 2003",
+      "Krauthgamer Lee Rika flow-cut gaps face covers planar graphs",
+      "Terence Tao OpenAI 722 manuscripts open problems reaction",
+      "Hajłasz OpenAI mathematics searchable preprint catalogue planar graph metrics",
+      "planar graph l1 embedding constant distortion arXiv 2026 human proof preprint",
+      "Lee Poore \"On the 2-sum embedding conjecture\" SoCG 2013 abstract",
+      "Institute for Advanced Study AGMAI OpenAI math release 722 manuscripts Lean comparator planar",
+      "minor-free graphs l1 embedding distortion reduction Robertson-Seymour bounded treewidth planar GNRS full conjecture",
+      "Rao planar graphs sqrt(log n) distortion l1 embedding 1999 SoCG sparsest cut",
+      "OpenAI minor-free graph metrics L1 embedding constant distortion preprint GNRS full conjecture 2026",
+      "Gupta Newman Rabinovich Sinclair comment OpenAI planar graph embedding result verified"
+    ],
+    "places_checked": [
+      "Wikipedia GNRS conjecture article (opened; cached copy, last edited 27 Dec 2025)",
+      "arXiv abstract pages for the 2009, 2013, 2017, 2019, 2022, 2024, 2024-10, 2025, 2026 (January and September) and 2026 (October) items listed in events and discards",
+      "openai/math GitHub repository: README, preprints directory, commit history, Lean statement files, Lean docs file",
+      "openai/ten-proofs GitHub repository (August batch)",
+      "Hung Le's blog 'Rambling on Graphs' (opened via the URL from search, read through a summarising fetch)",
+      "ProofAtlas GNRS workspace (opened; read-only, not evidence of status)",
+      "Lee's publications page (Lee–Poore abstract)",
+      "Galois representations blog (context only)",
+      "Search engine results for the title of the OpenAI planar manuscript and the OpenAI batch (aggregators and news)",
+      "Google Scholar, MathSciNet, zbMATH, Quanta, Tao's blog, Retraction Watch: not reached (no access or no hit)"
+    ],
+    "dead_ends": [
+      "ProofAtlas GNRS workspace: an AI-first research workspace whose status line reads 'Open conjecture', with a status check dated 31 Dec 2004, so it is not evidence of 2026 status.",
+      "openai.com 'Ten advances' page: HTTP 403. The August batch is checked through the ten-proofs repository listing instead, which covers sphere packing, codes, non-sofic groups, Connes rigidity, permanents, quantum parallel repetition, CVP, Ehrhart, and Erdős problems 146, 180 and 183; none concerns ℓ1 embeddings.",
+      "Pitt-hosted OpenAI catalogue: fetch exceeded the size limit. Only a search snippet, which describes the planar and treewidth results, is known.",
+      "OpenAI manuscript PDFs in the repository and the cdn.openai.com ten-proofs PDF: the file pages and the CDN file returned no extractable text (binary).",
+      "IEEE FOCS 2013 PDF (Sidiropoulos): HTTP 401.",
+      "Chakraborty, arXiv 2503.00798 (K_{2,3}-induced minor-free graphs, quasi-isometry): unrelated.",
+      "Cohen-Addad, Le, Pilipczuk and Pilipczuk, arXiv 2304.07268, and Filtser–Le, arXiv 2203.15627: low-treewidth hosts with expected distortion 1+ε; a different target, not counted.",
+      "Salmasi, Sidiropoulos and Sridhar, arXiv 1711.01370: directed minor-free flow–cut gaps; a directed analogue, not counted.",
+      "Carroll and Goel, arXiv 0807.4582: lower bounds for distributions over excluded-minor families; a different target, not counted.",
+      "Gartland and Ostrovskii (2026, EMD over planar grids) and Naor, 'Planar Earthmover is not in L1': different metric, not counted.",
+      "Namesake searches for 'GNRS' returned the Grand National Roadster Show and the Gupta–Newman–Rabinovich–Sinclair paper; the GNS (Gabrielov–Novikov–Shapiro) paper is the only other hit.",
+      "Hung Le's blog found through the URL of a search result; a search on its title found nothing relevant.",
+      "Search summaries that a Claude model is credited in the acknowledgements of the GNS paper: not confirmed on the abstract page."
+    ]
+  },
+
+  "incomplete": "(1) The planar and treewidth manuscripts' PDFs could not be read by my tools, so their content, authorship, acknowledgements and proofs are not recorded from the papers themselves. Their statements come from the Lean files and the Lean docs (fetched through a summarising tool, with the sorry lines confirmed by a second fetch for the planar file), the README, and the reader's blog. (2) The README and the blog were read through a summarising fetch. Quoted sentences are as the tool returned them and were not checked character-for-character against the page. (3) The Pitt-hosted catalogue exceeded the fetch size limit and was not opened. The Nature report and the Retraction Watch report were not reached; withdrawal and batch-count details come from aggregators and are flagged as such. (4) Several pre-window sources are cited from secondary snippets and not opened: Gupta et al. (1999 and 2004), Chekuri et al. (2003), Rao (1999), Chakrabarti et al. (2008), Lee and Raghavendra (2010), Krauthgamer, Lee and Rika (2018/2019), the Lee–Sidiropoulos STOC 2009 full text (including its planar and k-sum reduction), the Lee–Poore full text, and the FOCS 2013 Sidiropoulos PDF (HTTP 401). The dispute about k = 2 therefore remains open. (5) Full text was not read for the 2026 k-outerplanar paper (2610.10888), the 2024 treewidth-host paper (2411.00216), or the other arXiv items; the AI disclosure for those rests on their abstract pages. (6) No Google Scholar, MathSciNet, zbMATH 'cited by', Quanta, Tao's blog or Lean Zulip check was possible; later citations of the 2026 OpenAI manuscripts beyond the blog and the aggregator reports were not established. (7) The Lean files were not built locally. (8) The Wikipedia article was read as a cached copy and may lag current edits."
+}

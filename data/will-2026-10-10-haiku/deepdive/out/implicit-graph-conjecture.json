@@ -1,0 +1,554 @@
+{
+  "key": "implicit-graph-conjecture",
+  "nothing_found": false,
+  "outcome": "The factorial-speed form of the conjecture (every hereditary family with at most 2^O(n log n) n-vertex graphs has O(log n)-bit implicit labels) was refuted in November 2021 and sharpened for monotone classes in October 2023, both before the window; since 26 January 2024 the small-class form (at most n!·c^n graphs) has stayed open, with partial progress (O(log^3 n) for all hereditary small classes and O(log n) for weakly sparse small classes, arXiv September 2024) and one restricted positive case (the optimal (1+o(1)) log n bound for proper minor-closed classes, arXiv May 2026, which the authors call small).",
+
+  "problem_asks": "The bullet, read from its statement alone, asks one universal question with three parts. (a) Families: hereditary graph families (closed under taking induced subgraphs). (b) Growth: slowly-growing, a term the bullet does not define. Readings found in the sources: factorial speed, at most 2^O(n log n) n-vertex graphs (Kannan-Naor-Rudich and Spinrad; the linked Wikipedia article's phrase is 'slow-enough growth rate'); or 'small', at most n!·c^n n-vertex graphs (Bonnet et al. 2024). (c) Conclusion, for every such family: an implicit representation exists, meaning each n-vertex graph has vertex labels of O(log n) bits from which adjacency of any two vertices is decided from their two labels alone (the decoder may depend on the family, not on the graph). No dimension, parameter or separate case is named, so the bullet asks for every family satisfying (a) and (b), under whichever reading of (b) is intended.",
+
+  "events": [
+    {
+      "id": "chandoo-2016",
+      "what_happened": "Maurice Chandoo, 'On the Implicit Graph Conjecture' (arXiv 1603.01977; comment: MFCS 2016). Restates the conjecture as: every sufficiently small hereditary graph class has a labelling scheme with a polynomial-time computable decoder. Defines decoder-complexity classes (GP, GR, FO-based) and shows GP is a strict subset of GR. The abstract says a weaker form of the conjecture could be disproved by showing a small hereditary class is not expressible with such decoders.",
+      "date": "2016-03-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 26 Apr 2016; v3 20 Jun 2016 (the version whose comment reads 'MFCS 2016').",
+      "delivers": "Neither settles nor refutes the conjecture. It studies a restricted-decoder variant (decoders in P, GP, or a first-order-defined class) and proves structural separations between those variants. Restriction: the decoder class is part of the question, so it is not the bullet with unrestricted decoders.",
+      "remains": "All of problem_asks: unrestricted-decoder labelling existence is not addressed, and the growth reading is not fixed in the paper.",
+      "checked_by": [
+        {
+          "who": "MFCS 2016 programme committee (refereed conference)",
+          "qualification": "Peer review at a refereed theory conference, per the arXiv comment field",
+          "what_they_did": "Accepted the paper for MFCS 2016",
+          "where": "https://arxiv.org/abs/1603.01977",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "10 years 7 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not cut either way on the conjecture. It introduces a weaker, decoder-restricted variant and points at a route to disproving that variant.",
+      "object": null,
+      "people": ["Maurice Chandoo"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1603.01977"]
+      },
+      "sources": ["https://arxiv.org/abs/1603.01977"]
+    },
+    {
+      "id": "bonamy-gavoille-pilipczuk-2019",
+      "what_happened": "Marthe Bonamy, Cyril Gavoille, Michal Pilipczuk, 'Shorter labeling schemes for planar graphs' (arXiv 1908.03341, cs.DS, submitted 9 Aug 2019). Gives (4/3+o(1))·log n-bit adjacency labels for n-vertex planar graphs, improving the earlier (2+o(1)) log n bound; extends to bounded Euler genus; labels are computed in polynomial time and adjacency is decided in constant time. The venue (SODA 2020) is taken from the 2026 Dujmovic et al. paper's citation and was not confirmed on the arXiv page.",
+      "date": "2019-08-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "O(log n)-bit adjacency labels for the hereditary class of all planar graphs (and bounded Euler genus), at (4/3+o(1)) log n. Restriction: a single proper minor-closed class, not the general statement. Planar graphs are a proper minor-closed class, which the 2026 paper states is small.",
+      "remains": "The optimal (1+o(1)) log n constant for planar classes (closed later in the window for proper minor-closed classes, see dujmovic-2026). For the bullet in general, every other slowly-growing hereditary family.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "7 years 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the O(log n) form of the question for one restricted class. Does not reach the optimal constant.",
+      "object": "An explicit graph on n^(4/3+o(1)) vertices containing all n-vertex planar graphs as induced subgraphs, from the labelling scheme with (4/3+o(1)) log n-bit labels (per the abstract).",
+      "people": ["Marthe Bonamy", "Cyril Gavoille", "Michal Pilipczuk"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1908.03341"]
+      },
+      "sources": ["https://arxiv.org/abs/1908.03341"]
+    },
+    {
+      "id": "harms-2019",
+      "what_happened": "Nathaniel Harms, 'Universal Communication, Universal Graphs, and Graph Labeling' (arXiv 1911.03757; comment: 'To appear in ITCS 2020'). Introduces universal SMP communication and derives labelling results: an O(k^2 log n) scheme for distance at most k on distributive lattices; constant-cost communication protocols for adjacency on trees, low-arboricity graphs and planar graphs; an O(log n) labelling for distance at most 2 on planar graphs.",
+      "date": "2019-11-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Neighbouring results only. The O(log n) labelling is for the distance-at-most-2 relation on planar graphs, not adjacency. The constant-cost adjacency protocols are communication results rather than labelling schemes for the bullet's families. No bound on the implicit graph conjecture.",
+      "remains": "The bullet, for every family that is not one of the named special cases (trees, low-arboricity, planar distance-2).",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "6 years 11 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not cut the conjecture. It supports O(log n)-type labelling only for named special cases and a different relation.",
+      "object": null,
+      "people": ["Nathaniel Harms"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1911.03757"]
+      },
+      "sources": ["https://arxiv.org/abs/1911.03757"]
+    },
+    {
+      "id": "harms-wild-zamaraev-2021",
+      "what_happened": "Nathaniel Harms, Sebastian Wild, Viktor Zamaraev, 'Randomized Communication and Implicit Graph Representations' (arXiv 2111.03639). Initiates the study of constant-cost randomized communication and states the Probabilistic Universal Graph conjecture: a hereditary graph property has a constant-size probabilistic universal graph iff it is stable and has at most factorial speed. The arXiv page never names or poses the implicit graph conjecture; it relates to it through adjacency labelling and universal graphs.",
+      "date": "2021-11-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 22 Jun 2022; v3 18 Jul 2023; v4 11 Dec 2024; v5 30 Jun 2025; v6 30 Sep 2025 (the TheoretiCS journal version, 81 pages, vol. 4, 1 Oct 2025 per the arXiv comment and journal reference).",
+      "delivers": "Does not settle the implicit graph conjecture. Poses a probabilistic analogue (the PUG conjecture) and gives new constant-cost examples. The PUG statement is a different question from the bullet, and it was later refuted (see hambardzumyan-2021).",
+      "remains": "The whole bullet.",
+      "checked_by": [
+        {
+          "who": "TheoretiCS (journal)",
+          "qualification": "Refereed journal, per the arXiv journal reference",
+          "what_they_did": "Published the journal version (vol. 4, 1 Oct 2025)",
+          "where": "https://arxiv.org/abs/2111.03639",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "4 years 11 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neighbouring. Its PUG conjecture was refuted by Hambardzumyan, Hatami and Hatami. It does not cut the bullet.",
+      "object": null,
+      "people": ["Nathaniel Harms", "Sebastian Wild", "Viktor Zamaraev"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2111.03639"]
+      },
+      "sources": ["https://arxiv.org/abs/2111.03639"]
+    },
+    {
+      "id": "hambardzumyan-2021",
+      "what_happened": "Lianna Hambardzumyan, Hamed Hatami, Pooya Hatami, 'A counter-example to the probabilistic universal graph conjecture via randomized communication complexity' (arXiv 2111.10436). Refutes the PUG conjecture of Harms, Wild and Zamaraev by a sequence of Boolean matrices whose public-coin randomized communication complexity tends to infinity while every sqrt(n) x sqrt(n) submatrix has bounded complexity. The arXiv page does not mention the implicit graph conjecture. A Discrete Applied Mathematics 322 (2022) 117-122 publication appears in a search snippet only and was not opened.",
+      "date": "2021-11-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 8 Dec 2021 (current).",
+      "delivers": "Refutes the PUG conjecture, a probabilistic statement about constant-size randomized communication and probabilistic universal graphs. It does not refute the implicit graph conjecture, which concerns deterministic O(log n)-bit labels. Restriction: the counterexample is for randomized communication complexity.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "4 years 10 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring. It refutes a probabilistic analogue of an adjacency-labelling statement. It does not cut the bullet.",
+      "object": "A sequence of Boolean matrices M_n whose public-coin randomized communication complexity tends to infinity while every sqrt(n) x sqrt(n) submatrix has bounded complexity (per the abstract). Construction and explicitness were not read beyond the abstract.",
+      "people": ["Lianna Hambardzumyan", "Hamed Hatami", "Pooya Hatami"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2111.10436"]
+      },
+      "sources": ["https://arxiv.org/abs/2111.10436"]
+    },
+    {
+      "id": "hatami-hatami-2021",
+      "what_happened": "Hamed Hatami and Pooya Hatami, 'The Implicit Graph Conjecture is False' (arXiv 2111.13198; 7 pages). Efficient implicit representations give each vertex an O(log n)-bit code and force at most factorial growth. The paper refutes Conjecture 1.3, that every hereditary family with at most factorial speed has an efficient implicit representation, attributed to Kannan, Naor and Rudich (posed 1988/1992) and to Spinrad (2003). Main theorem (read from the ar5iv HTML, paraphrased): for every delta > 0 there is a hereditary family with at most factorial speed such that every implicit representation of it needs codes of length Omega(n^(1/2-delta)). The family is built probabilistically: random sparse bipartite graphs with about n^(2-eps) edges, then their hereditary closure, with a counting argument. The FOCS 2022 publication (pp. 1134-1137) appears in a secondary citation and on the authors' page in search snippets; not opened.",
+      "date": "2021-11-25",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 13 Dec 2021; FOCS 2022 conference version.",
+      "delivers": "Refutes the conjecture as stated for factorial hereditary families: for each delta > 0 there is a hereditary family with at most factorial speed whose implicit representations need codes of length Omega(n^(1/2-delta)), so no O(log n) labelling exists for it. Restrictions: the families are hereditary with 2^O(n log n) growth; the paper does not claim they are small in Bonnet et al.'s sense (at most n!·c^n), and that was not checked. The conjecture as the Wikipedia article words it (with a forbidden-subgraph characterisation) was not checked against these families.",
+      "remains": "Under the factorial reading, nothing: the conjecture is refuted. Under the small reading (n!·c^n), this paper does not establish a counterexample, unless its families are shown to be small, which was not checked. Under a forbidden-subgraph reading, not checked.",
+      "checked_by": [
+        {
+          "who": "IEEE FOCS 2022 programme committee (refereed conference)",
+          "qualification": "Peer review at a refereed theory conference; acceptance indicated by the FOCS 2022 citation in a secondary source and the authors' publication page (snippets, not opened)",
+          "what_they_did": "Accepted the paper for FOCS 2022",
+          "where": "https://arxiv.org/abs/2111.13198",
+          "automated": false
+        },
+        {
+          "who": "Edouard Bonnet, Julien Duron, John Sylvester, Viktor Zamaraev, Maksim Zhukovskii",
+          "qualification": "Researchers working on adjacency labelling of graph classes",
+          "what_they_did": "Cite the result as refuting the conjecture and extend the refutation to monotone factorial classes; this is uptake, not a separate verification of the proof",
+          "where": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.31",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "4 years 10 months",
+      "machine_checked": null,
+      "directly_checkable": "The family is non-constructive (a counting argument over random sparse bipartite graphs and their hereditary closure), so there is no explicit object to check by hand.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts against the conjecture as stated for factorial hereditary families: it fails for them.",
+      "object": "For each delta > 0, a hereditary family with at most factorial speed (at most 2^O(n log n) n-vertex graphs) in which every implicit representation needs codes of length Omega(n^(1/2-delta)). Non-constructive: obtained by a counting argument over random sparse bipartite graphs and their hereditary closure (per the ar5iv HTML; the PDF was not readable).",
+      "people": ["Hamed Hatami", "Pooya Hatami"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2111.13198", "https://ar5iv.labs.arxiv.org/html/2111.13198"]
+      },
+      "sources": ["https://arxiv.org/abs/2111.13198", "https://ar5iv.labs.arxiv.org/html/2111.13198"]
+    },
+    {
+      "id": "alon-2022",
+      "what_happened": "Noga Alon, 'Implicit representation of sparse hereditary families' (arXiv 2201.00328; submitted 2 Jan 2022; only v1 listed). Shows that for every eps > 0 there is an integer d such that every hereditary family with speed at most 2^((1/4-eps)n^2) has an implicit representation of size O(n^(1-1/d) log n), tight up to the log factor for each d > 1. The abstract responds to Hatami and Hatami's result on very sparse hereditary families. A later publication (Discrete & Computational Geometry, 2024) appears in a search snippet only and was not opened.",
+      "date": "2022-01-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Polynomial-size labels (exponent below 1) for hereditary families up to speed 2^((1/4-eps)n^2). It gives no O(log n) labels for any family, and it does not address the slow regime of the bullet. Restriction: an upper bound for a much faster-growing regime.",
+      "remains": "The O(log n) question for slowly-growing hereditary families under either reading.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "4 years 9 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "A contrast result. It gives polynomial, not logarithmic, labels for a much larger growth regime and does not bear on slow families.",
+      "object": null,
+      "people": ["Noga Alon"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2201.00328"]
+      },
+      "sources": ["https://arxiv.org/abs/2201.00328"]
+    },
+    {
+      "id": "bonnet-smallunwieldy-2023",
+      "what_happened": "Edouard Bonnet, Julien Duron, John Sylvester, Viktor Zamaraev, Maksim Zhukovskii, 'Small But Unwieldy: A Lower Bound on Adjacency Labels for Small Classes' (arXiv 2307.11225). For every natural s there is a subgraph-closed (monotone) class with at most gamma^n n-vertex graphs up to isomorphism (small, even tiny) that has no adjacency labelling scheme with labels of size at most s·log n; equivalently, no universal graph of size n^s. The abstract says that before this it was open whether every small class has an almost-linear universal graph, i.e. (1+o(1)) log n labels. Also states the monotone classes have unbounded twin-width. Journal reference SIAM J. Comput. 53(5), 2024, pp. 1578-1601 (arXiv page); SODA 2024 is given in DBLP and a search snippet.",
+      "date": "2023-07-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 7 Nov 2023; v3 20 Feb 2024.",
+      "delivers": "Rules out the (1+o(1)) log n labelling version for small classes in general: for each s there is a monotone small class needing more than s·log n bits. Restriction: monotone (subgraph-closed) classes. It does not refute O(log n) labels for any single small class, since a per-class constant can still be O(log n), and it does not address non-monotone classes.",
+      "remains": "The O(log n) question for hereditary small classes that are not monotone; the paper does not address it.",
+      "checked_by": [
+        {
+          "who": "SODA 2024 programme committee and SIAM J. Comput. referees",
+          "qualification": "Peer review at a refereed algorithms conference and a refereed journal",
+          "what_they_did": "Accepted at SODA 2024 and published in SICOMP 53(5), 2024, per the arXiv journal reference and DBLP snippet",
+          "where": "https://arxiv.org/abs/2307.11225",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "3 years 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts against the (1+o(1)) log n version for small classes; no bearing on O(log n) for any single class.",
+      "object": "For each s, a monotone small class (at most gamma^n graphs up to isomorphism) with no labelling of size s·log n, equivalently no universal graph of size n^s. The construction is described as self-contained without group-theoretic constructions (abstract); it was not read in full, and explicitness was not established.",
+      "people": ["Edouard Bonnet", "Julien Duron", "John Sylvester", "Viktor Zamaraev", "Maksim Zhukovskii"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2307.11225"]
+      },
+      "sources": ["https://arxiv.org/abs/2307.11225", "https://arxiv.org/html/2409.04821v1"]
+    },
+    {
+      "id": "bonnet-tight-2023",
+      "what_happened": "Edouard Bonnet, Julien Duron, John Sylvester, Viktor Zamaraev, Maksim Zhukovskii, 'Tight Bounds on Adjacency Labels for Monotone Graph Classes' (arXiv 2310.20522; ICALP 2024, LIPIcs vol. 297, pp. 31:1-31:20). The abstract (quoted through the fetch): for monotone classes with growth between 2^Omega(n log n) and 2^O(n^(2-delta)), label-size bounds are tight up to constant factors; 'the special case when f = log implies that the recently-refuted Implicit Graph Conjecture also fails within monotone classes'; 'the Implicit Graph Conjecture holds for all monotone small classes' (growth at most n!·c^n), with information-theoretically optimal labels; every monotone small class has bounded degeneracy; and 'we conjecture that the Implicit Graph Conjecture holds for all hereditary small classes'.",
+      "date": "2023-10-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 16 Nov 2023; v3 20 Feb 2024; ICALP 2024 publication.",
+      "delivers": "Factorial reading: the conjecture also fails within monotone classes (monotone classes at growth 2^O(n log n) need labels beyond O(log n), of order log^2 n in the f = log instance). Small reading: holds for all monotone small classes (n!·c^n), with optimal labels. Restriction: monotone (subgraph-closed) classes only; hereditary small classes are conjectured, not proved.",
+      "remains": "Factorial reading: nothing, since the conjecture is already refuted, now also for monotone classes. Small reading: all hereditary small classes that are not monotone; the authors' conjecture for them is open.",
+      "checked_by": [
+        {
+          "who": "ICALP 2024 programme committee (refereed conference)",
+          "qualification": "Peer review at a refereed theory conference",
+          "what_they_did": "Accepted and published in LIPIcs vol. 297",
+          "where": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.31",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "2 years 11 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts against the factorial-reading conjecture (fails for monotone factorial classes). Supports the small-reading conjecture for monotone small classes.",
+      "object": "Monotone (subgraph-closed) classes at growth 2^O(n log n) whose labelling needs more than O(log n) bits, of order log^2 n in the f = log instance (per the abstract). The construction was not read beyond the abstract.",
+      "people": ["Edouard Bonnet", "Julien Duron", "John Sylvester", "Viktor Zamaraev", "Maksim Zhukovskii"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2310.20522", "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.31"]
+      },
+      "sources": ["https://arxiv.org/abs/2310.20522", "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.31"]
+    },
+    {
+      "id": "bonnet-small-2024",
+      "what_happened": "Edouard Bonnet, Julien Duron, John Sylvester, Viktor Zamaraev, 'Adjacency Labeling Schemes for Small Classes' (arXiv 2409.04821; submitted 7 Sep 2024; ITCS 2025, LIPIcs vol. 325, pp. 21:1-21:22, published 11 Feb 2025). Defines small classes (at most n!·c^n n-vertex graphs) and states the Small Implicit Graph Conjecture: every hereditary small class admits an O(log n)-bit labelling scheme. The abstract: 'We provide evidence supporting the Small Implicit Graph Conjecture.' Results: (a) every small weakly sparse class has an implicit representation (via bounded expansion, hence bounded degeneracy); (b) every hereditary small class admits an O(log^3 n)-bit labelling scheme, improving the previous polynomial bound n^(1-eps); (c) every small class has neighbourhood complexity O(n log n). The ITCS version (fetched from its Dagstuhl page) keeps the same abstract claims.",
+      "date": "2024-09-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "ITCS 2025 publication (11 Feb 2025); the arXiv page lists v1 only.",
+      "delivers": "(a) O(log n) labels for hereditary small classes that are weakly sparse. (b) O(log^3 n) labels for every hereditary small class: a polylog bound, not the O(log n) that the conjecture asks for. Restriction: the small reading (n!·c^n). Nothing new for the factorial reading, which is already refuted.",
+      "remains": "The Small Implicit Graph Conjecture (O(log n) for all hereditary small classes) for those that are not weakly sparse, and the exact O(log n) constant in general.",
+      "checked_by": [
+        {
+          "who": "ITCS 2025 programme committee (refereed conference)",
+          "qualification": "Peer review at a refereed theory conference",
+          "what_they_did": "Accepted and published in LIPIcs vol. 325 (11 Feb 2025)",
+          "where": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.21",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "2 years 1 month",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial progress toward the small-reading conjecture: supports it for weakly sparse classes and gives a general polylog bound. Does not prove O(log n) in general.",
+      "object": null,
+      "people": ["Edouard Bonnet", "Julien Duron", "John Sylvester", "Viktor Zamaraev"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2409.04821v1", "https://arxiv.org/abs/2409.04821"]
+      },
+      "sources": ["https://arxiv.org/abs/2409.04821", "https://arxiv.org/html/2409.04821v1", "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.21"]
+    },
+    {
+      "id": "bastide-2025",
+      "what_happened": "Paul Bastide, Louis Esperet, Carla Groenland, Claire Hilaire, Clement Rambaud, Alexandra Wesolek, 'Faithful universal graphs for minor-closed classes' (arXiv 2504.19582). Abstract: for fixed t, a K_t-minor-free graph containing every n-vertex planar graph as a subgraph has 2^Omega(n) vertices; a polynomial-size K_4-minor-free graph contains every n-vertex tree as an induced subgraph; a polynomial-size K_7-minor-free graph contains every n-vertex K_4-minor-free graph as an induced subgraph; universal-graph orders are studied for bounded degree, treedepth, pathwidth and treewidth classes when the universal graph keeps structure.",
+      "date": "2025-04-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 16 May 2025; v3 23 Aug 2025; v4 4 May 2026 (listed as a revised version).",
+      "delivers": "Sizes of universal graphs inside minor-closed host classes. It gives no labelling bounds and no statement on the implicit graph conjecture. Restriction: universal graphs with minor-closed host structure, not labelling schemes for the bullet's families.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "1 year 5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring universal-graph result. Does not cut the conjecture.",
+      "object": null,
+      "people": ["Paul Bastide", "Louis Esperet", "Carla Groenland", "Claire Hilaire", "Clement Rambaud", "Alexandra Wesolek"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2504.19582"]
+      },
+      "sources": ["https://arxiv.org/abs/2504.19582"]
+    },
+    {
+      "id": "cardinal-sharir-2026",
+      "what_happened": "Jean Cardinal, Micha Sharir, 'Implicit representations via the polynomial method' (arXiv 2602.10922; v1 11 Feb 2026; v2 17 Apr 2026). Gives adjacency labels of O(n^(1-2/(d+1)+eps)) bits for d-dimensional semialgebraic graph families; O(n^(1/3+eps)) for unit disk and segment intersection graphs; O(log n) for semilinear graphs; O(log^3 n) for polygon visibility graphs. The abstract does not mention hereditary classes, growth, or the implicit graph conjecture.",
+      "date": "2026-02-11",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 17 Apr 2026 (current).",
+      "delivers": "Labels for specific geometric families. None is stated to be hereditary or of slow growth. The O(log n) semilinear case would be a case of the bullet only if that family were hereditary and slowly growing, which the abstract does not establish.",
+      "remains": "The whole bullet.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "8 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring. Does not contradict the conjecture and is not a case of it unless the families are hereditary and slow.",
+      "object": null,
+      "people": ["Jean Cardinal", "Micha Sharir"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2602.10922"]
+      },
+      "sources": ["https://arxiv.org/abs/2602.10922"]
+    },
+    {
+      "id": "dujmovic-2026",
+      "what_happened": "Vida Dujmovic, Cyril Gavoille, Gwenael Joret, Piotr Micek, Pat Morin, David R. Wood, 'Adjacency labelling for proper minor-closed graph classes' (arXiv 2605.06616; v1 7 May 2026, v2 8 May 2026, v3 13 Jul 2026). Abstract (quoted through the fetch): every proper minor-closed class admits a (1+o(1)) log2 n-bit adjacency labelling scheme, and there is an n^(1+o(1))-vertex graph containing every n-vertex graph of the class as an induced subgraph; both results are optimal up to the lower-order term; they generalise the planar and apex-minor-free results and answer the open question raised by Dujmovic et al. and anticipated by Bonamy, Gavoille and Pilipczuk. The HTML text states that every proper minor-closed graph class is small (citing a reference), defines a hereditary class to be small if it has 2^O(n log n) labelled n-vertex graphs for all n, and says the Implicit Graph Conjecture 'asserted that every small graph class admits an O(log n)-bit adjacency labelling scheme', which Hatami and Hatami disproved. The v3 comment reads: 'Improved writing throughout. Fixed bug related to injectivity of clique labels.'",
+      "date": "2026-05-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 8 May 2026; v3 13 Jul 2026, which fixes a bug in clique-label injectivity (per the comment).",
+      "delivers": "For proper minor-closed classes, which the paper states are small, the bullet's question has a positive answer with (1+o(1)) log n labels. This covers that restricted class only. The paper's own 'small' is the 2^O(n log n) class (the factorial reading that Hatami and Hatami refuted in general), not the n!·c^n class of Bonnet et al.; the positive result is for proper minor-closed classes inside it.",
+      "remains": "Under the small reading (n!·c^n): every hereditary small class not contained in a proper minor-closed class. Under the factorial reading: every hereditary factorial class outside this subclass (the general factorial statement is refuted).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "5 months",
+      "machine_checked": null,
+      "directly_checkable": "The labelling scheme is an algorithmic construction (labels, decoder, and a clique-label injectivity step), checkable by reading the construction rather than by inspecting an object.",
+      "doubts": "The v1 and v2 versions contained a bug affecting the injectivity of clique labels, fixed in v3 according to the comment. No independent check of the v3 fix was located, and the construction is long (about 144,000 characters of HTML), so a clean bill of health for v3 depends on checking the fix.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive for proper minor-closed classes, which lie inside both the small and factorial growth regimes. Does not reach the general conjecture.",
+      "object": null,
+      "people": ["Vida Dujmovic", "Cyril Gavoille", "Gwenael Joret", "Piotr Micek", "Pat Morin", "David R. Wood"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2605.06616", "https://arxiv.org/abs/2605.06616"]
+      },
+      "sources": ["https://arxiv.org/abs/2605.06616", "https://arxiv.org/html/2605.06616"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "terminology",
+      "summary": "'Small' means at most n!·c^n labelled graphs in Bonnet et al. (ICALP 2024; ITCS 2025) but at most 2^O(n log n) labelled graphs in Dujmovic et al. (arXiv 2605.06616), which is the factorial class that Hatami and Hatami refuted. Which one the bullet's 'slowly-growing' means is not settled by the sources. The linked Wikipedia article's 'slow-enough growth rate' matches the factorial reading.",
+      "sources": ["https://arxiv.org/html/2605.06616", "https://arxiv.org/html/2409.04821v1", "https://en.wikipedia.org/wiki/Implicit_graph_conjecture"]
+    },
+    {
+      "kind": "apparent-conflict",
+      "summary": "Bonnet et al. (arXiv 2307.11225; SICOMP 2024) show that for each s some monotone small class has no labelling of size s·log n, while the ICALP 2024 and ITCS 2025 papers state that the Implicit Graph Conjecture holds for monotone small classes with O(log n) labels. The ITCS 2025 paper cites Small But Unwieldy for the point that not every hereditary small class admits an asymptotically optimal labelling, so the two results target different constants ((1+o(1)) log n versus O(log n) per class). Not a priority dispute.",
+      "sources": ["https://arxiv.org/abs/2307.11225", "https://arxiv.org/abs/2310.20522", "https://arxiv.org/html/2409.04821v1"]
+    },
+    {
+      "kind": "formulation",
+      "summary": "The linked Wikipedia article (live page, last edited 14 Sep 2026 per the page) states the Kannan-Naor-Rudich question as whether a forbidden-subgraph characterisation plus at most 2^O(n log n) n-vertex graphs suffices for an adjacency labelling scheme, and describes the refutation as a family with a forbidden-subgraph characterisation and slow-enough growth. Hatami and Hatami's abstract describes hereditary families with factorial speed; whether their families have a finite forbidden-subgraph characterisation was not checked.",
+      "sources": ["https://en.wikipedia.org/wiki/Implicit_graph_conjecture", "https://arxiv.org/abs/2111.13198"]
+    }
+  ],
+
+  "summary": "The bullet ('the implicit graph conjecture on the existence of implicit representations for slowly-growing hereditary families of graphs') sits in the Miscellaneous graph theory subsection of Wikipedia's list and links to the article 'Implicit graph conjecture' (both read live; the frozen January 2024 wording itself was not retrieved). 'Slowly-growing' is undefined in the bullet. The linked article's phrase 'slow-enough growth rate' and the Kannan-Naor-Rudich / Spinrad formulation both point to the factorial reading (at most 2^O(n log n) n-vertex graphs), and under that reading the conjecture was refuted by Hamed and Pooya Hatami (arXiv 25 Nov 2021; FOCS 2022), before the window. Bonnet, Duron, Sylvester, Zamaraev and Zhukovskii then showed it also fails within monotone factorial classes and holds for monotone small classes (arXiv 31 Oct 2023; ICALP 2024), also before the window. Under the small reading (at most n!·c^n graphs, as Bonnet et al. define small), the conjecture is open. The Small Implicit Graph Conjecture was posed in arXiv 2409.04821 (7 Sep 2024; ITCS 2025) with partial support: small weakly sparse classes have O(log n) labels, and every hereditary small class has an O(log^3 n) labelling. The only in-window result that fully covers a case of the bullet is Dujmovic et al. (arXiv 2605.06616, 7 May 2026; v3 13 Jul 2026): proper minor-closed classes, which they call small, have optimal (1+o(1)) log n labels. That paper uses 'small' for the factorial class, so its own vocabulary places the positive result inside the class the conjecture was refuted for, restricted to proper minor-closed classes. Close calls: (1) the reading of 'slowly-growing', which decides whether the bullet is refuted (before the window) or open with partial progress in the window; (2) whether Hatami and Hatami's families are small in the n!·c^n sense, which was not checked; if they are not, the small reading is not refuted by them; (3) the apparent tension between Small But Unwieldy and the ICALP/ITCS claims, which I read as different targets; (4) the v3 bug fix in the 2026 paper, with no independent check located. Pre-window neighbours (planar labelling; the randomized-communication PUG conjecture, refuted in Nov 2021; Chandoo's decoder-restricted variant; Alon's denser-family bound) are recorded as events with their scope. AI involvement: none found. Seven AI-specific searches (labs, AI-math trackers, Erdos-problem coverage, 'Claude', 'GPT', 'AlphaEvolve') and the expert-digest searches (Quanta, Tao's blog, Matroid Union) found no AI system credited with any part of any event on this problem. The 2026 AI-math claims that did surface (GPT-5.6 Sol Ultra on cycle double covers, Devin on Graffiti conjectures, Claude on a Knuth Hamiltonian-cycle problem, AlphaEvolve on Kakeya, Erdos problems 728 and 369) concern other problems and were not opened. Two further caveats for the judging pass. First, the Wikipedia article was last edited on 14 Sep 2026, after the freeze, so its current wording may not match the frozen bullet. Second, the Dujmovic et al. paper's 'small' definition (2^O(n log n)) differs from Bonnet et al.'s (n!·c^n), so a result cited as the small-class case in one paper may not be the same case in the other.",
+
+  "competing_reading": "Read 'slowly-growing' as Bonnet et al.'s small class (at most n!·c^n graphs). Then the bullet is open, and the window holds real partial progress: the weakly sparse O(log n) case and the O(log^3 n) general bound (ITCS 2025), and the optimal (1+o(1)) log n bound for proper minor-closed classes (May 2026). The right outcome sentence would be 'open, with partial progress', not 'refuted in 2021'. Conversely, a reader who takes the 2026 paper's own definition (2^O(n log n)) and the bullet's 'slowly-growing' as that class would say the conjecture was refuted in November 2021, and that the 2026 result is a positive restricted case inside the refuted class.",
+
+  "what_would_settle_it": "(1) The frozen 26 January 2024 Wikipedia revision for the bullet and its article history, to see what 'slowly-growing' meant when the bullet was written. (2) Hatami and Hatami's full text: the growth exponent of the constructed families, to see whether they are at most n!·c^n. (3) The ITCS 2025 full text: whether the Small Implicit Graph Conjecture is stated for hereditary small classes with an O(log n) bound uniform over classes or per class. (4) A referee report or independent check of the v3 fix in arXiv 2605.06616. (5) A later result proving O(log n) for all hereditary small classes, or a counterexample to the small-class version.",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2111.13198", "title": "The Implicit Graph Conjecture is False (Hatami, Hatami)", "type": "preprint", "opened": true},
+    {"url": "https://ar5iv.labs.arxiv.org/html/2111.13198", "title": "The Implicit Graph Conjecture is False (ar5iv HTML rendering)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2111.10436", "title": "A counter-example to the probabilistic universal graph conjecture via randomized communication complexity (Hambardzumyan, Hatami, Hatami)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2111.03639", "title": "Randomized Communication and Implicit Graph Representations (Harms, Wild, Zamaraev)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1603.01977", "title": "On the Implicit Graph Conjecture (Chandoo)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1908.03341", "title": "Shorter Labeling Schemes for Planar Graphs (Bonamy, Gavoille, Pilipczuk)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1911.03757", "title": "Universal Communication, Universal Graphs, and Graph Labeling (Harms)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2201.00328", "title": "Implicit representation of sparse hereditary families (Alon)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2307.11225", "title": "Small But Unwieldy: A Lower Bound on Adjacency Labels for Small Classes (Bonnet, Duron, Sylvester, Zamaraev, Zhukovskii)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2310.20522", "title": "Tight Bounds on Adjacency Labels for Monotone Graph Classes (Bonnet, Duron, Sylvester, Zamaraev, Zhukovskii)", "type": "preprint", "opened": true},
+    {"url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ICALP.2024.31", "title": "Tight Bounds on Adjacency Labels for Monotone Graph Classes (ICALP 2024 LIPIcs page)", "type": "journal", "opened": true},
+    {"url": "https://arxiv.org/abs/2409.04821", "title": "Adjacency Labeling Schemes for Small Classes (Bonnet, Duron, Sylvester, Zamaraev)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2409.04821v1", "title": "Adjacency Labeling Schemes for Small Classes (arXiv HTML v1)", "type": "preprint", "opened": true},
+    {"url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.21", "title": "Adjacency Labeling Schemes for Small Classes (ITCS 2025 LIPIcs page)", "type": "journal", "opened": true},
+    {"url": "https://arxiv.org/abs/2504.19582", "title": "Faithful universal graphs for minor-closed classes (Bastide et al.)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2602.10922", "title": "Implicit representations via the polynomial method (Cardinal, Sharir)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2605.06616", "title": "Adjacency labelling for proper minor-closed graph classes (Dujmovic, Gavoille, Joret, Micek, Morin, Wood)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2605.06616", "title": "Adjacency labelling for proper minor-closed graph classes (arXiv HTML)", "type": "preprint", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics", "title": "List of unsolved problems in mathematics (live page; bullet located under Miscellaneous graph theory)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Implicit_graph_conjecture", "title": "Implicit graph conjecture (Wikipedia; last edited 14 Sep 2026 per page)", "type": "encyclopedia", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "implicit graph conjecture slowly growing hereditary families",
+      "\"implicit graph conjecture\" disproved",
+      "Hatami \"the implicit graph conjecture is false\"",
+      "implicit graph conjecture Wikipedia list of unsolved problems in mathematics",
+      "implicit representation graph classes adjacency labeling O(log n) bits hereditary 2024",
+      "implicit graph conjecture AI large language model proof counterexample",
+      "\"small implicit graph conjecture\"",
+      "Bonnet Duron Sylvester Zamaraev adjacency labeling schemes small classes ICALP monotone factorial implicit graph conjecture",
+      "Harms Wild Hatami implicit representations randomized communication complexity graphs",
+      "\"Tight Bounds on Adjacency Labels for Monotone Graph Classes\" arXiv",
+      "hereditary graph classes exponential growth c^n adjacency labeling scheme O(log n) implicit representation",
+      "implicit graph conjecture 2025 arXiv hereditary labeling scheme new result",
+      "adjacency labeling schemes hereditary classes 2026 arXiv Bonnet Zamaraev",
+      "Kannan Naor Rudich implicit representation of graphs 1992 SIAM hereditary factorial family labeling",
+      "\"implicit graph conjecture\" 2024",
+      "\"implicit graph\" conjecture universal graph polynomial size hereditary class new bound 2025",
+      "AI model adjacency labeling scheme graph class proof \"implicit representation\" language model",
+      "AlphaEvolve OR GPT-5 OR Gemini Deep Think universal graph hereditary class labeling conjecture",
+      "Erdős problems AI graph labeling implicit representation solved 2026",
+      "AI mathematics breakthrough tracker graph theory conjecture disproved 2026 hereditary",
+      "Hambardzumyan Hatami Hatami probabilistic universal graph conjecture refuted Discrete Applied Mathematics",
+      "\"slowly growing\" hereditary graph families implicit representation labeling",
+      "subfactorial growth hereditary graph class adjacency labeling counterexample Hatami 2^{O(n)} implicit",
+      "Spinrad \"Efficient Graph Representations\" implicit graph conjecture factorial hereditary",
+      "Gavoille Labourel shorter implicit representations (1+o(1)) log n labeling small classes progress",
+      "Claude Anthropic model mathematics implicit graph conjecture adjacency labeling proof",
+      "OpenAI GPT model implicit graph conjecture labeling scheme hereditary factorial disproof AI-assisted",
+      "\"Small But Unwieldy\" SODA 2024 adjacency labels small classes Zhukovskii",
+      "Hatami Hatami \"implicit graph conjecture is false\" FOCS 2022 Denver proceedings pages 1134",
+      "Implicit graph conjecture Wikipedia article hereditary factorial speed labeling scheme Kannan Naor Rudich",
+      "proper minor-closed graph classes adjacency labelling (1+o(1)) log n 2026",
+      "Alon \"implicit representation of sparse hereditary families\" speed 2^{n log n} factorial labeling O(n^c)",
+      "hereditary small graph class labeling scheme O(log n) bits arXiv 2025 2026 monotone universal graph n^{1+o(1)} new",
+      "Quanta magazine implicit graph conjecture labeling graphs Hatami",
+      "Terence Tao blog OR Matroid Union \"implicit representation\" graphs conjecture",
+      "Bonnet Zamaraev Hatami implicit graph conjecture survey open problems labelling schemes 2025 2026 \"hereditary small\""
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for 2111.13198, 2111.10436, 2111.03639, 1603.01977, 1908.03341, 1911.03757, 2201.00328, 2307.11225, 2310.20522, 2409.04821, 2504.19582, 2602.10922, 2605.06616",
+      "ar5iv HTML rendering of 2111.13198",
+      "Dagstuhl LIPIcs pages for ICALP 2024 (vol. 297) and ITCS 2025 (vol. 325)",
+      "Wikipedia: List of unsolved problems in mathematics (bullet located) and Implicit graph conjecture article",
+      "Search-snippet listings of DBLP, par.nsf.gov, Liverpool and Oxford seminar pages (snippets only, not opened)",
+      "Quanta, Terence Tao's blog and Matroid Union: searched, nothing relevant found",
+      "AI-specific searches: lab announcements (OpenAI, Google DeepMind, Anthropic), AI-math news and trackers, Erdos-problem coverage (searched; erdosproblems.com and the Breakthrough Tracker were not opened)",
+      "Problem database: no problem database covering this area was identified; the Erdos problem list does not include this conjecture (search-level check only)"
+    ],
+    "dead_ends": [
+      "Hatami–Hatami arXiv PDF (2111.13198.pdf) and Bonnet et al. arXiv PDF (2409.04821): returned binary PDF bytes; the content was read from the abstract pages and HTML renderings instead.",
+      "Spinrad, Efficient Graph Representations (2003): not retrievable; its exact wording is unverified.",
+      "Kannan, Naor, Rudich (STOC 1988; SIAM J. Discrete Math. 1992): the original paper was not opened; its wording is taken from secondary snippets.",
+      "Moonlight (themoonlight.io) AI-generated review of arXiv 2409.04821: surfaced in search, not opened, not relied on.",
+      "Esperet, Harms, Zamaraev, arXiv 2206.02872 (ICALP 2023, optimal labels for subgraphs of Cartesian products): surfaced in search, not opened, not relied on.",
+      "Harms, Wild, Zamaraev's STOC 2022 and Hambardzumyan et al.'s Discrete Applied Mathematics 2022 publications: appear in snippets only; not opened.",
+      "Oxford seminar listing (cs.ox.ac.uk/seminars/2495) and Liverpool seminar listing: snippets only, not opened.",
+      "AI-math news from 2026 (GPT-5.6 Sol Ultra and cycle double covers; Devin on Graffiti conjectures; Claude on Knuth's Hamiltonian-cycle problem; AlphaEvolve and the finite-field Kakeya problem; Erdos problems 728, 369, 1026; the Dinitz-Garg-Goemans counterexample claim; kingy.ai Breakthrough Tracker record on Teschner's bondage-number conjecture): all concern other problems; none is on this bullet. Not opened.",
+      "Terence Tao's blog and Quanta: no matching post found in searches (the search index may not include them).",
+      "Matroid Union site: search results cover other topics; nothing on implicit representations."
+    ]
+  },
+
+  "incomplete": "(1) The frozen 26 January 2024 Wikipedia wording of the bullet and its article history were not retrieved; the bullet's text was read from the live page, which was last edited 14 Sep 2026. (2) Hatami and Hatami's full paper was not read (PDF unreadable); the construction is described from the ar5iv HTML and abstract only, and whether their families are at most n!·c^n was not checked. (3) Kannan-Naor-Rudich (1988/1992) and Spinrad (2003) were not opened. (4) Pre-window planar results cited by the 2026 paper, Dujmovic et al. (J. ACM 2021, (1+o(1)) log n for planar graphs) and Bonamy-Gavoille-Pilipczuk's SODA 2020 venue, were not opened; the Dujmovic et al. planar date is unverified and it is not recorded as an event. (5) Bonnet et al. ITCS 2025: the back matter was not read in full, so acknowledgements and AI statements are checked only in the first 100,000 characters plus the arXiv v1 HTML; the 2026 Dujmovic et al. paper's back matter was only partly read (a middle excerpt returned), so its acknowledgements are checked only in the funding lines and the first 100,000 characters. (6) The Cardinal-Sharir paper was read from its abstract page only. (7) Expert-digest coverage: searches for Quanta, Tao's blog and Matroid Union found nothing relevant; no Lean or Coq formalisation was searched for by name. (8) The search index shows little 2026 arXiv content, so a late 2026 preprint may be missing. (9) Several AI-specific searches were run, but no AI-specific tracker or lab page was opened for this problem; the 'none_found' values rest on the sources read, not on exhaustive review."
+}

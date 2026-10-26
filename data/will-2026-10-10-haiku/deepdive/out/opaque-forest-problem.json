@@ -1,0 +1,569 @@
+{
+  "key": "opaque-forest-problem",
+
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 the best known lower bounds on the shortest opaque set moved for the unit square (to 2 + 6.3×10⁻⁵, from 2 + 2×10⁻⁵) and for the unit disc (new bound π + 1.076×10⁻⁶) in one preprint by Kiderlen and Pausinger (first posted 5 September 2025, revised 10 December 2025), while Steinerberger (2 January 2025) proved a structural stability result that moves no constant; the exact minimum for every named shape remains open and no AI system is named in any source found.",
+
+  "problem_asks": "Read from the frozen bullet 'Opaque forest problem on finding opaque sets for various planar shapes' (no parent). (1) For a planar shape K, an opaque set is a set B in the plane that meets every line meeting K; the problem asks for the minimum total length of such a set (the shortest opaque set, or shortest opaque forest when B is a finite union of segments). (2) 'Finding opaque sets' asks for the minimising sets themselves, i.e. their explicit form or structure. (3) 'Various planar shapes' does not name them. I read it as covering the cases the literature and the Wikipedia 'Opaque set' article address: the unit square, the unit disc (the 'beam detection constant'), the equilateral triangle, and general convex polygons and convex sets. (4) The open questions the Wikipedia article lists under this problem, which the bullet's wording covers: whether a shortest opaque set exists for every convex set; whether every convex polygon has an optimal opaque set that is a forest (conjectured, not proven); and the exact optimal length for the unit square and unit circle. Restricted variants named in the literature (interior or exterior barriers, connected barriers, single-arc barriers, two-component forests) are not named in the bullet; results on them are analogues in the sense of §2.1. The lower-bound results below concern all rectifiable barriers, which the Kiderlen–Pausinger paper says can be reduced to straight barriers (finite unions of segments) for the infimum, so they bear on the forest form of the minimum.",
+
+  "events": [
+    {
+      "id": "jones-1962-1964",
+      "what_happened": "R. E. D. Jones proved that any barrier for a convex set with perimeter 2p has length at least p. For the unit square this gives 2, for the unit disc π, for the unit equilateral triangle 3/2. Sources date the result to Jones's 1962 PhD thesis (Steinerberger 2025; Dumitrescu–Jiang 2013) and to 'Opaque sets of degree α', American Mathematical Monthly, 1964 (Kawamura et al. 2014; Kiderlen–Pausinger 2025).",
+      "date": "1962",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Thesis year 1962 and journal year 1964 both appear in the sources; the primary thesis and Monthly paper were not opened. Dated to 1962 here as the earliest written argument the sources cite.",
+      "delivers": "Lower bound for all convex sets: the length of any barrier is at least half the perimeter (for rectifiable barriers). Square: at least 2. Disc: at least π. Equilateral triangle: at least 3/2. The Wikipedia 'Opaque set' article states that this lower bound is proven with the Crofton formula.",
+      "remains": "Every exact value (square, disc, triangle, general convex sets); existence of minimisers; whether minimisers are forests. For the unit square this was the best known lower bound until Kawamura et al. (2014).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 62 years since the 1964 publication",
+      "machine_checked": null,
+      "directly_checkable": "The bound follows from the Crofton formula; the Wikipedia 'Opaque set' article says so. Not re-derived here.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Lower bound on the minimum length (toward larger values). Establishes that the minimum for the square is at least 2 and the conjectured optimum is 2.639, leaving a gap.",
+      "object": null,
+      "people": ["R. E. D. Jones"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://en.wikipedia.org/wiki/Opaque_set", "https://arxiv.org/html/2509.08842v2"]
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Opaque_set", "https://arxiv.org/html/2509.08842v2", "https://arxiv.org/abs/1311.3323"]
+    },
+    {
+      "id": "kawohl-1997-2000",
+      "what_happened": "Kawohl (1997 and 2000, as cited by the Wikipedia 'Opaque forest problem' article) showed that the √2 + √6/2 ≈ 2.639 forest for the unit square is optimal among forests with two components. Known only from that article's citation; the primary papers were not opened.",
+      "date": "1997",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Two dates (1997 and 2000) are given in the Wikipedia article; the year of first public argument is not confirmed.",
+      "delivers": "Restricted-class optimality: among square forests with two components, the 2.639 construction is minimal. Not optimality among all barriers or among forests with more components.",
+      "remains": "Forests with three or more components; all general barriers; the unconditional minimum for the unit square (conjectured to be 2.639, not proven).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 26–29 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only through the Wikipedia citation; the primary paper was not read, so the exact scope of the two-component claim is unverified.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Restricted optimality of the conjectured construction (cuts toward the conjectured optimum, within a restricted class only).",
+      "object": "The two-component square forest of length √2 + √6/2 ≈ 2.639 (half a diagonal together with a Steiner tree of three vertices, per the Wikipedia article). Explicit; the optimality among two-component forests is a proof, not an existence statement. Not checked directly.",
+      "people": ["Kawohl"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://en.wikipedia.org/wiki/Opaque_forest_problem"]
+      },
+      "sources": ["https://en.wikipedia.org/wiki/Opaque_forest_problem", "https://arxiv.org/html/2509.08842v2"]
+    },
+    {
+      "id": "dumitrescu-pach-2010-approximations",
+      "what_happened": "arXiv 1005.2218 (first version 12 May 2010, authors Adrian Dumitrescu and János Pach) gave O(n)-time approximation algorithms for the shortest barrier of a convex polygon with n vertices, with approximation ratios. The later versions (authors Dumitrescu, Jiang, Pach, Tóth) give general barriers ratio 1/2 + (2+√2)/π ≈ 1.5867, connected barriers 1.5716, and single-arc barriers (π+5)/(π+2) ≈ 1.5834 (abstract of v5). The published version appeared in Algorithmica 2014 (DOI 10.1007/s00453-012-9735-2, from a search snippet; not opened).",
+      "date": "2010-05-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 12 May 2010 (abstract also carries the 2+3×10⁻⁶ claim, recorded as a separate withdrawn event); v2 21 Jun 2010 (abstract without that claim); v3 2 Jul 2010; v4 23 Jan 2012; v5 10 Sep 2012 (current; 18 pp., 7 figs; revised Lemma 1).",
+      "delivers": "Approximations, not the minimum: for convex polygons, algorithms producing barriers whose length is within a factor of about 1.57–1.59 of the shortest, for general, connected and single-arc barriers. For barriers restricted to the polygon's interior and boundary, the connected case admits a polynomial-time approximation scheme and the single-arc case a quadratic-time exact algorithm (abstract of v5, as summarised by the fetch).",
+      "remains": "The exact minimum for every convex polygon, including the unit square and equilateral triangle, which the abstract says has no exact algorithm known.",
+      "checked_by": [
+        {
+          "who": "Algorithmica (journal)",
+          "qualification": "Refereed journal of record",
+          "what_they_did": "Published the approximation paper, vol. 69 (2014) pp. 315–334, per a search-result citation (not opened)",
+          "where": "https://doi.org/10.1007/s00453-012-9735-2",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 16 years since v1",
+      "machine_checked": null,
+      "directly_checkable": "The approximation ratios come from explicit constructions in the paper; not re-checked here.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Approximations to the minimum from above, within a factor of about 1.57–1.59. Cuts toward neither the conjectured optimum nor a counterexample; it does not determine any minimum.",
+      "object": null,
+      "people": ["Adrian Dumitrescu", "János Pach", "Minghui Jiang", "Csaba Tóth"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1005.2218", "https://arxiv.org/abs/1005.2218v1"]
+      },
+      "sources": ["https://arxiv.org/abs/1005.2218", "https://arxiv.org/abs/1005.2218v1", "https://en.wikipedia.org/wiki/Opaque_forest_problem"]
+    },
+    {
+      "id": "dumitrescu-pach-2010-claim-withdrawn",
+      "what_happened": "The v1 abstract of arXiv 1005.2218 (12 May 2010, Dumitrescu and Pach) states 'We replace this lower bound by 2+3×10⁻⁶', i.e. it claims the unit-square barrier length is at least 2 + 3×10⁻⁶, improving Jones's 2. Footnote 1 of Dumitrescu and Jiang, 'The opaque square' (arXiv 1311.3323, 2013) says: 'an arxiv submission [12] dated May 2010 claimed a first small improvement in the old lower bound of 2 for a unit square' and 'its proof had a fatal error, and the submission was soon after withdrawn by the authors'. The footnote does not name the submission. Identifying it with 1005.2218 v1 is my inference from the date and the claim; the reference list entry [12] was not checked.",
+      "date": "2010-05-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 12 May 2010 (claim in abstract); v2 21 Jun 2010 abstract no longer contains the claim; v5 Sep 2012 abstract does not contain it. The footnote in 1311.3323 is the only statement of withdrawal found.",
+      "delivers": "Claimed and withdrawn: a lower bound of 2 + 3×10⁻⁶ for the unit square's shortest barrier. Restricted to the unit square. Nothing in it stands now.",
+      "remains": "The whole problem, per the withdrawal.",
+      "checked_by": [
+        {
+          "who": "Minghui Jiang and Adrian Dumitrescu, authors of the 2013 paper 'The opaque square'",
+          "qualification": "Authors of the later paper that identified the error; Dumitrescu is also an author of the 2010 submission",
+          "what_they_did": "Footnote 1 of arXiv 1311.3323 states that the proof had a fatal error and the submission was withdrawn",
+          "where": "https://arxiv.org/abs/1311.3323",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 16 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The error is not described anywhere I read. The withdrawal is reported in a single footnote of a later paper by two of the same authors; no independent account or withdrawal notice was found. The link between that footnote and arXiv 1005.2218 v1 is inferred, not stated.",
+      "later_work_cites_it": true,
+      "withdrawn": {
+        "what": "The 2 + 3×10⁻⁶ lower bound for the unit square, claimed in the v1 abstract of arXiv 1005.2218",
+        "date": "Withdrawal date not stated; the v2 abstract (21 Jun 2010) no longer carries the claim, and the 2013 footnote says the submission was 'soon after withdrawn'",
+        "by": "authors",
+        "sources": ["https://arxiv.org/abs/1311.3323", "https://arxiv.org/abs/1005.2218v1", "https://arxiv.org/abs/1005.2218v2"]
+      },
+      "direction": "Would have moved the square lower bound from 2 to 2 + 3×10⁻⁶ (toward larger minima). Withdrawn, so it does not move the state of the problem.",
+      "object": null,
+      "people": ["Adrian Dumitrescu", "János Pach"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1005.2218v1"]
+      },
+      "sources": ["https://arxiv.org/abs/1005.2218v1", "https://arxiv.org/abs/1005.2218v2", "https://ar5iv.labs.arxiv.org/html/1311.3323"]
+    },
+    {
+      "id": "dumitrescu-jiang-2013-square-locality",
+      "what_happened": "Dumitrescu and Jiang, 'The opaque square', arXiv 1311.3323 (13 Nov 2013; later SoCG 2014 pp. 529–538, DOI 10.1145/2582112.2582113 per a search snippet; and Computational Geometry Column 58, 2013). The abstract states a lower bound of 2 + 10⁻¹² for the unit square's barrier length under a suitable locality assumption, and a lower bound of 2 + 10⁻⁵ for interior barriers. The paper says the shortest known barrier has length √2 + √6/2 ≈ 2.6389 and conjectures it is optimal, and gives Conjecture 2 that the optimal exterior barrier has length 3.",
+      "date": "2013-11-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 only (13 Nov 2013; 23 pp., 8 figs). SoCG 2014 proceedings version; Computational Geometry Column 58 (2013).",
+      "delivers": "Conditional: a lower bound of 2 + 10⁻¹² for the unit square under a locality assumption. For interior barriers, a bound of 2 + 10⁻⁵ (the abstract summary does not confirm whether this is unconditional). The paper says that 'no better lower bound is known even if the barrier is restricted to lie in the square or in its close vicinity'.",
+      "remains": "The unconditional bound for all barriers of the unit square (improved to 2.00002 by Kawamura et al. 2014); the exact square minimum; disc; triangle; general convex sets.",
+      "checked_by": [
+        {
+          "who": "SoCG 2014 programme committee",
+          "qualification": "Refereed conference acceptance",
+          "what_they_did": "Accepted the paper to SoCG 2014 (pp. 529–538), per a search-result citation",
+          "where": "https://doi.org/10.1145/2582112.2582113",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Lower bound, conditional on a locality assumption for the main square result. Moves a bound toward larger values for restricted classes; no object.",
+      "object": null,
+      "people": ["Adrian Dumitrescu", "Minghui Jiang"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1311.3323"]
+      },
+      "sources": ["https://arxiv.org/abs/1311.3323", "https://ar5iv.labs.arxiv.org/html/1311.3323"]
+    },
+    {
+      "id": "kawamura-et-al-2014",
+      "what_happened": "Kawamura, Moriyama, Otachi and Pach, 'A lower bound on opaque sets', arXiv 1403.3894. Abstract (verbatim in parts): 'It is proved that the total length of any set of countably many rectifiable curves, whose union meets all straight lines that intersect the unit square U, is at least 2.00002. This is the first improvement on the lower bound of 2 established by Jones in 1964. A similar bound is proved for all convex sets U other than a triangle.' Published at SoCG 2016 (LIPIcs 51, pp. 46:1–46:10) and in Computational Geometry 80 (2019) pp. 13–22 (DOI 10.1016/j.comgeo.2019.01.002, from a repository record in search results).",
+      "date": "2014-03-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 16 Mar 2014 (249 KB); v2 10 Apr 2014 (214 KB; current; 13 pp., 10 figs). SoCG 2016 conference version; Computational Geometry 2019 journal version.",
+      "delivers": "Unconditional lower bound 2.00002 for the unit square, for any countable union of rectifiable curves meeting every line that meets the square. For convex sets other than a triangle, a similar bound (the abstract gives no constant; a secondary summary says length at least p + ε with ε > 0, not checked in the primary). Triangles are excluded here and were handled by Izumi (2015).",
+      "remains": "The exact square minimum (conjectured 2.639); the disc; the triangle (see Izumi); exact values for general convex sets; the forest question.",
+      "checked_by": [
+        {
+          "who": "Computational Geometry: Theory and Applications (Elsevier journal)",
+          "qualification": "Refereed journal of record",
+          "what_they_did": "Published the paper, vol. 80 (2019) pp. 13–22, per a repository record in search results",
+          "where": "https://doi.org/10.1016/j.comgeo.2019.01.002",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12.5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Lower bound improved for the unit square (2 to 2.00002), unconditionally. Moves the bound toward the conjectured value but leaves a wide gap to 2.639. No object.",
+      "object": null,
+      "people": ["Akitoshi Kawamura", "Sonoko Moriyama", "Yota Otachi", "János Pach"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1403.3894"]
+      },
+      "sources": ["https://arxiv.org/abs/1403.3894", "https://en.wikipedia.org/wiki/Opaque_set", "https://arxiv.org/html/2509.08842v2"]
+    },
+    {
+      "id": "izumi-2015-triangle",
+      "what_happened": "Taisuke Izumi, 'Improving lower bound on opaque set for equilateral triangle', arXiv 1509.03846 (13 Sep 2015). Gives a lower bound of 3/2 + 5×10⁻¹³ for the unit equilateral triangle, using angle-restricted barriers and a weighted sum of projection-cover conditions. Published in Discrete Applied Mathematics 213 (2016) 130–138, per the reference list of Kiderlen–Pausinger (not opened directly).",
+      "date": "2015-09-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 13 Sep 2015 only (173 KB, 11 pp.). Discrete Applied Mathematics 2016 per the reference list; journal reference not on the arXiv page.",
+      "delivers": "Lower bound 3/2 + 5×10⁻¹³ for the unit equilateral triangle. Triangles were the case the 2014 Kawamura et al. result excluded. The upper bound for the triangle is not improved here.",
+      "remains": "The exact triangle minimum (the minimum Steiner tree is the shortest connected barrier, but optimality among all barriers is not shown, per the Wikipedia article); the square; the disc; general convex sets.",
+      "checked_by": [
+        {
+          "who": "Discrete Applied Mathematics (Elsevier journal)",
+          "qualification": "Refereed journal of record",
+          "what_they_did": "Published vol. 213 (2016) pp. 130–138, per the reference list of Kiderlen–Pausinger",
+          "where": "https://arxiv.org/html/2509.08842v2",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 11 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Lower bound raised slightly for the equilateral triangle (from 3/2). Cuts toward larger minima; no object.",
+      "object": null,
+      "people": ["Taisuke Izumi"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1509.03846"]
+      },
+      "sources": ["https://arxiv.org/abs/1509.03846", "https://arxiv.org/html/2509.08842v2"]
+    },
+    {
+      "id": "makai-1980-disc",
+      "what_happened": "E. Makai (1980) published a construction for the unit circle (the 'beam detection constant' problem) with three arcs. The two sources I read disagree on its length: the Eppstein Geometry Junkyard page gives 4.8189 and notes a later tilt improvement of about 1/10000; the Wikipedia 'Opaque forest problem' article gives 'about 4.7998' and credits Makai.",
+      "date": "1980",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "The journal and page were not identified; the primary paper was not opened. The Junkyard page reports a later refinement by Makai of about 1/10000.",
+      "delivers": "Upper bound on the minimum length of an opaque set for the unit disc: about 4.82 (Junkyard) or about 4.80 (Wikipedia). Upper bound only, for the disc only.",
+      "remains": "The exact disc constant; the disc's lower bound stands at π (Jones) or π + 1.076×10⁻⁶ (Kiderlen–Pausinger 2025).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 46 years",
+      "machine_checked": null,
+      "directly_checkable": "The construction is a set of arcs with a computable total length; not re-computed here.",
+      "doubts": "The two sources give different lengths (4.8189 vs 4.7998) and different attributions for the 4.7998 construction (Makai vs Day). See disputes.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper bound on the disc minimum (toward smaller values). Not a counterexample or a proof of optimality.",
+      "object": "Three-arc barrier for the unit circle, with total length about 4.80 (value disputed between sources). An explicit set; its length is an upper bound. Not checked directly.",
+      "people": ["E. Makai"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["http://ics.uci.edu/~eppstein/junkyard/beam/", "https://en.wikipedia.org/wiki/Opaque_forest_problem"]
+      },
+      "sources": ["http://ics.uci.edu/~eppstein/junkyard/beam/", "https://en.wikipedia.org/wiki/Opaque_forest_problem", "https://arxiv.org/html/2509.08842v2"]
+    },
+    {
+      "id": "day-1995-disc",
+      "what_happened": "A three-arc construction for the unit circle of length about 4.7998 was reported in Ian Stewart's Scientific American column (1995) as the work of John Day. The Junkyard page says it is not much better than Makai's bound and may be the same as Makai's two-arrow improvement. The Wikipedia article says Day 'rediscovered' Makai's solution in 1996. MathWorld gives L₃ = 4.799891547 (search snippet, not opened).",
+      "date": "1995",
+      "precision": "year",
+      "kind": "announcement",
+      "predates_frozen_revision": true,
+      "revisions": "Dates 1995 (column) and 1996 (rediscovery) both appear; neither primary source was opened.",
+      "delivers": "Upper bound of about 4.7998 for the unit disc. Upper bound only.",
+      "remains": "The exact disc constant.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 31 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The Junkyard page suggests Day's construction may coincide with Makai's refinement, so it may not be new. Wikipedia credits 4.7998 to Makai. See disputes.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper bound on the disc minimum (toward smaller values). No counterexample or proof.",
+      "object": "Three-arc barrier for the unit circle of length about 4.7998 (MathWorld: 4.799891547). An explicit set. Not checked directly.",
+      "people": ["John Day", "Ian Stewart (column)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["http://ics.uci.edu/~eppstein/junkyard/beam/", "https://en.wikipedia.org/wiki/Opaque_forest_problem"]
+      },
+      "sources": ["http://ics.uci.edu/~eppstein/junkyard/beam/", "https://en.wikipedia.org/wiki/Opaque_forest_problem"]
+    },
+    {
+      "id": "provan-et-al-2012-framework",
+      "what_happened": "J. Scott Provan, Marcus Brazil, Doreen Thomas and Jia F. Weng, 'Minimum Opaque Covers for Polygonal Regions', arXiv 1210.8139 (30 Oct 2012). Calls the problem 'remarkably intractable'. Sets up a framework and basic results for minimum opaque covers of polygonal regions, links the problem to the Point Goalie Problem, and studies graphical solutions for convex polygonal regions. The abstract claims no exact minimum for the square, disc or triangle, and no polynomial-time algorithm.",
+      "date": "2012-10-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Only v1 listed (81 KB). No journal publication listed on the arXiv page.",
+      "delivers": "Structural framework and basic results for convex polygonal regions. No new bound, no exact minimum for the square, disc or triangle.",
+      "remains": "Everything the bullet asks for.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 14 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Framework only; cuts toward neither the conjectured optimum nor a counterexample.",
+      "object": null,
+      "people": ["J. Scott Provan", "Marcus Brazil", "Doreen Thomas", "Jia F. Weng"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1210.8139"]
+      },
+      "sources": ["https://arxiv.org/abs/1210.8139"]
+    },
+    {
+      "id": "kiderlen-pausinger-2025",
+      "what_happened": "Markus Kiderlen and Florian Pausinger, 'Explicit lower bounds for opaque sets of unit square and unit disc', arXiv 2509.08842 (v1 5 Sep 2025; v2 10 Dec 2025, current). They apply the Kawamura–Moriyama–Otachi–Pach method explicitly. Theorem 1.2 (v2 HTML): for any rectifiable barrier B, |B| > 2 + 6.3×10⁻⁵ for the unit square (previous explicit bound 2 + 2×10⁻⁵), and |B| > π + 1.076×10⁻⁶ for the unit disc (previous bound π, from Croft 1969). They use Steinerberger's (2025) observation that straight barriers near Jones's bound consist mostly of segments nearly parallel to the square's sides, to remove one case in the argument. Upper bounds quoted in the paper: square 2.639 (√2 + √6/2); disc about 4.799 (Makai 1980).",
+      "date": "2025-09-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 5 Sep 2025 (12 pp., 2 figs): abstract says the square bound 'only slightly improves the existing bound' and the disc bound is new; numerical values not visible in the v1 abstract page, so the v1 numbers are unchecked. v2 10 Dec 2025: abstract says the Steinerberger observation 'improves the square bound by more than a factor of 3'; the comment field records 'improved lower bound for unit square'; v2 numbers as above.",
+      "delivers": "Lower bounds only, for the unit square and unit disc: square at least 2 + 6.3×10⁻⁵; disc at least π + 1.076×10⁻⁶. Both are bounds on the infimum over all rectifiable barriers, which the paper says may be taken over straight barriers. They do not determine any minimum: the square interval is now about [2.000063, 2.6389] and the disc interval about [3.141594, 4.799].",
+      "remains": "The exact minimum for the unit square (conjectured 2.639); the exact disc constant; the equilateral triangle (not addressed here); general convex sets; the forest and existence questions.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13 months (v1) and about 10 months (v2)",
+      "machine_checked": null,
+      "directly_checkable": "The disc bound depends on a numerical search over parameters (r, t) for a cubic inequality. The authors say the code is 'available on request' and do not include it in the paper (v2 HTML). Not reproduced.",
+      "doubts": "(a) The disc bound rests on a numerical parameter optimisation whose code is not published. (b) The square improvement depends on Steinerberger's orientation observation, which is itself a 2025 preprint with no published check found. (c) No independent verification or public comment was found in the sources searched. (d) The v1 numbers were not read, so the v1-to-v2 change in the square constant is not verified beyond the abstract wording.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Lower-bound direction only: raises the lower bounds for the square and disc minima. Both bounds are below the conjectured or known upper values (2.639 for the square; about 4.799 for the disc), so the bounds do not contradict them. No object.",
+      "object": null,
+      "people": ["Markus Kiderlen", "Florian Pausinger"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2509.08842v2", "https://arxiv.org/abs/2509.08842v1"]
+      },
+      "sources": ["https://arxiv.org/abs/2509.08842", "https://arxiv.org/abs/2509.08842v1", "https://arxiv.org/html/2509.08842v2"]
+    },
+    {
+      "id": "steinerberger-2025-stability",
+      "what_happened": "Stefan Steinerberger, 'A Stability Version of the Jones Opaque Set Inequality', arXiv 2501.01004 (math.MG; submitted 2 Jan 2025; 10 pp., 4 figs; only v1). For a bounded convex Ω in the plane and an opaque set 𝒪 (every line meeting Ω also meets 𝒪) of length L: if L − |∂Ω|/2 is small, then the angular measure of 𝒪 is close to that of ∂Ω, so the curves of 𝒪 have tangents closely resembling those of the boundary. The main estimate is in a negative Sobolev norm, of order L^{1/4}(L − |∂Ω|/2)^{3/4}; the fetched LaTeX was garbled, so the formula is my reading. The author's faculty page lists the paper as accepted in Discrete & Computational Geometry.",
+      "date": "2025-01-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (2 Jan 2025). Journal acceptance is reported only on the author's faculty page; no DCG volume or DOI found.",
+      "delivers": "A structural stability statement for near-optimal opaque sets of general bounded convex sets. It does not change any numerical bound: it does not improve Jones's ½·perimeter bound and gives no new upper bound. A special case for the unit square (per the arXiv section outline and a search summary, not read in full): an opaque set of length close to 2 must consist mostly of segments nearly parallel to the square's sides.",
+      "remains": "All exact values; the Jones bound itself (the abstract says it 'has been remarkably difficult to improve'); the forest and existence questions.",
+      "checked_by": [
+        {
+          "who": "Discrete & Computational Geometry (journal)",
+          "qualification": "Refereed journal, if accepted as the author reports",
+          "what_they_did": "Accepted, per the author's own faculty page; no volume, DOI or referee report found",
+          "where": "https://faculty.washington.edu/steinerb",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 21 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The journal acceptance rests on the author's own listing. The main formula was read from a garbled rendering. The HTML v1 fetch did not return an acknowledgements section, so the AI statement below rests on the text that was returned.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Structural: says what near-optimal opaque sets look like, not what their minimum is. Does not contradict the Jones bound or the conjectured square value.",
+      "object": null,
+      "people": ["Stefan Steinerberger"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2501.01004v1"]
+      },
+      "sources": ["https://arxiv.org/abs/2501.01004", "https://arxiv.org/html/2501.01004", "https://arxiv.org/html/2501.01004v1", "https://faculty.washington.edu/steinerb", "https://arxiv.org/html/2509.08842v2"]
+    },
+    {
+      "id": "steinerberger-2026-talk",
+      "what_happened": "Stefan Steinerberger gave a talk, 'Two Problems in Geometric Combinatorics', at the University of Washington on 4 Feb 2026 (listing on the UW events page). The abstract describes the opaque square problem (the shortest union of segments meeting every line that meets the unit square), relates it to buried telephone lines, and says there has been little progress since Jones's 1962 thesis. It announces no new result on the opaque square. The second problem, about point sets of diameter 1, is unrelated.",
+      "date": "2026-02-04",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Talk abstract only; no written argument found. The date is the talk date, not a write-up date.",
+      "delivers": "Nothing. A restatement of the open square problem with no result attached. Discarded as evidence of progress.",
+      "remains": "Everything the bullet asks for.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None: no result is announced.",
+      "object": null,
+      "people": ["Stefan Steinerberger"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://math.washington.edu/events/2026-02-04/two-problems-geometric-combinatorics"]
+      },
+      "sources": ["https://math.washington.edu/events/2026-02-04/two-problems-geometric-combinatorics"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Length and attribution of the unit-disc three-arc construction. Eppstein's Junkyard page gives Makai (1980) a length of 4.8189 and reports Day's 4.7998 (in Scientific American, Stewart 1995) as possibly the same as Makai's refined two-arrow improvement. Wikipedia's Opaque forest problem article gives Makai (1980) a length of about 4.7998 and says Day rediscovered it in 1996. MathWorld (snippet only) gives 4.799891547. Not resolved; the primary papers were not read.",
+      "sources": ["http://ics.uci.edu/~eppstein/junkyard/beam/", "https://en.wikipedia.org/wiki/Opaque_forest_problem"]
+    },
+    {
+      "kind": "error",
+      "summary": "The May 2010 claim of a lower bound 2 + 3×10⁻⁶ for the unit square (v1 of arXiv 1005.2218, authors Dumitrescu and Pach) was withdrawn after a 'fatal error' in its proof, according to one footnote of a 2013 paper by two of the same authors. The error is not described in any source read, and the link to 1005.2218 is inferred.",
+      "sources": ["https://arxiv.org/abs/1311.3323", "https://arxiv.org/abs/1005.2218v1", "https://arxiv.org/abs/1005.2218v2"]
+    },
+    {
+      "kind": "date",
+      "summary": "Jones's lower bound is dated 1962 (his PhD thesis) by Steinerberger 2025 and Dumitrescu–Jiang 2013, and 1964 (American Mathematical Monthly, 'Opaque sets of degree α') by Kawamura et al. 2014 and Kiderlen–Pausinger 2025. The record uses 1962 as the earliest written argument; the primary sources were not opened.",
+      "sources": ["https://arxiv.org/abs/2501.01004", "https://arxiv.org/abs/1403.3894", "https://arxiv.org/html/2509.08842v2"]
+    },
+    {
+      "kind": "value",
+      "summary": "The unit-square constant from Kawamura et al. is 2.00002 in the abstract, but a MathOverflow search snippet and the Dumitrescu–Jiang search results give 2.0002. The abstract figure is used here; the second is treated as a transcription error.",
+      "sources": ["https://arxiv.org/abs/1403.3894", "https://en.wikipedia.org/wiki/Opaque_set"]
+    }
+  ],
+
+  "summary": "The problem as given is the minimum total length of a set in the plane that meets every line meeting a planar shape (an opaque set, or an opaque forest when it is a finite union of segments). The Wikipedia bullet names no shapes; I took the unit square, unit disc, equilateral triangle, and general convex sets, which the literature and the Wikipedia 'Opaque set' and 'Opaque forest problem' articles treat. In the window since 26 January 2024 I found two results that bear on the minimum. (1) Kiderlen and Pausinger, arXiv 2509.08842 (v1 5 Sep 2025; v2 10 Dec 2025), apply the Kawamura et al. method to give, in v2 Theorem 1.2, a lower bound of 2 + 6.3×10⁻⁵ for the unit square (previously 2 + 2×10⁻⁵) and π + 1.076×10⁻⁶ for the unit disc (new; previously π). I read the abstract and HTML of v2 and the v1 abstract; the paper's numerical search for the disc is not published and the v1 numbers were not read. The paper is a lower-bound preprint with no journal acceptance found and no later citing work found. These bounds move the lower end of the minimum; they settle no part of the problem. (2) Steinerberger, arXiv 2501.01004 (2 Jan 2025), proves a stability version of Jones's half-perimeter bound: if an opaque set is nearly as short as Jones's bound, its curves must have tangents close to those of the boundary. It improves no constant. The author's page lists it as accepted in Discrete & Computational Geometry; I found no DCG volume or DOI. The 2026 Steinerberger talk on the opaque square announces no result. Before the window, the history is: Jones's bound (1962/1964); Kawohl's two-component optimality for the square (1997/2000; known only via Wikipedia); the Dumitrescu–Pach approximations (2010, later versions to 2012; published 2014); a 2010 claimed square bound that was withdrawn after a footnoted 'fatal error' (2+3×10⁻⁶); Dumitrescu–Jiang's conditional 2+10⁻¹² (2013); Kawamura et al.'s unconditional 2.00002 and the non-triangle convex case (2014/2019); Izumi's triangle bound 3/2 + 5×10⁻¹³ (2015/2016); and the disc constructions of Makai (1980) and Day (1995), with lengths disputed between sources. The exact value for every named shape remains open; the Wikipedia 'Opaque set' article, last edited 7 September 2026, reports nothing new since 2019 and mentions no AI. AI involvement: none found. The AI searches (opaque set or barrier with AI, LLM, GPT, Gemini, Claude, AlphaEvolve, Erdős-problem trackers and Tao's blog) returned nothing on this problem. The discrete-geometry AI result nearest in the snippets, OpenAI's May 2026 announcement of a disproof of Erdős's 1946 unit-distance conjecture, concerns a different problem, and I did not open its primary source. The AlphaEvolve 67-problem paper (arXiv 2511.02864) was read through section 26 with no hit, but the later sections, including the geometry sections, could not be read through the fetch tool, so that paper is not fully excluded. The Kiderlen–Pausinger and Steinerberger PDFs returned binary data, so their acknowledgements were not read in full; the Kiderlen–Pausinger HTML v2 lists funders only, with no AI statement; the Steinerberger HTML v1 text returned no acknowledgements section. Close calls: (a) the Kiderlen–Pausinger square and disc bounds, which move a quantity the bullet names (the minimum length) without settling it; (b) the Steinerberger stability result, which describes the structure of near-minimal opaque sets, the 'finding opaque sets' half of the bullet, without moving a bound; (c) the 2010 claim, which is withdrawn and whose withdrawal rests on one footnote. The record gives both sides of each in the event fields.",
+
+  "competing_reading": "The strongest case for a different reading is that the Steinerberger 2025 result is progress on the bullet's 'finding opaque sets' half, since it constrains the form of near-optimal opaque sets and so partly answers what the minimisers look like; on that reading it counts as a partial structural result, not a null event. The opposite reading is that the Kiderlen–Pausinger bounds are too small to change the problem's status at all (the gap to 2.639 is about 0.639 for the square, and the disc interval is still about 1.66 wide), so an event that moves a bound by 10⁻⁵ is not progress in the sense the judging pass cares about. A third reading: the Kiderlen–Pausinger bounds are lower bounds on the infimum over rectifiable barriers, not over forests, and the bullet is about forests; the paper's statement that the infimum may be taken over straight barriers answers that, but a reader could require the forest form to be checked explicitly.",
+
+  "what_would_settle_it": "(1) The full text of arXiv 2501.01004, to read the acknowledgements and any computer or AI statement, the §1.3 square special case as stated, and the exact result. (2) The journal, volume and DOI of Steinerberger's Discrete & Computational Geometry paper, to confirm acceptance. (3) The v1 numerical values of arXiv 2509.08842 and an explanation of the v1-to-v2 change in the square constant; the published disc computation or code, which the authors say is available on request. (4) The reference entry [12] in arXiv 1311.3323 and the withdrawal notice or author statement for the 2010 claim in arXiv 1005.2218, which would turn the inferred link into a confirmed one and say what the error was. (5) Citation-graph results for arXiv 2509.08842 and 2501.01004 (Google Scholar, Semantic Scholar or arXiv cited-by), which settle whether later work engages with either result. (6) The primary papers for Makai (1980), Day (1995–96) and Kawohl (1997/2000), to resolve the disc attribution and to check the two-component optimality claim. (7) The later sections of arXiv 2511.02864 (sections 27–42, including the geometry problems), read through a route that returns the whole text, to fully exclude AlphaEvolve from this problem.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Opaque_set", "title": "Opaque set (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Opaque_forest_problem", "title": "Opaque forest problem (Wikipedia; linked from the list bullet)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics", "title": "List of unsolved problems in mathematics (Wikipedia; bullet found at text offset 100000)", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2509.08842", "title": "Kiderlen & Pausinger, Explicit lower bounds for opaque sets of unit square and unit disc (arXiv abstract page and version history)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2509.08842v1", "title": "Kiderlen & Pausinger, arXiv 2509.08842 v1 abstract", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2509.08842v2", "title": "Kiderlen & Pausinger, arXiv 2509.08842 v2 HTML (Theorem 1.2, funding, references)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2509.08842", "title": "Kiderlen & Pausinger, arXiv 2509.08842 PDF (returned binary, unreadable through the fetch tool)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/2501.01004", "title": "Steinerberger, A Stability Version of the Jones Opaque Set Inequality (arXiv abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2501.01004", "title": "Steinerberger, arXiv 2501.01004 HTML (main theorem paraphrase, references)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2501.01004v1", "title": "Steinerberger, arXiv 2501.01004 v1 HTML (no acknowledgements in fetched text)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2501.01004", "title": "Steinerberger, arXiv 2501.01004 PDF (returned binary, unreadable through the fetch tool)", "type": "preprint", "opened": false},
+    {"url": "https://faculty.washington.edu/steinerb", "title": "Stefan Steinerberger faculty page (lists the DCG acceptance)", "type": "blog", "opened": true},
+    {"url": "https://math.washington.edu/events/2026-02-04/two-problems-geometric-combinatorics", "title": "UW Mathematics event: Two Problems in Geometric Combinatorics (Steinerberger talk, 4 Feb 2026)", "type": "news", "opened": true},
+    {"url": "https://arxiv.org/abs/1005.2218", "title": "Opaque sets, arXiv 1005.2218 (latest version, v5, abstract)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1005.2218v1", "title": "Dumitrescu & Pach, Opaque sets, arXiv 1005.2218 v1 (12 May 2010; carries the 2+3×10⁻⁶ claim)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1005.2218v2", "title": "Opaque sets, arXiv 1005.2218 v2 (21 Jun 2010)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1311.3323", "title": "Dumitrescu & Jiang, The opaque square, arXiv 1311.3323 (abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://ar5iv.labs.arxiv.org/html/1311.3323", "title": "Dumitrescu & Jiang, The opaque square (HTML; footnote 1 on the 2010 withdrawn claim)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1403.3894", "title": "Kawamura, Moriyama, Otachi & Pach, A lower bound on opaque sets, arXiv 1403.3894", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1509.03846", "title": "Izumi, Improving lower bound on opaque set for equilateral triangle, arXiv 1509.03846", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1210.8139", "title": "Provan, Brazil, Thomas & Weng, Minimum Opaque Covers for Polygonal Regions, arXiv 1210.8139", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2211.03259", "title": "Steinerberger, Quadratic Crofton and sets that see themselves as little as possible, arXiv 2211.03259 (checked; not about opaque sets)", "type": "preprint", "opened": true},
+    {"url": "http://ics.uci.edu/~eppstein/junkyard/beam/", "title": "Eppstein, Geometry Junkyard: Building a Better Beam Detector?", "type": "blog", "opened": true},
+    {"url": "https://futilitycloset.com/2024/12/21/opaque-sets", "title": "Futility Closet, Opaque Sets (21 Dec 2024; no new result)", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/html/2511.02864", "title": "Georgiev, Gómez-Serrano, Tao & Wagner, Mathematical exploration and discovery at scale, arXiv 2511.02864 (partial read: through section 26; sections 27–42 not read)", "type": "preprint", "opened": true}
+  ],
+
+  "search": {
+    "queries": [
+      "opaque forest problem Wikipedia list of unsolved problems in mathematics",
+      "opaque forest problem planar convex set opaque set trees",
+      "opaque set problem Croft Falconer Guy unsolved problems in geometry forest",
+      "opaque sets plane arXiv 2024 forest of unit segments blocks every ray from origin",
+      "\"opaque forest\" conjecture",
+      "Steinerberger opaque sets barrier orientations unit square Jones bound",
+      "Steinerberger opaque set arXiv 2025",
+      "opaque set unit square shortest barrier new lower bound 2025 arXiv",
+      "opaque set problem AI model proof GPT AlphaEvolve Erdős-style open problem geometry barrier",
+      "\"opaque sets\" artificial intelligence mathematics discovery",
+      "Kawamura Moriyama Otachi Pach lower bound on opaque sets",
+      "Steinerberger AI assisted proof GPT Claude Gemini paper acknowledgement 2025 geometry",
+      "opaque set barrier Jones inequality 2026 new result unit square equilateral triangle",
+      "\"opaque set\" arXiv 2026",
+      "beam detection constant unit disc Makai 4.7998 improvement new bound 2025",
+      "AlphaEvolve opaque set minimum length barrier construction square",
+      "Croft Falconer Guy unsolved problems in geometry A30 beam detection opaque set status",
+      "Steinerberger opaque square 2026 new result barrier telephone lines",
+      "Kiderlen Pausinger opaque sets",
+      "Dumitrescu Jiang \"The opaque square\" journal published Discrete Computational Geometry",
+      "erdosproblems.com opaque set OR barrier line segments every line meeting convex set problem",
+      "opaque square problem AI solved language model OR \"AI-assisted\" OR \"LLM\" barrier unit square",
+      "opaque forest polygon minimum length algorithm 2024 OR 2025 Canadian Conference Computational Geometry",
+      "beam detector problem barrier shortest arXiv 2026 convex polygon minimal length new upper bound",
+      "OpenAI OR GPT OR Gemini OR Claude model \"opaque set\" OR \"opaque sets\" mathematics proof",
+      "AI tracker open problems solved by AI list 2026 Erdős problems geometry \"unit square\" barrier",
+      "mathoverflow opaque set shortest barrier convex body perimeter half Jones",
+      "Kawamura Moriyama Otachi Pach \"A lower bound on opaque sets\" Computational Geometry 2019 volume",
+      "opaque set unit square 2010 arXiv claimed improvement lower bound Jones 2 retracted",
+      "Terence Tao blog opaque set OR barrier OR \"beam detector\" geometry AI",
+      "Steinerberger \"stability version of the Jones opaque set inequality\" Discrete Computational Geometry",
+      "Jones 2+3 × 10^-6 opaque unit square lower bound claim Dumitrescu Pach 2010 erroneous",
+      "\"explicit lower bounds for opaque sets\" Kiderlen Pausinger journal accepted 2026",
+      "opaque set convex body length Jones bound improvement 2024 arXiv Steinerberger OR Kawamura OR Izumi new barrier result",
+      "AlphaEvolve 67 problems list geometry barrier opaque set Tao Georgiev Gómez-Serrano Wagner",
+      "Lean formalization opaque set barrier convex Jones inequality Mathlib sorry",
+      "\"opaque sets\" Kiderlen Pausinger OR Steinerberger cited 2026 barrier minimal length convex"
+    ],
+    "places_checked": [
+      "English Wikipedia: Opaque set; Opaque forest problem (the bullet's link target); List of unsolved problems in mathematics (bullet located in the Discrete geometry section)",
+      "arXiv abstract pages and version histories: 1005.2218 (v1, v2, latest), 1311.3323, 1403.3894, 1509.03846, 1210.8139, 2211.03259, 2501.01004, 2509.08842 (v1, v2)",
+      "arXiv HTML versions: 2509.08842v2 (theorem values, funding, references), 2501.01004 and v1 (main theorem paraphrase, no acknowledgements), 2511.02864 (partial)",
+      "ar5iv HTML of 1311.3323 (footnote on the 2010 withdrawn claim)",
+      "Stefan Steinerberger faculty page (DCG acceptance as reported by the author)",
+      "UW Mathematics events page for the 4 Feb 2026 talk",
+      "Eppstein Geometry Junkyard beam-detector page (Makai, Day, Thurston and disc constructions)",
+      "Futility Closet 'Opaque Sets' post (Dec 2024)",
+      "Web search over arXiv, journal and conference records (Crossref/DOI snippets for SoCG 2014, Computational Geometry 2019, DAM 2016, Algorithmica 2014)",
+      "AI-side searches: AI or LLM terms with opaque set, barrier and unit square; OpenAI/GPT/Gemini/Claude with opaque set; AlphaEvolve with barrier; Erdős-problem trackers (erdosproblems.com via search only, not opened); Tao's blog and Mathstodon via search only",
+      "Lean/Mathlib via search (no formalisation of opaque sets found)",
+      "MathOverflow via search (no thread found)",
+      "Citing-work check via search only; Google Scholar, Semantic Scholar and arXiv cited-by were not accessible"
+    ],
+    "dead_ends": [
+      "Beingessner & Smid, 'Computing the Coverage of an Opaque Forest' (arXiv 1311.4854; CCCG 2012): studies the inverse problem (the region a given forest covers), not the minimum length; seen in search snippets only, not opened.",
+      "Steinerberger, 'Quadratic Crofton and sets that see themselves as little as possible' (arXiv 2211.03259): opened; a variance problem for line intersections, not opaque sets; not an event.",
+      "OpenAI's May 2026 disproof of Erdős's 1946 unit-distance conjecture and other Erdős-problem AI results (press and blog snippets only, not opened): about a different problem; no link to opaque sets in any snippet.",
+      "AlphaEvolve 67-problem paper (arXiv 2511.02864): read through section 26 with no hit; sections 27–42 (including the Heilbronn, convex-polygon and Erdős-squares sections) were not readable through the fetch tool, so this dead end is incomplete.",
+      "Croft, Falconer & Guy, Unsolved Problems in Geometry (Problem A30 'beam detection constant'): cited through Dumitrescu–Jiang and Kiderlen–Pausinger; the book was not opened.",
+      "erdosproblems.com: search returned no page about opaque sets or barriers; the site was not opened.",
+      "Ponder This (IBM, July 2007 challenge) appeared in an AlphaEvolve search snippet; not opened; no sign it concerns this problem.",
+      "Lean/Mathlib, MathOverflow and Quanta/Tao searches: nothing on this problem.",
+      "Pach repository records (real.mtak.hu, users.renyi.hu, Dagstuhl): used only for bibliographic details, not as sources for mathematical claims.",
+      "Thurston (1986) 'bow and arrow' disc construction (length about 4.985) and the regular-hexagon construction (about 5.155, Eppstein): historical upper bounds superseded by the Makai and Day constructions; reported in the Junkyard page only; not recorded as separate events."
+    ]
+  },
+
+  "incomplete": "(1) arXiv 2509.08842 and 2501.01004: the PDFs returned binary data through the fetch tool, so the acknowledgements and full text of 2501.01004 were not read; the AI statement for that event rests on the HTML v1 text, which had no acknowledgements section. (2) The v1 numerical values of 2509.08842 were not read; only the v1 abstract wording and the v2 numbers were. (3) The square improvement in v2 is attributed to Steinerberger's observation; the Steinerberger §1.3 square statement was not read in full. (4) The 2010 claimed bound was linked to arXiv 1005.2218 v1 by inference from the 2013 footnote; reference entry [12] of 1311.3323 was not checked, and the error is not described in any source read. (5) Primary papers not opened: Jones (1962 thesis; 1964 Monthly), Kawohl (1997, 2000), Makai (1980), Day (1995–96), Croft (1969), Akman (1987), Dublish (1988), Shermer (1991), Izumi's journal version and Algorithmica 2014 version, the Kawamura journal version (only a repository record was seen). (6) Journal status: Steinerberger's DCG acceptance is reported only by the author; the Kiderlen–Pausinger paper has no journal listing found. (7) Citing work: Google Scholar, Semantic Scholar and arXiv cited-by were not accessible, so 'later_work_cites_it' is established only from reference lists read in the opened papers and is null where no citing paper was seen. (8) The AlphaEvolve paper (2511.02864) was read only through section 26; sections 27–42, including the geometry sections, are unread. (9) arXiv listing browsing (math.MG, cs.CG, math.CO) by date was not done; discovery relied on search. (10) erdosproblems.com was not opened. (11) The Wikipedia 'List of unsolved problems' bullet was found by fetching a long page at offset 100000; the wording given in the statement matches the bullet text found, and the link target is the Opaque_forest_problem article."
+}

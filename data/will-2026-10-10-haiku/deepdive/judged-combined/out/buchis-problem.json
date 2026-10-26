@@ -1,0 +1,969 @@
+{
+  "key": "buchis-problem",
+  "nothing_found": false,
+  "outcome": "A sole-author arXiv preprint by Stanley Yao Xiao (first posted 21 Dec 2024, revised 13 May 2025 and 7 Jun 2025) claims an unconditional proof that any five integer squares with constant second difference 2 are consecutive squares, which would settle the problem with M = 5; I found no journal publication, public expert verification, refutation or erratum, and a 2026 logic paper that relies on it describes the proof only as 'announced'.",
+  "problem_asks": "One question, not split: does there exist a positive integer M such that every sequence of M or more integer squares whose second difference is constant and equal to 2 (x_{n+2}^2 - 2x_{n+1}^2 + x_n^2 = 2 for every n in the run) is necessarily a sequence of consecutive squares (x+i)^2, i = 1, ..., M, for one integer x. Not asked by the statement: any constant other than 2; rational squares; higher powers; function fields. Büchi's own suggested threshold M = 5 (Wikipedia; Xiao's talk abstract) is context in the sources, not part of the statement. The equivalent form due to Hensley (1983, as given by Wikipedia and the Pasten-Pheidas-Vidaux survey): does there exist M such that for all integers x and a, (x+n)^2 + a is a square for at most M consecutive n, unless a = 0.",
+  "events": [
+    {
+      "id": "xiao-2024-12",
+      "what_happened": "Stanley Yao Xiao (University of Northern British Columbia), 'Hilbert's tenth problem for systems of diagonal quadratic forms, and Büchi's problem', arXiv:2412.16740 [math.NT], first posted 21 Dec 2024. Claims an unconditional proof that if x_1^2,...,x_5^2 are integer squares with constant second difference 2 then there is an integer x_0 with x_j^2 = (x_0+j)^2 for j = 1..5 (Theorem 1.3 in v1 and v3). The paper states this as Conjecture 1.2 (Büchi's problem) with N = 4, and says it completes Büchi's argument that solvability over the integers of systems of diagonal quadratic forms is undecidable. Earlier presentation: SFU seminar talk 'On Hilbert's Tenth Problem and a conjecture of Buchi', 4 Apr 2024, abstract says 'we show' the five-square statement; under section 5.1 this talk is dated to the written version, not to the talk. Later presentation: Dynaverse 2025 (MPI-SWS) talk, event dated 15-17 Oct 2025, abstract says 'We prove this assertion'.",
+      "date": "2024-12-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 21 Dec 2024 (17 KB); v2 13 May 2025 (25 KB); v3 7 Jun 2025 (26 KB). The arXiv comments field for the version I read says 'Submitted version, with some minor corrections to the proof'. No changelog found; which corrections were made, and whether they touch the key rank argument, is not stated.",
+      "delivers": "Restricted to second difference exactly 2 and integer squares. Establishes that any five integer squares with constant second difference 2 are consecutive squares. Hence every non-consecutive run of such squares has length at most 4, and the paper states 4 is sharp (infinitely many non-consecutive quadruples exist). Since any run of 5 or more contains overlapping 5-runs, every such run of length at least 5 is consecutive; that is the problem as stated with M = 5 (my inference from Theorem 1.3, not a sentence in the paper). Not covered by anything the paper claims: second difference a other than 2 (generalised Büchi sequences), rational squares, higher powers, function fields.",
+      "remains": "If the proof is correct, nothing of the question as stated. Correctness is not established in any source I found. The generalisations listed in delivers remain open or unaddressed.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 22 months as of 11 Oct 2026 (v1 Dec 2024; last revision Jun 2025)",
+      "machine_checked": null,
+      "directly_checkable": "The result is a finite-form Diophantine statement about all five-term runs, not a finite search, so a search cannot verify it and the only check is the argument. Outline from v1 (I read the structure, not every computation): reduction of Büchi tuples to squares in monic quadratic progressions (Props 2.4-2.5); triples parametrised via the GL_2(Z)-orbit of x^2 - y^2 (Prop 4.1); quadruples via a 4x4 skew-symmetric system whose Pfaffian must vanish (section 5); quintuples via a 4x4 matrix that must have rank at most 2 (Prop 6.1), with positivity constraints. Section 6 says some expressions were computed 'using computer algebra'; no software is named.",
+      "doubts": "No specific error identified in any source, and no withdrawal found. Active signals, each with its basis: (1) a single-author preprint with no journal version found (OpenAlex: is_published false, cited_by_count 0; Semantic Scholar was rate-limited and zbMATH returned nothing; Xiao's CV was unreadable); (2) two later versions described only as 'minor corrections to the proof', with no changelog, so the v1 argument and the v3 argument may differ; (3) the live Wikipedia article says the claim is 'awaiting peer review as of July 2025'; (4) the 2026 LICS paper (arXiv:2605.16985, section 1 and section 5.1) says 'a proof of Büchi's conjecture was only recently announced by Xiao' and uses the result as an input without saying it was checked; (5) the Jaillet-Vidaux CUBO note (published 27 Apr 2025, four months after v1) says no non-trivial length-5 Büchi sequence is known; the abstract I read does not mention Xiao (its full text was not read), so this is silence rather than a contradiction.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative: asserts the bound exists with M = 5, equivalently that no non-consecutive run of length 5 exists. This is the direction Büchi conjectured and that Vojta's conditional result pointed to. It is not a counterexample to anything the problem asks.",
+      "object": "No counterexample is claimed. The objects exhibited are non-trivial integer sequences of length 4 with constant second difference 2, given to show that the bound 4 in Theorem 1.3 is sharp; the paper says there are infinitely many such quadruples. The five-square result itself is an algebraic proof, not an explicit object. Wikipedia gives 6^2, 23^2, 32^2, 39^2 as one length-4 example and (0, 7, 10) as a length-3 example.",
+      "people": [
+        "Stanley Yao Xiao (University of Northern British Columbia; NSERC Discovery Grant RGPIN-2024-06810)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2412.16740",
+          "https://arxiv.org/html/2412.16740v1",
+          "https://arxiv.org/html/2412.16740v3"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2412.16740",
+        "https://arxiv.org/html/2412.16740v1",
+        "https://arxiv.org/html/2412.16740v3",
+        "https://pims.math.ca/events/240404-sntaagssx",
+        "https://researchseminars.org/talk/SFUQNTAG/115",
+        "https://dynaverse2025.mpi-sws.org/hilberts-tenth-problem-for-systems-of-diagonal-quadratic-forms-and-buchis-problem/",
+        "https://api.openalex.org/works/doi:10.48550/arXiv.2412.16740"
+      ]
+    },
+    {
+      "id": "bacik-et-al-2026",
+      "what_happened": "P. Bacik, J. Nieuwveld, J. Ouaknine, M. Vahanwala, M. Venkatesh, E. R. Wieser, 'On Variable-Bounded Non-Linear Expansions of Presburger Arithmetic', arXiv:2605.16985 [cs.LO], submitted 16 May 2026, marked 'To appear in LICS 2026'. The paper's own results concern decidability of single-variable theories of Presburger arithmetic expanded by perfect powers and by polynomials of degree at most three. Section 1 and section 5.1 discuss Büchi's problem: 'Büchi himself conjectured that M=5, and a proof has recently been announced by Xiao'; 'Note that Xiao's proof only concerns the perfect-square predicate'; and, later, 'Thanks to Xiao's proof of Büchi's conjecture'. The paper encodes the negated conjecture as a two-variable existential sentence and shifts to M = 6 using a result it cites as [23, Cor. 1.7] (Pasten and Vidaux, Israel J. Math. 216 (2016)). It does not verify Xiao's argument.",
+      "date": "2026-05-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (16 May 2026).",
+      "delivers": "Nothing on the threshold of the integer problem. It uses Xiao's announced result as an input to a logical encoding of the negated conjecture; the encoding says any counterexample has the form i^2 + c_1 i + c_0 for i = 1..5.",
+      "remains": "The whole integer problem, on the paper's own account.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 months as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral toward the integer problem; treats Xiao's result as announced and relies on it.",
+      "object": null,
+      "people": [
+        "Piotr Bacik",
+        "Joris Nieuwveld",
+        "Joël Ouaknine",
+        "Mihir Vahanwala",
+        "Madhavan Venkatesh",
+        "Emil Rugaard Wieser"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2605.16985",
+          "https://arxiv.org/html/2605.16985"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2605.16985",
+        "https://arxiv.org/html/2605.16985"
+      ]
+    },
+    {
+      "id": "vojta-2000",
+      "what_happened": "Paul Vojta, 'Diagonal quadratic forms and Hilbert's tenth problem', in Hilbert's Tenth Problem: Relations with Arithmetic and Algebraic Geometry (Ghent, 1999), Contemp. Math. 270, AMS, 2000, pp. 261-274 (MR 1802018 per search snippet). Per Xiao's paper and the Garcia-Fritz 2016 abstract: a positive answer to Büchi's problem follows from a weak form of the Bombieri-Lang conjecture for surfaces, with N = 8; the analogue for meromorphic functions on C is proved unconditionally. Not opened: I relied on secondary citations (Xiao's arXiv paper, Garcia-Fritz 2016, and search snippets of the AMS listing).",
+      "date": "2000",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Conditional: a positive answer to the integer problem (existence of M) assuming a weak form of the Bombieri-Lang conjecture for surfaces, with M = 8 as cited by Xiao. Unconditional: the analogue for meromorphic functions on C, which is not the integer problem. Date is the proceedings year; Wikipedia gives 1999 and the conference was 1999; no preprint date found.",
+      "remains": "The integer problem unconditionally, as far as this event goes; conditionally settled with M = 8, per secondary descriptions of the text I did not read.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 26 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The conditional hypothesis is itself a conjecture, so the result does not settle the problem unconditionally. This is a limit of the result, not a doubt about its correctness. Vojta's text was not read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative, conditionally: would give the bound M under the Bombieri-Lang hypothesis. Xiao's paper describes it as 'Conjecture 1.2 proved with N = 8 under the assumption of the Bombieri-Lang conjecture'.",
+      "object": null,
+      "people": [
+        "Paul Vojta"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2412.16740",
+          "https://doi.org/10.1090/conm/270/04369"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2412.16740",
+        "https://arxiv.org/abs/1610.05340",
+        "https://doi.org/10.1090/conm/270/04369"
+      ]
+    },
+    {
+      "id": "hensley-1983",
+      "what_happened": "D. Hensley, 'Sequences of squares with second difference of two and a conjecture of Büchi', unpublished manuscript, cited by Wikipedia as 1983. Per Pheidas and Vidaux (search snippet, not opened): Hensley showed the finite-field analogue of Büchi's problem over F_p has a positive answer with M = p; he also gave a heuristic argument for the integer conjecture and bounds on heights in a Büchi sequence. Wikipedia credits him with the 1983 reformulation: does there exist M such that (x+n)^2 + a is a square for at most M consecutive n unless a = 0.",
+      "date": "1983",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Over finite fields F_p only: a positive answer with M = p, an analogue and not the integer problem. For the integers: the reformulation, and a heuristic argument; no proof per the sources.",
+      "remains": "The integer problem entirely.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 43 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unpublished, and the heuristic is not a proof. The manuscript itself was not seen.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Affirmative for the finite-field analogue only; the integer case is not decided.",
+      "object": null,
+      "people": [
+        "Douglas Hensley"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/B%C3%BCchi%27s_problem"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/B%C3%BCchi%27s_problem"
+      ]
+    },
+    {
+      "id": "browkin-brzezinski-2006",
+      "what_happened": "J. Browkin and J. Brzezinski, 'On sequences of squares with constant second differences', Canad. Math. Bull. 49(4) (2006), 481-491. The abstract (Chalmers record) says: 'We show that there are infinitely many nontrivial monotone sextuples having this property', where the property is that the second differences of squares are constant. The constant is not stated in the abstract. The Cambridge page was not opened.",
+      "date": "2006",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Infinitely many non-trivial monotone integer sextuples whose squares have constant second differences, for a constant the abstract does not state. If the constant were 2, this would contradict Xiao's five-square theorem. The literature I read (Garcia-Fritz 2016 abstract, which describes the 2010 question of Browkin and Brzezinski as one about constant second differences in general) suggests a general constant, but this is inference, not checked against the text.",
+      "remains": "For constant 2: the integer problem is not addressed by the abstract. For other constants: nothing bearing on the problem as stated.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 20 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The constant is not stated in the abstract I read, so whether this event bears on the problem at all is open. Full text not read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Discounted if the constant is not 2; if it is 2 it would cut against the five-square theorem. Not resolved here.",
+      "object": "Infinitely many nontrivial monotone integer sextuples whose squares have constant second differences. The abstract does not say whether the families are explicit, and does not give them.",
+      "people": [
+        "J. Browkin",
+        "J. Brzezinski"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://research.chalmers.se/en/publication/36098"
+        ]
+      },
+      "sources": [
+        "https://research.chalmers.se/en/publication/36098",
+        "https://arxiv.org/abs/1610.05340"
+      ]
+    },
+    {
+      "id": "brzezinski-2012",
+      "what_happened": "J. Brzezinski, 'Hilberts Tionde Problem och Büchisekvenser' (Hilbert's tenth problem and Büchi sequences), Nordisk Matematisk Tidskrift (Normat) 60(2) (2012), 52-69. Chalmers abstract: an overview of Büchi's square problem in the context of Hilbert's tenth problem; several methods of constructing integer sequences with constant second differences of squares; 'five new nontrivial septuplets of this type'. The Normat full text was not read (the Normat PDF URL redirected to a 404 page).",
+      "date": "2012",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Five non-trivial integer sequences of length 7 with constant second differences of squares, per the abstract. The constant is not stated. If the constant were 2, these would contradict Xiao's theorem, because a non-trivial run of length 7 must contain a non-consecutive run of length 5. The constant is probably not 2, by the same reasoning as for Browkin-Brzezinski, but this is not verified.",
+      "remains": "For constant 2: the integer problem, with a possible contradiction to be ruled out. For other constants: nothing bearing on the problem as stated.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 years",
+      "machine_checked": null,
+      "directly_checkable": "The septuplets, if of constant 2, could be checked by hand: each is a 7-term integer sequence and the second-difference condition is a finite computation. The explicit septuplets are not in the abstract I read.",
+      "doubts": "Constant not determined from the sources I read; septuplets not checked; full text not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "If constant 2: cuts against the five-square theorem (contradiction). Otherwise: no bearing. Not resolvable from what I read.",
+      "object": "Five explicit integer sequences of length 7 with constant second differences of squares; the sequences themselves are not in the abstract.",
+      "people": [
+        "Juliusz Brzezinski"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://research.chalmers.se/en/publication/191192"
+        ]
+      },
+      "sources": [
+        "https://research.chalmers.se/en/publication/191192",
+        "https://normat.ncm.gu.se/pdf_html/2012-02-96.html"
+      ]
+    },
+    {
+      "id": "pasten-pheidas-vidaux-2010-survey",
+      "what_happened": "H. Pasten, T. Pheidas, X. Vidaux, 'A survey on Büchi's problem: new presentations and open problems', Zapiski Nauchnykh Seminarov POMI 377 (2010), 111-140; English version J. Math. Sci. 171 (2010), 765-781. Per search snippets (mathnet page not reachable): a survey restating the integer problem as open, reporting Vojta's conditional result, giving a new short proof of the finite-field case (Hensley), and proposing open problems. Not opened.",
+      "date": "2010",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "No new result on the integer problem, per the snippets: a restatement of the integer case as open, and the conditional Vojta result.",
+      "remains": "The integer problem entirely, on the survey's own account as far as the snippets show.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 16 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "None new; the survey describes the problem as open.",
+      "object": null,
+      "people": [
+        "Hector Pasten",
+        "Thanases Pheidas",
+        "Xavier Vidaux"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://mathnet.ru/eng/znsl3818"
+        ]
+      },
+      "sources": [
+        "https://mathnet.ru/eng/znsl3818"
+      ]
+    },
+    {
+      "id": "shlapentokh-vidaux-2010",
+      "what_happened": "A. Shlapentokh and X. Vidaux, 'The analogue of Büchi's problem for function fields', arXiv:1004.0731, submitted 5 Apr 2010 (23 pp.). Proves that Hensley's problem for r-th powers has a positive answer over function fields of curves of genus g in characteristic 0; in positive characteristic p it proves Büchi's problem for function fields has a positive answer if p >= 312g+169. Sequences are required to have at least one non-constant term. The integer case is background only.",
+      "date": "2010-04-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The function-field analogue (characteristic 0 for all r; positive characteristic with p >= 312g+169). Not the integer problem.",
+      "remains": "The integer problem entirely.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 16 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirmative for the function-field analogue only; discounted for the integer problem.",
+      "object": null,
+      "people": [
+        "Alexandra Shlapentokh",
+        "Xavier Vidaux"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1004.0731"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1004.0731"
+      ]
+    },
+    {
+      "id": "garcia-fritz-2016",
+      "what_happened": "N. Garcia-Fritz, 'Quadratic sequences of powers and Mohanty's conjecture', arXiv:1610.05340 [math.NT], submitted 17 Oct 2016. Under the Bombieri-Lang conjecture for surfaces, proves an absolute bound on the length of integer square sequences with constant second differences that are not arithmetic progressions of integers, answering a question of Browkin and Brzezinski (2010); similar conditional bound for k-th powers, k >= 3; unconditional results for function fields. Her Queen's University PhD thesis (Aug 2015, 'Curves of low genus on surfaces and applications to Diophantine problems') covers related results; the thesis was seen only as a search snippet and not opened.",
+      "date": "2016-10-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Conditional on Bombieri-Lang for surfaces: an absolute length bound for non-AP integer square sequences with constant second differences. The abstract does not fix the constant at 2. Unconditionally: only the function-field analogues. Does not settle the integer problem unconditionally.",
+      "remains": "The integer problem unconditionally; whether the conditional bound covers the constant-2 case is not stated in the abstract.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Conditional on a conjecture (Bombieri-Lang for surfaces).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Affirmative, conditionally, for a bound of the same type as Büchi's; does not cut against anything.",
+      "object": null,
+      "people": [
+        "Natalia Garcia-Fritz"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1610.05340"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1610.05340"
+      ]
+    },
+    {
+      "id": "saez-vidaux-2010",
+      "what_happened": "P. Sáez and X. Vidaux, 'A characterization of Büchi's integer sequences of length 3', arXiv:1011.2251, submitted 10 Nov 2010. Characterises length-3 generalised Büchi sequences over the integers (constant second difference a for a fixed integer a) and proposes a strategy for Büchi's n squares problem.",
+      "date": "2010-11-10",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A characterisation of length-3 integer sequences with constant second difference of squares, for general a. Does not bound the length M and says nothing about length 5.",
+      "remains": "The integer problem entirely.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 16 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral; discounted as to the threshold question.",
+      "object": null,
+      "people": [
+        "Pablo Sáez",
+        "Xavier Vidaux"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1011.2251"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1011.2251"
+      ]
+    },
+    {
+      "id": "vidaux-2010-length4",
+      "what_happened": "X. Vidaux, 'Polynomial parametrizations of length 4 Büchi sequences', arXiv:1008.2994, submitted 18 Aug 2010. Gives an explicit infinite family of polynomial parametrisations of non-trivial length-4 integer Büchi sequences (second difference 2). Any integral point on the associated (suspected hyperelliptic) curves would give a non-trivial length-5 sequence, and the abstract says it is not known whether such a sequence exists.",
+      "date": "2010-08-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Infinite families of non-trivial length-4 sequences (consistent with Hensley's earlier result per Wikipedia), and a conditional description of possible length-5 sequences. Does not settle M.",
+      "remains": "The integer problem entirely.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 16 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the threshold being at least 4; bears on length 5 only as a conditional description; discounted for the threshold question.",
+      "object": "Explicit polynomial parametrisations of non-trivial length-4 integer sequences with second difference 2 (the formulas are not in the abstract).",
+      "people": [
+        "Xavier Vidaux"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1008.2994"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1008.2994"
+      ]
+    },
+    {
+      "id": "jaillet-vidaux-2025",
+      "what_happened": "F. Jaillet and X. Vidaux, 'A note on Buell's Theorem on length four Büchi sequences', CUBO, A Mathematical Journal 27(1) (2025), 1-5, DOI 10.56754/0719-0646.2701.001, published 27 Apr 2025. Revisits D. A. Buell's 1987 parametrisation of length-4 Büchi sequences, corrects its statement (about 26% of the sequences in R. G. E. Pinch's 1993 table were missed) and gives a simpler proof. States that no length-5 example is known.",
+      "date": "2025-04-27",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A corrected classification of length-4 integer Büchi sequences (second difference 2). Does not address length 5 or M.",
+      "remains": "The integer problem entirely.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral. Consistent with Xiao's result (no length-5 example) but does not mention it in the parts I read. The date is the journal publication; an earlier HAL copy (hal-05091876) was not opened, so the first posting may be earlier.",
+      "object": null,
+      "people": [
+        "Fabrice Jaillet",
+        "Xavier Vidaux"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://cubo.ufro.cl/index.php/cubo/article/view/3991"
+        ]
+      },
+      "sources": [
+        "https://cubo.ufro.cl/index.php/cubo/article/view/3991",
+        "https://cubo.ufro.cl/index.php/cubo/issue/download/243/83"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "status-conflict",
+      "summary": "Wikipedia's live article still calls the problem 'an open problem' in its lead, while the same article says Xiao's 2024 claim 'is awaiting peer review as of July 2025'. The 2026 LICS paper says the proof 'was only recently announced'. No source I read says the proof was verified or refuted.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/B%C3%BCchi%27s_problem",
+        "https://arxiv.org/html/2605.16985"
+      ]
+    },
+    {
+      "kind": "possible-conflict",
+      "summary": "Brzezinski (2012) reports five nontrivial septuplets and Browkin-Brzezinski (2006) reports infinitely many nontrivial sextuples. If their constant is 2 these contradict Xiao's five-square theorem. Neither abstract states the constant. The likely reading is a general constant, but that is inferred from the surrounding literature, not checked against the full texts.",
+      "sources": [
+        "https://research.chalmers.se/en/publication/191192",
+        "https://research.chalmers.se/en/publication/36098",
+        "https://arxiv.org/abs/1610.05340"
+      ]
+    }
+  ],
+  "summary": "The problem asks whether there is a bound M beyond which every run of integer squares with constant second difference 2 must be consecutive. The only event since January 2024 is Stanley Yao Xiao's sole-author arXiv preprint 2412.16740 (v1 21 Dec 2024; v2 13 May 2025; v3 7 Jun 2025). Its Theorem 1.3 says any five such integer squares are consecutive, which gives the statement with M = 5 if the proof holds. I read the abstract, theorem statements, acknowledgements, funding line, and the proof outline in v1 and v3 (not the full arithmetic). The paper discloses no AI use; section 6 says some expressions were computed 'using computer algebra' with no software named, which is not AI. The status evidence is mixed. Against settlement: no journal version found (OpenAlex records it as unpublished with zero citations, and its DOI field points to the LICS 2026 paper, a metadata error); the two later versions are described only as 'minor corrections to the proof' with no changelog; the live Wikipedia article says 'awaiting peer review as of July 2025'; and the 2026 LICS paper (Bacik et al., arXiv 2605.16985) calls the proof 'only recently announced' and uses it as an input, not a verified result. For settlement: the author presented the five-square result as proved at an SFU seminar on 4 Apr 2024 and at the Dynaverse 2025 meeting (talk abstracts, both the author's own), the argument is an explicit algebraic reduction with a sharpness example, and the 2026 LICS paper is accepted for LICS 2026 (to appear). Earlier events do not settle the integer problem. Vojta (2000, proceedings) gives a positive answer conditional on a weak Bombieri-Lang hypothesis with M = 8; I did not open his text. Hensley (1983, unpublished) gives the finite-field analogue with M = p and a heuristic for the integers. Garcia-Fritz (2016) gives conditional bounds, Shlapentokh-Vidaux (2010) gives function-field analogues, and the 2010 Pasten-Pheidas-Vidaux survey still treats the integer case as open. The length-3 and length-4 papers (Sáez-Vidaux 2010, Vidaux 2010, Jaillet-Vidaux 2025) concern lengths below the threshold and do not bear on M. The Browkin-Brzezinski (2006) and Brzezinski (2012) sextuple and septuplet results are the one close call that could cut against Xiao; their constant is not stated in the abstracts I read. For AI: none of the sources I opened names an AI system for this problem, and the searches for AI involvement (Büchi with GPT, Claude, Gemini, AlphaEvolve, AlphaProof, Aristotle, Axiom, the 2026 Erdős-AI coverage, and the 2026 Quanta AI article, which does not mention the problem) found no link. Close call on counting: I record Xiao's preprint as an unverified claim with no independent check, and the LICS use as reliance rather than verification. Whether it counts as settling the problem is for the later pass.",
+  "competing_reading": "Against counting this as a resolution: a single-author, unrefereed preprint with two later 'minor corrections' and no public verification; the most careful 2026 treatment (a logic-and-verification group writing for LICS 2026) calls it only 'announced' and cites it as an input. For counting it: the proof is an explicit, self-contained reduction (Pfaffian and rank conditions) with a matching sharpness example; the author is a funded number theorist who presented the claim publicly in April 2024 and October 2025; the threshold it proves is exactly Büchi's conjectured M = 5; and the 2026 paper is accepted at a refereed venue and builds on the result, which referees would not normally allow if it were plainly wrong.",
+  "what_would_settle_it": "A journal publication of Xiao's paper with a referee report or acknowledgement; a written expert verification or digest of the five-square lemma (none found); a Lean or Coq formalisation of the five-square lemma (none found); the v2 and v3 change logs identifying the 'corrections to the proof' and whether they touch Prop 6.1 (the rank argument); the full text of Browkin-Brzezinski (2006) and Brzezinski (2012) to fix their constants; Vojta's 2000 text to confirm the conditional hypothesis and M = 8; a citation record from Semantic Scholar or zbMATH (both unavailable to me); and any erratum or withdrawal.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2412.16740",
+      "title": "Hilbert's tenth problem for systems of diagonal quadratic forms, and Büchi's problem (arXiv abstract page, v1-v3 history)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2412.16740v1",
+      "title": "Hilbert's tenth problem for systems of diagonal quadratic forms, and Büchi's problem (v1 HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2412.16740v3",
+      "title": "Hilbert's tenth problem for systems of diagonal quadratic forms, and Büchi's problem (v3 HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/B%C3%BCchi%27s_problem",
+      "title": "Büchi's problem (Wikipedia, live article at time of reading)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.16985",
+      "title": "On Variable-Bounded Non-Linear Expansions of Presburger Arithmetic (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2605.16985",
+      "title": "On Variable-Bounded Non-Linear Expansions of Presburger Arithmetic (HTML, two passes)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.02165",
+      "title": "Recent progress on the geometric Bombieri-Lang conjecture (Xie, July 2026; no mention of Büchi)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://dynaverse2025.mpi-sws.org/hilberts-tenth-problem-for-systems-of-diagonal-quadratic-forms-and-buchis-problem/",
+      "title": "Dynaverse 2025 talk listing, Xiao",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://pims.math.ca/events/240404-sntaagssx",
+      "title": "SFU Number Theory and Algebraic Geometry Seminar, Stanley Xiao, 4 Apr 2024",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://researchseminars.org/talk/SFUQNTAG/115",
+      "title": "On Hilbert's Tenth Problem and a conjecture of Buchi (talk listing)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://api.openalex.org/works/doi:10.48550/arXiv.2412.16740",
+      "title": "OpenAlex record for arXiv:2412.16740",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://api.openalex.org/works?search=Hilbert%27s%20tenth%20problem%20for%20systems%20of%20diagonal%20quadratic%20forms&per-page=10",
+      "title": "OpenAlex search for the title",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://cubo.ufro.cl/index.php/cubo/article/view/3991",
+      "title": "A note on Buell's Theorem on length four Büchi sequences (CUBO article page)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://cubo.ufro.cl/index.php/cubo/issue/download/243/83",
+      "title": "CUBO issue download (Jaillet-Vidaux note text, partial)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://research.chalmers.se/en/publication/191192",
+      "title": "Hilberts Tionde Problem och Büchisekvenser (Brzezinski 2012 record)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://research.chalmers.se/en/publication/36098",
+      "title": "On Sequences of Squares with Constant Second Differences (Browkin-Brzezinski 2006 record)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1011.2251",
+      "title": "A characterization of Büchi's integer sequences of length 3 (Sáez-Vidaux)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1008.2994",
+      "title": "Polynomial parametrizations of length 4 Büchi sequences (Vidaux)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1004.0731",
+      "title": "The analogue of Büchi's problem for function fields (Shlapentokh-Vidaux)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1610.05340",
+      "title": "Quadratic sequences of powers and Mohanty's conjecture (Garcia-Fritz)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.quantamagazine.org/how-ai-tore-through-a-mathematical-community-20260803/",
+      "title": "Quanta, AI and Erdős problems (no mention of Büchi)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://doi.org/10.1090/conm/270/04369",
+      "title": "AMS listing, Contemp. Math. 270 (Vojta)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://mathnet.ru/eng/znsl3818",
+      "title": "Pasten-Pheidas-Vidaux survey (mathnet page; connection refused)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://normat.ncm.gu.se/pdf_html/2012-02-96.html",
+      "title": "Normat 2012 Brzezinski (redirected to a 404 page; full text not read)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://api.semanticscholar.org/graph/v1/paper/arXiv:2412.16740",
+      "title": "Semantic Scholar record (HTTP 429, rate limited)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://www.unbc.ca/sites/default/files/people/61881/stanley-yao-xiao-cv.pdf",
+      "title": "Xiao CV (binary PDF, unreadable)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://www.math.purdue.edu/~jlipman/Buchitalk-Huge.pdf",
+      "title": "Purdue Büchi talk slides (binary PDF, unreadable)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://cubo.ufro.cl/index.php/cubo/article/download/3991/2391/11881",
+      "title": "CUBO article PDF (binary, unreadable)",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Büchi's problem sequences of squares constant second difference",
+      "Büchi problem arXiv sequence of squares second difference 2 solution",
+      "Büchi's problem Wikipedia",
+      "Büchi problem AI proof squares GPT Claude Gemini",
+      "Buchi problem squares arithmetic progression second difference Vojta Bombieri-Lang",
+      "Büchi's problem 2024 new result",
+      "Büchi problem counterexample sequence of squares 2025",
+      "Büchi problem Pell equations squares second differences uniform bound",
+      "J. R. Büchi 1983 problem squares x_n^2 second difference 2 x_n = n + c",
+      "Büchi's problem open unsolved list of unsolved problems in mathematics number theory",
+      "Stanley Yao Xiao Büchi problem published journal 2025",
+      "\"Büchi\" sequences squares \"Xiao\" 2412.16740 cited",
+      "Büchi sequences length five squares second difference proof 2026",
+      "Büchi problem Lean formalization squares second difference",
+      "Büchi problem AI-assisted proof arXiv acknowledgements language model squares",
+      "Büchi's problem Erdős problems AI solved OpenAI DeepMind AlphaProof Hilbert tenth problem",
+      "Hilbert's tenth problem diagonal quadratic forms Büchi 2025 review comment error",
+      "Brzezinski Büchi sequences septuplets Normat 2012 nontrivial",
+      "Vojta Diophantine approximation and Büchi's problem Bombieri-Lang 1999 2000",
+      "Jaillet Vidaux Büchi sequences CUBO 2025",
+      "zbMATH Xiao \"Hilbert's tenth problem for systems of diagonal quadratic forms\"",
+      "Garcia-Fritz thesis Büchi sequences length 11 finitely many Bombieri-Lang",
+      "Büchi sequences 2025 arXiv new nontrivial sequences squares constant second difference",
+      "Büchi problem AlphaEvolve OR \"AlphaProof\" OR \"Aristotle\" OR \"Axiom\" squares second difference Hilbert tenth",
+      "Stanley Yao Xiao AI language model proof Büchi acknowledgement",
+      "Pasten Pheidas Vidaux survey 2010 Büchi problem open problems Zapiski integer analogue",
+      "Büchi problem GPT-5 Pro OR \"Claude\" OR \"Gemini Deep Think\" squares second difference proof",
+      "Büchi's problem blog Quanta Tao number theory squares Hilbert tenth 2025",
+      "\"Büchi\" \"n squares problem\" open problem status 2025 2026",
+      "Hensley 1983 Büchi problem finite field analogue M = p consecutive squares",
+      "Büchi problem Hilbert tenth problem AI model proof 2026 squares diagonal quadratic forms",
+      "Büchi septuplet second difference squares Brzezinski nontrivial length seven",
+      "Browkin Brzezinski \"sequences of squares with constant second differences\" Canadian Mathematical Bulletin 2006",
+      "Büchi's five squares problem solved proof claimed",
+      "Recent progress on the geometric Bombieri-Lang conjecture Büchi squares second difference Xiao",
+      "Hilbert's tenth problem diagonal quadratic forms undecidable integers Büchi argument completed 2025 2026 survey",
+      "erdosproblems OR Tao OR Quanta \"Büchi\" squares AI 2026",
+      "Vojta \"Diagonal quadratic forms and Hilbert's tenth problem\" Contemporary Mathematics 270"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages: 2412.16740 (v1, v3), 2605.16985 (abstract and HTML, two passes), 2607.02165, 1011.2251, 1008.2994, 1004.0731, 1610.05340",
+      "Wikipedia article (live), two fetches",
+      "OpenAlex: title search and DOI record for 2412.16740",
+      "Semantic Scholar: citation and metadata endpoints (HTTP 429, not usable)",
+      "CUBO article page and issue download (Jaillet-Vidaux 2025)",
+      "Chalmers records 191192 (Brzezinski 2012) and 36098 (Browkin-Brzezinski 2006)",
+      "PIMS/SFU seminar page and researchseminars talk listing for Xiao's April 2024 talk",
+      "MPI-SWS Dynaverse 2025 talk listing for Xiao",
+      "Quanta 2026 AI article (no mention of Büchi)",
+      "Normat 2012 URL (redirected to 404)",
+      "mathnet survey page (connection refused)",
+      "zbMATH and MathSciNet: searched via web search, no record surfaced; not reachable directly",
+      "Xiao CV and Purdue Büchi talk slides: binary PDFs, unreadable"
+    ],
+    "dead_ends": [
+      "Semantic Scholar citation graph: rate limited (429) on repeated attempts, and a DOI-form lookup returned 404; no citation count or venue obtained.",
+      "OpenAlex: no journal record for Xiao's paper; is_published false, cited_by_count 0; its DOI field is https://doi.org/10.4230/lipics.lics.2026.7, which belongs to the LICS 2026 paper and is a metadata error.",
+      "zbMATH / MathSciNet: no review or indexing record for 2412.16740 surfaced in search.",
+      "Lean or Coq formalisation: searched for Büchi / squares / second difference; none found.",
+      "AI involvement: searched Büchi with GPT-5, GPT-5 Pro, GPT-5.5, Claude, Gemini Deep Think, AlphaEvolve, AlphaProof, Aristotle, Axiom and Erdős-AI coverage; no result links any AI system to this problem. The 2026 Quanta article was opened and does not mention Büchi or Xiao.",
+      "Tao blog and Quanta on Büchi's problem: searched; nothing found.",
+      "arXiv 2607.02165 (Xie, 'Recent progress on the geometric Bombieri-Lang conjecture', July 2026): opened the abstract page; no mention of Büchi or Xiao.",
+      "Pasten and Vidaux, 'Positive existential definability of multiplication from addition and the range of a polynomial', Israel J. Math. 216 (2016): cited in section 5.1 of the 2026 LICS paper as [23]; not opened, relevance not checked.",
+      "Pheidas and Vidaux, PJM 2008, analogue for cubes in polynomial rings: search snippet only; not opened; analogue, so discounted in any case.",
+      "Lipshitz (1990) and Mazur (1994), listed in Wikipedia and Xiao's references per snippets: not opened.",
+      "Garcia-Fritz 2015 Queen's thesis: search snippet only; qspace record not opened."
+    ]
+  },
+  "incomplete": "(1) Vojta (2000): not opened; the conditional hypothesis and M = 8 come from Xiao's paper and Garcia-Fritz's abstract, not from Vojta's text. (2) Hensley (1983): the manuscript is unpublished and was not seen; the finite-field claim comes from Pheidas-Vidaux snippets. (3) Pasten-Pheidas-Vidaux 2010 survey: not read (mathnet refused connection); its open-status statement is from a snippet. (4) Browkin-Brzezinski (2006) and Brzezinski (2012): full texts not read, so their constants are unknown; this is the main open point, because a constant of 2 would conflict with Xiao's theorem. (5) Jaillet-Vidaux (2025): full PDF not read, only the article page and the abstract summary; whether it cites Xiao is unknown. (6) Xiao's proof: I read the abstract, theorem statements, acknowledgements, funding, and a proof outline from the v1 and v3 HTML, not the arithmetic; v2 was not opened separately and the content of the 'minor corrections' is not identified. (7) Citation and review status: Semantic Scholar was rate-limited, zbMATH and MathSciNet returned nothing, and Xiao's CV and the Purdue talk slides were unreadable, so later citations and reviews other than the 2026 LICS paper and the live Wikipedia article are not established. (8) The Wikipedia text I read is the live article, not the frozen 26 January 2024 revision; the claim it describes postdates the frozen revision. (9) Garcia-Fritz's 2015 thesis was seen only as a snippet. (10) I did not check whether the 2026 LICS paper's reference [23] or the Pasten-Vidaux 2016 paper bears on the integer problem.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "claimed",
+  "ai_role": "none",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "xiao-2024-12",
+  "no_change_found": false,
+  "event": {
+    "id": "xiao-2024-12",
+    "what_happened": "Stanley Yao Xiao (University of Northern British Columbia), 'Hilbert's tenth problem for systems of diagonal quadratic forms, and Büchi's problem', arXiv:2412.16740 [math.NT], first posted 21 Dec 2024. Claims an unconditional proof that if x_1^2,...,x_5^2 are integer squares with constant second difference 2 then there is an integer x_0 with x_j^2 = (x_0+j)^2 for j = 1..5 (Theorem 1.3 in v1 and v3). The paper states this as Conjecture 1.2 (Büchi's problem) with N = 4, and says it completes Büchi's argument that solvability over the integers of systems of diagonal quadratic forms is undecidable. Earlier presentation: SFU seminar talk 'On Hilbert's Tenth Problem and a conjecture of Buchi', 4 Apr 2024, abstract says 'we show' the five-square statement; under section 5.1 this talk is dated to the written version, not to the talk. Later presentation: Dynaverse 2025 (MPI-SWS) talk, event dated 15-17 Oct 2025, abstract says 'We prove this assertion'.",
+    "date": "2024-12-21",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 21 Dec 2024 (17 KB); v2 13 May 2025 (25 KB); v3 7 Jun 2025 (26 KB). The arXiv comments field for the version I read says 'Submitted version, with some minor corrections to the proof'. No changelog found; which corrections were made, and whether they touch the key rank argument, is not stated.",
+    "delivers": "Restricted to second difference exactly 2 and integer squares. Establishes that any five integer squares with constant second difference 2 are consecutive squares. Hence every non-consecutive run of such squares has length at most 4, and the paper states 4 is sharp (infinitely many non-consecutive quadruples exist). Since any run of 5 or more contains overlapping 5-runs, every such run of length at least 5 is consecutive; that is the problem as stated with M = 5 (my inference from Theorem 1.3, not a sentence in the paper). Not covered by anything the paper claims: second difference a other than 2 (generalised Büchi sequences), rational squares, higher powers, function fields.",
+    "remains": "If the proof is correct, nothing of the question as stated. Correctness is not established in any source I found. The generalisations listed in delivers remain open or unaddressed.",
+    "checked_by": [],
+    "no_engagement_found": true,
+    "time_since_posted": "about 22 months as of 11 Oct 2026 (v1 Dec 2024; last revision Jun 2025)",
+    "machine_checked": null,
+    "directly_checkable": "The result is a finite-form Diophantine statement about all five-term runs, not a finite search, so a search cannot verify it and the only check is the argument. Outline from v1 (I read the structure, not every computation): reduction of Büchi tuples to squares in monic quadratic progressions (Props 2.4-2.5); triples parametrised via the GL_2(Z)-orbit of x^2 - y^2 (Prop 4.1); quadruples via a 4x4 skew-symmetric system whose Pfaffian must vanish (section 5); quintuples via a 4x4 matrix that must have rank at most 2 (Prop 6.1), with positivity constraints. Section 6 says some expressions were computed 'using computer algebra'; no software is named.",
+    "doubts": "No specific error identified in any source, and no withdrawal found. Active signals, each with its basis: (1) a single-author preprint with no journal version found (OpenAlex: is_published false, cited_by_count 0; Semantic Scholar was rate-limited and zbMATH returned nothing; Xiao's CV was unreadable); (2) two later versions described only as 'minor corrections to the proof', with no changelog, so the v1 argument and the v3 argument may differ; (3) the live Wikipedia article says the claim is 'awaiting peer review as of July 2025'; (4) the 2026 LICS paper (arXiv:2605.16985, section 1 and section 5.1) says 'a proof of Büchi's conjecture was only recently announced by Xiao' and uses the result as an input without saying it was checked; (5) the Jaillet-Vidaux CUBO note (published 27 Apr 2025, four months after v1) says no non-trivial length-5 Büchi sequence is known; the abstract I read does not mention Xiao (its full text was not read), so this is silence rather than a contradiction.",
+    "later_work_cites_it": true,
+    "withdrawn": null,
+    "direction": "Affirmative: asserts the bound exists with M = 5, equivalently that no non-consecutive run of length 5 exists. This is the direction Büchi conjectured and that Vojta's conditional result pointed to. It is not a counterexample to anything the problem asks.",
+    "object": "No counterexample is claimed. The objects exhibited are non-trivial integer sequences of length 4 with constant second difference 2, given to show that the bound 4 in Theorem 1.3 is sharp; the paper says there are infinitely many such quadruples. The five-square result itself is an algebraic proof, not an explicit object. Wikipedia gives 6^2, 23^2, 32^2, 39^2 as one length-4 example and (0, 7, 10) as a length-3 example.",
+    "people": [
+      "Stanley Yao Xiao (University of Northern British Columbia; NSERC Discovery Grant RGPIN-2024-06810)"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/abs/2412.16740",
+        "https://arxiv.org/html/2412.16740v1",
+        "https://arxiv.org/html/2412.16740v3"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2412.16740",
+      "https://arxiv.org/html/2412.16740v1",
+      "https://arxiv.org/html/2412.16740v3",
+      "https://pims.math.ca/events/240404-sntaagssx",
+      "https://researchseminars.org/talk/SFUQNTAG/115",
+      "https://dynaverse2025.mpi-sws.org/hilberts-tenth-problem-for-systems-of-diagonal-quadratic-forms-and-buchis-problem/",
+      "https://api.openalex.org/works/doi:10.48550/arXiv.2412.16740"
+    ]
+  },
+  "credited_humans": [
+    "Stanley Yao Xiao (University of Northern British Columbia; NSERC Discovery Grant RGPIN-2024-06810)"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2412.16740",
+    "https://arxiv.org/html/2412.16740v1",
+    "https://arxiv.org/html/2412.16740v3",
+    "https://pims.math.ca/events/240404-sntaagssx",
+    "https://researchseminars.org/talk/SFUQNTAG/115",
+    "https://dynaverse2025.mpi-sws.org/hilberts-tenth-problem-for-systems-of-diagonal-quadratic-forms-and-buchis-problem/",
+    "https://api.openalex.org/works/doi:10.48550/arXiv.2412.16740"
+  ],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "xiao-2024-12",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "bacik-et-al-2026",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "vojta-2000",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hensley-1983",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "browkin-brzezinski-2006",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "brzezinski-2012",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "pasten-pheidas-vidaux-2010-survey",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "shlapentokh-vidaux-2010",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "garcia-fritz-2016",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "saez-vidaux-2010",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "vidaux-2010-length4",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "jaillet-vidaux-2025",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks whether some M exists beyond which runs of squares with second difference 2 must be consecutive. Xiao's Theorem 1.3 (any five such squares are consecutive) answers that with M = 5, so its scope is whole. It is unreviewed: checked_by is empty, there is no journal version, and the 2026 LICS paper only relies on it as 'announced'. I kept it credible rather than doubtful. The author is an established number theorist using a serious method, and no specific error has been identified. The unexplained 'minor corrections' and the lack of uptake are what unreviewed already records (F10). The possible conflict with the Brzezinski sextuples and septuplets rests only on abstracts that do not state the constant, and the surrounding literature suggests a general constant, so it does not rise to a doubt. Its length-4 sharpness examples do not bear on the existence of M, so object_role is null. Vojta and Garcia-Fritz are conditional on Bombieri-Lang, which is a reduction to an unproven hypothesis, so their scope is none. The finite-field, function-field and general-constant work is variant. The length-3 and length-4 papers, the survey, Jaillet-Vidaux and the LICS paper settle nothing on M, so their scope is none. No AI system appears anywhere in the record.",
+    "doubts": "Whether the constants in Browkin-Brzezinski (2006) and Brzezinski (2012) are 2 is unverified. If they are 2, those papers would contradict Xiao's theorem. The content of Xiao's v2 and v3 'corrections to the proof' is unknown. The verification answers for the pre-snapshot journal papers rest on their being published, not on any reading the record documents; they do not affect the outcome.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "claimed",
+      "rests_on": "xiao-2024-12",
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

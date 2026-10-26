@@ -1,0 +1,1912 @@
+{
+  "key": "jacobian-conjecture",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 a polynomial map C^3 to C^3 with constant Jacobian determinant -2 and no polynomial inverse has been announced (Levent Alpöge, 19 July 2026, credited to Claude Fable 5), checked algebraically by Terence Tao and in Isabelle/HOL, and extended to every dimension n >= 3 by padding and by follow-up families; the plane case n = 2 remains open in every source read, and no 2026 result had passed peer review in the latest sources read.",
+  "problem_asks": "Read from the statement alone: (1) for any characteristic-0 field k; (2) for any n >= 1 and any polynomial map F = (F_1,...,F_n) with components F_i in k[x_1,...,x_n]; (3) hypothesis: the Jacobian determinant det(dF_i/dx_j) is a nonzero constant; (4) conclusion: F has a regular inverse, i.e. a map G with polynomial components such that F(G(y)) = y and G(F(x)) = x. The statement is a single universal claim quantified over every dimension n and every characteristic-0 field k. It does not single out n = 1 or n = 2, and it does not restrict the field beyond characteristic 0.",
+  "events": [
+    {
+      "id": "alpoge-2026-07-19",
+      "what_happened": "Levent Alpöge announced on X an explicit polynomial map F: C^3 to C^3, F(x,y,z) = ((1+xy)^3 z + y^2(1+xy)(4+3xy), y + 3x(1+xy)^2 z + 3xy^2(4+3xy), 2x - 3x^2 y - x^3 z), with Jacobian determinant -2 and F(0,0,-1/4) = F(1,-3/2,13/2) = F(-1,3/2,13/2) = (-1/4,0,0), so F is not injective and has no polynomial inverse. The announcement is dated 19 July 2026 in Wikipedia's lead, in the Gao abstract, in Gallagher's preprint and in the Breakthrough Tracker record, and 20 July in Wikipedia's citation of the tweet, in the AFP entry and in Gallagher's reference list (see disputes). The map as written is reproduced in the minimaxir.com post, which quotes it from the announcement; it has degree seven and the same collision points as Tao's digest, which I checked by hand. The announcement itself was not reachable (X returned HTTP 402), so the wording here comes from secondary reports. No arXiv or journal version of this announcement was found.",
+      "date": "2026-07-19",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Over C, and also over Q since the map has integer coefficients and rational collision points, shows the statement fails for n = 3: an explicit map with constant nonzero Jacobian determinant (-2) that is not injective, so has no polynomial inverse. Restriction: the announced map lives in dimension 3. The AFP entry (2026-07-20) and van den Essen's abstract state that identity padding gives counterexamples in every n >= 3, keeping the determinant constant; that extension is recorded under those events.",
+      "remains": "For the statement as worded (all n, all characteristic-0 k): nothing is settled about n = 1 (trivial) or n = 2 (the plane case). Every source read, including Wikipedia's lead, Meng and Yang, Nguyen and MathWorld (updated 2 October 2026), says the plane case remains open. Whether the plane case is part of what the universal claim asks is a reading of problem_asks, not something this event decides.",
+      "checked_by": [
+        {
+          "who": "Terence Tao",
+          "qualification": "Professional mathematician, described as a Fields Medallist in the search snippets I read",
+          "what_they_did": "Published a step-by-step digest (21 July 2026) stating the map, det DF = -2, the three collision points, and a hand coordinate computation; gives a geometric re-derivation in local-injectivity terms",
+          "where": "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/",
+          "automated": false
+        },
+        {
+          "who": "Arno van den Essen",
+          "qualification": "Long-standing researcher on the Jacobian conjecture and polynomial automorphisms; a library listing seen in search gives him as co-author of the monograph 'Polynomial Automorphisms and the Jacobian Conjecture'",
+          "what_they_did": "arXiv:2609.17795 (15 Sep 2026) gives an elementary route to a counterexample and states that, apart from linear coordinate changes, the example it finds is Alpöge's",
+          "where": "https://arxiv.org/abs/2609.17795",
+          "automated": false
+        },
+        {
+          "who": "Abhishek Saha",
+          "qualification": "Named in Wikipedia's article on the conjecture; professional position not checked",
+          "what_they_did": "Said, as quoted in Wikipedia, that the counterexample is simple to verify in itself; no written check by him was found",
+          "where": "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 weeks (85 days) to 12 October 2026",
+      "machine_checked": {
+        "system": "Isabelle/HOL, Archive of Formal Proofs entry 'Jacobian_Counterexample' (20 July 2026)",
+        "sorry_free": null,
+        "url": "https://isa-afp.org/entries/Jacobian_Counterexample.html"
+      },
+      "directly_checkable": "The explicit map above. For this record I checked by hand that the three points each map to (-1/4,0,0) and that the Jacobian determinant at the origin is -2. I did not check that the determinant is constant on all of C^3: a Python/sympy check was blocked by a permission prompt. Constancy rests on Tao's digest and the Isabelle entry.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Against the conjecture in dimension 3: the map is exactly a constant-Jacobian polynomial map with no polynomial inverse, the kind of object the universal claim rules out. It does not bear on n = 2.",
+      "object": "An explicit polynomial map F: C^3 to C^3 (also with integer coefficients), F(x,y,z) = ((1+xy)^3 z + y^2(1+xy)(4+3xy), y + 3x(1+xy)^2 z + 3xy^2(4+3xy), 2x - 3x^2 y - x^3 z), of degree 7. Its Jacobian determinant is the constant -2, and the three distinct points (0,0,-1/4), (1,-3/2,13/2), (-1,3/2,13/2) all map to (-1/4,0,0). The map is explicit, not a non-constructive existence proof.",
+      "people": [
+        "Levent Alpöge",
+        "Akhil Mathew (credited with posing the question, per secondary reports of the announcement)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude Fable 5",
+            "what_it_did": "Credited by the announcer with the work that produced the map. The AFP entry's account says 'work leading to the map'; the Breakthrough Tracker says 'Claude Fable reportedly found the example; humans posed the question, checked the algebra and announced the result'; Wikipedia says the method 'has not been revealed'. The quoted sentence from the announcement (below) says only that Fable worked overtime; the claim that Fable found the map appears in those secondary reports, not in that sentence.",
+            "basis_quote": "my other good friend Fable for working overtime during the World Cup final",
+            "quote_url": "https://www.kucoin.com/news/flash/87-year-old-jacobian-conjecture-disproven-by-anthropic-mathematician-using-claude-fable-5"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+          "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+          "https://isa-afp.org/entries/Jacobian_Counterexample.html",
+          "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-jacobian-conjecture-dimension-3-2026/",
+          "https://www.kucoin.com/news/flash/87-year-old-jacobian-conjecture-disproven-by-anthropic-mathematician-using-claude-fable-5"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+        "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+        "https://minimaxir.com/2026/07/jacobian-conjecture/",
+        "https://theconversation.com/hello-there-the-jacobian-conjecture-is-false-thanx-why-a-tiny-social-media-post-has-mathematicians-rethinking-ai-283883",
+        "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-jacobian-conjecture-dimension-3-2026/",
+        "https://mathworld.wolfram.com/JacobianConjecture.html",
+        "https://lenz.io/c/jacobian-conjecture-disproof-status-a95fe211",
+        "https://www.kucoin.com/news/flash/87-year-old-jacobian-conjecture-disproven-by-anthropic-mathematician-using-claude-fable-5"
+      ]
+    },
+    {
+      "id": "gallagher-2026-07-20",
+      "what_happened": "Alexis Gallagher (Repertory Robotics, Inc.) posted a Zenodo preprint, 'An infinite family of counterexamples to the Jacobian Conjecture in dimension three: every generic fiber degree n>=3 occurs' (DOI 10.5281/zenodo.21479195), building on Alpöge's three-variable counterexample. The record describes a uniform construction giving, for each integer n >= 3, an explicit polynomial map on C^3 with constant Jacobian determinant 1 and generic fibre degree exactly n, and says the degree-four member is not equivalent to Alpöge's degree-three map under polynomial coordinate changes and is not an iterate of it. The record says the identities were checked by exact symbolic or rational arithmetic and names no formal proof assistant. The PDF could not be extracted, so the formulas were not read.",
+      "date": "2026-07-20",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Zenodo record: v1, created and modified 21 July 2026 (per the record page). No later version seen.",
+      "delivers": "For each n >= 3, a further counterexample in dimension 3 (generic fibre degree n) with determinant 1, distinct from Alpöge's map. Restriction: dimension 3 as stated; higher dimensions not claimed in this record.",
+      "remains": "n = 2 (the plane case) and, for the universal claim, nothing beyond the dimension-3 failure already in alpoge-2026-07-19. The family shows that the dimension-3 failure is not isolated.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 weeks (84 days)",
+      "machine_checked": null,
+      "directly_checkable": "The family is said to be explicit (record page). The formulas were in the PDF, which I could not extract, so not checked.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Against the conjecture in dimension 3, in the same sense as alpoge-2026-07-19, with one counterexample per generic fibre degree n >= 3.",
+      "object": "An explicit family F_n: C^3 to C^3 (per the record: 'a uniform construction ... yields an explicit polynomial map on C^3 with constant Jacobian determinant 1 and generic fiber degree exactly n'). The explicit formulas were not read.",
+      "people": [
+        "Alexis Gallagher"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "OpenAI's GPT-5.6-sol",
+            "what_it_did": "The record says the weighted-lift construction and the family realising every generic fibre degree n >= 3 were developed in an interactive, prompt-driven investigation with substantial mathematical and computational assistance from this model. This is the authors' own statement and concerns the construction of the family itself. The quote was obtained from a fetch summary of the record page, not the PDF. No search indexed this model name in connection with the result.",
+            "basis_quote": "The weighted-lift construction and the family realizing every generic fiber degree n >= 3 were developed by Alexis Gallagher in an interactive, prompt-driven investigation with substantial mathematical and computational assistance from OpenAI's GPT-5.6-sol.",
+            "quote_url": "https://zenodo.org/records/21479195"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/21479195"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/21479195"
+      ]
+    },
+    {
+      "id": "tao-digestion-2026-07-21",
+      "what_happened": "Terence Tao, 'A digestion of the Jacobian conjecture counterexample', blog post dated 21 July 2026. An exposition of Alpöge's map: Theorem 2 states there is a polynomial F: C^3 to C^3 with non-zero constant Jacobian that is not invertible; equation (1) is the degree-seven map; det DF = -2 and the three collisions are stated; the post gives a geometric re-derivation in local-injectivity terms and says the map is hard to find by brute force. The post contains two AI statements, both quoted via a fetch summary: 'It was recently shown (using the Fable AI) that the conjecture is false in three dimensions' and 'AI disclosure: I used an AI chatbot to discuss various aspects of this problem and to confirm several of the calculations made here.' The second links to a ChatGPT share page. No new object beyond alpoge-2026-07-19.",
+      "date": "2026-07-21",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Re-establishes in C^3, with an explanation, the non-invertibility of the map of alpoge-2026-07-19 with constant Jacobian -2. No new restriction beyond dimension 3.",
+      "remains": "As for alpoge-2026-07-19: n = 2 open.",
+      "checked_by": [
+        {
+          "who": "Terence Tao (author of the digest)",
+          "qualification": "As for alpoge-2026-07-19",
+          "what_they_did": "Worked through the algebra, states the determinant and collisions, and says the map can be verified by a brief coordinate computation; discloses an AI chatbot used to confirm several calculations",
+          "where": "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 weeks",
+      "machine_checked": null,
+      "directly_checkable": "The coordinate computation given in the post.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with alpoge-2026-07-19: against the conjecture in dimension 3.",
+      "object": null,
+      "people": [
+        "Terence Tao"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/"
+        ]
+      },
+      "sources": [
+        "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/"
+      ]
+    },
+    {
+      "id": "afp-isabelle-2026-07-20",
+      "what_happened": "Archive of Formal Proofs entry 'Formal Verification of an Explicit Counterexample to the Jacobian Conjecture' by Arthur Freitas Ramos, David Barros Hulak and Ruy Jose Guerra Barretto de Queiroz, dated 20 July 2026. An Isabelle/HOL verification that Alpöge's explicit map has Jacobian determinant identically -2 and that three distinct rational points share an image, so the map has no polynomial inverse; it builds identity-padded maps giving counterexamples in every finite dimension >= 3, and makes no claim about dimension two. The entry says AI assistance was used for proof engineering (system not named in the text read) and that the announcement credits Claude Fable with work leading to the map (the entry's account of the announcement).",
+      "date": "2026-07-20",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Machine-checked confirmation of alpoge-2026-07-19 for n = 3, and padded counterexamples for each n >= 3 (constant determinant preserved). No claim about n = 2.",
+      "remains": "n = 2, as the entry states.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 weeks",
+      "machine_checked": {
+        "system": "Isabelle/HOL",
+        "sorry_free": null,
+        "url": "https://isa-afp.org/entries/Jacobian_Counterexample.html"
+      },
+      "directly_checkable": "The Isabelle source in the AFP entry. The entry says 'The final definitions, statements, and proofs are checked by Isabelle' and does not mention sorry in the text read; I did not inspect the sources.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against the conjecture for n >= 3 (machine check of alpoge-2026-07-19 and its padding).",
+      "object": null,
+      "people": [
+        "Arthur Freitas Ramos",
+        "David Barros Hulak",
+        "Ruy Jose Guerra Barretto de Queiroz"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://isa-afp.org/entries/Jacobian_Counterexample.html"
+        ]
+      },
+      "sources": [
+        "https://isa-afp.org/entries/Jacobian_Counterexample.html"
+      ]
+    },
+    {
+      "id": "speyer-2026-07-23",
+      "what_happened": "D. E. Speyer, 'The geometry and structure of Gallagher's counterexamples to the Jacobian Conjecture', dated 23 July 2026. Located only through citations in Gao (arXiv:2608.00222) and van den Essen (arXiv:2609.17795), and described in the Gao abstract as a 'geometric explanation' of Gallagher's family. The note itself was not found and not read.",
+      "date": "2026-07-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Unknown: not read. Per the citing abstract, a geometric explanation of the dimension-3 family in gallagher-2026-07-20.",
+      "remains": "Unknown (not read).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 11 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with dimension-3 counterexamples, per the citing abstract. Not read.",
+      "object": null,
+      "people": [
+        "D. E. Speyer"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.00222"
+      ]
+    },
+    {
+      "id": "gao-2026-07-31",
+      "what_happened": "Shuhong Gao, 'Counterexamples to the Jacobian conjecture in dimensions greater than two', arXiv:2608.00222, v1 submitted 31 July 2026 (the only version). Per the abstract: it cites the dimension-3 refutation by Alpöge (19 July), the infinite family by Gallagher (20 July) and the geometric explanation by Speyer (23 July); gives a self-contained 'tangent-sweep' mechanism, generalises it to direction fields on hypersurfaces, and produces counterexamples in every dimension above two, with five explicit maps whose identities were checked in exact rational arithmetic. The full text was not read.",
+      "date": "2026-07-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (31 July 2026)",
+      "delivers": "Counterexamples in every dimension n > 2 by a construction distinct from padding (per abstract). Restriction: dimensions above two; the plane case is not claimed. For the universal claim this adds a further route to failure in each n >= 3.",
+      "remains": "n = 2.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 weeks",
+      "machine_checked": null,
+      "directly_checkable": "The five explicit maps, per the abstract. Not read.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against the conjecture in every dimension n > 2 (per abstract).",
+      "object": "Five explicit polynomial maps in dimensions above two, built by a tangent-sweep mechanism (per abstract; the maps themselves were not read).",
+      "people": [
+        "Shuhong Gao"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.00222"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.00222"
+      ]
+    },
+    {
+      "id": "van-den-essen-2026-09-15",
+      "what_happened": "Arno van den Essen, 'An elementary way to find a counterexample to the Jacobian Conjecture', arXiv:2609.17795 (submitted 15 Sep 2026, single version; the PDF is dated 12 Sep per a search snippet). Abstract: the example it finds is, apart from linear coordinate changes, the example found by Levent Alpöge, and the paper shows that such a counterexample can be found with elementary mathematics. The PDF is a binary file that could not be extracted, so the method and any AI statement were not read. A search snippet says the paper mentions the author's use of Claude Fable 5; this is unverified.",
+      "date": "2026-09-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (15 Sep 2026)",
+      "delivers": "A re-derivation, by elementary means, of the same class of counterexample as alpoge-2026-07-19 (equal up to linear coordinate changes). Restriction: dimension 3 as far as the abstract says.",
+      "remains": "n = 2.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 weeks",
+      "machine_checked": null,
+      "directly_checkable": "The map of alpoge-2026-07-19 up to linear change of coordinates. The elementary construction was not read.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against the conjecture in dimension 3 (same example up to linear change of coordinates).",
+      "object": "The map of alpoge-2026-07-19 up to linear coordinate changes, per the abstract.",
+      "people": [
+        "Arno van den Essen"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.17795"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.17795"
+      ]
+    },
+    {
+      "id": "shaska-2026-07-22",
+      "what_happened": "Tanush Shaska, 'Graded Keller maps and the Jacobian Conjecture', arXiv:2607.20210 (v1 22 July 2026; v2 25 July 2026). Per the abstract: equivariant Keller maps for a weight grading; with all-positive weights an equivariant Keller map is always an automorphism, and in dimension two this holds for every sign pattern; over Q the image of the counterexample is a thin set; the abstract refers to 'the map recently announced as a counterexample', equivariant for the grading (1,-1,-2).",
+      "date": "2026-07-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 22 Jul 2026; v2 25 Jul 2026",
+      "delivers": "Partial structural results for equivariant (graded) Keller maps, restricted to graded maps. It does not settle the statement; the 2026 counterexample has negative weights, so the all-positive-weights theorem does not apply to it.",
+      "remains": "The statement in full; the graded class is a restriction.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral to the statement; restricted to graded maps.",
+      "object": null,
+      "people": [
+        "Tanush Shaska"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2607.20210"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.20210"
+      ]
+    },
+    {
+      "id": "meng-yang-2026-07-24",
+      "what_happened": "Guowu Meng and Liang Yang, 'A five-variable counterexample to the Hessian conjecture, and the low-dimensional status of the Jacobian and Hessian conjectures', arXiv:2607.22198 (v1 24 July 2026; v2 27 July 2026). Per the abstract: an integer polynomial in five variables with constant Hessian determinant 128 and non-injective gradient, refuting the five-variable Hessian conjecture, built from a six-variable doubling of Alpöge's Jacobian counterexample. The paper states that the three-variable Jacobian conjecture is false (Alpöge), that JC_2 and HC_4 remain unsettled, and that HC_4 implies JC_2. It also updates the first author's earlier preprint.",
+      "date": "2026-07-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 24 Jul 2026; v2 27 Jul 2026",
+      "delivers": "For the Jacobian statement: a restatement that JC_3 is false and JC_2 is open. Its new counterexample is to the Hessian conjecture in dimension five, a different question.",
+      "remains": "JC_2 (the plane case), per the paper.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 11 weeks",
+      "machine_checked": null,
+      "directly_checkable": "The five-variable polynomial (explicit, per abstract). Not read in full.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "For the Jacobian statement: restates the dimension-3 failure and the open plane case. For the Hessian conjecture (a different question): against it in dimension five.",
+      "object": "An integer polynomial in five variables, degree 14, with constant Hessian determinant 128 and non-injective gradient (a Hessian object, not a Jacobian one).",
+      "people": [
+        "Guowu Meng",
+        "Liang Yang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2607.22198"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.22198"
+      ]
+    },
+    {
+      "id": "long-poisson-2026-07-22",
+      "what_happened": "Christopher D. Long, 'An Explicit Counterexample to the Rank-Two Poisson Conjecture', arXiv:2608.23777 (v1 22 July 2026, the only version; 17 pages, 1 table). Explicit rational polynomials R, T, D, S in four variables define a Poisson endomorphism of the rank-two canonical Poisson algebra that is not an automorphism; the paper says this disproves the Poisson conjecture for two canonical pairs and so for any number of pairs at least two. An appendix builds a non-automorphic endomorphism of the fourth Weyl algebra, which MathWorld reports as a proposed counterexample to the Dixmier conjecture for n = 4. MathWorld (updated 2 October 2026) says 'ChatGPT supplied the construction with additional AI auditing' and that independent verification had not been reported as of 7 September 2026. The arXiv abstract and comments contain no AI statement.",
+      "date": "2026-07-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "A counterexample to the Poisson conjecture for two or more canonical pairs (a different question), and, if the appendix holds, to the Dixmier conjecture for n = 4 (also a different question). The Dixmier conjecture is reported to imply the Jacobian conjecture (a HandWiki search snippet, not opened), so a Dixmier counterexample would not by itself settle the Jacobian statement either way.",
+      "remains": "The Jacobian statement is not touched by this event.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 12 weeks",
+      "machine_checked": null,
+      "directly_checkable": "The rational polynomials R, T, D, S. Not checked by me.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against the Poisson conjecture (and, if the appendix holds, the Dixmier conjecture for n = 4). Neither bears on the Jacobian statement directly.",
+      "object": "Explicit rational polynomial endomorphism R = x(2 - 3xq), with T, D, S, of the rank-two Poisson algebra, not an automorphism. The induced map of A^4 preserves the symplectic form, has Jacobian determinant one, and has a fibre of exactly three points (per abstract). Appendix: a non-automorphic endomorphism of the fourth Weyl algebra (per abstract).",
+      "people": [
+        "Christopher D. Long"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.23777",
+          "https://mathworld.wolfram.com/PoissonConjecture.html"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.23777",
+        "https://mathworld.wolfram.com/PoissonConjecture.html"
+      ]
+    },
+    {
+      "id": "prellberg-2026-08-12",
+      "what_happened": "Thomas Prellberg, 'Collision-Generated Compression for Homogeneous Keller Maps', arXiv:2608.12543 (v1 12 Aug 2026; v2 31 Aug 2026; v3 15 Sep 2026). Defines the 'collision hull' of a collision in a homogeneous Keller map and applies it to two cubic-homogeneous reductions of the three-variable counterexample (Thompson's 24-variable map, and the 19-variable homogenisation of Van Rijn's map). Also gives a 340-monomial homogeneous quartic that is Hessian-nilpotent, violates Zhao's Vanishing Conjecture, and has an exact collision over Q(i). The page makes no AI statement and mentions a companion script for the finite checks.",
+      "date": "2026-08-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 12 Aug 2026; v2 31 Aug 2026; v3 15 Sep 2026",
+      "delivers": "Structural results on collisions in reductions of the dimension-3 counterexample. Not a new counterexample to the statement in dimension 3 (already in alpoge-2026-07-19). The quartic bears on the Hessian and Zhao conjectures (different questions).",
+      "remains": "The statement in full, including n = 2.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 weeks",
+      "machine_checked": null,
+      "directly_checkable": "The collisions in the reductions and the quartic, with a companion script listed on the page (not read).",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Concerns reductions of the existing counterexample; does not change the truth value beyond alpoge-2026-07-19.",
+      "object": "A 340-monomial homogeneous quartic that is Hessian-nilpotent, with an exact collision over Q(i) (per abstract; not read in full).",
+      "people": [
+        "Thomas Prellberg"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.12543"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.12543"
+      ]
+    },
+    {
+      "id": "borisov-gabber-vasiu-2026-09-04",
+      "what_happened": "Alexander Borisov, Ofer Gabber and Adrian Vasiu, 'On endomorphisms of affine spaces and the Jacobian problem', arXiv:2609.05746 (v1 4 Sep 2026; 175 pages). Per the abstract (landing page read; full text not read): 'Let p be a prime'; étale endomorphisms of affine planes in positive characteristic, including Adjamagbo's Jacobian Conjecture in characteristic p, images of endomorphisms, and moduli schemes; it gives a characteristic-p analogue over k of Kulikov's counterexample to Bass's generalized Jacobian conjecture for surfaces. The abstract does not mention Alpöge's counterexample.",
+      "date": "2026-09-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (4 Sep 2026)",
+      "delivers": "Results in positive characteristic p (étale endomorphisms of affine planes; fibres of arbitrary finite size). Different hypotheses from the characteristic-zero statement. Not a result on it.",
+      "remains": "The characteristic-zero statement in full.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "An analogue in characteristic p; cuts neither way for the characteristic-zero statement.",
+      "object": "Étale endomorphisms of affine planes in characteristic p with fibres of arbitrary finite cardinality (per the abstract summary; not read in full).",
+      "people": [
+        "Alexander Borisov",
+        "Ofer Gabber",
+        "Adrian Vasiu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.05746"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.05746"
+      ]
+    },
+    {
+      "id": "wang-yan-2026-09-15",
+      "what_happened": "Jie Wang and Dan Yan, 'Nilpotent Jacobian maps in dimension three and stable tameness in block extensions', arXiv:2609.16580 (v1 15 Sep 2026). Studies polynomial maps in three variables with nilpotent Jacobian over characteristic-zero fields, giving explicit inverses and tame factorisations. The abstract does not mention the constant-Jacobian statement or the 2026 counterexample.",
+      "date": "2026-09-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "Results on nilpotent-Jacobian maps: a different hypothesis from a constant nonzero Jacobian determinant.",
+      "remains": "The statement in full.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not bearing on the statement (different hypothesis).",
+      "object": null,
+      "people": [
+        "Jie Wang",
+        "Dan Yan"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.16580"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.16580"
+      ]
+    },
+    {
+      "id": "moonshine-2026-06-09",
+      "what_happened": "Xiaoyang Chen and Xiang Jiang, 'Moonshine: An Autonomous Mathematical Research Agent Centered on Conjecture Generation', arXiv:2606.10806 (v1, 9 June 2026, the only version). Uses the Jacobian conjecture as a template to propose a 'Neural Jacobian Conjecture' for one-hidden-layer sigmoid networks, asking whether a positive Jacobian determinant forces global injectivity. Reports complete proofs for the case N = n+1, obtained by invoking GPT-5.5-pro and DeepSeek-V4-pro, and a geometric-topological argument developed with ChatGPT's web interface; the general case N >= n+2 is open. This is a neural analogue, not the polynomial statement.",
+      "date": "2026-06-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "Results for a neural-network analogue (N = n+1). Different hypotheses and a different object; does not bear on the polynomial statement.",
+      "remains": "The polynomial statement in full (different question); the general neural case N >= n+2.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the neural analogue in the N = n+1 case; no bearing on the polynomial statement.",
+      "object": null,
+      "people": [
+        "Xiaoyang Chen",
+        "Xiang Jiang"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-5.5-pro",
+            "what_it_did": "Per the authors, invoked by Moonshine to produce, for the N = n+1 neural case, a complete proof; and, through ChatGPT's web interface, a geometric-topological argument. This concerns the neural analogue, not the polynomial statement.",
+            "basis_quote": "By invoking GPT-5.5-pro and DeepSeek-V4-pro separately, Moonshine obtained independent complete proofs",
+            "quote_url": "https://arxiv.org/abs/2606.10806"
+          },
+          {
+            "name": "DeepSeek-V4-pro",
+            "what_it_did": "Per the authors, invoked by Moonshine to produce an independent complete proof for the N = n+1 neural case (the same sentence as for GPT-5.5-pro).",
+            "basis_quote": "By invoking GPT-5.5-pro and DeepSeek-V4-pro separately, Moonshine obtained independent complete proofs",
+            "quote_url": "https://arxiv.org/abs/2606.10806"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2606.10806"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2606.10806"
+      ]
+    },
+    {
+      "id": "preprints-idempotent-2024-03",
+      "what_happened": "'The Jacobian Conjecture and Idempotent Ideals', Preprints.org manuscript 202403.0664 (March 2024). Per a search snippet (the page returned HTTP 403 and was not opened): two routes, a reformulation in terms of idempotent ideals (I^2 = I) and an equivalent thesis, both said to establish the conjecture over C^n, generalisable to an algebraically closed field of dimension n; the page says it is not peer reviewed. The author was not identified in the snippet.",
+      "date": "2024-03",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Claims a proof of the statement over C^n for every n (abstract only). If the claim held it would cover the universal statement; the argument was not read.",
+      "remains": "Unknown: the argument was not read.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 19 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The abstract claims the conjecture is established for every n over C. alpoge-2026-07-19 gives an explicit map in C^3 with constant Jacobian -2 and no polynomial inverse, which contradicts that conclusion for n = 3. So the claimed argument must contain an error somewhere; the argument itself was not read to locate it.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims to prove the conjecture (cuts for the conjecture). Contradicted in dimension 3 by alpoge-2026-07-19.",
+      "object": null,
+      "people": [
+        "Author not identified in the snippet read"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": [
+        "https://www.preprints.org/manuscript/202403.0664"
+      ]
+    },
+    {
+      "id": "tian-sun-2024-10",
+      "what_happened": "Yan Tian and Chaochao Sun, 'A note on Kaliman's weak Jacobian Conjecture', AIMS Mathematics 9(11): 30406-30412 (received 7 July 2024; revised 22 Sept; accepted 8 Oct; published 25 Oct 2024). Abstract (read on the journal page): 'We improve Kaliman's weak Jacobian Conjecture by the Hurwitz formula and resolution of singular curves', and gives 'a more general form of Kaliman's weak Jacobian Conjecture'. Kaliman's weak version is, per search snippets, a plane statement with an added hypothesis (irreducible level sets of F_1). No earlier preprint was found, so the journal date is used as the best available proxy for the first public written argument.",
+      "date": "2024-10-25",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A plane-case statement under an added hypothesis (Kaliman's weak version), and a more general form of that weak statement. Restricted to dimension two and to the extra hypothesis.",
+      "remains": "The statement in full; the plane case in full.",
+      "checked_by": [
+        {
+          "who": "AIMS Mathematics editors and referees",
+          "qualification": "A peer-reviewed journal; the refereeing process was not inspected",
+          "what_they_did": "Accepted the note for publication (8 Oct 2024 per the journal page)",
+          "where": "https://aimspress.com/article/doi/10.3934/math.20241467",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial, under extra hypotheses in dimension two; neither for nor against the statement.",
+      "object": null,
+      "people": [
+        "Yan Tian",
+        "Chaochao Sun"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://aimspress.com/article/doi/10.3934/math.20241467"
+        ]
+      },
+      "sources": [
+        "https://aimspress.com/article/doi/10.3934/math.20241467"
+      ]
+    },
+    {
+      "id": "chang-shu-yao-2024-01",
+      "what_happened": "Hao Chang, Bin Shu and Yu-Feng Yao, 'Inverse limits of automorphisms of truncated polynomials and applications related to Jacobian conjecture', arXiv:2401.11072 (v1 20 January 2024, the only version). In characteristic p: if a homomorphism of k[x_1..x_n] satisfies a Jacobian condition and preserves maximal ideals, it is an automorphism (per abstract). The comment says 'to appear in JAA'.",
+      "date": "2024-01-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only",
+      "delivers": "A Jacobian-type criterion in positive characteristic. Different hypotheses from the characteristic-zero statement.",
+      "remains": "The characteristic-zero statement in full.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 21 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "An analogue in characteristic p; does not bear on the characteristic-zero statement.",
+      "object": null,
+      "people": [
+        "Hao Chang",
+        "Bin Shu",
+        "Yu-Feng Yao"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2401.11072"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2401.11072"
+      ]
+    },
+    {
+      "id": "oda-2012-03",
+      "what_happened": "Susumu Oda, arXiv:1203.1691, first posted 8 March 2012 (a search snippet gives the early title 'A Short Proof of The Jacobian Conjecture'; the current title is 'On Open Embeddings of Affine Spaces in Affine Varieties and the Jacobian Conjecture'). Versions 1-6 (2012 to Jan 2013) claimed a proof; versions 7-13 were withdrawn (June 2013 to December 2015); version 14 (May 2022) onward uses a different argument; latest is v39 (26 Sep 2026). The current abstract gives the final goal as the Jacobian conjecture in dimension two, calls it a 'faded problem', proves that a normal k-affine surface containing an open subvariety isomorphic to the affine plane equals that subvariety, and states a generalised conjecture GJC_2; it says the results carry over to k via the Lefschetz principle. The comment field (the author's own) says the author revised the draft 'because AI (anthoropic) constructed the counterexample to the Jacobian conjecture'.",
+      "date": "2012-03-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 8 Mar 2012; v2 2 May 2012; v3 26 Jul 2012; v4 17 Aug 2012; v5 19 Sep 2012; v6 7 Jan 2013; v7-v13 withdrawn (Jun 2013 to Dec 2015); v14 13 May 2022; v15-v26 May 2022 to Jul 2023; v27 31 Jan 2024; v28 29 May 2024; v29 19 Oct 2024; v30 28 Dec 2024; v31 18 Jan 2025; v32-v36 Jun to Nov 2025; v37 11 Feb 2026; v38 2 Jul 2026; v39 26 Sep 2026 (latest)",
+      "delivers": "Per the current abstract: a result for normal affine surfaces containing an open affine plane (X = U under the stated hypotheses), with the plane case JC_2 as the stated final goal. The abstract does not claim a proof of JC_2 itself and does not address dimensions n >= 3.",
+      "remains": "The statement in full. Its own target is JC_2, and n >= 3 is not addressed (n >= 3 is already false by alpoge-2026-07-19).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 14 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Scope has changed across versions: the early titles and claims targeted the full conjecture; the current abstract targets only the plane case. Versions 7-13 were withdrawn, and the argument was replaced in 2022. The abstract still calls the plane case a goal, not a result. The comment's remark about AI concerns the 2026 counterexample and is the author's own, not evidence about the argument. These are signals, not an identified error.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "Versions 7 to 13 are marked withdrawn on arXiv; the reason is not given on the page read",
+        "date": "2013-06 to 2015-12",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/1203.1691"
+        ]
+      },
+      "direction": "Claims a proof, or a framework toward one, for the plane case (cuts for the conjecture in dimension two). No bearing on n >= 3.",
+      "object": null,
+      "people": [
+        "Susumu Oda"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1203.1691"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1203.1691"
+      ]
+    },
+    {
+      "id": "nguyen-2019-02",
+      "what_happened": "Thuy Nguyen, 'Some classes satisfying the 2-dimensional Jacobian conjecture and a proof of the complex conjecture until degree 104', arXiv:1902.05923 (v1 15 Feb 2019; latest v5 27 Mar 2025). Per the abstract: classes of two-variable polynomial maps satisfying the plane Jacobian condition in the real and complex cases; for the complex case, a proof up to polynomial degree 104 via the Newton polygon, improving Moh's degree-100 bound (1983). A journal version appeared in Quaestiones Mathematicae in 2025 (per a search snippet, not opened).",
+      "date": "2019-02-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 15 Feb 2019; v5 27 Mar 2025 (latest per arXiv page); journal version 2025 (per snippet)",
+      "delivers": "A plane-case (n = 2) result: classes of maps and, for the complex case, the statement for polynomial maps of degree up to 104. Restricted to dimension two.",
+      "remains": "n = 2 in full; n >= 3 by scope.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial for the plane case, which supports the statement only in restricted degree ranges.",
+      "object": null,
+      "people": [
+        "Thuy Nguyen"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1902.05923"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1902.05923"
+      ]
+    },
+    {
+      "id": "varshavsky-1999-12",
+      "what_happened": "Yakov Varshavsky, 'Infinite-dimensional algebraic varieties and proof of the Jacobian Conjecture', arXiv math/9912196. v1 23 Dec 1999; v2 26 Dec 1999, withdrawn by the author 'due an error in the proof of Proposion 2.13'.",
+      "date": "1999-12-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 23 Dec 1999; v2 26 Dec 1999 (withdrawn)",
+      "delivers": "A claimed proof of the statement (per title); withdrawn, so nothing is established.",
+      "remains": "The statement in full.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 27 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Withdrawn by its author for an error in the proof of Proposition 2.13 (per the withdrawal comment).",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "v2 withdrawn by the author: error in the proof of Proposition 2.13",
+        "date": "1999-12-26",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/math/9912196v2"
+        ]
+      },
+      "direction": "A claimed proof (cuts for the conjecture); withdrawn.",
+      "object": null,
+      "people": [
+        "Yakov Varshavsky"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/9912196v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/9912196v2"
+      ]
+    },
+    {
+      "id": "kuo-parusinski-paunescu-2005-09",
+      "what_happened": "T.-C. Kuo, A. Parusiński and L. Paunescu, 'A Proof of the Plane Jacobian Conjecture', arXiv math/0509431. v1 19 Sep 2005; v2 5 Jan 2006, withdrawn 'due to an error in Section 7'. A later comment by T. T. Moh is reported in a search snippet (not read) as saying the claim is not true.",
+      "date": "2005-09-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 19 Sep 2005; v2 5 Jan 2006 (withdrawn)",
+      "delivers": "A claimed proof for the plane case (n = 2); withdrawn, so nothing is established.",
+      "remains": "n = 2 (as claimed), and n >= 3 by scope.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 21 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Withdrawn by the authors for an error in Section 7. A later comment by T. T. Moh, reported in a search snippet and not read, says the claim is not true.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "v2 withdrawn by the authors: error in Section 7",
+        "date": "2006-01-05",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/math/0509431v2"
+        ]
+      },
+      "direction": "A claimed plane-case proof (cuts for the conjecture in dimension two); withdrawn.",
+      "object": null,
+      "people": [
+        "T.-C. Kuo",
+        "A. Parusiński",
+        "L. Paunescu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0509431v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0509431v2"
+      ]
+    },
+    {
+      "id": "su-2005-12",
+      "what_happened": "Yucai Su, 'An outline on Proof of 2-Dimensional Jacobian Conjecture', arXiv math/0512555. v1 25 Dec 2005. The version read (v8, 2 June 2006) says it corrects errors in Lemma 3.10 and addresses gaps raised by T. T. Mok, and adds a 'key lemma'. The page lists a later version to v10 (19 Aug 2006) and says 'This paper is withdrawn. Please see the complete paper in math.RA/0512268', with no withdrawal date.",
+      "date": "2005-12-25",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 25 Dec 2005; v2 14 Apr 2006 marked withdrawn (per the submission history); v8 2 Jun 2006; latest listed v10 19 Aug 2006",
+      "delivers": "A claimed proof for the plane case (n = 2); withdrawn with a pointer to math.RA/0512268 (not opened).",
+      "remains": "n = 2 (as claimed), and n >= 3 by scope.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 20 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The page records gaps raised by T. T. Mok about Lemma 3.10, which the author says are addressed in v8. The paper is then marked withdrawn, pointing to another paper.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "Paper withdrawn with a pointer to math.RA/0512268; the withdrawal date is not stated",
+        "date": null,
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/math/0512555v8"
+        ]
+      },
+      "direction": "A claimed plane-case proof (cuts for the conjecture in dimension two); withdrawn.",
+      "object": null,
+      "people": [
+        "Yucai Su"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0512555v8"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0512555v8"
+      ]
+    },
+    {
+      "id": "han-2017-11",
+      "what_happened": "Gang Han, 'A proof of the Jacobian conjecture', arXiv:1711.04967. v1 14 Nov 2017; v2 15 Nov 2017 withdrawn. Abstract: 'there is a gap in the proof'. Comment: 'There is a mistake in Proposition 2.6 (2), so the proof is wrong.'",
+      "date": "2017-11-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 14 Nov 2017; v2 15 Nov 2017 (withdrawn)",
+      "delivers": "A claimed proof of the statement; withdrawn, so nothing is established.",
+      "remains": "The statement in full.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The author's own comment identifies a mistake in Proposition 2.6 (2).",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "Withdrawn by the author; v2 records the withdrawal; the stated reason is the mistake in Proposition 2.6 (2)",
+        "date": "2017-11-15",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/1711.04967v2"
+        ]
+      },
+      "direction": "A claimed proof (cuts for the conjecture); withdrawn.",
+      "object": null,
+      "people": [
+        "Gang Han"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1711.04967v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1711.04967v2"
+      ]
+    },
+    {
+      "id": "sazonov-2022-12",
+      "what_happened": "Vasily Sazonov, 'Jacobian conjecture: coloring Abdesselam-Rivasseau model', arXiv:2212.07920. v1 15 Dec 2022; v2 1 Mar 2023; v3 19 Apr 2023; v4 17 Nov 2023, which reads 'The paper is withdrawn due to the mistake in the lemma 2'. The paper recasts the inverse map as a perturbative QFT object and argues that the tree series terminates.",
+      "date": "2022-12-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 15 Dec 2022; v2 1 Mar 2023; v3 19 Apr 2023; v4 17 Nov 2023 (withdrawn)",
+      "delivers": "A claimed proof of the statement via a QFT argument; withdrawn, so nothing is established.",
+      "remains": "The statement in full.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 years 10 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The author's withdrawal comment identifies a mistake in Lemma 2.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "Withdrawn by the author: mistake in Lemma 2",
+        "date": "2023-11-17",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/2212.07920v4"
+        ]
+      },
+      "direction": "A claimed proof (cuts for the conjecture); withdrawn.",
+      "object": null,
+      "people": [
+        "Vasily Sazonov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2212.07920v4"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2212.07920v4"
+      ]
+    },
+    {
+      "id": "kraus-1884",
+      "what_happened": "Ludwig Kraus, a paper of 1884 which, per Rodríguez Díaz (arXiv:2512.23614; Comptes Rendus Mathématique 364 (2026) 363-370), has as its main result the statement now called the plane Jacobian conjecture. Kraus's final step is flawed; the error concerns controlling ramification at infinity. Wikipedia's infobox credits Kraus with the 1884 formulation (per a search snippet). The journal of the 1884 paper was not identified.",
+      "date": "1884",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A claimed proof of the planar case, with a flawed final step (per Rodríguez Díaz).",
+      "remains": "n = 2 in full, and n >= 3 by scope.",
+      "checked_by": [
+        {
+          "who": "Lázaro O. Rodríguez Díaz",
+          "qualification": "Author of the 2026 Comptes Rendus analysis; the paper is refereed",
+          "what_they_did": "Located the 1884 paper through zbMATH and identified the final step as flawed, locating the error in controlling ramification at infinity",
+          "where": "https://arxiv.org/abs/2512.23614",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 142 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Per Rodríguez Díaz, the author does not fully repair the proof; some steps 'require further justification or do not go through as stated without modification' (from the arXiv abstract read via a search summary).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A claimed planar proof (cuts for the conjecture in dimension two); flawed per the modern analysis.",
+      "object": null,
+      "people": [
+        "Ludwig Kraus"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2512.23614"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2512.23614"
+      ]
+    },
+    {
+      "id": "pinchuk-1994",
+      "what_happened": "Pinchuk, 'A counterexample to the strong real Jacobian conjecture', Math. Z. 217 (1994), 1-4 (per a search result; the Springer page was not opened). Constructs a polynomial map of the real plane whose Jacobian never vanishes but which is not injective (per the search summary; one component's level curves have more than one branch). Sources give 1993 or 1994 for the discovery; the journal year 1994 is recorded. Nguyen's introduction (search snippet) says the real case was 'solved negatively by Pinchuk in 1994'. Peretz (1996, per a search summary) argues that the complex case admits no counterexample of Pinchuk's type.",
+      "date": "1994",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Refutes the strong real Jacobian conjecture, in which the Jacobian is nonvanishing but not required to be constant. Restricted to the real plane. The sources read do not say whether Pinchuk's Jacobian is constant, so they do not establish that the constant-Jacobian statement over R fails.",
+      "remains": "Whether the constant-Jacobian statement over R fails in dimension 2 is not settled by the sources read. The complex plane case remains open (see alpoge-2026-07-19 for the scope of the 2026 result).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 32 years",
+      "machine_checked": null,
+      "directly_checkable": "Pinchuk's explicit real map (not read).",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Against a strong real version of the conjecture (nonvanishing rather than constant Jacobian). Whether it cuts against the constant-Jacobian statement over R is not established by the sources read.",
+      "object": "A polynomial map R^2 to R^2 with a nowhere-vanishing Jacobian that is not injective (per the search summary; the explicit formula was not read).",
+      "people": [
+        "Pinchuk (initial not given in the sources read)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://link.springer.com/doi/10.1007/BF02571929"
+        ]
+      },
+      "sources": [
+        "https://link.springer.com/doi/10.1007/BF02571929"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Role of Claude Fable 5 in the 2026 counterexample. The AFP entry and Wikipedia credit the model with work leading to the map. The Breakthrough Tracker says Fable reportedly found the example and humans posed the question and checked the algebra. Wikipedia says the method has not been revealed. A Tao comment (reader's comment, not Tao's text) says the result is 'credited to Levent Alpöge, with Claude Fable 5 (Anthropic), not vice versa'. Secondary reports say Akhil Mathew posed the question, and the announcement's own wording was not read.",
+      "sources": [
+        "https://isa-afp.org/entries/Jacobian_Counterexample.html",
+        "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+        "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-jacobian-conjecture-dimension-3-2026/",
+        "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/"
+      ]
+    },
+    {
+      "kind": "date",
+      "summary": "Announcement date of the counterexample: 19 July 2026 in Wikipedia's lead, the Gao abstract, Gallagher's preprint and the Breakthrough Tracker; 20 July in Wikipedia's citation of the tweet, the AFP entry and Gallagher's reference list. Secondary reports say the tweet was posted on the night of the World Cup final (19 July). The record uses 19 July as the first public written argument.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+        "https://arxiv.org/abs/2608.00222",
+        "https://zenodo.org/records/21479195",
+        "https://isa-afp.org/entries/Jacobian_Counterexample.html"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "AI credit for the family in Gallagher's preprint (OpenAI's GPT-5.6-sol) appears only in the Zenodo record page as read through a fetch summary; a search for that model name in connection with the result returned nothing. The PDF could not be extracted to confirm it.",
+      "sources": [
+        "https://zenodo.org/records/21479195"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Long's Poisson and Dixmier paper: MathWorld says ChatGPT supplied the construction with AI auditing; the arXiv abstract, comments and page contain no AI statement.",
+      "sources": [
+        "https://mathworld.wolfram.com/PoissonConjecture.html",
+        "https://arxiv.org/abs/2608.23777"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "Origin of the conjecture: Kraus (1884) versus Keller (1939). Rodríguez Díaz argues the statement is the main result of Kraus's 1884 paper, whose final step is flawed. The conventional attribution (and the Wikipedia lead, per the fetch) is Keller 1939; a Wikipedia infobox credits Kraus (search snippet). This concerns authorship of the conjecture, not priority of a result.",
+      "sources": [
+        "https://arxiv.org/abs/2512.23614",
+        "https://en.wikipedia.org/wiki/Jacobian_conjecture"
+      ]
+    },
+    {
+      "kind": "scope",
+      "summary": "Pinchuk (1994) is described as refuting 'the real Jacobian conjecture' (Nguyen's introduction, via a search snippet) but as a counterexample to the 'strong real Jacobian conjecture' in the Math. Z. title, whose Jacobian is nonvanishing rather than constant. Whether the real constant-Jacobian statement is refuted is not settled by the sources read.",
+      "sources": [
+        "https://link.springer.com/doi/10.1007/BF02571929",
+        "https://arxiv.org/abs/1902.05923"
+      ]
+    }
+  ],
+  "summary": "Found: a dimension-3 counterexample announced in July 2026 and a cluster of follow-ups. Alpöge's map (explicit, degree 7, Jacobian determinant -2, three points in one fibre) refutes the statement for n = 3. Support comes from Tao's digest, an Isabelle/HOL entry in the Archive of Formal Proofs, and my hand check of the three collisions and of the determinant at the origin (not the full constancy). Gallagher's Zenodo preprint (20 July) gives an infinite family in dimension 3, and Gao (31 July) gives counterexamples in every dimension above two, so the failure is not isolated; van den Essen (15 Sep) gives an elementary route to the same example. The plane case n = 2 is open in every source read, including the Wikipedia lead, Meng and Yang, Nguyen and the Oda abstract. No 2026 result is peer reviewed in the sources read; the latest such statement is MathWorld's update of 2 Oct 2026, which gives no verification or review for the counterexample. AI involvement: the announcer's own post, which I could not read directly (X returned HTTP 402), is reported to credit Claude Fable 5 and to thank Fable 'for working overtime'. The AFP entry and Wikipedia repeat the credit; the Breakthrough Tracker says the model found the example and humans posed the question; Wikipedia says the method has not been revealed. This rests on secondary quotations. Gallagher's record, as read through a fetch summary, states that OpenAI's GPT-5.6-sol gave 'substantial mathematical and computational assistance' to the construction of the family. Tao's digest says 'using the Fable AI' and discloses a ChatGPT chatbot used to confirm calculations (checking only). The AFP entry says AI was used for proof engineering without naming a system. van den Essen's abstract credits Alpöge; a search snippet says his PDF mentions Claude Fable 5, but the PDF could not be extracted, so that is unresolved. Moonshine (9 June 2026) credits GPT-5.5-pro and DeepSeek-V4-pro with proofs for a neural analogue, which is a different question. Older literature: claimed proofs by Varshavsky (1999), Kuo, Parusiński and Paunescu (2005), Su (2005-06), Han (2017) and Sazonov (2022-23) were all withdrawn by their authors; Oda's arXiv claim has been revised through 26 Sep 2026 and now targets only the plane case; Preprints.org 202403.0664 (March 2024, not opened) claims a proof over C^n, which the dimension-3 counterexample contradicts. Close calls: (a) The statement is universal over n and over characteristic-0 fields. The n = 3 counterexample refutes it as worded, while n = 2 stays open; whether the judging pass counts this as settling the problem is its call. Pinchuk's 1994 real example is a strong real version with nonvanishing (not constant) Jacobian, so it does not settle the real constant-Jacobian case in these sources. (b) The AI role rests on the announcer's post as reported by others, and the method is undisclosed. (c) Long's Poisson and Dixmier paper: MathWorld says ChatGPT supplied the construction; the arXiv page says nothing. (d) The announcement date is 19 or 20 July; I used 19 July, which Gallagher, Gao and Wikipedia's lead give.",
+  "competing_reading": "The counterexample is one instance in dimension 3, and Wikipedia's lead calls the plane case the only unresolved one. On that reading the event is a counterexample to a dimension-restricted claim that leaves the plane case open, and the problem is not closed. The opposing reading treats the statement as a single universal claim over every n and every characteristic-0 field, which one counterexample falsifies; the Wikipedia article and Tao's digest frame it that way. On AI: a reading that makes the model's role only search (Tao's and John Cook's accounts treat it as a tool; van den Essen gives an elementary route, which suggests a human could find the map) would count the credit as not load-bearing. The announcer's credit, which I could not read directly, is the strongest reading and makes the model load-bearing.",
+  "what_would_settle_it": "The announcer's own post text and timestamp, and any PDF he posts (X returned HTTP 402; the Wikipedia article cites a 9 September 2026 post, not read). The full text of van den Essen's arXiv:2609.17795, for its method and any AI sentence. The PDF of Gallagher's Zenodo record, for the exact AI sentence and formulas. Speyer's note, which I could not find. The Pinchuk paper, to see whether its Jacobian is constant, which decides the real constant-Jacobian question. Any journal acceptance or refereeing report for the 2026 counterexample. Sorry-free checks of any Lean repositories the secondary sources mention. The Preprints.org 202403.0664 argument, to locate its error against the explicit map.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+      "title": "Jacobian conjecture (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+      "title": "Levent Alpöge (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/",
+      "title": "Terence Tao, A digestion of the Jacobian conjecture counterexample (21 Jul 2026)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://isa-afp.org/entries/Jacobian_Counterexample.html",
+      "title": "Formal Verification of an Explicit Counterexample to the Jacobian Conjecture (AFP)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/21479195",
+      "title": "Gallagher, An infinite family of counterexamples to the Jacobian Conjecture in dimension three (Zenodo record)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.17795",
+      "title": "van den Essen, An elementary way to find a counterexample to the Jacobian Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.00222",
+      "title": "Gao, Counterexamples to the Jacobian conjecture in dimensions greater than two",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.05746",
+      "title": "Borisov, Gabber, Vasiu, On endomorphisms of affine spaces and the Jacobian problem",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.16580",
+      "title": "Wang and Yan, Nilpotent Jacobian maps in dimension three",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.22198",
+      "title": "Meng and Yang, A five-variable counterexample to the Hessian conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.20210",
+      "title": "Shaska, Graded Keller maps and the Jacobian Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.12543",
+      "title": "Prellberg, Collision-Generated Compression for Homogeneous Keller Maps",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.23777",
+      "title": "Long, An Explicit Counterexample to the Rank-Two Poisson Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.10806",
+      "title": "Chen and Jiang, Moonshine: An Autonomous Mathematical Research Agent",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1203.1691",
+      "title": "Oda, On Open Embeddings of Affine Spaces in Affine Varieties and the Jacobian Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.23614",
+      "title": "Rodríguez Díaz, On the origin of the Jacobian conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://aimspress.com/article/doi/10.3934/math.20241467",
+      "title": "Tian and Sun, A note on Kaliman's weak Jacobian Conjecture (AIMS Mathematics 2024)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/9912196v2",
+      "title": "Varshavsky, Infinite-dimensional algebraic varieties and proof of the Jacobian Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0509431v2",
+      "title": "Kuo, Parusiński, Paunescu, A Proof of the Plane Jacobian Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0512555v8",
+      "title": "Su, An outline on Proof of 2-Dimensional Jacobian Conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1711.04967v2",
+      "title": "Han, A proof of the Jacobian conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2212.07920v4",
+      "title": "Sazonov, Jacobian conjecture: coloring Abdesselam-Rivasseau model",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2401.11072",
+      "title": "Chang, Shu, Yao, Inverse limits of automorphisms of truncated polynomials",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1902.05923",
+      "title": "Nguyen, Some classes satisfying the 2-dimensional Jacobian conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://minimaxir.com/2026/07/jacobian-conjecture/",
+      "title": "minimaxir, Jacobian conjecture (multi-model test; quotes the map)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.johndcook.com/blog/2026/07/21/jacobian-conjecture/",
+      "title": "John D. Cook, Locally everywhere does not imply everywhere",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://theconversation.com/hello-there-the-jacobian-conjecture-is-false-thanx-why-a-tiny-social-media-post-has-mathematicians-rethinking-ai-283883",
+      "title": "Melissa Lee, The Conversation, 22 Jul 2026",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-jacobian-conjecture-dimension-3-2026/",
+      "title": "Breakthrough Tracker record: Jacobian conjecture dimension 3",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://lenz.io/c/jacobian-conjecture-disproof-status-a95fe211",
+      "title": "Lenz claim analysis: Jacobian conjecture is false",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://www.kucoin.com/news/flash/87-year-old-jacobian-conjecture-disproven-by-anthropic-mathematician-using-claude-fable-5",
+      "title": "KuCoin repost of the announcement coverage (low-quality secondary)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/JacobianConjecture.html",
+      "title": "MathWorld, Jacobian Conjecture (updated 2 Oct 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/PoissonConjecture.html",
+      "title": "MathWorld, Poisson Conjecture (updated 2 Oct 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://link.springer.com/doi/10.1007/BF02571929",
+      "title": "Pinchuk, A counterexample to the strong real Jacobian conjecture, Math. Z. 1994",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.preprints.org/manuscript/202403.0664",
+      "title": "The Jacobian Conjecture and Idempotent Ideals (Preprints.org)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.19069",
+      "title": "On the Density of Polynomial Mappings Satisfying the Jacobian Conjecture",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.fastcompany.com/91577272/jacobin-conjecture-anthropic-ai-levent-alpoge",
+      "title": "Fast Company, Harvard mathematician and AI model (returned HTTP 403)",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://x.com/__alpoge__",
+      "title": "Levent Alpöge, X account (returned HTTP 402; announcement not read)",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://openconjectures.org/c/kill-jacobian-2026",
+      "title": "openconjectures.org thread on the counterexample (returned HTTP 503)",
+      "type": "blog",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Jacobian conjecture 2025 proof counterexample arXiv",
+      "Jacobian conjecture AI model proof",
+      "Jacobian conjecture Keller problem new result 2026",
+      "Jacobian conjecture counterexample found",
+      "\"Jacobian conjecture\" arXiv 2024",
+      "\"Jacobian conjecture\" wikipedia",
+      "Jacobian conjecture Dixmier conjecture reduction new paper 2025",
+      "Jacobian conjecture claimed proof withdrawn error",
+      "Jacobian conjecture large language model OpenAI GPT Gemini AlphaEvolve",
+      "Jacobian conjecture Terence Tao blog",
+      "polynomial automorphism Jacobian determinant constant polynomial inverse new result 2026",
+      "Jacobian conjecture Lean formalization sorry",
+      "Alpöge tweet Jacobian conjecture counterexample Claude Fable 5 announcement",
+      "Gallagher infinite family counterexamples Jacobian conjecture dimension three arXiv",
+      "Speyer Gallagher counterexamples Jacobian conjecture geometry note",
+      "Borisov Gabber Vasiu arXiv 2609.05746 Jacobian",
+      "Gao counterexamples Jacobian conjecture dimensions greater than two arXiv 2608.00222",
+      "Akhil Mathew Jacobian conjecture Claude Fable",
+      "Speyer \"geometry and structure of Gallagher's counterexamples\" Jacobian",
+      "Alpöge September 2026 Jacobian conjecture post peer review",
+      "Jacobian conjecture idempotent ideals proof preprints.org 2024",
+      "Tian Sun Kaliman weak Jacobian conjecture Hurwitz formula AIMS Mathematics 2024",
+      "Some classes satisfying the 2-dimensional Jacobian conjecture complex conjecture degree 104",
+      "Neural Jacobian Conjecture sigmoid networks GPT-5.5-pro DeepSeek-V4-pro proof arXiv",
+      "Christopher Long Poisson conjecture counterexample rank two Dixmier arXiv 2608.23777",
+      "Ulam.ai \"A Counterexample to the Jacobian Conjecture\"",
+      "Jacobian conjecture DeepMind Gemini AlphaProof counterexample 2026",
+      "Jacobian conjecture Kimi ChatGPT Wolfram Alpha verification Alpöge checked",
+      "Jacobian counterexample Gallagher Zenodo GPT-5.6-sol AI mathematics",
+      "Kraus 1884 Jacobian conjecture origin Keller 1939 Comptes Rendus flawed proof",
+      "Jacobian conjecture 2-dimensional case open 2026 remains unresolved Alpöge plane case",
+      "Jacobian conjecture Mathew Alpöge arXiv paper pdf follows counterexample Fable",
+      "\"An Independent Lean 4 Verification\" Alpöge Fable counterexample Zenodo",
+      "2026 cubic Jacobian counterexample Borisov Gabber Vasiu framework",
+      "Santibáñez-Leal Hessian conjecture dimension 48 witness Jacobian counterexample",
+      "Thompson 24-variable cubic homogeneous Jacobian counterexample reduction Zenodo",
+      "Anthropic official statement Jacobian conjecture counterexample Claude Fable 5 Alpöge blog",
+      "Pinchuk 1994 counterexample real Jacobian conjecture polynomial map not injective"
+    ],
+    "places_checked": [
+      "arXiv abstract pages for each recorded preprint (2026 cluster; 2024 items; 1999 to 2022 claimed proofs)",
+      "Wikipedia: Jacobian conjecture; Levent Alpöge",
+      "Terence Tao's blog digest of 21 July 2026 (fetched in several passes)",
+      "Archive of Formal Proofs entry Jacobian_Counterexample",
+      "Zenodo record 21479195 (Gallagher)",
+      "MathWorld: Jacobian Conjecture and Poisson Conjecture",
+      "Breakthrough Tracker record and Lenz claim analysis",
+      "minimaxir.com multi-model post (quotes the map)",
+      "John D. Cook blog post; The Conversation article",
+      "AIMS Mathematics journal page for Tian and Sun",
+      "Rodríguez Díaz arXiv 2512.23614 (origin of the conjecture; Kraus 1884)"
+    ],
+    "dead_ends": [
+      "X (Alpöge's own post): HTTP 402; the wording used comes from secondary reports only",
+      "Fast Company: HTTP 403",
+      "openconjectures.org status thread: HTTP 503",
+      "Preprints.org 202403.0664: HTTP 403; the abstract is from a search snippet only",
+      "van den Essen arXiv:2609.17795 PDF and Gallagher Zenodo PDF: binary, not extractable; abstract and record page only",
+      "Speyer, 'The geometry and structure of Gallagher's counterexamples': not found; known only from citations",
+      "Santibáñez-Leal 48-variable Hessian witness: not found; the search attribution to arXiv 2608.12543 was not supported by the abstract I read",
+      "Thompson 24-variable Jacobian reduction on Zenodo: not found (Prellberg's abstract does mention Thompson's 24-variable map)",
+      "'An Independent Lean 4 Verification of the Alpöge-Fable Counterexample' on Zenodo: not found; the search returned an unrelated Zenodo record",
+      "Ulam.ai preprint 'A Counterexample to the Jacobian Conjecture': not reached; its abstract was seen only in a listing site summary",
+      "Anthropic official statement: none found; coverage attributes the announcement to Alpöge's post",
+      "Google DeepMind, Gemini, AlphaProof, OpenAI Codex or Kimi in connection with the 2026 counterexample: none found (secondary reports of a 'Codex' independent find are unconfirmed)",
+      "Alpöge's 9 September 2026 post (cited by Wikipedia): not reached",
+      "Andy Jiang's tweet crediting 'GPT' (cited by Wikipedia): not located",
+      "NewScientist and Fortune articles: not reached (the New Scientist URL I tried was a guess, not from a result)",
+      "Borisov-Gabber-Vasiu full text for any AI mention: not read (landing page only)",
+      "arXiv 2608.19069 (density of polynomial mappings satisfying JC; restates the map, gives determinant -2 in one normalisation): search snippet only, not opened",
+      "arXiv 2204.14178 (degree 100 to 108 bound, plane case, 2022): search snippet only, not opened",
+      "Mendson survey arXiv 1802.04247 (v2 2 Oct 2024; a later paper still calling the problem open): search snippet only, not opened",
+      "Other 2026 neighbouring preprints (arXiv 2608.05392 weak Markus-Yamabe; 2607.18186 Gaussian moments; 2607.20525 sum-product): not recorded, as they concern different problems",
+      "Publicationes Mathematicae 2024 (LND conjecture): search snippet only; a different question, not recorded",
+      "Campbell 2012 and Peretz 1996 (Pinchuk-related): cited in a search summary only; not opened"
+    ]
+  },
+  "incomplete": "(1) The announcement itself (Alpöge's X post, 19/20 July 2026) and his 9 Sept 2026 post could not be read; the AI credit and the 'Akhil Mathew' credit rest on secondary quotations, and WebFetch summaries of pages are not raw text, so quoted wording should be checked against the originals. (2) Gallagher's and van den Essen's PDFs could not be extracted; the AI statements for both are from the Zenodo record page (for Gallagher) and an unverified search snippet (for van den Essen). (3) For arXiv items recorded from abstract pages only (Gao, Shaska, Meng-Yang, Wang-Yan, Prellberg, Borisov-Gabber-Vasiu, van den Essen, Long), ai.none_found reflects the abstract and landing page, not the full text; the full papers were not read. (4) Speyer's note, Pinchuk's paper (only a search summary), the Preprints.org claim (403), and the Lean/Isabelle repositories other than the AFP entry were not opened. (5) The Oda, Kuo-Parusiński-Paunescu and Su entries rely on arXiv abstracts; the mathematics was not checked. (6) Several dates are from search summaries (Tian-Sun received/accepted dates from the journal page; Nguyen's journal version from a snippet). (7) The Jacobian determinant was checked by hand only at the origin and the three collisions were checked by hand; constancy of the determinant was not checked by computer. (8) Breakthrough Tracker, lenz.io, KuCoin, The Conversation and minimaxir were used for secondary facts only. (9) No record of the 2026 Lean repositories or the openconjectures thread status; the latest status found is MathWorld's update of 2 Oct 2026.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "resolved",
+  "ai_role": "generated",
+  "resolution_direction": "refuted",
+  "object_role": "counterexample",
+  "counterexample": {
+    "is_counterexample": true
+  },
+  "rests_on": "alpoge-2026-07-19",
+  "no_change_found": false,
+  "event": {
+    "id": "alpoge-2026-07-19",
+    "what_happened": "Levent Alpöge announced on X an explicit polynomial map F: C^3 to C^3, F(x,y,z) = ((1+xy)^3 z + y^2(1+xy)(4+3xy), y + 3x(1+xy)^2 z + 3xy^2(4+3xy), 2x - 3x^2 y - x^3 z), with Jacobian determinant -2 and F(0,0,-1/4) = F(1,-3/2,13/2) = F(-1,3/2,13/2) = (-1/4,0,0), so F is not injective and has no polynomial inverse. The announcement is dated 19 July 2026 in Wikipedia's lead, in the Gao abstract, in Gallagher's preprint and in the Breakthrough Tracker record, and 20 July in Wikipedia's citation of the tweet, in the AFP entry and in Gallagher's reference list (see disputes). The map as written is reproduced in the minimaxir.com post, which quotes it from the announcement; it has degree seven and the same collision points as Tao's digest, which I checked by hand. The announcement itself was not reachable (X returned HTTP 402), so the wording here comes from secondary reports. No arXiv or journal version of this announcement was found.",
+    "date": "2026-07-19",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "revisions": null,
+    "delivers": "Over C, and also over Q since the map has integer coefficients and rational collision points, shows the statement fails for n = 3: an explicit map with constant nonzero Jacobian determinant (-2) that is not injective, so has no polynomial inverse. Restriction: the announced map lives in dimension 3. The AFP entry (2026-07-20) and van den Essen's abstract state that identity padding gives counterexamples in every n >= 3, keeping the determinant constant; that extension is recorded under those events.",
+    "remains": "For the statement as worded (all n, all characteristic-0 k): nothing is settled about n = 1 (trivial) or n = 2 (the plane case). Every source read, including Wikipedia's lead, Meng and Yang, Nguyen and MathWorld (updated 2 October 2026), says the plane case remains open. Whether the plane case is part of what the universal claim asks is a reading of problem_asks, not something this event decides.",
+    "checked_by": [
+      {
+        "who": "Terence Tao",
+        "qualification": "Professional mathematician, described as a Fields Medallist in the search snippets I read",
+        "what_they_did": "Published a step-by-step digest (21 July 2026) stating the map, det DF = -2, the three collision points, and a hand coordinate computation; gives a geometric re-derivation in local-injectivity terms",
+        "where": "https://terrytao.wordpress.com/2026/07/21/a-digestion-of-the-jacobian-conjecture-counterexample/",
+        "automated": false
+      },
+      {
+        "who": "Arno van den Essen",
+        "qualification": "Long-standing researcher on the Jacobian conjecture and polynomial automorphisms; a library listing seen in search gives him as co-author of the monograph 'Polynomial Automorphisms and the Jacobian Conjecture'",
+        "what_they_did": "arXiv:2609.17795 (15 Sep 2026) gives an elementary route to a counterexample and states that, apart from linear coordinate changes, the example it finds is Alpöge's",
+        "where": "https://arxiv.org/abs/2609.17795",
+        "automated": false
+      },
+      {
+        "who": "Abhishek Saha",
+        "qualification": "Named in Wikipedia's article on the conjecture; professional position not checked",
+        "what_they_did": "Said, as quoted in Wikipedia, that the counterexample is simple to verify in itself; no written check by him was found",
+        "where": "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+        "automated": false
+      }
+    ],
+    "no_engagement_found": false,
+    "time_since_posted": "about 12 weeks (85 days) to 12 October 2026",
+    "machine_checked": {
+      "system": "Isabelle/HOL, Archive of Formal Proofs entry 'Jacobian_Counterexample' (20 July 2026)",
+      "sorry_free": null,
+      "url": "https://isa-afp.org/entries/Jacobian_Counterexample.html"
+    },
+    "directly_checkable": "The explicit map above. For this record I checked by hand that the three points each map to (-1/4,0,0) and that the Jacobian determinant at the origin is -2. I did not check that the determinant is constant on all of C^3: a Python/sympy check was blocked by a permission prompt. Constancy rests on Tao's digest and the Isabelle entry.",
+    "doubts": null,
+    "later_work_cites_it": true,
+    "withdrawn": null,
+    "direction": "Against the conjecture in dimension 3: the map is exactly a constant-Jacobian polynomial map with no polynomial inverse, the kind of object the universal claim rules out. It does not bear on n = 2.",
+    "object": "An explicit polynomial map F: C^3 to C^3 (also with integer coefficients), F(x,y,z) = ((1+xy)^3 z + y^2(1+xy)(4+3xy), y + 3x(1+xy)^2 z + 3xy^2(4+3xy), 2x - 3x^2 y - x^3 z), of degree 7. Its Jacobian determinant is the constant -2, and the three distinct points (0,0,-1/4), (1,-3/2,13/2), (-1,3/2,13/2) all map to (-1/4,0,0). The map is explicit, not a non-constructive existence proof.",
+    "people": [
+      "Levent Alpöge",
+      "Akhil Mathew (credited with posing the question, per secondary reports of the announcement)"
+    ],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "Claude Fable 5",
+          "what_it_did": "Credited by the announcer with the work that produced the map. The AFP entry's account says 'work leading to the map'; the Breakthrough Tracker says 'Claude Fable reportedly found the example; humans posed the question, checked the algebra and announced the result'; Wikipedia says the method 'has not been revealed'. The quoted sentence from the announcement (below) says only that Fable worked overtime; the claim that Fable found the map appears in those secondary reports, not in that sentence.",
+          "basis_quote": "my other good friend Fable for working overtime during the World Cup final",
+          "quote_url": "https://www.kucoin.com/news/flash/87-year-old-jacobian-conjecture-disproven-by-anthropic-mathematician-using-claude-fable-5"
+        }
+      ],
+      "disclosed_cost": null,
+      "sources": [
+        "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+        "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+        "https://isa-afp.org/entries/Jacobian_Counterexample.html",
+        "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-jacobian-conjecture-dimension-3-2026/",
+        "https://www.kucoin.com/news/flash/87-year-old-jacobian-conjecture-disproven-by-anthropic-mathematician-using-claude-fable-5"
+      ]
+    },
+    "sources": [
+      "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+      "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+      "https://minimaxir.com/2026/07/jacobian-conjecture/",
+      "https://theconversation.com/hello-there-the-jacobian-conjecture-is-false-thanx-why-a-tiny-social-media-post-has-mathematicians-rethinking-ai-283883",
+      "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-jacobian-conjecture-dimension-3-2026/",
+      "https://mathworld.wolfram.com/JacobianConjecture.html",
+      "https://lenz.io/c/jacobian-conjecture-disproof-status-a95fe211",
+      "https://www.kucoin.com/news/flash/87-year-old-jacobian-conjecture-disproven-by-anthropic-mathematician-using-claude-fable-5"
+    ]
+  },
+  "credited_humans": [
+    "Levent Alpöge",
+    "Akhil Mathew (credited with posing the question, per secondary reports of the announcement)"
+  ],
+  "status_sources": [
+    "https://en.wikipedia.org/wiki/Jacobian_conjecture",
+    "https://en.wikipedia.org/wiki/Levent_Alp%C3%B6ge",
+    "https://minimaxir.com/2026/07/jacobian-conjecture/",
+    "https://theconversation.com/hello-there-the-jacobian-conjecture-is-false-thanx-why-a-tiny-social-media-post-has-mathematicians-rethinking-ai-283883",
+    "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-jacobian-conjecture-dimension-3-2026/",
+    "https://mathworld.wolfram.com/JacobianConjecture.html",
+    "https://lenz.io/c/jacobian-conjecture-disproof-status-a95fe211",
+    "https://www.kucoin.com/news/flash/87-year-old-jacobian-conjecture-disproven-by-anthropic-mathematician-using-claude-fable-5"
+  ],
+  "ai": {
+    "systems": [
+      "Claude Fable 5"
+    ],
+    "from_event": "alpoge-2026-07-19",
+    "basis_quote": "my other good friend Fable for working overtime during the World Cup final",
+    "none_found": false,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "alpoge-2026-07-19",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "my other good friend Fable for working overtime during the World Cup final",
+        "ai_systems_credited": [
+          "Claude Fable 5"
+        ],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      },
+      {
+        "id": "gallagher-2026-07-20",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "The weighted-lift construction and the family realizing every generic fiber degree n >= 3 were developed by Alexis Gallagher in an interactive, prompt-driven investigation with substantial mathematical and computational assistance from OpenAI's GPT-5.6-sol.",
+        "ai_systems_credited": [
+          "OpenAI's GPT-5.6-sol"
+        ],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      },
+      {
+        "id": "tao-digestion-2026-07-21",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "afp-isabelle-2026-07-20",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "speyer-2026-07-23",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gao-2026-07-31",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      },
+      {
+        "id": "van-den-essen-2026-09-15",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "shaska-2026-07-22",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "meng-yang-2026-07-24",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "long-poisson-2026-07-22",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "prellberg-2026-08-12",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "borisov-gabber-vasiu-2026-09-04",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wang-yan-2026-09-15",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "moonshine-2026-06-09",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "By invoking GPT-5.5-pro and DeepSeek-V4-pro separately, Moonshine obtained independent complete proofs",
+        "ai_systems_credited": [
+          "GPT-5.5-pro",
+          "DeepSeek-V4-pro"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "preprints-idempotent-2024-03",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Claims a proof for every n over C; the explicit, digested and machine-checked degree-7 map in C^3 contradicts its conclusion. Also unopened, anonymous, unreviewed.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "tian-sun-2024-10",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "chang-shu-yao-2024-01",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "oda-2012-03",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Scope shrank across 39 versions, v7-v13 withdrawn, argument replaced; abstract states JC_2 as a goal, not a result.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "nguyen-2019-02",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "varshavsky-1999-12",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn by author: error in Proposition 2.13.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kuo-parusinski-paunescu-2005-09",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn by authors: error in Section 7.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "su-2005-12",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn by author after gaps raised about Lemma 3.10.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "han-2017-11",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn by author: mistake in Proposition 2.6 (2).",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "sazonov-2022-12",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn by author: mistake in Lemma 2.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kraus-1884",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Rodríguez Díaz (refereed) identifies the final step as flawed (ramification at infinity).",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "pinchuk-1994",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement is a single universal claim over all n and all characteristic-0 fields, so one explicit constant-Jacobian map with no polynomial inverse falsifies it as worded: Alpöge's C^3 map is scope whole, direction refuted, object a counterexample; the open plane case is a restriction the statement never singled out, so it does not reduce scope. Alpöge's event is digested via Tao's named public step-by-step digest (and the map is also directly checkable). Gallagher's and Gao's new counterexample families likewise refute the statement but are unreviewed preprints. Tao's digest, the AFP formalisation, Speyer's note, van den Essen's re-derivation of the same map and Prellberg's structural work add no new settlement (none). Hessian, Poisson/Dixmier, characteristic-p, nilpotent-Jacobian, neural and strong-real results are variants. Shaska (graded all-positive weights) and Tian-Sun (Kaliman's weak version, refereed) settle restricted classes: case. The 2024 Preprints.org proof claim is knocked down by the explicit counterexample; older claimed proofs are withdrawn. AI: Alpöge's credit to Fable is close — the direct quote only thanks Fable for 'working overtime', but the AFP entry and tracker report the model found the map; answered generated. Gallagher's own statement of 'substantial mathematical ... assistance' in a human-led construction is assisted.",
+    "doubts": "Alpöge's AI role rests on secondary reports of a post the researcher could not read; the basis quote alone is thin, and Wikipedia says the method was not revealed — if the model only searched under human direction, assisted or none would be right. Gallagher's AI quote comes from a fetch summary of the Zenodo page. Constancy of the Jacobian was not independently checked by the researcher, but Tao and the Isabelle entry both state it. Wikipedia and other sources frame the plane case as the remaining open problem; a narrower reading of the statement would make the 2026 events cases.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "resolved",
+      "rests_on": "alpoge-2026-07-19",
+      "ai_role": "generated",
+      "ai_from": "alpoge-2026-07-19",
+      "resolution_direction": "refuted",
+      "object_role": "counterexample",
+      "ai_systems_credited": [
+        "Claude Fable 5"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

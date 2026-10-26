@@ -1,0 +1,1220 @@
+{
+  "key": "are-there-any-wieferich-primes-in-base-47",
+  "nothing_found": false,
+  "outcome": "No source I could open reports a prime p with 47^(p-1) ≡ 1 (mod p^2) since 26 January 2024, so the existence question is still open. The only base-47-specific movement found is a search bound: 1.07 x 10^14 (OEIS A278611, dated 23 Nov 2016) was superseded by 2 x 10^14 (Fischer's table, last updated 1 Sep 2025; an unsigned OEIS comment) at a date I could not pin down, and a 30 Sep 2026 Fischer table states a conflicting search limit of 4.75 x 10^12.",
+  "problem_asks": "Existence only: whether there is at least one prime p with 47^(p-1) ≡ 1 (mod p^2). Any witness must be a prime p other than 47, since 47^46 is 0 mod 47^2. The bullet asks for no count, no infinitude, and no other part. Wikipedia's current list gives it as a bare question, 'Are there any Wieferich primes in base 47?', linking to the Wieferich prime article, with no nested sub-bullets.",
+  "events": [
+    {
+      "id": "oeis-a278611-2016-bound",
+      "what_happened": "OEIS A278611 ('Bases b > 1 that set a new record for the size of the smallest base-b Wieferich prime', submitted by Felix Frohlich, 23 Nov 2016) comments that 'any Wieferich primes in bases 47 and 72 are larger than 1.07*10^14 (cf. Fischer)'. The attribution is to Richard Fischer's fermatquotient.com table. Fetched as a live page; no later revision of this comment was visible.",
+      "date": "2016-11-23",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": "Entry submitted 23 Nov 2016; the fetched page showed no later edit to this comment. The earliest appearance of the 1.07 x 10^14 figure itself may be earlier than this entry.",
+      "delivers": "A computational search bound, not a result on existence: if a base-47 Wieferich prime exists, it exceeds 1.07 x 10^14 (per Fischer's search as cited). Restricted to the stated search range; says nothing about primes above it.",
+      "remains": "Whether any base-47 Wieferich prime exists above 1.07 x 10^14, and whether there are infinitely many. The bound does not touch the infinitude question.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 years (entry dated 23 Nov 2016)",
+      "machine_checked": null,
+      "directly_checkable": "Any candidate prime p can be tested by computing pow(47, p-1, p*p) == 1 in any big-integer library. I did not rerun Fischer's search.",
+      "doubts": "The bound is a second-hand citation inside an OEIS comment. Its underlying search is Fischer's, and the same site later states a higher bound (see event fischer-table-2e14-bound). The 1.07 x 10^14 figure is therefore superseded on the same site.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No object. A search with no hit cuts neither way on existence; it is consistent with the question being open.",
+      "object": null,
+      "people": [
+        "Richard Fischer (author of the cited table)",
+        "Felix Frohlich (OEIS submitter)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://oeis.org/A278611"
+        ]
+      },
+      "sources": [
+        "https://oeis.org/A278611",
+        "http://www.fermatquotient.com/FermatQuotienten/FermQ_Sort.txt"
+      ]
+    },
+    {
+      "id": "fischer-table-2e14-bound",
+      "what_happened": "Richard Fischer's table FermQ_Sort.txt (Fermat quotients / Wieferich table for bases 2 to 1052; footer dated 01.09.2025, signed Richard Fischer) lists base 47 as '47 keine gefunden' (none found) and states, in German, that bases whose largest prime factor is at most 149 are searched to 2.00E+14, while the remaining bases are searched to 6.46E+13. Base 47 has largest prime factor 47, so by that rule it is searched to 2 x 10^14; applying the rule to base 47 is my inference from the header text. The same figure appears as an unsigned OEIS A039951 comment: 'a(47) > 2*10^14, a(72) > 2*10^14 (see Fischer's tables)'. A second Fischer table, FermQ_Sorg.txt (bases 2 to 10125; footer dated 30.09.2026), has a row '47,' with no prime after it and states 'Die Basen sind gegenwaertig durchsucht bis 4.75E+12' (bases are currently searched to 4.75E+12). That conflicts with 2 x 10^14.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": null,
+      "revisions": "The page carrying 2.00E+14 was last updated 01.09.2025. The OEIS line carrying 2 x 10^14 is unsigned and undated. The earlier figure 1.07 x 10^14 is dated 23 Nov 2016 (event oeis-a278611-2016-bound). The date the 2 x 10^14 figure first appeared is not established, so I cannot say whether it falls inside the window.",
+      "delivers": "A finite search: per Fischer's table, if any base-47 Wieferich prime exists it exceeds 2 x 10^14. Restricted to the stated search; says nothing about larger primes. The 4.75 x 10^12 statement, if taken at face value, would give a much weaker bound, so the table is not self-consistent.",
+      "remains": "Whether any base-47 Wieferich prime exists above 2 x 10^14 (or above 4.75 x 10^12, if that statement governs), and whether there are infinitely many.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13 months since the table's 01.09.2025 update; the undated OEIS line's age is unknown",
+      "machine_checked": null,
+      "directly_checkable": "Any candidate p is checkable by pow(47, p-1, p*p) == 1. Fischer's search program is not on the pages I read, so the search itself was not reproduced.",
+      "doubts": "(1) The two Fischer tables give inconsistent search limits: 2.00E+14 (01.09.2025) against 'currently searched to 4.75E+12' (30.09.2026). (2) The 2 x 10^14 figure has no date in OEIS. (3) The rule that applies 2 x 10^14 to base 47 is my inference from German header text, not an explicit statement about base 47. (4) A search-snippet figure of 1.4 x 10^14 for base 47 appeared in search results but on no page I opened. (5) No paper, referee report or independent rerun of this search was found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No object. Search with no hit; consistent with the question being open, cuts neither way on existence.",
+      "object": null,
+      "people": [
+        "Richard Fischer (maintainer of the fermatquotient.com tables)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "http://www.fermatquotient.com/FermatQuotienten/FermQ_Sort.txt",
+          "http://www.fermatquotient.com/FermatQuotienten/FermQ_Sorg.txt"
+        ]
+      },
+      "sources": [
+        "http://www.fermatquotient.com/FermatQuotienten/FermQ_Sort.txt",
+        "http://www.fermatquotient.com/FermatQuotienten/FermQ_Sorg.txt",
+        "http://www.fermatquotient.com",
+        "http://www.fermatquotient.com/FermatQuotienten/News.txt",
+        "https://oeis.org/A039951"
+      ]
+    },
+    {
+      "id": "oeis-a338646-near-wieferich-2021",
+      "what_happened": "OEIS A338646 (Felix Frohlich, submitted 22 Apr 2021; a(19) and a(20) added 1-2 Jul 2021) lists primes p with 47^(p-1) ≡ 1 + A*p (mod p^2) where |A/p| sets a new record low, using the 'nearness' notion of Dorais and Klyve. Terms shown: 2, 3, 5, 19, 37, 47, 38693, 44657, 148091, 178621, 692521, 4584379, 262148693, 347850691, 502176491, 1139746919, 1387837067, 5291181761, 92653098679, 202259581243. Its comments say 47 is the smallest b with no known base-b Wieferich prime, and that the sequence terminates at a base-47 Wieferich prime if one exists.",
+      "date": "2021-04-22",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": "Submitted 22 Apr 2021; a(19) 1 Jul 2021; a(20) 2 Jul 2021; all by Frohlich.",
+      "delivers": "Nothing on existence. It is a ranking of near-misses for base 47, with a remark that the sequence would end at a base-47 Wieferich prime if one exists. The remark is conditional on existence.",
+      "remains": "The whole question.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5.5 years",
+      "machine_checked": null,
+      "directly_checkable": "The listed terms can be recomputed with a modular-exponentiation loop; the entry gives a PARI program. I did not rerun it.",
+      "doubts": "The listed term 47 cannot satisfy the congruence as written, since 47^46 is 0 mod 47^2 and not 1 + A*47 for an integer A. The entry's convention for the base itself is unexplained on the page I read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No object. A ranking of near-misses; it does not cut either way.",
+      "object": null,
+      "people": [
+        "Felix Frohlich (OEIS submitter)",
+        "Dorais and Klyve (definition of nearness, cited)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://oeis.org/A338646"
+        ]
+      },
+      "sources": [
+        "https://oeis.org/A338646",
+        "https://dorais.org/papers/2011-a-wieferich-prime-search-up-to-6-7-times-10-15.html"
+      ]
+    },
+    {
+      "id": "dorais-klyve-2011-base2",
+      "what_happened": "F. G. Dorais and D. Klyve, 'A Wieferich prime search up to 6.7 x 10^15', Journal of Integer Sequences 14 (2011), article 11.9.2. Reports a faster search for base-2 Wieferich primes, finding no others below 6.7 x 10^15 beyond 1093 and 3511, and introduces the near-Wieferich measure later used for base 47 in OEIS A338646. The abstract, as read via summary, also reports no Fibonacci-Wieferich primes.",
+      "date": "2011",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Base 2 only: no Wieferich prime p < 6.7 x 10^15 other than 1093 and 3511. Says nothing about base 47 in any part I could read.",
+      "remains": "Base 47 existence entirely.",
+      "checked_by": [
+        {
+          "who": "Journal of Integer Sequences (refereed journal)",
+          "qualification": "peer-reviewed journal of record",
+          "what_they_did": "published the paper",
+          "where": "https://dorais.org/papers/2011-a-wieferich-prime-search-up-to-6-7-times-10-15.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 15 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Full text not read: the JIS PDF returned HTTP 503 and the HTML version HTTP 404. The abstract was read through a summary of the dorais.org page, and the bound symbol was stripped in that summary, so the bound is taken from the title.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Base 2 result; no object for base 47.",
+      "object": null,
+      "people": [
+        "F. G. Dorais",
+        "D. Klyve"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://dorais.org/papers/2011-a-wieferich-prime-search-up-to-6-7-times-10-15.html"
+        ]
+      },
+      "sources": [
+        "https://dorais.org/papers/2011-a-wieferich-prime-search-up-to-6-7-times-10-15.html"
+      ]
+    },
+    {
+      "id": "carella-2017-base2",
+      "what_happened": "N. A. Carella, 'Results for Wieferich Primes', arXiv:1712.08166 (v1 21 Dec 2017; v2 5 May 2018). Gives an asymptotic count of primes p with v^(p-1) ≡ 1 mod p^2 in short intervals for a general base v. The only search result stated in the abstract is base 2 up to 10^15 (two primes found), and it predicts heuristically that another base-2 prime exists in [10^15, 10^40].",
+      "date": "2017-12-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 21 Dec 2017; v2 5 May 2018.",
+      "delivers": "A heuristic prediction for base 2. No base-47 result in the abstract; the 53-page text was not read.",
+      "remains": "All of base 47.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A heuristic prediction is not evidence of existence in any base, including base 47.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Base 2 heuristic. Cuts toward existence for base 2 only; nothing for base 47.",
+      "object": null,
+      "people": [
+        "N. A. Carella"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1712.08166"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1712.08166"
+      ]
+    },
+    {
+      "id": "fellini-murty-2025-number-fields",
+      "what_happened": "N. Fellini and M. Ram Murty, 'Wieferich primes in number fields and the conjectures of Ankeny-Artin-Chowla and Mordell', arXiv:2508.08472 (v1 11 Aug 2025; v2 11 Feb 2026, labelled 'Final version'). Works with a general base alpha in a number field. Unconditionally, an AAC equivalence in terms of eps^(p-1) ≡ 1 mod p^2. Conditionally, on Masser's abc for number fields, or on finitely many base-alpha super-Wieferich primes, they show infinitely many base-alpha non-Wieferich primes with a lower bound of order log x / log log x.",
+      "date": "2025-08-11",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 11 Aug 2025; v2 11 Feb 2026 'Final version' (17 pages).",
+      "delivers": "About non-Wieferich prime ideals in number fields, with the infinitude claims conditional on abc or on finiteness of super-Wieferich primes. The unconditional part is an AAC equivalence. Nothing asserts a base-47 Wieferich prime, and the base 47 case is not named in the abstract.",
+      "remains": "Existence of any base-47 Wieferich prime; the paper does not claim it.",
+      "checked_by": [
+        {
+          "who": "Journal of Number Theory (per a search snippet: volume 285 (2026), accepted 30 Jan 2026; not verified on the journal page)",
+          "qualification": "refereed journal",
+          "what_they_did": "accepted the paper (per snippet only)",
+          "where": "https://arxiv.org/abs/2508.08472",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 months since v1",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The infinitude results rest on hypotheses the paper does not prove (abc for number fields, or finiteness of super-Wieferich primes). The journal acceptance date comes from a snippet I did not verify.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Non-Wieferich direction: infinitely many non-Wieferich prime ideals under conditional hypotheses. No statement that base-47 Wieferich primes exist.",
+      "object": null,
+      "people": [
+        "Nic Fellini",
+        "M. Ram Murty"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2508.08472"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2508.08472"
+      ]
+    },
+    {
+      "id": "graves-weiss-2025-abc-non-wieferich",
+      "what_happened": "H. Graves and B. Weiss, 'The abc conjecture implies infinitely many non-Wieferich places for fixed bases in number fields', arXiv:2503.19144 (submitted 24 Mar 2025; one version, 15 pages). Under abc, proves analogues of Graves-Murty and Ding results for number fields; Ding's result is said to hold for all bases in the rings of integers of imaginary quadratic fields, with 31 explicit exceptions. The abstract also cites Silverman's abc-conditional bound of order log x non-Wieferich primes below x.",
+      "date": "2025-03-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "One version (24 Mar 2025).",
+      "delivers": "Conditional on abc: infinitely many non-Wieferich places for fixed bases in number-field analogues, with explicit exceptions. Nothing about the existence of Wieferich primes in base 47.",
+      "remains": "Existence of any base-47 Wieferich prime, and whether Wieferich primes exist at all in a given base.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 19 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Conditional on abc. A search-snippet claim that the paper says it is unknown whether infinitely many non-Wieferich primes exist for some non-unit base was not in the abstract I read; that claim is unverified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Non-Wieferich direction, conditional on abc, in number fields. No object.",
+      "object": null,
+      "people": [
+        "Hester Graves",
+        "Benjamin Weiss"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2503.19144"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2503.19144"
+      ]
+    },
+    {
+      "id": "li-zhao-2026-prime-ideals",
+      "what_happened": "R. Li and J. Zhao, 'Non-Wieferich property of prime ideals and a conjecture of Erdos', arXiv:2601.12753 (submitted 19 Jan 2026). For prime ideals of number fields with alpha in the ring of integers, obtains a higher alpha-Wieferich property implying a nonexistence theorem for higher Wieferich unramified prime ideals, and an equidistribution result for beta-adic digits of alpha^n.",
+      "date": "2026-01-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Submitted 19 Jan 2026; further versions not checked.",
+      "delivers": "Nonexistence for higher Wieferich unramified prime ideals in number fields, per the abstract. That is a different object from integer Wieferich primes in base 47.",
+      "remains": "Existence of base-47 Wieferich primes.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Nonexistence for a number-field analogue; no bearing on integer base-47 existence.",
+      "object": null,
+      "people": [
+        "Ruofan Li",
+        "Jiuzhou Zhao"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2601.12753"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2601.12753"
+      ]
+    },
+    {
+      "id": "jones-2026-monogenic-may",
+      "what_happened": "L. Jones, 'Wieferich Primes and Monogenic Trinomials', arXiv:2605.13460 (v1 13 May 2026; v2 22 May 2026). Shows that x^(2p)+2x^p+2 is monogenic if and only if p is not a Wieferich prime (base 2).",
+      "date": "2026-05-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 13 May 2026; v2 22 May 2026.",
+      "delivers": "A criterion in base 2: monogenicity equivalent to the non-Wieferich condition for each prime p. States no existence claim.",
+      "remains": "All of base 47.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Base-2 criterion; no object.",
+      "object": null,
+      "people": [
+        "Lenny Jones"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2605.13460"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2605.13460"
+      ]
+    },
+    {
+      "id": "guedes-machado-2026-prime-base-binomial",
+      "what_happened": "G. A. Guedes and R. Nunes Machado Junior, 'Structured Solutions of Prime-Base Binomial Congruences', arXiv:2606.30232 (v1 29 Jun 2026). Studies C(qn, n) ≡ q^n (mod n) for prime base q, and proves that square solutions n = p^2 are exactly governed by Wieferich primes in base q. They report new solutions for q in {2, 3, 5, 7, 11}.",
+      "date": "2026-06-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 29 Jun 2026.",
+      "delivers": "An equivalence for square solutions n = p^2 to the binomial congruence: solution iff p is a base-q Wieferich prime (per abstract). It does not say whether base-q Wieferich primes exist. 47 is prime and would fall under the equivalence, but the abstract computes no base-47 case.",
+      "remains": "Existence of base-47 Wieferich primes, and hence whether base-47 square solutions exist.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Only the abstract page was read. The full text and whether base 47 is treated were not checked.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Reformulation: solutions of a congruence correspond to base-q Wieferich primes. No object.",
+      "object": null,
+      "people": [
+        "Gabriel Araujo Guedes",
+        "Ricardo Nunes Machado Junior"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2606.30232"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2606.30232"
+      ]
+    },
+    {
+      "id": "falk-harrington-jones-2026-monogenic-trinomials",
+      "what_happened": "A. Falk, J. Harrington and L. Jones, 'Generalized Wieferich primes and monogenic trinomials', arXiv:2607.29329 (v1 31 Jul 2026; one version). Defines a generalized Wieferich prime base b as a prime p ≥ 3 with b^(p-1) ≡ 1 (mod p^2), and generalizes the monogenicity criterion for x^(2n)+bx^n+b to restricted b ≥ 2 and n ≥ 3.",
+      "date": "2026-07-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 31 Jul 2026 only.",
+      "delivers": "Monogenicity criteria phrased in terms of base-b Wieferich primes, for restricted b and n. No statement on whether base-b Wieferich primes exist for any b. Does not mention base 47.",
+      "remains": "Existence of base-47 Wieferich primes.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 11 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Criteria conditional on the base-b Wieferich condition; no object.",
+      "object": null,
+      "people": [
+        "Amy Falk",
+        "Joshua Harrington",
+        "Lenny Jones"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2607.29329"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.29329"
+      ]
+    },
+    {
+      "id": "laniewski-2026-radical-defects",
+      "what_happened": "R. Laniewski, 'Radical defects, Wieferich primes, and the abc conjecture', arXiv:2609.00039 (v1 29 Aug 2026; math.GM). Works mainly in base 2 on the Mersenne line (1, 2^m-1, 2^m). States that an abc counterexample family along that line would require infinitely many Wieferich primes with exponential-order defect growth, and in the introduction extends the identity to every fixed even base g.",
+      "date": "2026-08-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 29 Aug 2026 only.",
+      "delivers": "A defect identity on a family of triples in base 2 and even bases; it treats infinitude of Wieferich primes as necessary for an abc counterexample family, a conditional-type link, not an existence statement. Base 47 is odd, so the even-base extension as read does not reach it.",
+      "remains": "Existence of base-47 Wieferich primes.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 6 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A search snippet said the paper extends to rational bases a/b. The HTML version I read (the first 100k of about 179k characters) did not show this, so that claim is unverified. The PDF was unreadable, and the acknowledgments were not visible in the part read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No object; conditional-type link for base-2 triples.",
+      "object": null,
+      "people": [
+        "R. Laniewski"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.00039",
+          "https://arxiv.org/html/2609.00039v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.00039",
+        "https://arxiv.org/html/2609.00039v1"
+      ]
+    },
+    {
+      "id": "guedes-machado-2026-perfect-numbers",
+      "what_happened": "G. Guedes and R. Machado, 'Perfect numbers, Wieferich primes and the solutions of C(2n,n) ≡ 2^n mod n', arXiv:2609.03091 (v1 2 Sep 2026). Uses SageMath to improve the count of known solutions of the congruence, and states that even perfect numbers and Wieferich primes (base 2) are connected to its solutions. The arXiv page lists a journal reference, Notes on Number Theory and Discrete Mathematics 29 (2023), that predates the posting.",
+      "date": "2026-09-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 2 Sep 2026 only; the journal reference is dated 2023.",
+      "delivers": "A base-2 link between solutions of a binomial congruence and Wieferich primes. No base-47 content and no existence claim.",
+      "remains": "Existence of base-47 Wieferich primes.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The arXiv posting date (2026) and the journal reference (2023) do not agree. Only the abstract page was read, so this was not resolved.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Base-2 reformulation; no object.",
+      "object": null,
+      "people": [
+        "Gabriel Guedes",
+        "Ricardo Machado"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.03091"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.03091"
+      ]
+    },
+    {
+      "id": "jones-2026-generalized-monogenic-sep",
+      "what_happened": "L. Jones, 'Generalized Wieferich primes and monogenic polynomials', arXiv:2609.13904 (v1 12 Sep 2026). Defines generalized Wieferich primes base b, and proves a monogenicity criterion for another class of trinomials that does not use a Lucas-sequence congruence, extended to N-nomials for N ≥ 4.",
+      "date": "2026-09-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 12 Sep 2026 only.",
+      "delivers": "A monogenicity criterion stated with base-b Wieferich primes. No existence claim, and base 47 is not mentioned in the abstract.",
+      "remains": "Existence of base-47 Wieferich primes.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Criterion phrased with the base-b Wieferich condition; no object.",
+      "object": null,
+      "people": [
+        "Lenny Jones"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.13904"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.13904"
+      ]
+    },
+    {
+      "id": "giraudin-2026-thakur-carlitz-counterexample",
+      "what_happened": "D. N. Giraudin, 'A counterexample to a conjecture of Thakur on Carlitz-Wieferich primes', arXiv:2607.15305 (v1 14 Jul 2026; v2 22 Jul 2026). Works over F_q[T] with the Carlitz module. The abstract exhibits 'an explicit irreducible c-Wieferich prime of degree 5 over F_{19^3}', refuting a conjecture of Thakur as stated, and says degree 5 is the least possible degree of such a counterexample. Section 6 states that the work was done in collaboration with an AI assistant. This is a function-field analogue, not an integer base.",
+      "date": "2026-07-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 14 Jul 2026; v2 22 Jul 2026, in which the former exactness statement (Theorem 4.2) was corrected to a conjecture, per an arXiv comment.",
+      "delivers": "A counterexample to a Thakur conjecture on function-field Carlitz-Wieferich primes (c-Wieferich to base 1 in F_q[T]). Restricted to the function-field setting. The v2 change downgrades one claimed exactness theorem to a conjecture.",
+      "remains": "Integer Wieferich primes in any base, including base 47: not touched.",
+      "checked_by": [
+        {
+          "who": "D. Thakur (named in an arXiv comment)",
+          "qualification": "the arXiv comment does not give the person's role in the field",
+          "what_they_did": "verified the counterexample independently in Magma (per the arXiv comment)",
+          "where": "https://arxiv.org/abs/2607.15305",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 3 months",
+      "machine_checked": {
+        "system": "Magma (per the arXiv comment)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2607.15305"
+      },
+      "directly_checkable": "The paper gives an explicit degree-5 prime over F_{19^3}. The PDF was unreadable, so the explicit polynomial was not checked by me.",
+      "doubts": "v2 downgraded a former exactness theorem to a conjecture. The conjectured closed form and the exhaustive-search claim are not proven. The AI-involvement quote comes from a WebFetch summary of the HTML page and was not checked against the paper's own text, because the PDF was unreadable.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against Thakur's conjecture as stated, in the function-field setting. No bearing on integer base 47.",
+      "object": "An explicit irreducible c-Wieferich prime P of degree 5 over F_{19^3} (c-Wieferich to base 1: rho_P(1) ≡ 1 mod P^2), per the abstract. It is a function-field object, not an integer prime p with 47^(p-1) ≡ 1 mod p^2. It is explicit, not a non-constructive existence proof.",
+      "people": [
+        "David Niedbala Giraudin",
+        "D. Thakur (verification per arXiv comment)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude Opus 4.8",
+            "what_it_did": "Per the author's Section 6, as summarised from the HTML page: the assistant proposed specific problems meeting the author's criteria, and supplied the mathematical domain knowledge, the formalization, the drafting, and the design and execution of all computations, under the author's direction. Whether this is load-bearing for the counterexample is for the later pass.",
+            "basis_quote": "in sustained collaboration with an AI assistant (Claude Opus 4.8, Anthropic), used through its standard paid consumer interface",
+            "quote_url": "https://arxiv.org/html/2607.15305v2"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2607.15305",
+          "https://arxiv.org/html/2607.15305v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.15305",
+        "https://arxiv.org/html/2607.15305v2"
+      ]
+    },
+    {
+      "id": "erdos-11-forum-2026-chatgpt-aristotle",
+      "what_happened": "On the erdosproblems.com forum thread for Erdos Problem 11 (is every large odd integer the sum of a squarefree number and a power of 2?), a poster with the handle soumya1729 wrote on 24 Jan 2026 that 'I + ChatGPT + Aristotle recently worked through this problem independently', and proposed a conditional implication that would hold if the sum over primes p of 1/ord_{p^2}(2) is finite. Thomas Bloom replied on 25 Jan 2026 that the implication is not in Granville and Soundararajan and is unproven, advised against an arXiv write-up, and said LLM output that looks erroneous will not be shown. Nat Sothanaphan agreed that links to Granville-Soundararajan exist, and said the conditional result seems unlikely to be easy. The thread links the problem to Wieferich primes through Granville-Soundararajan, but concerns base 2 and an additive question, not base 47.",
+      "date": "2026-01-24",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Forum thread with dated posts; no later change to these posts was seen.",
+      "delivers": "Nothing established. A conditional implication, disputed by the forum curator as unproven. It concerns Erdos Problem 11, not the base-47 Wieferich question.",
+      "remains": "Erdos Problem 11 itself is still open according to the thread; base-47 existence is untouched.",
+      "checked_by": [
+        {
+          "who": "Thomas Bloom (curator of erdosproblems.com)",
+          "qualification": "maintains the Erdos problems database and its forum",
+          "what_they_did": "said the implication is not in the cited source and is unproven, and advised against an arXiv write-up",
+          "where": "https://www.erdosproblems.com/forum/thread/11",
+          "automated": false
+        },
+        {
+          "who": "Nat Sothanaphan (forum participant)",
+          "qualification": "credentials not established on the thread",
+          "what_they_did": "said the conditional result seems unlikely to be easy and changed the wiki entry to 'incorrect claim made'",
+          "where": "https://www.erdosproblems.com/forum/thread/11",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The poster's account does not say what each system produced. The curator assumed the implication came from ChatGPT output. The search snippet described the thread as reporting no new bounds and no resolution, which does not match the thread text I read; I used the thread text.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No result established. The implication is conditional and disputed.",
+      "object": null,
+      "people": [
+        "soumya1729 (forum handle)",
+        "Thomas Bloom",
+        "Nat Sothanaphan"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "ChatGPT",
+            "what_it_did": "Per the poster, worked through the problem with the poster. The poster does not say what it produced. The curator assumed the posted implication came from ChatGPT output.",
+            "basis_quote": "I + ChatGPT + Aristotle recently worked through this problem independently",
+            "quote_url": "https://www.erdosproblems.com/forum/thread/11"
+          },
+          {
+            "name": "Aristotle",
+            "what_it_did": "Per the poster, worked through the problem with the poster. The poster does not say what it produced.",
+            "basis_quote": "I + ChatGPT + Aristotle recently worked through this problem independently",
+            "quote_url": "https://www.erdosproblems.com/forum/thread/11"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.erdosproblems.com/forum/thread/11"
+        ]
+      },
+      "sources": [
+        "https://www.erdosproblems.com/forum/thread/11"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "source-conflict",
+      "summary": "Base-47 search bound. 1.07 x 10^14 (OEIS A278611, 23 Nov 2016) was later given as 2 x 10^14 (Fischer FermQ_Sort.txt, updated 01.09.2025, and an unsigned OEIS A039951 comment). Fischer FermQ_Sorg.txt (updated 30.09.2026) states 'currently searched to 4.75E+12'. A search snippet gave 1.4 x 10^14, which I did not find on any page I opened. Not resolved.",
+      "sources": [
+        "https://oeis.org/A278611",
+        "https://oeis.org/A039951",
+        "http://www.fermatquotient.com/FermatQuotienten/FermQ_Sort.txt",
+        "http://www.fermatquotient.com/FermatQuotienten/FermQ_Sorg.txt"
+      ]
+    },
+    {
+      "kind": "source-conflict",
+      "summary": "A search snippet attributed to arXiv 2101.08038 (Burrin and Issac, 2021) the remark that base 47 has no known Wieferich prime. The fetched abstract does not mention base 47, and the PDF text was unreadable. Unverified.",
+      "sources": [
+        "https://arxiv.org/abs/2101.08038"
+      ]
+    }
+  ],
+  "summary": "The bullet is 'Are there any Wieferich primes in base 47?', a bare existence question. No source I opened reports a prime p with 47^(p-1) ≡ 1 (mod p^2), and none of the 2026 work on generalized Wieferich primes (Jones, May and September 2026; Falk, Harrington and Jones, July 2026; Guedes and Machado, June and September 2026; Laniewski, August 2026) mentions base 47 or addresses its existence. The only base-47-specific movement is a search bound. OEIS A278611 (23 Nov 2016) gives 1.07 x 10^14, citing Fischer. Fischer's FermQ_Sort.txt (last updated 1 Sep 2025) gives base 47 as 'keine gefunden' (none found) and states that bases with largest prime factor at most 149 are searched to 2.00 x 10^14, which I apply to base 47 by inference. An unsigned OEIS A039951 comment gives the same 2 x 10^14. I could not date when 2 x 10^14 first appeared, so I cannot say whether that step falls inside the window. Fischer's FermQ_Sorg.txt, updated 30 Sep 2026, says bases are 'currently searched to 4.75E+12', which conflicts with 2 x 10^14 and I could not reconcile it. The other number-theory results I found on non-Wieferich primes are conditional on abc or on finiteness assumptions (Fellini and Murty, Aug 2025 to Feb 2026; Graves and Weiss, Mar 2025), or concern prime ideals in number fields (Li and Zhao, Jan 2026), and none asserts a base-47 Wieferich prime. The published base-2 searches (Dorais and Klyve 2011, to 6.7 x 10^15; Carella 2017, to 10^15) are base 2 only. On AI: no source I opened connects an AI system to base 47 or to integer-base Wieferich existence. Two neighbouring events do involve AI. Giraudin's function-field counterexample (arXiv 2607.15305, 14 Jul 2026) credits 'Claude Opus 4.8, Anthropic' as a collaborator in its Section 6; that is a different problem, and the quote comes from a summary of the HTML page. An Erdos Problem 11 forum post (24 Jan 2026) credits ChatGPT and Aristotle with a conditional implication that the forum curator calls unproven. Neither bears on the base-47 bullet. The OpenAI openai/math release (6 Oct 2026) contains no Wieferich manuscript on my reading of its CONTENTS.md: I read it in seven WebFetch chunks, which is a model summary and not a grep. The README summary I read says 719 manuscripts, while secondary coverage says 722; I did not resolve this, and it does not affect the Wieferich check. Several AI-results trackers (Vibe Mathed, Epoch's FrontierMath Erdos benchmark) were searched or partly read and showed no Wieferich entry; Vibe Mathed's page was truncated, so that check is partial. Close call: whether a search bound moved is a judgment about whether the problem's own quantity is the least base-47 Wieferich prime or whether the question is only existence. I recorded the bounds as events, scoped out, so the later pass can make that call.",
+  "competing_reading": "Read the 2 x 10^14 search as a move in the bound on the least base-47 Wieferich prime, i.e. a quantity the problem's solution would have to lie beyond, and therefore as an event that moved the problem. On the other side: the bullet asks only whether one exists, a finite search with no hit leaves that open, and the 2 x 10^14 figure is itself in doubt, since the same site states 4.75 x 10^12 for its current search and the 2 x 10^14 line has no date. A reader could also take the 2025 and 2026 number-theory papers as moving the problem, but they concern base 2, number fields, or monogenicity criteria, and none claims a base-47 existence result.",
+  "what_would_settle_it": "An explicit prime p ≠ 47 with 47^(p-1) ≡ 1 (mod p^2) would settle existence affirmatively, and anyone could check a candidate in seconds with modular exponentiation. A negative answer needs a theorem, not a search, and no method for that appears in any source I read. To pin down the bound: Fischer's search program or a dated statement of which bases were searched to 2 x 10^14, and reconciliation with the 4.75 x 10^12 statement on the 30 Sep 2026 table.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Wieferich_prime",
+      "title": "Wieferich prime",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics",
+      "title": "List of unsolved problems in mathematics (current revision; only part read)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A338646",
+      "title": "OEIS A338646 (base-47 near-Wieferich primes)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A039951",
+      "title": "OEIS A039951 (smallest Wieferich prime in base n; a(47) bound)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A339653",
+      "title": "OEIS A339653 (base n Wieferich status)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A278611",
+      "title": "OEIS A278611 (bases setting records for smallest base-b Wieferich prime)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "http://www.fermatquotient.com",
+      "title": "fermatquotient.com (Richard Fischer, home page)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "http://www.fermatquotient.com/FermatQuotienten/FermQ_Sort.txt",
+      "title": "Fischer table, bases 2 to 1052 (updated 01.09.2025)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "http://www.fermatquotient.com/FermatQuotienten/FermQ_Sorg.txt",
+      "title": "Fischer table, bases 2 to 10125 (updated 30.09.2026; first 100k characters read)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "http://www.fermatquotient.com/FermatQuotienten/News.txt",
+      "title": "Fischer news and records (updated; no base 47 entries)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.13460",
+      "title": "Wieferich Primes and Monogenic Trinomials (Jones)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.29329",
+      "title": "Generalized Wieferich primes and monogenic trinomials (Falk, Harrington, Jones)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.13904",
+      "title": "Generalized Wieferich primes and monogenic polynomials (Jones)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2101.08038",
+      "title": "Infinitely many twin prime polynomials of odd degree (Burrin, Issac): abstract only",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.00039",
+      "title": "Radical defects, Wieferich primes, and the abc conjecture (Laniewski): abstract",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.00039v1",
+      "title": "Radical defects, Wieferich primes, and the abc conjecture (HTML; first 100k characters read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.15305",
+      "title": "A counterexample to a conjecture of Thakur on Carlitz-Wieferich primes (Giraudin): abstract",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.15305v2",
+      "title": "A counterexample to a conjecture of Thakur on Carlitz-Wieferich primes (HTML; Section 6 read through summary)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.03091",
+      "title": "Perfect numbers, Wieferich primes and the solutions of C(2n,n) ≡ 2^n mod n (Guedes, Machado)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.30232",
+      "title": "Structured Solutions of Prime-Base Binomial Congruences (Guedes, Machado Junior)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2508.08472",
+      "title": "Wieferich primes in number fields and the conjectures of Ankeny-Artin-Chowla and Mordell (Fellini, Murty)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.19144",
+      "title": "The abc conjecture implies infinitely many non-Wieferich places for fixed bases in number fields (Graves, Weiss)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.12753",
+      "title": "Non-Wieferich property of prime ideals and a conjecture of Erdos (Li, Zhao)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1712.08166",
+      "title": "Results for Wieferich Primes (Carella)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://dorais.org/papers/2011-a-wieferich-prime-search-up-to-6-7-times-10-15.html",
+      "title": "A Wieferich prime search up to 6.7 x 10^15 (Dorais, Klyve; page with abstract)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.erdosproblems.com/forum/thread/11",
+      "title": "Erdos Problem 11 forum thread",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math",
+      "title": "openai/math repository (README summary read)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+      "title": "openai/math CONTENTS.md (about 636k characters, read in seven WebFetch chunks)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://vibemathed.com",
+      "title": "Vibe Mathed (home page; truncated)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.24961",
+      "title": "The Gold Rush in AI4Math (PDF unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.00039",
+      "title": "Radical defects (PDF unreadable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2607.15305",
+      "title": "Giraudin (PDF unreadable; saved as binary)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2101.08038",
+      "title": "Burrin, Issac (PDF unreadable; saved as binary)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://emis.univie.ac.at/journals/JIS/VOL14/Klyve/klyve3.pdf",
+      "title": "Dorais, Klyve JIS PDF (HTTP 503)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://emis.univie.ac.at/journals/JIS/VOL14/Klyve/klyve3.html",
+      "title": "Dorais, Klyve JIS HTML (HTTP 404)",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Wieferich prime base 47",
+      "Wieferich primes in base 47 unsolved problem",
+      "Wieferich prime Wikipedia table of bases",
+      "Wieferich primes generalized base b 2^(p-1) ≡ 1 mod p^2 search results",
+      "List of unsolved problems in mathematics Wieferich primes base 47",
+      "generalized Wieferich primes base 47 Caldwell prime pages",
+      "AI model discovers Wieferich prime",
+      "Wieferich prime large language model proof 2026",
+      "Wieferich primes AI-assisted computation new base",
+      "Wieferich prime search 2025 new Wieferich prime found",
+      "base 47 Wieferich prime search PrimeGrid",
+      "Wieferich primes 2026 arXiv new result bases",
+      "\"Wieferich\" \"47\" prime 47^(p-1) mod p^2",
+      "Dorais Klyve near-Wieferich primes base search",
+      "Wieferich pair Wikipedia base b sequence",
+      "OEIS A338646 base 47 near-Wieferich primes",
+      "OEIS smallest base with Wieferich prime a(47) unknown",
+      "Akbary Siavashi Wieferich primes general base a Wieferich number",
+      "OpenAI GPT model number theory Wieferich prime result",
+      "AlphaEvolve OR AlphaProof OR FunSearch Wieferich prime",
+      "Wieferich prime Lean formalization Mathlib sorry",
+      "Erdős problems AI solved list Wieferich",
+      "OpenAI 722 mathematics manuscripts GitHub repository list titles",
+      "OpenAI math manuscripts repository Wieferich",
+      "Axiom AxiomProver OR Harmonic Aristotle number theory open problem Wieferich",
+      "Google DeepMind Gemini Deep Think open problem number theory 2026 prime powers base",
+      "Epoch AI open math problems tracker AI solved list 2026",
+      "Wieferich primes Claude Anthropic mathematics paper acknowledgments",
+      "Fischer fermatquotient B^(P-1) mod P^2 table base 47",
+      "Wieferich prime base 47 2026",
+      "Wieferich primes Claude AI assistant paper acknowledgments mathematics",
+      "Wieferich primes Terence Tao blog",
+      "Wieferich primes Quanta Magazine",
+      "generalized Wieferich prime base b infinitely many conjecture Crandall Dilcher Pomerance",
+      "non-Wieferich primes non-unit base unconditional result Graves",
+      "Wieferich primes and monogenic trinomials Jones arXiv 2605.13460",
+      "Wieferich prime base 47 Fermat quotient smallest prime bound 1.07 × 10^14 Fischer",
+      "AI tracker of AI-solved open math problems list number theory Wieferich",
+      "Wieferich primes Lenny Jones 2026 generalized base b results",
+      "Vibe Mathed scoreboard AI open problems",
+      "base 47 Wieferich prime AI model result",
+      "Wieferich prime ChatGPT Aristotle Erdős problem 11 squarefree power of 2"
+    ],
+    "places_checked": [
+      "Wikipedia: Wieferich prime article (opened; base 47 and AI not mentioned)",
+      "Wikipedia: List of unsolved problems in mathematics, current revision (opened in portions; the Wieferich bullet is in the prime-numbers list, before the Set theory heading)",
+      "OEIS: A338646, A039951, A339653, A278611 (opened); A244249, A001220, A269798, A298951 seen in results only",
+      "fermatquotient.com (Richard Fischer): home, FermQ_Sort.txt, FermQ_Sorg.txt (first 100k characters), News.txt (opened); FermatQ3, Statistik, Generelles not opened",
+      "arXiv: abstracts of Jones 2605.13460, Falk-Harrington-Jones 2607.29329, Jones 2609.13904, Burrin-Issac 2101.08038, Laniewski 2609.00039, Giraudin 2607.15305, Guedes-Machado 2609.03091 and 2606.30232, Fellini-Murty 2508.08472, Graves-Weiss 2503.19144, Li-Zhao 2601.12753, Carella 1712.08166 (opened); HTML of Laniewski and Giraudin (opened, partial)",
+      "openai/math GitHub: README summary and full CONTENTS.md via seven WebFetch chunks (opened); keyword search for Wieferich, Fermat quotient, prime powers, base b, p^2 congruences returned no hit",
+      "erdosproblems.com forum thread 11 (opened)",
+      "dorais.org paper page (opened); JIS PDF and HTML not reachable",
+      "vibemathed.com (opened; truncated)",
+      "search-only coverage: AlphaEvolve, AlphaProof, FunSearch, Gemini Deep Think, Axiom/AxiomProver, Harmonic Aristotle, Epoch FrontierMath Erdos, Terence Tao blog, Quanta, Lean/Mathlib, PrimeGrid, Caldwell PrimePages"
+    ],
+    "dead_ends": [
+      "Search for a base-47 Wieferich prime reported by any AI lab or AI-assisted paper: none found; the AI-related Wieferich items found are the Giraudin function-field paper and the Erdos #11 forum thread, both recorded as neighbouring events.",
+      "OpenAI openai/math repository: README summary and all of CONTENTS.md checked for Wieferich, Fermat quotient, prime-power and base-b terms with no hit. The count discrepancy (719 vs 722) is unresolved.",
+      "Epoch FrontierMath Erdos benchmark and secondary 'GPT-6 Astra' coverage: about prime gaps and Erdos problems, not Wieferich; not opened.",
+      "Google DeepMind Aletheia and Gemini Deep Think: search results mention Erdos work and a prime-base number theory paper (arXiv 2601.09510 was surfaced but not opened); no Wieferich connection found.",
+      "AlphaEvolve, AlphaProof, FunSearch, Axiom (AxiomProver: Fel's conjecture, prime-density engine arXiv 2602.05090), Harmonic Aristotle: no Wieferich link in any result surfaced.",
+      "Terence Tao blog: searched; no Wieferich post found.",
+      "Quanta Magazine: searched; no Wieferich article found.",
+      "PrimeGrid Wieferich subproject (2020 to 2022): search snippet only; the PrimeGrid project page was not opened. OEIS states the base-2 search reached about 2.7 x 10^18 by April 2021, but this was not verified on a page I opened.",
+      "Caldwell PrimePages / t5k glossary: base 2 only in the page I saw.",
+      "Akbary and Siavashi (INTEGERS 2018, largest known Wieferich numbers): not opened; search snippet only.",
+      "Lean/Mathlib: searched for a Wieferich formalisation; nothing found. A local Mathlib grep was not run.",
+      "Burrin and Issac arXiv 2101.08038: snippet claimed a base-47 remark; abstract does not mention base 47; PDF unreadable.",
+      "Search snippet claims unverified and not repeated in the record: a PrimePages note (Feb 2026) on base-2 bounds below 2^64; Graves and Weiss stating the open non-unit base problem; Laniewski extending to rational bases a/b.",
+      "Wikipedia Wieferich prime article: base 2 bounds only (1093, 3511; PrimeGrid 2^64 for base 2). No base-47 content.",
+      "Okwor's June 2026 OEIS comment on A039951 extends bounds for n = 311, 454, 554, 662, 772, 983; it does not mention 47 or 72, so it is not recorded as a base-47 event.",
+      "Erdos #11 search snippet claimed the forum post reported no new bounds; the thread text itself shows a conditional implication posted and disputed. Thread text used.",
+      "Several web searches returned 'too_many_requests' errors (queries 28 and parts of 23 and 24); the affected queries were re-run in other phrasings, and results were still returned for all but one, which was retried later."
+    ]
+  },
+  "incomplete": "(1) Fischer's FermQ_Sorg.txt is about 288k characters; only its first 100k were read, which includes the base-47 row, but its full header and any note about the 4.75 x 10^12 search were not checked in full. (2) The origin of the 2 x 10^14 figure, and the date it first appeared, are unknown; no source gives a date. Fischer's search program is not published on the pages I read, so the search was not reproduced. (3) The Wikipedia list was read in portions; the Wieferich bullet is in the portion read, but I did not confirm whether the January 2024 revision carried the same bullet. (4) PDFs for Burrin-Issac 2101.08038, Laniewski 2609.00039, Giraudin 2607.15305 and Gold Rush 2608.24961 were unreadable, so claims from them rest on abstracts or HTML summaries. Giraudin's AI quote comes from a WebFetch summary, not the paper's text. (5) The Dorais-Klyve JIS PDF and HTML were unreachable (503 and 404); the base-2 description rests on the dorais.org page. (6) The openai/math CONTENTS.md check used seven WebFetch chunks summarised by a model; it is not a text search, so a missed mention is possible. (7) Vibe Mathed's page was truncated, so its entries were checked only in part. (8) Akbary and Siavashi (2018) and PrimeGrid's project pages were not opened. (9) arXiv has no full-text search here; a search for Wieferich with Claude or other AI names in full text was not possible, and the acknowledgments of the 2026 Wieferich preprints were checked only where visible. (10) Several search queries were rate-limited; some results came from partial answers.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "oeis-a278611-2016-bound",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "fischer-table-2e14-bound",
+        "after_snapshot": null,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "The 2 x 10^14 limit conflicts with the same site's 30 Sep 2026 statement that bases are searched to 4.75 x 10^12. Applying it to base 47 is the researcher's inference, and nobody has dated when the figure first appeared.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "oeis-a338646-near-wieferich-2021",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "dorais-klyve-2011-base2",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "carella-2017-base2",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "fellini-murty-2025-number-fields",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "graves-weiss-2025-abc-non-wieferich",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "li-zhao-2026-prime-ideals",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "jones-2026-monogenic-may",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "guedes-machado-2026-prime-base-binomial",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "falk-harrington-jones-2026-monogenic-trinomials",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "laniewski-2026-radical-defects",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "guedes-machado-2026-perfect-numbers",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "The arXiv posting (2026) carries a 2023 journal reference, so the work may well predate the snapshot.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "jones-2026-generalized-monogenic-sep",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "giraudin-2026-thakur-carlitz-counterexample",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "checkable",
+        "credibility": "doubtful",
+        "credibility_reason": "v2 downgraded a claimed exactness theorem to a conjecture, and the AI disclosure was read only through a summary of the page.",
+        "ai_role": "assisted",
+        "ai_basis": "in sustained collaboration with an AI assistant (Claude Opus 4.8, Anthropic), used through its standard paid consumer interface",
+        "ai_systems_credited": [
+          "Claude Opus 4.8"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "erdos-11-forum-2026-chatgpt-aristotle",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "The forum curator called the posted implication unproven and the wiki entry was marked 'incorrect claim made'. No specific error is identified, so this stops short of a knock-down.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement only asks whether a base-47 Wieferich prime exists. A search with no hit up to some limit checks finitely many primes and leaves existence untouched. So both search-bound events are instances, not bounds. Existence has no quantity for a bound to move, and the least such prime is not what the statement asks for. Every paper on base 2, number fields, function fields or monogenicity is a variant. Near-miss rankings and reformulations score none. Giraudin's Carlitz counterexample is a different problem, so it is a variant. Per the record's summary, Claude designed and ran the computations behind that counterexample, so it is marked assisted for that event alone. The Erdős #11 thread is dated 24 Jan 2026, which is before the 26 January snapshot. It concerns a different problem, and its AI quote does not say what the systems produced.",
+    "doubts": "The Fischer 2 x 10^14 figure cannot be dated, so after_snapshot is null. Whatever its date, it is instances. Giraudin's AI role is read from a summary of Section 6, not the paper's own text. It is moot either way, because the event is a variant.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

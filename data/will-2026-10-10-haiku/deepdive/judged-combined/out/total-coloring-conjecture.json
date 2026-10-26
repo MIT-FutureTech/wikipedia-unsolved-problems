@@ -1,0 +1,1456 @@
+{
+  "key": "total-coloring-conjecture",
+  "nothing_found": false,
+  "outcome": "Not settled as far as any source I read shows: every source that states a status still calls the conjecture open, and the only full-proof claim (T. Srinivasa Murthy, arXiv 2020) is unverified and uncited by the later papers I could read. Since 26 January 2024 there are four arXiv partial results (Dalal–McDonald–Shan 2024, published in J. Graph Theory 2025; Henderschedt–McDonald–Shan 2025; Su–Fang–Zhu 2025; Zhu–Zhou–Xu 2026), each confirming the bound for a restricted class of graphs, and no AI system is credited with any of them. The September 2026 AI-credited disproofs by Noel concern list-colouring conjectures and do not touch this one.",
+  "problem_asks": "Statement (Wikipedia, Jan 2024): every graph G satisfies χ″(G) ≤ Δ(G)+2, where χ″(G) is the total chromatic number (fewest colours in a proper colouring of the vertices and edges together) and Δ(G) is the maximum degree; attributed to Behzad and Vizing. Parts: (1) the universal claim, over all graphs; the standard reading takes these to be finite simple graphs. For multigraphs the same numerical claim is a different and harder question (several pre-2024 results are stated for multigraphs), so I record which reading each result uses. (2) The upper bound Δ+2 specifically. The lower bound Δ+1 holds for every graph and is not asked for. Nothing else is asked; there is no request for a structural characterisation of type I and type II graphs, though these are standard companions.",
+  "events": [
+    {
+      "id": "murthy-2020-03",
+      "what_happened": "T. Srinivasa Murthy posted “A proof of the Total Coloring Conjecture” (arXiv:2003.09658, math.CO / cs.DM), claiming that every finite simple graph satisfies χ″(G) ≤ Δ(G)+2. The method is algebraic over ℤ_p for a large prime p: a total colouring is encoded as a non-vanishing evaluation of a product polynomial, and Vizing's theorem and Brooks' theorem are used as ingredients. The abstract says the paper will “settle this classical conjecture”. No journal version, review, critique or correction was found.",
+      "date": "2020-03-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 21 Mar 2020; v2 17 Mar 2021; v3 17 Jun 2021 (comments field: “No major changes in this third-version apart from addition of Remark 3.5”, plus typo fixes). No later version found.",
+      "delivers": "As claimed: χ″(G) ≤ Δ(G)+2 for every finite simple graph, the whole conjecture with no restriction on the graph class. I did not verify the argument; see doubts.",
+      "remains": "Nothing, if the argument is correct. Whether the whole problem is settled rests entirely on whether this argument holds.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 6 years 6 months (v1 March 2020 to October 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "(1) The v3 introduction says the conjecture “remains an open problem despite the efforts of many in the last six decades”, while the abstract says the paper settles it. This is from a summarising fetch of the HTML, not the raw text. (2) A summariser's reading of the proof of Theorem 3.1 says it concludes χ(G)=Δ+1 from Brooks' theorem, which does not match Brooks' theorem as usually stated (χ ≤ Δ for connected graphs that are neither complete nor odd cycles). The same reading says the Lemma 3.1 argument (each edge has two endpoints, so exponents are at most 2) does not by itself control exponents after the later substitutions. (3) The text of Claim 3.1's proof was cut off in my reads, and I did not see the proofs of Theorem 3.2 or Corollary 3.1, so the final step from edge and vertex colourings to a total colouring with Δ+2 colours is unchecked by me. (4) The palette is {1,…,Δ+1} ∪ {α}, which has Δ+2 colours, while the edge-colouring step is justified by Vizing's theorem (Δ+1 colours); the reader could not see this reconciled. (5) Nothing published, reviewed or corrected in about six years; zbMATH and MathSciNet were not reachable. (6) The 2022 zero-divisor-graph paper (arXiv:2205.04916, Section 5) describes the claim as “not verified”.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Claims to prove the conjecture as stated, which would cut in favour of it. No counterexample is involved.",
+      "object": null,
+      "people": [
+        "T. Srinivasa Murthy"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2003.09658",
+          "https://arxiv.org/html/2003.09658v3"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2003.09658",
+        "https://arxiv.org/html/2003.09658v3",
+        "https://arxiv.org/pdf/2205.04916"
+      ]
+    },
+    {
+      "id": "dalal-mcdonald-shan-2024-05",
+      "what_happened": "Aseem Dalal, Jessica McDonald and Songling Shan posted “Total coloring graphs with large maximum degree” (arXiv:2405.07382, 12 May 2024). Main results: (i) for every graph G, χ″(G) ≤ Δ(G)+2⌈|V(G)|/(Δ(G)+1)⌉, saving one colour on Hind's 1992 bound; (ii) for every 0<ε<1 there is n₀ such that every r-regular graph on n ≥ n₀ vertices with r ≥ ½(1+ε)n has χ″(G) ≤ Δ(G)+2, which the authors say confirms the conjecture for those graphs. Published as J. Graph Theory 110(3):249–262, DOI 10.1002/jgt.23268, with a listed publication date of 2025-11-01.",
+      "date": "2024-05-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, submitted 12 May 2024 (arXiv version history). Journal version listed as JGT 2025.",
+      "delivers": "(a) The general bound equals Δ+2 only when |V| ≤ Δ+1 (since the ceiling is then 1), so it is not the conjecture for general graphs; for Δ ≥ |V|/2 it gives Δ+4 (by my arithmetic, matching the authors' statement). (b) Confirms χ″ ≤ Δ+2 for r-regular graphs of large order n ≥ n₀(ε) with r ≥ ½(1+ε)n, so only regular graphs of degree above about half the order.",
+      "remains": "The conjecture for all graphs; non-regular graphs; regular graphs of smaller degree; graphs on fewer than n₀ vertices.",
+      "checked_by": [
+        {
+          "who": "Journal of Graph Theory (Wiley)",
+          "qualification": "Peer-reviewed journal of record",
+          "what_they_did": "Published the paper (vol. 110, issue 3, pp. 249–262). I did not see referee reports or an editorial statement.",
+          "where": "https://par.nsf.gov/biblio/10648716-total-coloring-graphs-large-maximum-degree",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 29 months (May 2024 to October 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for a restricted class of dense regular graphs. Its general bound is weaker than the conjecture and does not move the additive constant for general graphs.",
+      "object": null,
+      "people": [
+        "Aseem Dalal",
+        "Jessica McDonald",
+        "Songling Shan"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2405.07382",
+          "https://arxiv.org/html/2405.07382v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2405.07382",
+        "https://arxiv.org/html/2405.07382v1",
+        "https://par.nsf.gov/biblio/10648716-total-coloring-graphs-large-maximum-degree",
+        "https://arxiv.org/html/2507.05548v1"
+      ]
+    },
+    {
+      "id": "henderschedt-mcdonald-shan-2025-07",
+      "what_happened": "Owen Henderschedt, Jessica McDonald and Songling Shan posted “Total coloring graphs with large minimum degree” (arXiv:2507.05548, 8 July 2025). The main theorem, as stated in the abstract: for every ε>0 there is n₀ such that every graph on n ≥ n₀ vertices with minimum degree at least ½(1+ε)n satisfies χ″(G) ≤ Δ(G)+2. It replaces the maximum-degree hypothesis of Dalal et al. with a minimum-degree one and drops regularity. No journal reference found.",
+      "date": "2025-07-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, 8 July 2025. arXiv admin note records text overlap with arXiv:2405.07382.",
+      "delivers": "χ″ ≤ Δ+2 for all graphs on n ≥ n₀(ε) vertices with δ ≥ ½(1+ε)n. A dense class: minimum degree above about half the order, for large order.",
+      "remains": "Graphs with minimum degree below about n/2; graphs on fewer than n₀ vertices; the general conjecture.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for a restricted dense class. No counterexample is involved.",
+      "object": null,
+      "people": [
+        "Owen Henderschedt",
+        "Jessica McDonald",
+        "Songling Shan"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2507.05548",
+          "https://arxiv.org/html/2507.05548v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2507.05548",
+        "https://arxiv.org/html/2507.05548v1"
+      ]
+    },
+    {
+      "id": "su-fang-zhu-2025-07",
+      "what_happened": "Rongjin Su, Gang Fang and Enqiang Zhu posted “The Total Coloring Conjecture holds for planar graphs without three special subgraphs” (arXiv:2507.12737, 17 July 2025). From the abstract: χ″ ≤ Δ+2 for planar graphs containing none of three named subgraphs (the mushroom, the tent and the cone), and the planar maximum-degree-6 case is described as remaining open. The paper's Theorem 1.1 was read from a garbled rendering as giving 8 = Δ+2 colours for planar graphs of maximum degree 6 with none of those subgraphs. No journal reference found.",
+      "date": "2025-07-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, 17 July 2025.",
+      "delivers": "χ″ ≤ Δ+2 for planar graphs free of the mushroom, the tent and the cone. This covers part of the planar maximum-degree-6 case.",
+      "remains": "Planar graphs containing one of the three subgraphs, including some planar maximum-degree-6 graphs; non-planar graphs in general.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for a restricted planar class. No counterexample is involved.",
+      "object": null,
+      "people": [
+        "Rongjin Su",
+        "Gang Fang",
+        "Enqiang Zhu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2507.12737",
+          "https://arxiv.org/html/2507.12737v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2507.12737",
+        "https://arxiv.org/html/2507.12737v1"
+      ]
+    },
+    {
+      "id": "zhu-zhou-xu-2026-09",
+      "what_happened": "Enqiang Zhu, Yangyang Zhou and Jin Xu posted “Total-coloring of planar graphs with maximum degree 6 and without prescribed 4-cycles” (arXiv:2609.19503, 16 September 2026). From the abstract: any planar graph of maximum degree 6 that does not contain some special 4-cycles is 7-totally-colourable, i.e. χ″ ≤ 7 = Δ+1. It extends Shen and Wang (2009), which covered planar maximum-degree-6 graphs with no 4-cycles. The exact 4-cycle conditions in Theorem 1.1 were read from the HTML by a summariser as: no 4-cycle that is a chord-cycle, adjacent to a 3-cycle, or incident with a 6-vertex that is adjacent to a cycle of length at most 5 at that vertex.",
+      "date": "2026-09-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, 16 September 2026 (9 pages, 7 figures).",
+      "delivers": "For planar graphs of maximum degree 6 avoiding the stated special 4-cycle configurations, χ″ ≤ 7 = Δ+1, which is stronger than the conjecture for that subclass.",
+      "remains": "Planar maximum-degree-6 graphs that contain the special 4-cycle configurations; the general conjecture.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 weeks",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture, in a stronger form, for a restricted planar subclass. No counterexample is involved.",
+      "object": null,
+      "people": [
+        "Enqiang Zhu",
+        "Yangyang Zhou",
+        "Jin Xu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.19503",
+          "https://arxiv.org/html/2609.19503v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.19503",
+        "https://arxiv.org/html/2609.19503v1"
+      ]
+    },
+    {
+      "id": "noel-list-total-2026-09",
+      "what_happened": "Jonathan A. Noel posted “The List Total Colouring Conjecture Is False” (arXiv:2609.38417, 29 September 2026). It disproves the list total colouring conjecture (Borodin–Kostochka–Woodall; Juvan–Mohar–Škrekovski; Hilton–Johnson) with a cubic graph whose total chromatic number is 4 and whose list total chromatic number is 5. MathWorld describes the graph as 20 vertices: four disjoint copies of K(2,3) whose twelve degree-two vertices are paired by six added edges. The AI-use statement credits ChatGPT 6 Astra Ultra with producing the counterexample. The HTML text never mentions Δ+2 or Behzad, so it does not address this problem.",
+      "date": "2026-09-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, 29 September 2026.",
+      "delivers": "Nothing for the total colouring conjecture: the paper concerns list colouring and never states χ″ ≤ Δ+2. The cubic example has χ″ = 4 = Δ+1, consistent with the conjecture, and its list value 5 equals Δ+2 for a cubic graph (my arithmetic), so it is not a counterexample to the Δ+2 bound.",
+      "remains": "The whole ordinary conjecture; this paper does not touch it.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 weeks; no independent reaction found",
+      "machine_checked": null,
+      "directly_checkable": "The 20-vertex cubic graph as described by MathWorld (four K(2,3) copies plus six edges). I did not check its chromatic numbers.",
+      "doubts": "The model name is not corroborated. The only sources naming “ChatGPT 6 Astra Ultra” are this paper, its companion, MathWorld, and a 2026 search summary. Other coverage of the same period names “GPT-5.6 Sol Ultra” for an unrelated problem (the cycle double cover conjecture). I record the name as the source gives it.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Disproves the list version, which is a different conjecture. Cuts against the list conjecture, not against the Δ+2 bound.",
+      "object": "A cubic graph on 20 vertices (per MathWorld: four vertex-disjoint copies of K(2,3), with the twelve degree-two vertices paired by six added edges), with total chromatic number 4 and list total chromatic number 5. It is an explicit construction. The paper says the model found it and the author checked the arguments; I did not check it.",
+      "people": [
+        "Jonathan A. Noel"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "ChatGPT 6 Astra Ultra",
+            "what_it_did": "Per the abstract, it “discovered the counterexample with little input from the author”. Per the AI-use statement, the author prompted it on 24 September 2026 to disprove the list total colouring conjecture and it “produced the counterexample in this paper”. The author checked the arguments and rewrote the exposition from its drafts. It also helped with proofreading, suggested references, answered questions about the arguments, and generated the figures. All of this is on the list version, not this problem.",
+            "basis_quote": "The author checked the arguments and rewrote the exposition based on drafts generated by ChatGPT.",
+            "quote_url": "https://arxiv.org/html/2609.38417"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.38417",
+          "https://arxiv.org/abs/2609.38417",
+          "https://mathworld.wolfram.com/ListTotalColoringConjecture.html"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2609.38417",
+        "https://arxiv.org/abs/2609.38417",
+        "https://mathworld.wolfram.com/ListTotalColoringConjecture.html"
+      ]
+    },
+    {
+      "id": "noel-partial-list-2026-09",
+      "what_happened": "Jonathan A. Noel posted “The Partial List Colouring Conjecture is False” (arXiv:2609.23291, 20 September 2026). It gives a 14-vertex graph with list chromatic number 3 and a 2-list assignment under which at most 9 vertices can be properly coloured, disproving the Partial List Colouring Conjecture of Albertson, Grossman and Haas. The paper does not mention total colouring (checked in the HTML text).",
+      "date": "2026-09-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, 20 September 2026.",
+      "delivers": "Nothing for this problem: a vertex-list colouring statement with no total colouring in it.",
+      "remains": "The whole ordinary conjecture.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 weeks; no independent reaction found",
+      "machine_checked": null,
+      "directly_checkable": "The 14-vertex graph and its 2-list assignment, as described in the abstract. I did not check them.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Disproves a list-colouring conjecture. No bearing on the Δ+2 bound.",
+      "object": "A 14-vertex graph G with list chromatic number 3, with a 2-list assignment L such that at most 9 vertices of G can be properly coloured from L. Per the abstract, it is an explicit construction.",
+      "people": [
+        "Jonathan A. Noel"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "ChatGPT 6 Astra Ultra",
+            "what_it_did": "Per the abstract, the counterexample was “discovered and fully verified” by the model after persistent prompting, with almost no mathematical input from the author. Per the acknowledgements, the author asked it on 18 September 2026 and it “eventually found a counterexample which required extensive computer assistance to verify”. Later it found a human-checkable proof and then the simple construction in the paper. All of this is on the partial list conjecture, not this problem.",
+            "basis_quote": "This counterexample was discovered and fully verified by ChatGPT 6 Astra Ultra after some persistent prompting,",
+            "quote_url": "https://arxiv.org/abs/2609.23291"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.23291",
+          "https://arxiv.org/html/2609.23291"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.23291",
+        "https://arxiv.org/html/2609.23291"
+      ]
+    },
+    {
+      "id": "basavaraju-2021-07-weak-tcc",
+      "what_happened": "Manu Basavaraju, L. Sunil Chandran, Mathew C. Francis and Ankur Naskar, “Weak Total Coloring Conjecture and Hadwiger's Conjecture on Total Graphs” (arXiv:2107.09994, posted July 2021 per the identifier; Electronic J. Combin. 31(1), P1.4, published 5 January 2024). The weak version χ″ ≤ Δ+3 is settled for 5-colourable graphs. The first public argument predates the window, though the journal publication falls inside it.",
+      "date": "2021-07",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Not checked. The month is taken from the arXiv identifier 2107.",
+      "delivers": "The weak version χ″ ≤ Δ+3 for 5-colourable graphs. Does not prove χ″ ≤ Δ+2 for any graph class.",
+      "remains": "The conjecture for all graphs. Also the Hadwiger-conjecture consequences are a different question.",
+      "checked_by": [
+        {
+          "who": "The Electronic Journal of Combinatorics",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published the paper, 31(1) P1.4, on 5 January 2024",
+          "where": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i1p4",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A weaker form (Δ+3). Settles the weak version for a class, not the Δ+2 claim.",
+      "object": null,
+      "people": [
+        "Manu Basavaraju",
+        "L. Sunil Chandran",
+        "Mathew C. Francis",
+        "Ankur Naskar"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i1p4"
+        ]
+      },
+      "sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i1p4"
+      ]
+    },
+    {
+      "id": "rosenfeld-vijayaditya-1971",
+      "what_happened": "Rosenfeld and Vijayaditya independently showed that graphs of maximum degree 3 have total chromatic number 5 (= Δ+2), confirming the conjecture for Δ=3. The year 1971 comes from a search summary; I did not open the originals to confirm it. The 2018 survey (arXiv:1812.05833) attributes the Δ≤3 case to Kostochka (1996) in the visible text.",
+      "date": "1971",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The conjecture for Δ=3.",
+      "remains": "Δ ≥ 4.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The year and the attribution come from secondary text. The survey credits the Δ≤3 case to Kostochka (1996), so the priority is contested in the secondary literature (see disputes).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for Δ=3. No counterexample.",
+      "object": null,
+      "people": [
+        "Rosenfeld",
+        "Vijayaditya"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/1812.05833v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/1812.05833v1"
+      ]
+    },
+    {
+      "id": "kostochka-1977",
+      "what_happened": "Kostochka (1977, Discrete Mathematics 17, pp. 161–163 as cited in later work, per a search summary; not opened) shows that multigraphs of maximum degree 4 are totally 6-colourable. For simple graphs this gives the Δ=4 case of the conjecture.",
+      "date": "1977",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "χ″ ≤ 6 = Δ+2 for multigraphs of maximum degree 4, hence for simple graphs of maximum degree 4.",
+      "remains": "Δ ≥ 5.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Known only from a search summary; the original was not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for Δ=4. No counterexample.",
+      "object": null,
+      "people": [
+        "Kostochka"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": []
+    },
+    {
+      "id": "kostochka-1996",
+      "what_happened": "Kostochka, Discrete Mathematics 162 (1996) 199–214: multigraphs of maximum degree 5 have total chromatic number at most 7 (= Δ+2), per the 2018 survey and a search summary. The survey credits it as verifying the conjecture for Δ≤5 and says the result was earlier proved but not published because of its size.",
+      "date": "1996",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "χ″ ≤ 7 = Δ+2 for multigraphs of maximum degree 5, hence for simple graphs of maximum degree 5. The survey attributes the Δ≤5 result to planar graphs in one place, but the cited paper is about multigraphs; that is noted in doubts.",
+      "remains": "Δ ≥ 6 in general, including planar maximum-degree-6 graphs (open per 2025–26 papers).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Scope: the 2018 survey's phrase “verified for planar graphs with Δ≤5” cites this paper, which concerns multigraphs. The survey's own note says the attribution may be imprecise. I did not open the paper.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for Δ=5. No counterexample.",
+      "object": null,
+      "people": [
+        "Kostochka"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/1812.05833v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/1812.05833v1"
+      ]
+    },
+    {
+      "id": "kowalik-sereni-skrekovski-2008",
+      "what_happened": "Kowalik, Sereni and Škrekovski (SIAM J. Discrete Math., 2008, per the 2018 survey) show that planar graphs with Δ ≥ 9 are type I, i.e. χ″ = Δ+1, so they satisfy the conjecture. The same result is credited to Borodin (1989) in a search summary; see disputes.",
+      "date": "2008",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The conjecture for planar graphs with Δ ≥ 9 (in the stronger form χ″ = Δ+1).",
+      "remains": "Planar graphs with Δ ≤ 8, in particular planar maximum-degree-6 graphs (open); non-planar graphs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Priority contested (Borodin 1989 versus Kowalik et al. 2008). I did not open either paper.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for planar Δ ≥ 9. No counterexample.",
+      "object": null,
+      "people": [
+        "Kowalik",
+        "Sereni",
+        "Škrekovski"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/1812.05833v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/1812.05833v1"
+      ]
+    },
+    {
+      "id": "sanders-zhao-1999",
+      "what_happened": "Sanders and Zhao, “On total 9-coloring planar graphs of maximum degree seven”, J. Graph Theory 31 (1999) 67–73: every planar graph with maximum degree at most 7 is totally 9-colourable, the Δ=7 case of the conjecture for planar graphs (per the 2018 survey; title from a search summary).",
+      "date": "1999",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The conjecture for planar graphs with Δ = 7 (χ″ ≤ 9), and by the survey's statement for Δ ≤ 7.",
+      "remains": "Non-planar graphs; planar maximum-degree-6 graphs (open per 2025–26 papers).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for planar Δ=7. No counterexample.",
+      "object": null,
+      "people": [
+        "Sanders",
+        "Zhao"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/1812.05833v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/1812.05833v1"
+      ]
+    },
+    {
+      "id": "hilton-hind-1993",
+      "what_happened": "Hilton and Hind, “The total chromatic number of graphs having large maximum degree”, Discrete Mathematics 117 (1993) 127–140: the conjecture holds for all graphs with Δ ≥ ¾|V| (per the 2018 survey, the 2024 Dalal et al. introduction, and the 2025 Henderschedt et al. introduction).",
+      "date": "1993",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The conjecture for graphs with Δ ≥ ¾|V|.",
+      "remains": "Graphs with Δ < ¾|V|, which includes the dense regular cases treated by Dalal et al.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for dense graphs. No counterexample.",
+      "object": null,
+      "people": [
+        "Hilton",
+        "Hind"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/1812.05833v1",
+          "https://arxiv.org/html/2405.07382v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/1812.05833v1",
+        "https://arxiv.org/html/2405.07382v1"
+      ]
+    },
+    {
+      "id": "hind-1992",
+      "what_happened": "Hind, “An upper bound for the total chromatic number of dense graphs”, J. Graph Theory 16(3) (1992) 197–203, as quoted by Dalal et al. (2024): an upper bound of the form Δ+2⌈|V|/Δ⌉+1 for dense graphs. I did not open the 1992 paper.",
+      "date": "1992",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "χ″ ≤ Δ+2⌈|V|/Δ⌉+1 for dense graphs. By my arithmetic this is at least Δ+3 for every graph, so it is not the conjecture.",
+      "remains": "The conjecture in full.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The formula is as quoted by the 2024 paper. I did not open the 1992 paper to check it.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "A weaker bound for dense graphs. No counterexample.",
+      "object": null,
+      "people": [
+        "H. R. Hind"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2405.07382v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2405.07382v1"
+      ]
+    },
+    {
+      "id": "molloy-reed-1998",
+      "what_happened": "Molloy and Reed, Combinatorica (1998), per Wikipedia and the 2018 survey: a probabilistic argument giving χ″(G) ≤ Δ(G)+10^26 for graphs with sufficiently large Δ. I did not open the original.",
+      "date": "1998",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "χ″ ≤ Δ+10^26 for sufficiently large Δ. This is asymptotic, with an additive constant far from 2.",
+      "remains": "The additive constant 2 for every maximum degree.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "A partial asymptotic bound. No counterexample.",
+      "object": null,
+      "people": [
+        "Molloy",
+        "Reed"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Total_coloring"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Total_coloring",
+        "https://arxiv.org/html/1812.05833v1"
+      ]
+    },
+    {
+      "id": "hind-molloy-reed-1998",
+      "what_happened": "Hind, Molloy and Reed, SIAM J. Comput. (1998), per Wikipedia: χ″(G) ≤ Δ(G)+8 ln⁸(Δ(G)) for sufficiently large Δ. Attribution conflicts: a search summary credits the 8 ln⁸Δ bound to Molloy–Reed. I did not open the original.",
+      "date": "1998",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "χ″ ≤ Δ+8 ln⁸Δ for sufficiently large Δ. Asymptotic only.",
+      "remains": "The additive constant 2 for every maximum degree.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Attribution conflict as described in disputes.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A partial asymptotic bound. No counterexample.",
+      "object": null,
+      "people": [
+        "Hind",
+        "Molloy",
+        "Reed"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Total_coloring"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Total_coloring"
+      ]
+    },
+    {
+      "id": "shen-wang-2009",
+      "what_happened": "Shen and Wang, “On the 7 total colorability of planar graphs with maximum degree 6 and without 4-cycles”, Graphs and Combinatorics 25(3) (2009) 401–407 (title from a search summary; the 2018 survey cites a Shen et al. paper in Graphs and Combinatorics 2009 for this result). Planar graphs with Δ=6 and no 4-cycles are type I (7-totally-colourable).",
+      "date": "2009",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The conjecture for planar graphs with Δ=6 and no 4-cycles, in the stronger form χ″ = Δ+1 = 7.",
+      "remains": "Planar maximum-degree-6 graphs containing 4-cycles; non-planar graphs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Author attribution differs between sources (the survey's Shen et al. versus the search summary's Shen and Wang). I did not open the paper.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture, in a stronger form, for a restricted planar class. No counterexample.",
+      "object": null,
+      "people": [
+        "Lan Shen",
+        "Yingqian Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.19503v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2609.19503v1",
+        "https://arxiv.org/html/1812.05833v1"
+      ]
+    },
+    {
+      "id": "sun-wu-wu-hou-2009",
+      "what_happened": "Sun, Wu, Wu and Hou, Discrete Mathematics (2009), per the 2018 survey: every planar graph with maximum degree 6 is totally 8-colourable if no two triangles share an edge.",
+      "date": "2009",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The conjecture (χ″ ≤ 8 = Δ+2) for planar graphs with Δ=6 in which no two triangles share an edge.",
+      "remains": "Other planar maximum-degree-6 graphs; non-planar graphs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for a restricted planar class. No counterexample.",
+      "object": null,
+      "people": [
+        "Sun",
+        "Wu",
+        "Hou"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/1812.05833v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/1812.05833v1"
+      ]
+    },
+    {
+      "id": "zhu-xu-2017",
+      "what_happened": "Zhu and Xu, Discrete Applied Mathematics (2017), per the 2018 survey: planar graphs with Δ=6 that contain no 4-fan satisfy the conjecture.",
+      "date": "2017",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The conjecture for planar graphs with Δ=6 that contain no 4-fan.",
+      "remains": "Planar maximum-degree-6 graphs containing 4-fans; non-planar graphs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "not assessed",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture for a restricted planar class. No counterexample.",
+      "object": null,
+      "people": [
+        "Zhu",
+        "Xu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/1812.05833v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/1812.05833v1"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "status",
+      "summary": "Murthy's 2020 claimed full proof against the status given by later sources. Wikipedia (last edited 12 April 2025) lists the problem as unsolved. Zhu–Zhou–Xu (2026) and Su–Fang–Zhu (2025) describe the planar maximum-degree-6 case as remaining open. A 2022 zero-divisor-graph paper says the claim is “not verified”. The Nature Index topic page was not readable (redirect to a login). No source I read says the proof is wrong, and no source I read endorses it.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Total_coloring",
+        "https://arxiv.org/html/2609.19503v1",
+        "https://arxiv.org/html/2507.12737v1",
+        "https://arxiv.org/pdf/2205.04916"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "Planar graphs with Δ ≥ 9 are type I: credited to Kowalik, Sereni and Škrekovski (SIAM J. Discrete Math., 2008) by the 2018 survey, and to Borodin (1989, J. reine angew. Math. 394) by a search summary. Neither paper was opened.",
+      "sources": [
+        "https://arxiv.org/html/1812.05833v1"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "The 8 ln⁸Δ bound: Wikipedia attributes it to Hind, Molloy and Reed (SIAM J. Comput. 1998) and gives Molloy and Reed (Combinatorica 1998) for the Δ+10^26 bound. A search summary attributes the 8 ln⁸Δ bound to Molloy and Reed. Not resolved.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Total_coloring"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "Δ=3 case: Rosenfeld and Vijayaditya (1971, year from a search summary) versus the 2018 survey's citation of Kostochka (1996) for the Δ≤3 case. Not resolved; the originals were not opened.",
+      "sources": [
+        "https://arxiv.org/html/1812.05833v1"
+      ]
+    },
+    {
+      "kind": "date",
+      "summary": "Free-access date for Dalal–McDonald–Shan in J. Graph Theory: the NSF page I opened says 1 November 2026. A search snippet says 1 February 2027. Not resolved; the publisher page was not opened.",
+      "sources": [
+        "https://par.nsf.gov/biblio/10648716-total-coloring-graphs-large-maximum-degree"
+      ]
+    }
+  ],
+  "summary": "No resolution, no counterexample, and no AI involvement in the ordinary conjecture found. The events since January 2024 are four partial results on arXiv (Dalal–McDonald–Shan, 12 May 2024, published in J. Graph Theory 2025, confirming the bound for large dense regular graphs and giving a general bound that is weaker than the conjecture; Henderschedt–McDonald–Shan, 8 July 2025, confirming it for graphs of minimum degree about n/2 and above; Su–Fang–Zhu, 17 July 2025, for planar graphs avoiding three named subgraphs; Zhu–Zhou–Xu, 16 September 2026, giving 7 colours for planar maximum-degree-6 graphs avoiding some special 4-cycles). These are restricted classes, not the general conjecture. The one claim of a full proof is Murthy's arXiv preprint of March 2020, which predates the window. I found no review, journal version, or refutation of it, and the 2024–26 papers I could read do not cite it; a 2022 paper calls it unverified. My reading of its text came through a summarising fetch, which flagged a Brooks' theorem misstatement, a thin justification in Lemma 3.1, and an introduction that still calls the problem open; I did not confirm any of these against the raw text. On AI: the only AI-credited results in this area are Noel's 2026 papers, one disproving the list total colouring conjecture (cubic example with χ″=4 and list value 5) and one the partial list colouring conjecture. Neither paper mentions the ordinary Δ+2 bound (checked in the HTML text), and neither touches this problem. I read the Dalal, Henderschedt, Su and Zhu papers' acknowledgements and visible text and found no AI statement; for the 1977–2009 classical results I read only secondary text and name no system. A close call is Murthy: a stated full proof that nobody has refuted in six years is not the same as an accepted result, and the record cannot say more than that. A second close call is Zhu–Zhou–Xu, which proves a stronger bound (Δ+1) but only for a planar subclass, so it counts as partial. The run log for this key in the earlier run shows a FAIL entry (line 424, “373/417 FAIL total-coloring-conjecture”); I did not investigate it and did not use its output.",
+  "competing_reading": "Read Murthy's 2020 preprint as the live resolution. It is an explicit full claim with no visible refutation after more than six years, and if the argument holds the whole problem is settled. That reading makes the problem closed by a pre-window event, so no in-window change would be needed. The opposing reading: a claim with no expert engagement, no journal, and a proof step that a summariser flagged, and which later experts treat as open (or leave unmentioned), does not settle anything. For the partial results, one could argue that Dalal et al.'s general bound 'moves' the quantity Δ+2 in a way the judging pass should count. I read it as not moving the additive constant for general graphs, since the general bound equals Δ+2 only when n ≤ Δ+1.",
+  "what_would_settle_it": "For Murthy: a referee report, a journal acceptance, an expert write-up of the proof, or an explicit error in Section 4 (Theorem 3.1, Lemma 3.1, Claim 3.1, Theorem 3.2, Corollary 3.1) confirmed in the raw text. A zbMATH or MathSciNet review would also bear on it. For the window events: the referee/editor record for Dalal et al. in J. Graph Theory, and any 2026 citing paper that describes the conjecture as settled or open. For Noel's papers: the raw PDF (to confirm again that the Δ+2 bound is not mentioned); this would not change the TCC record, since the HTML text was read.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2003.09658",
+      "title": "A proof of the Total Coloring Conjecture (T. Srinivasa Murthy)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2003.09658v3",
+      "title": "A proof of the Total Coloring Conjecture, v3 HTML (read through a summarising fetch; truncated at about 100k of 122k characters)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2003.09658",
+      "title": "A proof of the Total Coloring Conjecture, PDF (unreadable compressed stream)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://deepai.org/publication/a-proof-of-the-total-coloring-conjecture",
+      "title": "DeepAI mirror of the Murthy preprint (not opened; a mirror, not a second source)",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2405.07382",
+      "title": "Total coloring graphs with large maximum degree (Dalal, McDonald, Shan)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2405.07382v1",
+      "title": "Total coloring graphs with large maximum degree, HTML v1",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2405.07382",
+      "title": "Total coloring graphs with large maximum degree, PDF (unreadable compressed stream)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://par.nsf.gov/biblio/10648716-total-coloring-graphs-large-maximum-degree",
+      "title": "NSF PAR record: J. Graph Theory 110(3) 249–262, DOI 10.1002/jgt.23268",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.05548",
+      "title": "Total coloring graphs with large minimum degree (Henderschedt, McDonald, Shan)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2507.05548v1",
+      "title": "Total coloring graphs with large minimum degree, HTML v1 (read to about 100k of 122k characters)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.12737",
+      "title": "The Total Coloring Conjecture holds for planar graphs without three special subgraphs (Su, Fang, Zhu)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2507.12737v1",
+      "title": "Su, Fang, Zhu, HTML v1",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.19503",
+      "title": "Total-coloring of planar graphs with maximum degree 6 and without prescribed 4-cycles (Zhu, Zhou, Xu)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.19503v1",
+      "title": "Zhu, Zhou, Xu, HTML v1",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.38417",
+      "title": "The List Total Colouring Conjecture Is False (Noel)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.38417",
+      "title": "The List Total Colouring Conjecture Is False, HTML (read through a summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.23291",
+      "title": "The Partial List Colouring Conjecture is False (Noel)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.23291",
+      "title": "The Partial List Colouring Conjecture is False, HTML (read through a summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/ListTotalColoringConjecture.html",
+      "title": "Wolfram MathWorld: List Total Coloring Conjecture (last updated 2 Oct 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Total_coloring",
+      "title": "Wikipedia: Total coloring (last edit 12 Apr 2025)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://openproblemgarden.org/crss/node/815",
+      "title": "Open Problem Garden: Total Coloring Conjecture (feed entry, 2008)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1812.05833",
+      "title": "Total Colourings – A survey (Geetha, Narayanan, Somasundaram), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/1812.05833v1",
+      "title": "Total Colourings – A survey, HTML v1 (read in part)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2205.04916",
+      "title": "Zero-divisor graphs of posets (2022), Section 5 cites Murthy's claim as not verified",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i1p4",
+      "title": "Basavaraju, Chandran, Francis, Naskar, Weak TCC, Electronic J. Combin. 31(1) P1.4",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://jeit.ac.cn/en/article/doi/10.11999/JEIT250861",
+      "title": "Total Coloring on Planar Graphs of Nested n-Pointed Stars (J. Electronics & Information Technology, 2026)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v31i1p4/pdf",
+      "title": "EJC PDF (unreadable compressed stream)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://kostochk.web.illinois.edu/docs/old/jgt97bw.pdf",
+      "title": "Kostochka PDF, JGT 1997 (unreadable compressed stream)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://doaj.org/article/93ec078459c2434eae0a39b2695edb29",
+      "title": "DOAJ record: Discussiones Math. Graph Theory 2022 (HTTP 403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.dmgt.uz.zgora.pl/publish/article.php?doi=2300",
+      "title": "Discussiones Math. Graph Theory article page (certificate error)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.nature.com/nature-index/topics/l4/total-colorings-in-graph-theory",
+      "title": "Nature Index topic page (redirects to a login page)",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1812.00133",
+      "title": "Zhu, Liu, Rao, On a sufficient condition for planar graphs of maximum degree 6 to be totally 7-colorable (search snippet only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2107.09994",
+      "title": "Weakening Total Coloring Conjecture (arXiv posting; ar5iv via search only)",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "total coloring conjecture Behzad Vizing 2026",
+      "total coloring conjecture proof arXiv",
+      "total chromatic number at most Delta plus 2 new result",
+      "total coloring conjecture AI proof LLM",
+      "Wikipedia total coloring conjecture",
+      "total coloring conjecture Δ+2 graphs maximum degree at least 6 progress",
+      "Srinivasa Murthy \"total coloring conjecture\" proof withdrawn OR retracted OR comment",
+      "\"total coloring conjecture\" Dalal McDonald Shan regular graphs",
+      "\"total coloring\" conjecture \"Δ+2\" OR \"maximum degree plus two\" 2026 arXiv",
+      "Noel \"total colouring\" conjecture false ChatGPT counterexample",
+      "arXiv 2609.38417 list total colouring conjecture is false",
+      "AlphaEvolve OR FunSearch OR \"AlphaProof\" graph coloring total chromatic number conjecture",
+      "\"ChatGPT 6 Astra Ultra\" graph theory conjecture",
+      "\"total coloring\" conjecture ChatGPT OR GPT OR Claude OR Gemini counterexample 2026",
+      "\"total colouring conjecture\" 2026",
+      "Murthy \"A proof of the Total Coloring Conjecture\" review OR critique OR error OR gap",
+      "open problem garden total coloring conjecture status",
+      "Noel list total colouring counterexample ChatGPT reaction mathematicians Quanta OR blog",
+      "Hind 1992 total chromatic number Δ+ bound Hilton Hind 1993 three quarters Δ(G) ≥ 3/4 n",
+      "Molloy Reed total colouring Δ+10^26 Combinatorica 1998 graph colouring total",
+      "planar graphs maximum degree 7 total coloring Sanders Zhao Borodin degree 9 total colouring theorem",
+      "Kostochka total colouring graphs maximum degree 4 and 5 Rosenfeld Vijayaditya Δ=3 total chromatic number verified",
+      "total coloring conjecture Lean formalization OR \"formally verified\" total chromatic number",
+      "AI-assisted disproof combinatorics conjecture 2026 arXiv ChatGPT Astra graph coloring",
+      "\"total chromatic number\" cubic graph type 2 girth 2026 OR 2025 arXiv",
+      "Shen Wang 2009 planar graphs maximum degree 6 without 4-cycles total 7-colorable Zhu Liu Rao diamond-free house-free",
+      "Dalal McDonald Shan total coloring 2026 cites OR citation \"total chromatic number\" Hind bound improved",
+      "Henderschedt McDonald Shan total coloring minimum degree published",
+      "\"total coloring conjecture\" survey 2025 OR 2026 open problems Behzad Vizing status general graphs",
+      "Srinivasa Murthy total coloring 2021 OR 2022 OR 2023 OR 2024 journal publication \"total coloring\" Murthy NBHM",
+      "zbMATH \"total coloring\" Murthy 2003.09658 OR \"Srinivasa Murthy\" total colouring review",
+      "Vizing planar graph conjecture total coloring Δ=6 planar 2026 arXiv new result",
+      "OpenAI OR DeepMind OR Anthropic model graph coloring conjecture total colouring proof announcement 2026",
+      "Behzad Vizing total colouring conjecture Hadwiger total graphs 2026 arXiv"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for every 2024–2026 paper named in the record",
+      "arXiv 2003.09658 version history (v1–v3) and comments field",
+      "Wikipedia Total coloring article (last edited 12 Apr 2025)",
+      "Wolfram MathWorld list total coloring page (last updated 2 Oct 2026)",
+      "Open Problem Garden Total Coloring Conjecture entry",
+      "NSF PAR record for the J. Graph Theory paper",
+      "Electronic J. Combin. record for the weak-TCC paper",
+      "J. Electronics & Information Technology record for the nested-stars paper",
+      "2018 total colouring survey (arXiv 1812.05833)",
+      "2022 zero-divisor graph paper (arXiv 2205.04916), for later reference to Murthy",
+      "AI announcements: searched for OpenAI, DeepMind, Anthropic, AlphaEvolve, FunSearch, AlphaProof combined with the conjecture; found no link",
+      "Lean / formal-verification searches: no formalisation found",
+      "Reference lists of the 2024–2026 HTML papers, read for Murthy's citation: none visible in the portions read",
+      "Quanta and mathematician-reaction searches for the Noel papers: none found"
+    ],
+    "dead_ends": [
+      "DeepAI mirror of Murthy's preprint: same paper, not a second source",
+      "zbMATH and MathSciNet: not reachable through the tools (search only)",
+      "Google Scholar: not reached",
+      "Nature Index topic page: redirects to a login, not read",
+      "DOAJ record for the 2022 Discussiones paper: HTTP 403",
+      "Discussiones DMGT article page: certificate error",
+      "Kostochka 1997 PDF and the 2024–2026 PDFs: compressed streams, not readable",
+      "‘ChatGPT 6 Astra Ultra’ search returned coverage of a different model (GPT-5.6 Sol Ultra) for the cycle double cover conjecture, which is unrelated",
+      "AlphaEvolve / FunSearch / AlphaProof: no link to the total colouring conjecture",
+      "Lean formalisation of total colouring: none found",
+      "Weak total colouring papers (Δ+3): a neighbouring question, recorded as a discarded event",
+      "Wang's 1-toroidal graph paper (arXiv 1206.3862) and the 2026 Halin-graph type-2 paper: other problems, not recorded"
+    ]
+  },
+  "incomplete": "(1) The Murthy v3 HTML was read only through a summarising fetch, in two passes, and the second pass stopped at about 100k of 122k characters. The Brooks/χ=Δ+1 point, the Lemma 3.1 point, the Claim 3.1 proof, and the Theorem 3.2 and Corollary 3.1 proofs are therefore reported second-hand and are unverified. (2) The raw PDFs of the 2024–2026 papers were unreadable through the tool, so the HTML renderings were used; the Dalal and Henderschedt HTML reads stopped at about 100k of 122k characters, so their final pages (including any later acknowledgements and reference lists) were not read. Their reference lists were checked only in the visible portion, which does not cite Murthy. (3) For the Noel papers, the AI statements and theorem details come from a summarising fetch of the HTML, not raw text; the quotes in ai.systems are as extracted by that fetch. (4) The following pre-2024 results are known only from secondary text (search summaries or the 2018 survey), and their originals were not opened: Rosenfeld and Vijayaditya (1971), Kostochka 1977, Kostochka 1996, Kowalik et al. 2008, Sanders–Zhao 1999, Hilton–Hind 1993, Hind 1992, Molloy–Reed 1998, Hind–Molloy–Reed 1998, Shen–Wang 2009, Sun et al. 2009, Zhu–Xu 2017. Not yet recorded at all: Borodin 1989 (planar Δ≥9, search summary only); Zhu–Liu–Rao (arXiv 1812.00133, Dec 2018; planar Δ=6 with diamond-free and house-free conditions); Liang 2022 (claw-free planar graphs, search summary only); Wang's 1-toroidal result (arXiv 1206.3862). (5) No Google Scholar, zbMATH or MathSciNet check was possible, so the citing-literature check is partial: four 2024–2026 papers and one 2022 paper were checked for Murthy's citation, and no full citation search was done. (6) AI-tracker and expert-blog sources (Tao's blog, the Erdős problems site, Quanta, the Matroid Union) were searched only through general queries, not visited directly. (7) The earlier run's log shows a FAIL line for this key (run.log line 424); I did not investigate its cause.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "none",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "dalal-mcdonald-shan-2024-05",
+  "no_change_found": false,
+  "event": {
+    "id": "dalal-mcdonald-shan-2024-05",
+    "what_happened": "Aseem Dalal, Jessica McDonald and Songling Shan posted “Total coloring graphs with large maximum degree” (arXiv:2405.07382, 12 May 2024). Main results: (i) for every graph G, χ″(G) ≤ Δ(G)+2⌈|V(G)|/(Δ(G)+1)⌉, saving one colour on Hind's 1992 bound; (ii) for every 0<ε<1 there is n₀ such that every r-regular graph on n ≥ n₀ vertices with r ≥ ½(1+ε)n has χ″(G) ≤ Δ(G)+2, which the authors say confirms the conjecture for those graphs. Published as J. Graph Theory 110(3):249–262, DOI 10.1002/jgt.23268, with a listed publication date of 2025-11-01.",
+    "date": "2024-05-12",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 only, submitted 12 May 2024 (arXiv version history). Journal version listed as JGT 2025.",
+    "delivers": "(a) The general bound equals Δ+2 only when |V| ≤ Δ+1 (since the ceiling is then 1), so it is not the conjecture for general graphs; for Δ ≥ |V|/2 it gives Δ+4 (by my arithmetic, matching the authors' statement). (b) Confirms χ″ ≤ Δ+2 for r-regular graphs of large order n ≥ n₀(ε) with r ≥ ½(1+ε)n, so only regular graphs of degree above about half the order.",
+    "remains": "The conjecture for all graphs; non-regular graphs; regular graphs of smaller degree; graphs on fewer than n₀ vertices.",
+    "checked_by": [
+      {
+        "who": "Journal of Graph Theory (Wiley)",
+        "qualification": "Peer-reviewed journal of record",
+        "what_they_did": "Published the paper (vol. 110, issue 3, pp. 249–262). I did not see referee reports or an editorial statement.",
+        "where": "https://par.nsf.gov/biblio/10648716-total-coloring-graphs-large-maximum-degree",
+        "automated": false
+      }
+    ],
+    "no_engagement_found": false,
+    "time_since_posted": "about 29 months (May 2024 to October 2026)",
+    "machine_checked": null,
+    "directly_checkable": null,
+    "doubts": null,
+    "later_work_cites_it": true,
+    "withdrawn": null,
+    "direction": "Confirms the conjecture for a restricted class of dense regular graphs. Its general bound is weaker than the conjecture and does not move the additive constant for general graphs.",
+    "object": null,
+    "people": [
+      "Aseem Dalal",
+      "Jessica McDonald",
+      "Songling Shan"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/abs/2405.07382",
+        "https://arxiv.org/html/2405.07382v1"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2405.07382",
+      "https://arxiv.org/html/2405.07382v1",
+      "https://par.nsf.gov/biblio/10648716-total-coloring-graphs-large-maximum-degree",
+      "https://arxiv.org/html/2507.05548v1"
+    ]
+  },
+  "credited_humans": [
+    "Aseem Dalal",
+    "Jessica McDonald",
+    "Songling Shan"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2405.07382",
+    "https://arxiv.org/html/2405.07382v1",
+    "https://par.nsf.gov/biblio/10648716-total-coloring-graphs-large-maximum-degree",
+    "https://arxiv.org/html/2507.05548v1"
+  ],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "murthy-2020-03",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Claimed resolution of a landmark problem with no expert engagement, journal version or citation in six and a half years; later papers (2025–26) still treat the conjecture and its planar Δ=6 case as open without citing it; a 2022 paper calls it 'not verified'; the paper's own introduction reportedly still calls the problem open; reported reading flags a misuse of Brooks' theorem and a gap in Lemma 3.1 (second-hand, so not a knock-down).",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "dalal-mcdonald-shan-2024-05",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "henderschedt-mcdonald-shan-2025-07",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "su-fang-zhu-2025-07",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "zhu-zhou-xu-2026-09",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "noel-list-total-2026-09",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The author checked the arguments and rewrote the exposition based on drafts generated by ChatGPT.",
+        "ai_systems_credited": [
+          "ChatGPT 6 Astra Ultra"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "noel-partial-list-2026-09",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "This counterexample was discovered and fully verified by ChatGPT 6 Astra Ultra after some persistent prompting,",
+        "ai_systems_credited": [
+          "ChatGPT 6 Astra Ultra"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "basavaraju-2021-07-weak-tcc",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "rosenfeld-vijayaditya-1971",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kostochka-1977",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kostochka-1996",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kowalik-sereni-skrekovski-2008",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "sanders-zhao-1999",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "hilton-hind-1993",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "hind-1992",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "molloy-reed-1998",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hind-molloy-reed-1998",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "shen-wang-2009",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "sun-wu-wu-hou-2009",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "zhu-xu-2017",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      }
+    ],
+    "why": "The four post-snapshot papers on the ordinary conjecture each prove χ″ ≤ Δ+2 for a restricted class (dense regular, large minimum degree, two planar Δ=6 subclasses), so each is a case. Dalal–McDonald–Shan is digested via its J. Graph Theory publication; the others are unreviewed preprints with no reason for doubt. Dalal et al.'s general bound Δ+2⌈n/(Δ+1)⌉ is subsumed in the same event, and the regular-graph case is its strongest contribution to this statement. Zhu–Zhou–Xu proves Δ+1 on a subclass, which implies the Δ+2 statement there, so it is a case and not a variant. Noel's two papers disprove list-colouring conjectures. They are variants with no bearing on Δ+2: the cubic example has χ″ = Δ+1. By the authors' own account the model produced the counterexamples, so both are recorded as generated, and both are discarded on scope. Murthy's 2020 full-proof claim predates the snapshot. Several F10 signals are present together: six and a half years of silence on a landmark problem, later papers on the same question calling it open without citing it, a 2022 paper calling it unverified, and a reported internal inconsistency in the paper itself. On those signals I mark it not_credible rather than doubtful. Pre-snapshot classical results are journal publications, marked digested, and they are cases or bounds.",
+    "doubts": "Murthy: not_credible vs doubtful was a close call. The specific flaws reported (Brooks' theorem misuse, Lemma 3.1) came from a summarising fetch and are unconfirmed, so it is not knocked_down. The author's standing in the field is not in the record. Pre-snapshot classical results are known only from secondary sources, and several carry priority disputes. Their 'digested' rests on journal publication as reported, not on a visit to the originals. For noel-list-total, the basis_quote alone describes checking and rewriting from drafts. The generated call also rests on the abstract's 'discovered the counterexample', as reported in what_it_did. The model name 'ChatGPT 6 Astra Ultra' is uncorroborated per the record.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "dalal-mcdonald-shan-2024-05",
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

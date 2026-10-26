@@ -1,0 +1,950 @@
+{
+  "key": "szymanskis-conjecture",
+  "nothing_found": false,
+  "outcome": "No public work since 26 January 2024 that I could find settles or moves Szymanski's conjecture as stated: the one in-window paper on the topic (Chakrabarty and Seshadhri, arXiv September 2024, ITCS 2025) concerns a layered directed hypercube and does not mention the doubly directed cube or permutation routing, so the problem is still listed as open, with the n ≤ 4 computer verification (1999/2001) the last positive case I could attribute.",
+  "problem_asks": "(1) For every dimension n ≥ 1: the conjecture is universal over n. (2) For every permutation π of the 2ⁿ vertices of the doubly directed n-cube Qₙ (all permutations, not some). (3) One system of directed paths, one path for each vertex v, running from v to π(v); a path may be trivial when π(v) = v. (4) Arc-disjointness: no two of these paths use the same edge in the same direction; the two directions of one edge are separate resources. (5) No bound on path length: the statement says 'paths', not 'shortest paths'. (6) One simultaneous routing, not a routing split into rounds or parts. A yes-answer for all n settles every part. A counterexample is one pair (n, π) for which no such system exists. Not asked by the statement, but often confused with it: (a) the stronger shortest-path variant (Szymanski's own additional proposal, per Wikipedia and search snippets); (b) 2-rearrangeability, where π is split into two pieces each routable (weaker); (c) 2-1 routing requests, where a vertex may be a source twice but a target only once (different question).",
+  "events": [
+    {
+      "id": "baudon-fertin-havel-1999",
+      "what_happened": "Baudon, Fertin and Havel report, by computer search, that for every permutation of the 16 vertices of the directed 4-cube H4 there is a system of pairwise arc-disjoint directed paths from each vertex to its image. Wikipedia cites this paper for the statement that computer experiments verified the conjecture for n ≤ 4. First public written form: the conference paper 'Routing permutations in the hypercube' (WG'99, Ascona; Springer LNCS, pp. 179–190). Journal version: 'Routing permutations and 2-1 routing requests in the hypercube', Discrete Applied Mathematics 113(1) (2001) 43–58. The journal version also shows that for n ≥ 3 some 2-1 routing request cannot be routed by arc-disjoint paths; that is a different question and is not counted here.",
+      "date": "1999",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "Journal version DAM 113(1), 2001, pp. 43–58, extends the conference paper. Both versions are deposited on HAL with a December 2011 date (repository date, not first public).",
+      "delivers": "For n = 4 only: every permutation of the vertices of the doubly directed 4-cube is routed by pairwise arc-disjoint directed paths. This is a finite check of one dimension, and it is a case of the statement's universal claim. Wikipedia's n ≤ 4 wording also covers n ≤ 3, but no source for n ≤ 3 is attributed to this event.",
+      "remains": "Every n ≥ 5 (all permutations of Qₙ, arbitrary-length paths). The smaller cases n ≤ 3 are not established by this event alone.",
+      "checked_by": [
+        {
+          "who": "Discrete Applied Mathematics (Elsevier) editors and referees, 2001",
+          "qualification": "Refereed journal of record. Individual referees are not named in any source I read.",
+          "what_they_did": "Accepted and published the 2001 paper containing the n = 4 computation. No independent re-run or expert exposition of the computation was found.",
+          "where": "https://www.sciencedirect.com/science/article/pii/S0166218X00003863 (search listing only, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 27 years since the 1999 conference paper. I found no independent re-verification of the n = 4 computation.",
+      "machine_checked": null,
+      "directly_checkable": "The check is finite: all 16! ≈ 2.1×10¹³ permutations of the vertices of H4. It was a computer search. The method and code are not in the abstract or metadata I could read, and I did not find them published.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjecture for n = 4 (a positive case for one dimension).",
+      "object": "No counterexample and no explicit family of paths. The result is a complete case analysis of all permutations of the 4-cube, each shown to have an arc-disjoint routing, found by computer. The individual routings are not described in the sources I read.",
+      "people": [
+        "Olivier Baudon",
+        "Guillaume Fertin",
+        "Ivan Havel"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture (summarising fetch)",
+          "https://www.sciencedirect.com/science/article/pii/S0166218X00003863 (search listing only)"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture",
+        "https://hal.archives-ouvertes.fr/hal-00649005",
+        "https://www.sciencedirect.com/science/article/pii/S0166218X00003863",
+        "https://link.springer.com/chapter/10.1007/3-540-46784-X_19"
+      ]
+    },
+    {
+      "id": "lubiw-1990",
+      "what_happened": "Anna Lubiw, 'Counterexample to a conjecture of Szymanski on hypercube routing', Information Processing Letters 35(2) (1990) 57–61 (DOI 10.1016/0020-0190(90)90106-8). Per Wikipedia and search snippets, it shows that Szymanski's stronger proposal, that every permutation can be routed with shortest paths, fails: some permutations need paths that are not shortest. Wikipedia attributes the n ≥ 5 non-shortest-path permutations to this paper. One search snippet describes a 5-dimensional example; I could not read the paper to confirm the dimension.",
+      "date": "1990",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Shows that the shortest-path version fails: some permutations of the cube cannot be routed by edge-disjoint shortest paths (for n ≥ 5 per Wikipedia). The statement as written allows paths of any length, so this does not refute it.",
+      "remains": "The statement as written, for every n and every permutation, with arbitrary-length arc-disjoint paths. The counterexample leaves it untouched.",
+      "checked_by": [
+        {
+          "who": "Information Processing Letters (Elsevier) referees, 1990",
+          "qualification": "Refereed journal of record. Referees not named in the sources read.",
+          "what_they_did": "Published the counterexample after refereeing.",
+          "where": "https://doi.org/10.1016/0020-0190(90)90106-8 (DOI as given by Wikipedia; not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 36 years. Later work by Briët et al. (2010/2012) uses this counterexample as background.",
+      "machine_checked": null,
+      "directly_checkable": "The counterexample is a specific permutation of a small cube (dimension 5 per a snippet), which can be checked by hand in principle. I did not read the construction, so I cannot say how it checks.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Against the shortest-path variant. Neutral on the statement as written, since paths there may be longer than shortest.",
+      "object": "A permutation of the vertices of a cube (dimension 5 per a snippet, not verified) for which no system of edge-disjoint shortest paths exists. Whether the object is explicit or non-constructive is not established; I did not read the construction.",
+      "people": [
+        "Anna Lubiw"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture (summarising fetch)"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture",
+        "https://homepages.cwi.nl/~jop/monotonicity.pdf (internal citation labels only; text not readable)"
+      ]
+    },
+    {
+      "id": "gu-tamaki-1997",
+      "what_happened": "Qian-Ping Gu and Hisao Tamaki, 'Routing a permutation in the hypercube by two sets of edge disjoint paths', Journal of Parallel and Distributed Computing 44(2) (1997) 147–152. Per Wikipedia: every permutation of the hypercube can be split into two partial permutations, each routable by edge-disjoint paths (2-rearrangeability). One search snippet attributed this result to Goldberg and Tarjan (1997) instead. The paper itself was not read. See disputes.",
+      "date": "1997",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Every permutation of the cube splits into two partial permutations, each routed by edge-disjoint paths. This is a weaker property than one system routing the whole permutation, so it settles no case of the statement.",
+      "remains": "The one-system claim for every n and every permutation.",
+      "checked_by": [
+        {
+          "who": "Journal of Parallel and Distributed Computing editors and referees, 1997",
+          "qualification": "Refereed journal of record. Referees not named in the sources read.",
+          "what_they_did": "Published the paper after refereeing.",
+          "where": "Cited on Wikipedia; the journal page was not opened.",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 29 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A partial positive result: a weaker property that is consistent with the statement but does not confirm it.",
+      "object": null,
+      "people": [
+        "Qian-Ping Gu",
+        "Hisao Tamaki"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture (summarising fetch)"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture",
+        "https://en.wikipedia.org/w/index.php?title=Szymanski%27s_conjecture&action=raw (summarising fetch)"
+      ]
+    },
+    {
+      "id": "shen-hu-liang-1994",
+      "what_happened": "Xiaojun Shen, Qing Hu and Weifa Liang, 'Realization of an arbitrary permutation on a hypercube', Information Processing Letters 51(5) (1994) 237–243 (received 15 October 1993, revised 28 April 1994). Per the CityU record and a search snippet: an explicit combinatorial algorithm builds a 2-realization of any permutation on a d-cube, with total directed-edge usage (counting repetitions) within d·2ᵈ. A corollary gives a (2d−3)-step realization on a packet-switched d-cube for d ≥ 3. The PDF was not readable, so this description comes from the listing abstract.",
+      "date": "1994",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A constructive 2-realization of every permutation. That is a weaker property than one edge-disjoint system for the whole permutation. Its packet-switched corollary is a different model. It settles no case of the statement.",
+      "remains": "The one-system claim for every n and every permutation.",
+      "checked_by": [
+        {
+          "who": "Information Processing Letters (Elsevier) referees, 1994",
+          "qualification": "Refereed journal of record. Referees not named in the sources read.",
+          "what_they_did": "Published the paper after refereeing.",
+          "where": "https://www.cs.cityu.edu.hk/~weliang/papers/SHL94.pdf (PDF unreadable; listing read only)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 32 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A partial positive result for a weaker (2-realization) property.",
+      "object": null,
+      "people": [
+        "Xiaojun Shen",
+        "Qing Hu",
+        "Weifa Liang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://scholars.cityu.edu.hk/en/publications/realization-of-an-arbitrary-permutation-on-a-hypercube/ (search listing only)"
+        ]
+      },
+      "sources": [
+        "https://www.cs.cityu.edu.hk/~weliang/papers/SHL94.pdf",
+        "https://scholars.cityu.edu.hk/en/publications/realization-of-an-arbitrary-permutation-on-a-hypercube/"
+      ]
+    },
+    {
+      "id": "briet-et-al-2010",
+      "what_happened": "Jop Briët, Sourav Chakraborty, David García-Soriano and Arie Matsliah, 'Monotonicity testing and shortest-path routing on the cube'. First public written form: ECCC report TR10-048, dated 24 March 2010. Conference version: RANDOM 2010 (LNCS 6302, pp. 462–475). Journal version: Combinatorica 32(1) (2012) 35–53 (DOI 10.1007/s00493-012-2765-1). Per abstract text quoted in search results (the paper PDF was not readable): they build instances with Ω(2ⁿ) source–sink pairs in which at most roughly a 1/√n fraction of pairs can be connected simultaneously by edge-disjoint paths, answering a question of Lehman and Ron. They also show that for any δ > 0 the n-cube is not n^(1/2−δ)-realizable with shortest paths, where previously only non-1-realizability was known. The ECCC abstract page describes the construction, in its own words, as 'a strong counterexample to Szymanski's conjecture on routing in the hypercube'.",
+      "date": "2010-03-24",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": "ECCC TR10-048 (March 2010); RANDOM 2010 conference version; Combinatorica 32(1), 2012. The first public written form is the ECCC report.",
+      "delivers": "Shortest-path variant: fails with a quantitative bound (no n^(1/2−δ)-realizability by shortest paths). Edge-disjoint variant: a fraction bound on pairs connectable by edge-disjoint paths, for an instance family on the cube. Whether that family consists of permutations of the doubly directed n-cube, with arbitrary-length paths, is not established by anything I could read. The sources point the other way: the edge-disjoint setting appears to be the layered directed hypercube of Lehman and Ron, not the doubly directed cube (see doubts).",
+      "remains": "Whatever part of the statement the edge-disjoint bound does not reach. If it concerns the doubly directed cube and full permutations, it bears on the statement. If not, the statement is untouched. The shortest-path result is clearly a different question.",
+      "checked_by": [
+        {
+          "who": "Combinatorica (Springer) referees, 2012",
+          "qualification": "Refereed journal of record. Referees not named in the sources read.",
+          "what_they_did": "Published the journal version after refereeing.",
+          "where": "https://link.springer.com/article/10.1007/s00493-012-2765-1 (redirected to a login page; not opened)",
+          "automated": false
+        },
+        {
+          "who": "RANDOM 2010 programme committee",
+          "qualification": "Refereed conference in randomisation and computation.",
+          "what_they_did": "Accepted the conference version.",
+          "where": "Search listing only",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 16.5 years since the ECCC posting. In my searches I found no independent exposition, rebuttal or verification of the edge-disjoint bound as it applies to the statement.",
+      "machine_checked": null,
+      "directly_checkable": "The instance family is a combinatorial construction on the cube. I could not read the sources that would show how it checks by hand.",
+      "doubts": "Scope, not validity. (1) The sources I could read do not establish that the edge-disjoint bound applies to the doubly directed cube, with arbitrary path lengths and full permutations. (2) Evidence the other way: the Lehman–Ron setting is the layered directed cube, and the edge-disjoint negative result for paths following a matching (cited as BCSM12 in the Chakrabarty–Seshadhri summary) is in that setting. (3) The authors call the construction a strong counterexample to the conjecture, while the Wikipedia article as fetched still lists the conjecture as open. Both readings are recorded in the summary.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against the shortest-path variant. For the edge-disjoint statement, the authors describe their construction as a strong counterexample to Szymanski's conjecture. Whether it bears on the doubly directed statement with arbitrary paths is unresolved from my sources.",
+      "object": "A family of instances on the n-cube with Ω(2ⁿ) source–sink pairs in which at most about a 1/√n fraction of pairs can be connected simultaneously by edge-disjoint paths. Also a construction showing that for every δ > 0 the n-cube is not n^(1/2−δ)-realizable with shortest paths. Whether either is explicit or non-constructive is not established; I could not read the construction.",
+      "people": [
+        "Jop Briët",
+        "Sourav Chakraborty",
+        "David García-Soriano",
+        "Arie Matsliah"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://eccc.weizmann.ac.il/report/2010/048 (the page does not mention AI or language models)"
+        ]
+      },
+      "sources": [
+        "https://eccc.weizmann.ac.il/report/2010/048",
+        "https://www.cs.upc.edu/~dgarcia/pubs/monotonicity-testing-and-shortest-path-routing-on-the-cube.bib",
+        "https://homepages.cwi.nl/~jop/monotonicity.pdf (opened; binary, only title and authors readable)",
+        "https://link.springer.com/article/10.1007/s00493-012-2765-1 (redirected to login)"
+      ]
+    },
+    {
+      "id": "chakrabarty-seshadhri-2024",
+      "what_happened": "Deeparnab Chakrabarty and C. Seshadhri, 'Directed Hypercube Routing, a Generalized Lehman-Ron Theorem, and Monotonicity Testing', arXiv:2409.02206 (v1 submitted 3 September 2024), published at ITCS 2025 (LIPIcs vol. 325, pp. 34:1–34:15). They prove that for a matched pair of sets S ⊆ Lᵢ and T ⊆ Lⱼ in the directed hypercube, with j − i ≥ 2, there are two edge-disjoint collections of vertex-disjoint paths between S and T, strengthening the Lehman–Ron theorem (which gives one collection). They also state conjectures on directed-hypercube flows and derive isoperimetric consequences for monotonicity testing. The paper does not mention Szymanski or permutation routing, per my reading of the abstract and HTML text.",
+      "date": "2024-09-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 submitted 4 December 2024 (typos fixed, related-paper references updated). Published at ITCS 2025; the Dagstuhl record gives 11 February 2025.",
+      "delivers": "In the layered directed hypercube: for a matched pair of sets in layers at least two apart, two edge-disjoint families of vertex-disjoint paths. The terminals are a matched pair S → T, not a permutation of all vertices; the paths need not follow the matching; the graph is the directed layered cube as I read the setting (arc orientation was not confirmed from text). It gives no path system in the doubly directed cube and no routing of any permutation there.",
+      "remains": "All of the statement: the doubly directed cube, every permutation, one prescribed target per vertex. The flow conjectures in the paper are open.",
+      "checked_by": [
+        {
+          "who": "ITCS 2025 programme committee (LIPIcs / Dagstuhl)",
+          "qualification": "Refereed conference in theoretical computer science.",
+          "what_they_did": "Accepted the paper for publication after refereeing.",
+          "where": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.34",
+          "automated": false
+        },
+        {
+          "who": "The Moonlight literature-review service",
+          "qualification": "None. An AI-generated summary service.",
+          "what_they_did": "Produced an AI-generated summary of the paper. My search summary notes that it contains imprecise statements, for example calling the result 'edge-disjoint vertex paths'.",
+          "where": "https://themoonlight.io/review/directed-hypercube-routing-a-generalized-lehman-ron-theorem-and-monotonicity-testing (search listing only)",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 25 months since arXiv v1 (September 2024). I found no public discussion linking it to Szymanski's conjecture.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive for its own generalised Lehman–Ron question. Neither for nor against Szymanski's conjecture, which it does not address; the sources describe the setting as different from the doubly directed cube.",
+      "object": null,
+      "people": [
+        "Deeparnab Chakrabarty",
+        "C. Seshadhri"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2409.02206v2 (summarising fetch; no acknowledgements section and no AI statement)",
+          "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.34 (the page has a site-wide GenAI-statement link, which is not part of the paper)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2409.02206",
+        "https://arxiv.org/html/2409.02206v2",
+        "https://arxiv.org/pdf/2409.02206 (binary; not readable)",
+        "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.34"
+      ]
+    },
+    {
+      "id": "lehman-ron-2001",
+      "what_happened": "Lehman and Ron, Journal of Combinatorial Theory (A), 2001: in the directed hypercube, for integers i < j and a matched pair (S, T) with S in layer Lᵢ and T in layer Lⱼ, there are |S| = |T| vertex-disjoint paths between S and T, not required to follow the matching. Background to Chakrabarty–Seshadhri. It concerns vertex-disjoint paths in the layered directed cube, not the statement. Described in the Chakrabarty–Seshadhri paper; the Lehman–Ron paper itself was not opened.",
+      "date": "2001",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Vertex-disjoint paths between matched layer sets in the directed cube. Paths need not follow the matching. Nothing about routing every permutation of the doubly directed cube.",
+      "remains": "The whole statement.",
+      "checked_by": [
+        {
+          "who": "Journal of Combinatorial Theory (A) referees, 2001",
+          "qualification": "Refereed journal of record.",
+          "what_they_did": "Published the paper after refereeing.",
+          "where": "Described in https://arxiv.org/abs/2409.02206 (summarising fetch)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 25 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral on the statement. A different setting (layered directed cube, vertex-disjoint paths).",
+      "object": null,
+      "people": [
+        "Lehman",
+        "Ron (first names not given in the sources read)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2409.02206 (summarising fetch)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2409.02206v2 (summarising fetch)"
+      ]
+    },
+    {
+      "id": "duckworth-gibbons-2007",
+      "what_happened": "William Duckworth and Alan Gibbons, 'Hypercubic combinatorics: Hamiltonian decomposition and permutation routing', Journal of Combinatorial Mathematics and Combinatorial Computing 63 (2007) 145–158. Shows that any permutation of the d-cube can be routed in at most 2d−1 steps without queueing, with off-line path systems. This is a time-stepped queueless model, not one simultaneous arc-disjoint routing. The year is from the ANU repository record and a search summary.",
+      "date": "2007",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Permutation routing in at most 2d−1 steps without queueing (a different, time-stepped model). It is not a single arc-disjoint routing for each permutation, so it is not a case of the statement.",
+      "remains": "The whole statement.",
+      "checked_by": [
+        {
+          "who": "Journal of Combinatorial Mathematics and Combinatorial Computing editorial process",
+          "qualification": "Journal publication. Referee status not checked.",
+          "what_they_did": "Published the paper.",
+          "where": "ANU repository record (search listing only, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "About 19 years. I found no engagement with it in relation to the statement.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral on the statement (different model).",
+      "object": null,
+      "people": [
+        "William Duckworth",
+        "Alan Gibbons"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://researchportalplus.anu.edu.au/en/publications/hypercubic-combinatorics-hamiltonian-decomposition-and-permutatio/ (search listing only)"
+        ]
+      },
+      "sources": [
+        "https://researchportalplus.anu.edu.au/en/publications/hypercubic-combinatorics-hamiltonian-decomposition-and-permutatio/ (search listing only)"
+      ]
+    },
+    {
+      "id": "laing-krumme-2003",
+      "what_happened": "Ambrose K. Laing and David W. Krumme, 'Optimal Permutation Routing for Low-dimensional Hypercubes', Tufts University technical report TR-2003-3 (2003). Queueless MIMD model in which each edge carries one token per step. Per a search summary: d steps suffice for d = 3 (analytic) and for d = 4 (experimental), and an upper bound of 2d − 4 for arbitrary large d. A different model from the statement. No peer-reviewed journal version was found.",
+      "date": "2003",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Step-count bounds for token routing in the queueless model. Not a single arc-disjoint routing per permutation. Its d = 4 result is experimental and in a different model, so it is not a case of the statement.",
+      "remains": "The whole statement.",
+      "checked_by": [
+        {
+          "who": "Tufts University technical report (no peer-reviewed version found)",
+          "qualification": "Internal technical report.",
+          "what_they_did": "Published the report. No independent review found.",
+          "where": "https://www.cs.tufts.edu/t/tech_reports/reports/2003-3/report.pdf (search listing only, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "About 23 years. I found no engagement with it in relation to the statement.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral on the statement (different model).",
+      "object": null,
+      "people": [
+        "Ambrose K. Laing",
+        "David W. Krumme"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.cs.tufts.edu/t/tech_reports/reports/2003-3/report.pdf (search listing only)"
+        ]
+      },
+      "sources": [
+        "https://www.cs.tufts.edu/t/tech_reports/reports/2003-3/report.pdf (search listing only)"
+      ]
+    },
+    {
+      "id": "voecking-2001",
+      "what_happened": "A 2001 report by Vöcking, as cited in a search summary of Duckworth–Gibbons: his algorithms route any permutation of the d-cube in d + o(d) steps in a packet-routing model, and the summary cites earlier 2d + o(d) (oblivious, on-line) and 2d − 3 (off-line) bounds. The report itself was not found or read.",
+      "date": "2001",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Step-count bounds in a packet-routing model. A different model, so not a case of the statement.",
+      "remains": "The whole statement.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "About 25 years. Not investigated further; the result is in a different model.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral on the statement (different model).",
+      "object": null,
+      "people": [
+        "Vöcking"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "Search summary only; no source read"
+        ]
+      },
+      "sources": [
+        "Search summary only; no URL retrieved"
+      ]
+    },
+    {
+      "id": "baudon-2005-2-1",
+      "what_happened": "Olivier Baudon, '2-1 routing requests in the hypercube', Electronic Notes in Discrete Mathematics 22 (2005) 535–538. Per Wikipedia: computer searches found about a dozen non-routable 2-1 requests in H4, not all of which extend to higher dimensions. This concerns 2-1 requests, not permutations.",
+      "date": "2005",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Non-routable 2-1 requests in H4 (not permutations). Not a case of the statement.",
+      "remains": "The whole statement.",
+      "checked_by": [
+        {
+          "who": "Electronic Notes in Discrete Mathematics editorial process",
+          "qualification": "Journal publication. Referee status not checked.",
+          "what_they_did": "Published the paper.",
+          "where": "https://www.sciencedirect.com/science/article/abs/pii/S1571065305052649 (search listing only)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "About 21 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral on the statement (2-1 requests, a different question).",
+      "object": "Non-routable 2-1 requests in H4 found by computer search. These are requests, not permutations.",
+      "people": [
+        "Olivier Baudon"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture (summarising fetch)"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture (summarising fetch)",
+        "https://www.sciencedirect.com/science/article/abs/pii/S1571065305052649 (search listing only)"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Who proved that the hypercube is 2-rearrangeable (any permutation splits into two partial permutations, each routable by edge-disjoint paths). The Wikipedia reference list, as fetched through a summarising fetch, gives Gu and Tamaki (1997). One search snippet attributed the result to Goldberg and Tarjan (1997). The Gu–Tamaki title matches the Wikipedia citation. Not resolved: I did not read the 1997 paper or the Wikipedia wikitext verbatim.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture (summarising fetch)",
+        "https://en.wikipedia.org/w/index.php?title=Szymanski%27s_conjecture&action=raw (summarising fetch)"
+      ]
+    },
+    {
+      "kind": "status",
+      "summary": "The authors of the 2010/2012 Briët et al. paper describe their construction as a strong counterexample to Szymanski's conjecture on routing in the hypercube (ECCC abstract page). The Wikipedia article, as fetched, still lists the conjecture as open and presents the shortest-path result as a separate matter. The difference rests on whether the edge-disjoint bound applies to the doubly directed cube with arbitrary paths, which I could not establish from the readable text.",
+      "sources": [
+        "https://eccc.weizmann.ac.il/report/2010/048",
+        "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture (summarising fetch)"
+      ]
+    }
+  ],
+  "summary": "Szymanski's conjecture asks whether every permutation of the doubly directed n-cube can be routed by arc-disjoint paths of any length, for every n. As of the Wikipedia article I could reach (through a summarising fetch, not verbatim), it is still listed as open. The positive knowledge is finite and older: Baudon, Fertin and Havel verified the n = 4 case by computer (WG'99, DAM 2001); Wikipedia's n ≤ 4 wording also covers smaller n, but no source for n ≤ 3 is attributed to this event. Gu and Tamaki (1997, per Wikipedia) proved 2-rearrangeability, a weaker property. Lubiw (1990) showed that the stronger shortest-path variant fails, which does not refute the statement because the statement allows longer paths. Briët, Chakraborty, García-Soriano and Matsliah (ECCC, March 2010; Combinatorica 2012) give a quantitative shortest-path counterexample and an edge-disjoint fraction bound, and the ECCC page calls the construction 'a strong counterexample to Szymanski's conjecture'. Whether the edge-disjoint bound concerns the doubly directed cube with full permutations and arbitrary paths is the central close call. Reading for: the bound is in the layered directed hypercube of Lehman and Ron. Support: the follow-up result on edge-disjoint paths following a matching (cited as BCSM12 in the Chakrabarty–Seshadhri summary) is in that layered setting, and the Lehman–Ron literature treats the directed cube, not the doubly directed one. Reading against: the authors describe the result as a counterexample to Szymanski's conjecture, and the paper's own definitions were unreadable to me, so I could not confirm the setting. In the window since 26 January 2024, the only paper on the topic that I found is Chakrabarty and Seshadhri (arXiv 3 September 2024; ITCS 2025). It generalises Lehman–Ron for the layered directed cube with two edge-disjoint vertex-disjoint path collections. It does not mention Szymanski or permutation routing, and it does not address the statement. On AI involvement: I searched explicitly for AI with this problem's name across lab announcements, AI-counterexample surveys, AlphaEvolve, OpenAI, Gemini Deep Think, Claude and Grok, Erdős-problem trackers, and the formal-conjectures benchmark. No source names an AI system as contributing to this problem. Nearby AI work on other problems is listed as dead ends. The Manifold market (81% YES on 'a widely accepted proof') is a secondary sentiment signal and is not evidence about the mathematics.",
+  "competing_reading": "The Briët et al. edge-disjoint bound, with its authors' own description as a 'strong counterexample to Szymanski's conjecture', is a refutation of the statement, not merely of the shortest-path variant. On that reading the problem is no longer open, and the 1999/2001 n = 4 check and the 2010 result together settle its status against the conjecture. Against that reading: Wikipedia as fetched still lists the conjecture as open; the authors' edge-disjoint setting is most likely the layered directed hypercube, which is not the statement's doubly directed cube; and their shortest-path counterexample does not reach the statement. Separately, a reader could say the n = 4 computer check is a finite instance of a universal claim and so 'moves nothing'. Another could say it is a restricted case the problem asks for, since Wikipedia counts it.",
+  "what_would_settle_it": "(1) The full text of Briët et al. (CWI PDF or Combinatorica 2012): the definition of the cube used in the edge-disjoint lower bound (doubly directed or layered directed), whether the instances are full permutations, and whether the paths are required to be shortest. (2) The verbatim current Wikipedia article, to see how it treats the Briët et al. result and the n ≤ 4 claim. (3) The Baudon, Fertin and Havel DAM 2001 text, to confirm the scope of the n = 4 computation and any n ≤ 3 claim. (4) The Lubiw 1990 paper, to confirm the dimension of her counterexample and its exact scope. (5) The Gu–Tamaki 1997 abstract, to settle the attribution dispute. (6) Any later paper that cites Briët et al. or Baudon et al. and states the status of the statement.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Szymanski%27s_conjecture",
+      "title": "Szymanski's conjecture (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/w/index.php?title=Szymanski%27s_conjecture&action=raw",
+      "title": "Szymanski's conjecture, raw wikitext (summarising fetch only)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2409.02206",
+      "title": "Directed Hypercube Routing, a Generalized Lehman-Ron Theorem, and Monotonicity Testing (arXiv abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2409.02206v2",
+      "title": "Same, arXiv HTML v2 (summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2409.02206",
+      "title": "Same, arXiv PDF (binary, not readable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ITCS.2025.34",
+      "title": "LIPIcs ITCS 2025, paper 34 (Dagstuhl record)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://eccc.weizmann.ac.il/report/2010/048",
+      "title": "ECCC TR10-048, Monotonicity Testing and Shortest-Path Routing on the Cube (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://eccc.weizmann.ac.il/report/2010/048/download",
+      "title": "ECCC TR10-048 PDF (binary, not readable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://homepages.cwi.nl/~jop/monotonicity.pdf",
+      "title": "Monotonicity Testing and Shortest-Path Routing on the Cube (CWI copy; binary, only title, authors and internal citation labels readable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.cs.upc.edu/~dgarcia/pubs/monotonicity-testing-and-shortest-path-routing-on-the-cube.bib",
+      "title": "BibTeX entry, Briët et al. (Combinatorica 32(1), 2012)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://link.springer.com/article/10.1007/s00493-012-2765-1",
+      "title": "Combinatorica version of Briët et al. (redirected to login; not opened)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.cs.cityu.edu.hk/~weliang/papers/SHL94.pdf",
+      "title": "Shen, Hu and Liang 1994, PDF (binary, not readable)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://scholars.cityu.edu.hk/en/publications/realization-of-an-arbitrary-permutation-on-a-hypercube/",
+      "title": "Shen, Hu and Liang 1994, CityU listing (search snippet only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://hal.archives-ouvertes.fr/hal-00649005",
+      "title": "Baudon, Fertin, Havel, HAL record (access denied)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://link.springer.com/chapter/10.1007/3-540-46784-X_19",
+      "title": "Baudon, Fertin, Havel, Routing Permutations in the Hypercube (WG'99; search listing only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0166218X00003863",
+      "title": "Baudon, Fertin, Havel, Routing permutations and 2-1 routing requests in the hypercube (DAM 2001; search listing only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S1571065305052649",
+      "title": "Baudon 2005, 2-1 routing requests in the hypercube (search listing only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.cs.tufts.edu/t/tech_reports/reports/2003-3/report.pdf",
+      "title": "Laing and Krumme, Optimal Permutation Routing for Low-dimensional Hypercubes, TR-2003-3 (search listing only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://researchportalplus.anu.edu.au/en/publications/hypercubic-combinatorics-hamiltonian-decomposition-and-permutatio/",
+      "title": "Duckworth and Gibbons, Hypercubic combinatorics (ANU record; search listing only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2509.00716",
+      "title": "Narang and Ju, Sharp Inner Product Correlations for Hypercube Bijections (search listing only; not about routing)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.16807",
+      "title": "Soiffer et al., Improved Upper Bounds for Slicing the Hypercube (dead end: different problem)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.29595",
+      "title": "Sra, GPT, the Counterexample Machine (dead end: does not mention this problem)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://manifold.markets/event/is-szymanskis-conjecture-true",
+      "title": "Manifold market, Is Szymanski's conjecture true? (81% YES; secondary sentiment, not evidence)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://themoonlight.io/review/directed-hypercube-routing-a-generalized-lehman-ron-theorem-and-monotonicity-testing",
+      "title": "The Moonlight AI-generated review of Chakrabarty and Seshadhri (search listing only)",
+      "type": "blog",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Szymanski's conjecture hypercube edge-disjoint paths permutation",
+      "Szymanski conjecture doubly directed hypercube routing permutation",
+      "Szymanski conjecture disproved counterexample hypercube",
+      "Szymanski conjecture arXiv 2024",
+      "Szymanski conjecture arXiv 2025",
+      "Szymanski conjecture wikipedia list of unsolved problems in mathematics",
+      "Szymanski conjecture AI model proof hypercube",
+      "routing permutations hypercube edge-disjoint paths Szymanski 1989",
+      "Szymanski conjecture Lamb Vincent Lee hypercube paths",
+      "\"Szymanski\" conjecture hypercube \"edge-disjoint\" paths arXiv",
+      "Lubiw counterexample to a conjecture of Szymanski on hypercube routing",
+      "Chakrabarty Seshadhri generalized Lehman-Ron theorem directed hypercube edge-disjoint",
+      "Briët Chakraborty García-Soriano Matsliah monotonicity testing hypercube shortest paths realizable",
+      "Baudon Fertin Havel routing permutations 2-1 routing requests hypercube",
+      "permutation routing hypercube arc-disjoint paths 2025 new result",
+      "\"GPT, the Counterexample Machine\" arXiv",
+      "hypercube routing conjecture disproved GPT-5 counterexample 2026",
+      "Szymanski conjecture hypercube \"rearrangeable\" permutation routing 2026",
+      "Szymanski conjecture Erdős problems AI OpenAI DeepMind AlphaEvolve hypercube",
+      "Szymanski conjecture verified n=5 computer hypercube permutation routing",
+      "Gu Tamaki routing a permutation in the hypercube by two sets of edge disjoint paths 1997",
+      "Szymanski \"On the permutation capability of a circuit-switched hypercube\" 1989",
+      "google-deepmind formal-conjectures Szymanski hypercube Lean",
+      "Formal Conjectures open benchmark Szymanski conjecture Lean statement",
+      "Open Problem Garden Szymanski conjecture hypercube permutation",
+      "Lehman Ron theorem directed hypercube follow-up 2025 2026 vertex-disjoint paths permutation",
+      "Szymanski conjecture Tao blog OR Quanta OR Matroid Union hypercube routing",
+      "Lubiw 1990 hypercube shortest path routing counterexample five-dimensional permutation",
+      "Szymanski conjecture arc-disjoint paths hypercube SAT solver computer verification dimension 5",
+      "Szymanski conjecture 2026 hypercube edge-disjoint routing new proof",
+      "Szymanski conjecture LLM AI-assisted mathematics hypercube permutation paths",
+      "Shen Hu Liang 1994 permutation capability circuit-switched hypercube 2-realization Szymanski",
+      "Duckworth Gibbons permutation routing hypercube 2d-1 steps without queueing",
+      "\"Szymanski's conjecture\" hypercube",
+      "Szymanski hypercube permutation routing open problem survey 2025 combinatorics",
+      "Baudon 2005 2-1 routing requests hypercube Electronic Notes Discrete Mathematics non-routable H4",
+      "Szymanski hypercube conjecture Gemini Deep Think OR Claude OR Grok proof attempt",
+      "AI disproved conjecture hypercube edge-disjoint paths permutation 2026 arXiv counterexample list",
+      "Szymanski conjecture Lehman Ron directed hypercube Kleitman counterexample Baudon Fertin Havel Lubiw 2012",
+      "Laing Krumme permutation routing hypercube queueless token model 2d-4 steps",
+      "Narang Ju 2025 conjecture Rob Morris bijections hypercube arXiv",
+      "Duckworth Gibbons \"Hypercubic combinatorics\" Hamiltonian decomposition permutation routing Journal of Combinatorial Mathematics and Combinatorial Computing year"
+    ],
+    "places_checked": [
+      "Wikipedia article on Szymanski's conjecture (summarising fetch of rendered page and of raw wikitext; not verbatim)",
+      "arXiv 2409.02206 (abstract page, HTML v2; PDF unreadable)",
+      "ECCC TR10-048 (abstract page; PDF unreadable)",
+      "CWI copy of Briët et al. (binary PDF; title and authors only)",
+      "UPC BibTeX entry for Briët et al.",
+      "Springer / Unpaywall pages for Briët et al. (login and redirect; not opened)",
+      "Dagstuhl LIPIcs ITCS 2025 record for Chakrabarty and Seshadhri",
+      "HAL record for Baudon, Fertin, Havel (access denied)",
+      "CityU record and PDF for Shen, Hu and Liang (PDF binary)",
+      "Manifold market 'Is Szymanski's conjecture true?'",
+      "arXiv 2602.16807 and arXiv 2608.29595 (opened for AI-related dead ends)",
+      "Search listings only (not opened): ScienceDirect (DAM 2001, ENDM 2005), Springer WG'99 chapter, Tufts TR-2003-3, ANU record for Duckworth and Gibbons",
+      "Formal Conjectures (google-deepmind) and Open Problem Garden: searched; no Szymanski entry surfaced; repositories not browsed directly",
+      "Tao blog, Quanta and the Matroid Union: searched; nothing on this problem surfaced; sites not browsed directly"
+    ],
+    "dead_ends": [
+      "AI-related: 'GPT, the Counterexample Machine' (arXiv 2608.29595, opened). Does not mention Szymanski or hypercube routing.",
+      "AI-related: 'Improved Upper Bounds for Slicing the Hypercube' (arXiv 2602.16807, opened). Credits CPro1, described as 'reasoning LLMs coupled with automated hyperparameter tuning', for a hyperplane-slicing result. A different problem, so not an event for this one.",
+      "AI-related: AlphaEvolve and the Bruhat-order hypercube (ICERM write-up, January 2026, search summary only). Concerns Bruhat intervals, not routing.",
+      "AI-related: AlphaEvolve on Erdős minimum overlap and related problems; OpenAI on the Erdős unit-distance conjecture; GPT-5.2 Pro on Erdős problems. All concern other problems.",
+      "AI-related: GPT-5.6 Pro on a Dinitz–Garg–Goemans-type unsplittable-flow counterexample (news, unverified). Not a hypercube result.",
+      "AI-related: Gemini Deep Think / Aletheia and the Google Research case-study paper. No Szymanski content in the summaries.",
+      "AI-related: Claude and Grok mentions in a reservoir-computing case study. Unrelated.",
+      "AI-related: Formal Conjectures benchmark (arXiv 2605.13171). No Szymanski entry surfaced in search.",
+      "MathCheck (SAT and computer algebra, 2016, IJCAI). Extends conjectures to higher-dimensional hypercubes but is not about Szymanski's conjecture; not an AI system in the sense of the record.",
+      "Narang and Ju (arXiv 2509.00716): inner-product correlations for hypercube bijections. Not routing.",
+      "Darijani, Miraftab and Morris (Ars Mathematica Contemporanea, 2025): Hamiltonian paths in products of directed cycles. Not routing.",
+      "PatternBoost (arXiv 2411.00566): diameter-related hypercube search (d = 6, 81 edges). Not routing.",
+      "Erde, 'Decomposing the cube into paths' (arXiv 1310.6776): decomposition into paths of fixed length. Not routing.",
+      "Unique Games on the Hypercube (arXiv 1405.1374): false match from the search.",
+      "Ahlswede and Cai (Kleitman–West problem) and Dubroff, Nadimpalli and Narayanan (directed KKL): unrelated counterexamples.",
+      "Seifert and Speckenmeyer (oblivious routing, d ≤ 8): different model; year not established; not recorded as an event.",
+      "Lamb and Vincent Lee: searched as possible contributors; no source connects them to the conjecture.",
+      "Manifold market (81% YES): secondary sentiment, not a source for the mathematics."
+    ]
+  },
+  "incomplete": "(1) Not read in full: the Briët et al. paper (both the ECCC and CWI PDFs were binary; the abstract text I used comes from search results and the ECCC summary). Its definition of the cube, its instance family, and its path-length requirement are therefore unverified, and the scope question is open. (2) Not read in full: Baudon, Fertin and Havel (HAL blocked; ScienceDirect and Springer only as listings). The n = 4 scope and any n ≤ 3 claim are from abstracts and the Wikipedia summary. (3) Not read: Lubiw 1990 (dimension 5 is from a search snippet only); Gu and Tamaki 1997 (attribution conflict); Shen, Hu and Liang 1994 (PDF binary; description from listing); the Tufts report; Duckworth–Gibbons; Vöcking 2001 (search summary only, no URL). (4) The Wikipedia article was read only through summarising fetches, not verbatim; the statement and results are paraphrased. (5) The Chakrabarty–Seshadhri PDF was binary, so the directed-hypercube arc orientation I describe rests on the summaries and abstract and should be checked. (6) No Lean or Coq check exists for any event; the formal-conjectures repository was not browsed directly. (7) Tao's blog, Quanta and the Matroid Union were searched but not browsed directly. (8) The Open Problem Garden entry was not found. (9) The AI search was extensive and found nothing crediting an AI system for this problem, but search coverage of 2026 preprints is thin, and a recent AI-assisted result could be missing. (10) Searches on 'Szymanski' pick up football news and other conjectures; relevant hits were checked individually.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "baudon-fertin-havel-1999",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "lubiw-1990",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gu-tamaki-1997",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "shen-hu-liang-1994",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "briet-et-al-2010",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chakrabarty-seshadhri-2024",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lehman-ron-2001",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "duckworth-gibbons-2007",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "laing-krumme-2003",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "voecking-2001",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "baudon-2005-2-1",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The only post-snapshot event, Chakrabarty–Seshadhri (arXiv September 2024), generalises Lehman–Ron for vertex-disjoint paths between matched layer sets in the layered directed cube. It does not route permutations of the doubly directed cube, so it is a variant. All other events predate 2024. Baudon–Fertin–Havel settles the whole of dimension n = 4 for every permutation, so it is a restriction of a statement that is universal over n. I scored it case, not instances, because it settles one complete dimension rather than sampling permutations. It was published in DAM, so it counts as digested. Lubiw and the shortest-path half of Briët et al. answer Szymanski's stronger shortest-path proposal. 2-rearrangeability, 2-realization, step-count routing models and 2-1 requests are different questions. All of those are variants. The close call is Briët et al.'s edge-disjoint fraction bound, which the ECCC page calls a 'strong counterexample to Szymanski's conjecture'. The record's evidence places that bound in the layered (Lehman–Ron) directed cube with source–sink pairs, not full permutations of the doubly directed cube with arbitrary paths. Wikipedia still lists the conjecture as open. So I scored it variant rather than a refutation. No AI involvement in any event.",
+    "doubts": "The Briët et al. scope rests on abstracts. If its edge-disjoint instances turn out to be permutations of the doubly directed cube, it would be a pre-snapshot refutation (resolved, so open_stale), not a variant. That would not change the post-snapshot picture. The n = 4 scope and the Lubiw dimension are from listings and snippets only.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

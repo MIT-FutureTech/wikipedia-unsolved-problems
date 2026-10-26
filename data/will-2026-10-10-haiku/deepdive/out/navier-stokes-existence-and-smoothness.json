@@ -1,0 +1,1280 @@
+{
+  "key": "navier-stokes-existence-and-smoothness",
+
+  "nothing_found": false,
+  "outcome": "On 8 Sep 2026 OpenAI announced an AI-produced, Lean-formalised manuscript claiming finite-time blow-up of the 3D incompressible Navier–Stokes equations under a smooth external force (Clay alternatives C on R³ and D on the torus), which no qualified referee has accepted and which the Clay Institute says has ‘apparently been settled’ but has not adjudicated; the unforced questions (Clay A and B) are untouched by it and remain open, and several unrefereed unforced-regularity claims from 2025–2026 have drawn no public engagement.",
+
+  "problem_asks": "The bullet is only the title: ‘Navier–Stokes existence and smoothness’. Unpacked from the Clay formulation as the Wikipedia article states it (the Clay PDF itself was unreadable to me): (A) on R³, for smooth divergence-free initial velocity of finite energy and zero external force, do smooth globally defined solutions of the 3D incompressible Navier–Stokes equations exist for all time? (B) the same question on the periodic torus T³ with zero force. (C) on R³: is there at least one set of smooth initial data and smooth external force (finite energy throughout) for which no globally smooth solution exists, i.e. a finite-time breakdown? (D) the periodic-torus analogue of C. The Clay prize is for resolving one of A–D. The bullet does not say which alternative it means, so all four are listed and the choice is left to the judging pass.",
+
+  "events": [
+    {
+      "id": "openai-forced-blowup-2026-09-08",
+      "what_happened": "OpenAI announced on 8 Sep 2026 a claimed proof, produced by an internal multi-agent system, that the 3D incompressible Navier–Stokes equations have finite-time blow-up from smooth finite-energy data at rest under a smooth external force, for every positive viscosity, on R³ (Clay C) and on the periodic torus R³/Z³ (Clay D). It came with a manuscript titled ‘Finite time blowup for Navier–Stokes’ (166 pages, on cdn.openai.com) and a Lean 4 formalisation at github.com/openai/NavierStokesAndEuler, described in its README as ‘Lean certificates accompanying Navier-Stokes and Euler results’. OpenAI said it would not claim the Clay prize. I could not read OpenAI’s own announcement (openai.com returned 403) or the manuscript PDF (returned as binary), so the mathematical content is known from the repository README (read through a fetch), the critiques below, Wikipedia’s account of the announcement, and press reports.",
+      "date": "2026-09-08",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Manuscript and repository reported as released 8 Sep 2026 in all sources read. The GitHub page shows 2 commits on main, with no dates. Bastounis, Circelli and Hansen (arXiv 2610.08144 §3) cite Lean commit f9e8bc5; a reference list quoted in a search result cites commit 8937a8f4… (not opened); these may be different snapshots. Page count is 166 in citing arXiv papers, but a secondary report says roughly 100 pages. A self-published LaTeX reconstruction of the 166-page PDF appeared 20 Sep 2026 (zenodo 22852310). No revised OpenAI version was found.",
+      "delivers": "If the claim holds: for the forced 3D incompressible Navier–Stokes equations there are smooth external forces and smooth finite-energy data (data at rest, kinetic energy uniformly bounded along the solution) for which the solution ceases to be smooth in finite time, both on R³ (alternative C) and on the periodic torus (alternative D), for every positive viscosity, per the README. Restrictions: the force is smooth and, per Cao–Chi–Nie and a search-result summary of the announcement, compactly supported in space; the result is a breakdown statement for forced flows only; it says nothing about zero force.",
+      "remains": "Global smoothness of unforced flows on R³ (alternative A) and on T³ (alternative B). Wikipedia, the Clay page and every source read say these remain open, and no source claims otherwise. Also open: whether the Lean statements match the natural-language theorem, which is disputed (see doubts).",
+      "checked_by": [
+        {
+          "who": "Felipe Santibañez-Leal (CAOS Research program)",
+          "qualification": "Author of a self-published audit; qualifications not established from the sources read",
+          "what_they_did": "Rebuilt the OpenAI Lean development and replayed it through the Lean kernel, reporting success. States that this does not verify the mathematics of either announced proof. Not peer reviewed.",
+          "where": "https://zenodo.org/records/22820521",
+          "automated": false
+        },
+        {
+          "who": "Alexander Bastounis, Fabian Circelli, Anders C. Hansen",
+          "qualification": "Authors of an arXiv preprint on autoformalisation. Affiliations are not on the arXiv page; a secondary report gives King’s College London and Cambridge, not verified.",
+          "what_they_did": "Compared the natural-language manuscript with the Lean code at named lemmas and reported mismatches (see doubts). They state that they make no claim about the correctness of OpenAI’s natural-language proof.",
+          "where": "https://arxiv.org/abs/2610.08144",
+          "automated": false
+        },
+        {
+          "who": "Ramani Duraiswami",
+          "qualification": "Single author; affiliation not read",
+          "what_they_did": "Critical re-analysis of the swirl-core geometry the forced construction is said to rest on. Reports specific obstructions. Read from the abstract only.",
+          "where": "https://arxiv.org/abs/2609.17642",
+          "automated": false
+        },
+        {
+          "who": "Peter Constantin, Mihaela Ignatova, Vlad Vicol",
+          "qualification": "Established PDE analysts; affiliations on their arXiv record not checked",
+          "what_they_did": "Proved a conditional regularity theorem for analytic forcing, assuming two structural properties they attribute to the OpenAI construction. Did not verify the OpenAI proof.",
+          "where": "https://arxiv.org/abs/2609.20803",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 weeks (to 13 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 (Lean 4.34.0-rc2 with Mathlib, per the repository README)",
+        "sorry_free": null,
+        "url": "https://github.com/openai/NavierStokesAndEuler"
+      },
+      "directly_checkable": "The Lean development, rebuildable with lake build per the README. The Lean statement can be read for what it asserts (forced blow-up, alternatives C and D). Whether it matches the natural-language argument is not checkable by a non-specialist, and the README does not say whether sorry or extra axioms are used (not read). The geometry question in Duraiswami’s abstract is a concrete check: that abstract states the cone condition needs radii of order 10^20.",
+      "doubts": "(1) Lean-to-natural-language fidelity. Bastounis, Circelli and Hansen (arXiv 2610.08144 §3, opened) report that the natural-language argument for Lemma 8.6 uses m+4 derivatives (their equation (8.19)) while the Lean estimate uses m+5, so the NL paper claims a stronger inverse estimate than the cited Lean formalisation. They also report that the NL bound for estimate (10.19) depends only on B_R while the Lean bound also depends on A_R, which they describe as a change of argument, not only of constant. They say they did not check compilation, sorry or axioms. (2) Geometry of the construction. Duraiswami (arXiv 2609.17642, abstract read) argues that the GD1998 swirl geometry does not recast into the similarity variables as stated, that the Dirichlet axis problem has no resolution-stable solution, that a core symmetric about the dividing plane cannot meet the moment identities, and that the cone condition needs radii of order 10^20. Single author; not checked against the full paper or code. (3) Scope restriction, not an error. Constantin, Ignatova and Vicol (arXiv 2609.20803, abstract read) prove regularity at the putative singular point under real-analytic forcing and two properties they attribute to the OpenAI construction. Their abstract says that for such constructions the force cannot vanish identically near the singular point or be real-analytic in space. Wikipedia reads this as also excluding extension to A and B; the abstract itself does not say so. (4) No peer review and no journal acceptance found. (5) Scientific American (8 Oct 2026, opened) reports that three papers in OpenAI’s 6 Oct release were withdrawn after experts found significant errors. It does not name them, so whether this manuscript is one of them is not established. (6) A secondary search summary says the Association for Human Mathematics statement holds the natural-language Navier–Stokes proof already wrong. The AHM statement I read (on Tao’s blog, opened) does not say this, so I treat that claim as unverified.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Claims breakdown. In Clay’s terms it answers alternatives C and D in the affirmative: there exist smooth data and smooth forces with no globally smooth solution. It says nothing about unforced flows, which are alternatives A and B.",
+      "object": "A smooth divergence-free initial velocity field at rest with finite energy, plus a smooth external force, for every positive viscosity, whose solution develops unbounded velocity in finite time while kinetic energy stays uniformly bounded (repository README: smooth data and forcing on R³ with no global smooth solution; the analogue on R³/Z³ for D). Per Duraiswami’s reading of the construction, the solution is an axisymmetric swirl core in similarity-type variables. Whether the object is explicit or an existence argument for an approximate profile with a stability argument is not established from any source I could read.",
+      "people": [
+        "OpenAI (no author list found in any source read)",
+        "Sébastien Bubeck (OpenAI; public statements defending the process)",
+        "Mark Chen (OpenAI; public statement on user data, per Wikipedia)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an internal OpenAI model (unnamed; described as a multi-agent system)",
+            "what_it_did": "Per OpenAI, as reported in secondary sources: produced the analytical proof of finite-time blow-up for forced 3D Navier–Stokes, run as about 10,000 agents over about 88 hours. Wikipedia’s Navier–Stokes article says the solution was reached on 5 Sep, while its priority article says the run began on 1 Sep; these conflict. The quoted sentence below is from a search-result snippet of the OpenAI page, not from an opened page.",
+            "basis_quote": "Our system produced an analytical proof and a Lean formalization that an initially smooth fluid at rest can develop a singularity in a finite time.",
+            "quote_url": "https://openai.com/index/navier-stokes-solution/"
+          }
+        ],
+        "disclosed_cost": "Bubeck estimates computation at several million dollars (Quanta, opened). Not verified, from secondary sources: about 2.7 million messages and 130 billion output tokens (one account), about 5 million messages (Quanta), and about 22.5 million dollars accumulated cost (one account). Accounts conflict.",
+        "sources": [
+          "https://github.com/openai/NavierStokesAndEuler",
+          "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+          "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy",
+          "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness",
+          "https://openai.com/index/navier-stokes-solution/ (403, not read)"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/NavierStokesAndEuler",
+        "https://raw.githubusercontent.com/openai/NavierStokesAndEuler/main/README.md",
+        "https://arxiv.org/abs/2610.08144",
+        "https://arxiv.org/abs/2609.17642",
+        "https://arxiv.org/abs/2609.20803",
+        "https://zenodo.org/records/22820521",
+        "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness",
+        "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy",
+        "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+        "https://www.scientificamerican.com/article/mathematicians-marvel-and-grumble-at-openais-trove-of-new-results/",
+        "https://tuftsdaily.com/article/2026/09/mathematicians-still-checking-the-navier-stokes-proof-that-openai-claims-to-have-solved",
+        "https://arxiv.org/abs/2609.10262"
+      ]
+    },
+    {
+      "id": "openai-euler-unforced-2026-09-08",
+      "what_happened": "Same OpenAI release of 8 Sep 2026: a claimed finite-time singularity for the unforced 3D incompressible Euler equations on R³, from smooth compactly supported divergence-free data, with a companion Euler manuscript (‘Finite time blowup for the Euler equation’, 57 pages per one secondary report) and the same Lean repository. Quanta (opened) quotes the company: ‘Nearly 100 agents worked together for approximately 50 hours to produce our Euler regularity disproof.’ Quanta also reports that OpenAI credits Buckmaster and Alpöge with priority for the forced 3D Euler result but claims this one. This is an inviscid neighbouring question, not Navier–Stokes.",
+      "date": "2026-09-08",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "As for the Navier–Stokes manuscript; same repository.",
+      "delivers": "If the claim holds: finite-time blow-up of the unforced 3D incompressible Euler equations from smooth compactly supported data on R³, with the C¹ norm unbounded near the blow-up time and the time integral of the vorticity sup-norm divergent (repository README summary).",
+      "remains": "Every Navier–Stokes alternative (A to D). An inviscid singularity does not decide viscous smoothness, and the Clay statement does not ask about Euler.",
+      "checked_by": [
+        {
+          "who": "Felipe Santibañez-Leal (CAOS Research program)",
+          "qualification": "As for the Navier–Stokes event",
+          "what_they_did": "Lean kernel replay of the repository, which covers the Euler development as well; states it does not verify the mathematics",
+          "where": "https://zenodo.org/records/22820521",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 weeks (to 13 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 (Lean 4.34.0-rc2 with Mathlib, per the repository README)",
+        "sorry_free": null,
+        "url": "https://github.com/openai/NavierStokesAndEuler"
+      },
+      "directly_checkable": "The Lean development, as for the Navier–Stokes event.",
+      "doubts": "No engagement beyond the audit above was found. The priority dispute with Buckmaster and Alpöge over this result is recorded in disputes.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Toward singularity formation for the inviscid analogue. Not a statement of the Clay problem, so it does not bear on the Navier–Stokes alternatives directly.",
+      "object": "Smooth, compactly supported, divergence-free initial velocity on R³ whose solution develops a singularity in finite time, with the C¹ norm unbounded near the blow-up time and the time integral of the L∞ norm of vorticity divergent (repository README summary, via fetch). Explicit or non-constructive is not established.",
+      "people": [
+        "OpenAI (no author list found in sources read)",
+        "Tristan Buckmaster and Levent Alpöge are credited with priority for the forced Euler result (per Quanta)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an internal OpenAI model (unnamed; described as a multi-agent system)",
+            "what_it_did": "Per the company, as quoted by Quanta: nearly 100 agents over about 50 hours produced the Euler regularity disproof. The same internal system as the Navier–Stokes event.",
+            "basis_quote": "Nearly 100 agents worked together for approximately 50 hours to produce our Euler regularity disproof, the company said.",
+            "quote_url": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/"
+          }
+        ],
+        "disclosed_cost": "Shared with the Navier–Stokes run; see openai-forced-blowup-2026-09-08.",
+        "sources": [
+          "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+          "https://github.com/openai/NavierStokesAndEuler"
+        ]
+      },
+      "sources": [
+        "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+        "https://github.com/openai/NavierStokesAndEuler",
+        "https://zenodo.org/records/22820521"
+      ]
+    },
+    {
+      "id": "openai-manuscripts-release-2026-10-06",
+      "what_happened": "On 6 Oct 2026 OpenAI released a public repository of manuscripts on open problems. The Association for Human Mathematics statement (on Tao’s blog, opened) says ‘over 700 files at once’. Scientific American (8 Oct 2026, opened) says it covers ‘372 open math and computer science problems’. A secondary report calls it the openai/math repository with 722 manuscripts in 372 families. Scientific American reports that 42 percent of the results are coded in Lean. Whether any of these manuscripts concerns Navier–Stokes or another Millennium problem is not established by any source I could open.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Unknown for Navier–Stokes. No source I read says the release contains a Navier–Stokes result beyond the 8 Sep manuscript. A secondary report says Nature noted the batch contained no solution of the five remaining Millennium problems; Nature was behind a login redirect, so this is unverified.",
+      "remains": "Unknown; not determinable from the sources read.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 1 week (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Lean coverage figures conflict: 42 percent of results (Scientific American) versus 162 of 722 manuscripts (a secondary report). Scientific American reports three of the papers have been withdrawn after experts uncovered significant errors, without naming them. The AHM statement is a position statement that disputes the release’s value and makes no mathematical claim about any named result.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "Three papers from the release, unnamed, reported as withdrawn after experts found significant errors",
+        "date": null,
+        "by": "author",
+        "sources": ["https://www.scientificamerican.com/article/mathematicians-marvel-and-grumble-at-openais-trove-of-new-results/"]
+      },
+      "direction": "Unknown for Navier–Stokes.",
+      "object": null,
+      "people": [
+        "OpenAI",
+        "Association for Human Mathematics Communications Working Group (statement, 7 Oct 2026)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.scientificamerican.com/article/mathematicians-marvel-and-grumble-at-openais-trove-of-new-results/",
+          "https://terrytao.wordpress.com/2026/10/07/ahm-statement-on-openais-october-6-release-of-mathematical-documents/"
+        ]
+      },
+      "sources": [
+        "https://www.scientificamerican.com/article/mathematicians-marvel-and-grumble-at-openais-trove-of-new-results/",
+        "https://terrytao.wordpress.com/2026/10/07/ahm-statement-on-openais-october-6-release-of-mathematical-documents/"
+      ]
+    },
+    {
+      "id": "kokuno-latex-reconstruction-2026-09-20",
+      "what_happened": "KokunoYumeto posted an independent LaTeX reconstruction of OpenAI’s 166-page Navier–Stokes manuscript on Zenodo (22852310), stating that it is not an official OpenAI release. Its checks cover fidelity to the PDF (all 166 pages, 6,175 formula occurrences, a double build, a page-by-page render comparison). The page says these checks do not establish the mathematics.",
+      "date": "2026-09-20",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Version 2026-09-20+5e162f34 (single version read)",
+      "delivers": "Nothing mathematical. A faithful typeset copy of the forced blow-up manuscript (fidelity to the PDF only).",
+      "remains": "Everything the manuscript claims.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 weeks (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Its checks concern transcription only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None.",
+      "object": null,
+      "people": ["KokunoYumeto"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://zenodo.org/records/22852310"]
+      },
+      "sources": ["https://zenodo.org/records/22852310"]
+    },
+    {
+      "id": "clay-statement-2026-09-11",
+      "what_happened": "Clay Mathematics Institute news post ‘Navier-Stokes Announcement’, dated 11 Sep 2026 (opened via fetch; sentences quoted as the fetch returned them). The Institute says it ‘shares the excitement of the global mathematical community’ at ‘the announcement that the Navier-Stokes problem has apparently been settled’, that ‘the process is deliberately unhurried, but we will provide updates’, and that the prize rules govern how achievement and credit are assessed. Secondary reports, not opened, attribute to the Institute’s president Martin Bridson the view that a Millennium solution must appear in peer-reviewed publication and then be scrutinised before any prize. The Institute’s problem page, also opened, is marked ‘Active’.",
+      "date": "2026-09-11",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "No mathematical content. A status statement from the Institute: the problem has ‘apparently been settled’ by the OpenAI announcement. It has not declared the problem solved, awarded any prize, or accepted a submission.",
+      "remains": "Per the Institute, the question is under evaluation; no alternative is declared resolved.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4.5 weeks (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Wording differs across sources. Wikipedia lists the problem as active on the Clay site and as ‘(solution claimed)’ in the infobox. Some outlets and a search summary paraphrase Clay as having settled it, which the primary wording does not say.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None on the mathematics. The Institute reads the claim as apparently settling the problem but has not decided.",
+      "object": null,
+      "people": [
+        "Clay Mathematics Institute",
+        "Charles Fefferman (problem formulator; Quanta quotes him: ‘I was thrilled that the problem was solved.’)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.claymath.org/news/navier-stokes-announcement/"]
+      },
+      "sources": [
+        "https://www.claymath.org/news/navier-stokes-announcement/",
+        "https://www.claymath.org/millennium-problems/navier-stokes-equation/",
+        "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/"
+      ]
+    },
+    {
+      "id": "buckmaster-alpoge-three-preprints-2026-09-07",
+      "what_happened": "Tristan Buckmaster (NYU) and Levent Alpöge (an Anthropic employee; the pair call the collaboration ‘strictly personal’) posted three papers on finite-time blow-up with smooth forcing, each with a Lean formalisation: for the incompressible porous medium equation (IPM), the 2D inviscid Boussinesq system, and the 3D incompressible Euler equations (per Quanta and secondary reports; the NYU PDFs ipm.pdf and the others were not readable to me). One source dates the posting to 7 Sep 2026 and another to 8 Sep. The Euler result is axisymmetric with swirl, with a force smooth in space and time up to the blow-up time (secondary description). The IPM result was later posted on arXiv as event buckmaster-alpoge-coiculescu-ipm-arxiv-2026-09-15. Quanta reports the Euler proof was Lean-verified by 22 Aug 2026 and the first Boussinesq blow-up solution was found on 15 Aug (the latter from a secondary account of their AI statement). Tao is reported to have praised the work (secondary; a 7 Sep post was not on his blog front page when I read it).",
+      "date": "2026-09-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Dates conflict (7 vs 8 Sep). Euler and Boussinesq arXiv status not confirmed; the IPM result has a later arXiv version (2609.16470).",
+      "delivers": "Finite-time blow-up with smooth forcing for IPM, the 2D inviscid Boussinesq system and the 3D Euler equations, per secondary reports. Restrictions: all are forced, none is Navier–Stokes, and two are inviscid.",
+      "remains": "All four Clay alternatives for Navier–Stokes. These results are for different equations.",
+      "checked_by": [
+        {
+          "who": "Terence Tao",
+          "qualification": "Fields Medallist; professional analyst",
+          "what_they_did": "Reported (secondary sources) to have praised the work as a remarkable achievement. Not a verification; I did not locate the post itself.",
+          "where": "https://terrytao.wordpress.com/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 weeks (to 13 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean (named by secondary reports; the version is not stated in what I read)",
+        "sorry_free": null,
+        "url": "https://github.com/tristanbuckmaster/fluid_lean"
+      },
+      "directly_checkable": "The repository tristanbuckmaster/fluid_lean (GitHub page read: folders affinecore, boussinesq-blowup, euler-blowup; one commit; 270 stars). Its README could not be fetched (404 on the raw URL; the HTML page carries no README text).",
+      "doubts": "(1) Buckmaster himself, per Quanta, calls one of the three papers ‘AI slop’ and says the first LLM-generated proof his co-author sent him was ‘the most horrendous I have ever read’. The paper is not named. (2) The Euler scope is described inconsistently: one outlet calls the result unforced, while most sources say forced. (3) Lean repository README unreadable. (4) Priority and co-author dispute with OpenAI (see disputes).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Blow-up for forced IPM, Boussinesq and Euler. These neighbouring equations bear on the Clay statement only by analogy.",
+      "object": "Blow-up constructions with smooth space-time forcing. For IPM, a classical solution with smooth odd initial density and force whose density and velocity gradients blow up as t tends to 1, while the density stays in C^η for every η below 1 (per arXiv 2609.16470). For Boussinesq and Euler, an axisymmetric construction with swirl (secondary description). Explicit or non-constructive is not established.",
+      "people": [
+        "Tristan Buckmaster (NYU Courant)",
+        "Levent Alpöge (Anthropic employee; collaboration described as personal)",
+        "Matei P. Coiculescu (co-author of the IPM work)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": "Buckmaster says he paid for the AI tools from his own research funds (secondary; no amount).",
+        "sources": [
+          "https://arxiv.org/abs/2609.16470",
+          "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+          "https://daringfireball.net/linked/2026/09/12/buckmaster-statement"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.16470",
+        "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+        "https://daringfireball.net/linked/2026/09/12/buckmaster-statement",
+        "https://cims.nyu.edu/~tristanb/",
+        "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy",
+        "https://github.com/tristanbuckmaster/fluid_lean"
+      ]
+    },
+    {
+      "id": "buckmaster-alpoge-coiculescu-ipm-arxiv-2026-09-15",
+      "what_happened": "arXiv 2609.16470 (Alpöge, Buckmaster, Coiculescu), ‘Extending the Córdoba–Martínez-Zoroa IPM Blow-Up to Uniformly Space-Time Smooth Forcing’, submitted 15 Sep 2026, 57 pages. The abstract says that by adapting the Córdoba–Martínez-Zoroa techniques to a spatially smooth force, they prove finite-time blow-up for the IPM equation with a uniformly space-time smooth force. The Comments field says ‘LLM-assisted and Lean formalized proof’. It is possibly, but not confirmed as, the same mathematics as the IPM preprint in the earlier event.",
+      "date": "2026-09-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (15 Sep 2026)",
+      "delivers": "Finite-time blow-up for the 2D IPM equation on the torus with a uniformly space-time smooth force. The construction has smooth odd initial density and smooth odd force; density and velocity gradients blow up as t tends to 1 while density stays in C^η for η below 1.",
+      "remains": "Every Navier–Stokes alternative. IPM is a different equation.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 weeks (to 13 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean (per the arXiv Comments field; system version not stated)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2609.16470"
+      },
+      "directly_checkable": null,
+      "doubts": "Relation to the earlier IPM preprint is not established. The arXiv listing shows the AI assistance only generically (‘LLM-assisted’), with no system named.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Blow-up for a forced neighbouring equation.",
+      "object": "A classical 2D IPM solution on the torus with uniformly space-time smooth forcing, whose density and velocity gradients blow up as t tends to 1 while the density remains continuous in C^η (per the abstract). Explicit or existence-only is not stated in the abstract.",
+      "people": [
+        "Levent Alpöge",
+        "Tristan Buckmaster",
+        "Matei P. Coiculescu"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.16470"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.16470"]
+    },
+    {
+      "id": "buckmaster-statement-2026-09-07",
+      "what_happened": "Buckmaster published a statement on the night of 7 Sep 2026 on his NYU page (statement.pdf, returned as binary and not readable). Excerpts quoted by Daring Fireball (12 Sep, opened) and Wikipedia’s priority article describe the secret work with Alpöge over at least a year; his questions about when OpenAI first prompted on the topic and whether OpenAI’s model had been trained on or accessed the team’s Codex sessions; OpenAI’s replies that it did not look up user data; two proposals made to him (post the Euler result first, with OpenAI posting Navier–Stokes the next day, or he alone write a paper acknowledging an OpenAI model had resolved the problem); the objection to removing Alpöge from authorship; and his statement that he would go public if OpenAI released in the proposed way. A secondary search summary says the statement also says he and Alpöge believe they have blow-up for hypo-dissipative Navier–Stokes but will not release it because Lean verification is incomplete and no writeup exists. I did not read that sentence in the statement itself.",
+      "date": "2026-09-07",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "No mathematical result. Its mathematical content is a stated belief in hypo-dissipative blow-up, with no written argument published. Hypo-dissipative Navier–Stokes weakens the dissipation and is a different question.",
+      "remains": "All of the Clay problem.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 weeks (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The statement is by a party to a credit dispute. OpenAI disputes its factual account (its 10 Sep statement says Buckmaster’s Codex prompts could not have influenced the system; its 13 Sep statement says no user inputs past 3 July could have influenced it). Bubeck calls the allegations ‘false and inflammatory’ (secondary).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "None on the Clay problem. Claims belief in blow-up for a changed dissipation.",
+      "object": null,
+      "people": [
+        "Tristan Buckmaster",
+        "Levent Alpöge (co-author in the statement)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Codex",
+            "what_it_did": "Per Buckmaster’s statement, the team kept its drafts in Codex sessions. The excerpts read do not say what Codex produced for the mathematics. Wikipedia’s priority article paraphrases the same as the team’s ‘sessions in Codex, where the team kept its drafts’.",
+            "basis_quote": "I asked whether the model had been trained on, or had access to, our sessions in Codex,",
+            "quote_url": "https://daringfireball.net/linked/2026/09/12/buckmaster-statement"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://daringfireball.net/linked/2026/09/12/buckmaster-statement",
+          "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy"
+        ]
+      },
+      "sources": [
+        "https://daringfireball.net/linked/2026/09/12/buckmaster-statement",
+        "https://cims.nyu.edu/~tristanb/",
+        "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy",
+        "https://cims.nyu.edu/~tristanb/statement.pdf (binary, not read)"
+      ]
+    },
+    {
+      "id": "cao-chi-nie-density-forces-2026-09-09",
+      "what_happened": "arXiv 2609.10262 (Cao, Chi, Nie), ‘Density of Forces Producing Navier–Stokes Blowup’, submitted 9 Sep 2026. Starting from OpenAI’s compact forced blow-up solution, it constructs a blow-up solution near every given smooth solution while preserving its initial velocity. The result is that, for fixed viscosity and zero initial velocity, smooth forces that make the 3D Navier–Stokes equations lose classical regularity by a prescribed time are dense in the relative L¹_t H^s_x topology on the torus and on R³ exactly when s < 1/2.",
+      "date": "2026-09-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 9 Sep 2026; v2 11 Sep 2026 withdrawn (1 KB); v3 21 Sep 2026; v4 22 Sep 2026 (abstract metadata updated, ‘manuscript unchanged’).",
+      "delivers": "Density of forcing terms that produce breakdown for forced 3D Navier–Stokes, on the torus and on R³, for s < 1/2. It depends wholly on OpenAI’s forced construction.",
+      "remains": "The unforced problem (A and B) and the Clay alternatives beyond this forced breakdown class. It takes OpenAI’s construction as given.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 weeks (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Inherits every doubt about the OpenAI construction, because it begins from it (see the OpenAI event).",
+      "later_work_cites_it": true,
+      "withdrawn": {
+        "what": "v2 (1 KB) was withdrawn on 11 Sep 2026. v3 and v4 restored the paper, with v4 described as ‘manuscript unchanged’ with abstract metadata updated.",
+        "date": "2026-09-11",
+        "by": "author",
+        "sources": ["https://arxiv.org/abs/2609.10262"]
+      },
+      "direction": "Consistent with breakdown for forced flows. It concerns forces, not the unforced question.",
+      "object": "Forcing terms, dense in the stated topology, for which the forced 3D Navier–Stokes equations lose classical regularity, built near any given smooth solution while preserving its initial velocity.",
+      "people": ["Shaozhen Cao", "Zhuoni Chi", "Ping Nie"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.10262"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.10262"]
+    },
+    {
+      "id": "duraiswami-swirl-core-2026-09-15",
+      "what_happened": "arXiv 2609.17642 (Duraiswami), ‘Self-similar swirl between contracting porous walls: the GD1998 exact Navier–Stokes solution revisited in the similarity variables of the OpenAI 2026 forced blow-up construction’, submitted 15 Sep 2026 (31 pages, 9 figures, 8 tables). Abstract read. It argues that the GD1998 boundary-value problem does not recast into the similarity variables as stated; that the Dirichlet axis problem has no resolution-stable solution, so the core must be posed as a Cauchy problem from the axis; that a core symmetric about the dividing plane cannot meet the moment identities; that the cone condition is Rayleigh’s criterion with axial shear and needs radii of order 10^20; and that a non-symmetric core meets the moment identities to 0.2%. It also says that the forced theorem, and this study, leave the unforced equations as they were.",
+      "date": "2026-09-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "No blow-up result. It claims specific obstructions to the geometry the OpenAI forced construction is said to rest on, and proposes a laboratory chamber as an experiment.",
+      "remains": "Everything in the Clay statement. The author does not address the unforced problem.",
+      "checked_by": [
+        {
+          "who": "Ramani Duraiswami",
+          "qualification": "Single author; affiliation not read",
+          "what_they_did": "Re-analysed the swirl-core setup of the forced construction in the similarity variables and reported obstructions (abstract read)",
+          "where": "https://arxiv.org/abs/2609.17642",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4 weeks (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": "The author reports a computable obstruction (a cone condition needing radii of order 10^20) that can be checked from the construction's stated parameters, not read here.",
+      "doubts": "Abstract-only reading. The author’s own report says that at moderate inflow and strong swirl the spectrum does not converge in axial resolution, and leaves this open. Not checked against the full paper or code.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against the geometry of the OpenAI forced construction as the author reads it. Not about unforced flows.",
+      "object": null,
+      "people": ["Ramani Duraiswami"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.17642"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.17642"]
+    },
+    {
+      "id": "constantin-ignatova-vicol-analytic-forcing-2026-09-17",
+      "what_happened": "arXiv 2609.20803 (Constantin, Ignatova, Vicol), ‘Regularity of asymptotically axisymmetric solutions to the 3D Navier–Stokes equations with analytic forcing’, v1 17 Sep 2026, v2 29 Sep 2026. The abstract says OpenAI ‘has recently announced a proof of finite time singularity formation’ for a C∞ body force and identifies two features of that construction: (i) the angular mean satisfies anisotropic Type II bounds, and (ii) the solution is exactly axisymmetric in a collapsing core. They consider real-analytic forcing, assume (i) and (ii), and prove the solutions are regular at the putative singular point. The abstract also says that for constructions with (i), (ii) and a force bounded in C² up to the singular time, the force ‘can neither vanish identically near the singular point’ nor be real-analytic in space.",
+      "date": "2026-09-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 17 Sep 2026; v2 29 Sep 2026 (current)",
+      "delivers": "Conditional regularity: under real-analytic forcing and assumptions (i) and (ii), solutions are regular at the putative singular point. As a corollary, a construction with (i), (ii) and force bounded in C² up to the singular time cannot have a force that vanishes identically near the singular point or is real-analytic in space.",
+      "remains": "The OpenAI class of smooth but non-analytic forces is not excluded except as the corollary states. The unforced problem (A, B) and the forced breakdown without these assumptions are untouched.",
+      "checked_by": [
+        {
+          "who": "Peter Constantin, Mihaela Ignatova, Vlad Vicol",
+          "qualification": "Established PDE analysts; affiliations on the arXiv record not checked",
+          "what_they_did": "Analysed the class of constructions with properties (i) and (ii) and proved a conditional result; did not verify the OpenAI proof",
+          "where": "https://arxiv.org/abs/2609.20803",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4 weeks (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Results are conditional on (i) and (ii), which the authors attribute to the OpenAI construction. They do not check that the construction has these properties. Wikipedia reads the result as also ruling out extension to A and B. The abstract does not say that.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Constrains the forcing class of any construction with properties (i) and (ii). Conditional, and it does not decide the OpenAI claim.",
+      "object": null,
+      "people": ["Peter Constantin", "Mihaela Ignatova", "Vlad Vicol"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.20803"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.20803"]
+    },
+    {
+      "id": "santibanez-leal-audit-2026-09-17",
+      "what_happened": "Zenodo 22820521 (Santibañez-Leal), ‘An independent audit of the September 2026 fluid blowup claims, and a trade-off between force regularity and dissipation’, published 17 Sep 2026, version 0.01 (a newer version exists). It audits the Alpöge–Buckmaster claims (2D inviscid Boussinesq and 3D Euler with smooth forcing) and the OpenAI claims (forced 3D Navier–Stokes at every positive viscosity, and unforced Euler). It rebuilt and replayed the OpenAI Lean certificate through the Lean kernel, validated a reduced amplitude model against pseudospectral simulation, and re-derived a published hypodissipative threshold (22−8√7)/9. It reports that controlling one derivative of the force caps the exponent at 1/480 for a published smooth-forcing schedule, and it records a dated prediction about an unreleased hypodissipative sequel. Landing page read; the abstract’s key sentences were quoted by the fetch.",
+      "date": "2026-09-17",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Version 0.01 read; a newer version exists (not read)",
+      "delivers": "Its own statement: it does not prove blow-up for any equation. It establishes that the OpenAI Lean development replays through the Lean kernel, and that the reduction gives a 1/480 exponent cap under its stated assumptions. It does not verify the mathematics of either announced proof.",
+      "remains": "The mathematics of both announced proofs. The unforced Navier–Stokes problem is outside its scope.",
+      "checked_by": [
+        {
+          "who": "Felipe Santibañez-Leal (CAOS Research program)",
+          "qualification": "Qualifications not established from the sources read",
+          "what_they_did": "Kernel replay of the OpenAI Lean development; numerical and analytic checks of the author’s own reduction; self-published, not externally reviewed",
+          "where": "https://zenodo.org/records/22820521",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4 weeks (to 13 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 kernel replay of the OpenAI development (per the audit)",
+        "sorry_free": null,
+        "url": "https://zenodo.org/records/22820521"
+      },
+      "directly_checkable": "The 1/480 reduction and the kernel replay are reproducible from the stated repository and scripts (not read).",
+      "doubts": "Self-published and not externally reviewed. The author says the audit does not verify the mathematics beyond the kernel replay. The 1/480 reduction is the author’s own derivation and is not checked here.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral on whether the claimed blow-up is true. Reports that the Lean development replays.",
+      "object": null,
+      "people": ["Felipe Santibañez-Leal"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://zenodo.org/records/22820521"]
+      },
+      "sources": ["https://zenodo.org/records/22820521"]
+    },
+    {
+      "id": "petrillo-glimm-positive-defect-2026-09-20",
+      "what_happened": "arXiv 2609.23868 (Petrillo, Glimm), ‘The Positive Defect Problem: Target and Admissibility Criteria for a Programmatic Search for Unforced Navier–Stokes Blowup’, submitted 20 Sep 2026. Abstract read. It says the unforced problem, statements (A) and (B), remains open and proposes a target for a programmatic search: a positive defect (energy loss on a finite time window for a Leray–Hopf solution from smooth periodic data). It proves that a positive defect implies blow-up and so a negative answer to statement (B); the converse is not known. It reports a pseudo-spectral search at 128³ and 256³. It states that every implication not marked otherwise is a Lean 4 theorem over Mathlib, and that the library contains no Navier–Stokes object. The abstract also says that on 7 and 8 Sep 2026 ‘programmatic search produced singularities’, including a forced Navier–Stokes singularity at every fixed viscosity.",
+      "date": "2026-09-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "Conditional implications: a positive defect implies blow-up on the torus and so a negative answer to (B). Machine-checked as Lean implications, per the abstract, but the Lean library has no Navier–Stokes object, so the implications are not formal statements about Navier–Stokes.",
+      "remains": "Statements (A) and (B) remain open. The positive-defect property is a target, not a result.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 weeks (to 13 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 over Mathlib (for the stated implications only, per the abstract)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2609.23868"
+      },
+      "directly_checkable": null,
+      "doubts": "The positive-defect property is not shown to hold for any solution. The Lean development covers implications rather than Navier–Stokes itself, per the abstract. The abstract’s characterisation of the 7–8 Sep results as products of ‘programmatic search’ is the authors’ own and is not explained.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Conditional implication toward a negative answer to (B). No unforced singularity found.",
+      "object": null,
+      "people": ["Jarret Petrillo", "James Glimm"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.23868"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.23868"]
+    },
+    {
+      "id": "ganeshram-euler-r3-2026-09-09",
+      "what_happened": "arXiv (Ganeshram, Duruisseaux, Anandkumar), ‘Self-Similar Singularity of the Euler Equations on R³’, submitted 9 Sep 2026, revised 24 Sep 2026, 111 pages. Abstract read. It gives numerical and computer-assisted evidence of a self-similar finite-time singularity in 3D Euler on the unbounded domain at blow-up rate 0.5, using a physics-informed neural network with a self-similar ansatz, represented with splines. It sets up a stability framework that reduces nonlinear stability to a large but finite collection of explicit estimates and computable constants, and the abstract does not say whether that framework is complete.",
+      "date": "2026-09-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 9 Sep 2026; v2 24 Sep 2026",
+      "delivers": "Numerical evidence for a self-similar blow-up of 3D Euler on R³. Does not prove a singularity.",
+      "remains": "A proof of blow-up for Euler; all Navier–Stokes alternatives.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 weeks (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Numerical evidence. The stability framework’s completion is not stated in the abstract.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Toward a singularity for the inviscid Euler equations (numerical). Neighbouring, not the Clay problem.",
+      "object": "An approximate self-similar singular profile for 3D Euler on R³ at blow-up rate 0.5, found with a physics-informed neural network and represented with splines (abstract).",
+      "people": ["Adarsh Ganeshram", "Valentin Duruisseaux", "Anima Anandkumar"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.10867"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.10867"]
+    },
+    {
+      "id": "bastounis-circelli-hansen-lost-in-translation-2026-10-06",
+      "what_happened": "arXiv 2610.08144 (Bastounis, Circelli, Hansen), ‘Navier–Stokes lost in translation: Why Lean verification of AI autoformalisation does not guarantee correct natural language proofs’, submitted 6 Oct 2026, v1 only. Read from the arXiv abstract and §1, §3 (HTML). It analyses OpenAI’s announced Navier–Stokes and Euler manuscripts against their Lean repository. Example 3.1 (‘The NL paper claims a stronger inverse estimate than the cited Lean formalisation’) concerns Lemma 8.6 and its equation (8.19), which uses m+4 derivatives where the Lean estimate uses m+5. Example 3.3 concerns estimate (10.19): the NL bound depends only on B_R whereas the Lean estimate also depends on A_R, a change of argument rather than of constant. They state they make no claim about the correctness of OpenAI’s natural-language proof.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "Establishes, for the specific examples in §3, that the Lean development does not in every place establish the natural-language statement: in Example 3.1 the NL claim is stronger than the cited Lean estimate; in Example 3.3 the Lean bound is structured differently. Argues more generally that faithful translation from natural-language mathematics to Lean is hard.",
+      "remains": "Whether the natural-language proof is correct. Whether the Lean theorem statements match the intended forced C and D claims in full, which the examples do not settle. Whether OpenAI has revised the manuscript (not found).",
+      "checked_by": [
+        {
+          "who": "Alexander Bastounis, Fabian Circelli, Anders C. Hansen",
+          "qualification": "Affiliations not on the arXiv page (secondary: King’s College London; Cambridge, not verified)",
+          "what_they_did": "Compared the NL manuscript and Lean code at named lemmas and estimates; reported mismatches; disclaimed a verdict on NL correctness",
+          "where": "https://arxiv.org/abs/2610.08144",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 1 week (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": "Example 3.1 and Example 3.3 can be checked by comparing Lemma 8.6 and (10.19) of the manuscript with the Lean estimates named in §3.",
+      "doubts": "The examples are specific and were not checked against the full repository by me. The paper’s broader complexity-theoretic claim (Solvability Complexity Index hierarchy, harder than the Halting problem) is not evaluated here. Compilation and sorry are not addressed in the paper.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against the claim that the Lean development certifies the natural-language argument at these points. Neutral on the truth of the theorem.",
+      "object": null,
+      "people": ["Alexander Bastounis", "Fabian Circelli", "Anders C. Hansen"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2610.08144"]
+      },
+      "sources": ["https://arxiv.org/abs/2610.08144", "https://arxiv.org/html/2610.08144v1"]
+    },
+    {
+      "id": "hou-wang-yang-nonuniqueness-2025-09-29",
+      "what_happened": "arXiv 2509.25116 (Hou, Wang, Yang), ‘Nonuniqueness of Leray–Hopf solutions to the unforced incompressible 3D Navier–Stokes Equation’, v1 29 Sep 2025, v2 19 Mar 2026. Abstract read. It claims ‘to our knowledge, the first rigorous computer-assisted proof demonstrating such nonuniqueness’. The argument constructs a self-similar Leray–Hopf solution, decomposes the linearised operator into a coercive part plus a compact perturbation approximated by a finite-rank operator, and verifies by computer that the restricted operator is invertible, which certifies an unstable eigenpair and hence a second solution. The abstract says this yields infinitely many Leray–Hopf solutions. Hou talks on it were given at ENS Paris (7 Apr 2026) and Cambridge (10 Apr 2026) according to secondary listings.",
+      "date": "2025-09-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 29 Sep 2025; v2 19 Mar 2026 (no change of date shown for the first public argument)",
+      "delivers": "Non-uniqueness of Leray–Hopf (weak) solutions to the unforced 3D incompressible Navier–Stokes equations, from the same data, with infinitely many solutions, by a computer-assisted argument. The abstract does not say whether the second solutions are smooth or singular.",
+      "remains": "The Clay statement, as read through Wikipedia and Clay’s summary, is about existence and smoothness, not uniqueness. Smoothness and breakdown questions (A to D) are not addressed.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 12.5 months (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": "Computer-assisted (rigorous numerical certification, not Lean). The certified steps are the invertibility check on the restricted operator and the existence of the unstable eigenpair; neither was checked by me.",
+      "doubts": "No journal reference on the arXiv page. The computer-assisted code and error bounds are not confirmed as released in the abstract. Talk listings are presentations, not refereeing.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against uniqueness for unforced Leray–Hopf weak solutions. Its bearing on existence and smoothness of smooth solutions is not stated in the abstract.",
+      "object": "A self-similar Leray–Hopf solution of the unforced 3D Navier–Stokes equations whose linearisation has a certified unstable eigenpair, giving a second Leray–Hopf solution; the computer-assisted certification is what establishes the eigenpair.",
+      "people": ["Thomas Hou (Caltech)", "Yixuan Wang", "Changhe Yang"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2509.25116"]
+      },
+      "sources": ["https://arxiv.org/abs/2509.25116"]
+    },
+    {
+      "id": "ri-global-regularity-h12-2025-08-27",
+      "what_happened": "arXiv 2508.19590 (Myong-Hwan Ri), ‘Global regularity of Leray–Hopf weak solutions to 3D Navier–Stokes equations’, submitted 27 Aug 2025, v1 only, 17 pages. Abstract read (the rendering is OCR-garbled in places). It claims that any Leray–Hopf weak solution to the 3D Navier–Stokes equations with initial data in H^{1/2}(R³) is regular, in L^∞(0,∞; H^{1/2}), using a supercritical space whose norm is compared with the homogeneous H^{1/2} norm, energy estimates for high-frequency parts, and a rescaling argument.",
+      "date": "2025-08-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "If correct: global regularity of unforced 3D Navier–Stokes on R³ for Leray–Hopf solutions with H^{1/2} data. Restrictions: R³ only; data class H^{1/2}; unforced. Whether this class includes the smooth finite-energy data of Clay A is not stated on the page. Smooth finite-energy data lie in H^{1/2}, so it appears to, but I have not checked this.",
+      "remains": "The torus (B), and the forced breakdown alternatives (C, D). No restriction is needed for A if the class inclusion holds.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13.5 months (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unrefereed single-version arXiv preprint with no journal reference. No expert engagement found in about 13 months. No specific error identified by anyone. I read only the abstract, not the proof, so I have not checked any step.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Would establish global regularity for the unforced problem on R³ for H^{1/2} data, if correct.",
+      "object": null,
+      "people": ["Myong-Hwan Ri"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2508.19590"]
+      },
+      "sources": ["https://arxiv.org/abs/2508.19590"]
+    },
+    {
+      "id": "ri-global-regularity-ds-2026-01-22",
+      "what_happened": "arXiv 2601.15685 (Ri), ‘Global regularity for the Navier–Stokes equations with application to global solvability for the Euler equations’, submitted 22 Jan 2026, v1 only. Abstract read as a paraphrase by the fetch: for d ≥ 3 and initial data in H^s(R^d) with s ≥ −1 + d/2, Leray–Hopf weak solutions remain in L^∞(0,∞; H^s) and are therefore globally regular, using a supercritical norm with an inverse-logarithmic weight in frequency and rescaling to obtain viscosity-independent bounds. The title’s Euler application is not described in the abstract.",
+      "date": "2026-01-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "If correct: global regularity of unforced Navier–Stokes on R^d for d ≥ 3 with H^s data, s ≥ −1 + d/2 (for d = 3, s ≥ 1/2). It does not address the torus. It overlaps the 2025 Ri claim at d = 3.",
+      "remains": "The torus (B) and the forced alternatives (C, D).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 months (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Unrefereed single-version arXiv preprint with no journal reference. No engagement found. No specific error identified. Only the abstract page was read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Would establish global regularity for the unforced problem on R^d (d ≥ 3) for H^s data, if correct.",
+      "object": null,
+      "people": ["Myong-Hwan Ri"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2601.15685"]
+      },
+      "sources": ["https://arxiv.org/abs/2601.15685"]
+    },
+    {
+      "id": "polozov-emergent-vorticity-2025-07-03",
+      "what_happened": "Zenodo 15801528 (Andrei Polozov), ‘Global Regularity for the 3D Incompressible Navier–Stokes Equations via Emergent Nonlinear Vorticity Dissipation’, published 3 Jul 2025 (modified 4 Jul 2025), v1, CC BY 4.0. Landing page read. It claims global existence, smoothness and uniqueness for smooth divergence-free data with no forcing, on the whole space and on the periodic domain, with no smallness, symmetry or decay assumptions, and calls the work ‘a complete and self-contained resolution of the global regularity problem’.",
+      "date": "2025-07-03",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "Claims unforced global existence and smoothness on R³ and on the torus (Clay A and B) if correct.",
+      "remains": "Forced breakdown (C, D), and any unforced claim that is not established by the argument.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 months (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Self-published Zenodo record with no peer review, and no formal verification or expert validation mentioned. The landing page gives only the abstract; the PDF was not read. The claim that all known blow-up mechanisms are excluded is asserted, not shown in what I read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims unforced regularity on both R³ and the torus (A and B), if correct.",
+      "object": null,
+      "people": ["Andrei Polozov (Cégep de Sainte-Foy; project leader per the record)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://zenodo.org/records/15801528"]
+      },
+      "sources": ["https://zenodo.org/records/15801528"]
+    },
+    {
+      "id": "paseva-seven-proofs-2025-08-29",
+      "what_happened": "Zenodo 16991818 (Anna Paseva, Global Institute of Logic and Cybernetics), ‘Comprehensive Resolutions of the Navier–Stokes Global Regularity Problem: Seven Independent Proofs’, published 29 Aug 2025, v1, CC BY 4.0. Landing page read. It claims seven independent proofs of global existence and smoothness for 3D incompressible Navier–Stokes, using a range of frameworks (harmonic analysis, critical Besov spaces, Caffarelli–Kohn–Nirenberg theory, stochastic Lagrangian methods, and others), and says each is supported by ‘formalization sketches in Coq or Lean’. It says all results prove the absence of finite-time singularities under smooth data.",
+      "date": "2025-08-29",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "Claims unforced global existence and smoothness if correct. It is not stated to cover the torus.",
+      "remains": "Forced breakdown (C, D), and any part of the seven arguments not established by the record.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13.5 months (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Seven claimed independent proofs in one unreviewed Zenodo preprint. The formalisations are described as sketches, not completed checks. The 327.5 kB PDF was not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims unforced global regularity if correct.",
+      "object": null,
+      "people": ["Anna Paseva (Global Institute of Logic and Cybernetics)", "Ivan Paseva (listed related contributor)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://zenodo.org/records/16991818"]
+      },
+      "sources": ["https://zenodo.org/records/16991818"]
+    },
+    {
+      "id": "nwankpa-preprints-2025-09",
+      "what_happened": "Preprints.org, Nwankpa, ‘The Mandate of Pressure’ and a later version, ‘The Logic of Fluids’, posted about September 2025 (manuscript ID 202509.1747). Claims a structural proof of global regularity for 3D incompressible Navier–Stokes using a ‘coherence manifold’ and the Escauriaza–Seregin–Šverák criterion, per a search-result summary. NOT OPENED: the Preprints.org page returned 403, and the claim comes from a search snippet only.",
+      "date": "2025-09",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "A later version (‘The Logic of Fluids’) is named in a search snippet; not verified.",
+      "delivers": "Claims unforced global regularity if correct. Not verified.",
+      "remains": "Unknown. Not read.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13 months (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read. Preprints.org does not peer-review submissions, per the search summary.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims unforced regularity if correct. Not read.",
+      "object": null,
+      "people": ["Nwankpa (first name not established)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.preprints.org/manuscript/202509.1747/v1 (403, not read)"]
+      },
+      "sources": ["https://www.preprints.org/manuscript/202509.1747/v1 (403, not read)"]
+    },
+    {
+      "id": "academia-classical-resolution-2025",
+      "what_happened": "Academia.edu, ‘A Classical Resolution of the Navier–Stokes Existence and Smoothness’ (2025), under an independent researcher profile (DavidB596). NOT OPENED: the page returned 403, and the item is known only from a search snippet and a search summary. The summary describes it as a physics-motivated sketch without rigorous mathematical content visible.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Claims a resolution by title. Not read.",
+      "remains": "Unknown.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 1 year (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read. The search summary describes it as having no rigorous mathematical content visible in the snippet.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims resolution if correct. Not read.",
+      "object": null,
+      "people": ["DavidB596 (Academia.edu profile)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://independent.academia.edu/DavidB596 (403, not read)"]
+      },
+      "sources": ["https://independent.academia.edu/DavidB596 (403, not read)"]
+    },
+    {
+      "id": "hou-berkeley-talk-2025-04-02",
+      "what_happened": "Thomas Hou (Caltech), talk ‘Recent progress on potential singularity of the 3D Navier–Stokes equation and related models’, Berkeley AMS seminar, 2 Apr 2025 (abstract opened). The abstract reports numerical evidence that 3D Navier–Stokes develops potentially singular behaviour at the origin with maximum vorticity growing by a factor of 10^7, induced by a potential finite-time singularity of 3D Euler. It also reports numerical evidence of tornado-like self-similar blow-up for a generalised axisymmetric Navier–Stokes equation with time-dependent fractional dimension (factor 10^21), and reviews computer-assisted work on 3D Euler with boundary. No write-up for the Navier–Stokes numerics was found, so the date is the talk date.",
+      "date": "2025-04-02",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Numerical evidence only. The abstract says the Navier–Stokes behaviour is numerical and not a proof.",
+      "remains": "Everything in the Clay statement.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 18 months (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Numerical. The abstract says so explicitly.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Toward potential singularity for Navier–Stokes, numerically.",
+      "object": "Numerical vorticity growth factor 10^7 at the origin for 3D Navier–Stokes, induced by a potential Euler singularity; plus a fractional-dimension axisymmetric numerical blow-up with growth factor 10^21 (abstract).",
+      "people": ["Thomas Y. Hou (Caltech)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://berkeleyams.lbl.gov/spring25/hou.html"]
+      },
+      "sources": ["https://berkeleyams.lbl.gov/spring25/hou.html"]
+    },
+    {
+      "id": "dm-unstable-singularities-2025-09-17",
+      "what_happened": "arXiv 2509.14185 (Wang, Bennani, Martens, Racanière, … Buckmaster, Georgiev, Gómez-Serrano, Jiang, Lai; 22 authors including Google DeepMind researchers), ‘Discovery of Unstable Singularities’, submitted 17 Sep 2025, v1 only, 20 pages. Abstract read. It reports the first systematic discovery of new families of unstable self-similar singularities for the incompressible porous media equation and for the 3D Euler equation with boundary. It discusses boundary-free Euler and Navier–Stokes only as motivating open cases, and gives an empirical formula linking blow-up rate to order of instability. Accuracy is near double-float machine precision, which the abstract says meets the requirements for computer-assisted proof, which it does not claim to have been done.",
+      "date": "2025-09-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only; supplementary material said to follow in a later version",
+      "delivers": "Numerical discovery of unstable self-similar singularity profiles for IPM and bounded 3D Euler with boundary. Not Navier–Stokes.",
+      "remains": "Boundary-free Euler and all Navier–Stokes alternatives.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13 months (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Numerical. The abstract says the Navier–Stokes case is only hypothesised.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Toward singularities for neighbouring equations, numerically. Not Navier–Stokes.",
+      "object": "Families of numerically computed unstable self-similar blow-up profiles for IPM and for 3D Euler with boundary, with an empirical blow-up-rate formula (abstract).",
+      "people": ["Yongji Wang", "Tristan Buckmaster", "Javier Gómez-Serrano", "Ching-Yao Lai", "Google DeepMind collaborators (22 authors in total)"],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2509.14185", "https://www.quantamagazine.org/using-ai-mathematicians-find-hidden-glitches-in-fluid-equations-20260109/"]
+      },
+      "sources": ["https://arxiv.org/abs/2509.14185", "https://www.quantamagazine.org/using-ai-mathematicians-find-hidden-glitches-in-fluid-equations-20260109/"]
+    },
+    {
+      "id": "cordoba-martinez-zoroa-zheng-hypodissipative-2024-07-09",
+      "what_happened": "arXiv 2407.06776 (Córdoba, Martínez-Zoroa, Zheng), ‘Finite time blow-up for the hypodissipative Navier Stokes equations with a force in L¹_t C^{1,ε}_x ∩ L^∞_t L²_x’, submitted 9 Jul 2024, v2 5 Aug 2024, 33 pages. Abstract read. For dissipation |∇|^α with α in [0, α0), α0 = (22−8√7)/9 ≈ 0.093, it constructs classical finite-energy solutions of forced fractional Navier–Stokes on R³×[0,T] whose time-integrated gradient norm diverges as t tends to T.",
+      "date": "2024-07-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 9 Jul 2024; v2 5 Aug 2024 (minor corrections)",
+      "delivers": "Finite-time blow-up for forced hypodissipative fractional Navier–Stokes on R³ with dissipation exponent α < α0. A changed version: fractional dissipation, forced, R³ only.",
+      "remains": "Classical dissipation (α = 2), the unforced problem, and the torus.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 months (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "None specific. The threshold α0 is the one the Santibañez-Leal audit re-derives.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Forced blow-up for a changed dissipation. Neighbouring.",
+      "object": "Classical finite-energy solutions of forced hypodissipative fractional Navier–Stokes on R³×[0,T], smooth for t below T, with the time integral of the gradient norm diverging at T (abstract).",
+      "people": ["Diego Córdoba", "Luis Martínez-Zoroa", "Fan Zheng"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2407.06776"]
+      },
+      "sources": ["https://arxiv.org/abs/2407.06776"]
+    },
+    {
+      "id": "cordoba-martinez-zoroa-2024-10-30",
+      "what_happened": "arXiv 2410.22920 (Córdoba, Martínez-Zoroa), ‘Finite time singularities of smooth solutions for the 2D incompressible porous media (IPM) equation with a smooth source’, submitted 30 Oct 2024; v3 13 Feb 2025 (minor corrections). Abstract read. Establishes smooth finite-energy solutions to 2D IPM with a compactly supported uniformly smooth source that develop singularities in finite time.",
+      "date": "2024-10-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 30 Oct 2024; v2 12 Nov 2024; v3 13 Feb 2025",
+      "delivers": "Finite-time singularity for forced 2D IPM. Neighbouring equation; not Navier–Stokes.",
+      "remains": "Navier–Stokes entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 12 months (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "None specific.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Toward singularity for forced IPM. Neighbouring.",
+      "object": "Smooth finite-energy 2D IPM solutions with a compactly supported uniformly smooth source that become singular in finite time (abstract).",
+      "people": ["Diego Córdoba", "Luis Martínez-Zoroa"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2410.22920"]
+      },
+      "sources": ["https://arxiv.org/abs/2410.22920"]
+    },
+    {
+      "id": "chen-hou-boundary-euler-2022-10-13",
+      "what_happened": "arXiv 2210.07191 (Chen, Hou), ‘Stable nearly self-similar blowup of the 2D Boussinesq and 3D Euler equations with smooth data I: Analysis’, v1 13 Oct 2022, v4 16 Aug 2026 (159 pages plus a 25-page supplement; revised proof outline and coercivity discussion). Abstract read. It proves finite-time, nearly self-similar blow-up of 2D Boussinesq and 3D axisymmetric Euler from smooth finite-energy data in a domain with boundary. A search summary reports the computer-assisted version was published in PNAS on 27 Jun 2025 (DOI 10.1073/pnas.2500940122); this was not opened.",
+      "date": "2022-10-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 13 Oct 2022; v2 19 Oct 2022; v3 9 May 2023; v4 16 Aug 2026 (current)",
+      "delivers": "Finite-time nearly self-similar blow-up for 2D Boussinesq and 3D axisymmetric Euler with boundary. Not Navier–Stokes; axisymmetric; with a boundary.",
+      "remains": "Navier–Stokes entirely, and boundary-free 3D Euler.",
+      "checked_by": [
+        {
+          "who": "Proceedings of the National Academy of Sciences",
+          "qualification": "Journal of record with peer review",
+          "what_they_did": "Published the computer-assisted version (per a search summary; not opened)",
+          "where": "https://doi.org/10.1073/pnas.2500940122",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 3 years (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Blow-up for neighbouring Euler-type equations with boundary.",
+      "object": "Nearly self-similar blow-up profile for 2D Boussinesq and 3D axisymmetric Euler with boundary, with nonlinear stability of an approximate self-similar profile (abstract).",
+      "people": ["Jiajie Chen", "Thomas Y. Hou"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2210.07191"]
+      },
+      "sources": ["https://arxiv.org/abs/2210.07191"]
+    },
+    {
+      "id": "cordoba-martinez-zoroa-zheng-euler-2023-08-23",
+      "what_happened": "arXiv 2308.12197 (Córdoba, Martínez-Zoroa, Zheng), ‘Finite time singularities to the 3D incompressible Euler equations for solutions in C^∞(R³∖{0}) ∩ C^{1,α} ∩ L²’, v1 23 Aug 2023, v2 24 Oct 2023. Abstract read. It builds unforced 3D Euler singularities from infinitely many vorticity regions separated by vortex-free regions, not from self-similar coordinates, with the stated function-space regularity for times before the singularity. Published in Annals of PDE 11, article 19 (2025) per a search summary; not opened.",
+      "date": "2023-08-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 23 Aug 2023; v2 24 Oct 2023",
+      "delivers": "Finite-time singularity for unforced 3D Euler on R³ in the stated class. Not Navier–Stokes.",
+      "remains": "Navier–Stokes entirely.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 years (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Unforced singularity for Euler. Neighbouring.",
+      "object": "Unforced 3D Euler solutions in the stated class with a singularity at time 0 built from infinitely many vorticity regions (abstract).",
+      "people": ["Diego Córdoba", "Luis Martínez-Zoroa", "Fan Zheng"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2308.12197"]
+      },
+      "sources": ["https://arxiv.org/abs/2308.12197"]
+    },
+    {
+      "id": "cheskidov-dai-palasek-2026-09-22",
+      "what_happened": "arXiv 2609.26790 (Cheskidov, Dai, Palasek), ‘Cascade mechanisms for Navier–Stokes blow-up’, submitted 22 Sep 2026, v1 only. Abstract read. Works in the Obukhov dyadic shell model and a mixed Desnyansky–Novikov–Obukhov model rather than 3D Navier–Stokes. It claims an instantaneous Type I blow-up for the Obukhov model, a finite-time blow-up for the mixed model (Type II by a small margin), and a similar cascade at lower regularity for the inviscid system. It builds on the authors’ earlier preprint on an inverse energy cascade for 3D Navier–Stokes.",
+      "date": "2026-09-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only",
+      "delivers": "Blow-up results for shell models (Obukhov, mixed DNO). Not 3D Navier–Stokes.",
+      "remains": "3D Navier–Stokes entirely, all four alternatives.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 weeks (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Shell-model result; not a Navier–Stokes claim.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Blow-up for shell models. Neighbouring.",
+      "object": null,
+      "people": ["Alexey Cheskidov", "Mimi Dai", "Stan Palasek"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.26790"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.26790"]
+    },
+    {
+      "id": "gamburd-siren-call-2026-09-23",
+      "what_happened": "arXiv 2609.28591 (Alexander Gamburd), ‘The Siren Call of Silicon Leviathan: Reflections on blowup and Aufklärungsdämmerung’, submitted 23 Sep 2026, v3 1 Oct 2026, essay dated 20 Sep 2026, math.HO. Abstract read. Commentary, not a mathematical result. It argues that the OpenAI output is a machine-checked certificate without a human-readable demonstration, and that accepting such proofs without human understanding shifts authority over truth.",
+      "date": "2026-09-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 23 Sep 2026; v3 1 Oct 2026",
+      "delivers": "None. Commentary.",
+      "remains": "All of the problem.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 weeks (to 13 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None.",
+      "object": null,
+      "people": ["Alexander Gamburd"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2609.28591"]
+      },
+      "sources": ["https://arxiv.org/abs/2609.28591"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Buckmaster and Alpöge say OpenAI’s effort followed information about their work; OpenAI says its effort began on 1 Sep after hearing a rumour, and that its internal review found Buckmaster’s Codex prompts could not have influenced the system (10 Sep); its 13 Sep statement says no user inputs past 3 July could have influenced it, and Codex use before 3 July is not addressed. Alpöge disputes OpenAI’s independence, saying its proof looks more like another Euler blow-up proof they had. OpenAI credits Buckmaster and Alpöge with priority for the forced 3D Euler result while claiming the Navier–Stokes result (Quanta). Bubeck calls the allegations ‘false and inflammatory’ (secondary).",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy",
+        "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+        "https://daringfireball.net/linked/2026/09/12/buckmaster-statement"
+      ]
+    },
+    {
+      "kind": "data use",
+      "summary": "OpenAI’s 8 Sep statement says ‘while unlikely, we cannot rule out that de-identified data derived from their usage of our products helped improve our models’ (quoted in the Wikipedia priority article and in a secondary search summary). Mark Chen is quoted as saying no one or no AI system searched user data to solve the problem. Buckmaster says he was told the model did not look up user data and got no answer on training.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy",
+        "https://daringfireball.net/linked/2026/09/12/buckmaster-statement"
+      ]
+    },
+    {
+      "kind": "status",
+      "summary": "The Clay Institute’s primary wording is that the problem has ‘apparently been settled’, with evaluation ‘deliberately unhurried’. Its problem page is marked ‘Active’ (opened). Wikipedia’s infobox says ‘(solution claimed)’. Some secondary reports paraphrase Clay as having settled the problem or as listing it as solved; these readings are not supported by the primary text.",
+      "sources": [
+        "https://www.claymath.org/news/navier-stokes-announcement/",
+        "https://www.claymath.org/millennium-problems/navier-stokes-equation/",
+        "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness"
+      ]
+    },
+    {
+      "kind": "scope",
+      "summary": "Whether Buckmaster and Alpöge’s Euler result is forced: most sources say yes (smooth forcing); one outlet calls it unforced. OpenAI’s Euler result is described as unforced (Santibañez-Leal audit, README summary). The forced and unforced Euler results differ in scope.",
+      "sources": [
+        "https://zenodo.org/records/22820521",
+        "https://github.com/openai/NavierStokesAndEuler",
+        "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/"
+      ]
+    },
+    {
+      "kind": "fidelity",
+      "summary": "Whether the Lean development certifies the natural-language argument. Bastounis, Circelli and Hansen report mismatches at Lemma 8.6 and estimate (10.19). Santibañez-Leal reports that the Lean certificate replays through the kernel. Neither establishes the truth of the theorem or the NL argument. No response from OpenAI to the mismatches was found.",
+      "sources": [
+        "https://arxiv.org/abs/2610.08144",
+        "https://zenodo.org/records/22820521"
+      ]
+    },
+    {
+      "kind": "community statement",
+      "summary": "A declaration titled ‘A Severe Misalignment of AI in Mathematics’ (Tao’s blog, 11 Sep 2026; signatories reported as 25 Fields Medallists, one secondary says 28) criticises AI labs using famous open problems as benchmarks. It does not dispute the OpenAI result by name. The Association for Human Mathematics statement (7 Oct 2026, Tao’s blog, opened) rejects OpenAI’s 6 Oct release and urges mathematicians to disengage. Neither is a verification.",
+      "sources": [
+        "https://terrytao.wordpress.com/",
+        "https://terrytao.wordpress.com/2026/10/07/ahm-statement-on-openais-october-6-release-of-mathematical-documents/"
+      ]
+    }
+  ],
+
+  "summary": "Since 26 Jan 2024 the problem has moved in one way that bears directly on the Clay statement. On 8 Sep 2026 OpenAI announced a 166-page manuscript, produced by an unnamed internal multi-agent system (about 10,000 agents over about 88 hours by its account) and formalised in Lean 4, claiming finite-time blow-up of the 3D incompressible Navier–Stokes equations for every viscosity under a smooth external force, on R³ (Clay C) and on the torus (Clay D). I could not open OpenAI’s own announcement (openai.com returns 403) or the manuscript (binary PDF), so the mathematical content rests on the GitHub README read through a fetch, the critiques, Wikipedia, Quanta, Scientific American and the Tao-blog material; the AI details (agent count, hours, cost, messages) are secondary and conflict, and the claim that GPT-6 Astra wrote the Lean formalisation appears only in secondary reports, so I have not entered it in ai.systems. Expert engagement exists but is not verification: Santibañez-Leal (self-published) replayed the Lean development through the kernel and says that does not verify the mathematics; Bastounis, Circelli and Hansen report specific mismatches between the Lean and natural-language arguments (Lemma 8.6, m+4 versus m+5 derivatives, and estimate (10.19)); Duraiswami, a single author, argues the swirl-core geometry does not transfer to the similarity variables; Constantin, Ignatova and Vicol prove a conditional regularity theorem that restricts constructions having two properties they attribute to the OpenAI construction. Cao, Chi and Nie build density results on it (one version withdrawn and restored). I found no qualified referee report, no journal acceptance, and no withdrawal of the OpenAI manuscript. Clay’s 11 Sep 2026 statement says the problem has ‘apparently been settled’ and that evaluation is ‘deliberately unhurried’, and its problem page is still marked Active as I read it. Clay A and B, the unforced questions on R³ and the torus, are not addressed by OpenAI’s claim, and sources read say they remain open; several unforced claims exist (Ri 2025 and 2026, Polozov 2025, Paseva 2025, and Nwankpa 2025 and an Academia.edu item that I could not open), none with public engagement. Neighbouring work includes Hou–Wang–Yang (Sep 2025), a computer-assisted proof of non-uniqueness of unforced Leray–Hopf solutions, which is a different question; Hou’s April 2025 talk (numerical evidence only); the DeepMind unstable-singularity paper (Sep 2025, IPM and bounded Euler); and the 2024 Córdoba–Martínez-Zoroa–Zheng hypodissipative result. Buckmaster and Alpöge posted three Lean-formalised forced blow-up papers (IPM, Boussinesq, 3D Euler) on about 7–8 Sep 2026 and an IPM extension on arXiv on 15 Sep, all neighbouring, with LLM assistance; Buckmaster’s statement describes a belief in hypo-dissipative blow-up, not yet released. OpenAI’s 6 Oct release of 700-plus manuscripts (372 problems per Scientific American) is of unknown bearing on Navier–Stokes, and Scientific American reports three of its papers were withdrawn for errors without naming them. Close calls: (a) The bullet names the problem only by title; the Clay statement splits it into four alternatives, and I have listed all four and left the choice to the judging pass. (b) Whether OpenAI’s forced breakdown counts as resolving the bullet depends on that choice; on the Clay wording it answers C and D only. (c) Whether Ri’s H^{1/2} result, if correct, covers Clay A depends on whether smooth finite-energy data lie in H^{1/2} on R³, which appears true but is not stated by the paper. (d) Whether the Clay wording ‘apparently been settled’ is itself a status determination: by its own text it is not.",
+
+  "competing_reading": "The stronger reading is that the problem has effectively been settled in the sense the Clay statement anticipates. The claim is a Lean-formalised manuscript; a second party has replayed the Lean development through the kernel; the problem’s own formulator (Fefferman, quoted by Quanta) said he was thrilled the problem was solved; Clay says ‘apparently been settled’; and Wikipedia’s infobox says ‘solution claimed’. On this reading, alternatives C and D are established pending human review, and the record should count the 8 Sep event as a resolution of those alternatives, with A and B the remaining question. The weaker reading is that nothing has been established: the claim is unrefereed; specific Lean-to-natural-language mismatches are reported at named lemmas; the construction’s geometry is contested by a critic; the result concerns forced flows, which the most-discussed version of the problem excludes; Clay has not decided; and the only expert statements are critiques or conditional results.",
+
+  "what_would_settle_it": "(1) A referee report or expert verification of the 166-page manuscript, and OpenAI’s answer to the Bastounis et al. examples (Lemma 8.6 and estimate (10.19)). (2) An independent Lean audit of the theorem statements against Clay C and D, with #print axioms showing no sorryAx and a grep of the repository for sorry. (3) The Clay Institute’s own determination under its rules (peer-reviewed publication and a waiting period). (4) For the unforced A and B: any verified proof, or the referee outcome for Ri 2025/2026 and Polozov 2025. (5) For AI attribution: the authors’ own text, in full, on which steps the internal model produced and which humans checked; OpenAI’s blog and manuscript were unreadable to me, so this needs direct access.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_existence_and_smoothness", "title": "Navier–Stokes existence and smoothness (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy", "title": "Navier–Stokes priority controversy (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.claymath.org/millennium-problems/navier-stokes-equation/", "title": "Clay Mathematics Institute, Navier–Stokes problem page", "type": "encyclopedia", "opened": true},
+    {"url": "https://www.claymath.org/news/navier-stokes-announcement/", "title": "Clay Mathematics Institute, Navier-Stokes Announcement (11 Sep 2026)", "type": "press_release", "opened": true},
+    {"url": "https://www.claymath.org/wp-content/uploads/2022/06/navierstokes.pdf", "title": "Clay official problem statement PDF (binary; not readable)", "type": "repository", "opened": false},
+    {"url": "https://openai.com/index/navier-stokes-solution/", "title": "OpenAI, On the Navier–Stokes Millennium Prize Problem (403; not read)", "type": "press_release", "opened": false},
+    {"url": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf", "title": "OpenAI, Finite time blowup for Navier–Stokes (manuscript; binary; not readable)", "type": "preprint", "opened": false},
+    {"url": "https://github.com/openai/NavierStokesAndEuler", "title": "openai/NavierStokesAndEuler repository (HTML)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/openai/NavierStokesAndEuler/main/README.md", "title": "openai/NavierStokesAndEuler README (read via fetch)", "type": "repository", "opened": true},
+    {"url": "https://github.com/tristanbuckmaster/fluid_lean", "title": "tristanbuckmaster/fluid_lean repository (HTML)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/tristanbuckmaster/fluid_lean/main/README.md", "title": "fluid_lean README (404)", "type": "repository", "opened": false},
+    {"url": "https://arxiv.org/abs/2610.08144", "title": "Bastounis, Circelli, Hansen, Navier–Stokes lost in translation (arXiv 2610.08144)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2610.08144v1", "title": "Bastounis et al., HTML full text (sections 1, 3 read)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.17642", "title": "Duraiswami, Self-similar swirl between contracting porous walls (arXiv 2609.17642)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.20803", "title": "Constantin, Ignatova, Vicol, Regularity of asymptotically axisymmetric solutions ... with analytic forcing (arXiv 2609.20803)", "type": "preprint", "opened": true},
+    {"url": "https://zenodo.org/records/22820521", "title": "Santibañez-Leal, An independent audit of the September 2026 fluid blowup claims (Zenodo 22820521)", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.10262", "title": "Cao, Chi, Nie, Density of Forces Producing Navier–Stokes Blowup (arXiv 2609.10262)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.16470", "title": "Alpöge, Buckmaster, Coiculescu, Extending the Córdoba–Martínez-Zoroa IPM Blow-Up (arXiv 2609.16470)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.23868", "title": "Petrillo, Glimm, The Positive Defect Problem (arXiv 2609.23868)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.10867", "title": "Ganeshram, Duruisseaux, Anandkumar, Self-Similar Singularity of the Euler Equations on R³ (arXiv 2609.10867)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.26790", "title": "Cheskidov, Dai, Palasek, Cascade mechanisms for Navier–Stokes blow-up (arXiv 2609.26790)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.28591", "title": "Gamburd, The Siren Call of Silicon Leviathan (arXiv 2609.28591)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2509.25116", "title": "Hou, Wang, Yang, Nonuniqueness of Leray–Hopf solutions to the unforced 3D Navier–Stokes equation (arXiv 2509.25116)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2508.19590", "title": "Ri, Global regularity of Leray–Hopf weak solutions to 3D Navier–Stokes (arXiv 2508.19590)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2601.15685", "title": "Ri, Global regularity for the Navier–Stokes equations with application to Euler (arXiv 2601.15685)", "type": "preprint", "opened": true},
+    {"url": "https://zenodo.org/records/15801528", "title": "Polozov, Global Regularity ... via Emergent Nonlinear Vorticity Dissipation (Zenodo 15801528)", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/16991818", "title": "Paseva, Comprehensive Resolutions of the Navier–Stokes Global Regularity Problem (Zenodo 16991818)", "type": "repository", "opened": true},
+    {"url": "https://www.preprints.org/manuscript/202509.1747/v1", "title": "Nwankpa, Preprints.org 202509.1747 (403; not read)", "type": "preprint", "opened": false},
+    {"url": "https://independent.academia.edu/DavidB596", "title": "Academia.edu, A Classical Resolution of the Navier–Stokes Existence and Smoothness (403; not read)", "type": "preprint", "opened": false},
+    {"url": "https://berkeleyams.lbl.gov/spring25/hou.html", "title": "Hou, Recent progress on potential singularity of the 3D Navier–Stokes equation (Berkeley AMS talk page)", "type": "news", "opened": true},
+    {"url": "https://arxiv.org/abs/2509.14185", "title": "Wang et al., Discovery of Unstable Singularities (arXiv 2509.14185)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2210.07191", "title": "Chen, Hou, Stable nearly self-similar blowup of 2D Boussinesq and 3D Euler (arXiv 2210.07191)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2407.06776", "title": "Córdoba, Martínez-Zoroa, Zheng, hypodissipative Navier–Stokes blow-up (arXiv 2407.06776)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2410.22920", "title": "Córdoba, Martínez-Zoroa, 2D IPM with smooth source (arXiv 2410.22920)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2308.12197", "title": "Córdoba, Martínez-Zoroa, Zheng, 3D Euler singularities (arXiv 2308.12197)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/a/alpoge_l_1", "title": "arXiv author page for L. Alpöge (no Aug–Sep 2026 Navier–Stokes or fluid paper listed)", "type": "repository", "opened": true},
+    {"url": "https://zenodo.org/records/22852310", "title": "KokunoYumeto, Finite Time Blowup for Navier–Stokes: Independent LaTeX Reconstruction (Zenodo 22852310)", "type": "repository", "opened": true},
+    {"url": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/", "title": "Quanta Magazine, AI Has Solved One of Math’s $1 Million Millennium Prize Problems (8 Sep 2026)", "type": "news", "opened": true},
+    {"url": "https://www.quantamagazine.org/using-ai-mathematicians-find-hidden-glitches-in-fluid-equations-20260109/", "title": "Quanta Magazine, Using AI, Mathematicians Find Hidden Glitches in Fluid Equations (9 Jan 2026)", "type": "news", "opened": true},
+    {"url": "https://www.scientificamerican.com/article/mathematicians-marvel-and-grumble-at-openais-trove-of-new-results/", "title": "Scientific American, Mathematicians marvel, and grumble, at OpenAI’s trove of new results (8 Oct 2026)", "type": "news", "opened": true},
+    {"url": "https://www.nature.com/articles/d41586-026-03196-8", "title": "Nature, OpenAI posts 700 maths preprints online (login redirect; not read)", "type": "news", "opened": false},
+    {"url": "https://tuftsdaily.com/article/2026/09/mathematicians-still-checking-the-navier-stokes-proof-that-openai-claims-to-have-solved", "title": "Tufts Daily, Mathematicians still checking the Navier-Stokes proof (24 Sep 2026)", "type": "news", "opened": true},
+    {"url": "https://terrytao.wordpress.com/", "title": "Terence Tao blog front page (listing of 11 Sep and later posts)", "type": "blog", "opened": true},
+    {"url": "https://terrytao.wordpress.com/2026/10/07/ahm-statement-on-openais-october-6-release-of-mathematical-documents/", "title": "AHM Statement on OpenAI’s October 6 Release of Mathematical Documents (Tao blog, 7 Oct 2026)", "type": "blog", "opened": true},
+    {"url": "https://www.brown.edu/news/2026-08-26/javier-gomez-serrano-lab", "title": "Brown University News, Gómez-Serrano’s lab using AI on singularities (26 Aug 2026)", "type": "news", "opened": true},
+    {"url": "https://daringfireball.net/linked/2026/09/12/buckmaster-statement", "title": "Daring Fireball, excerpts of Buckmaster’s statement (12 Sep 2026)", "type": "blog", "opened": true},
+    {"url": "https://cims.nyu.edu/~tristanb/", "title": "Tristan Buckmaster homepage (NYU)", "type": "repository", "opened": true},
+    {"url": "https://cims.nyu.edu/~tristanb/statement.pdf", "title": "Buckmaster statement PDF (binary; not readable)", "type": "press_release", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Navier-Stokes existence and smoothness problem 2026 proof",
+      "Navier-Stokes blow-up singularity AI DeepMind unstable self-similar",
+      "Navier-Stokes Millennium Prize AI claim",
+      "Navier-Stokes finite time blowup computer-assisted proof 2025",
+      "Navier-Stokes global regularity arXiv 2025 claimed proof",
+      "Navier-Stokes singularity Hou Chen Euler boundary blow-up 2025 arXiv",
+      "Gómez-Serrano Navier-Stokes singularity neural network 2025",
+      "Navier-Stokes Clay Millennium problem news 2026",
+      "Navier-Stokes equations blowup Lean formalization sorry",
+      "Navier-Stokes Wikipedia Millennium Prize Problems existence smoothness status",
+      "Bastounis Circelli Hansen autoformalisation Navier-Stokes Lean semantic faithfulness arXiv",
+      "OpenAI \"Finite time blowup for Navier-Stokes\" arXiv 166 pages",
+      "Constantin Ignatova Vicol OpenAI Navier-Stokes real-analytic force preprint",
+      "Buckmaster Alpöge Lean verified blowup Euler arXiv 2026",
+      "Clay Mathematics Institute statement OpenAI Navier-Stokes \"apparently been settled\"",
+      "Clay Mathematics Institute news September 2026 Navier-Stokes statement shares in the excitement deliberately unhurried",
+      "github openai NavierStokesAndEuler Lean repository finite time blowup",
+      "Terence Tao blog OpenAI Navier-Stokes blowup 2026 Lean",
+      "Fields Medalists open letter Navier-Stokes OpenAI credit 2026",
+      "Alpöge \"Augustus Mirabilis\" arXiv",
+      "Ri Leray-Hopf global regularity H^{1/2} Navier-Stokes claim error critique 2025 2026",
+      "Nature news OpenAI Navier-Stokes Clay Bridson peer review Millennium Prize 2026",
+      "Buckmaster Alpöge hypo-dissipative Navier-Stokes blowup unverified proof easier version",
+      "Buckmaster statement Navier-Stokes OpenAI Codex prompts Alpöge posted September 2026 text",
+      "arXiv Buckmaster Alpöge 2026 finite time blowup smooth forcing porous medium equation Boussinesq Euler Lean",
+      "\"A Severe Misalignment of AI in Mathematics\" Tao Fields medalists statement",
+      "Hou Wang Yang nonuniqueness Leray-Hopf solutions unforced 3D Navier-Stokes self-similar arXiv 2026",
+      "\"Augustus Mirabilis\" Navier-Stokes Alpöge Anthropic",
+      "DeepMind Navier-Stokes 2026 unstable singularity result Gómez-Serrano blowup claim",
+      "\"GPT-6 Astra\" Lean formalization Navier-Stokes OpenAI",
+      "OpenAI October 6 2026 repository 700 manuscripts mathematics release Navier-Stokes Lean certificates",
+      "Córdoba Martínez-Zoroa 2023 finite time blowup Euler rough forcing arXiv",
+      "Córdoba Martínez-Zoroa Zheng finite time singularities 3D incompressible Euler C^infinity(R minus 0) arXiv",
+      "Claude Anthropic Navier-Stokes proof claim 2026 AI model mathematics regularity",
+      "AlphaEvolve OR Gemini Navier-Stokes singularity blowup AI claim 2026 Google DeepMind proof"
+    ],
+    "places_checked": [
+      "Wikipedia: Navier–Stokes existence and smoothness (fetched); Navier–Stokes priority controversy (fetched); Millennium Prize Problems (search only)",
+      "claymath.org: problem page (fetched, marked Active); news post 11 Sep 2026 (fetched); official PDF (binary)",
+      "openai.com: announcement (403 on three URL variants); GitHub openai/NavierStokesAndEuler (HTML and raw README); tristanbuckmaster/fluid_lean (HTML; raw README 404)",
+      "arXiv: abstracts for 2609.20803, 2610.08144 (abs and HTML), 2609.17642, 2609.10262, 2609.16470, 2609.23868, 2609.10867, 2609.26790, 2609.28591, 2509.25116, 2508.19590, 2601.15685, 2509.14185, 2210.07191, 2407.06776, 2410.22920, 2308.12197; arXiv author page for L. Alpöge",
+      "Zenodo: 22820521, 15801528, 16991818, 22852310",
+      "Preprints.org 202509.1747 (403); Academia.edu DavidB596 (403)",
+      "cims.nyu.edu/~tristanb: homepage (fetched); statement.pdf and ipm.pdf (binary or not fetched)",
+      "Quanta Magazine: 8 Sep 2026 article; 9 Jan 2026 article",
+      "Scientific American: 8 Oct 2026 article on the OpenAI release",
+      "Nature: 2026 article on the OpenAI release (login redirect, not read)",
+      "Tao blog: front page; AHM statement (7 Oct 2026); declaration listing of 11 Sep 2026",
+      "Brown University News: 26 Aug 2026 article on Gómez-Serrano’s lab",
+      "Daring Fireball: excerpts of Buckmaster statement (12 Sep 2026)",
+      "Tufts Daily: 24 Sep 2026 article",
+      "Berkeley AMS seminar page for Hou, 2 Apr 2025"
+    ],
+    "dead_ends": [
+      "Claude/Anthropic Navier–Stokes proof: only a social-media rumour (an X prediction post by Andrew Curran and reactions). A search summary reports Tao saying the scenario was hypothetical. No Anthropic paper, post or Lean repository was found. Not recorded as an event.",
+      "AlphaEvolve or Gemini Navier–Stokes claim: none found. The 2025 DeepMind work is recorded; the Brown article says the Gómez-Serrano lab used AlphaEvolve on math problems, but names no Navier–Stokes result.",
+      "Alpöge ‘Augustus Mirabilis’: a tweet (31 Aug / 1 Sep 2026), not a paper; no arXiv record found. It is cited in Wikipedia as a reason OpenAI began its run.",
+      "Córdoba–Martínez-Zoroa forced 3D Euler with rough forcing (2023): no arXiv record found in search; not recorded.",
+      "Luo–Hou 2013 numerical Euler blow-up: pre-window, Euler, numerical; cited only in the Wikipedia priority article; not opened, not recorded.",
+      "Secondary reports of a 7 Sep 2026 Tao post praising Buckmaster and Alpöge: not found on the Tao blog front page read.",
+      "Secondary reports of a Scientific American 21 Sep 2026 article and of navier-stokes.org: surfaced in search, not opened.",
+      "Bubeck X posts and the Manifold markets: surfaced in search, not opened, not relied on except where Wikipedia or Quanta reports them."
+    ]
+  },
+
+  "incomplete": "Not read: OpenAI’s own announcement (openai.com returned 403 on all variants tried), so the AI attribution rests on the README, Quanta, Wikipedia and search-result text; the manuscript PDF (binary), so the theorem statements are from the README, not the manuscript; Clay’s official PDF (binary), so the A–D enumeration is from Wikipedia and the repository, not Clay’s own text; Buckmaster’s statement PDF (binary), so only Daring Fireball excerpts were read; the Buckmaster–Alpöge NYU PDFs (ipm.pdf, Euler and Boussinesq preprints), so those papers are described from secondary sources; the fluid_lean README (404); Nature (login); Preprints.org and Academia.edu (403). Full texts not read, abstracts only: Duraiswami, Constantin–Ignatova–Vicol, Cao–Chi–Nie, Petrillo–Glimm, Ganeshram et al., Cheskidov–Dai–Palasek, Hou–Wang–Yang, Ri (both), Polozov, Paseva, DeepMind 2509.14185, Chen–Hou, Córdoba et al. (three). Bastounis et al. were read through §1 and §3 only, and they do not check Lean compilation or sorry. No repository was checked for sorry or extra axioms, so sorry_free is null throughout. No OpenAI author list was found. Not established: whether the 6 Oct 2026 release includes Navier–Stokes manuscripts; which three papers were withdrawn; the posting dates (7 vs 8 Sep) of the Buckmaster–Alpöge preprints; the commit date of the OpenAI repository; the Lean commit hash (f9e8bc5 vs 8937a8f4…, both secondary); the page count (166 vs about 100); the solution date (1 Sep run start vs 5 Sep reached). The name GPT-6 Astra appears only in secondary reports and is not entered as an AI system. Claude and Codex appear in secondary reports of the Buckmaster–Alpöge work; only Codex is in an excerpt of Buckmaster’s own statement, and it is entered with that limit. Surfaced but not opened: navier-stokes.org, the Scientific American 21 Sep article, the Tao declaration text, and the Wikipedia Millennium Prize Problems page. The Quanta and Wikipedia accounts of OpenAI’s internal review are secondary."
+}

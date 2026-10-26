@@ -1,0 +1,1520 @@
+{
+  "key": "mosers-worm-problem",
+  "nothing_found": false,
+  "outcome": "Still open as of 13 Oct 2026, but the best upper bound moved in September 2026: Keller (arXiv 2609.21968, 18 Sep 2026, AI-assisted, Lean 4 formalisation claimed, unrefereed) gives a convex universal cover of area ≈ 0.2463322, which also bounds the unrestricted minimum from above; Deng (arXiv 2609.04591, 4 Sep 2026, unrefereed) claims an unrestricted isosceles-triangle cover of area ≈ 0.2578836; the lower bounds found in the literature are for convex covers only and last moved in 2011 (0.232239) and, for convex covers, in 2026 (0.239, Keller).",
+  "problem_asks": "The statement asks for M, the infimum (smallest) area of a planar set S such that every curve of unit length has a congruent copy inside S. Unpacked: (a) the value of M; (b) whether a set attaining M exists (not known in general, per Wikipedia; existence for convex covers follows from Blaschke selection, as stated in the Wikipedia article and Laidacker–Poole); (c) which shape attains M, i.e. its identity. The bullet does not restrict S to convex sets and does not restrict curves to arcs or closed curves; the standard reading (Wikipedia, Norwood–Poole) takes ‘curve’ as a rectifiable arc, allows rotation and translation, and excludes reflections. Convex-only and closed-curve versions are different questions and are recorded as such below. The claim is universal over all unit-length curves, not over finitely many.",
+  "events": [
+    {
+      "id": "keller-2026-09",
+      "what_happened": "Ethan Keller (sole author), arXiv:2609.21968 (math.MG, cross-list cs.CG), ‘Improved bounds for universal convex covers of unit arcs’, one version. Claims that α, the infimum area of a convex universal cover of unit arcs, satisfies 0.239 ≤ α ≤ 7170601298323360123534337/29109471743520000000000000 = 0.2463322372…, reducing the gap between the previous refereed bounds (0.232239 and π/12) by over 75%. Lower bound: four explicit unit polygonal arcs and a finite subdivision certified with shoelace bounds. Upper bound: a quadrilateral with rational data, shown to cover every unit arc by a finite case tree of support and length inequalities. Author states the proofs are formalised in Lean 4 with mathlib, code and certificates at github.com/ethan-keller/moser-worm-improved-bounds (Apache-2.0). Paper states it was AI-assisted (see ai).",
+      "date": "2026-09-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (Fri 18 Sep 2026 16:29:55 UTC); no later version found as of 13 Oct 2026.",
+      "delivers": "Upper bound: M ≤ α ≤ 0.2463322…, for the unrestricted minimum M as well, because every convex cover is a cover (M ≤ M_conv is a logical consequence, since every convex cover is a cover; Deng 2609.04591 states the same inequality). Lower bound: α ≥ 0.239 for convex covers only. A lower bound on the convex infimum does not bound the unrestricted M from below. Restrictions: convex covers; unit arcs (the paper does not treat closed curves).",
+      "remains": "(a) The exact value of M: open. The paper says the quadrilateral ‘has not been proved optimal’ and that a matching lower bound would be needed. (b) Existence of a minimiser: not addressed. (c) Identity of a minimiser: not identified. Unrestricted lower bound: not addressed by this event.",
+      "checked_by": [
+        {
+          "who": "Pith Review (automated AI referee; the page names the model deepseek/deepseek-v4-flash)",
+          "qualification": "None: an AI referee. The page labels the review ‘T0 · AI review’ and its own text says ‘This review was written by an AI. No human expert has reviewed this paper yet.’",
+          "what_they_did": "Read the paper on 21 Sep 2026, raised four minor points (§3.1 interior and turning angle relation; §4.1 Lemma 4.2 vertex ordering; §4.2 choice of rational directions; Table 2 whether 24,287 Lean modules were generated automatically), and recommended accept.",
+          "where": "https://pith.science/paper/2609.21968",
+          "automated": true
+        },
+        {
+          "who": "Hendrik Van Maldeghem (named in the paper’s Acknowledgments)",
+          "qualification": "Named mathematician; I did not check his field or record.",
+          "what_they_did": "Commented on an early version of the lower-bound argument. The acknowledgement does not say they checked the final version.",
+          "where": "https://arxiv.org/html/2609.21968v1 (Acknowledgments)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 3.5 weeks as of 13 Oct 2026",
+      "machine_checked": {
+        "system": "Lean 4 with mathlib (Lean 4.33.1 with a pinned mathlib, per the repository README)",
+        "sorry_free": true,
+        "url": "https://github.com/ethan-keller/moser-worm-improved-bounds"
+      },
+      "directly_checkable": "Upper-bound quadrilateral K: four sides with outward unit normals n(σ) = ((1−σ²)/(1+σ²), 2σ/(1+σ²)) for σ = −631/58, −1, 7/16, 37/56, and offsets 0, 0, 130783/250000, 446199/1000000 as reported by the fetch of the HTML; the area is the explicit rational above. Covering is argued by a finite case tree. Lower bound: a finite subdivision tree over a compact box of three angles and six translations for four arcs. The paper says the Lean kernel checks the certificate checkers and the final combination, with #print axioms on MoserWorm.bounds listing only propext, Classical.choice and Quot.sound. I did not run the Lean code or read the Lean sources.",
+      "doubts": "No human expert review yet (per the Pith page). The author states the work ‘relied heavily on generative AI tools’ and that the author ‘reviewed and verified all AI-generated output’. The sorry-free status is the author’s claim, and I did not read the Lean files. Whether the formal statements encode ‘every unit arc has a congruent copy in K’ and ‘convex universal cover’ faithfully is not checked by me. The repository had 2 commits and 0 stars when I read it. Single-author, unrefereed. The author’s affiliation was not found in the sources I opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Upper bound moves down: from π/12 (convex, 2019) and from 0.260437 / 0.26007 (unrestricted) to 0.2463322. Lower bound for convex covers moves up from 0.232239 to 0.239. Neither is a counterexample: the problem asks for a minimum area, not for a yes/no conjecture, and the paper does not claim the quadrilateral is optimal.",
+      "object": "Upper bound: an explicit convex quadrilateral K with rational side data (given in directly_checkable), claimed to contain a congruent copy of every unit arc; area 0.2463322372…; explicit, with covering checked by a finite certificate. Lower bound: four explicit unit polygonal arcs L (a segment), T (two sides of length 1/2 at angle π/3), U (a splayed U with three sides of length 1/3) and C (a crinkled arc with sides 109/1024, 806/1024, 109/1024); the minimum over placements of the convex hull area is at least 0.239 by finite subdivision. These arcs bound convex covers from below and produce no cover.",
+      "people": [
+        "Ethan Keller (sole author)",
+        "Hendrik Van Maldeghem (acknowledged for comments on an early version of the lower-bound argument)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude Opus",
+            "what_it_did": "Family-level name given by the source; no version. The source says the models ‘carried out the exploration, the discovery of the geometric reductions, the development and formalization of the proofs in Lean 4, the implementation of the code’ (later fragment: ‘computational experiments’ and drafting, quoted as ‘…, code, and exposition’). The source does not say which step each model did. Accessed through Claude Code and web chat, as the source states.",
+            "basis_quote": "The author accessed models from Anthropic (Claude Opus and Fable families) and OpenAI (GPT-5 family and Astra) through the agentic coding tools Claude Code and Codex as well as through web chat interfaces.",
+            "quote_url": "https://arxiv.org/html/2609.21968v1"
+          },
+          {
+            "name": "Fable",
+            "what_it_did": "Family-level name given by the source, as above. The source does not say which steps this family performed. Note: ‘Fable’ is also a model name used elsewhere; here the source uses it for the Anthropic family in the Acknowledgments.",
+            "basis_quote": "The author accessed models from Anthropic (Claude Opus and Fable families) and OpenAI (GPT-5 family and Astra) through the agentic coding tools Claude Code and Codex as well as through web chat interfaces.",
+            "quote_url": "https://arxiv.org/html/2609.21968v1"
+          },
+          {
+            "name": "GPT-5",
+            "what_it_did": "Family-level name given by the source, as above; the source does not say which steps it performed. Accessed through Codex and web chat, per the source’s sentence.",
+            "basis_quote": "The author accessed models from Anthropic (Claude Opus and Fable families) and OpenAI (GPT-5 family and Astra) through the agentic coding tools Claude Code and Codex as well as through web chat interfaces.",
+            "quote_url": "https://arxiv.org/html/2609.21968v1"
+          },
+          {
+            "name": "Astra",
+            "what_it_did": "Named by the source as an OpenAI model, with no further description. The source does not say which steps it performed. I could not identify it as a shipped model from the sources read.",
+            "basis_quote": "The author accessed models from Anthropic (Claude Opus and Fable families) and OpenAI (GPT-5 family and Astra) through the agentic coding tools Claude Code and Codex as well as through web chat interfaces.",
+            "quote_url": "https://arxiv.org/html/2609.21968v1"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.21968v1 (Acknowledgments: ‘This work relied heavily on generative AI tools.’ and ‘The mathematical content in this paper is the product of AI-assisted research steered by the author.’)",
+          "https://arxiv.org/html/2609.21968v1 (Acknowledgments: ‘The author reviewed and verified all AI-generated output and takes full responsibility for the mathematical claims, code, and exposition.’)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.21968",
+        "https://arxiv.org/html/2609.21968v1",
+        "https://github.com/ethan-keller/moser-worm-improved-bounds",
+        "https://pith.science/paper/2609.21968"
+      ]
+    },
+    {
+      "id": "deng-2026-09-triangle",
+      "what_happened": "Zhipeng Deng (sole author), arXiv:2609.04591, ‘Balanced Support Calibrations for Moser’s Worm Problem: Exact Certificate and Bound of Triangular Cover’, one version (49 pp; comments: ‘Lean 4 code for formal proofs, and Python code for exact symbolic replay verifier’). Claims that an isosceles triangle T with equal sides 1, base angles β with tan β = 766/197, has D⁻¹T containing a congruent copy of every rectifiable planar unit arc (Corollary 7.2), where D = 82074390584/84861020075 is a rational lower bound E(T) ≥ D obtained from three exhaustive branches, so the cover ratio area(T)/D² = 11511821678274125/44639604443512928 ≈ 0.2578835951. The paper states the bound for the unrestricted problem, not just convex covers.",
+      "date": "2026-09-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (Fri 4 Sep 2026 00:46:13 UTC). One search summary gave 3 Sep; arXiv’s UTC stamp is 4 Sep.",
+      "delivers": "Upper bound on the unrestricted M: M ≤ 0.2578835951…, by an explicit isosceles triangle (convex, so it also bounds the convex infimum). No lower bound. Restrictions: the claimed cover rests on the author’s exhaustive-branch argument with rational interval data; the stated Lean scope is partial (see doubts).",
+      "remains": "(a) Exact M: not determined. (b) Existence of a minimiser: not addressed. (c) Identity of a minimiser: not identified. No lower bound for M in this event.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5.5 weeks as of 13 Oct 2026",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (per the author’s statement in Appendix C and §10.1); Python exact symbolic replay verifier (Appendix D)",
+        "sorry_free": true,
+        "url": "https://arxiv.org/html/2609.04591v1"
+      },
+      "directly_checkable": "The triangle is explicit: vertices (−c, 0), (c, 0), (0, s) with c = 197/√625565 and s = 766/√625565, so c² + s² = 1 (equal sides 1). Base 2c ≈ 0.498, height s ≈ 0.968, area cs = 150902/625565. Cover ratio area(T)/D² with the rational D above. The paper’s Python replay verifier checks 512 one-delimiter and 4096 two-delimiter orders in exact rational arithmetic. I did not run it.",
+      "doubts": "(1) Single author; no human engagement found. (2) The paper itself states that the global planar Λ-configuration theorem and the compactness bookkeeping are ‘explicit hypotheses or ordinary mathematical arguments’, and that generated rational interval and rectangle data are excluded from the Lean file, so the Lean file does not by itself cover the whole chain. (3) The decisive numerical check is an exact Python replay, not a Lean proof. (4) I did not read the three branches of the exhaustive analysis. (5) Keller (18 Sep 2026) cites this as an unrefereed preprint and quotes the number; that is a citation, not a check.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper bound moves down on the unrestricted problem: from 0.260437 (Norwood–Poole 2003) or 0.26007 (Ploymaklam–Wichiramala 2018, second-hand) to 0.2578836, if the claim holds. Not a counterexample; no lower bound.",
+      "object": "An explicit isosceles triangle with base angles β, tan β = 766/197 (about 75.58°), equal sides 1, base 394/√625565 ≈ 0.498 and height 766/√625565 ≈ 0.968. The claim is that a homothetic copy scaled by 1/D with D ≈ 0.967162 contains a copy of every rectifiable unit arc. The covering argument is exact rational interval arithmetic over three exhaustive branches plus a stated planar configuration hypothesis; not non-constructive.",
+      "people": [
+        "Zhipeng Deng (sole author)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.04591 (no AI or LLM statement on the abstract page)",
+          "https://arxiv.org/html/2609.04591v1 (no AI or LLM statement in the text I could read; text truncated in the Lean appendix)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.04591",
+        "https://arxiv.org/html/2609.04591v1"
+      ]
+    },
+    {
+      "id": "wichiramala-panraksa-2026-06-triangle",
+      "what_happened": "Chatchawan Panraksa and Wacharin Wichiramala, arXiv:2606.14625, ‘Wetzel’s 30°-60°-90° Triangle Covers Unit Arcs’, one version (68 pp, 16 figs). Claims that the 30-60-90 triangle T with a square of side 1/3 on the hypotenuse covers every unit arc, by a computer-assisted proof: a hypothetical uncovered arc reduces to 599 closed second-order cone models, each certified by interval validation of stored dual certificates (Mathematica 10.4 and 12.3 with an SOCP solver). Since every certified lower endpoint exceeds 1.0048, the homothetic copy T/1.0048 covers every unit arc and has area ≈ 0.260956. Code and certificates at github.com/chatchawanpan-dev/wetzel-triangle-computation (referenced, not opened).",
+      "date": "2026-06-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (Fri 12 Jun 2026 16:48:46 UTC).",
+      "delivers": "Convex upper bound: α_conv ≤ 0.260956…, improving π/12 ≈ 0.261799 for convex covers; hence M ≤ 0.260956…. This does not improve the unrestricted upper bound already in the literature (0.26007 or 0.260437), which is smaller. Also, per the authors, settles Wetzel’s triangle conjecture. Restrictions: a convex (triangular) cover of unit arcs.",
+      "remains": "(a) Exact M: not determined. (b) Existence of a minimiser: not addressed. (c) Identity of a minimiser: not identified. No lower bound in this event.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 months as of 13 Oct 2026",
+      "machine_checked": {
+        "system": "Mathematica 10.4 and 12.3 with an SOCP solver; interval certificates (not Lean)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/html/2606.14625v1"
+      },
+      "directly_checkable": "The triangle T and the scale 1/1.0048 are explicit. The paper describes a ‘one-command verifier’ over 599 interval certificates, with SHA-256 manifests, in the GitHub repository. I did not run it.",
+      "doubts": "Computer-assisted, not Lean-formalised, and no human check found. Unrefereed. Its computational results rest on certificates I did not check. Keller (Sep 2026) calls it an unrefereed preprint, and Deng (Sep 2026) cites it as a computer-assisted proof; neither checks it.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Convex upper bound moves down from π/12 to 0.260956. No change to the unrestricted record. Not a counterexample.",
+      "object": "The triangle T (30-60-90, square of side 1/3 on the hypotenuse) scaled by 1/1.0048; explicit. Its covering property is established computer-assisted by interval certificates for 599 cone models.",
+      "people": [
+        "Chatchawan Panraksa",
+        "Wacharin Wichiramala"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2606.14625v1 (no AI, LLM or generative-tool sentence in the text I read; the text was read in two chunks and the second was truncated)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2606.14625",
+        "https://arxiv.org/html/2606.14625v1"
+      ]
+    },
+    {
+      "id": "deng-2026-08-triangle-curve",
+      "what_happened": "Zhipeng Deng (sole author), arXiv:2608.01393 (math.OC), ‘Universal Triangle Covering Curve and Polygonal Chain: Escaping Forest and Fitting Worm’, 48 pp; v2 of 5 Aug 2026 ‘corrects typos and results, and adds more results’. Gives a general formulation for covering curves and polygonal chains by a triangle (framed as special cases of Bellman’s lost-in-a-forest and Moser’s worm problems), with numerical results across triangle angles (Figure 2). The worm upper bound is conditional: ‘if the optimal curve length solution in Eq (8) is L, the upper bound of Moser’s worm problem is’ (Eq. 22); certificates for the optimised results are listed as future work.",
+      "date": "2026-08-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 2 Aug 2026 (17:17 UTC); v2 5 Aug 2026 (‘corrects typos and results, and adds more results’).",
+      "delivers": "A conditional upper-bound formula for the unrestricted worm area through triangle covers, valid only if a numerically computed optimum L is correct. No explicit area is given in the text I read. Restrictions: numerical; certificates not supplied.",
+      "remains": "All of (a), (b), (c): no value, no existence result and no identified minimiser.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 weeks as of 13 Oct 2026",
+      "machine_checked": {
+        "system": "Lean 4 (the comments field says ‘formalized proofs in Lean 4 code’)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/html/2608.01393v2"
+      },
+      "directly_checkable": null,
+      "doubts": "The worm bound is conditional on numerical optimisation. The author lists certificates for the optimised results as future work (quoted: ‘obtaining certificate of each optimized results’). The v2 change ‘corrects typos and results’ means the v1 content may differ; I did not compare versions.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither: conditional upper bound, no fixed number.",
+      "object": "A family of triangles with varying angles, for which numerical optimisation gives curve lengths (Figure 2); no single explicit triangle or area is stated in the text I read.",
+      "people": [
+        "Zhipeng Deng (sole author)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.01393v2 (no AI, LLM or generative-tool sentence in the text I read; the text was truncated before the end)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.01393",
+        "https://arxiv.org/html/2608.01393v2"
+      ]
+    },
+    {
+      "id": "deng-2024-12-bellman",
+      "what_happened": "Zhipeng Deng, arXiv:2412.10686 (math.OC), ‘A General Solution to Bellman’s Lost-in-a-forest Problem’. Recasts Bellman’s problem as translating and rotating a known boundary, and the abstract says the author ‘extend[s] the approach to related problems, including Moser’s worm problem and the shortest opaque set problem’. In §7 the author defines a quantity A_m for the worm with A_m ≤ A/L² (Eq. 69) and proposes refining it using solutions for other shapes; no numerical worm value is computed in the text I read.",
+      "date": "2024-12-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 14 Dec 2024; v2 30 Dec 2024; v3 1 Jun 2025.",
+      "delivers": "Nothing numerical for the worm problem in the text I read: a general method for the Bellman problem and a definition of a worm upper-bound quantity in terms of A and L, with no shape or value.",
+      "remains": "All of (a), (b), (c).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 22 months as of 13 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The worm part is a sketch in §7 (the visible text), and the abstract describes the results as ‘consistent with earlier papers’. I read the first 100k characters of about 128k.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither; no worm number.",
+      "object": null,
+      "people": [
+        "Zhipeng Deng (sole author)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2412.10686v3 (no AI or LLM sentence in the visible text)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2412.10686",
+        "https://arxiv.org/html/2412.10686v3"
+      ]
+    },
+    {
+      "id": "vertu-2026-01-reddit-5-2-pro",
+      "what_happened": "A lifestyle site (vertu.com; byline ‘hongyu tang’; dated 15 Jan 2026) reports, from a viral Reddit r/OpenAI discussion it does not link, that OpenAI’s ‘5.2 Pro’ suggested moving two parameters of a shape family from a ≈ 1.952, b ≈ 4.58 to a ≈ 1.954, b ≈ 4.59, reducing the area from ≈ 0.2600697 to ≈ 0.2600695, for a problem it calls a variant of Moser’s worm problem or Lebesgue’s universal cover problem. It says ‘a mathematician at INRIA’ verified it, without naming them; it quotes a Reddit critic calling the change ‘meaningless progress’; it says the researchers used tool access but also describes ‘stripping the model of its internet access’.",
+      "date": "2026-01-15",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "If the report is true, a reduction of about 2×10⁻⁷ in an area for an unspecified shape family, which the article does not say is convex or unrestricted. Not verified; I could not identify the shape.",
+      "remains": "All of (a), (b), (c).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 months as of 13 Oct 2026 (report date; the Reddit post is undated)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Secondary lifestyle source only. No primary post, paper, author or named verifier. The article’s own wording hedges (‘reportedly’) and it is internally inconsistent on tool access. The 2018 baseline it quotes, 0.2600697, is close to the Ploymaklam–Wichiramala 2018 value ≈ 0.26007 that I could see only second-hand, and the claimed gain is at the level of the rounding in that figure. Its Reddit critic’s objection is recorded here, not weighed.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims a tiny downward move in a shape family’s area. Unverified; if it were an unrestricted cover it would sit below the 2018 record but above Keller’s 2026 value and Deng’s 2026 value.",
+      "object": "A shape family with parameters a and b, the new parameters claimed to satisfy a ‘cover constraint’. The article does not identify the shape, so I cannot say what it is or what it covers.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://vertu.com/lifestyle/openais-5-2-pro-achieves-breakthrough-in-decades-long-mathematical-optimization-problem (names ‘5.2 Pro’ as OpenAI’s, based on the Reddit report, which I could not find)"
+        ]
+      },
+      "sources": [
+        "https://vertu.com/lifestyle/openais-5-2-pro-achieves-breakthrough-in-decades-long-mathematical-optimization-problem"
+      ]
+    },
+    {
+      "id": "balitskiy-2026-03-viterbo-triangles",
+      "what_happened": "Alexey Balitskiy, Ivan Mitrofanov and Alexander Polyanskii, arXiv:2603.12495, ‘Triangle covering problems and the Viterbo inequality in the plane’. Frames triangle-covering problems as isobilliard inequalities and special cases of Viterbo’s conjecture; main new result is Viterbo’s conjecture for K × Q with Q a quadrilateral. The abstract page I read mentions no worm bound.",
+      "date": "2026-03-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 12 Mar 2026; v2 19 Aug 2026 (‘minor changes addressing referee’s comments; a bug with cleveref in texlive 2025 was also fixed’).",
+      "delivers": "Not a bound on this problem. A search snippet suggested it treats Wetzel’s worm problem as open; the abstract I read does not confirm that.",
+      "remains": "All of (a), (b), (c).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7 months as of 13 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Neighbouring problem only. The v2 comment refers to a referee, but the journal is not named. I read the abstract page only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither; neighbouring.",
+      "object": null,
+      "people": [
+        "Alexey Balitskiy",
+        "Ivan Mitrofanov",
+        "Alexander Polyanskii"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2603.12495 (abstract page only; full text not read)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2603.12495"
+      ]
+    },
+    {
+      "id": "rudolf-2022-03-viterbo-worm",
+      "what_happened": "Daniel Rudolf, arXiv:2203.02043, ‘Viterbo’s conjecture as a worm problem’. Relates Viterbo’s conjecture to Minkowski worm problems inspired by Moser’s; transfers Viterbo’s conjecture to a conjecture about Wetzel’s translation-cover problem for closed curves, and discusses an algorithmic approach to a new lower bound for that problem. No new bound is claimed in the abstract. Published in Monatshefte für Mathematik 201(1) (2023) per a search summary; not opened.",
+      "date": "2022-03-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (3 Mar 2022). A search result suggested a 12 Mar 2024 version; the arXiv abstract page lists only v1, so I have not used that date.",
+      "delivers": "A transfer of conjectures between Viterbo’s problem and Wetzel’s closed-curve translation problem. No bound on the arc-cover area for this problem.",
+      "remains": "All of (a), (b), (c).",
+      "checked_by": [
+        {
+          "who": "Monatshefte für Mathematik (journal of record)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published it (per a search summary; the journal page was not opened)",
+          "where": "https://link.springer.com/article/10.1007/s00605-022-01806-x",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4.5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither: transfers a neighbouring conjecture.",
+      "object": null,
+      "people": [
+        "Daniel Rudolf"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2203.02043 (abstract page only)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2203.02043"
+      ]
+    },
+    {
+      "id": "grechuk-somam-2019-05-closed-convex",
+      "what_happened": "Bogdan Grechuk and Sittichoke Som-Am, arXiv:1905.00333, ‘A convex cover for closed unit curves has area at least 0.0975’. Lower bound 0.0975 for convex covers of closed unit curves, improving 0.096694; the convex hull of a circle, equilateral triangle and rectangle of perimeter 1 has area between 0.0975 and 0.09763.",
+      "date": "2019-05-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (1 May 2019).",
+      "delivers": "Closed-curve, convex variant only. Not this problem (arcs; unrestricted).",
+      "remains": "All of (a), (b), (c) for this problem.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7.5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Different problem (closed curves). Included because the record should show the variant family.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither: closed-curve variant.",
+      "object": null,
+      "people": [
+        "Bogdan Grechuk",
+        "Sittichoke Som-Am"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1905.00333 (abstract page only)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1905.00333"
+      ]
+    },
+    {
+      "id": "panraksa-wichiramala-2019-sector",
+      "what_happened": "Chatchawan Panraksa and Wacharin Wichiramala, arXiv:1907.07351, ‘Wetzel’s sector covers unit arcs’. Proves Wetzel’s 1970s conjecture that the 30° circular sector of unit radius (area π/12 ≈ 0.261799) contains a congruent copy of every planar arc of unit length. Published in Periodica Mathematica Hungarica 82(2) (2021), DOI 10.1007/s10998-020-00354-x; one search summary gives 2020 and another 2021.",
+      "date": "2019-07-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (17 Jul 2019); the arXiv comment reads ‘preprint (since 2017)’, which I could not tie to a dated public version.",
+      "delivers": "A convex cover of unit arcs of area π/12: α_conv ≤ π/12 and M ≤ π/12. Not an improvement on the unrestricted 0.260437 (or 0.26007), which is smaller.",
+      "remains": "(a) Exact M; (b) existence; (c) identity; all lower bounds.",
+      "checked_by": [
+        {
+          "who": "Periodica Mathematica Hungarica (journal of record)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published it (per search summaries; the journal page was not opened)",
+          "where": "https://doi.org/10.1007/s10998-020-00354-x",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 7 years",
+      "machine_checked": null,
+      "directly_checkable": "The 30° unit-radius sector is an explicit convex set; the covering argument is geometric, which I did not read.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Convex upper bound moves down to π/12 (for this event, the first convex upper bound in the record below 0.270911861).",
+      "object": "The 30° unit-radius circular sector, area π/12; explicit, claimed to contain a copy of every unit arc.",
+      "people": [
+        "Chatchawan Panraksa",
+        "Wacharin Wichiramala"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1907.07351 (abstract page only; no computer-assistance or AI statement)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1907.07351"
+      ]
+    },
+    {
+      "id": "ploymaklam-wichiramala-2018-nonconvex",
+      "what_happened": "N. Ploymaklam and W. Wichiramala, Chiang Mai Journal of Science 45(6) (2018) 2528–2533: an unrestricted (nonconvex) cover of area ≈ 0.26007, adapted from the Norwood–Poole cover (secondary: a Chulalongkorn thesis and Deng’s arXiv:2609.04591; the journal article was not opened).",
+      "date": "2018",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "An unrestricted upper bound ≈ 0.26007 (second-hand), below Norwood–Poole’s 0.260437. Not a convex cover.",
+      "remains": "(a) Exact M; (b); (c); all lower bounds.",
+      "checked_by": [
+        {
+          "who": "Chiang Mai Journal of Science (journal of record)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published it (per citing sources; not opened)",
+          "where": "not opened",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 8 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Value known only second-hand. One source says the cover is ‘ellipse-plus-locus’; another source describes it as adapted from Norwood–Poole; I did not reconcile these.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper bound moves down on the unrestricted problem to ≈ 0.26007 (second-hand).",
+      "object": "A nonconvex universal cover of area ≈ 0.26007; the shape is not described in the sources I read.",
+      "people": [
+        "N. Ploymaklam",
+        "W. Wichiramala"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "Second-hand only; no AI sentence seen."
+        ]
+      },
+      "sources": []
+    },
+    {
+      "id": "wichiramala-2018-closed-hexagon",
+      "what_happened": "W. Wichiramala, arXiv:1801.08405, ‘A smaller cover for closed unit curves’: a convex hexagon (clipped rectangle corner) covering closed unit curves, area < 0.11023 (secondary: search summaries; not opened).",
+      "date": "2018",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Closed-curve, convex variant only; not this problem.",
+      "remains": "All of (a), (b), (c) for this problem.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8.5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Different problem (closed curves); not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither: closed-curve variant.",
+      "object": "A convex hexagon for closed unit curves with area < 0.11023 (second-hand).",
+      "people": [
+        "W. Wichiramala"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "Second-hand only."
+        ]
+      },
+      "sources": []
+    },
+    {
+      "id": "khandhawit-pagonakis-sriswasdi-2011-01",
+      "what_happened": "Tirasan Khandhawit, Dimitrios Pagonakis, Sira Sriswasdi, arXiv:1101.5638, ‘Lower Bound for Convex Hull Area and Universal Cover Problems’: a convex universal cover of unit-length arcs has area ≥ 0.232239; a convex universal cover of unit closed curves has area ≥ 0.0879873. Published Int. J. Comput. Geom. Appl. 23 (2013) 197–212, DOI 10.1142/S0218195913500076.",
+      "date": "2011-01-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (28 Jan 2011).",
+      "delivers": "A lower bound for convex covers of unit arcs: α_conv ≥ 0.232239. Gives no lower bound on the unrestricted M, since its argument uses the convex hull of the three placed arcs.",
+      "remains": "(a) Exact M; (b); (c); unrestricted lower bound; the convex infimum’s exact value.",
+      "checked_by": [
+        {
+          "who": "International Journal of Computational Geometry and Applications (journal of record)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published it (DOI on the arXiv abstract page; journal page not opened)",
+          "where": "https://doi.org/10.1142/S0218195913500076",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 15 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Convex lower bound moves up to 0.232239.",
+      "object": "Lower-bound argument on the convex hull of a point set and a rectangle; the minimal convex universal cover for the unit arc is bounded below by 0.232239. No cover object.",
+      "people": [
+        "Tirasan Khandhawit",
+        "Dimitrios Pagonakis",
+        "Sira Sriswasdi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1101.5638 (abstract page only)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1101.5638"
+      ]
+    },
+    {
+      "id": "khandhawit-sriswasdi-2007-01",
+      "what_happened": "Tirasan Khandhawit and Sira Sriswasdi, arXiv:math/0701391, ‘An Improved Lower Bound for Moser’s Worm Problem’: a convex region containing a unit segment, an equilateral triangle of side 1/2 and a square of side 1/3 has area ≥ 0.227498, found by a grid search, improving 0.2194.",
+      "date": "2007-01-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 14 Jan 2007; v2 5 Jun 2009 (‘reorganized proof of the main theorem, added results and references’). No journal reference on the abstract page.",
+      "delivers": "A lower bound for convex covers, 0.227498. Superseded in the literature by 0.232239 (2011).",
+      "remains": "Same as the 2011 event.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 19.8 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Convex-only, as the abstract states. No journal reference found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Convex lower bound moves up to 0.227498 (later superseded).",
+      "object": "The arrangement of a unit segment, an equilateral triangle of side 1/2 and a square of side 1/3, minimised over placements by a grid search; gives a lower bound only.",
+      "people": [
+        "Tirasan Khandhawit",
+        "Sira Sriswasdi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0701391 (abstract page and metadata)"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0701391"
+      ]
+    },
+    {
+      "id": "wichiramala-2005-convex-0-2464",
+      "what_happened": "Wacharin Wichiramala, ‘A Smaller Cover for Convex Unit Arcs’ (East-West Journal of Mathematics article 664): a convex cover of area 0.2464 obtained by clipping Wetzel’s isosceles right triangle (hypotenuse 1, area 0.25) at height 0.44. Date 2005 is from a Thai-language abstract and a later review (secondary). The article page failed to load (SSL error).",
+      "date": "2005",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A convex upper bound α_conv ≤ 0.2464 (secondary). Superseded for convex covers by Keller’s quadrilateral.",
+      "remains": "All of (a), (b), (c).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 21 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not opened. The Thai abstract (TSRI elibrary MRG5080128) also reports a convex cover below 0.242, date not established, not opened; this is an unverified lead, not a recorded event.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Convex upper bound moves down to 0.2464 (secondary).",
+      "object": "The isosceles right triangle with unit hypotenuse, clipped at height 0.44 (per the abstract); not opened.",
+      "people": [
+        "Wacharin Wichiramala"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "Second-hand only."
+        ]
+      },
+      "sources": []
+    },
+    {
+      "id": "johnson-poole-wetzel-2004",
+      "what_happened": "Joseph A. Johnson, George D. Poole and John E. Wetzel, ‘A Small Cover for Convex Unit Arcs’, Discrete and Computational Geometry 32(1) (2004) 141–147, DOI 10.1007/s00454-004-0840-0: a compact convex set of area ≈ 0.2466 containing a congruent copy of every convex unit arc, about 1.1% smaller than the previous record.",
+      "date": "2004",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A convex upper bound α_conv ≤ 0.2466 for convex arcs only (the abstract restricts to convex arcs).",
+      "remains": "All of (a), (b), (c).",
+      "checked_by": [
+        {
+          "who": "Discrete and Computational Geometry (journal of record)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published it (record read from the East Tennessee State University repository)",
+          "where": "https://dc.etsu.edu/etsu-works/18753",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 22 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Convex upper bound moves down to ≈ 0.2466.",
+      "object": "A compact convex planar set of area ≈ 0.2466 claimed to contain a congruent copy of every convex unit arc; the shape is not given in the abstract.",
+      "people": [
+        "Joseph A. Johnson",
+        "George D. Poole",
+        "John E. Wetzel"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://dc.etsu.edu/etsu-works/18753 (record page)"
+        ]
+      },
+      "sources": [
+        "https://dc.etsu.edu/etsu-works/18753"
+      ]
+    },
+    {
+      "id": "norwood-poole-2003",
+      "what_happened": "Rick Norwood and George Poole, ‘An Improved Upper Bound for Leo Moser’s Worm Problem’, Discrete and Computational Geometry 29(3) (2003) 409–417: a nonconvex (unrestricted) universal cover with area ≤ 0.260437, reducing the earlier 0.275237 (from the abstract). The abstract attributes the open problem to Leo Moser.",
+      "date": "2003",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "An unrestricted upper bound M ≤ 0.260437 (nonconvex cover). This is the general-cover record through Sep 2026 unless the 2026 claims hold.",
+      "remains": "(a) Exact M; (b); (c); all lower bounds for unrestricted covers.",
+      "checked_by": [
+        {
+          "who": "Discrete and Computational Geometry (journal of record)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published it (record read from the East Tennessee State University repository)",
+          "where": "https://dc.etsu.edu/etsu-works/14120",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 23 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Unrestricted upper bound moves down to 0.260437.",
+      "object": "A nonconvex planar universal cover of area ≤ 0.260437 (the shape is described in the paper, which I did not read).",
+      "people": [
+        "Rick Norwood",
+        "George Poole"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://dc.etsu.edu/etsu-works/14120 (record page)"
+        ]
+      },
+      "sources": [
+        "https://dc.etsu.edu/etsu-works/14120"
+      ]
+    },
+    {
+      "id": "wang-2006-convex",
+      "what_happened": "Wang (2006), Acta Mathematica Sinica: a convex universal cover of area ≈ 0.270911861 (secondary; cited in the Wikipedia article and by Grechuk–Som-Am; not opened).",
+      "date": "2006",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A convex upper bound 0.270911861 (second-hand). Superseded.",
+      "remains": "All of (a), (b), (c).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 20 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Second-hand only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Convex upper bound moves down to ≈ 0.2709 (second-hand).",
+      "object": "A convex cover of area ≈ 0.2709 (shape not known to me).",
+      "people": [
+        "Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "Second-hand only."
+        ]
+      },
+      "sources": []
+    },
+    {
+      "id": "norwood-poole-laidacker-1992",
+      "what_happened": "Norwood, Poole and Laidacker (1992), Discrete and Computational Geometry: a cover of area below ≈ 0.27524 (secondary; the search summaries disagree on what the 0.27524 figure refers to; not opened). Attributes the existence of a minimal convex cover to an unpublished 1986 manuscript of Laidacker and Poole.",
+      "date": "1992",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "An unrestricted upper bound ≈ 0.27524 (second-hand). Superseded.",
+      "remains": "All of (a), (b), (c).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 34 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Second-hand; the 0.27524 figure is attributed to different objects in different summaries.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Upper bound moves down to ≈ 0.27524 (second-hand).",
+      "object": "A cover of area ≈ 0.27524; not described in the sources I read.",
+      "people": [
+        "Norwood",
+        "Poole",
+        "Laidacker"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "Second-hand only."
+        ]
+      },
+      "sources": []
+    },
+    {
+      "id": "gerriets-poole-1974",
+      "what_happened": "Gerriets and Poole (1974), American Mathematical Monthly: a 60°/120° rhombus with unit long diagonal covers every unit arc (area ≈ 0.28870, second-hand); they conjectured that a shape covers all unit-length curves iff it covers all unit-length three-segment polygonal chains (not opened).",
+      "date": "1974",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "An unrestricted upper bound ≈ 0.28870 (second-hand) and a conjectured reduction to three-segment chains, later shown to fail for any finite number of segments (Panraksa–Wetzel–Wichiramala 2007, second-hand).",
+      "remains": "All of (a), (b), (c).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 52 years",
+      "machine_checked": null,
+      "directly_checkable": "The rhombus is explicit (60°/120°, unit long diagonal).",
+      "doubts": "Second-hand only.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper bound moves down to ≈ 0.2887 (second-hand).",
+      "object": "A 60°/120° rhombus with unit long diagonal, area ≈ 0.28870, claimed to cover every unit arc.",
+      "people": [
+        "Gerriets",
+        "Poole"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "Second-hand only."
+        ]
+      },
+      "sources": []
+    },
+    {
+      "id": "movshovich-wetzel-2017",
+      "what_happened": "Movshovich and Wetzel (2017), Advances in Geometry: proves the sector cover for ‘drapeable’ unit arcs (second-hand, via Panraksa–Wichiramala’s introduction; not opened).",
+      "date": "2017",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A partial case of the 30° sector cover (drapeable arcs only). Not a bound on M.",
+      "remains": "All of (a), (b), (c).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Second-hand only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither: partial case of a convex cover.",
+      "object": null,
+      "people": [
+        "Movshovich",
+        "Wetzel"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "Second-hand only."
+        ]
+      },
+      "sources": []
+    },
+    {
+      "id": "jung-yoon-ahn-tokuyama-2022-closed",
+      "what_happened": "Jung, Yoon, Ahn and Tokuyama, arXiv:2211.14807: smallest convex covers of closed curves under translation and discrete rotations; the solution is an equilateral triangle of height 1 when translation and discrete rotations by π are allowed (secondary from search summaries; not opened).",
+      "date": "2022",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A closed-curve variant with rotations. Not this problem.",
+      "remains": "All of (a), (b), (c) for this problem.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3.9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Different problem; not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither: closed-curve variant.",
+      "object": "An equilateral triangle of height 1 (second-hand) for closed curves.",
+      "people": [
+        "Jung",
+        "Yoon",
+        "Ahn",
+        "Tokuyama"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "Second-hand only."
+        ]
+      },
+      "sources": []
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "figures",
+      "summary": "The unrestricted (nonconvex) record is given as 0.260437 (Norwood–Poole 2003; Wikipedia, Deng 2608, Deng 2609) and as ≈ 0.26007 (Ploymaklam–Wichiramala 2018; Deng 2609 and the Vertu article’s baseline of 0.2600697). I did not reconcile these; the Ploymaklam value is second-hand only. The convex lower bound is given as 0.227498 in some sources and 0.232239 in others; the latter is the later value (2011). Wikipedia’s summary of the 2026 status conflicts with the arXiv listings I read; the Wikipedia page was last edited 2 April 2026 and did not mention 2026 preprints in the text I read.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Moser%27s_worm_problem",
+        "https://dc.etsu.edu/etsu-works/14120",
+        "https://arxiv.org/html/2609.04591v1",
+        "https://vertu.com/lifestyle/openais-5-2-pro-achieves-breakthrough-in-decades-long-mathematical-optimization-problem"
+      ]
+    },
+    {
+      "kind": "figures",
+      "summary": "Publication year of Panraksa–Wichiramala’s sector paper is 2020 in one source (online, DOI 10.1007/s10998-020-00354-x) and 2021 in another (volume 82(2)); the Wikipedia article gives 2021. The arXiv date (17 Jul 2019) is the one used here.",
+      "sources": [
+        "https://arxiv.org/abs/1907.07351"
+      ]
+    }
+  ],
+  "summary": "The problem is still open on 13 Oct 2026, but the upper bound moved in September 2026 and the record is thin. Keller (arXiv 2609.21968, 18 Sep 2026; sole author; unrefereed; only an automated Pith review) proves 0.239 ≤ α ≤ 0.2463322… for convex universal covers of unit arcs, using a Lean 4 formalisation that the author says is sorry-free (I read the paper’s own description and the README, not the Lean sources). Because every convex cover is a cover, the upper bound also bounds the unrestricted minimum: it lowers the record from 0.260437 (or 0.26007) to 0.2463322. The lower bound 0.239 is for convex covers only and does not bound the unrestricted minimum from below. The Acknowledgments say generative AI tools (named as Claude Opus and Fable families, GPT-5 family and Astra, through Claude Code, Codex and web chat) were used, and that they ‘carried out the exploration, the discovery of the geometric reductions’ and the Lean formalisation; the author says they ‘reviewed and verified all AI-generated output’. This is the only event I found where the authors credit AI systems with load-bearing mathematics, and the quotes are the authors’ own; they come from a summarising fetch of the HTML, not a character-checked copy. Deng (arXiv 2609.04591, 4 Sep 2026; sole author; unrefereed) claims an isosceles triangle with cover ratio 0.2578835951… covering every rectifiable unit arc, for the unrestricted problem; the paper’s own Lean scope is partial and the decisive check is an exact Python replay I did not run; no AI statement appears in the text I read. Wichiramala and Panraksa (arXiv 2606.14625, 12 Jun 2026) give a convex triangle cover of area 0.260956, computer-assisted with interval certificates; this beats the convex record π/12 but not the unrestricted 0.26007. Deng 2608.01393 (Aug 2026) gives only a conditional worm bound from a numerical optimum, and Deng 2412.10686 (Dec 2024) extends a Bellman-problem method to the worm without a number. A lifestyle article (Vertu, 15 Jan 2026) reports, from an unlinked Reddit post, that OpenAI’s ‘5.2 Pro’ shaved about 2×10⁻⁷ off a shape-family area (0.2600697 to 0.2600695); it names no author, and there is no author-level account, so I did not place ‘5.2 Pro’ in ai.systems and treat the claim as unverified. Lower bounds for convex covers are 0.227498 (2007), 0.232239 (2011, journal 2013) and 0.239 (Keller 2026); no lower bound for the unrestricted minimum appeared in any source I opened, and a secondary source attributes a 0.21946 lower bound to Wetzel (undated, not verified). Close calls: (i) whether a convex-only lower bound, or an upper bound from a convex cover, counts as moving ‘the smallest area of a shape’ depends on how the judging pass reads the statement’s unrestricted wording; (ii) whether a computer-assisted triangle result or a Lean-formalised result counts as more reliable is a judgement I have left to the later pass. Searches for lab announcements (OpenAI, Google DeepMind, Anthropic), AlphaEvolve, a Tao post, an ‘AI tracker’ and Reddit threads returned nothing bearing on this problem beyond the Vertu report.",
+  "competing_reading": "Keller’s quadrilateral is a valid convex cover, so the unrestricted upper bound moved to 0.2463322 with a Lean-checked proof and an AI-assisted process that the authors describe. On that reading the problem’s upper-bound status moved substantially in September 2026, and the AI involvement is load-bearing. The opposite reading: the paper is a single-author, AI-assisted, unrefereed preprint whose only human-visible check is an automated AI referee; its lower bound is for convex covers only and so changes a different quantity; the Deng triangle is unrefereed and its Lean file excludes stated parts; and the Vertu result is unverified. Under that reading the problem has moved only in unreviewed preprints, with no settled change to the value of M.",
+  "what_would_settle_it": "For Keller: a Lean-literate audit of the statement MoserWorm.bounds (does it formalise ‘every unit arc has a congruent copy in K’ with the right notion of congruence, and is the sorry status true across the repository?), plus a referee or expert check of the lower-bound subdivision and the upper-bound case tree; and a note on which model did which step, since the paper names families, not versions. For Deng 2609.04591: an independent check of the three exhaustive branches and of the planar configuration hypothesis the paper leaves outside Lean. For Wichiramala–Panraksa 2606.14625: an independent run of the 599 certificate checks. For the Vertu claim: the original Reddit post, its author and a paper or post by the named verifier. For the unrestricted lower bound: any paper giving a positive lower bound for covers that are not assumed convex.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2609.21968",
+      "title": "Improved bounds for universal convex covers of unit arcs (Keller, arXiv abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.21968v1",
+      "title": "Improved bounds for universal convex covers of unit arcs (HTML, read through a summarising fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.21968",
+      "title": "Improved bounds for universal convex covers of unit arcs (PDF; returned binary, not readable)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/ethan-keller/moser-worm-improved-bounds",
+      "title": "moser-worm-improved-bounds (repository README)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://pith.science/paper/2609.21968",
+      "title": "Pith review of 2609.21968 (automated AI referee)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.04591",
+      "title": "Balanced Support Calibrations for Moser’s Worm Problem: Exact Certificate and Bound of Triangular Cover (Deng, abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.04591v1",
+      "title": "Balanced Support Calibrations ... (Deng, HTML, read in two chunks)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2606.14625",
+      "title": "Wetzel’s 30°-60°-90° Triangle Covers Unit Arcs (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2606.14625v1",
+      "title": "Wetzel’s 30°-60°-90° Triangle Covers Unit Arcs (HTML, read in two chunks)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.01393",
+      "title": "Universal Triangle Covering Curve and Polygonal Chain: Escaping Forest and Fitting Worm (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.01393v2",
+      "title": "Universal Triangle Covering Curve and Polygonal Chain ... (HTML, partly read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2412.10686",
+      "title": "A General Solution to Bellman’s Lost-in-a-forest Problem (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2412.10686v3",
+      "title": "A General Solution to Bellman’s Lost-in-a-forest Problem (HTML, partly read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.12495",
+      "title": "Triangle covering problems and the Viterbo inequality in the plane (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2203.02043",
+      "title": "Viterbo’s conjecture as a worm problem (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0701391",
+      "title": "An Improved Lower Bound for Moser’s Worm Problem (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1101.5638",
+      "title": "Lower Bound for Convex Hull Area and Universal Cover Problems (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1907.07351",
+      "title": "Wetzel’s sector covers unit arcs (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1905.00333",
+      "title": "A convex cover for closed unit curves has area at least 0.0975 (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Moser%27s_worm_problem",
+      "title": "Moser’s worm problem (Wikipedia, read through a summarising fetch twice; last edit 2 Apr 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://vertu.com/lifestyle/openais-5-2-pro-achieves-breakthrough-in-decades-long-mathematical-optimization-problem",
+      "title": "OpenAI’s 5.2 Pro achieves breakthrough in decades long mathematical optimization problem (Vertu, 15 Jan 2026)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://dc.etsu.edu/etsu-works/14120",
+      "title": "An Improved Upper Bound for Leo Moser’s Worm Problem (Norwood–Poole, DCG 2003, repository record)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://dc.etsu.edu/etsu-works/18753",
+      "title": "A Small Cover for Convex Unit Arcs (Johnson–Poole–Wetzel, DCG 2004, repository record)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/search/?query=Moser+worm&searchtype=all&source=header",
+      "title": "arXiv search: Moser worm (7 results)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://eastwestmath.ntt.edu.vn/index.php/ewm/article/view/664",
+      "title": "A SMALLER COVER FOR CONVEX UNIT ARCS (East-West Journal of Mathematics)",
+      "type": "journal",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Moser's worm problem",
+      "Moser worm problem solution arXiv",
+      "Baek Moser's worm problem 2024 arXiv",
+      "Moser worm problem minimal area convex cover unit length curves",
+      "Moser's worm problem wikipedia",
+      "Moser worm problem AI proof counterexample",
+      "Moser worm problem 2026",
+      "\"worm problem\" Moser Gerriets Wetzel Bell Jones area 0.2444",
+      "Ethan Keller convex cover unit arcs Lean 4 arXiv 2026 [extended]",
+      "universal convex cover unit arcs area 0.239 Lean formalized worm",
+      "vertu OpenAI 5.2 Pro breakthrough decades long mathematical optimization problem universal cover",
+      "GPT-5.2 Pro universal cover problem geometric optimization sofa worm",
+      "AlphaEvolve worm problem covering curves area",
+      "Moser worm problem Google DeepMind OR OpenAI OR Anthropic mathematics result",
+      "\"Improved bounds for universal convex covers of unit arcs\"",
+      "Wetzel's sector covers unit arcs Panraksa Wichiramala",
+      "Deng isosceles triangle covers unit arcs worm problem 0.257883",
+      "Keller \"Moser\" worm Lean formalization AI-assisted research Anthropic OpenAI [extended]",
+      "convex universal cover unit arcs 2025 arXiv triangle area",
+      "Reddit r/OpenAI 5.2 Pro worm problem cover constraint parameters Isbell Gibbs",
+      "Wichiramala convex cover unit arcs 0.2464 clipped triangle height",
+      "A SMALLER COVER FOR CONVEX UNIT ARCS eastwestmath",
+      "Khandhawit Sriswasdi Pagonakis lower bound convex hull area universal cover 0.232239",
+      "Wetzel 30-60-90 triangle conjecture unit arcs computer-assisted interval certificates 2026",
+      "Moser worm problem Lean 4 formalization mathlib",
+      "Moser worm problem 2025 new bound",
+      "Deng isosceles triangle convex cover unit arc preprint 2026",
+      "Moser worm Keller Lean AI proof reddit OR hacker news OR X post 2026",
+      "Terence Tao blog worm problem Moser covering unit arc 2026",
+      "arXiv \"unit arcs\" OR \"worm problem\" convex cover 2024 preprint Wetzel conjecture",
+      "AI tracker mathematics results open problems list Moser worm covering 2026",
+      "Panraksa Wichiramala Wetzel's sector covers unit arcs Periodica Mathematica Hungarica 2021 published",
+      "Zhipeng Deng Moser worm problem triangle covering arXiv",
+      "Rudolf Viterbo's conjecture as a worm problem Wetzel lower bound algorithm",
+      "Ploymaklam Wichiramala Moser worm cover 0.26007 nonconvex",
+      "Ploymaklam Wichiramala worm problem arXiv [extended]"
+    ],
+    "places_checked": [
+      "arXiv abstract, HTML and PDF pages for 2609.21968, 2606.14625, 2609.04591, 2608.01393, 2412.10686, 2603.12495, 2203.02043, math/0701391, 1101.5638, 1907.07351, 1905.00333 (PDF of 2609.21968 not readable)",
+      "arXiv search listing for ‘Moser worm’ (7 results: Keller 2609.21968; Deng 2609.04591; Deng 2608.01393; Deng 2412.10686; Rudolf 2203.02043; Fässler–Orponen 1602.01707; Khandhawit–Sriswasdi math/0701391)",
+      "GitHub repository ethan-keller/moser-worm-improved-bounds (README only; Lean sources not read)",
+      "Pith review pages for 2609.21968 and (via search) 2609.04591",
+      "Wikipedia article Moser’s worm problem (and the Leo Moser biography, via search)",
+      "East Tennessee State University repository records for Norwood–Poole 2003 and Johnson–Poole–Wetzel 2004",
+      "Vertu article of 15 Jan 2026",
+      "Search-result coverage of Chulalongkorn theses, the Thai TSRI abstract MRG5080128, ResearchGate and Grokipedia (search snippets only, not opened)",
+      "Searches for lab announcements, AlphaEvolve, a Tao post, Reddit or Hacker News threads, and AI-result trackers (no worm result found)"
+    ],
+    "dead_ends": [
+      "Baek 2024: a moving-sofa paper, a different problem; not a worm result.",
+      "A search summary claimed a 12 Mar 2024 version of Rudolf 2203.02043; the arXiv abstract lists only v1 (3 Mar 2022), so no 2024 revision is recorded.",
+      "‘0.2444’ with Gerriets, Wetzel, Bell, Jones: no source found for that value.",
+      "AlphaEvolve and worm/cover: AlphaEvolve’s 2025 paper on 67 problems does not mention the worm problem in the search result I saw; nothing found.",
+      "Lab announcements (OpenAI, Google DeepMind, Anthropic) on this problem: none found. Other AI-math items surfaced (GPT-5.2 Pro on Erdős problems and FrontierMath; an Anthropic AI-worm study; a Clay Navier–Stokes dispute) are about other problems.",
+      "Reddit r/OpenAI thread behind the Vertu claim: not found by search.",
+      "Terence Tao blog: no post on the worm problem found.",
+      "Closed-curve and Lebesgue universal-cover variants (Grechuk–Som-Am; Wichiramala 2018; Jung et al. 2022; Lebesgue’s problem with diameter 1): different problems, recorded as discounted events where they bear on the variant family.",
+      "Deng 2609.04591 date: one search summary gave 3 Sep 2026; arXiv’s timestamp is 4 Sep 2026 00:46 UTC.",
+      "Wetzel’s 0.21946 lower bound (secondary) and the undated isosceles right triangle cover (area 0.25, ‘thirty years ago’): no date or primary source found, so not recorded as events."
+    ]
+  },
+  "incomplete": "(1) Keller’s quotations about AI (the ‘Acknowledgments’ sentences and the model names) come from a summarising fetch of the arXiv HTML, not a character-checked copy; the PDF could not be read. (2) Lean sources for Keller (github.com/ethan-keller/moser-worm-improved-bounds) and for Deng 2609.04591 and 2608.01393 were not read; the sorry-free statements are the authors’, not mine. (3) Full texts were read in part only: 2606.14625 (two chunks, the second truncated), 2609.04591 (first 100k characters and the Lean appendix start), 2608.01393 (first 100k of about 109k characters), 2412.10686 (first 100k of about 128k characters). The absence of AI statements in those papers is for the text read. (4) Secondary-only events (Wang 2006; Gerriets–Poole 1974; Norwood–Poole–Laidacker 1992; Ploymaklam–Wichiramala 2018; Wichiramala 2005 and 2018; Movshovich–Wetzel 2017; Jung et al. 2022) were not opened; their dates and values come from search summaries or the Wikipedia summary and are marked as such. (5) The eastwestmath page for Wichiramala 2005 failed to load (SSL error). (6) The Thai abstract MRG5080128 (a convex cover below 0.242, undated) is an unverified lead, not recorded as an event. (7) The Vertu/Reddit claim: the Reddit post was not found, and the unnamed INRIA verifier cannot be identified. (8) Pith’s review pages were used as secondary sources for the Keller and Deng entries; I did not open a Pith page for 2606.14625. (9) The Panraksa–Wichiramala 2019 event: the 2017 ‘preprint’ comment could not be tied to a dated public version. (10) Keller’s author affiliation and Deng’s affiliation were not established. (11) I did not check whether any paper after 13 Oct 2026 cites the new preprints. (12) Gibbs’ numerical escape-path work on isosceles triangles, mentioned in Deng 2412.10686, was not located separately.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "progress",
+  "ai_role": "generated",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "deng-2026-09-triangle",
+  "no_change_found": false,
+  "event": {
+    "id": "deng-2026-09-triangle",
+    "what_happened": "Zhipeng Deng (sole author), arXiv:2609.04591, ‘Balanced Support Calibrations for Moser’s Worm Problem: Exact Certificate and Bound of Triangular Cover’, one version (49 pp; comments: ‘Lean 4 code for formal proofs, and Python code for exact symbolic replay verifier’). Claims that an isosceles triangle T with equal sides 1, base angles β with tan β = 766/197, has D⁻¹T containing a congruent copy of every rectifiable planar unit arc (Corollary 7.2), where D = 82074390584/84861020075 is a rational lower bound E(T) ≥ D obtained from three exhaustive branches, so the cover ratio area(T)/D² = 11511821678274125/44639604443512928 ≈ 0.2578835951. The paper states the bound for the unrestricted problem, not just convex covers.",
+    "date": "2026-09-04",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 only (Fri 4 Sep 2026 00:46:13 UTC). One search summary gave 3 Sep; arXiv’s UTC stamp is 4 Sep.",
+    "delivers": "Upper bound on the unrestricted M: M ≤ 0.2578835951…, by an explicit isosceles triangle (convex, so it also bounds the convex infimum). No lower bound. Restrictions: the claimed cover rests on the author’s exhaustive-branch argument with rational interval data; the stated Lean scope is partial (see doubts).",
+    "remains": "(a) Exact M: not determined. (b) Existence of a minimiser: not addressed. (c) Identity of a minimiser: not identified. No lower bound for M in this event.",
+    "checked_by": [],
+    "no_engagement_found": true,
+    "time_since_posted": "about 5.5 weeks as of 13 Oct 2026",
+    "machine_checked": {
+      "system": "Lean 4 with Mathlib (per the author’s statement in Appendix C and §10.1); Python exact symbolic replay verifier (Appendix D)",
+      "sorry_free": true,
+      "url": "https://arxiv.org/html/2609.04591v1"
+    },
+    "directly_checkable": "The triangle is explicit: vertices (−c, 0), (c, 0), (0, s) with c = 197/√625565 and s = 766/√625565, so c² + s² = 1 (equal sides 1). Base 2c ≈ 0.498, height s ≈ 0.968, area cs = 150902/625565. Cover ratio area(T)/D² with the rational D above. The paper’s Python replay verifier checks 512 one-delimiter and 4096 two-delimiter orders in exact rational arithmetic. I did not run it.",
+    "doubts": "(1) Single author; no human engagement found. (2) The paper itself states that the global planar Λ-configuration theorem and the compactness bookkeeping are ‘explicit hypotheses or ordinary mathematical arguments’, and that generated rational interval and rectangle data are excluded from the Lean file, so the Lean file does not by itself cover the whole chain. (3) The decisive numerical check is an exact Python replay, not a Lean proof. (4) I did not read the three branches of the exhaustive analysis. (5) Keller (18 Sep 2026) cites this as an unrefereed preprint and quotes the number; that is a citation, not a check.",
+    "later_work_cites_it": true,
+    "withdrawn": null,
+    "direction": "Upper bound moves down on the unrestricted problem: from 0.260437 (Norwood–Poole 2003) or 0.26007 (Ploymaklam–Wichiramala 2018, second-hand) to 0.2578836, if the claim holds. Not a counterexample; no lower bound.",
+    "object": "An explicit isosceles triangle with base angles β, tan β = 766/197 (about 75.58°), equal sides 1, base 394/√625565 ≈ 0.498 and height 766/√625565 ≈ 0.968. The claim is that a homothetic copy scaled by 1/D with D ≈ 0.967162 contains a copy of every rectifiable unit arc. The covering argument is exact rational interval arithmetic over three exhaustive branches plus a stated planar configuration hypothesis; not non-constructive.",
+    "people": [
+      "Zhipeng Deng (sole author)"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/abs/2609.04591 (no AI or LLM statement on the abstract page)",
+        "https://arxiv.org/html/2609.04591v1 (no AI or LLM statement in the text I could read; text truncated in the Lean appendix)"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2609.04591",
+      "https://arxiv.org/html/2609.04591v1"
+    ]
+  },
+  "credited_humans": [
+    "Zhipeng Deng (sole author)"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2609.04591",
+    "https://arxiv.org/html/2609.04591v1"
+  ],
+  "ai": {
+    "systems": [
+      "Claude Opus",
+      "Fable",
+      "GPT-5",
+      "Astra"
+    ],
+    "from_event": "keller-2026-09",
+    "basis_quote": "The author accessed models from Anthropic (Claude Opus and Fable families) and OpenAI (GPT-5 family and Astra) through the agentic coding tools Claude Code and Codex as well as through web chat interfaces.",
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "keller-2026-09",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The author accessed models from Anthropic (Claude Opus and Fable families) and OpenAI (GPT-5 family and Astra) ... ; Acknowledgments: the models 'carried out the exploration, the discovery of the geometric reductions, the development and formalization of the proofs in Lean 4'; 'The mathematical content in this paper is the product of AI-assisted research steered by the author.'; 'The author reviewed and verified all AI-generated output'.",
+        "ai_systems_credited": [
+          "Claude Opus",
+          "Fable",
+          "GPT-5",
+          "Astra"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "deng-2026-09-triangle",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "The paper itself leaves the global planar configuration theorem and compactness steps outside Lean as stated hypotheses or informal arguments; decisive check is a Python replay; no human engagement.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wichiramala-panraksa-2026-06-triangle",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "deng-2026-08-triangle-curve",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Worm bound is conditional on an uncertified numerical optimum; no explicit area stated.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "deng-2024-12-bellman",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "vertu-2026-01-reddit-5-2-pro",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Secondary lifestyle site only; no primary post, author, paper or named verifier; shape family unidentified; internally inconsistent; claimed gain at the rounding level of the baseline figure.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "balitskiy-2026-03-viterbo-triangles",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "rudolf-2022-03-viterbo-worm",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "grechuk-somam-2019-05-closed-convex",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "panraksa-wichiramala-2019-sector",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "ploymaklam-wichiramala-2018-nonconvex",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wichiramala-2018-closed-hexagon",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "khandhawit-pagonakis-sriswasdi-2011-01",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "khandhawit-sriswasdi-2007-01",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wichiramala-2005-convex-0-2464",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "johnson-poole-wetzel-2004",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "norwood-poole-2003",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wang-2006-convex",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "norwood-poole-laidacker-1992",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gerriets-poole-1974",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "movshovich-wetzel-2017",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "jung-yoon-ahn-tokuyama-2022-closed",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks for the minimum area over all (not necessarily convex) covers of unit curves, so only events that lower the unrestricted upper bound or raise an unrestricted lower bound count as bound; convex-only, closed-curve and convex-arc results, and convex covers that do not beat the existing unrestricted record (Panraksa–Wichiramala 2019 and 2026, Wang 2006, Wichiramala 2005 for convex arcs), are variants. Keller's quadrilateral lowers the unrestricted upper bound to 0.2463 (its 0.239 lower bound is convex-only), so it is a bound; its Lean build and the Pith AI review are not digestion. Its AI role is generated rather than assisted: the author's own acknowledgments say the models carried out the exploration, discovered the geometric reductions and developed the proofs, with the author steering and verifying, which is AI producing the mathematics with human checking. Deng's triangle also lowers the unrestricted bound and is kept as doubtful because the paper itself leaves key steps outside its formal check. The Vertu report is set aside: no primary source, no named author or verifier, unidentified shape.",
+    "doubts": "Keller's AI quotes come from a summarising fetch, not a character-checked copy, and do not say which model did what, so all four named families are credited; if the wording were weaker, assisted would be the reading. Whether Keller's quadrilateral is generated or assisted is the close call. Ploymaklam–Wichiramala 2018 value and venue are second-hand.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "progress",
+      "rests_on": "deng-2026-09-triangle",
+      "ai_role": "generated",
+      "ai_from": "keller-2026-09",
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": [
+        "Claude Opus",
+        "Fable",
+        "GPT-5",
+        "Astra"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

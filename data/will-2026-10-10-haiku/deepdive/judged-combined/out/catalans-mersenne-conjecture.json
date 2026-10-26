@@ -1,0 +1,719 @@
+{
+  "key": "catalans-mersenne-conjecture",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 no proof, and no verified computation, has settled the conjecture: the fifth Catalan–Mersenne number c₅ = 2^(2^127−1) − 1 is still of unknown primality and no composite term has been exhibited. Two 2024 items bear on it. An unrefereed preprint (Preprints.org 202405.0952, posted 14 May 2024) claims c₅ is prime; I could not open its full text. A July 2024 OEIS comment notes that a known 54-digit factor of W(c₄) = (2^c₄+1)/3 would make c₅ composite if the open New Mersenne conjecture holds, which is a conditional argument, not a proof.",
+  "problem_asks": "Read from the bullet alone. (1) The sequence c₀ = 2, c_(n+1) = 2^(c_n) − 1, giving c₁ = 3, c₂ = 7, c₃ = 127, c₄ = 2^127 − 1 (prime, Lucas 1876), and c₅ = 2^(2^127−1) − 1 (primality unknown). (2) The existence claim: for some index N, c_N is composite. (3) The bullet's 'thus' clause, that every c_n is composite after some point. This follows from (2), since if c_N = ab with a, b ≥ 2 then 2^a − 1 is a proper divisor of c_(N+1) = 2^(c_N) − 1, so c_(N+1) is composite, and so on. The bullet asks for one composite term and gives no index, no bound on N, and no claim about any particular term. It does not ask for a proof that infinitely many terms are prime, and it does not ask for the primality of c₅ as such. Wikipedia's 'Mersenne conjectures' and 'Double Mersenne number' articles both state the conjecture as 'prime up to a certain limit' with the open question being where that limit lies.",
+  "events": [
+    {
+      "id": "robinson-1954-mersenne-prime-index",
+      "what_happened": "Not this problem. The Catalan-attributed claim (Wells 1997) that M_p = 2^p − 1 is prime whenever the index p is a Mersenne prime is false: M_8191 = 2^8191 − 1 is composite. Robinson (Proc. Amer. Math. Soc., 1954) reported this, citing a 1953 machine test by D. J. Wheeler on the Illiac. Recorded because it carries the same Catalan attribution and could be confused with this bullet. Its iteration (2^p − 1 with p prime) is not the bullet's iteration c_(n+1) = 2^(c_n) − 1.",
+      "date": "1954",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Shows 2^8191 − 1 is composite, refuting the claim that a Mersenne number with Mersenne-prime index is prime. Says nothing about any c_n.",
+      "remains": "All of problem_asks.",
+      "checked_by": [
+        {
+          "who": "D. J. Wheeler",
+          "qualification": "Ran the 1953 computation on the Illiac, as reported by Robinson",
+          "what_they_did": "Machine test showing 2^8191 − 1 composite (reported in Robinson 1954)",
+          "where": "https://proofwiki.org/wiki/Mersenne_Number_whose_Index_is_Mersenne_Prime",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 72 years",
+      "machine_checked": null,
+      "directly_checkable": "Lucas–Lehmer-type test of 2^8191 − 1. Not re-run here; the ProofWiki page reports the 1953 test.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Refutes a neighbouring Catalan-attributed claim. No bearing on whether some c_n is composite.",
+      "object": null,
+      "people": [
+        "D. J. Wheeler",
+        "R. M. Robinson",
+        "David Wells (1997, attribution to Catalan)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://proofwiki.org/wiki/Mersenne_Number_whose_Index_is_Mersenne_Prime"
+        ]
+      },
+      "sources": [
+        "https://proofwiki.org/wiki/Mersenne_Number_whose_Index_is_Mersenne_Prime"
+      ]
+    },
+    {
+      "id": "noll-caldwell-2003-c5-factor-bound",
+      "what_happened": "MathWorld credits Noll, in private correspondence with C. K. Caldwell dated 10 August 2003, with the statement that c₅ has no prime factor below 10^51. MathWorld also cites an undated Noll web page. This is pre-window. The only form I found is MathWorld's citation; the correspondence itself and the Noll page were not available to me.",
+      "date": "2003-08-10",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A lower bound on the smallest prime factor of c₅: none below 10^51. No factor is exhibited, and the primality of c₅ is not decided.",
+      "remains": "Whether c₅ is prime or composite, and the whole conjecture (no composite term is exhibited).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 23 years; cited only in MathWorld among the sources I read",
+      "machine_checked": null,
+      "directly_checkable": "Trial division of c₅ to 10^51 is not reproducible here. The bound is cited second-hand.",
+      "doubts": "Second-hand: a MathWorld citation of a private correspondence. MathWorld itself flags the bound as possibly outdated.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A partial, bounded search result. It does not move the conjecture (no composite term), but it is the only quantitative bound on c₅'s factors I found.",
+      "object": null,
+      "people": [
+        "Landon Curt Noll",
+        "C. K. Caldwell"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://mathworld.wolfram.com/Catalan-MersenneNumber.html"
+        ]
+      },
+      "sources": [
+        "https://mathworld.wolfram.com/Catalan-MersenneNumber.html"
+      ]
+    },
+    {
+      "id": "doublemersennes-mm127-trial-factoring",
+      "what_happened": "The Double Mersenne factoring project's status page (doublemersennes.org/history.php) lists MM127 = M(M(127)) = c₅ as 'U' (no known factor). The entry 'MM127 U: k=1152921504606846976' is credited to George Woltman's mmff 'since 2012 September 1'. The project's most recent dated entry on that page (25 Feb 2026) concerns MM859433, not MM127. The page also records an undated attempt by Landon Curt Noll to factor M(M(127)) with the calc program. No factor of c₅ is reported. The date given is when the search began, not a written argument; I record it as evidence of search effort, not as a result.",
+      "date": "2012-09-01",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": "Status page as viewed in October 2026; I did not see its revision history.",
+      "delivers": "No factor of c₅ of the form 2k·c₄ + 1 with k up to 1152921504606846976 (2^60), if the page's k value is the search limit. I read the k value as the limit; this is my interpretation, not stated on the page.",
+      "remains": "The primality of c₅ and all of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 14 years (search start); no factor reported",
+      "machine_checked": null,
+      "directly_checkable": "Any factor f of c₅ can be checked by 2^(c₄) ≡ 1 (mod f) with f = 2k·c₄ + 1. The page gives no factor.",
+      "doubts": "The meaning of the k value is my reading. The Noll note on the same page is undated.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A negative, bounded search. It does not point toward composite or prime.",
+      "object": null,
+      "people": [
+        "George Woltman (mmff)",
+        "Landon Curt Noll (undated calc attempt)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.doublemersennes.org/history.php"
+        ]
+      },
+      "sources": [
+        "https://www.doublemersennes.org/history.php",
+        "https://www.doublemersennes.org/"
+      ]
+    },
+    {
+      "id": "primepages-xayah-2020-w-c4-factor",
+      "what_happened": "A PrimePages curio, 'The 54-digit 886407410000361345663448535540258622490179142922169401', submitted by Xayah on 24 December 2020, says this is the smallest prime factor of W(M(127)), where W(n) = (2^n+1)/3 and M(127) = 2^127 − 1 = c₄. So the number is a factor of W(c₄) = (2^(c₄)+1)/3, the '+' partner of c₅ = 2^(c₄) − 1. The curio says this proves the Catalan–Mersenne conjecture and the New Mersenne conjecture cannot both be true. It gives no certificate. Pre-window. The curio's factor was repeated in a 2024 OEIS comment (see that event), which is the only later engagement I found.",
+      "date": "2020-12-24",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": "Last modified 27 Dec 2020 (PrimePages).",
+      "delivers": "Claims W(c₄) is composite, with the stated prime factor. Unconditionally, this shows c₅ prime and the New Mersenne conjecture cannot both hold. It bears on c₅ being composite only through the New Mersenne conjecture, which is open.",
+      "remains": "The bullet's existence claim (some c_n composite). The curio does not show any term composite unconditionally.",
+      "checked_by": [
+        {
+          "who": "William Hu (OEIS comment on A007013, 30 July 2024)",
+          "qualification": "Not established; no affiliation or expertise found",
+          "what_they_did": "Restates the factor and the New Mersenne consequence. Describes no check.",
+          "where": "https://oeis.org/A007013",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 70 months",
+      "machine_checked": null,
+      "directly_checkable": "Yes in principle: test that f = 886407410000361345663448535540258622490179142922169401 is prime, check that f ≡ 1 (mod 2·c₄), and check that f divides (2^(c₄)+1)/3 by modular exponentiation with exponent c₄ = 2^127 − 1. I attempted the arithmetic and the sandbox refused the command pending approval, so this is unverified here.",
+      "doubts": "The arithmetic is unverified by me. The 2024 OEIS comment repeats the same number, so the two sources are not independent. The conclusion about c₅ needs the New Mersenne conjecture, which is a conjecture, not a theorem. The curio's factor is of W(c₄), not of c₅, so it does not itself move the bullet.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Under the New Mersenne conjecture, W(c₄) composite forces c₅ composite, which would make the bullet's existence claim true at index 5. Without that conjecture, the claim shows only that c₅ prime and the New Mersenne conjecture are incompatible.",
+      "object": "A 54-digit prime f = 886407410000361345663448535540258622490179142922169401 which the curio says is the smallest prime factor of W(c₄) = (2^(c₄)+1)/3, with c₄ = 2^127 − 1. The Hu comment writes f = 5209834514912200·c₄ + 1, consistent with the 2kp + 1 form for prime factors of (2^p+1)/3 when p is prime. Explicit (a named prime), not from an existence proof. It is not a factor of c₅.",
+      "people": [
+        "Xayah (submitter of the curio)",
+        "William Hu (2024 OEIS comment, repeats the factor)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://t5k.org/curios/cpage/40578.html"
+        ]
+      },
+      "sources": [
+        "https://t5k.org/curios/cpage/40578.html",
+        "https://oeis.org/A007013",
+        "https://t5k.org/mersenne/NewMersenneConjecture.html"
+      ]
+    },
+    {
+      "id": "oeis-hu-2024-07-30",
+      "what_happened": "OEIS A007013 comment by William Hu, dated 30 July 2024. As quoted through a summarising fetch: 'If the next term were prime, it would be a counterexample to the New Mersenne conjecture.' It also says '(2^a(4) + 1) / 3 is composite', with the factor 886407410000361345663448535540258622490179142922169401 = 5209834514912200·a(4) + 1. I did not see the raw OEIS page, only the fetched text, so these quotes are as returned by the tool. This is the only in-window comment I found on the problem.",
+      "date": "2024-07-30",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "OEIS comment; no revision history seen.",
+      "delivers": "Conditional on the New Mersenne conjecture, c₅ is composite, which would make the bullet's existence claim true at n = 5 and therefore, by its 'thus' clause, all later terms composite. Unconditionally it asserts only that a prime c₅ would contradict the New Mersenne conjecture. It does not establish c₅ composite.",
+      "remains": "Everything, unless the New Mersenne conjecture is taken as true. That conjecture is open (Bateman, Selfridge and Wagstaff, 1989), with numerical support only.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 26 months",
+      "machine_checked": null,
+      "directly_checkable": "As for the 2020 factor: divisibility and primality by modular arithmetic. Not run here.",
+      "doubts": "Repeats the 2020 curio's factor without describing a check. The conclusion for c₅ is conditional on an open conjecture.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Points toward c₅ composite, but only through the New Mersenne conjecture. No unconditional direction.",
+      "object": "The same 54-digit prime factor of W(c₄) as in the 2020 PrimePages curio, written as 5209834514912200·c₄ + 1. Explicit; not a certificate for c₅.",
+      "people": [
+        "William Hu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://oeis.org/A007013"
+        ]
+      },
+      "sources": [
+        "https://oeis.org/A007013",
+        "https://t5k.org/mersenne/NewMersenneConjecture.html",
+        "https://en.wikipedia.org/wiki/Double_Mersenne_number"
+      ]
+    },
+    {
+      "id": "hyperbolic-preprint-2024-05-14",
+      "what_happened": "Preprints.org manuscript 202405.0952, 'Hyperbolic Primality Test and Catalan–Mersenne Number Conjecture'. Submitted 10 May 2024 and posted 14 May 2024, per a search-tool summary of the listing. Marked not peer-reviewed; listed under Algebra and Number Theory. I could not open the page: all three URL forms I tried returned HTTP 403. The following comes from search-tool excerpts and summaries, not from my reading. The abstract is reported to say the author uses induction to show the 5th Catalan–Mersenne number is prime, 'thus demonstrating the infinitude of Mersenne primes'. The method is reported as a hyperbola lattice-point test for Mersenne numbers, with Lemma 1 stated as: if a non-trivial x satisfies 2^p − 1 + x ≡ 0 (mod 2x+1), then 2^p − 1 is prime. The author is not identified in anything I could read.",
+      "date": "2024-05-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Only v1 found (the v1 URL). No later version seen.",
+      "delivers": "As claimed and not verified: c₅ = 2^(2^127−1) − 1 is prime. The claimed test and the infinitude-of-Mersenne-primes conclusion lie outside this bullet.",
+      "remains": "The bullet's existence claim: one composite term. A prime c₅ does not decide it, and every term from c₆ onward remains open. The claimed primality of c₅ is itself unchecked.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 29 months",
+      "machine_checked": null,
+      "directly_checkable": "A primality proof of c₅ would be checkable by a certificate. None appears in the excerpts I could read.",
+      "doubts": "(1) Per two search summaries, Lemma 1 concludes primality from a congruence solution, while the excerpted argument reads a lattice point as proof of compositeness, so the lemma appears inverted. I could not confirm this from the paper. (2) The test, as described, is a search for a nontrivial factorisation of 2^p − 1, which is a factor search rather than a faster primality test; the excerpts do not compare it with Lucas–Lehmer. (3) One prime cannot establish infinitely many Mersenne primes, as the abstract is reported to claim. (4) Unrefereed, no engagement found, author not identified. Each of these rests on excerpts, not on the full text.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims the fifth term is prime. That is evidence about an early term only. It does not refute the conjecture, which needs one composite term.",
+      "object": null,
+      "people": [
+        "Not identified in the text I could read"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.preprints.org/manuscript/202405.0952"
+        ]
+      },
+      "sources": [
+        "https://www.preprints.org/manuscript/202405.0952",
+        "https://preprints.org/manuscript/202405.0952/v1"
+      ]
+    },
+    {
+      "id": "wagstaff-2025-two-mersenne-prime-conjectures",
+      "what_happened": "S. S. Wagstaff Jr., 'Two Mersenne Prime Conjectures', Journal of Integer Sequences 28 (2025), Article 25.7.2. Received 1 September 2025, revised 27 September 2025, published 4 December 2025. Abstract: 'We discuss two conjectures about Mersenne numbers, an old one and a new one. Heuristic arguments support both conjectures.' The PDF's outline lists 'The 1978 New Mersenne Conjecture' and 'Chen's Mersenne Conjecture of 2025'. The PDF text would not extract, so I did not read the body. I found no earlier preprint.",
+      "date": "2025-12-04",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "Received 1 Sep 2025; revised 27 Sep 2025 (per journal page).",
+      "delivers": "Heuristic discussion of two conjectures about Mersenne numbers, in the New Mersenne family and a 2025 'Chen' conjecture. Nothing in the visible text addresses iterated Mersenne numbers. Not verified against the body.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Heuristic only, per the abstract.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither proof nor disproof. It concerns the New Mersenne family, which the 2020 and 2024 factor arguments use only conditionally.",
+      "object": null,
+      "people": [
+        "Samuel S. Wagstaff, Jr."
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://cs.uwaterloo.ca/journals/JIS/VOL28/Wagstaff/wag14.html"
+        ]
+      },
+      "sources": [
+        "https://cs.uwaterloo.ca/journals/JIS/VOL28/Wagstaff/wag14.html"
+      ]
+    },
+    {
+      "id": "dutta-borah-2025-pjm",
+      "what_happened": "M. Dutta and P. B. Borah, 'On the solution of the Diophantine equation M_n^x + 8y = z² for a Mersenne number M_n', Palestine Journal of Mathematics 14(1) (2025), 293–297. It uses Catalan's conjecture (Mihăilescu's theorem, 2004) as a tool. It concerns Mersenne numbers M_n, not the iterated sequence c_n. Known from a search excerpt only; the PDF would not extract.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Solutions of exponential Diophantine equations involving Mersenne numbers. Nothing on the iterated sequence.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 1 year",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None on this problem. Listed because 'Catalan' and 'Mersenne' together could be mistaken for this bullet.",
+      "object": null,
+      "people": [
+        "M. Dutta",
+        "P. B. Borah"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://pjm.ppu.edu/sites/default/files/papers/PJM_14%281%29_2025_293_to_297.pdf"
+        ]
+      },
+      "sources": [
+        "https://pjm.ppu.edu/sites/default/files/papers/PJM_14%281%29_2025_293_to_297.pdf"
+      ]
+    },
+    {
+      "id": "baker-2026-arxiv-2608-05319",
+      "what_happened": "M. Baker, 'The sesquicentennial of the prime number 2^127 − 1', arXiv:2608.05319, submitted 5 August 2026. Journal reference: Notices of the AMS 73 (2026), no. 7, 590–593. It reviews Lucas's 1876 proof that 2^127 − 1 is prime and gives a modern proof of the Lucas–Lehmer test. The HTML text contains no mention of 'Catalan' and no discussion of c₅. The acknowledgements thank 'ChatGPT 5.4 for assistance with proofreading and polishing the prose' (quoted through a summarising fetch; the full sentence is longer). Recorded because the AI search surfaced it, not because it bears on the conjecture.",
+      "date": "2026-08-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "Nothing about c_n for n ≥ 5. Establishes the known fact that c₄ = 2^127 − 1 is prime.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None on the conjecture.",
+      "object": null,
+      "people": [
+        "Matthew Baker"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2608.05319",
+          "https://arxiv.org/abs/2608.05319"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.05319",
+        "https://arxiv.org/html/2608.05319"
+      ]
+    }
+  ],
+  "disputes": [],
+  "summary": "Searched for 35 queries across the name, its variants (Catalan–Mersenne, c_n, iterated Mersenne, double Mersenne, the 'Catalan's conjecture' name clash), the 'composite' and 'counterexample' framings, recent arXiv and journal work, the factoring projects, and the AI search. Nothing settles the conjecture. c₅ = 2^(2^127−1) − 1 is still of unknown primality, and no composite term has been exhibited, so the bullet is open on the sources I could read. The AI search turned up nothing linking any AI system to the Catalan–Mersenne sequence. Searches covered AlphaEvolve, Gemini/Deep Think/Aletheia, OpenAI and DeepMind 2026 claims, Erdős-problem AI sweeps, AI-generated preprints, and Lean/Mathlib, and I found no AI-attributed Mersenne result. The closest items are the Baker 2026 paper (on 2^127 − 1, not on c₅, with ChatGPT 5.4 credited for proofreading only) and the 2025 AlphaEvolve paper (arXiv 2511.02864), whose abstract names 67 problems across analysis, combinatorics, geometry and number theory, but I did not read the full list and cannot rule out a c_n item there. The events that matter are (a) the 2020 curio and 2024 OEIS comment: a 54-digit prime factor of W(c₄) = (2^(c₄)+1)/3, which under the open New Mersenne conjecture forces c₅ composite. Unconditionally, it shows only that c₅ prime and the New Mersenne conjecture cannot both hold. I could not verify the factor: my arithmetic check was refused by the sandbox, and the two sources repeat the same number, so they are not independent. (b) The May 2024 Preprints.org claim that c₅ is prime. I could not open the manuscript (HTTP 403 on three URLs), so its content and the reported inversion of Lemma 1 come from search excerpts and remain unverified. Wikipedia's Double Mersenne article independently says a prime c₅ would contradict the New Mersenne conjecture, which supports the conditional reading. The close calls: the 2024 OEIS comment and the 2020 curio both point toward c₅ being composite, but only through an unproven conjecture. Both Wikipedia's and MathWorld's status statements (c₅ not known prime, no factor below 10^51 as of a 2003 correspondence) are unchanged in the sources I read. The double-Mersenne project still lists MM127 = c₅ as 'U' (no known factor), with trial factoring credited to mmff since September 2012; its latest dated work in 2026 is on other exponents. Neighbouring items recorded so a later pass does not confuse them: Catalan's own false claim about Mersenne numbers with Mersenne-prime index (M_8191, Robinson 1954); the Mihăilescu theorem known as 'Catalan's conjecture' (proved 2004; Klazar arXiv 2601.14900, Jan 2026, an expository proof); and the 2025 Dutta–Borah Diophantine paper. Wikipedia's 10^36 bound is for M_M61, not c₅.",
+  "competing_reading": "The bullet is effectively settled, conditionally. The 2020 curio and the 2024 OEIS comment, together with Wikipedia's Double Mersenne article, make c₅ composite a consequence of the New Mersenne conjecture. That conjecture has been checked numerically for all primes up to about 10^7 (per the t5k table, a numerical check, not a proof) and is widely believed. On that reading, c₅ being composite is the expected outcome, and the bullet's existence claim holds at index 5. A judge reading the bullet as satisfied by a conditional argument would count it resolved; one requiring an unconditional composite term would not.",
+  "what_would_settle_it": "(1) An independent verification of the 54-digit factor of W(c₄), by modular exponentiation with exponent 2^127 − 1, a primality test of the factor, and the check that the factor is ≡ 1 (mod 2·c₄). That fixes the unconditional fact that c₅ prime and the New Mersenne conjecture are incompatible. (2) A factor of c₅ itself, in the form 2k·c₄ + 1, verified by 2^(c₄) ≡ 1 (mod f). That would settle the bullet at index 5 unconditionally. (3) A proof that c₅ is prime, or the full text of Preprints.org 202405.0952 with its Lemma 1 and its induction argument checked by a qualified reader. (4) A proof of the New Mersenne conjecture, or a refutation, which would turn the 2020/2024 conditional into a settled answer or remove it. (5) A continued trial-factoring result on MM127 (c₅) from doublemersennes.org or mersenneforum.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Double_Mersenne_number",
+      "title": "Double Mersenne number (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Mersenne_conjectures",
+      "title": "Mersenne conjectures (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/Catalan-MersenneNumber.html",
+      "title": "Catalan-Mersenne Number (MathWorld)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://oeis.org/A007013",
+      "title": "OEIS A007013 Catalan-Mersenne numbers (with comments)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://t5k.org/curios/cpage/40578.html",
+      "title": "PrimePages curio: 88640...69401 (54-digits)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://t5k.org/mersenne/NewMersenneConjecture.html",
+      "title": "The New Mersenne Prime Conjecture (PrimePages)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.doublemersennes.org/history.php",
+      "title": "Double Mersenne project history",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.doublemersennes.org/",
+      "title": "Double Mersenne project home",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://proofwiki.org/wiki/Mersenne_Number_whose_Index_is_Mersenne_Prime",
+      "title": "Mersenne Number whose Index is Mersenne Prime (ProofWiki)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.johndcook.com/blog/2024/05/11/iterated-mersenne-primes/",
+      "title": "Iterated Mersenne primes (John D. Cook, 11 May 2024)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://vjs.ac.vn/jcc/article/view/8196",
+      "title": "Mở rộng lớp các số Mersenne (Lều Đức Tân, 2016)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://cs.uwaterloo.ca/journals/JIS/VOL28/Wagstaff/wag14.html",
+      "title": "Two Mersenne Prime Conjectures (Wagstaff, JIS 2025), abstract page",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.05319",
+      "title": "The sesquicentennial of the prime number 2^127 - 1 (Baker), abstract page",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.05319",
+      "title": "The sesquicentennial of the prime number 2^127 - 1 (Baker), HTML text",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2511.02864",
+      "title": "Mathematical exploration and discovery at scale (Georgiev, Gómez-Serrano, Tao, Wagner), abstract only",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://t5k.org/curios/cpage/49900.html",
+      "title": "PrimePages curio on the 2026 composite number (AI-related, not Catalan)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.preprints.org/manuscript/202405.0952",
+      "title": "Hyperbolic Primality Test and Catalan–Mersenne Number Conjecture (Preprints.org)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://preprints.org/manuscript/202405.0952/v1",
+      "title": "Same manuscript, v1 URL (HTTP 403)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.preprints.org/manuscript/202405.0952/v1/download",
+      "title": "Same manuscript, download URL (HTTP 403)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://cs.uwaterloo.ca/journals/JIS/VOL28/Wagstaff/wag14.pdf",
+      "title": "Two Mersenne Prime Conjectures, PDF (text would not extract)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://pjm.ppu.edu/sites/default/files/papers/PJM_14%281%29_2025_293_to_297.pdf",
+      "title": "Dutta & Borah, PJM 14(1) 2025 (PDF would not extract)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.05319",
+      "title": "Baker PDF (metadata only; text would not extract)",
+      "type": "preprint",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Catalan Mersenne number composite conjecture",
+      "Catalan's Mersenne conjecture 2025",
+      "Catalan-Mersenne numbers 2^(2^127-1)-1 factor",
+      "Catalan–Mersenne number c_5 primality factorization",
+      "Catalan Mersenne numbers AI model proof conjecture",
+      "Catalan Mersenne sequence arXiv",
+      "\"Hyperbolic Primality Test\" Catalan Mersenne",
+      "Catalan–Mersenne conjecture Wikipedia",
+      "double Mersenne number factor found 2025",
+      "AI system Mersenne number primality discovery language model",
+      "Catalan Mersenne conjecture AlphaEvolve OR GPT OR Claude OR Gemini",
+      "Erdős problems AI open problems list Mersenne Catalan 2026",
+      "mersenneforum double Mersenne M(M(127)) factoring status",
+      "\"Hyperbolic primality test\" Mersenne author Preprints 2024",
+      "\"New Mersenne conjecture\" Catalan c_5 prime contradiction",
+      "Catalan Mersenne numbers primality 2026",
+      "Catalan Mersenne prime sequence Prime Pages Caldwell",
+      "W(M127) factor 54 digits prime Wagstaff 2020 smallest prime factor (2^(2^127-1)+1)/3",
+      "\"Catalan-Mersenne\" conjecture composite counterexample disproved",
+      "Mersenne primality hyperbola lattice point 2^p-1 (2x+1)(2y+1) preprint",
+      "LLM large language model double Mersenne number prime factor discovered",
+      "\"Mersenne\" \"Catalan\" conjecture 2025 arXiv primality iterated 2^n-1 new result",
+      "Hyperbolic Primality Test Catalan-Mersenne Zenodo ResearchGate author",
+      "卡塔兰 梅森数 猜想 素数 2025",
+      "AI-generated preprint claims Mersenne prime proof 2026 arXiv language model wrote proof Mersenne",
+      "OpenAI OR DeepMind OR Anthropic model Mersenne primes number theory open problem solved 2026",
+      "Chen Mersenne conjecture 2025 Wagstaff \"Chen\" Mersenne numbers",
+      "\"Catalan\" Mersenne numbers tower 2^(2^127-1) prime factor trial factoring result 2026",
+      "\"Hyperbolic Primality Test\"",
+      "mathoverflow Catalan Mersenne numbers c_5 primality",
+      "Catalan's Mersenne conjecture Gemini Deep Think OR AlphaProof OR \"AI\" number theory tower of Mersenne numbers",
+      "Wikipedia list of unsolved problems in mathematics Catalan's Mersenne conjecture composite",
+      "\"Catalan\" \"Mersenne\" 2^127-1 tower primality open 2025 blog post",
+      "Lean formalization Lucas-Lehmer Mersenne primes Catalan double Mersenne mathlib sorry",
+      "Dutta Borah Palestine Journal of Mathematics 2025 Mersenne numbers Diophantine equation Catalan"
+    ],
+    "places_checked": [
+      "arXiv (abstract and HTML pages opened; search for Catalan–Mersenne and AI terms)",
+      "Preprints.org (search excerpts only; manuscript pages returned HTTP 403)",
+      "OEIS A007013 (comments opened via summarising fetch)",
+      "MathWorld Catalan-Mersenne Number",
+      "Wikipedia: Double Mersenne number, Mersenne conjectures; list of unsolved problems (search snippet only)",
+      "ProofWiki: Mersenne number whose index is Mersenne prime",
+      "PrimePages curios (2020 W(M127) factor; 2026 AI-related curio) and New Mersenne conjecture page",
+      "doublemersennes.org (home and history pages)",
+      "John D. Cook blog, May 2024 iterated Mersenne primes",
+      "Journal of Integer Sequences 2025 (Wagstaff, abstract page)",
+      "Palestine Journal of Mathematics 2025 (search excerpt; PDF would not extract)",
+      "Mathlib / Lean and Isabelle AFP for Lucas–Lehmer and Mersenne formalisations (search only)",
+      "MathOverflow (search only; no thread found)",
+      "AI-lab and AI-math trackers via search: OpenAI, DeepMind/Google (AlphaEvolve, Gemini Deep Think, Aletheia), Anthropic, Erdős-problem AI results, AI-generated preprints",
+      "Chinese-language search for 卡塔兰-梅森数 results"
+    ],
+    "dead_ends": [
+      "No MathOverflow thread on Catalan–Mersenne numbers found.",
+      "No Lean/Mathlib or Isabelle formalisation of the Catalan–Mersenne or double Mersenne conjectures found; no sorry-status check possible.",
+      "No AI-lab announcement, AI tracker entry, or AI-generated preprint linked to c_n or to double Mersenne numbers found. The 2026 AI-math results found (OpenAI unit-distance counterexample; Erdős-problem sweeps; Aletheia) concern other problems.",
+      "Klazar arXiv 2601.14900 (Jan 2026) and Mihăilescu (2004) concern the Catalan equation a^x − b^y = 1, a different conjecture.",
+      "arXiv 2607.13531 (Ripple, Lean framework for chemical reaction networks) formalises Cassels' descent for Catalan's equation, not c_n.",
+      "Vietnamese 2016 paper on the class LM (vjs.ac.vn 8196) generalises Mersenne numbers; no Catalan–Mersenne content in its abstract.",
+      "Chen's 2025 Mersenne conjecture: no statement found in search results; the Wagstaff PDF would not extract.",
+      "Wikipedia's 10^36 bound on factors of M_M61 is about a different number, not c₅.",
+      "Google searches for a 2025–26 'Catalan–Mersenne' arXiv result returned nothing dated after the 2024 preprint, apart from the Baker paper, which does not discuss c_n."
+    ]
+  },
+  "incomplete": "(1) The Preprints.org manuscript 202405.0952 could not be opened (HTTP 403 on all three URL forms). Its date, its claim that c₅ is prime, its Lemma 1, and the reported inversion of that lemma all come from search excerpts and summaries, not from the paper. The author is unidentified. (2) The 54-digit factor of W(c₄) was not verified: my modular-arithmetic check was refused by the sandbox pending approval, and I did not retry it. The two sources repeating the number (2020 curio, 2024 OEIS comment) are not independent. (3) The OEIS comments and the PrimePages curio were read through summarising fetches, so their quotes are as the tool returned them, not raw page text. (4) The PDFs of the Wagstaff 2025 paper, the Dutta–Borah 2025 paper, and the Baker 2026 paper would not extract, so their bodies were not read; the Baker HTML was read, and the acknowledgement quote came from a summarising fetch. Chen's 2025 conjecture was not identified. (5) The AlphaEvolve paper (arXiv 2511.02864) was read at abstract level only. Its list of 67 problems was not checked for a c_n item, so that AI-related lead is open. (6) The Wikipedia 'List of unsolved problems in mathematics' wording was taken from the statement given, not from the live article. (7) The doublemersennes.org k value is my reading of the search limit, not stated on the page; its revision history was not seen. (8) Noll's 2003 correspondence and undated Noll web page were not available; the 10^51 bound is second-hand via MathWorld.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "open",
+  "ai_role": "none",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": null,
+  "no_change_found": false,
+  "event": null,
+  "credited_humans": [],
+  "status_sources": [],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": null,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "robinson-1954-mersenne-prime-index",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "noll-caldwell-2003-c5-factor-bound",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Known only second-hand through a MathWorld citation of private correspondence, which MathWorld flags as possibly outdated.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "doublemersennes-mm127-trial-factoring",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "primepages-xayah-2020-w-c4-factor",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "oeis-hu-2024-07-30",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hyperbolic-preprint-2024-05-14",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Unidentified author on a non-reviewing preprint server; claims the primality of c5 (far beyond any known method) and from it the infinitude of Mersenne primes, a non sequitur; key lemma reportedly inverted; no engagement in about 29 months while c5 is still listed as of unknown primality.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wagstaff-2025-two-mersenne-prime-conjectures",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "dutta-borah-2025-pjm",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "baker-2026-arxiv-2608-05319",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement needs one unconditionally composite Catalan–Mersenne number, and no event provides one. The W(c4) factor (2020 curio, 2024 OEIS comment) makes c5 composite only if the open New Mersenne conjecture holds. That is a reduction to an unproven condition, so it scores none. I rejected the researcher's competing conditional reading for this reason. The trial-factoring bounds on c5 are finite searches (instances). Even if true, the May 2024 claim that c5 is prime would not decide the existence question, so it scores none. It is also not credible because several F10 signals appear together. Robinson 1954 and Dutta–Borah are about different claims (variant). Wagstaff and Baker do not address the iterated sequence. Baker's ChatGPT use was proofreading only, so its AI role is none.",
+    "doubts": "The hyperbolic preprint was never opened; its content comes from search excerpts. The AlphaEvolve 67-problem list was not checked for a c_n item. The 54-digit factor was not verified, but this does not affect any answer.",
+    "insufficient_evidence": false,
+    "confidence": "high",
+    "derived": {
+      "status": "open",
+      "rests_on": null,
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

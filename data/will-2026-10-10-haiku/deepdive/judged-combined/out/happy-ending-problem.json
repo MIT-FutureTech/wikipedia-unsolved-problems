@@ -1,0 +1,1582 @@
+{
+  "key": "happy-ending-problem",
+  "nothing_found": false,
+  "outcome": "As of 12 Oct 2026 no source establishes f(n) = 2^(n-2)+1 for any n >= 7, so the problem is open for every n >= 7 (exact values are known only for n <= 6). Since 26 Jan 2024 the events bearing on it are: a partial SAT attack on n = 7 covering only certain anchored families of 33-point sets (Bogdan, arXiv 30 Dec 2025, preprint, still described as open); a split-polygon relaxation and a proof of the conjecture for decomposable point sets only (Baek and Balko, SoCG 2025, 20 Jun 2025); a 2026 journal record reporting a weak-k-gon variant bound (C_weak(7) > 33) that I could not read directly; and neighbouring variants (empty hexagons, lines, higher dimensions, above-below functions, a benchmark listing) that do not change the planar statement.",
+  "problem_asks": "Statement (Wikipedia Jan 2024): 'Solving the happy ending problem for arbitrary n'. Let f(n) be the least N such that any N points in the plane, no three on a line, contain n points in convex position. The statement asks for f(n) for every n >= 3, i.e. (a) the exact value of f(n) for each n >= 3. Read through the Erdos-Szekeres conjecture, this is (b) proving f(n) = 2^(n-2)+1 for all n >= 3, which splits into (b1) the lower bound 2^(n-2)+1 <= f(n), which is classical (1960 construction) and holds for all n, and (b2) the upper bound f(n) <= 2^(n-2)+1, which is what is open. (c) The values for n = 3, 4, 5, 6 are already known (f(3)=3, f(4)=5, f(5)=9, f(6)=17), so the open content of 'arbitrary n' is n >= 7. Nothing in the frozen bullet asks only for an asymptotic or a bound: 'solving for arbitrary n' is read here as determining f(n) for every n, which is what the bullet's wording asks for. An asymptotic result answers a different question.",
+  "events": [
+    {
+      "id": "erdos-szekeres-1935-upper",
+      "what_happened": "Erdos and Szekeres posed the problem and proved f(n) <= C(2n-4, n-2)+1 in Compositio Mathematica 2 (1935) 463-470 (as cited by the Wikipedia article and by erdosproblems.com #107). Background only; it predates the window.",
+      "date": "1935",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Upper bound f(n) <= C(2n-4, n-2)+1 for every n, of exponential order 4^n. Poses the problem.",
+      "remains": "Everything in problem_asks: the exact value of f(n) for every n >= 3 and the matching upper bound 2^(n-2)+1.",
+      "checked_by": [
+        {
+          "who": "Morris and Soltan",
+          "qualification": "Authors of the Bull. AMS 2000 survey of the Erdos-Szekeres problem on points in convex position",
+          "what_they_did": "Surveyed the problem and its literature",
+          "where": "Bull. Amer. Math. Soc. 37 (2000) 437-458, as cited on en.wikipedia.org/wiki/Happy_ending_problem (survey not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "historical (1935)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper-bound direction only; it is the bound later improved by Suk and others.",
+      "object": null,
+      "people": [
+        "George Szekeres",
+        "Paul Erdos"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Happy_ending_problem"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Happy_ending_problem",
+        "https://www.erdosproblems.com/107"
+      ]
+    },
+    {
+      "id": "erdos-szekeres-1960-lower",
+      "what_happened": "Erdos and Szekeres gave explicit constructions proving f(n) >= 2^(n-2)+1 for all n >= 3 and conjectured equality. Cited as 1960 on erdosproblems.com #107 and as 1961 ('On some extremum problems in elementary geometry', Ann. Univ. Sci. Budapest) on Wikipedia. Background only; it predates the window.",
+      "date": "1960",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Lower bound f(n) >= 2^(n-2)+1 for every n >= 3, with explicit point sets of size 2^(n-2) containing no n points in convex position. The conjecture is that these are extremal.",
+      "remains": "The matching upper bound f(n) <= 2^(n-2)+1 for every n >= 7 (for n <= 6 see the small-case events).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "historical (1960)",
+      "machine_checked": null,
+      "directly_checkable": "Yes: the constructions are explicit point sets. Wikipedia illustrates a 16-point set with no convex hexagon; the construction was not re-checked by us.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Lower-bound direction. The explicit sets are the extremal examples the conjecture predicts, so they do not contradict it.",
+      "object": "Explicit family of 2^(n-2) points in general position with no n points in convex position (Erdos-Szekeres construction). Non-constructive existence is not involved.",
+      "people": [
+        "Paul Erdos",
+        "George Szekeres"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.erdosproblems.com/107",
+          "https://en.wikipedia.org/wiki/Happy_ending_problem"
+        ]
+      },
+      "sources": [
+        "https://www.erdosproblems.com/107",
+        "https://en.wikipedia.org/wiki/Happy_ending_problem"
+      ]
+    },
+    {
+      "id": "kalbfleisch-1970-f5",
+      "what_happened": "Small cases. f(4)=5 is credited to Klein (1931 per erdosproblems.com #107; 1932 per a search summary, so the year conflicts). f(5)=9 is attributed to Makai and Turan with no year on erdosproblems.com; the first published proof is Kalbfleisch, Kalbfleisch and Stanton, 'A combinatorial problem on convex regions', Proc. Louisiana Conf. (1970), per Wikipedia. Background only; it predates the window.",
+      "date": "1970",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "f(4)=5 and f(5)=9 exactly.",
+      "remains": "Every n >= 6, in particular n >= 7 for the problem.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "historical (1970 publication)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the conjectured formula for n = 4, 5.",
+      "object": null,
+      "people": [
+        "Endre Makai",
+        "Paul Turan",
+        "J. D. Kalbfleisch",
+        "J. G. Kalbfleisch",
+        "R. G. Stanton"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Happy_ending_problem"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Happy_ending_problem",
+        "https://www.erdosproblems.com/107"
+      ]
+    },
+    {
+      "id": "szekeres-peters-2006-f6",
+      "what_happened": "Szekeres and Peters, 'Computer solution to the 17-point Erdos-Szekeres problem', ANZIAM J. 48 (2006) 151-164: an exhaustive computer enumeration establishing f(6)=17 (every 17-point set in general position contains a convex hexagon; 16 points can avoid one). Per Wikipedia and erdosproblems.com, this is the last n for which the value is known. Predates the window.",
+      "date": "2006",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "f(6)=17 exactly, by computer enumeration (not a human-readable argument).",
+      "remains": "Every n >= 7.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "historical (2006)",
+      "machine_checked": {
+        "system": "Exhaustive computer enumeration (not formal); later formalised in Isabelle/HOL by Maric (see the 2017 event)",
+        "sorry_free": null,
+        "url": "https://archive.austms.org.au/Publ/ANZIAM/V48P2/2409.html"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the conjectured formula for n = 6.",
+      "object": null,
+      "people": [
+        "George Szekeres",
+        "Lindsay Peters"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": "Maric's abstract (per a search summary) gives more than 3000 GHz hours for the 2006 enumeration; Heule and Scheucher cite 1500 CPU hours. The sources disagree; not opened.",
+        "sources": [
+          "https://en.wikipedia.org/wiki/Happy_ending_problem"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Happy_ending_problem",
+        "https://www.erdosproblems.com/107"
+      ]
+    },
+    {
+      "id": "balko-valtr-2015-sat",
+      "what_happened": "Balko and Valtr, 'A SAT attack on the Erdos-Szekeres conjecture': SAT solving (Glucose) refutes the Peters-Szekeres conjecture (a stronger 2006 conjecture about two-colourings of the ordered complete 3-uniform hypergraph). Per their page the work also uses Erdos-Tuza-Valtr techniques to refine the planar conjecture for SAT solvers. The page reports an extended abstract in Electronic Notes in Discrete Mathematics 49 (2015) 425-431, last updated 28 Nov 2016; the European J. Combin. 66 (2017) 13-23 publication is from a search summary. Predates the window.",
+      "date": "2015",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": "Extended abstract 2015; page last updated 28 Nov 2016; full paper in EJC 66 (2017) per a search summary",
+      "delivers": "Refutes the Peters-Szekeres hypergraph conjecture, a stronger variant. The page lists SAT colourings of K_33 (3-uniform) with no monochromatic 7-gon; these concern the hypergraph setting, not the planar f(7).",
+      "remains": "The planar statement f(n) = 2^(n-2)+1 for all n >= 7.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 11 years",
+      "machine_checked": {
+        "system": "SAT solver Glucose (per the page)",
+        "sorry_free": null,
+        "url": "https://kam.mff.cuni.cz/~balko/ES_SAT"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts against the hypergraph variant of the conjecture (a stronger analogue). It does not touch the planar statement.",
+      "object": "A 2-colouring of the complete ordered 3-uniform hypergraph on 33 vertices with no monochromatic 7-gon, per the page's file list. The planar meaning of that object is not stated on the page.",
+      "people": [
+        "Martin Balko",
+        "Pavel Valtr"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://kam.mff.cuni.cz/~balko/ES_SAT"
+        ]
+      },
+      "sources": [
+        "https://kam.mff.cuni.cz/~balko/ES_SAT"
+      ]
+    },
+    {
+      "id": "suk-2016-two-to-n-plus-o-n",
+      "what_happened": "Andrew Suk, 'On the Erdos-Szekeres convex polygon problem', arXiv:1604.08657 (v1 29 Apr 2016, v2 27 Aug 2016). Abstract: 'we nearly settle the Erdos-Szekeres conjecture by showing that ES(n) = 2^(n+o(n))'. Explicit bound ES(n) <= 2^(n+6n^(2/3) log n) for large n. Quanta (30 May 2017) and Wikipedia cite JAMS 2017; the journal page was not opened. Predates the window.",
+      "date": "2016-04-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 29 Apr 2016; v2 27 Aug 2016",
+      "delivers": "ES(n) = 2^(n+o(n)): the exponential rate, for all large n. Does not determine the exact value 2^(n-2)+1.",
+      "remains": "The exact value of f(n) for every n >= 7 (the o(n) term leaves the constant in the exponent open).",
+      "checked_by": [
+        {
+          "who": "Journal of the American Mathematical Society (publication reported by Wikipedia and Quanta; referee process not inspected)",
+          "qualification": "Journal of record",
+          "what_they_did": "Published (reported, not verified on the journal page)",
+          "where": "https://arxiv.org/abs/1604.08657 (arXiv page gives no journal reference); Wikipedia citation",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10.5 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper-bound direction for the growth rate. It nearly settles the asymptotic question and leaves the exact conjecture open.",
+      "object": null,
+      "people": [
+        "Andrew Suk"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1604.08657"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1604.08657",
+        "https://en.wikipedia.org/wiki/Happy_ending_problem",
+        "https://www.erdosproblems.com/107"
+      ]
+    },
+    {
+      "id": "holmsen-2017-hmpt",
+      "what_happened": "Holmsen, Mojarrad, Pach and Tardos, 'Two extensions of the Erdos-Szekeres problem', arXiv:1710.11415 (v1 31 Oct 2017, v2 1 Nov 2017, v3 3 Aug 2020); J. Eur. Math. Soc. 22 (2020) 3981-3995 per Wikipedia. Predates the window.",
+      "date": "2017-10-31",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 31 Oct 2017; v2 1 Nov 2017; v3 3 Aug 2020",
+      "delivers": "Per erdosproblems.com #107 and Wikipedia, the current best upper bound for planar points: f(n) <= 2^(n+O(sqrt(n log n))). The arXiv abstract as fetched states this for the functions c(n) <= c'(n) <= 2^(n+O(sqrt(n log n))) on convex bodies, and gives Suk's bound for the planar points. The planar-point form is therefore attributed by secondary pages, not confirmed from this paper's text. A search summary also reports the error term as O(k log k).",
+      "remains": "The exact value of f(n) for every n >= 7.",
+      "checked_by": [
+        {
+          "who": "Journal of the European Mathematical Society (per Wikipedia citation)",
+          "qualification": "Journal of record",
+          "what_they_did": "Published (reported, not verified on the journal page)",
+          "where": "https://arxiv.org/abs/1710.11415",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Attribution of the planar-point bound to this paper is not confirmed from the text read (see the disputes entry).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Upper-bound direction, asymptotic only.",
+      "object": null,
+      "people": [
+        "Andreas F. Holmsen",
+        "Hossein Nassajian Mojarrad",
+        "Janos Pach",
+        "Gabor Tardos"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1710.11415"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1710.11415",
+        "https://www.erdosproblems.com/107",
+        "https://en.wikipedia.org/wiki/Happy_ending_problem"
+      ]
+    },
+    {
+      "id": "maric-2017-isabelle-f6",
+      "what_happened": "Filip Maric, 'Fast formal proof of the Erdos-Szekeres conjecture for convex polygons with at most 6 points', J. Automated Reasoning (DOI 10.1007/s10817-017-9423-7). Re-encodes the 17-point problem, uses symmetry breaking and SAT solvers (about half an hour on an ordinary PC per a search summary), and formalises the proof in Isabelle/HOL. Date 2017 is the online year; the issue year is given as 2019 by another record. Independently, Scheucher and Maric verified g(6)=17 by SAT (per Heule and Scheucher). Predates the window.",
+      "date": "2017",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Machine-checked confirmation of f(6)=17 (n = 6 only).",
+      "remains": "Every n >= 7.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 years",
+      "machine_checked": {
+        "system": "Isabelle/HOL",
+        "sorry_free": null,
+        "url": "https://www.doi.org/10.1007/S10817-017-9423-7"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Confirms the conjectured formula for n = 6.",
+      "object": null,
+      "people": [
+        "Filip Maric"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.doi.org/10.1007/S10817-017-9423-7"
+        ]
+      },
+      "sources": [
+        "https://www.doi.org/10.1007/S10817-017-9423-7"
+      ]
+    },
+    {
+      "id": "scheucher-2021-higher-dim",
+      "what_happened": "Manfred Scheucher, 'A SAT attack on higher dimensional Erdos-Szekeres numbers', arXiv:2105.08406 (v1 18 May 2021; no later version listed; journal version in Combinatorics, Geometry and Topology per a search summary). Higher-dimensional SAT results: g^(3)(7)=13, g^(4)(8) <= 13, g^(5)(9) <= 13.",
+      "date": "2021-05-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 18 May 2021 only",
+      "delivers": "Results in R^3 to R^5, a different quantity from the planar f(n). The planar case appears only as a byproduct: an upper bound h^(2)(6) <= g^(2)(9) <= 1717, attributed to Gerken (2008), for the empty-hexagon problem.",
+      "remains": "The planar f(n) entirely, every n >= 3.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 years",
+      "machine_checked": {
+        "system": "SAT solver (encoding per abstract; certificate details not read)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2105.08406"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue in higher dimensions; no bearing on the planar statement.",
+      "object": null,
+      "people": [
+        "Manfred Scheucher"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2105.08406"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2105.08406"
+      ]
+    },
+    {
+      "id": "pohoata-zakharov-2022-higher-dim",
+      "what_happened": "Cosmin Pohoata and Dmitrii Zakharov, 'Convex polytopes from fewer points', arXiv:2208.04878 (v1 9 Aug 2022, only version listed). Shows ES_d(n) = 2^(o(n)) for all d >= 3; the 3-d statement is the main technical claim. Duke (2025) per a search summary of Zakharov's page. Predates the window.",
+      "date": "2022-08-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 9 Aug 2022 only",
+      "delivers": "Growth rate of the higher-dimensional Erdos-Szekeres numbers ES_d(n) = 2^(o(n)) for d >= 3. The planar case is not addressed.",
+      "remains": "The planar f(n) entirely.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue in dimensions d >= 3; no bearing on the planar statement.",
+      "object": null,
+      "people": [
+        "Cosmin Pohoata",
+        "Dmitrii Zakharov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2208.04878"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2208.04878"
+      ]
+    },
+    {
+      "id": "heule-scheucher-2024-empty-hexagon",
+      "what_happened": "Marijn J.H. Heule and Manfred Scheucher, 'Happy Ending: An Empty Hexagon in Every Set of 30 Points', arXiv:2403.00737 (v1 1 Mar 2024, only version listed). Every 30-point planar set in general position contains an empty convex hexagon (no other point of the set inside). SAT-based, using a compact encoding and search-space partitioning. A neighbouring variant (erdosproblems.com #216 per a search summary; not opened). It is the 'happy ending' name's most-cited recent result, but it is a different quantity.",
+      "date": "2024-03-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 1 Mar 2024 only",
+      "delivers": "h(6) = 30 for empty convex hexagons: every 30-point set contains an empty hexagon. It does not determine the number of points forcing an arbitrary convex n-gon.",
+      "remains": "All of problem_asks: f(n) for every n >= 3.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 7.4 months",
+      "machine_checked": {
+        "system": "SAT solver (CNF encoding; certificate size and checking not read from the full text)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2403.00737"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Empty-hexagon variant: the 30-point bound holds. This is a different question and does not move f(n).",
+      "object": null,
+      "people": [
+        "Marijn J.H. Heule",
+        "Manfred Scheucher"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2403.00737"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2403.00737",
+        "https://arxiv.org/abs/2403.17370"
+      ]
+    },
+    {
+      "id": "subercaseaux-2024-lean-empty-hexagon",
+      "what_happened": "Subercaseaux, Nawrocki, Gallicchio, Codel, Carneiro and Heule, 'Formal Verification of the Empty Hexagon Number', arXiv:2403.17370 (v1 26 Mar 2024, only version listed). Formalises the Heule-Scheucher computer-assisted proof that h(6) = 30 in Lean.",
+      "date": "2024-03-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 26 Mar 2024 only",
+      "delivers": "Lean verification that h(6) = 30 (empty hexagons). A variant; nothing about f(n).",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6.5 months",
+      "machine_checked": {
+        "system": "Lean (theorem prover, per the abstract)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2403.17370"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Empty-hexagon variant, machine-verified. No bearing on f(n).",
+      "object": null,
+      "people": [
+        "Bernardo Subercaseaux",
+        "Wojciech Nawrocki",
+        "James Gallicchio",
+        "Cayden Codel",
+        "Mario Carneiro",
+        "Marijn J.H. Heule"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2403.17370"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2403.17370"
+      ]
+    },
+    {
+      "id": "furukawa-2024-lines",
+      "what_happened": "Koki Furukawa, 'Happy Ending or Many Concurrent Lines', arXiv:2409.03122 (v1 4 Sep 2024; v2 24 Sep 2024; v3 19 Nov 2024). Line version: ES_L(l,n) is the least N such that any N lines in the plane contain l concurrent lines or n lines in convex position. Extends a line result of Barany, Roldan and Toth. Gives upper and lower bounds and some exact small values (per the abstract summary).",
+      "date": "2024-09-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 4 Sep 2024; v2 24 Sep 2024; v3 19 Nov 2024",
+      "delivers": "Bounds for the line analogue ES_L(l,n) of the problem, not for planar points. Exact values for small n in the line setting.",
+      "remains": "All of problem_asks (planar points).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Analogue for lines; no bearing on the planar point statement.",
+      "object": null,
+      "people": [
+        "Koki Furukawa"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2409.03122"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2409.03122"
+      ]
+    },
+    {
+      "id": "baek-balko-2025-socg",
+      "what_happened": "Jineon Baek (University of Michigan) and Martin Balko (Charles University), 'The Erdos-Szekeres Conjecture Revisited', SoCG 2025, LIPIcs vol. 332, article 13, DOI 10.4230/LIPIcs.SoCG.2025.13; published 20 June 2025 per the Ben-Gurion repository record. Results: (i) every planar set of at least 2^(k-2)+1 points, no three collinear, contains a 'split k-gon' (Theorem 3), and the threshold is tight; (ii) the conjecture is proved for 'decomposable' point sets (Theorem 8; the statement with a = u = k confirms the conjecture for decomposable sets); (iii) an ordered 3-uniform hypergraph generalisation is false; (iv) new constructions of 2^(k-2) points with no k points in convex position, generalising all previously known ones. The full text also says 'Our SAT-solver-based proofs show that this is also the case for weak k-gons.' The earliest public version has not been established (see incomplete).",
+      "date": "2025-06-20",
+      "precision": "day",
+      "kind": "conference",
+      "predates_frozen_revision": null,
+      "revisions": "None found in the sources read. A journal version is listed separately (2026 event).",
+      "delivers": "For the split-k-gon relaxation: threshold 2^(k-2)+1, tight. For the convex-position problem: the conjecture holds for decomposable point sets only, a restricted class. For general planar point sets: nothing.",
+      "remains": "f(n) = 2^(n-2)+1 for every n >= 7 for arbitrary planar point sets, and the general statement for every n >= 3 beyond the decomposable class. The paper's own abstract calls the general conjecture still open.",
+      "checked_by": [
+        {
+          "who": "SoCG 2025 programme committee and referees (unnamed)",
+          "qualification": "Refereed conference proceedings (LIPIcs). The Ben-Gurion repository record describes it as peer-reviewed.",
+          "what_they_did": "Peer review for acceptance at SoCG 2025",
+          "where": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2025.13",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "about 16 months to 12 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": "The 2^(k-2)-point constructions are checkable by computer for small k. Not checked by us.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjectured threshold for split k-gons (tight) and confirms the conjecture for decomposable sets. Leaves the general planar case open. No counterexample to f(n) = 2^(n-2)+1 is claimed.",
+      "object": "Explicit constructions of 2^(k-2) points in the plane, no three collinear, with no k points in convex position, generalising all previously known constructions. These are the conjectured extremal sets, so they do not contradict the conjecture.",
+      "people": [
+        "Jineon Baek",
+        "Martin Balko"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/html/LIPIcs.SoCG.2025.13/LIPIcs.SoCG.2025.13.html"
+        ]
+      },
+      "sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/html/LIPIcs.SoCG.2025.13/LIPIcs.SoCG.2025.13.html",
+        "https://cris.bgu.ac.il/en/publications/the-erdos-szekeres-conjecture-revisited-2/"
+      ]
+    },
+    {
+      "id": "erdos-1026-namesake-2025",
+      "what_happened": "erdosproblems.com forum thread for Erdos problem #1026 (a different problem sharing the Erdos-Szekeres name): a weighted form of the Erdos-Szekeres theorem on monotone subsequences of distinct reals (Cambie's conjecture, c=1). First post 7 Dec 2025 by Boris Alexeev: 'Aristotle from Harmonic proved a formalization of Stijn Cambie's conjecture'. Further posts: a 'blowup' proof by KoishiChan (8 Dec 2025), a Lean formalisation for general n (12 Dec 2025). This is a namesake, not the convex-position problem. Recorded because it is an AI-credited event with the Erdos-Szekeres name.",
+      "date": "2025-12-07",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Page shows multiple updates in Dec 2025; not all dated.",
+      "delivers": "For a weighted monotone-subsequence problem: c=1 (Cambie's conjecture). Nothing about points in convex position.",
+      "remains": "Not applicable: it answers a different question.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 months",
+      "machine_checked": {
+        "system": "Lean (formalisation credited to Aristotle by the forum post)",
+        "sorry_free": null,
+        "url": "https://www.erdosproblems.com/forum/thread/1026"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not applicable (namesake).",
+      "object": null,
+      "people": [
+        "Boris Alexeev",
+        "KoishiChan (Koishi Chan per a search summary)",
+        "llllvvuu"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Aristotle",
+            "what_it_did": "Per forum posts, produced a proof of Cambie's conjecture (c=1 for the weighted monotone-subsequence problem), and auto-formalised it in Lean. This is load-bearing for that namesake problem, not for #107.",
+            "basis_quote": "Aristotle from Harmonic proved a formalization of Stijn Cambie's conjecture",
+            "quote_url": "https://www.erdosproblems.com/forum/thread/1026"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.erdosproblems.com/forum/thread/1026"
+        ]
+      },
+      "sources": [
+        "https://www.erdosproblems.com/forum/thread/1026"
+      ]
+    },
+    {
+      "id": "bogdan-2025-33-point-sat",
+      "what_happened": "Dumitru Bogdan (Faculty of Computer Science, University of Bucharest; arXiv lists 'Bogdan Dumitru'), 'Notes on the 33-point Erdos-Szekeres problem', arXiv:2512.24061 (v1 30 Dec 2025, the only version listed). Attacks the first open planar case, ES(7) = 33. SAT encoding with triple-orientation variables, a 4-set convexity criterion that excludes convex 7-gons, and convex-layer anchoring constraints; solved single-threaded with Kissat via PySAT. Reports only UNSAT outcomes: UNSAT certificates for several anchored families (templates in Table 1; single-thread times from about 2.5e3 s to 2.28e6 s; base instance 578,336 variables and 16,670,808 clauses before hull constraints). States that the k = 7 case 'remains open' and that the planar 33-point question is not decided.",
+      "date": "2025-12-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 30 Dec 2025 only",
+      "delivers": "Within the anchored families in Table 1 (described only by templates in the paper), no 33-point configuration avoids a convex 7-gon, i.e. f(7) <= 33 for those families. Nothing for general 33-point sets. No lower-bound construction and no counterexample.",
+      "remains": "f(7) = 33 for all 33-point sets, and f(n) for every n >= 8.",
+      "checked_by": [
+        {
+          "who": "The Moonlight (themoonlight.io), an AI-generated paper review site",
+          "qualification": "Automated review summary; not a human reading",
+          "what_they_did": "Summarised the paper (search snippet only; not opened)",
+          "where": "https://www.themoonlight.io/review/notes-on-the-33-point-erds-szekeres-problem",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9.4 months to 12 Oct 2026",
+      "machine_checked": {
+        "system": "Kissat (single-thread), CNF generated with PySAT; UNSAT results as reported by the author. No independent certificate check found in the text read.",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2512.24061"
+      },
+      "directly_checkable": "The encoding and the anchored families are described in the paper (Table 1 templates); no artifact link was found in the full text read.",
+      "doubts": "Single author, one version, no uptake found in the 9 months since posting. The result rests on UNSAT outcomes, so its value depends on the encoding and on the transfer step the paper states: 'omitting some 5-point clauses only enlarges the admissible assignments, so an UNSAT result for the relaxed instance also holds for stronger formulations'. No independent check of that step, or of how the anchored families are defined, was found. The text read names no proof certificate and no independent checker. Runtimes are heavy-tailed, and one template takes about 26 days single-thread.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Toward the conjecture for n = 7: no counterexample within the anchored families searched, so partial upper-bound progress. No object exhibited. Does not decide the all-sets question.",
+      "object": null,
+      "people": [
+        "Dumitru Bogdan"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": "Single-thread wall-clock times reported in Table 1, from about 2.5e3 s to 2.28e6 s (about 26 days, the longest). Hardware not named beyond 'commodity hardware'.",
+        "sources": [
+          "https://arxiv.org/html/2512.24061v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2512.24061",
+        "https://arxiv.org/html/2512.24061v1"
+      ]
+    },
+    {
+      "id": "deepmind-lean-107-statement-2025",
+      "what_happened": "The google-deepmind/formal-conjectures repository contains FormalConjectures/ErdosProblems/107.lean (copyright 2025). It formalises the problem with main theorem erdos_107 : answer(sorry) <-> for all n >= 3, f n = 2^(n-2)+1, proof left as sorry. Annotated 'research open, AMS 52'. Supporting lemmas ersz_bounds, su_bound and hmpt_bound are stated with sorry. f 3 = 3 has a real proof. erdosproblems.com #107 marks the statement as formalised (page edited 11 Apr 2026). The commit date is not shown.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Repository history not shown; copyright year 2025.",
+      "delivers": "A formal statement only. No answer and no proof of f(n) = 2^(n-2)+1 for any n >= 4.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "not established (copyright year 2025)",
+      "machine_checked": {
+        "system": "Lean (Formal Conjectures repository, mathlib-based)",
+        "sorry_free": false,
+        "url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/107.lean"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None: it is a statement, with the answer left as a placeholder.",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/107.lean"
+        ]
+      },
+      "sources": [
+        "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/107.lean",
+        "https://www.erdosproblems.com/107"
+      ]
+    },
+    {
+      "id": "koshelev-koshka-2026-sat-asp",
+      "what_happened": "Vitalii Koshelev and Alexey Koshka, 'Combinatorial Geometry of Erdos-Szekeres Type Problems: SAT/ASP Modeling and Linear Subreduction', arXiv:2604.20120 (v1 22 Apr 2026, only version). Multicoloured point sets, convex hexagons with a given number of interior points, and polygons with constrained edge colours. Reports new exact values, e.g. h_nc(4,0;4,0) = 26 for bicoloured empty monochromatic quadrilaterals.",
+      "date": "2026-04-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 22 Apr 2026 only",
+      "delivers": "Exact values for other Erdos-Szekeres-type functions (coloured and empty-polygon variants). Nothing about the planar f(n).",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 6 months",
+      "machine_checked": {
+        "system": "SAT/ASP and SMT solvers (per the abstract)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2604.20120"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring variants; no bearing on f(n).",
+      "object": null,
+      "people": [
+        "Vitalii Koshelev",
+        "Alexey Koshka"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2604.20120"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2604.20120"
+      ]
+    },
+    {
+      "id": "jcta-baek-balko-2026-weak-k-gons",
+      "what_happened": "Journal record: Jineon Baek and Martin Balko, 'The Erdos-Szekeres conjecture revisited', J. Combin. Theory Ser. A, vol. 222, article 106195, DOI 10.1016/j.jcta.2026.106195 (2026). Per a search summary (not the paper): the paper proves C_weak(7) > 33 by a computer-assisted SAT proof (Kissat 3.0.0), and says the Erdos-Szekeres conjecture has no hope of extending to the abstract setting with weak k-gons, so it may be false there. The publisher page returned 403 and the DOI redirect returned only 'Redirecting', so none of this was read from the paper. Relationship to the SoCG 2025 version is not established.",
+      "date": "2026",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "SoCG 2025 version (see the baek-balko-2025-socg event); journal version date not verified",
+      "delivers": "Per the summary only: C_weak(7) > 33 for a weak-k-gon variant in an abstract setting. Nothing about the planar f(7).",
+      "remains": "Planar f(n) for every n >= 7.",
+      "checked_by": [
+        {
+          "who": "Journal of Combinatorial Theory Series A editorial process (referees not named)",
+          "qualification": "Journal of record (per the volume and article number in a search summary)",
+          "what_they_did": "Published (reported in a search summary; not verified on the publisher page)",
+          "where": "https://doi.org/10.1016/j.jcta.2026.106195",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "not established",
+      "machine_checked": {
+        "system": "SAT solver Kissat 3.0.0 (per the search summary)",
+        "sorry_free": null,
+        "url": "https://doi.org/10.1016/j.jcta.2026.106195"
+      },
+      "directly_checkable": null,
+      "doubts": "Not read from the paper, so the definition of weak k-gon and the form of the 33-point object are unknown. The SoCG 2025 text read via a summarising fetch already contains the sentence 'Our SAT-solver-based proofs show that this is also the case for weak k-gons', so the C_weak(7) > 33 claim may date from June 2025 and not from 2026. The first public date therefore needs the text.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Per the summary: cuts against the weak (abstract-setting) analogue of the conjecture. It does not cut against the planar statement.",
+      "object": "Per the summary: a 33-element weak configuration with no weak convex 7-gon, found by SAT. Its explicit form was not read.",
+      "people": [
+        "Jineon Baek",
+        "Martin Balko"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://doi.org/10.1016/j.jcta.2026.106195"
+        ]
+      },
+      "sources": [
+        "https://doi.org/10.1016/j.jcta.2026.106195",
+        "https://linkinghub.elsevier.com/retrieve/pii/S0097316526000385"
+      ]
+    },
+    {
+      "id": "chen-pohoata-2026-above-below",
+      "what_happened": "Wenchong Chen and Cosmin Pohoata, 'Above and below', arXiv:2605.27061 (v1 26 May 2026, only version listed). Studies above-below Ramsey functions AB^(d)(k) for sequences of points in R^d with cyclic projections. For d = 3, AB(k) = 2^(2^(Theta(k))) (sharp). General d is linked to the higher-order cup-cap function and to Balko's monotone Ramsey numbers. Motivated by Pohoata-Zakharov's R^3 Erdos-Szekeres work. A higher-dimensional analogue; not the planar function. The acknowledgements of the PDF are the basis for the AI credit below, and I could not read them directly (see incomplete).",
+      "date": "2026-05-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 26 May 2026 only (abs page as fetched)",
+      "delivers": "For the above-below function in R^3: AB(k) = 2^(2^(Theta(k))). In general dimension, a relation to higher-order cup-cap and monotone Ramsey numbers. Nothing about planar f(n).",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4.5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The AI credit below comes from a search excerpt of the acknowledgements, not from the full PDF text.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Higher-dimensional analogue; no bearing on the planar statement.",
+      "object": null,
+      "people": [
+        "Wenchong Chen",
+        "Cosmin Pohoata"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "ChatGPT",
+            "what_it_did": "Per the acknowledgements excerpt (not verified in the full text): the upper bound AB^(d)(k) <= R-bar_mon(k; d+1) from Theorem 2 is credited entirely to ChatGPT. This concerns the higher-dimensional above-below function, not the planar problem. Version of ChatGPT not stated.",
+            "basis_quote": "the upper bound AB^(d)(k) <= R-bar_mon(k; d+1) from Theorem 2 is entirely due to ChatGPT (search excerpt of the acknowledgements; not confirmed against the PDF text)",
+            "quote_url": "https://arxiv.org/pdf/2605.27061"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2605.27061",
+          "https://arxiv.org/pdf/2605.27061"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2605.27061",
+        "https://arxiv.org/pdf/2605.27061"
+      ]
+    },
+    {
+      "id": "frontiermath-erdos-2026-benchmark",
+      "what_happened": "Tom Adamczewski (Epoch AI) and Thomas F. Bloom (University of Manchester), 'FrontierMath Erdos', arXiv:2609.25050 (v1, 6 Sep 2026, cs.CL). A benchmark of 68 Erdos conjectures (65 distinct problems on erdosproblems.com) that were open as of August 2026. Problem 107 is one of them (entry ID Erdos107: 'Happy ending problem: the minimal N such that any N points...'). Problems are stated in Lean; an AI system must give complete Lean proofs or disproofs. The paper lists the problem as open. No solution for 107 is claimed. The Epoch benchmark page shows no per-problem solved list in the text read.",
+      "date": "2026-09-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 6 Sep 2026 (as fetched)",
+      "delivers": "Nothing: it lists the conjecture as a benchmark target and claims no result on it.",
+      "remains": "All of problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 weeks",
+      "machine_checked": {
+        "system": "Lean (benchmark statement)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/html/2609.25050"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None: a benchmark item.",
+      "object": null,
+      "people": [
+        "Tom Adamczewski",
+        "Thomas F. Bloom"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.25050",
+          "https://epoch.ai/benchmarks/frontiermath-erdos"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2609.25050",
+        "https://epoch.ai/benchmarks/frontiermath-erdos"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "The bound f(n) <= 2^(n+O(sqrt(n log n))) for planar points is attributed to Holmsen, Mojarrad, Pach and Tardos by erdosproblems.com #107 and by Wikipedia. The arXiv abstract for arXiv:1710.11415 (as fetched) states the same form for c(n) and c'(n), which are functions on convex bodies, and attributes the planar point bound to Suk. A search summary also gives the error term as O(k log k). Which paper states the planar-point form was not settled from the paper text.",
+      "sources": [
+        "https://arxiv.org/abs/1710.11415",
+        "https://www.erdosproblems.com/107",
+        "https://en.wikipedia.org/wiki/Happy_ending_problem"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Author name order for Bogdan's paper differs: arXiv lists 'Bogdan Dumitru', and the PDF header gives 'Dumitru Bogdan'. Likely the same person; not treated as a dispute.",
+      "sources": [
+        "https://arxiv.org/abs/2512.24061",
+        "https://arxiv.org/html/2512.24061v1"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "The year of the Erdos-Szekeres lower bound paper is 1960 on erdosproblems.com and 1961 on Wikipedia. The year of the first f(4)=5 result is 1931 on erdosproblems.com and 1932 in a search summary. Dates are recorded as given, with the conflicts visible.",
+      "sources": [
+        "https://www.erdosproblems.com/107",
+        "https://en.wikipedia.org/wiki/Happy_ending_problem"
+      ]
+    }
+  ],
+  "summary": "Found: no source establishes f(n) = 2^(n-2)+1 for any n >= 7, and erdosproblems.com #107 (last edited 11 Apr 2026, accessed 12 Oct 2026) still presents the problem as open, with its edit history showing only typographical changes since 20 Oct 2025. The planar-point events in the window are two. First, Baek and Balko (SoCG 2025, LIPIcs, 20 Jun 2025) prove a tight threshold for split k-gons, confirm the conjecture for decomposable point sets, show a hypergraph generalisation false, and give new 2^(k-2)-point constructions; the general planar conjecture remains open. This is a restricted-class result, and whether it counts as a case of the problem is for the judging pass. Second, Bogdan (arXiv:2512.24061, 30 Dec 2025) gives UNSAT certificates for SAT encodings of anchored families of 33-point sets, implying f(7) <= 33 for those families only; the paper says the k=7 case remains open. The strongest case for the Bogdan result is that it is genuine progress on the n=7 case; the strongest case against it is that it covers only anchored families and is unreviewed beyond its single arXiv version. The journal record in JCTA (vol. 222, 2026) reports C_weak(7) > 33 for a weak-k-gon variant, per a search summary I could not verify against the paper; the SoCG text read via a summarising fetch already contains the sentence 'Our SAT-solver-based proofs show that this is also the case for weak k-gons', so that claim may date from June 2025. Neighbouring work does not change the planar statement: empty-hexagon h(6)=30 (Heule and Scheucher, Mar 2024; Lean follow-up Mar 2024), lines (Furukawa, Sep 2024), higher dimensions (Scheucher 2021; Pohoata and Zakharov 2022), a 2026 weighted monotone-subsequence namesake (Erdos 1026), a 2026 Koshelev-Koshka SAT/ASP paper on coloured variants, and the 2026 Chen-Pohoata above-below paper on R^d functions. The FrontierMath Erdos benchmark (6 Sep 2026) lists #107 as an open benchmark item, with no solution claimed. AI involvement: no AI system is credited with any mathematics on the planar problem in any source I read. Searches of the AI-results lists (the Gemini Aletheia paper with its 13 problems, the AlphaProof Nexus paper with 9 solved problems, the GitHub AI-contributions wiki) show no row for #107. The only AI credits found are on neighbouring problems: Aristotle on the namesake #1026, and ChatGPT on the 2026 above-below upper bound, the latter from an acknowledgements excerpt I could not confirm in the full PDF. Other AI-adjacent items seen but off-problem: the OpenAI unit-distance disproof (May 2026) and reports of Claude Mythos on the same unit-distance problem; neither is about convex position. The Epoch benchmark page's remark that Bloom estimates 3 to 5 Erdos problems of this calibre had been solved by AI is secondary context only. Name note: the Moonlight review of Bogdan's paper is AI-generated commentary, recorded as checked_by with automated true, and is not evidence about how the paper was written.",
+  "competing_reading": "A reader could count Baek and Balko's decomposable-sets theorem and Bogdan's anchored-family UNSAT certificates as cases of the problem under the 'case settled' reading of section 2 (a restricted class, or n=7 for certain families). On the strict scope reading, neither touches the statement for arbitrary planar point sets. Similarly, the JCTA weak-k-gon result could be read as evidence about the planar conjecture if the weak variant is treated as a stronger analogue, but the summary suggests it refutes only the weak analogue. The Holmsen et al. bound is either the best known upper bound for planar points (per erdosproblems.com and Wikipedia) or a bound on convex bodies (per the arXiv abstract as fetched), and the judging pass should pick the reading the paper supports.",
+  "what_would_settle_it": "(1) The JCTA article text (DOI 10.1016/j.jcta.2026.106195): the definition of weak k-gon, the C_weak(7) > 33 proof, and whether it is the same paper as the SoCG version. (2) The full text of Bogdan's arXiv paper: the anchored families, the transfer argument on omitted 5-point clauses, and any published certificate or code. (3) An earlier public version of the Baek-Balko split-polygon and decomposable-set results, to date them (a talk file with metadata dated 15 Jan 2024 was not readable). (4) The Chen-Pohoata PDF acknowledgements, to confirm or retract the ChatGPT sentence. (5) The FrontierMath Erdos scoring table, to see whether any system has attempted problem 107. (6) A change in the erdosproblems.com #107 status or a new citing paper that resolves a case.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Happy_ending_problem",
+      "title": "Happy ending problem (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.erdosproblems.com/107",
+      "title": "Erdos Problem #107 (erdosproblems.com)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.erdosproblems.com/history/107",
+      "title": "Erdos Problem #107 history (erdosproblems.com)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.erdosproblems.com/forum/thread/107",
+      "title": "Erdos Problem #107 forum thread (erdosproblems.com)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://www.erdosproblems.com/forum/thread/1026",
+      "title": "Erdos Problem #1026 forum thread (erdosproblems.com)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/teorth/erdosproblems/wiki/AI-contributions-to-Erd%C5%91s-problems",
+      "title": "AI contributions to Erdos problems (GitHub wiki)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/ErdosProblems/107.lean",
+      "title": "formal-conjectures FormalConjectures/ErdosProblems/107.lean",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.24061",
+      "title": "Notes on the 33-point Erdos-Szekeres problem (Bogdan), arXiv:2512.24061",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2512.24061v1",
+      "title": "Notes on the 33-point Erdos-Szekeres problem, HTML full text",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2604.20120",
+      "title": "Combinatorial Geometry of Erdos-Szekeres Type Problems (Koshelev, Koshka), arXiv:2604.20120",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.27061",
+      "title": "Above and below (Chen, Pohoata), arXiv:2605.27061, abstract",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2605.27061",
+      "title": "Above and below (Chen, Pohoata), PDF (binary; acknowledgements read only via search excerpt)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/html/LIPIcs.SoCG.2025.13/LIPIcs.SoCG.2025.13.html",
+      "title": "The Erdos-Szekeres Conjecture Revisited (Baek, Balko), SoCG 2025 LIPIcs HTML",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/LIPIcs.SoCG.2025.13/LIPIcs.SoCG.2025.13.pdf",
+      "title": "The Erdos-Szekeres Conjecture Revisited, PDF (binary; outline only)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2025.13",
+      "title": "Dagstuhl entity page, LIPIcs.SoCG.2025.13 (search result only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://cris.bgu.ac.il/en/publications/the-erdos-szekeres-conjecture-revisited-2/",
+      "title": "Ben-Gurion University research portal record, The Erdos-Szekeres conjecture revisited",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://doi.org/10.1016/j.jcta.2026.106195",
+      "title": "DOI 10.1016/j.jcta.2026.106195 (redirects to Elsevier; no content read)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://linkinghub.elsevier.com/retrieve/pii/S0097316526000385",
+      "title": "Elsevier linkinghub for S0097316526000385 (returned only 'Redirecting')",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0097316526000385",
+      "title": "ScienceDirect S0097316526000385 (HTTP 403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1604.08657",
+      "title": "On the Erdos-Szekeres convex polygon problem (Suk), arXiv:1604.08657",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1710.11415",
+      "title": "Two extensions of the Erdos-Szekeres problem (Holmsen, Mojarrad, Pach, Tardos), arXiv:1710.11415",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2105.08406",
+      "title": "A SAT attack on higher dimensional Erdos-Szekeres numbers (Scheucher), arXiv:2105.08406",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2208.04878",
+      "title": "Convex polytopes from fewer points (Pohoata, Zakharov), arXiv:2208.04878",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.00737",
+      "title": "Happy Ending: An Empty Hexagon in Every Set of 30 Points (Heule, Scheucher), arXiv:2403.00737",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2403.17370",
+      "title": "Formal Verification of the Empty Hexagon Number (Subercaseaux et al.), arXiv:2403.17370",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2409.03122",
+      "title": "Happy Ending or Many Concurrent Lines (Furukawa), arXiv:2409.03122",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2601.22401",
+      "title": "Semi-Autonomous Mathematics Discovery with Gemini (arXiv:2601.22401), abstract",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2601.22401v3",
+      "title": "Semi-Autonomous Mathematics Discovery with Gemini, HTML (13-problem table read in part)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.22763",
+      "title": "Advancing Mathematics Research with AI-Driven Formal Proof Search (AlphaProof Nexus), arXiv:2605.22763",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2605.22763v2",
+      "title": "Advancing Mathematics Research with AI-Driven Formal Proof Search, HTML (first 100k characters read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.25050",
+      "title": "FrontierMath Erdos (Adamczewski, Bloom), arXiv:2609.25050, HTML",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://epoch.ai/benchmarks/frontiermath-erdos",
+      "title": "Epoch AI FrontierMath Erdos benchmark page",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.quantamagazine.org/why-the-legendary-erdos-problems-are-falling-to-ai-20260803/",
+      "title": "Why the Legendary Erdos Problems Are Falling to AI (Quanta, 3 Aug 2026)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://kam.mff.cuni.cz/~balko/ES_SAT",
+      "title": "A SAT attack on the Erdos-Szekeres conjecture (Balko, Valtr), experimental page",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://mathweb.ucsd.edu/~asuk/balko.pdf",
+      "title": "Balko talk-style abstract PDF (metadata only; body unreadable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.themoonlight.io/review/notes-on-the-33-point-erds-szekeres-problem",
+      "title": "The Moonlight AI-generated review of arXiv:2512.24061 (search snippet only)",
+      "type": "blog",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "happy ending problem Erdős–Szekeres ES(7) 2025",
+      "Erdős–Szekeres convex polygon problem new bound 2025 arXiv",
+      "happy ending problem Erdős Szekeres wikipedia",
+      "Erdős–Szekeres conjecture 2^{n-2}+1 proof",
+      "happy ending problem AI proof convex polygon points general position",
+      "Erdős–Szekeres theorem empty convex polygon general position new result 2026",
+      "erdosproblems.com Erdős Szekeres convex polygon problem 107",
+      "33 points convex heptagon every set Erdős Szekeres SAT 2026",
+      "Erdős problem convex polygon AI GPT-5 literature search Erdős problems solved 2025",
+      "AlphaEvolve Erdős Szekeres happy ending problem",
+      "Erdős–Szekeres problem large language model proof OpenAI DeepMind convex position",
+      "Bogdan \"Notes on the 33-point Erdős–Szekeres problem\" arXiv 2512.24061",
+      "Baek Balko \"Erdős–Szekeres conjecture revisited\" arXiv split k-gon decomposable",
+      "Balko Valtr SAT strong variant Erdős–Szekeres cap-cup C_strong(7) > 33 Peters Szekeres conjecture disproved",
+      "formal-conjectures ErdosProblems 107.lean Erdős Szekeres Lean formalisation",
+      "\"Erdős–Szekeres\" convex polygon 2026 arXiv new upper bound Suk Holmsen Tardos improvement",
+      "Marić formal verification Erdős–Szekeres six points Isabelle Peters Szekeres 17 points",
+      "Koshelev Erdős–Szekeres Happy ending 2026 convex heptagon SAT signotopes",
+      "happy ending problem news 2026 convex polygon proof",
+      "\"Erdős-Szekeres\" \"artificial intelligence\" OR \"language model\" convex polygon points general position arXiv",
+      "AlphaProof Nexus 353 open Erdős problems list arXiv May 2026",
+      "FrontierMath Erdős benchmark arXiv 2609.25050 problems convex geometry",
+      "Erdős problem 216 convex polygon empty hexagon erdosproblems",
+      "Furukawa \"Happy Ending or Many Concurrent Lines\" abstract arXiv 2409.03122",
+      "Baek \"Erdős–Szekeres conjecture revisited\" Journal of Combinatorial Theory Series A 2026 volume 222",
+      "arXiv 2605.27061 \"Above and below\" Erdős convex",
+      "Pohoata Zakharov Erdős–Szekeres higher dimensions ES_d(n) = 2^{o(n)} proof",
+      "Scheucher Erdős–Szekeres SAT 2025 arXiv convex polygon general position new exact value",
+      "Suk \"On the Erdős–Szekeres convex polygon problem\" JAMS 2017 2^{n+o(n)} Quanta puzzle",
+      "Erdős problem 107 convex polygon AI Aristotle Harmonic happy ending formalised",
+      "google-deepmind formal-conjectures ErdosProblems 107 Erdős Szekeres 2^{n-2}+1 Lean statement",
+      "GPT-5 OR \"Gemini Deep Think\" Erdős–Szekeres convex polygon heptagon 33 points claim",
+      "Semi-Autonomous Mathematics Discovery with Gemini Erdős problems case study list convex Szekeres",
+      "\"Mathematical exploration and discovery at scale\" AlphaEvolve Erdős–Szekeres convex polygon problems",
+      "Baek \"C_weak(7)\" OR \"weak cup-cap\" Erdős–Szekeres 33 points SAT computer-assisted Journal of Combinatorial Theory",
+      "\"Erdős–Szekeres\" \"Claude\" OR \"Anthropic\" convex polygon conjecture proof 2026",
+      "ES(7)=33 convex heptagon 2026 announcement proof verified",
+      "Baek \"Erdős–Szekeres conjecture revisited\" weak k-gons abstract Kissat arXiv preprint version"
+    ],
+    "places_checked": [
+      "erdosproblems.com #107 (statement, status, references, comments), history page #107, forum thread #107, thread #1026",
+      "erdosproblems.com #216 (search summary only; not opened)",
+      "English Wikipedia 'Happy ending problem' (fetched; footer date reported as 11 Aug 2026)",
+      "arXiv abstracts and full text where readable: 2512.24061, 2604.20120, 2605.27061, 1604.08657, 1710.11415, 2105.08406, 2208.04878, 2403.00737, 2403.17370, 2409.03122, 2601.22401, 2605.22763, 2609.25050",
+      "SoCG 2025 LIPIcs (HTML full text; PDF binary); Ben-Gurion repository record; Balko's ES_SAT page",
+      "JCTA: DOI and ScienceDirect (HTTP 403; linkinghub returned 'Redirecting' only)",
+      "google-deepmind/formal-conjectures FormalConjectures/ErdosProblems/107.lean",
+      "teorth/erdosproblems GitHub wiki 'AI contributions to Erdős problems' (no row for 107; a row for 1071 is a number collision)",
+      "Epoch AI FrontierMath Erdos page; Quanta 3 Aug 2026 article on Erdos problems and AI",
+      "Searches for AI systems by name (GPT-5, GPT-5.x, Gemini, Gemini Deep Think, Aletheia, AlphaEvolve, AlphaProof Nexus, Aristotle, ChatGPT, Claude/Anthropic, OpenAI) combined with the problem's terms",
+      "The Moonlight AI-generated review of 2512.24061 (search snippet only; not opened)"
+    ],
+    "dead_ends": [
+      "No source credits any AI system with a result on planar f(n) for any n, and no AI claim on #107 appears in the erdosproblems.com page, its forum thread, its history page, or the AI-contributions wiki.",
+      "Gemini 'Aletheia' paper (arXiv:2601.22401): its 13 open problems read via a summarising fetch are 652, 1051, 654, 1040, 397, 935, 659, 1089, 333, 591, 705, 992 and 1105. None is 107. The last row was partly truncated in the text.",
+      "AlphaProof Nexus paper (arXiv:2605.22763): solved problems 12(i,ii), 26, 125, 138, 152, 741(i,ii), 846. None is 107. Only the first 100,000 of 204,037 characters were read.",
+      "OpenAI unit-distance disproof (May 2026) and reports of Claude Mythos on the same unit-distance problem: a different problem, not convex position. Not recorded as events.",
+      "Erdos problem 1026 (weighted monotone-subsequence theorem): a namesake. Recorded as an event with its reason.",
+      "Furukawa arXiv:2501.03645 'Big convex polytopes or rich hyperplanes' (search result, not opened): higher-dimensional analogue; not recorded as an event.",
+      "arXiv:2311.03645 'Automated Mathematical Discovery and Verification: Minimizing Pentagons in the Plane' (search result, not opened): a different problem about pentagons.",
+      "Lean PR 'JSP-000119: Lean formalization - Happy Ending problem' (TheJustinSunPrize/awards #2792; search result, not opened): concerns the ES(4) = 5 case; it is a formalisation of a known small case and is not recorded as an event.",
+      "Quanta 30 May 2017 'A Puzzle of Clever Connections Nears a Happy End' (search result, not opened): historical coverage of Suk 2016.",
+      "arXiv:2609.12325 'Almost Empty Monochromatic Triangles With Many Colors' (search result, not opened): unrelated to the planar statement by title.",
+      "Mathematical exploration and discovery at scale (AlphaEvolve, arXiv:2511.02864): search summary reports a Problem 6.53 about convex polygons (equidistant vertices), not ES(n). Not opened.",
+      "Koshelev-Koshka and Furukawa pages, and the Chen-Pohoata excerpts, read for AI mentions: no AI in the abstract pages; the Chen-Pohoata credit is from an excerpt (see the event)."
+    ]
+  },
+  "incomplete": "(1) The JCTA paper (vol. 222, article 106195) could not be read: ScienceDirect returned 403 and the DOI redirect gave no content. The C_weak(7) > 33 claim, the Kissat 3.0.0 detail, and the 'weak k-gons' statement come from search summaries and are recorded as unverified. Whether this is the same paper as the SoCG 2025 version is unknown. (2) The Baek-Balko SoCG full text was read through a summarising fetch of the LIPIcs HTML, not directly; the PDF was binary. The earliest public version is not established: a Balko talk PDF whose file metadata is dated 15 Jan 2024 was unreadable, so the first public written argument may predate 26 Jan 2024 and predates_frozen_revision is left null. (3) Chen-Pohoata (arXiv:2605.27061): the PDF is binary and the acknowledgements were not read in full. The ChatGPT credit is taken from a search excerpt. The PDF was saved outside the project directory, and I did not read it there. (4) The Bogdan record rests on the arXiv HTML read through a summarising fetch; no artifact or certificate was found, and no independent check was located. (5) The Epoch FrontierMath page shows no per-problem results, so whether any model has attempted or solved #107 is unknown beyond the benchmark listing. (6) The Gemini (2601.22401) and AlphaProof Nexus (2605.22763) lists were checked only in part (see dead_ends). (7) The Holmsen et al. planar-point bound attribution is unresolved (see disputes). (8) Suk's JAMS publication, the Marić Isabelle paper's sorry-status and its volume/year, the Pohoata-Zakharov Duke publication, and the Scheucher CGT publication are all from search summaries or journal metadata, not from the journal pages. (9) The 1935 and 1960 Erdos-Szekeres papers and the Morris-Soltan survey were not opened; their details come from Wikipedia and erdosproblems.com. (10) The Heule-Scheucher full paper was read only at abstract level, so its certificate size and checking are not recorded. (11) The erdosproblems.com #216 page was seen only in a search summary. (12) The DeepMind Lean file's commit date is not shown, so the event date is the copyright year 2025.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "none",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "baek-balko-2025-socg",
+  "no_change_found": false,
+  "event": {
+    "id": "baek-balko-2025-socg",
+    "what_happened": "Jineon Baek (University of Michigan) and Martin Balko (Charles University), 'The Erdos-Szekeres Conjecture Revisited', SoCG 2025, LIPIcs vol. 332, article 13, DOI 10.4230/LIPIcs.SoCG.2025.13; published 20 June 2025 per the Ben-Gurion repository record. Results: (i) every planar set of at least 2^(k-2)+1 points, no three collinear, contains a 'split k-gon' (Theorem 3), and the threshold is tight; (ii) the conjecture is proved for 'decomposable' point sets (Theorem 8; the statement with a = u = k confirms the conjecture for decomposable sets); (iii) an ordered 3-uniform hypergraph generalisation is false; (iv) new constructions of 2^(k-2) points with no k points in convex position, generalising all previously known ones. The full text also says 'Our SAT-solver-based proofs show that this is also the case for weak k-gons.' The earliest public version has not been established (see incomplete).",
+    "date": "2025-06-20",
+    "precision": "day",
+    "kind": "conference",
+    "predates_frozen_revision": null,
+    "revisions": "None found in the sources read. A journal version is listed separately (2026 event).",
+    "delivers": "For the split-k-gon relaxation: threshold 2^(k-2)+1, tight. For the convex-position problem: the conjecture holds for decomposable point sets only, a restricted class. For general planar point sets: nothing.",
+    "remains": "f(n) = 2^(n-2)+1 for every n >= 7 for arbitrary planar point sets, and the general statement for every n >= 3 beyond the decomposable class. The paper's own abstract calls the general conjecture still open.",
+    "checked_by": [
+      {
+        "who": "SoCG 2025 programme committee and referees (unnamed)",
+        "qualification": "Refereed conference proceedings (LIPIcs). The Ben-Gurion repository record describes it as peer-reviewed.",
+        "what_they_did": "Peer review for acceptance at SoCG 2025",
+        "where": "https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.SoCG.2025.13",
+        "automated": false
+      }
+    ],
+    "no_engagement_found": true,
+    "time_since_posted": "about 16 months to 12 Oct 2026",
+    "machine_checked": null,
+    "directly_checkable": "The 2^(k-2)-point constructions are checkable by computer for small k. Not checked by us.",
+    "doubts": null,
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Supports the conjectured threshold for split k-gons (tight) and confirms the conjecture for decomposable sets. Leaves the general planar case open. No counterexample to f(n) = 2^(n-2)+1 is claimed.",
+    "object": "Explicit constructions of 2^(k-2) points in the plane, no three collinear, with no k points in convex position, generalising all previously known constructions. These are the conjectured extremal sets, so they do not contradict the conjecture.",
+    "people": [
+      "Jineon Baek",
+      "Martin Balko"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/html/LIPIcs.SoCG.2025.13/LIPIcs.SoCG.2025.13.html"
+      ]
+    },
+    "sources": [
+      "https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/html/LIPIcs.SoCG.2025.13/LIPIcs.SoCG.2025.13.html",
+      "https://cris.bgu.ac.il/en/publications/the-erdos-szekeres-conjecture-revisited-2/"
+    ]
+  },
+  "credited_humans": [
+    "Jineon Baek",
+    "Martin Balko"
+  ],
+  "status_sources": [
+    "https://drops.dagstuhl.de/storage/00lipics/lipics-vol332-socg2025/html/LIPIcs.SoCG.2025.13/LIPIcs.SoCG.2025.13.html",
+    "https://cris.bgu.ac.il/en/publications/the-erdos-szekeres-conjecture-revisited-2/"
+  ],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "erdos-szekeres-1935-upper",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "erdos-szekeres-1960-lower",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "checkable",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kalbfleisch-1970-f5",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "szekeres-peters-2006-f6",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "balko-valtr-2015-sat",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "suk-2016-two-to-n-plus-o-n",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "holmsen-2017-hmpt",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Whether the paper states the planar-point bound (vs. convex bodies) is unresolved in the record's attribution dispute.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "maric-2017-isabelle-f6",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "scheucher-2021-higher-dim",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "pohoata-zakharov-2022-higher-dim",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "heule-scheucher-2024-empty-hexagon",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "subercaseaux-2024-lean-empty-hexagon",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "furukawa-2024-lines",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "baek-balko-2025-socg",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "erdos-1026-namesake-2025",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "Aristotle from Harmonic proved a formalization of Stijn Cambie's conjecture",
+        "ai_systems_credited": [
+          "Aristotle"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bogdan-2025-33-point-sat",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Single unreviewed preprint resting on author-reported UNSAT runs with no certificate or independent check; the relaxation-transfer step and the definition of the anchored families are unverified.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "deepmind-lean-107-statement-2025",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "koshelev-koshka-2026-sat-asp",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "jcta-baek-balko-2026-weak-k-gons",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "doubtful",
+        "credibility_reason": "Content known only from a search summary; the paper was not read.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chen-pohoata-2026-above-below",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "the upper bound AB^(d)(k) <= R-bar_mon(k; d+1) from Theorem 2 is entirely due to ChatGPT (search excerpt of the acknowledgements; not confirmed against the PDF text)",
+        "ai_systems_credited": [
+          "ChatGPT"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "frontiermath-erdos-2026-benchmark",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks for f(n) for every n, so asymptotic results (1935, Suk, HMPT) and the classical lower-bound construction are bounds, and single small n (5, 6) are cases. Post-snapshot, only Baek-Balko's proof of the conjecture for decomposable point sets is a genuine restriction of the planar question, so it is a case, refereed at SoCG and confirming. Bogdan's UNSAT runs over template-defined anchored families of 33-point sets are a partial computer search on n=7 rather than a settled restriction, so instances; this was the close call against 'case'. Empty hexagons, lines, higher dimensions, weak k-gons, coloured variants, the #1026 namesake and the above-below function are variants. AI credit (Aristotle on #1026, ChatGPT on Chen-Pohoata) is recorded on those variant events only; ChatGPT is assisted because it supplied one bound within a human paper.",
+    "doubts": "Baek-Balko's earliest public version may predate 26 Jan 2024 (an unreadable talk file dated 15 Jan 2024); answered on the recorded June 2025 date. Whether Bogdan's anchored families form a natural restriction (case) rather than a partial search (instances) cannot be settled from the record. The ChatGPT quote rests on an unconfirmed search excerpt.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "baek-balko-2025-socg",
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

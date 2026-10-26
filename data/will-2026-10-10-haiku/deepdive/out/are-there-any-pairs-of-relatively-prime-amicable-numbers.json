@@ -1,0 +1,650 @@
+{
+  "key": "are-there-any-pairs-of-relatively-prime-amicable-numbers",
+
+  "nothing_found": false,
+  "outcome": "No existence or nonexistence result has appeared since 26 January 2024: every source read still treats the question as open. The only post-freeze item on the problem, a 12 January 2026 Lean 4 formalization, restates the question as open and formalizes an empirical search statement, with no new mathematics on existence.",
+
+  "problem_asks": "One existence question: whether there exist positive integers m and n with gcd(m,n)=1 such that the sum of the proper divisors of m equals n and the sum of the proper divisors of n equals m (a relatively prime amicable pair). An affirmative answer requires exhibiting such a pair; a negative answer requires a proof that none exists. The statement asks for no bound, count or case split.",
+
+  "events": [
+    {
+      "id": "chen-tang-zhan-2026-lean",
+      "what_happened": "Chen, Tang and Zhan posted arXiv:2601.07444, 'Formalization of Amicable Numbers Theory', a Lean 4 / Mathlib formalization of amicable-number theory (Thabit ibn Qurra's rule, Euler's generalization, the Borho-Hoffmann breeding method, sociable and betrothed numbers). Section 2.3 states that all known amicable pairs have gcd(m,n) > 1 and that whether coprime amicable pairs exist is an open problem. Section 3.7.5 formalizes the empirical observation that no coprime amicable pair has been found below a bound: 'if a coprime amicable pair exists, the product of its members must exceed' 10^65, which the paper calls 'a statement of empirical fact from computation, not a mathematical theorem'. Table 2 lists a 'No coprime amicable pairs conjecture' as a Lean definition, and Section 3.8 formalizes three open problems as definitions, not proofs.",
+      "date": "2026-01-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, per the arXiv abstract page (no later versions listed).",
+      "delivers": "No existence or nonexistence fact about coprime amicable pairs. Its only quantitative content on the question is the restated empirical bound: any coprime pair would have product above 10^65, a claim the paper attributes to older computation and does not itself carry out. Its Lean results concern the general theory of amicable pairs (Thabit rule, Borho-Hoffmann method), not coprimality.",
+      "remains": "The whole problem: whether any coprime amicable pair exists, and whether none does.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 months (posted 12 January 2026; this record dated 11 October 2026)",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib v4.15.0 (per the repository README)",
+        "sorry_free": null,
+        "url": "https://github.com/chainstart/amicable-numbers",
+        "note": "The paper's Code Availability section states zero sorry placeholders and complete proofs of all major theorems. I did not read the Lean files. The README I read says the general Thabit rule is still to be proved, which contradicts the paper (see doubts). The paper uses native_decide (Section 3.3), which trusts compiled code rather than the kernel alone."
+      },
+      "directly_checkable": null,
+      "doubts": "(1) Conflict on the general Thabit rule. The paper says 'A key contribution of this work is the complete formal proof of the Thabit ibn Qurra formula' and lists thabit_rule_general for all k >= 1 (Section 3.6, Table 3). The repository README (read through the GitHub page, Contributing section) says 'Prove the general Thabit rule for all n (currently verified for n=2,4)'. The repository has 2 commits and I could not see a last-commit date. I could not resolve which is current; the raw README URL returned 404. (2) Provenance of the 10^65 statement. The introduction cites it to reference [7], given as Paul Pollack, 'On relatively prime amicable pairs', Colloquium Mathematicum, 2015. Section 3.7.5 says the product bound is 'Based on work by Pedersen (2003) and others', and Pedersen does not appear in the reference list. Suzuki (2018) cites a different Pollack 2015 paper (Moscow J. Combin. Number Theory 5 (2015) 36-51) for an explicit bound. I did not find the paper under the Lean paper's title, and the search that produced the 10^65 figure is not described. (3) The formalization turns this bound into a Lean definition-level statement; it adds nothing to the existence question itself.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral on existence. It states the question is open, formalizes 'no coprime amicable pairs exist' as a Lean definition, and formalizes an empirical search bound. It cuts neither way on existence.",
+      "object": null,
+      "people": ["Zhipeng Chen", "Haolun Tang", "Jingyi Zhan"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2601.07444v1", "https://github.com/chainstart/amicable-numbers"]
+      },
+      "sources": ["https://arxiv.org/abs/2601.07444v1", "https://arxiv.org/html/2601.07444v1", "https://github.com/chainstart/amicable-numbers", "https://hackers.pub/@Jose_A_Alonso@mathstodon.xyz/019bd634-0c39-78dc-8513-b94781d5fe9a/quotes"]
+    },
+    {
+      "id": "mavaddat-alikhani-2025-gcd-power-of-two",
+      "what_happened": "Mavaddat and Alikhani, 'Amicable numbers and their connection to the Euler totient function' (arXiv:2512.22319, math.HO, 13 pages). It characterizes amicable pairs whose gcd is a power of two, through three configurations: A = 2^n·ab with B = 2^n·cd (Theorem 2.1); A = 2^n·abc with B = 2^n·de (Theorem 2.3); A = 2^n·abc with B = 2^n·def (Theorem 2.5), each with an identity relating phi(A)+phi(B) to the odd prime factors.",
+      "date": "2025-12-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "Restricted to the three configurations above, all carrying a 2^n factor. The statement gives no range for n. The proofs use phi(2^n) = 2^(n-1), which needs n >= 1, so for n >= 1 both members are even and the coprime case (gcd 1, n = 0) is outside these theorems. The paper neither states nor treats the coprime case. It says nothing about whether coprime amicable pairs exist.",
+      "remains": "All of the problem. Whether the 2-power-gcd analysis could be extended to gcd 1 is not established by the text I read.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9.5 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral on existence. It concerns amicable pairs with a 2-power gcd, which for n >= 1 are both even, so it lies outside the coprime case.",
+      "object": null,
+      "people": ["Ali Reza Mavaddat", "Saeid Alikhani"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2512.22319", "https://arxiv.org/html/2512.22319"]
+      },
+      "sources": ["https://arxiv.org/abs/2512.22319", "https://arxiv.org/html/2512.22319"]
+    },
+    {
+      "id": "dimitrov-2024-generalizations",
+      "what_happened": "S. I. Dimitrov, 'Generalizations of Amicable Numbers' (arXiv:2408.07387). Proposes new generalizations of amicable numbers (multiamicable k-tuples with weighted sums, as described in OEIS A383239 and A385492) and proves properties of them. Journal of Integer Sequences 28 (2025), article 25.4.2, per a search snippet (journal page not opened).",
+      "date": "2024-08-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 14 Aug 2024; v2 7 Aug 2025 (current arXiv version). Journal publication 1 Aug 2025 per a search snippet.",
+      "delivers": "Results about generalized amicable notions. Per the abstract and OEIS snippets, nothing about gcd(m,n)=1 for ordinary amicable pairs. Discounted for scope: a different question. Full text not read, so a coprimality discussion cannot be excluded.",
+      "remains": "The whole problem.",
+      "checked_by": [
+        {
+          "who": "Journal of Integer Sequences editors and referees (not named)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Published the article (journal listing seen in search results; article not opened)",
+          "where": "https://cs.uwaterloo.ca/journals/JIS/VOL28/Dimitrov/dimitrov16.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem: it concerns generalized amicable notions.",
+      "object": null,
+      "people": ["S. I. Dimitrov"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2408.07387"]
+      },
+      "sources": ["https://arxiv.org/abs/2408.07387", "https://cs.uwaterloo.ca/journals/JIS/VOL28/Dimitrov/dimitrov16.html"]
+    },
+    {
+      "id": "bishop-2021-feebly-amicable",
+      "what_happened": "Bishop, Bozarth, Kuss and Peet, 'The Abundancy Index and Feebly Amicable Numbers' (arXiv:2104.11366). Defines feebly amicable (harmonious) pairs m, n with n/sigma(n) + m/sigma(m) = 1, tests whether every number has one, and offers questions and conjectures. Search snippets report a coprime feebly amicable pair (1485, 868) and a question about coprime feebly amicable pairs; I did not confirm these in the text.",
+      "date": "2021-04-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 28 Apr 2021; v3 12 Aug 2021, revised after referee comments.",
+      "delivers": "A different notion (feebly amicable pairs, n/sigma(n) + m/sigma(m) = 1). The abstract says nothing about ordinary amicable pairs or their gcd. Discounted for scope.",
+      "remains": "The whole problem.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 5 years (last version 12 Aug 2021)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not about this problem: a different notion of amicable pair.",
+      "object": null,
+      "people": ["Jamie Bishop", "Abigail Bozarth", "Rebekah Kuss", "Benjamin Peet"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2104.11366"]
+      },
+      "sources": ["https://arxiv.org/abs/2104.11366"]
+    },
+    {
+      "id": "suzuki-2017-bound",
+      "what_happened": "Yuta Suzuki, 'On amicable tuples' (arXiv:1711.06847, submitted 18 Nov 2017; Illinois J. Math. 62 (2018) 225-252; received 31 Jan 2018, revised 16 Jul 2018). Improves Pollack's bound: for relatively prime amicable pairs (M,N) with K = omega(MN) distinct prime factors, MN < (pi^2/6)·2^(4^K - 2·2^K); extends to some amicable tuples. The abstract presents Gmelin's 1917 nonexistence claim as a conjecture.",
+      "date": "2017-11-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "One arXiv version (v1). Journal version Illinois J. Math. 62 (2018) 225-252.",
+      "delivers": "For each fixed K, an explicit bound on the product of any coprime amicable pair with K distinct prime factors in MN. It is conditional on such a pair existing, so it says nothing about existence, and it does not bound K.",
+      "remains": "Existence for every K, including pairs with unboundedly many prime factors; and whether any coprime pair exists at all.",
+      "checked_by": [
+        {
+          "who": "Illinois Journal of Mathematics editors and referees (not named)",
+          "qualification": "Refereed journal publication",
+          "what_they_did": "Accepted and published the paper in 2018 (listing read on Project Euclid, DOI 10.1215/ijm/1552442661)",
+          "where": "https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A quantitative sharpening of a finiteness result. It cuts toward finiteness of size for each fixed K, not toward existence or nonexistence.",
+      "object": null,
+      "people": ["Yuta Suzuki"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1711.06847", "https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full"]
+      },
+      "sources": ["https://arxiv.org/abs/1711.06847", "https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full"]
+    },
+    {
+      "id": "pollack-2015-bound",
+      "what_happened": "Paul Pollack's explicit bound for relatively prime amicable pairs (M,N): MN < (2K)^(2^(K^2)), K = omega(MN). Reported in Suzuki (2018), which cites Moscow J. Combin. Number Theory 5 (2015) 36-51. The paper itself was not located or opened. The January 2026 Lean paper cites a Pollack 2015 paper, titled 'On relatively prime amicable pairs' in Colloquium Mathematicum, for the 10^65 search statement; the title and venue mismatch is unresolved.",
+      "date": "2015",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Same kind of result as suzuki-2017-bound, with a weaker bound: for each fixed K, an explicit size bound on coprime pairs with omega(MN) = K. Conditional on existence.",
+      "remains": "Existence for every K, and whether any coprime pair exists.",
+      "checked_by": [
+        {
+          "who": "Moscow Journal of Combinatorics and Number Theory editors and referees (not named)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published, per the citation in Suzuki (2018); not verified by opening the paper",
+          "where": "https://arxiv.org/abs/1711.06847",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 11 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The paper's title and venue are inconsistent across sources (see disputes).",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Same as suzuki-2017-bound: finiteness for each fixed K, with an explicit size bound conditional on existence.",
+      "object": null,
+      "people": ["Paul Pollack"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full"]
+      },
+      "sources": ["https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full", "https://arxiv.org/abs/1711.06847"]
+    },
+    {
+      "id": "borho-1974-finiteness",
+      "what_happened": "Borho, Mathematische Annalen 209 (1974) 183-193, as cited in Suzuki (2018): for any fixed positive integer K, only finitely many relatively prime amicable pairs (M,N) have omega(MN) = K. The paper itself was not opened.",
+      "date": "1974",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Finiteness for each fixed K. It does not bound K and does not decide existence.",
+      "remains": "Existence, and the case of unbounded K.",
+      "checked_by": [
+        {
+          "who": "Mathematische Annalen editors and referees (not named)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published, per the citation in Suzuki (2018); not verified by opening the paper",
+          "where": "https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 52 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Finiteness for each fixed K. Does not cut toward existence or nonexistence.",
+      "object": null,
+      "people": ["Borho"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full"]
+      },
+      "sources": ["https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full"]
+    },
+    {
+      "id": "artjuhov-1975-finiteness",
+      "what_happened": "Artjuhov, Acta Arithmetica 27 (1975) 281-291, as cited in Suzuki (2018) and in search summaries: the same finiteness for each fixed K, for relatively prime amicable pairs with omega(MN) = K. The paper itself was not opened.",
+      "date": "1975",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Finiteness for each fixed K. It does not bound K and does not decide existence.",
+      "remains": "Existence, and the case of unbounded K.",
+      "checked_by": [
+        {
+          "who": "Acta Arithmetica editors and referees (not named)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published, per the citation in Suzuki (2018); not verified by opening the paper",
+          "where": "https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 51 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Finiteness for each fixed K. Does not cut toward existence or nonexistence.",
+      "object": null,
+      "people": ["Artjuhov"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full"]
+      },
+      "sources": ["https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full"]
+    },
+    {
+      "id": "gmelin-1917-conjecture",
+      "what_happened": "Gmelin (1917) noted that none of the amicable pairs then known had relatively prime members and conjectured that no relatively prime amicable pair exists. The original publication was not located; the attribution comes from Suzuki (2018) and secondary summaries.",
+      "date": "1917",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A conjecture, not a result. It states the nonexistence answer to the question, supported only by the then-known pairs.",
+      "remains": "All of the problem.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 109 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The conjecture was made on the basis of the pairs known in 1917; its support has since been changed by the discovery of very many pairs, all of which share a prime factor, and no coprime pair among them.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Conjectures the negative answer: no relatively prime amicable pair exists.",
+      "object": null,
+      "people": ["Gmelin"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full"]
+      },
+      "sources": ["https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full", "https://en.wikipedia.org/wiki/Amicable_numbers"]
+    },
+    {
+      "id": "hagis-1969-odd",
+      "what_happened": "Hagis, 'On relatively prime odd amicable numbers', Mathematics of Computation 23 (1969), no. 107, 539-543 (MR 0246816; DOI 10.1090/S0025-5718-1969-0246816-7). Per the AMS listing's abstract as shown in a search snippet, it derives necessary conditions for an odd relatively prime amicable pair: lower bounds on m, n, mn and on the number of prime divisors of mn, using a large computation. The AMS page returned HTTP 403 to my fetch, so this comes from the search snippet.",
+      "date": "1969",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Necessary conditions for odd coprime pairs, which hold if such a pair exists. Restricted to odd pairs. It makes no existence claim.",
+      "remains": "Even and mixed-parity cases; existence.",
+      "checked_by": [
+        {
+          "who": "Mathematics of Computation editors and referees (AMS; not named)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published (AMS metadata seen in search results)",
+          "where": "https://www.ams.org/mcom/1969-23-107/S0025-5718-1969-0246816-7/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 57 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Constraints on any odd coprime pair, conditional on existence. Does not cut toward existence or nonexistence.",
+      "object": null,
+      "people": ["Peter Hagis, Jr."],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.ams.org/mcom/1969-23-107/S0025-5718-1969-0246816-7/"]
+      },
+      "sources": ["https://www.ams.org/mcom/1969-23-107/S0025-5718-1969-0246816-7/"]
+    },
+    {
+      "id": "hagis-1970-opposite-parity",
+      "what_happened": "Hagis, 'Lower bounds for relatively prime amicable numbers of opposite parity', Mathematics of Computation 24 (1970), no. 112, 963-968; companion paper 'Relatively prime amicable numbers of opposite parity', Mathematics Magazine 43 (1970) 14-20. Per the abstract quoted in a search snippet: if m and n are relatively prime amicable numbers of opposite parity, then mn > 10^121 and each of m, n > 10^60. The AMS page was not opened (HTTP 403 for the 1969 page; the 1970 page was seen only as a snippet).",
+      "date": "1970",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "For a coprime pair of opposite parity, mn > 10^121 and each member exceeds 10^60. Conditional on existence and restricted to opposite-parity pairs. It makes no existence claim.",
+      "remains": "Same-parity pairs; existence.",
+      "checked_by": [
+        {
+          "who": "Mathematics of Computation editors and referees (AMS; not named)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published (AMS metadata seen in search results)",
+          "where": "https://www.ams.org/mcom/1970-24-112/S0025-5718-1970-0276167-4/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 56 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Constraints on any opposite-parity coprime pair, conditional on existence. Does not cut toward existence or nonexistence.",
+      "object": null,
+      "people": ["Peter Hagis, Jr."],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.ams.org/mcom/1970-24-112/S0025-5718-1970-0276167-4/"]
+      },
+      "sources": ["https://www.ams.org/mcom/1970-24-112/S0025-5718-1970-0276167-4/", "https://arxiv.org/abs/1609.08795"]
+    },
+    {
+      "id": "yamada-2016-constraints",
+      "what_happened": "Tomohiro Yamada, 'On the divisibility of odd perfect numbers, quasiperfect numbers and amicable numbers by a high power of a prime' (arXiv:1609.08795). The abstract says it gives similar results for relatively prime amicable pairs of opposite parity. The PDF body was not readable through WebFetch. Search snippets quote it as restating Hagis: mn not divisible by 3 forces mn >= 10^74 with at least 21 distinct prime factors; if 5 does not divide mn then mn >= 10^238 with at least 53 distinct prime factors; and m, n > 10^60 (later Hagis result).",
+      "date": "2016-09-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Submitted 28 Sep 2016 (v1). The version shown on arXiv is v6, last revised 7 Sep 2021.",
+      "delivers": "Lower bounds on size and prime-factor count for a relatively prime pair of opposite parity, as restated in the snippets. Conditional on existence; the 10^74 and 10^238 figures are not verified against the body.",
+      "remains": "Existence; same-parity pairs.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The body was not read, so the specific bounds are unverified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Constraints on any opposite-parity coprime pair, conditional on existence. Does not cut toward existence or nonexistence.",
+      "object": null,
+      "people": ["Tomohiro Yamada"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1609.08795"]
+      },
+      "sources": ["https://arxiv.org/abs/1609.08795"]
+    },
+    {
+      "id": "wells-1986-size-bound",
+      "what_happened": "David Wells, The Penguin Dictionary of Curious and Interesting Numbers (London: Penguin, 1986; 2nd edition 1997 per the ProofWiki source list). Gives the size bound: if a coprime amicable pair exists, the product of its members exceeds 10^67. The book was not opened; the attribution comes from ProofWiki, Wikipedia and a secondary page. The Wikipedia reference list dates the Penguin book to 1987, while ProofWiki lists 1986 and 1997.",
+      "date": "1986",
+      "precision": "year",
+      "kind": "announcement",
+      "predates_frozen_revision": true,
+      "revisions": "2nd edition 1997 (per ProofWiki source list). The enumerated kind 'announcement' is used because a book is not among the listed kinds.",
+      "delivers": "A conditional size bound (product above 10^67) on a hypothetical coprime pair. It does not decide existence.",
+      "remains": "All of the problem.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 40 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "A size constraint on any hypothetical coprime pair. Does not cut toward existence or nonexistence.",
+      "object": null,
+      "people": ["David Wells"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://proofwiki.org/wiki/Existence_of_Coprime_Amicable_Pair", "https://en.wikipedia.org/wiki/Amicable_numbers"]
+      },
+      "sources": ["https://proofwiki.org/wiki/Existence_of_Coprime_Amicable_Pair", "https://en.wikipedia.org/wiki/Amicable_numbers"]
+    },
+    {
+      "id": "garcia-pedersen-teriele-2003-survey",
+      "what_happened": "Garcia, Pedersen and te Riele, 'Amicable pairs: a survey' (CWI report, 2003; ir.cwi.nl/pub/4143). Not opened; only the bibliographic record appeared in search results. The January 2026 Lean paper attributes its 10^65 search statement to 'Pedersen (2003) and others'. Wikipedia cites the same survey for over 1000 known pairs coprime to 30 = 2·3·5.",
+      "date": "2003",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Unknown. I could not read whether the survey reports a search for coprime pairs to 10^65. If it does, that is a finite search statement, not a resolution.",
+      "remains": "All of the problem.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 23 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The source of the 10^65 statement is unverified, as described in chen-tang-zhan-2026-lean.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Unknown until the survey text is read.",
+      "object": null,
+      "people": ["Garcia", "Pedersen", "te Riele"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://ir.cwi.nl/pub/4143/"]
+      },
+      "sources": ["https://ir.cwi.nl/pub/4143/"]
+    },
+    {
+      "id": "battiato-borho-1988-coprime-to-6",
+      "what_happened": "Battiato and Borho, 'Are there odd amicable numbers not divisible by three?', Mathematics of Computation 50 (1988) 633-637. Per search snippets, this answers negatively the Bratley-McKay (1968) conjecture that no amicable pair is coprime to 6, by exhibiting amicable pairs in which neither member is divisible by 6. The AMS page was not opened.",
+      "date": "1988",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Amicable pairs whose members are each coprime to 6. Discounted for scope: this concerns each member's divisibility by 2 and 3, not gcd(m,n).",
+      "remains": "All of the problem.",
+      "checked_by": [
+        {
+          "who": "Mathematics of Computation editors and referees (AMS; not named)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published (AMS metadata seen in search results)",
+          "where": "https://www.ams.org/mcom/1988-50-182/S0025-5718-1988-0929559-5/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "about 38 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Discounted: a result about a neighbouring property (coprime to 6), not about gcd(m,n)=1.",
+      "object": null,
+      "people": ["Battiato", "Borho"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://www.ams.org/mcom/1988-50-182/S0025-5718-1988-0929559-5/"]
+      },
+      "sources": ["https://www.ams.org/mcom/1988-50-182/S0025-5718-1988-0929559-5/"]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Pollack's 2015 paper: Suzuki (2018) cites Moscow J. Combin. Number Theory 5 (2015) 36-51 for an explicit bound on coprime amicable pairs; the January 2026 Lean paper cites 'Pollack, On relatively prime amicable pairs, Colloquium Mathematicum, 2015' as the source of the 10^65 search statement. I did not find the paper under either description, so this is unresolved.",
+      "sources": ["https://arxiv.org/abs/1711.06847", "https://arxiv.org/html/2601.07444v1"]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Source of the 10^65 search statement: the Lean paper's introduction cites reference [7] (Pollack), while Section 3.7.5 says 'Based on work by Pedersen (2003) and others', and Pedersen is not in the reference list. The Pedersen-García-te Riele survey was not read.",
+      "sources": ["https://arxiv.org/html/2601.07444v1", "https://ir.cwi.nl/pub/4143/"]
+    },
+    {
+      "kind": "conflict",
+      "summary": "Status of the general Thabit rule: the Lean paper says the complete formal proof of the Thabit formula, thabit_rule_general for all k >= 1, is a key contribution; the repository README says proving the general rule is still future work (verified for n=2,4). Not resolved from what I could read.",
+      "sources": ["https://arxiv.org/html/2601.07444v1", "https://github.com/chainstart/amicable-numbers/blob/master/README.md"]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Wells's edition year: ProofWiki lists 1986 and 1997 editions; the Wikipedia reference list gives Wells (1987, Penguin) pp. 145-147. The 10^67 statement is the same in both.",
+      "sources": ["https://proofwiki.org/wiki/Existence_of_Coprime_Amicable_Pair", "https://en.wikipedia.org/wiki/Amicable_numbers"]
+    }
+  ],
+
+  "summary": "I ran 39 web searches and opened the primary sources I could reach for the question whether a relatively prime amicable pair exists. Every source I read treats it as open. The current Wikipedia list (read in October 2026) carries it under Number theory > General, next to the opposite-parity and infinitude questions. ProofWiki's 'Existence of Coprime Amicable Pair' sits in its open-questions category. Suzuki (2018) and the January 2026 Lean paper both state it as unresolved. The literature from 1917 to 2018 (Gmelin's conjecture; Artjuhov 1975 and Borho 1974 finiteness for each fixed K; Pollack 2015; Suzuki 2018; Hagis 1969 and 1970; Yamada 2016; Wells's 10^67 size bound) gives conditional constraints, namely that any such pair would be very large and have many prime factors, but each presupposes existence and none decides it. Since 26 January 2024 I found one item on the problem itself and two neighbouring items. The item on the problem is the Chen-Tang-Zhan Lean formalization (12 January 2026). It restates the question as open, formalizes it as a Lean definition, and formalizes an empirical 10^65 search statement that it attributes to older work and calls 'empirical fact from computation, not a mathematical theorem'. The neighbours are the Mavaddat-Alikhani gcd-power-of-two paper (26 December 2025), whose theorems carry a 2^n factor and so leave the coprime case outside them, and Dimitrov's generalization paper (August 2024), a different notion. Close call: the 10^65 statement could be read as a quantity named in the problem having moved, since it is the largest explicit restriction on a coprime pair I found. I did not record it as a move, because it is not new mathematics, it is attributed to older work whose source I could not confirm, it is an empirical statement, and it is conditional on a pair existing. The Lean paper's claim of a complete general Thabit rule conflicts with its repository README, which I could not resolve from what I read. AI search: I ran explicit searches for AI, LLM, GPT-5, Claude Opus, Gemini Deep Think, AlphaEvolve, Harmonic's Aristotle, DeepMind's formal-conjectures repository, Erdos-problem trackers, AI-generated proofs and AI counterexample searches. None linked an AI system to this problem or to amicable pairs in general. The Lean paper, its repository and the Mavaddat-Alikhani paper name no AI system, and the Lean paper does not say how its code was written. The older papers name none in what I read. No source names a system, so ai.none_found is true for each event. The 2026 AI-and-Erdos results in the search results concern other problems. Erdos problem 830 uses a different definition (sigma(a) = sigma(b) = a + b) and is not this question.",
+
+  "competing_reading": "The strongest case for something having moved is the Lean paper's 10^65 search statement. It is the largest explicit restriction on a coprime pair in the sources, it sits in a machine-checkable artefact, and the paper formalizes it. Against that: the statement is empirical and attributed to older work whose source is unconfirmed, and it is a size constraint on a hypothetical object, so it cannot move existence in either direction. A second reading treats Hagis, Yamada, Suzuki and Pollack as partial results because they constrain every candidate. Against that: each presupposes a pair exists, and none decides whether one does.",
+
+  "what_would_settle_it": "(a) An explicit coprime pair (m,n) with gcd 1 and s(m) = n and s(n) = m, which anyone can check by computing proper-divisor sums, or a published proof that none exists. (b) For the 10^65 statement: the search method and range from the Garcia-Pedersen-te Riele 2003 survey or Pollack's 2015 paper, and confirmation of which paper the Lean paper's reference [7] is. (c) For the Lean artefact: a sorry-free build of chainstart/amicable-numbers, its commit history, and whether thabit_rule_general is actually proved. (d) For AI involvement: an acknowledgement in the Lean paper or a later paper naming a tool. None found.",
+
+  "sources": [
+    {"url": "https://arxiv.org/abs/2601.07444v1", "title": "Formalization of Amicable Numbers Theory (arXiv abstract)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2601.07444v1", "title": "Formalization of Amicable Numbers Theory (arXiv HTML)", "type": "preprint", "opened": true},
+    {"url": "https://github.com/chainstart/amicable-numbers", "title": "chainstart/amicable-numbers (Lean 4 repository)", "type": "repository", "opened": true},
+    {"url": "https://github.com/chainstart/amicable-numbers/blob/master/README.md", "title": "Repository README (GitHub blob page; read through a summarizer)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/chainstart/amicable-numbers/main/README.md", "title": "Raw README (HTTP 404)", "type": "repository", "opened": false},
+    {"url": "https://hackers.pub/@Jose_A_Alonso@mathstodon.xyz/019bd634-0c39-78dc-8513-b94781d5fe9a/quotes", "title": "Mastodon post linking the Lean paper (link only, no review)", "type": "blog", "opened": true},
+    {"url": "https://www.themoonlight.io/review/formalization-of-amicable-numbers-theory", "title": "themoonlight review of the Lean paper (HTTP 429)", "type": "blog", "opened": false},
+    {"url": "https://arxiv.org/abs/2512.22319", "title": "Amicable numbers and their connection to the Euler totient function (abstract)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2512.22319", "title": "Amicable numbers and their connection to the Euler totient function (HTML)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2408.07387", "title": "Generalizations of Amicable Numbers (abstract)", "type": "preprint", "opened": true},
+    {"url": "https://cs.uwaterloo.ca/journals/JIS/VOL28/Dimitrov/dimitrov16.html", "title": "Journal of Integer Sequences listing for Dimitrov (snippet only)", "type": "journal", "opened": false},
+    {"url": "https://arxiv.org/abs/2104.11366", "title": "The Abundancy Index and Feebly Amicable Numbers (abstract)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1711.06847", "title": "On amicable tuples (Suzuki, abstract)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/1711.06847", "title": "On amicable tuples (PDF; binary, unreadable)", "type": "preprint", "opened": false},
+    {"url": "https://projecteuclid.org/journals/illinois-journal-of-mathematics/volume-62/issue-1-4/On-amicable-tuples/10.1215/ijm/1552442661.full", "title": "On amicable tuples, Illinois J. Math. 62 (2018) (Project Euclid)", "type": "journal", "opened": true},
+    {"url": "https://arxiv.org/abs/1609.08795", "title": "On the divisibility of odd perfect numbers, quasiperfect numbers and amicable numbers by a high power of a prime (Yamada, abstract)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/1609.08795", "title": "Yamada PDF (binary, unreadable)", "type": "preprint", "opened": false},
+    {"url": "https://www.ams.org/mcom/1969-23-107/S0025-5718-1969-0246816-7/", "title": "Hagis 1969, Math. Comp. (AMS; HTTP 403)", "type": "journal", "opened": false},
+    {"url": "https://www.ams.org/mcom/1970-24-112/S0025-5718-1970-0276167-4/", "title": "Hagis 1970, Math. Comp. (AMS; snippet only)", "type": "journal", "opened": false},
+    {"url": "https://www.ams.org/mcom/1988-50-182/S0025-5718-1988-0929559-5/", "title": "Battiato-Borho 1988, Math. Comp. (AMS; snippet only)", "type": "journal", "opened": false},
+    {"url": "https://ir.cwi.nl/pub/4143/", "title": "Garcia, Pedersen, te Riele, Amicable pairs: a survey (CWI record; snippet only)", "type": "repository", "opened": false},
+    {"url": "https://proofwiki.org/wiki/Existence_of_Coprime_Amicable_Pair", "title": "ProofWiki: Existence of Coprime Amicable Pair", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Amicable_numbers", "title": "Wikipedia: Amicable numbers", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics", "title": "Wikipedia: List of unsolved problems in mathematics (current page, read in two chunks, October 2026)", "type": "encyclopedia", "opened": true},
+    {"url": "https://pollack.uga.edu/powerful-colloq2.pdf", "title": "Pollack talk PDF (redirects to a homepage; not followed)", "type": "preprint", "opened": false},
+    {"url": "https://math.dartmouth.edu/~carlp/amicabletalk7.pdf", "title": "Pomerance, Amicable numbers talk (snippet only)", "type": "preprint", "opened": false},
+    {"url": "https://www.erdosproblems.com/830", "title": "Erdos Problem 830 (snippet only)", "type": "encyclopedia", "opened": false},
+    {"url": "https://oeis.org/A385492", "title": "OEIS A385492 (snippet only)", "type": "encyclopedia", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "relatively prime amicable numbers open problem",
+      "coprime amicable pair existence",
+      "amicable numbers coprime gcd(m,n)=1 Wikipedia list of unsolved problems",
+      "amicable pairs gcd 1 no coprime amicable pair known",
+      "amicable numbers 2026 new result",
+      "coprime amicable numbers proof",
+      "coprime amicable pair disproved",
+      "amicable pair relatively prime new bound 2025",
+      "amicable numbers AI model proof",
+      "amicable numbers large language model discovery",
+      "AlphaEvolve amicable numbers",
+      "Erdős problems AI amicable",
+      "Wikipedia List of unsolved problems in mathematics number theory amicable",
+      "formal-conjectures Lean repository amicable numbers coprime",
+      "Google DeepMind formal conjectures open problems number theory amicable",
+      "Pollack relatively prime amicable pairs 2015 Moscow Journal of Combinatorics and Number Theory",
+      "Hagis 1969 relatively prime odd amicable numbers Mathematics of Computation",
+      "Pomerance amicable numbers talk Dartmouth open problems coprime",
+      "Battiato Borho amicable pairs coprime 6 counterexample 1988",
+      "Gmelin 1917 conjecture relatively prime amicable pairs Artjuhov Borho",
+      "Chen Tang Zhan amicable numbers Lean 4 github repository sorry",
+      "GPT-5 amicable numbers proof OpenAI",
+      "Claude Opus amicable pairs coprime mathematics",
+      "Gemini Deep Think amicable numbers",
+      "Terence Tao amicable numbers blog",
+      "relatively prime amicable pairs arXiv 2024",
+      "odd amicable pair discovered 2025 new amicable pairs record",
+      "Hagis 1970 lower bounds relatively prime amicable numbers opposite parity 10^121",
+      "Wells Curious and Interesting Numbers amicable coprime 10^67",
+      "Erdős problems website amicable numbers coprime open",
+      "AI mathematics open problems tracker number theory amicable pairs",
+      "Generalizations of amicable numbers arXiv 2408.07387 coprime",
+      "\"amicable\" \"coprime\" 2026 arXiv open question",
+      "Pollack \"On relatively prime amicable pairs\" paper",
+      "Pedersen 2003 tables of amicable pairs search coprime",
+      "chainstart amicable-numbers Lean github",
+      "amicable pairs AI-generated proof arXiv 2026 coprime",
+      "Harmonic Aristotle Lean amicable numbers",
+      "AI agent search amicable pairs Euler sigma coprime counterexample"
+    ],
+    "places_checked": [
+      "arXiv abstracts and HTML: 2601.07444, 2512.22319, 1711.06847, 1609.08795, 2408.07387, 2104.11366",
+      "arXiv PDFs (1711.06847, 1609.08795): unreadable through WebFetch",
+      "Lean repository github.com/chainstart/amicable-numbers (blob page read; raw README 404)",
+      "Wikipedia: Amicable numbers; List of unsolved problems in mathematics (current page, October 2026; the frozen January 2024 revision was not read)",
+      "ProofWiki: Existence of Coprime Amicable Pair",
+      "Project Euclid: Suzuki 2018 (abstract and citations)",
+      "AMS Mathematics of Computation: 1969 (HTTP 403), 1970 and 1988 (snippets only)",
+      "Mastodon post linking the Lean paper (hackers.pub)",
+      "Erdos problems site, Problem 830 (snippet only)",
+      "Pomerance Dartmouth talks (snippets only; no coprime mention in the retrieved text)",
+      "CWI report 4143 (snippet only)",
+      "AI: DeepMind formal-conjectures repository (snippet only; repository not read); AI-result roundups (snippets); Epoch FrontierMath Open Problems and UnsolvedMath dataset (snippets); AI4Math survey arXiv 2608.24961 (snippet only; not opened, not checked for this problem)",
+      "OEIS A385492 (snippet only)"
+    ],
+    "dead_ends": [
+      "Erdos Problem 830 (erdosproblems.com/830): defines amicable pairs by sigma(a) = sigma(b) = a + b and asks about infinitude and the counting function A(x). Not coprimality.",
+      "ProofWiki 'Amicable Pair with Smallest Common Prime Factor 5' (snippet): a 2015 computer-found pair whose members have different smallest prime factors (3 and 5). Says nothing about gcd(m,n)=1, since the members may share a larger prime.",
+      "Pairs coprime to 6 (Bratley-McKay 1968 conjecture, disproved by Battiato-Borho 1988) and pairs coprime to 30 or 210 (Wikipedia; over 1000 known coprime to 30): these concern each member's divisibility, not gcd(m,n).",
+      "Feebly amicable (harmonious) pairs (Bishop et al. 2021): a different notion.",
+      "Dimitrov 2024, multiamicable generalizations: a different notion; full text not read, so a coprimality discussion is not excluded.",
+      "Mavaddat-Alikhani 2025: gcd power of two; read through the HTML summary.",
+      "DeepMind formal-conjectures repository: search snippets show no amicable or coprime entry; repository itself not read.",
+      "AI searches (LLM, GPT-5, Claude Opus, Gemini Deep Think, AlphaEvolve, Aristotle, AI-generated proof, AI counterexample): nothing linking an AI system to this problem.",
+      "AI results on Erdos problems in 2026 (unit distance, problems 281, 728, 848): different problems.",
+      "Hagis 1969 and 1970 full texts (AMS 403; snippets only) and Pollack 2015 full text: not reachable.",
+      "themoonlight review of the Lean paper (HTTP 429): not opened, so its claim of zero sorry placeholders is unverified.",
+      "Google Scholar and MathSciNet were not accessible; the check for later citing papers used web search only."
+    ]
+  },
+
+  "incomplete": "Not read directly: Hagis 1969 and 1970 (AMS 403; snippets only), Borho 1974, Artjuhov 1975, Gmelin 1917, Pollack 2015 (title and venue unresolved), Wells 1986 (secondary attribution), the Garcia-Pedersen-te Riele 2003 survey (bibliographic record only), Battiato-Borho 1988 (snippet only), and the full texts of Suzuki 2018 and Yamada 2016 (arXiv PDFs unreadable through WebFetch). The Mavaddat-Alikhani full text was read through a summary of its HTML. The Lean repository's source files were not read, so sorry status, whether the general Thabit rule is proved, and any AI tool use are unverified; the raw README returned 404 and the blob-page text came through a summarizer. The source of the 10^65 search statement is unresolved. I read the current Wikipedia list, not the frozen 26 January 2024 revision. Later citations were checked only by web search, so later_work_cites_it is null for the Lean paper and the Mavaddat-Alikhani paper. The Mastodon post is a link, not a review. The themoonlight review was not reached (HTTP 429). 'The Gold Rush in AI4Math' (arXiv 2608.24961) was seen in a snippet and not opened, so I did not check whether it lists this problem."
+}

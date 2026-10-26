@@ -1,0 +1,989 @@
+{
+  "key": "is-every-finitely-presented-periodic-group-finite",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 one claim bears directly on the problem: OpenAI's openai/math repository (public 6 October 2026, preprint dated 23 September 2026) asserts an infinite finitely presented periodic group, a Steinberg group St(12, R) over a characteristic-two ring; its Lean Comparator challenge states the question exactly, and its main-theorem target file contains sorry by design, while the solution-side files I could read contain none, and no human engagement with the claim was found. Otherwise the problem still appears open: Kourovka Notebook 21st edition (6 October 2026) lists the question as Problems 8.52 and 6.3 with no comment and no AI marker.",
+  "problem_asks": "One yes/no question: is every finitely presented periodic group finite? Unpacked: (i) is there a group G that is finitely presented (finitely many generators and finitely many relators) in which every element has finite order (periodic); (ii) if such a G exists, is it necessarily finite? A 'no' answer needs exactly one infinite finitely presented periodic group. The statement places no restriction on the exponent (bounded or unbounded: periodic means each element has some finite order, not a common exponent), on the number of generators beyond finiteness, on the characteristic, or on the presentation. It is not the question for finitely generated periodic groups (Burnside/Golod-Shafarevich) and not the question for free Burnside groups B(m,n). The problem has no parent bullet.",
+  "events": [
+    {
+      "id": "openai-2026-f-p-periodic",
+      "what_happened": "OpenAI's openai/math repository, released publicly on 6 October 2026 as 722 manuscripts from an unreleased internal OpenAI model, has a family 247 page (lean/docs/247.md) with title 'An infinite finitely presented residually finite 2-group and a finitely presented nil algebra'. Its Scope section says: 'The formalization gives a negative answer by constructing an infinite finitely presented periodic group, including a witness realized as a Steinberg group over an algebra of characteristic two.' The linked preprint is 'An infinite finitely presented periodic group' (preprints/An-infinite-finitely-presented-periodic-group-September-23-2026/paper.pdf; README: Author OpenAI, Date September 23, 2026). The Lean challenge file lean/ComparatorChallenges/PeriodicGroup.lean declares MainStatement (there is a ring R with Algebra (ZMod 2) R such that Steinberg 12 R is infinite, Group.IsFinitelyPresented, and Periodic) and BurnsideStatement (there is a group G that is infinite, finitely presented and periodic), with theorem thm_main : MainStatement and BurnsideStatement. The Lean definition is def Periodic (G) := forall g, exists m, 0 < m and g^m = 1. The paper PDF could not be read (see incomplete).",
+      "date": "2026-09-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "The preprint folder has one commit, 'Initial commit' (adc7f12), dated 6 Oct 2026; no later version is visible. 23 Sep 2026 is the date printed in the paper's README and folder name, so it is the paper's own date; the first public posting that I can confirm is 6 Oct 2026. The paper's own date is used here as the first written argument, per DEEP_DIVE section 5.1; the posting date is recorded in revisions.",
+      "delivers": "If the formal statement matches the paper and the proofs hold, the claim establishes the existence of an infinite finitely presented periodic group, which answers the problem's question in the 'no' direction. Restrictions it carries: the group is a Steinberg group St(12, R) (matrix size 12, generators indexed by distinct pairs of indices and elements of R, with the relations in the Lean SteinbergRel inductive: additivity in R, commutation of root elements with non-clashing indices, and one multiplicative relation over three distinct indices), over a ring R that is an algebra over the field with two elements; R is existentially quantified in the Lean statement and is not named in the files I read. Periodicity is per element with no uniform exponent (the repo doc says explicitly that 'no common exponent is asserted'), so the bounded-exponent version of the question (Sapir's expectation, see the 2007 event) is NOT settled by this claim. The paper's nil-algebra and radical-algebra conclusions (in the family title) are outside the Lean scope and do not bear on this question.",
+      "remains": "If the claim holds, nothing in the problem's yes/no question remains open. The bounded-exponent question (is there an infinite finitely presented group of bounded exponent?) is not addressed by the stated periodic claim and stays open. Parts of the claim not covered by the Lean scope: the paper's separate nil-algebra and radical-algebra results. Whether the paper's own proof matches the Lean chain could not be checked, because the paper text was not readable.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "6 days as of 12 October 2026 (public posting 6 October 2026)",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib, via leanprover/comparator (Comparator config lean/ComparatorChallenges/PeriodicGroup.json)",
+        "sorry_free": null,
+        "url": "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/PeriodicGroup.lean",
+        "detail": "The challenge file PeriodicGroup.lean contains 'theorem thm_main : MainStatement and BurnsideStatement := by' with 'sorry' on line 52 (raw file on main, read today). The JSON names ComparatorChallenges.PeriodicGroup as the challenge, OAI.GroupTheory.PeriodicGroups.Main as the solution module, OAI.SourceBurnside.thm_main as the theorem, and permits only propext, Quot.sound, Classical.choice. The sorry in the challenge file is what a Comparator challenge is designed to contain; the proof is supposed to live in the solution module. The solution module lean/OAI/GroupTheory/PeriodicGroups/Main.lean proves thm_main by a single term packaging ConcreteSource.main_statement and ConcreteSource.burnside_statement, and contains no sorry, admit, axiom or native_decide as read. Also read and sorry-free as read: lean/OAI/GroupTheory/PeriodicGroups/Periodicity/KernelTorsion.lean (kernel_torsion_rank and steinberg_periodic_rank proved by tactic, with steinberg_periodic := steinberg_periodic_rank (by decide) at n = 12; the file uses by decide, not native_decide), lean/OAI/GroupTheory/PeriodicGroups/Homology/KernelStability.lean, and lean/OAI/GroupTheory/PeriodicGroups/Matrices/ElementaryGenerators.lean. NOT located or read: the files defining ConcreteSource.main_statement and burnside_statement, the Stability namespace (matrix_periodic, kernel_standard_stable_torsion), RationalDetection.finite_of_characters_vanish (its module is not confirmed), the infiniteness and finite-presentation proofs, and most of the roughly 100 files in the PeriodicGroups tree. No build was run. Status: no sorry in the files read; the import closure is not fully checked and nothing was compiled."
+      },
+      "directly_checkable": null,
+      "doubts": "(1) No human engagement found. No journal, expert blog, MathOverflow thread or named mathematician comments on this result. Coverage of the 722-manuscript release discusses other families (Retraction Watch, the-decoder, kingy.ai); a search for Tao or Gowers commentary found no mention of periodic groups. (2) The formal main-theorem file has sorry by Comparator design; the proof is in a solution module whose key dependencies I could only partly trace, and I did not build the project, so the Lean chain is read-level only. (3) Title/scope mismatch: the family title names 'an infinite finitely presented residually finite 2-group', but the Lean scope covers only the periodic-group part. A companion 2-group manuscript was not located. If '2-group' means every element has 2-power order, it would be a second claimed infinite finitely presented periodic group under the same question. (4) Release-level caveats from the repository itself: 'This collection includes results at different stages of verification', 'Not all have accompanying Lean formalizations', 'Some of the unformalized results could have issues', and formalization.yaml's review status is 'unchecked'. (5) Three other manuscripts in the same release were withdrawn on 7 October 2026 for a sign error (Retraction Watch; the article's links name Weil classes on split abelian eightfolds, Kuga-Satake for K3 surfaces, and rational Hodge for products of K3s). This paper is not among them according to that article, which does not claim to list every correction. (6) Consistency with prior literature (my deduction, not checked against the claimed paper): Button and Thillaisundaram (2010) show finitely presented groups of p-deficiency above one are p-large, and Thillaisundaram (2011) extends this to deficiency one; large and deficiency-one groups are not periodic. So any counterexample must have no finite presentation of positive p-deficiency for any prime. The claim does not contradict that, but the paper should show its presentation satisfies it and I did not check. (7) Periodicity argument (KernelTorsion.lean): each element of the Steinberg group lies in a kernel or is a matrix-periodic image, and the exponent depends on the element, so the periodicity step is pointwise. Whether that argument is valid is for the judging pass; I checked only that the Lean compiles in the read text.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against the conjecture that every finitely presented periodic group is finite. It asserts an infinite finitely presented periodic group, which is a 'no' answer to the question as worded. It asserts no uniform exponent, so it does not decide the bounded-exponent version of the question.",
+      "object": "The claimed group is G = Steinberg 12 R, the Steinberg group of rank 12 over a ring R that is an algebra over ZMod 2 (characteristic two). Its presentation uses the Lean definitions Root n (row and column indices in Fin n, distinct), Generator n R (a root with a ring element) and SteinbergRel (additivity, commutation of non-clashing root elements, one three-index multiplicative relation). The Lean statement existentially quantifies R, so the ring is not named in the code I read; whether the paper gives an explicit R is unknown. Claimed properties: infinite (in Mathlib's sense), finitely presented (Mathlib's Group.IsFinitelyPresented), and periodic (every element has a positive power equal to 1; no common exponent). Argument for periodicity (KernelTorsion.lean): elements in the kernel of the representation to matrices are shown to have finite order by checking that characters vanish in a commutative subgroup; a general element's periodicity exponent a is taken from the matrix side and a power of the element lies in the kernel. Explicit or non-constructive: not determinable from the Lean files, because R is existential and the infiniteness proof was not read; the paper is needed.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "The repository README states that it 'contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model', and that the vast majority of results came from 'an unreleased internal OpenAI model'. Nothing I read says what the model did for family 247 in particular (idea, proof, Lean formalisation, or write-up). The paper PDF could not be read, so paper-level credit is unknown. Secondary coverage (not verified against OpenAI) reports that a spokesperson said almost everything came from a single prompt handed to a single agent.",
+            "basis_quote": "contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math"
+          }
+        ],
+        "disclosed_cost": "Repository-level only, per the kingy.ai summary of the release: 'An average of three hours of ChatGPT Pro thinking compute per result' is the only compute figure given, and OpenAI does not disclose an aggregate dollar cost, token count, accelerator-hour total or training budget. Not specific to this paper. The Astra announcement of 1 August 2026 (an internal version of the next major model) is not linked to this family in any source I found, so it is not recorded as the system here.",
+        "sources": [
+          "https://github.com/openai/math",
+          "https://github.com/openai/math/blob/main/lean/docs/247.md",
+          "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/blob/main/lean/docs/247.md",
+        "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/247.md",
+        "https://github.com/openai/math",
+        "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PeriodicGroup.lean",
+        "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PeriodicGroup.json",
+        "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Main.lean",
+        "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Periodicity/KernelTorsion.lean",
+        "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Homology/KernelStability.lean",
+        "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Matrices/ElementaryGenerators.lean",
+        "https://github.com/openai/math/tree/main/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026",
+        "https://github.com/openai/math/commits/main/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026",
+        "https://github.com/openai/math/tree/main/lean/ComparatorChallenges",
+        "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/README.md",
+        "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+        "https://retractionwatch.com/2026/10/08/openai-withdraws-preprints-722-manuscripts-unsolved-math-problems/",
+        "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/",
+        "https://the-decoder.com/how-much-beauty-have-we-lost-mathematicians-react-with-shock-and-disgust-as-openai-bulldozes-their-field/"
+      ]
+    },
+    {
+      "id": "ivanov-2002-weakly-fp",
+      "what_happened": "S. V. Ivanov, 'Weakly finitely presented infinite periodic groups' (arXiv math/0209234; Contemp. Math. 296 (2002), 139-154 per the arXiv page). Constructs infinite periodic groups that are weakly finitely presented (a weaker notion: finitely generated subgroups embed in finitely presented groups built from the same generators and relations) and are not locally finite. The abstract does not state that the constructed groups are finitely presented.",
+      "date": "2002-09-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "One version, v1, submitted 18 Sep 2002; journal reference Contemp. Math. 296 (2002), 139-154 as listed on the arXiv abstract page.",
+      "delivers": "Infinite periodic groups that are weakly finitely presented and not locally finite. Restriction: weak finite presentation is weaker than finite presentation, so the groups are not shown to be finitely presented. Per a search snippet quoting the paper (not verified in the PDF), the construction does not bound element orders.",
+      "remains": "Whether an infinite finitely presented periodic group exists is not addressed. This is the Novikov-attributed problem the paper itself cites as open.",
+      "checked_by": [
+        {
+          "who": "Contemporary Mathematics (AMS series), per the journal reference on the arXiv page",
+          "qualification": "Edited volume of research papers; refereeing status of this volume was not checked",
+          "what_they_did": "Published the paper in Contemp. Math. 296 (2002)",
+          "where": "https://arxiv.org/abs/math/0209234",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial progress towards the question, with the weaker property. It does not produce a finitely presented periodic group, so it does not cut either way on the problem as worded.",
+      "object": "The groups are infinite periodic groups that are weakly finitely presented and not locally finite; they are not shown to be finitely presented. The PDF was binary through WebFetch, so the construction is described from the abstract and search snippets only.",
+      "people": [
+        "S. V. Ivanov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0209234"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0209234",
+        "https://arxiv.org/pdf/math/0209234"
+      ]
+    },
+    {
+      "id": "ivanov-2002-embedding-burnside",
+      "what_happened": "S. V. Ivanov, 'Embedding free Burnside groups in finitely presented groups' (arXiv math/0210276). Embeds the free Burnside group B(m,n), with odd exponent n above 2^48 and rank m above 1, into a finitely presented group with special properties. Applications stated in the abstract: finitely presented non-amenable groups without non-cyclic free subgroups, and weakly finitely presented periodic groups of odd exponent that are not locally finite.",
+      "date": "2002-10-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "One version, v1, submitted 17 Oct 2002.",
+      "delivers": "The periodic groups embedded are B(m,n), which are infinite and periodic of bounded exponent n; they are embedded in a finitely presented group, not themselves shown to be finitely presented. The abstract's application to weakly finitely presented periodic groups is the same weaker notion as the 2002 event above.",
+      "remains": "Whether an infinite finitely presented periodic group exists is not addressed; the embedded periodic groups are presented as subgroups of a finitely presented group, not as finitely presented groups.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The abstract's claim is about embedding and does not assert the periodic groups are finitely presented. Journal status was not established from the abstract page.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not cut either way on the question as worded. It gives an infinite periodic subgroup inside a finitely presented group, which is the situation the question is not about.",
+      "object": "Free Burnside groups B(m,n) (m above 1, n odd above 2^48) embedded into a finitely presented group with special properties. The embedded group is an infinite group of bounded exponent n, but it is not shown to be finitely presented; the abstract does not say how the embedding is constructed beyond the HNN/S-machine description in a search snippet.",
+      "people": [
+        "S. V. Ivanov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0210276"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0210276"
+      ]
+    },
+    {
+      "id": "olshanskii-sapir-2002-torsion-by-cyclic",
+      "what_happened": "A. Yu. Olshanskii and M. V. Sapir, 'Non-amenable finitely presented torsion-by-cyclic groups' (arXiv math/0208237). Constructs a finitely presented non-amenable group without free non-cyclic subgroups, as an extension of a group of finite exponent n >> 1 by a cyclic group, so the group satisfies [x,y]^n = 1 in the normal subgroup.",
+      "date": "2002-08-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "One version, v1, submitted 30 Aug 2002. Publication in Publ. Math. IHES 96 (2003) is given in search results only; not verified on the arXiv page.",
+      "delivers": "A finitely presented group that is not periodic: it is an extension of a finite-exponent normal subgroup by an infinite cyclic quotient. The group has infinite order elements, so it does not restrict the question about periodic groups.",
+      "remains": "The question of an infinite finitely presented periodic group is untouched.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not cut either way on the question. It is a non-periodic finitely presented group, built from bounded-exponent periodic normal subgroups.",
+      "object": "A finitely presented non-amenable group, an extension of a group of finite exponent n (large odd n) by an infinite cyclic group. The group is not periodic, and the construction is not explicit enough in the abstract to say more.",
+      "people": [
+        "A. Yu. Olshanskii",
+        "M. V. Sapir"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0208237"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0208237"
+      ]
+    },
+    {
+      "id": "sapir-2007-problem-note",
+      "what_happened": "M. Sapir, 'Some group theory problems' (arXiv 0704.2899, April 2007, dated from the identifier). Problem 1.1 asks to find finitely presented monsters of types (1)-(7) or prove they do not exist, described as very old and probably first formulated by Kurosh for torsion groups. The note says: 'I am reasonably sure that a finitely presented infinite bounded torsion group exists', and that 'unbounded torsion infinite finitely presented groups are not known also'. It adds: 'Olshanskii and I constructed a finitely presented bounded torsion group.' The note does not say whether that group is infinite.",
+      "date": "2007-04",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv version history not checked; read from the ar5iv rendering.",
+      "delivers": "No result. A status statement and an expectation: an infinite finitely presented bounded-exponent torsion group is expected; the unbounded-exponent case is listed as unknown. Whether the Olshanskii-Sapir group is infinite is not stated.",
+      "remains": "Everything, including the bounded-exponent case (expected but not proved in this note) and the unbounded case (unknown here).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The note is an expectation, not a construction. Its statement about the Olshanskii-Sapir bounded torsion group is ambiguous as to infinitude; a search summary from an Olshanskii-Osin note describes the same group as having a finite endomorphic presentation, which I did not verify.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Status note: anticipates a counterexample of bounded exponent, which would also answer the question's 'no' direction, and records the unbounded case as unknown.",
+      "object": null,
+      "people": [
+        "M. V. Sapir"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ar5iv.labs.arxiv.org/html/0704.2899"
+        ]
+      },
+      "sources": [
+        "https://ar5iv.labs.arxiv.org/html/0704.2899",
+        "https://arxiv.org/pdf/0704.2899"
+      ]
+    },
+    {
+      "id": "button-thillaisundaram-2010-p-deficiency",
+      "what_happened": "J. O. Button and A. Thillaisundaram, 'Applications of p-deficiency and p-largeness' (arXiv 1007.2845, 23 pages). Main result per the abstract: a group with a finite presentation of p-deficiency greater than 1 is p-large. Consequence: infinite finitely generated p-groups constructed by Schlage-Puchta are not finitely presented. The abstract does not mention the Burnside problem; the restriction to torsion groups is a consequence I derived, not a statement in the abstract.",
+      "date": "2010-07-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "One version, v1, submitted 16 Jul 2010; no journal reference on the arXiv page.",
+      "delivers": "For finitely presented groups with positive p-deficiency for some prime p, large (hence non-periodic) groups. My deduction: a large group has a finite-index subgroup with a non-abelian free quotient, so it has elements of infinite order; hence a finitely presented group of p-deficiency above 1 is not periodic. Restriction: only finite presentations with p-deficiency above 1 are covered; deficiency 0 is not covered.",
+      "remains": "Finitely presented periodic groups whose presentations all have p-deficiency at most 1 (in particular, deficiency 0 for every prime) are not addressed by this result.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial restriction: any infinite finitely presented periodic group must have no finite presentation of p-deficiency above 1, for every prime p. It does not decide the question.",
+      "object": null,
+      "people": [
+        "J. O. Button",
+        "A. Thillaisundaram"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1007.2845"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1007.2845"
+      ]
+    },
+    {
+      "id": "thillaisundaram-2011-deficiency-one",
+      "what_happened": "A. Thillaisundaram, 'Groups of p-deficiency one' (arXiv 1108.0274, 1 August 2011). Groups with a finite presentation of p-deficiency one have a finite-index subgroup that surjects onto a group (a search snippet says the integers; the fetched text did not render the target). Consequence: they lack Kazhdan's property (T). The abstract also says the earlier result implies a theorem of Lackenby.",
+      "date": "2011-08-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "One version, v1, submitted 1 Aug 2011; no journal reference on the arXiv page.",
+      "delivers": "For finitely presented groups of p-deficiency one: a finite-index subgroup surjecting onto a non-periodic target. My deduction: a finite-index subgroup of a periodic group is periodic, and a quotient of a periodic group is periodic, so if the target is Z the group is not periodic. Restriction: deficiency-one presentations only.",
+      "remains": "Presentations of deficiency zero for every prime are not covered.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The target group of the surjection is not visible in the text I could read; my deduction depends on it being non-periodic (the search snippet says Z).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial restriction on the same lines as the 2010 result, for deficiency one. Does not decide the question.",
+      "object": null,
+      "people": [
+        "A. Thillaisundaram"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1108.0274"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1108.0274"
+      ]
+    },
+    {
+      "id": "wagner-2021-thesis-torsion-subgroup",
+      "what_happened": "F. Wagner, Vanderbilt University doctoral thesis (2021), 'Torsion Subgroups of Groups with Quadratic Dehn Function' (ir.vanderbilt.edu handle 1803/16906). Per a search snippet only: constructs finitely presented groups with quadratic Dehn function that contain a finitely generated infinite torsion subgroup, presented as answering a problem of Ol'shanskii. The ambient group is not torsion.",
+      "date": "2021",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A finitely presented group containing an infinite finitely generated torsion subgroup. The ambient group is not periodic, so it does not answer the question.",
+      "remains": "The question for periodic finitely presented groups is untouched.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "NOT OPENED: both fetches of the Vanderbilt record timed out. The content above is from a search snippet only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Does not cut either way on the question as worded; a neighbouring construction.",
+      "object": null,
+      "people": [
+        "Francis Wagner"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ir.vanderbilt.edu/xmlui/handle/1803/16906?show=full"
+        ]
+      },
+      "sources": [
+        "https://ir.vanderbilt.edu/xmlui/handle/1803/16906?show=full"
+      ]
+    },
+    {
+      "id": "openai-math-247",
+      "what_happened": "Two manuscripts in the family. (1) 'An infinite finitely presented periodic group' (the companion; build/paper.tex, dated 23 September 2026) constructs a graded, finitely presented unital F₂-algebra R = F₂ ⊕ I, infinite-dimensional, in which every square matrix over I is nilpotent (Theorem thm:algebra). For n ≥ 5 it gives an ordinary finite group presentation of the Steinberg group St_n(R) (Theorem finite-presentation). For n = 12 it claims St₁₂(R) is infinite (its elementary image E₁₂(R) is infinite), that E₁₂(R) is periodic by matrix nilpotence, and that the kernel J₁₂(R) is torsion (Theorem kernel-torsion), so every element of St₁₂(R) has finite order. Its main theorem is that St₁₂(R) is an infinite periodic group with an ordinary finite presentation. (2) 'An infinite finitely presented residually finite 2-group' (build/main.tex, dated 5 October 2026) takes Γ = St₁₂(R) from the companion as given and proves Γ is residually finite, using the finite quotients St₁₂(R/R_≥d). It then passes to G = ker(Γ → St₁₂(F₂)), which has finite index in Γ, and claims G is infinite, ordinarily finitely presented (Reidemeister–Schreier), residually finite, and that every element of G has finite 2-power order, with unbounded orders. Its Theorem thm:main states the existence of an infinite residually finite group with an ordinary finite presentation in which every element has finite 2-power order.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Gives a negative answer to the yes/no question: there is an infinite finitely presented periodic group. St₁₂(R) from the companion is one, and G from the residual paper is another, which is also residually finite with all element orders 2-powers. 'Periodic' is used in the list's sense: each element has some finite order, with no common exponent. The companion says the order of an element 'may depend on that element', and the residual paper says the orders are unbounded. The presentations are ordinary, with finitely many generators and relators and no variety identities. The companion's introduction states the question in the list's terms ('whether a periodic group with such a presentation must be finite'), and its abstract says the construction answers 'the finitely presented Burnside question negatively'. So the companion's statement of the problem matches the list's. The list places no restriction on characteristic, and the construction uses F₂ only as the ground ring of the algebra R.",
+      "remains": "Nothing of the yes/no question as stated. Not addressed by either manuscript: finitely presented periodic groups of bounded exponent (the constructed groups have unbounded orders, so they give no information there), and the free Burnside groups B(m,n).",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "8 days",
+      "machine_checked": {
+        "system": "Lean 4",
+        "sorry_free": null,
+        "url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/247.md",
+        "scope": "The finitely presented Burnside question asks whether a finitely presented group in which every element has finite order must be finite. The formalization gives a negative answer by constructing an infinite finitely presented periodic group, including a witness realized as a Steinberg group over an algebra of characteristic two. Periodicity means that each element has some finite order; no common exponent is asserted. The paper's separate nil-algebra and radical-algebra conclusions are outside these selected statements.",
+        "theorems": [
+          "OAI.SourceBurnside.thm_main"
+        ]
+      },
+      "directly_checkable": null,
+      "doubts": "(a) The residual paper proves none of Γ's infiniteness, presentation or periodicity itself; its new content (residual finiteness, G, 2-power orders) rests on the companion inputs listed above. (b) The residual paper cites companion results by number (Theorem 3.7, Theorem 4.1, Lemma 5.1, Proposition 5.4, Lemma 5.5). The companion labels I read match these by content; I did not confirm the numbering. (c) In proving Proposition finite-quotients, the residual paper says St₁₂(B_d) is perfect without citing the companion lemma that proves it (Lemma fp:perfectness). This is a standard fact but is unproven in the residual text. (d) The companion's periodicity depends on matrices over I being nilpotent, which is proved in cancellation.tex and finite-rules.tex (about 1,650 lines together). Its introduction describes the cancellation mechanism only in prose. I read the statements and portions of those proofs, not all of them.; conditional on: The residual paper's residual finiteness and 2-power orders depend on inputs it quotes from the companion: the algebra R and its matrix-nilpotence (companion Theorem 3.7, Proposition ring-input), the word hierarchy used to derive phases (Proposition hierarchy-input), the finite-rank facts for stability (companion Lemma 5.1, Proposition 5.4, Lemma 5.5), and the ordinary finite presentation of Γ (companion Theorem 4.1, and Krstić–McCool Theorem 3). The companion's own claim of an infinite finitely presented periodic group has no unproven hypothesis; it uses the Krstić–McCool method and proves what it uses.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "negative answer: exhibits an infinite finitely presented periodic group",
+      "object": "St₁₂(R) (companion), for a finitely presented F₂-algebra R, and its finite-index subgroup G (residual paper). Both are given by finite presentations: generators g_ij(w) for |w| ≤ 2 over a finite alphabet, with listed commutation, product and algebra-relator families (companion Theorem finite-presentation). The algebra's finite rule table comes from the companion's hierarchy in finite-rules.tex, which I sampled but did not check line by line. The object is explicit as a finite presentation, not an existence-by-counting argument.",
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "produced the manuscripts, per the repository README",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+          }
+        ],
+        "disclosed_cost": "On average, each result used three hours of ChatGPT Pro thinking compute with that model.",
+        "sources": [
+          "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/An-infinite-finitely-presented-residually-finite-2-group-October-5-2026/residually-finite-torsion.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026/paper.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/247.md"
+      ],
+      "origin": {
+        "stage": "openai",
+        "family": "247",
+        "family_title": "An infinite finitely presented residually finite 2-group and a finitely presented nil algebra",
+        "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+        "read": [
+          "sources/openai-math/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026/build/paper.tex",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026/build/sections/finite-presentation.tex (lines 1–110, 400–477)",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026/build/sections/cancellation.tex (lines 373–400, 440–609)",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026/build/sections/kernel-torsion.tex (lines 1–60, 400–520)",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026/build/sections/finite-rules.tex (lines 44–70, 596–650)",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-residually-finite-2-group-October-5-2026/build/main.tex",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-residually-finite-2-group-October-5-2026/build/sections/introduction.tex",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-residually-finite-2-group-October-5-2026/build/sections/construction.tex",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-residually-finite-2-group-October-5-2026/build/sections/ring-phases.tex (lines 1–60)",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-residually-finite-2-group-October-5-2026/build/sections/stability.tex (lines 1–60)",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-residually-finite-2-group-October-5-2026/build/sections/detection.tex (lines 125–252)",
+          "sources/openai-math/preprints/An-infinite-finitely-presented-residually-finite-2-group-October-5-2026/build/sections/shifts.tex (lines 298–360)"
+        ]
+      }
+    }
+  ],
+  "disputes": [],
+  "summary": "Since the frozen revision the only event bearing on this problem is OpenAI's claim, published in the openai/math repository on 6 October 2026 (preprint dated 23 September 2026), that an infinite finitely presented periodic group exists. The family 247 page, the Lean challenge file and its Comparator config state the claim in the problem's own terms: periodic means every element has a positive power equal to 1 with no common exponent, and finitely presented is Mathlib's notion. I could not read the paper. Its PDF comes back as binary through WebFetch, and a pipe-based text extraction was refused by the permission check, so every mathematical statement about the construction comes from the Lean files and the README. The Lean target file has sorry at its main theorem, which is the designed Comparator setup; the solution module lean/OAI/GroupTheory/PeriodicGroups/Main.lean packages two results from ConcreteSource and has no sorry as read; the periodicity argument in KernelTorsion.lean and two neighbouring files are sorry-free as read. The files defining ConcreteSource.main_statement and burnside_statement, the Stability lemmas matrix_periodic and kernel_standard_stable_torsion, and the infinitude and finite-presentation proofs were not located, and I did not build the project. So the Lean status is no sorry in the files I could read, with an import closure of roughly a hundred files not checked. Whether the claim is a resolution is a close call I leave to the judging pass. For it: the statement matches the problem exactly, the readable parts are complete, and OpenAI states the result plainly. Against: no human engagement found in any source; the README says some unformalised results could have issues and that the review status is unchecked; the family title names a companion 'residually finite 2-group' result that I could not locate and that might be a second periodic example; and the same release has three withdrawn manuscripts for a sign error (not this one, per Retraction Watch). On AI, the only attribution is repository-level: the README says the manuscripts were 'produced by an internal OpenAI model', and the model is unnamed. Nothing ties family 247 to the Astra announcement of 1 August 2026, and the Astra list reported in coverage (non-sofic groups, Connes rigidity, Ehrhart volume, Erdos problems, sphere packing, parallel repetition, permanent lower bounds) has no periodic or finitely presented group item. Prior literature, all before 2024 and none settling the problem: Ivanov (2002) gives infinite weakly finitely presented periodic groups that are not locally finite; Ivanov (2002) embeds free Burnside groups of large odd exponent into finitely presented groups; Olshanskii-Sapir (2002) give a finitely presented non-amenable torsion-by-cyclic group, which is not periodic; Button-Thillaisundaram (2010) and Thillaisundaram (2011) restrict finitely presented groups with positive p-deficiency to non-periodic ones; Sapir (2007) expects an infinite finitely presented bounded-exponent torsion group and calls the unbounded case unknown. Status evidence for open: Kourovka Notebook 21st edition (arXiv 1401.0300v48, 6 October 2026) lists Problem 8.52 (Olshanskii: 'Do there exist infinite finitely presented periodic groups? Compare with 6.3.') and Problem 6.3 (Bieri: 'Is every periodic group of type (FP)infinity finite?') with no comment and no marker; in that edition the marker flags AI-proposed solutions not yet confirmed by mathematicians, so no such solution was recorded for 8.52 at v48, which predates or coincides with the OpenAI release. Groupprops lists the conjecture without a citation; a DeepMind formal-conjectures issue (2150, opened 3 February 2026) still treats the question as open. AI-assisted Kourovka papers 2608.29219 (Ionin and Semidetnov), 2607.17477 (van Doorn et al.), the Albilich paper 2607.27705 and the Lackenby finite-group paper 2605.10402 were all checked and do not concern this problem. The Lackenby paper is the one that search results had linked to Kourovka 21.10; its abstract concerns just finite presentations of finite groups.",
+  "competing_reading": "The claim can be read as a resolution in progress, not an open problem. Its formal statement is the exact problem (existence of an infinite finitely presented periodic group), the readable parts of the Lean chain are sorry-free, and the solution module is a short packaging of two results, so the formal work is plausibly complete and the claim should count. On the other side, the claim is unreviewed by anyone qualified that I could find, the paper's own mathematics was not read, the main file has sorry by design and the import closure was not built, the family's own title and scope disagree, and the AI attribution is only at repository level. Read that way, the problem remains open until the claim is checked by people.",
+  "what_would_settle_it": "(1) The full text of preprints/An-infinite-finitely-presented-periodic-group-September-23-2026/paper.pdf in openai/math, read for the explicit ring R, the periodicity argument, the infinitude argument, and the paper's own account of how the result was produced. (2) A build of the Comparator challenge (lean/ComparatorChallenges/PeriodicGroup.json) with a grep for sorry, admit and non-standard axioms across the whole import closure of OAI.GroupTheory.PeriodicGroups.Main, including the files defining ConcreteSource and the Stability lemmas. (3) A check that the Lean SteinbergRel and Steinberg definitions match the standard Steinberg presentation of St(12, R). (4) An expert written review of the periodicity and infinitude arguments, or acceptance by a journal. (5) The text of the companion 'infinite finitely presented residually finite 2-group' manuscript, to see whether '2-group' means every element has 2-power order. (6) Later Kourovka editions marking 8.52 or 6.3, or later literature citing the OpenAI paper or still calling the question open.",
+  "sources": [
+    {
+      "url": "https://github.com/openai/math",
+      "title": "openai/math repository README",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/lean/docs/247.md",
+      "title": "lean/docs/247.md (family 247), main branch",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/247.md",
+      "title": "lean/docs/247.md at commit adc7f12",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PeriodicGroup.lean",
+      "title": "ComparatorChallenges/PeriodicGroup.lean",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PeriodicGroup.json",
+      "title": "ComparatorChallenges/PeriodicGroup.json (Comparator config)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Main.lean",
+      "title": "OAI/GroupTheory/PeriodicGroups/Main.lean (solution module)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Periodicity/KernelTorsion.lean",
+      "title": "PeriodicGroups/Periodicity/KernelTorsion.lean",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Homology/KernelStability.lean",
+      "title": "PeriodicGroups/Homology/KernelStability.lean",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Matrices/ElementaryGenerators.lean",
+      "title": "PeriodicGroups/Matrices/ElementaryGenerators.lean",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026",
+      "title": "preprint folder listing and README (paper.pdf not readable)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026/paper.pdf",
+      "title": "paper.pdf (binary; no text returned)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/commits/main/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026",
+      "title": "commit history of the preprint folder",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/lean/ComparatorChallenges",
+      "title": "ComparatorChallenges folder listing",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/README.md",
+      "title": "ComparatorChallenges README",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+      "title": "lean/formalization.yaml",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/lean/OAI/GroupTheory",
+      "title": "lean/OAI/GroupTheory folder listing",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/lean/OAI/GroupTheory/PeriodicGroups",
+      "title": "PeriodicGroups folder listing",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/",
+      "title": "kingy.ai summary of the 722-manuscript release",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://retractionwatch.com/2026/10/08/openai-withdraws-preprints-722-manuscripts-unsolved-math-problems/",
+      "title": "Retraction Watch: OpenAI withdraws preprints",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://the-decoder.com/how-much-beauty-have-we-lost-mathematicians-react-with-shock-and-disgust-as-openai-bulldozes-their-field/",
+      "title": "The Decoder: mathematicians react",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://thenextweb.com/news/openai-astra-model-ten-math-proofs-non-sofic-groups",
+      "title": "TNW: OpenAI Astra ten open problems",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.14673",
+      "title": "A Human Audit of OpenAI's AI-Generated Mathematical Proofs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/issues/2150",
+      "title": "formal-conjectures issue 2150: Finiteness of Finitely Presented Periodic Groups",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://groupprops.subwiki.org/wiki/Finitely_generated_periodic_group",
+      "title": "Groupprops: Finitely generated periodic group (stronger-properties table)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics",
+      "title": "Wikipedia: List of unsolved problems in mathematics (group theory bullets)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1401.0300",
+      "title": "Kourovka Notebook arXiv 1401.0300 (abstract page, version history)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/1401.0300v48",
+      "title": "Kourovka Notebook 21st edition, v48 (first 100k characters; problems 6.3 and 8.52 read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/1401.0300v37",
+      "title": "Kourovka Notebook v37 (first 100k characters; problems 6.3 and 8.52 read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0209234",
+      "title": "Ivanov 2002: Weakly finitely presented infinite periodic groups",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/math/0209234",
+      "title": "Ivanov 2002 PDF (binary; no text returned)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0210276",
+      "title": "Ivanov 2002: Embedding free Burnside groups in finitely presented groups",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0208237",
+      "title": "Olshanskii-Sapir 2002: Non-amenable finitely presented torsion-by-cyclic groups",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ar5iv.labs.arxiv.org/html/0704.2899",
+      "title": "M. Sapir 2007: Some group theory problems (ar5iv rendering)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1007.2845",
+      "title": "Button-Thillaisundaram 2010: Applications of p-deficiency and p-largeness",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1108.0274",
+      "title": "Thillaisundaram 2011: Groups of p-deficiency one",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1705.09651",
+      "title": "Coulon-Gruber 2017: Small cancellation theory over Burnside groups (checked; not about finite presentation)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.10402",
+      "title": "Lackenby 2026: Every finite group admits a just finite presentation (finite groups; not this problem)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.27705",
+      "title": "Albilich (Kourovka 21.142, 20.2, 17.91; not this problem)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.06651",
+      "title": "AI co-mathematician (no periodic-group content)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.29219v1",
+      "title": "Ionin and Semidetnov 2026: Kourovka solutions with LLMs (no periodic or finitely presented group content)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.17477",
+      "title": "van Doorn et al. 2026: Kourovka solutions with Aristotle (no periodic or finitely presented group content)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ir.vanderbilt.edu/xmlui/handle/1803/16906?show=full",
+      "title": "Vanderbilt repository: Wagner 2021 thesis record (NOT OPENED; fetch timed out; snippet only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://openai.com/index/astra-ten-open-problems/",
+      "title": "OpenAI Astra announcement (NOT OPENED; 403)",
+      "type": "press_release",
+      "opened": false
+    },
+    {
+      "url": "https://sites.pitt.edu/~hajlasz/OpenAI_Math_Catalogue.html",
+      "title": "Pitt searchable catalogue of the OpenAI manuscripts (NOT OPENED; page exceeds the fetch size limit)",
+      "type": "encyclopedia",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "\"finitely presented\" periodic group infinite open problem Burnside",
+      "\"Is every finitely presented periodic group finite\"",
+      "List of unsolved problems in mathematics finitely presented periodic group",
+      "infinite finitely presented torsion group construction",
+      "finitely presented torsion group arXiv 2025",
+      "finitely presented periodic group AI proof language model",
+      "Ol'shanskii infinite finitely presented periodic group existence question open",
+      "Kourovka notebook finitely presented periodic group infinite problem",
+      "\"finitely presented\" \"torsion group\" infinite Ivanov Olshanskii question",
+      "infinite finitely presented periodic group solved 2025",
+      "Burnside problem AI model result 2026",
+      "periodic group finitely presented AlphaProof OR AlphaEvolve OR GPT counterexample group theory",
+      "Novikov problem existence finitely presented infinite periodic group",
+      "Olshanskii Sapir finitely presented torsion-by-cyclic groups non-amenable bounded exponent",
+      "OpenAI ten open problems claimed solutions non-sofic group",
+      "Laboratory for AI in Algebra Bar-Ilan Burnside problem",
+      "Embedding free Burnside groups in finitely presented groups Ivanov",
+      "Kourovka notebook problem solved AI model group theory 2026",
+      "Kourovka notebook \"finitely presented\" periodic group problem Novikov Ivanov author question",
+      "Burnside problem Wikipedia finitely presented periodic group Novikov question",
+      "infinite finitely presented torsion group bounded exponent Ol'shanskii 2024 arXiv",
+      "Kourovka 8.52 \"finitely presented periodic groups\" Ol'shanskii",
+      "Bieri problem periodic group type FP infinity is finite Kourovka 6.3",
+      "\"infinite finitely presented periodic\" OR \"finitely presented infinite periodic group\" 2026",
+      "AI system finitely presented torsion group infinite construction claim Burnside Olshanskii",
+      "\"An infinite finitely presented periodic group\" arXiv",
+      "\"finitely presented residually finite 2-group\" nil algebra Steinberg group characteristic two",
+      "OpenAI 722 math manuscripts release October 2026 Astra Lean periodic group",
+      "OpenAI math repository family 247 infinite finitely presented periodic group Steinberg nil algebra verification",
+      "OpenAI infinite finitely presented periodic group Burnside finitely presented claim mathematicians reaction",
+      "\"periodic group\" OpenAI Steinberg group nil algebra characteristic two Lean formalization sorry",
+      "mathoverflow finitely presented periodic group infinite existence Novikov question answer",
+      "Terence Tao OpenAI 722 manuscripts group theory Burnside periodic reaction blog",
+      "openai.com announcement 722 math manuscripts unreleased internal model October 6 2026",
+      "Button Thillaisundaram finitely presented torsion groups p-deficiency Burnside",
+      "finitely presented periodic infinite group Aristotle OR Harmonic OR Gemini OR DeepMind claim 2026",
+      "OpenAI periodic group Steinberg gap error critique Lean sorry infinite finitely presented",
+      "\"infinite finitely presented residually finite 2-group\""
+    ],
+    "places_checked": [
+      "arXiv abstract pages: math/0209234, math/0210276, math/0208237, 1007.2845, 1108.0274, 1705.09651, 1401.0300 (version history), 2605.10402, 2607.27705, 2605.06651, 2608.14673, 2608.29219, 2607.17477",
+      "arXiv Kourovka Notebook full text: v48 and v37 html (first 100k characters each; problems 6.3, 8.52 read; 6.3 and 8.52 are before the cutoff)",
+      "Sapir 2007 'Some group theory problems' (ar5iv rendering of arXiv 0704.2899)",
+      "Wikipedia: List of unsolved problems in mathematics (group theory bullets); Groupprops finitely generated periodic group page (stronger-properties table)",
+      "openai/math GitHub repository: README, lean/docs/247.md (main and adc7f12 snapshot), ComparatorChallenges folder, PeriodicGroup.lean and .json, lean/formalization.yaml, OAI/GroupTheory folder tree, PeriodicGroups subfolder trees (Periodicity, Steinberg, Matrices, Machines, Frames, Formulas, Algebra, Homology, Presentation, Rules), solution module Main.lean, KernelTorsion.lean, KernelStability.lean, ElementaryGenerators.lean, preprint folder listing, README and commit history",
+      "google-deepmind/formal-conjectures issue 2150",
+      "Secondary coverage of the 722-manuscript release and the Astra announcement: kingy.ai, Retraction Watch, The Decoder, TNW",
+      "Coverage searched for human engagement: MathOverflow, Tao and Gowers commentary, expert blogs (no hits naming this result)"
+    ],
+    "dead_ends": [
+      "Bar-Ilan Laboratory for AI in Algebra (math.biu.ac.il/node/3929): search snippet only; about finitely generated Burnside groups and B(2,5)-type computations, not presentations; not opened",
+      "Coulon-Gruber 2017 (1705.09651): n-periodic groups for large odd n; abstract does not address finite presentation; my earlier search-summary claim that it states the question is open was not confirmed",
+      "Lackenby 2026 (2605.10402): finite groups and just finite presentations; the search summary linking it to Kourovka 21.10 was not confirmed by its abstract",
+      "Astra non-sofic announcement (1 August 2026): the coverage list has no periodic or finitely presented group item; OpenAI's own page returned 403",
+      "Harmonic Aristotle, Google DeepMind and Gemini searches for a 2026 finitely presented periodic group claim: none found",
+      "MathOverflow search: found only background pages; no thread on the question was surfaced",
+      "Terence Tao search for 722-manuscript commentary: no post about this family found",
+      "Kourovka arXiv PDF 1401.0300 (compressed binary through WebFetch) and Ivanov PDFs (binary): not readable",
+      "Ivanov ICM 1998 survey on EMIS: 503 error, not opened",
+      "Pitt searchable catalogue of the OpenAI manuscripts: exceeds fetch size limit, not read",
+      "Companion manuscript 'An infinite finitely presented residually finite 2-group...': guessed preprint folder returned 404; no other location found",
+      "Mazurov-Olshanskii-Sozutov 2015 (Baer-Suzuki theorem, Kourovka 11.11a): not about finite presentation",
+      "Kourovka 2026 AI-assisted papers (2608.29219, 2607.17477) and Albilich (2607.27705): checked for periodic or finitely presented group content; none found",
+      "Formal-conjectures PR 2197 (formalization of the question, not a result): not opened; the issue page states it was submitted",
+      "Groupprops conjecture statement: no citation given on the page"
+    ]
+  },
+  "incomplete": "(1) The paper 'An infinite finitely presented periodic group' (paper.pdf in openai/math) could not be read: WebFetch returns binary, and a pipe-based text extraction was refused by the permission check. So nothing from the paper itself is recorded: not the explicit ring R, the periodicity or infinitude arguments, the paper's own statement of how it was produced, or any paper-level AI attribution. The AI record rests on the repository README only. (2) Lean import closure: checked as read are Main.lean, KernelTorsion.lean, KernelStability.lean, ElementaryGenerators.lean and the challenge file. Not located or read: the files defining ConcreteSource.main_statement and burnside_statement; the Stability namespace (matrix_periodic, kernel_standard_stable_torsion); RationalDetection.finite_of_characters_vanish; the Steinberg definitions and presentation files; the infinitude and finite-presentation proofs; and most of the roughly 100 files in PeriodicGroups. No build was run, so sorry-freeness of the whole chain is unverified. (3) The companion manuscript 'An infinite finitely presented residually finite 2-group' is not located. If its '2-group' means every element has 2-power order it would be a second claimed infinite finitely presented periodic group, and this record cannot say. (4) Family-wide coverage: the 722-manuscript catalogue was not enumerated, so other families that might mention periodic groups or the Burnside problem were not checked beyond search results. The Pitt catalogue could not be fetched. (5) Not opened: the Vanderbilt thesis record (two timeouts; snippet only), the OpenAI Astra announcement page (403), the Ivanov ICM 1998 survey (503). The Button-Thillaisundaram and Thillaisundaram PDFs were not read; their abstracts were read and the restriction statements in those events follow from the abstracts and my deduction, as labelled. (6) Ivanov 2002 and Sapir 2007 are read from abstracts and an ar5iv rendering only; the Novikov attribution in the Ivanov intro is from search snippets, not from the PDF. (7) Kourovka: only the first 100k characters of v48 and v37 were read. Problems 6.3 and 8.52 are inside that range and show no comment or marker, but later comments on those problems in the same edition (beyond the 100k characters) were not read because the cutoff falls at problem 10.12. (8) The OpenAI event's date is the paper's stated date (23 September 2026); the first confirmed public posting is 6 October 2026. The judging pass should use whichever convention the project fixes.",
+  "combined": {
+    "openai_events_added": [
+      "openai-math-247"
+    ],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "claimed",
+  "ai_role": "generated",
+  "resolution_direction": "refuted",
+  "object_role": "counterexample",
+  "counterexample": {
+    "is_counterexample": true
+  },
+  "rests_on": "openai-2026-f-p-periodic",
+  "no_change_found": false,
+  "event": {
+    "id": "openai-2026-f-p-periodic",
+    "what_happened": "OpenAI's openai/math repository, released publicly on 6 October 2026 as 722 manuscripts from an unreleased internal OpenAI model, has a family 247 page (lean/docs/247.md) with title 'An infinite finitely presented residually finite 2-group and a finitely presented nil algebra'. Its Scope section says: 'The formalization gives a negative answer by constructing an infinite finitely presented periodic group, including a witness realized as a Steinberg group over an algebra of characteristic two.' The linked preprint is 'An infinite finitely presented periodic group' (preprints/An-infinite-finitely-presented-periodic-group-September-23-2026/paper.pdf; README: Author OpenAI, Date September 23, 2026). The Lean challenge file lean/ComparatorChallenges/PeriodicGroup.lean declares MainStatement (there is a ring R with Algebra (ZMod 2) R such that Steinberg 12 R is infinite, Group.IsFinitelyPresented, and Periodic) and BurnsideStatement (there is a group G that is infinite, finitely presented and periodic), with theorem thm_main : MainStatement and BurnsideStatement. The Lean definition is def Periodic (G) := forall g, exists m, 0 < m and g^m = 1. The paper PDF could not be read (see incomplete).",
+    "date": "2026-09-23",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "The preprint folder has one commit, 'Initial commit' (adc7f12), dated 6 Oct 2026; no later version is visible. 23 Sep 2026 is the date printed in the paper's README and folder name, so it is the paper's own date; the first public posting that I can confirm is 6 Oct 2026. The paper's own date is used here as the first written argument, per DEEP_DIVE section 5.1; the posting date is recorded in revisions.",
+    "delivers": "If the formal statement matches the paper and the proofs hold, the claim establishes the existence of an infinite finitely presented periodic group, which answers the problem's question in the 'no' direction. Restrictions it carries: the group is a Steinberg group St(12, R) (matrix size 12, generators indexed by distinct pairs of indices and elements of R, with the relations in the Lean SteinbergRel inductive: additivity in R, commutation of root elements with non-clashing indices, and one multiplicative relation over three distinct indices), over a ring R that is an algebra over the field with two elements; R is existentially quantified in the Lean statement and is not named in the files I read. Periodicity is per element with no uniform exponent (the repo doc says explicitly that 'no common exponent is asserted'), so the bounded-exponent version of the question (Sapir's expectation, see the 2007 event) is NOT settled by this claim. The paper's nil-algebra and radical-algebra conclusions (in the family title) are outside the Lean scope and do not bear on this question.",
+    "remains": "If the claim holds, nothing in the problem's yes/no question remains open. The bounded-exponent question (is there an infinite finitely presented group of bounded exponent?) is not addressed by the stated periodic claim and stays open. Parts of the claim not covered by the Lean scope: the paper's separate nil-algebra and radical-algebra results. Whether the paper's own proof matches the Lean chain could not be checked, because the paper text was not readable.",
+    "checked_by": [],
+    "no_engagement_found": true,
+    "time_since_posted": "6 days as of 12 October 2026 (public posting 6 October 2026)",
+    "machine_checked": {
+      "system": "Lean 4 with Mathlib, via leanprover/comparator (Comparator config lean/ComparatorChallenges/PeriodicGroup.json)",
+      "sorry_free": null,
+      "url": "https://github.com/openai/math/blob/main/lean/ComparatorChallenges/PeriodicGroup.lean",
+      "detail": "The challenge file PeriodicGroup.lean contains 'theorem thm_main : MainStatement and BurnsideStatement := by' with 'sorry' on line 52 (raw file on main, read today). The JSON names ComparatorChallenges.PeriodicGroup as the challenge, OAI.GroupTheory.PeriodicGroups.Main as the solution module, OAI.SourceBurnside.thm_main as the theorem, and permits only propext, Quot.sound, Classical.choice. The sorry in the challenge file is what a Comparator challenge is designed to contain; the proof is supposed to live in the solution module. The solution module lean/OAI/GroupTheory/PeriodicGroups/Main.lean proves thm_main by a single term packaging ConcreteSource.main_statement and ConcreteSource.burnside_statement, and contains no sorry, admit, axiom or native_decide as read. Also read and sorry-free as read: lean/OAI/GroupTheory/PeriodicGroups/Periodicity/KernelTorsion.lean (kernel_torsion_rank and steinberg_periodic_rank proved by tactic, with steinberg_periodic := steinberg_periodic_rank (by decide) at n = 12; the file uses by decide, not native_decide), lean/OAI/GroupTheory/PeriodicGroups/Homology/KernelStability.lean, and lean/OAI/GroupTheory/PeriodicGroups/Matrices/ElementaryGenerators.lean. NOT located or read: the files defining ConcreteSource.main_statement and burnside_statement, the Stability namespace (matrix_periodic, kernel_standard_stable_torsion), RationalDetection.finite_of_characters_vanish (its module is not confirmed), the infiniteness and finite-presentation proofs, and most of the roughly 100 files in the PeriodicGroups tree. No build was run. Status: no sorry in the files read; the import closure is not fully checked and nothing was compiled."
+    },
+    "directly_checkable": null,
+    "doubts": "(1) No human engagement found. No journal, expert blog, MathOverflow thread or named mathematician comments on this result. Coverage of the 722-manuscript release discusses other families (Retraction Watch, the-decoder, kingy.ai); a search for Tao or Gowers commentary found no mention of periodic groups. (2) The formal main-theorem file has sorry by Comparator design; the proof is in a solution module whose key dependencies I could only partly trace, and I did not build the project, so the Lean chain is read-level only. (3) Title/scope mismatch: the family title names 'an infinite finitely presented residually finite 2-group', but the Lean scope covers only the periodic-group part. A companion 2-group manuscript was not located. If '2-group' means every element has 2-power order, it would be a second claimed infinite finitely presented periodic group under the same question. (4) Release-level caveats from the repository itself: 'This collection includes results at different stages of verification', 'Not all have accompanying Lean formalizations', 'Some of the unformalized results could have issues', and formalization.yaml's review status is 'unchecked'. (5) Three other manuscripts in the same release were withdrawn on 7 October 2026 for a sign error (Retraction Watch; the article's links name Weil classes on split abelian eightfolds, Kuga-Satake for K3 surfaces, and rational Hodge for products of K3s). This paper is not among them according to that article, which does not claim to list every correction. (6) Consistency with prior literature (my deduction, not checked against the claimed paper): Button and Thillaisundaram (2010) show finitely presented groups of p-deficiency above one are p-large, and Thillaisundaram (2011) extends this to deficiency one; large and deficiency-one groups are not periodic. So any counterexample must have no finite presentation of positive p-deficiency for any prime. The claim does not contradict that, but the paper should show its presentation satisfies it and I did not check. (7) Periodicity argument (KernelTorsion.lean): each element of the Steinberg group lies in a kernel or is a matrix-periodic image, and the exponent depends on the element, so the periodicity step is pointwise. Whether that argument is valid is for the judging pass; I checked only that the Lean compiles in the read text.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Cuts against the conjecture that every finitely presented periodic group is finite. It asserts an infinite finitely presented periodic group, which is a 'no' answer to the question as worded. It asserts no uniform exponent, so it does not decide the bounded-exponent version of the question.",
+    "object": "The claimed group is G = Steinberg 12 R, the Steinberg group of rank 12 over a ring R that is an algebra over ZMod 2 (characteristic two). Its presentation uses the Lean definitions Root n (row and column indices in Fin n, distinct), Generator n R (a root with a ring element) and SteinbergRel (additivity, commutation of non-clashing root elements, one three-index multiplicative relation). The Lean statement existentially quantifies R, so the ring is not named in the code I read; whether the paper gives an explicit R is unknown. Claimed properties: infinite (in Mathlib's sense), finitely presented (Mathlib's Group.IsFinitelyPresented), and periodic (every element has a positive power equal to 1; no common exponent). Argument for periodicity (KernelTorsion.lean): elements in the kernel of the representation to matrices are shown to have finite order by checking that characters vanish in a commutative subgroup; a general element's periodicity exponent a is taken from the matrix side and a power of the element lies in the kernel. Explicit or non-constructive: not determinable from the Lean files, because R is existential and the infiniteness proof was not read; the paper is needed.",
+    "people": [],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "an unreleased internal OpenAI model",
+          "what_it_did": "The repository README states that it 'contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model', and that the vast majority of results came from 'an unreleased internal OpenAI model'. Nothing I read says what the model did for family 247 in particular (idea, proof, Lean formalisation, or write-up). The paper PDF could not be read, so paper-level credit is unknown. Secondary coverage (not verified against OpenAI) reports that a spokesperson said almost everything came from a single prompt handed to a single agent.",
+          "basis_quote": "contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+          "quote_url": "https://github.com/openai/math"
+        }
+      ],
+      "disclosed_cost": "Repository-level only, per the kingy.ai summary of the release: 'An average of three hours of ChatGPT Pro thinking compute per result' is the only compute figure given, and OpenAI does not disclose an aggregate dollar cost, token count, accelerator-hour total or training budget. Not specific to this paper. The Astra announcement of 1 August 2026 (an internal version of the next major model) is not linked to this family in any source I found, so it is not recorded as the system here.",
+      "sources": [
+        "https://github.com/openai/math",
+        "https://github.com/openai/math/blob/main/lean/docs/247.md",
+        "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/"
+      ]
+    },
+    "sources": [
+      "https://github.com/openai/math/blob/main/lean/docs/247.md",
+      "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/247.md",
+      "https://github.com/openai/math",
+      "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PeriodicGroup.lean",
+      "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PeriodicGroup.json",
+      "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Main.lean",
+      "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Periodicity/KernelTorsion.lean",
+      "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Homology/KernelStability.lean",
+      "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Matrices/ElementaryGenerators.lean",
+      "https://github.com/openai/math/tree/main/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026",
+      "https://github.com/openai/math/commits/main/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026",
+      "https://github.com/openai/math/tree/main/lean/ComparatorChallenges",
+      "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/README.md",
+      "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+      "https://retractionwatch.com/2026/10/08/openai-withdraws-preprints-722-manuscripts-unsolved-math-problems/",
+      "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/",
+      "https://the-decoder.com/how-much-beauty-have-we-lost-mathematicians-react-with-shock-and-disgust-as-openai-bulldozes-their-field/"
+    ]
+  },
+  "credited_humans": [],
+  "status_sources": [
+    "https://github.com/openai/math/blob/main/lean/docs/247.md",
+    "https://github.com/openai/math/blob/adc7f1241b42e322a6451854ab7e4b4c146bf78a/lean/docs/247.md",
+    "https://github.com/openai/math",
+    "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PeriodicGroup.lean",
+    "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/PeriodicGroup.json",
+    "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Main.lean",
+    "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Periodicity/KernelTorsion.lean",
+    "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Homology/KernelStability.lean",
+    "https://raw.githubusercontent.com/openai/math/main/lean/OAI/GroupTheory/PeriodicGroups/Matrices/ElementaryGenerators.lean",
+    "https://github.com/openai/math/tree/main/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026",
+    "https://github.com/openai/math/commits/main/preprints/An-infinite-finitely-presented-periodic-group-September-23-2026",
+    "https://github.com/openai/math/tree/main/lean/ComparatorChallenges",
+    "https://raw.githubusercontent.com/openai/math/main/lean/ComparatorChallenges/README.md",
+    "https://raw.githubusercontent.com/openai/math/main/lean/formalization.yaml",
+    "https://retractionwatch.com/2026/10/08/openai-withdraws-preprints-722-manuscripts-unsolved-math-problems/",
+    "https://kingy.ai/blog/openai-math-722-manuscripts-results-proofs-compute-costs/",
+    "https://the-decoder.com/how-much-beauty-have-we-lost-mathematicians-react-with-shock-and-disgust-as-openai-bulldozes-their-field/"
+  ],
+  "ai": {
+    "systems": [
+      "an unreleased internal OpenAI model"
+    ],
+    "from_event": "openai-2026-f-p-periodic",
+    "basis_quote": "contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+    "none_found": false,
+    "disclosed_cost": "Repository-level only, per the kingy.ai summary of the release: 'An average of three hours of ChatGPT Pro thinking compute per result' is the only compute figure given, and OpenAI does not disclose an aggregate dollar cost, token count, accelerator-hour total or training budget. Not specific to this paper. The Astra announcement of 1 August 2026 (an internal version of the next major model) is not linked to this family in any source I found, so it is not recorded as the system here."
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "openai-2026-f-p-periodic",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "No human engagement 8 days after posting; the repository itself says some results 'could have issues' and its review status is 'unchecked'; three other manuscripts from the same release were withdrawn within a day for a sign error. No specific error has been identified in this one, and the Lean chain was only partly read and never built.",
+        "ai_role": "generated",
+        "ai_basis": "contains mathematical manuscripts and supporting proof artifacts produced by an internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      },
+      {
+        "id": "ivanov-2002-weakly-fp",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "ivanov-2002-embedding-burnside",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "olshanskii-sapir-2002-torsion-by-cyclic",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "sapir-2007-problem-note",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "button-thillaisundaram-2010-p-deficiency",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "thillaisundaram-2011-deficiency-one",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "wagner-2021-thesis-torsion-subgroup",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "openai-math-247",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Same release-level doubts as openai-2026-f-p-periodic: no human engagement, the repository says it is 'unchecked' and some results may have issues, and sibling manuscripts were withdrawn for an error. The researcher read parts of the TeX source and found nothing specifically wrong, but the core nilpotence argument (about 1,650 lines) was only sampled.",
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      }
+    ],
+    "why": "The statement asks one yes/no question. An infinite finitely presented periodic group answers it in full, in the 'no' direction, so both OpenAI rows are scope whole. The group contradicts 'every such group is finite', which makes it a counterexample and the direction refuted. Nobody has reviewed either row: Lean on its own is not digestion (F7), and no person has engaged with the claim. Both rows are doubtful rather than credible because the release carries its own warnings and withdrew sibling manuscripts, but no error specific to this construction has been found, so nothing knocks them down. AI role is generated: the repository says the manuscripts and proof artifacts were produced by the internal model. That attribution is repository-level, not specific to this family, and I accepted it. The pre-2024 papers give: Ivanov's weakly finitely presented groups and Burnside embeddings, the Olshanskii–Sapir torsion-by-cyclic group, and Wagner's torsion subgroup are all variants. Sapir's note is a survey (none). Button–Thillaisundaram and Thillaisundaram settle the restricted class of presentations with positive p-deficiency: such groups are not periodic, which confirms the statement for that class, so they are cases.",
+    "doubts": "The two OpenAI rows overlap: openai-2026-f-p-periodic and openai-math-247 describe the same construction, St₁₂(R), from the same release. The second row also bundles the residually finite 2-group companion (dated 5 October 2026). I kept both rows as the record splits them. They agree on every answer except the date (23 September vs 6 October 2026). Whether the AI credit for this particular family is accurate depends on repository-level wording only. Thillaisundaram 2011 depends on a snippet saying the surjection target is Z. Ivanov 2002 counts as digested only because it appeared in an AMS Contemp. Math. volume; its refereeing was not confirmed. That row is discarded as a variant either way.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "claimed",
+      "rests_on": "openai-2026-f-p-periodic",
+      "ai_role": "generated",
+      "ai_from": "openai-2026-f-p-periodic",
+      "resolution_direction": "refuted",
+      "object_role": "counterexample",
+      "ai_systems_credited": [
+        "an unreleased internal OpenAI model"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

@@ -1,0 +1,716 @@
+{
+  "key": "n-conjecture",
+
+  "nothing_found": false,
+
+  "outcome": "Since 26 January 2024 the standard n-conjecture (Browkin and Brzeziński: limsup of the quality equals 2n−5) has not been settled in either half, as far as I can find; its lower-bound half dates from 1994 and its upper bound is still conjectured. In-window events concern variants and the n = 3 case: Hölzl, Kleine and Stephan (arXiv, 20 Sep 2024) disprove Ramaekers' strong variant for every n ≥ 5; a Lean-checked family credited to GPT-6 Astra (repository dated 5–7 Sep 2026) refutes that variant at n = 4 with quality limsup ≥ 9/8; the n = 3 instance, which is abc, saw power-saving exceptional-set bounds in 2024–25 and a 2012 claimed proof that remains disputed.",
+
+  "problem_asks": "From the statement alone: (1) a generalization of the abc conjecture; (2) to more than three integers, so for each n ≥ 4 (the n = 3 case is abc itself, which the wording excludes). The statement does not fix the form. Read with the literature it points to (Browkin and Brzeziński 1994, as the Wikipedia 'N conjecture' article and Hölzl–Kleine–Stephan give it): for integers a_1..a_n with gcd 1, a_1+…+a_n = 0 and no vanishing proper subsum, and for every ε > 0, max|a_i| ≤ C(n,ε)·rad(a_1⋯a_n)^(2n−5+ε), equivalently limsup of q = log max|a_i| / log rad(a_1⋯a_n) equals 2n−5. Parts to be settled separately for each n ≥ 4: (a) the lower-bound half, limsup q ≥ 2n−5; (b) the upper-bound half, limsup q ≤ 2n−5 (equivalently the ε-form above). The exponent 2n−5 comes from the literature, not from the statement as frozen; I could not check the January 2024 wording of the Wikipedia article itself (I read the revision last edited 2 Oct 2026). Closely related items the same literature covers, not asked by the statement: Browkin's strong version (pairwise coprime, no subsum condition, conjectured finite quality), Ramaekers' strong version (pairwise coprime, subsum kept, conjectured quality 1), and the n = 3 instance (abc).",
+
+  "events": [
+    {
+      "id": "browkin-brzezinski-1994",
+      "what_happened": "Browkin and Brzeziński, 'Some remarks on the abc-conjecture', Mathematics of Computation 62(206) (1994) 931–939. States the n-conjecture for n ≥ 3 with exponent 2n−5 (Hölzl–Kleine–Stephan Conjecture 2: 'Then Q_A(n)=2n−5 for every n'). Its Theorem 1.3, per the Redhill Lean docstring, gives the lower bound: the quality of the n-tuples is at least 2n−5 (formalised as le_quality_nConjectureTuples). Hölzl–Kleine–Stephan say 'One half of the n-conjecture is known', which is this lower bound. The paper is not accessed by me (AMS page returned 403; JSTOR blocked). A 1993 citation seen in a search snippet places a same-titled Göteborg preprint in 1992; not verified.",
+      "date": "1994",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Possible 1992 preprint (Göteborg, same title) per a search snippet of a 1993 citation; not verified.",
+      "delivers": "Standard n-conjecture statement for n ≥ 3, and the lower bound limsup q ≥ 2n−5 for every n ≥ 3 (lower half only).",
+      "remains": "The upper bound limsup q ≤ 2n−5 for every n ≥ 3, i.e. the conjectured half. For n = 3 this is abc.",
+      "checked_by": [
+        {
+          "who": "Parcly-Taxel (GitHub handle), maintainer of the Redhill Lean package",
+          "qualification": "Formaliser of the Lean package; the handle's Lean work is listed in its README (mathlib upstreaming). Identity of the person behind the handle not verified on a page I read.",
+          "what_they_did": "Formalised the lower bound as Redhill.BB94 and the main theorem le_quality_nConjectureTuples, whose docstring reads 'Theorem 1.3 in the paper, Browkin and Brzeziński (1994).' This is a machine-checked formalisation of the 1994 argument, not a human reading of the paper.",
+          "where": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/BB94.lean",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 32 years (1994)",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (Redhill repository; Reservoir lists toolchain v4.35.0-rc2)",
+        "sorry_free": "Not confirmed by a build. A summarising fetch of BB94.lean found no sorry, axiom or admit; I ran no lake build.",
+        "url": "https://github.com/Parcly-Taxel/Redhill"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Lower-bound half of the standard conjecture: it holds (with the upper half open). Cuts in favour of the conjecture's lower-bound half only.",
+      "object": null,
+      "people": ["Jerzy Browkin", "Juliusz Brzeziński"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["Pre-dates any AI system. Paper text not accessed; no AI statement can be checked."]
+      },
+      "sources": [
+        {"url": "https://en.wikipedia.org/wiki/N_conjecture", "title": "N conjecture (Wikipedia)", "type": "encyclopedia", "opened": true},
+        {"url": "https://arxiv.org/html/2409.13439v2", "title": "Improved lower bounds for strong n-conjectures (HTML v2)", "type": "preprint", "opened": true},
+        {"url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/BB94.lean", "title": "Redhill/BB94.lean", "type": "repository", "opened": true},
+        {"url": "https://www.ams.org/journals/mcom/1994-62-206/S0025-5718-1994-1201997-6/", "title": "Math. Comp. 62(206) record (AMS)", "type": "journal", "opened": false}
+      ]
+    },
+    {
+      "id": "browkin-2000-strong-variant",
+      "what_happened": "Browkin, 'The abc-conjecture', in Number Theory (eds Bambah, Dumir, Hans-Gill), 2000, pp. 75–105, per a reference list seen in search. Browkin proposes the 'strong n-conjecture' B(n): entries pairwise coprime and the subsum condition dropped, conjectured Q_B(n) < ∞ for every n. Hölzl–Kleine–Stephan attribute to Konyagin, via Browkin, the lower bounds Q_B(n) ≥ 1 for even n ≥ 4 and Q_B(n) ≥ 3/2 for odd n ≥ 5 (cited as 'Theorem 6 (Konyagin; see Browkin [1])' in a search snippet of their paper; not verified in the HTML I read).",
+      "date": "2000",
+      "precision": "year",
+      "kind": "conference",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The strong variant B(n) with finiteness conjectured; lower bounds Q_B(n) ≥ 1 (even n ≥ 4) and ≥ 3/2 (odd n ≥ 5), attributed to Konyagin.",
+      "remains": "Finiteness of Q_B(n) for every n (conjectured). Not the standard n-conjecture.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 26 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Proposes a finiteness variant and reports lower bounds consistent with it. Does not touch the standard statement.",
+      "object": null,
+      "people": ["Jerzy Browkin", "Konyagin (credited in the 2000 paper's bounds)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["Pre-dates any AI system. Proceedings volume not accessed."]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/html/2409.13439v2", "title": "Improved lower bounds for strong n-conjectures (HTML v2; cites Browkin [1])", "type": "preprint", "opened": true},
+        {"url": "https://arxiv.org/abs/2406.05083", "title": "On the abc and the abcd conjectures (Pasten and Sepúlveda-Manzo; reports Browkin 2000 as proposing the strong n-conjecture)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "ramaekers-2009-thesis",
+      "what_happened": "Ramaekers, 'The abc-conjecture and the n-conjecture', bachelor's thesis, Eindhoven University of Technology, 2009, per the Wikipedia reference list and the tadamcz README (which links a pure.tue.nl PDF and cites 'Conjecture 5.1'). Proposes the strong variant R(n): pairwise coprime entries, subsum condition kept, conjectured limsup quality = 1 for every n. Hölzl–Kleine–Stephan report that Ramaekers 'computed numerous example elements' of R(3), R(4), R(5) (HTML, via summariser). A search summary adds 'of quality larger than 1'; not verified.",
+      "date": "2009",
+      "precision": "year",
+      "kind": "thesis",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Conjecture Q_R(n) = 1 for every n (Ramaekers variant). For n = 3 this is equivalent to abc (per Hölzl–Kleine–Stephan remarks).",
+      "remains": "All of it, for every n. The conjecture is refuted for n ≥ 5 (Hölzl–Kleine–Stephan, 2024) and for n = 4 (Adamczewski, 2026); see those events.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 17 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "A conjecture (variant) claiming limsup = 1. Its own examples, if quality > 1 for R(4), would bear on the 'n = 4 open' status (see disputes). I did not read the thesis.",
+      "object": null,
+      "people": ["C. Ramaekers (Wikipedia citation gives initial only; the tadamcz README gives 'Coen Ramaekers'; neither verified against the thesis)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["Pre-dates any AI system. Thesis PDF unreadable to WebFetch."]
+      },
+      "sources": [
+        {"url": "https://en.wikipedia.org/wiki/N_conjecture", "title": "N conjecture (Wikipedia; cites Ramaekers 2009)", "type": "encyclopedia", "opened": true},
+        {"url": "https://raw.githubusercontent.com/tadamcz/n-conjecture-strong/main/PROOF.md", "title": "tadamcz/n-conjecture-strong PROOF.md (cites Ramaekers 2009 thesis)", "type": "repository", "opened": true},
+        {"url": "https://pure.tue.nl/ws/portalfiles/portal/67739846/657782-1.pdf", "title": "Ramaekers thesis PDF (cited by the tadamcz README; binary, unreadable)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "mochizuki-2012-abc-claim",
+      "what_happened": "Mochizuki's inter-universal Teichmüller papers IUT I–IV (RIMS preprints 1756–1759), posted as a claimed proof of abc, the n = 3 instance of this family. Disputed. Scholze and Stix (2018) identified a defect at the step from Theorem 3.11 to Corollary 3.12; Mochizuki replied that they made impermissible simplifications. Project LANA (ZEN University, Kato et al.), interim report 17 Jul 2026: the Theorem 3.11→Corollary 3.12 step 'cannot be formalized as written' in the IUT papers, with final judgment withheld. Known only from search summaries; the primary report and the papers were not opened.",
+      "date": "2012-08",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Dates conflict: August 2012 (Mochizuki's progress report and RIMS page, per search summary) vs September 2012 (a blog post). August is the better-supported date. Published in PRIMS (Kyoto) after the 2020 announcement per search summary.",
+      "delivers": "Claims abc, i.e. the n = 3 case (quality limsup = 1 for triples). Outside the statement's words ('more than three integers'); inside the literature's family, where n = 3 is abc.",
+      "remains": "Nothing for n ≥ 4. Whether the claim stands is disputed: the LANA interim report withholds a verdict.",
+      "checked_by": [
+        {
+          "who": "Scholze and Stix",
+          "qualification": "Established arithmetic geometers working on the field",
+          "what_they_did": "Wrote a 2018 report arguing the IUT strategy has a serious defect at the Theorem 3.11→Corollary 3.12 step (per search summaries)",
+          "where": "Not opened (cited in search summaries and in the Mochizuki-response accounts)",
+          "automated": false
+        },
+        {
+          "who": "Project LANA (ZEN Mathematics Center, Kato et al.)",
+          "qualification": "Research team using Lean to verify the IUT argument",
+          "what_they_did": "Interim report 17 Jul 2026: the Theorem 3.11→Corollary 3.12 step cannot be formalised as written; no final verdict (per search summaries; primary PDF not opened)",
+          "where": "Not opened (search summaries only)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Scholze and Stix (2018) identified a defect at the Theorem 3.11→Corollary 3.12 step, which Mochizuki disputes as resting on impermissible simplifications. The July 2026 LANA interim report concludes the step cannot be formalised as written (search summary). A critique by Kirti Joshi dated 30 Jul 2026 disputes LANA's methodology (search summary). All these rest on secondary accounts; no primary text was read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Claims the abc inequality for triples, i.e. it cuts in the conjecture's favour if the n = 3 instance is read into this bullet. On the bullet's own wording (more than three integers) it does not bear.",
+      "object": null,
+      "people": ["Shinichi Mochizuki", "Peter Scholze", "Jakob Stix", "Fumiharu Kato (LANA)", "Kirti Joshi (critic)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["No AI system named in the sources I saw. The LANA project uses Lean for verification (a proof checker, not an AI system, per the summaries)."]
+      },
+      "sources": [
+        {"url": "https://en.wikipedia.org/wiki/Inter-universal_Teichm%C3%BCller_theory", "title": "Inter-universal Teichmüller theory (search result; not opened)", "type": "encyclopedia", "opened": false},
+        {"url": "https://zen.ac.jp/news/zmcpostevent0717e", "title": "Project LANA press item (search result; not opened)", "type": "news", "opened": false}
+      ]
+    },
+    {
+      "id": "pasten-sepulveda-manzo-2024-abcd",
+      "what_happened": "Pasten and Sepúlveda-Manzo, 'On the abc and the abcd conjectures', arXiv:2406.05083, submitted 7 June 2024 (v1; only version found). Theorem 1.6 (abcd, n = 4): for pairwise coprime nonzero x_1..x_4 with sum zero and H = max|x_j|, assuming min_{i<j}|x_i+x_j| ≤ H/exp((log H)^τ·log₂*H) for some τ > 0, one gets log H ≤ exp(τ⁻¹κ·(log₃*R/log₂*R)·log R) with R = rad(x_1x_2x_3x_4) and κ absolute, so log H ≪_ε R^ε. The paper says 'we are not aware of any unconditional result (not even exponential!) for these conjectures over Z for any n ≥ 4'. It does not prove the exponent 2n−5.",
+      "date": "2024-06-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only per arXiv listing.",
+      "delivers": "For n = 4 only: an unconditional subexponential bound on max|x_j| in terms of the radical, under a size hypothesis (a pairwise sum is unusually small). Weaker than the conjectured exponent 2n−5 and restricted by hypothesis.",
+      "remains": "The exponent 2n−5 for n = 4 (Q_A(4) ≤ 3 would also give abc, per Hölzl–Kleine–Stephan Remark 5); all n ≥ 5; the case without the size hypothesis.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 28 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Subexponential bound for n = 4, a weaker form than the conjectured exponent; neither confirms nor refutes the conjectured exponent.",
+      "object": null,
+      "people": ["Hector Pasten", "Rocío Sepúlveda-Manzo"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["No AI or computer-assistance statement in the HTML I read; the only computer-generated element is the LaTeXML rendering."]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2406.05083", "title": "On the abc and the abcd conjectures (abstract page)", "type": "preprint", "opened": true},
+        {"url": "https://arxiv.org/html/2406.05083v1", "title": "On the abc and the abcd conjectures (HTML v1)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "hks-2024-strong-variants",
+      "what_happened": "Hölzl, Kleine and Stephan, 'Improved lower bounds for strong n-conjectures', arXiv:2409.13439 (v1 20 Sep 2024; v2 7 Feb 2025), later J. Aust. Math. Soc. 119 (2025) 61–81 (DOI 10.1017/S1446788725000084; published online 2 Jun 2025). Lower bounds on limsup quality for strong variants on the restricted class U(F,n) (pairwise coprime, stronger subsum condition, forbidden factors F): Theorem 12, Q_U(F,n) ≥ 5/3 for odd n ≥ 5 when 2, 5, 10 ∉ F; Theorem 13, Q_U(F,n) ≥ 5/4 for n ≥ 6 and any finite F; hence Q_R(n) ≥ 5/4 (n ≥ 6) and ≥ 5/3 (odd n ≥ 5). Theorem 14 gives 3/2 at n = 5; Theorem 16 gives Q_U(F,5) > 1 when 5 or 10 may lie in F. The authors state that Ramaekers' conjecture is false for every n ≥ 5. They do not settle n = 3 or n = 4 (Wikipedia: no nontrivial lower bounds for n = 3, 4).",
+      "date": "2024-09-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 20 Sep 2024; v2 7 Feb 2025; journal version online 2 Jun 2025.",
+      "delivers": "Limsup-quality lower bounds for the restricted class U(F,n) (5/3 for odd n ≥ 5 with 2, 5, 10 ∉ F; 5/4 for n ≥ 6, any finite F), hence the disproof of Ramaekers' strong conjecture (Q_R(n) = 1) for every n ≥ 5. The class U(F,n) lies inside the standard class A(n), so these are lower bounds on the standard quantity Q_A(n) too, but they are weaker than the already-known Q_A(n) ≥ 2n−5 and so change no value of the standard statement.",
+      "remains": "Standard n-conjecture (A(n)): the upper bound limsup Q_A(n) ≤ 2n−5, for every n. Browkin's finiteness Q_B(n) < ∞ (lower bounds are consistent with it). n = 3 (abc) and n = 4 for both strong variants.",
+      "checked_by": [
+        {
+          "who": "Journal of the Australian Mathematical Society (Cambridge University Press)",
+          "qualification": "Peer-reviewed journal of record",
+          "what_they_did": "Published as vol. 119 (2025) 61–81. The arXiv HTML acknowledgements thank an anonymous referee for proofreading and suggested improvements.",
+          "where": "https://www.cambridge.org/core/journals/journal-of-the-australian-mathematical-society/article/improved-lower-bounds-for-strong-nconjectures/881532D8B69924BBFA5C76A32A52063A",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 months (v1 Sep 2024 to Oct 2026); journal version June 2025",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Against Ramaekers' strong conjecture (limsup = 1) for every n ≥ 5. Silent on the Browkin–Brzeziński standard conjecture (limsup = 2n−5) and on Browkin's finiteness conjecture. The paper itself names the standard conjecture as Conjecture 2 and says 'One half of the n-conjecture is known'.",
+      "object": "Explicit families of integer tuples giving the lower bounds (the paper's constructions; read only through a summariser, so the exact polynomials are not transcribed here). Not a single counterexample: the results are lower bounds on a limsup over families.",
+      "people": ["Rupert Hölzl", "Sören Kleine", "Frank Stephan"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["arxiv.org/html/2409.13439v2: no AI or computer-assistance statement. Acknowledgements thank Benne de Weger for correspondence and unpublished notes, and an anonymous referee. There is no 'Computer Search' section in this paper (the bookmark title appears in Stephan's slide deck instead)."]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2409.13439", "title": "Improved lower bounds for strong n-conjectures (abstract page)", "type": "preprint", "opened": true},
+        {"url": "https://arxiv.org/html/2409.13439v2", "title": "Improved lower bounds for strong n-conjectures (HTML v2)", "type": "preprint", "opened": true},
+        {"url": "https://www.cambridge.org/core/journals/journal-of-the-australian-mathematical-society/article/improved-lower-bounds-for-strong-nconjectures/881532D8B69924BBFA5C76A32A52063A", "title": "Journal of the Australian Mathematical Society record", "type": "journal", "opened": true}
+      ]
+    },
+    {
+      "id": "blt-2024-abc-exceptional-set",
+      "what_happened": "Bernert, Browning, Lichtman and Teräväinen, 'Bounds on the exceptional set in the abc conjecture', arXiv:2410.12234 (v1 16 Oct 2024; v2 9 May 2026). Power-saving bound on the number of coprime triples (a,b,c) in [1,X]^3 with a+b=c and rad(abc) < c^(1−ε), i.e. exceptions to abc for fixed ε. The exponent O(X^(33/50)) is as reported by Li (2025) and a search snippet; I did not find it in the BLT abstract page, which says only 'power-saving bound'. The paper concerns n = 3 only.",
+      "date": "2024-10-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 16 Oct 2024; v2 9 May 2026 (content not checked).",
+      "delivers": "For the abc case (n = 3 of this family): a power-saving count of exceptional triples, O(X^(33/50)) per later reports. Restricted to n = 3; says nothing about n ≥ 4 or about the sup of the quality.",
+      "remains": "The abc exceptional-set finiteness itself for every ε (the n = 3 instance), and all n ≥ 4. Scope reading: the bullet names n > 3, so n = 3 is outside its words. Whether the exception count is 'a quantity named in the statement' depends on reading the bullet as the family including n = 3, where the count is the conjecture's own quantity (§2.1 abc example).",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 24 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Counts abc exceptions with a power saving. For n = 3 this bounds the exception set; it does not settle the abc statement.",
+      "object": null,
+      "people": ["Christian Bernert", "Tim Browning", "Jared Duker Lichtman", "Joni Teräväinen"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["Abstract page: no AI statement. The only computational note is 'Python linear programming code included in the appendix' (a solver, not an AI system)."]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2410.12234", "title": "Bounds on the exceptional set in the abc conjecture (abstract page)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "hks-2025-gaussian-analogue",
+      "what_happened": "Hölzl, Kleine and Stephan, 'Strong n-conjectures over rings of integers', arXiv:2503.05296, submitted 7 March 2025 (single version). Same conjecture family over the Gaussian integers Z[i] and the Hurwitz quaternions. Gives stronger lower bounds there, e.g. QA(Z[i],n) ≥ 4n−10 for n ≥ 3 (Theorem 3.5(c)) and QA(Hurwitz, 3) ≥ 2 (Theorem 4.5).",
+      "date": "2025-03-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "Results over different rings (Z[i], Hurwitz quaternions). These are analogues: they say nothing about the rational-integer statement in this bullet.",
+      "remains": "The rational-integer statement entirely.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 19 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Different ring. No direction for the rational statement.",
+      "object": null,
+      "people": ["Rupert Hölzl", "Sören Kleine", "Frank Stephan"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["HTML v1: no AI or computer-assistance statement; no 'Computer Search' section."]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/html/2503.05296v1", "title": "Strong n-conjectures over rings of integers (HTML v1)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "bernert-2025-abc-exceptional-set",
+      "what_happened": "Christian Bernert, 'The exceptional set in the abc conjecture', arXiv:2506.13364, submitted 16 June 2025 (v1 only). Abstract: 'improving on and simplifying work of Browning, Lichtman and Teräväinen' on the size of the abc exceptional set. A search snippet mentions a λ = 1 bound of X^(8/13+ε); I did not see this in the abstract page and have not verified it.",
+      "date": "2025-06-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "For abc (n = 3 instance): an exceptional-set count, claimed to improve BLT. The main theorem was not read.",
+      "remains": "As for the BLT entry: n = 3 finiteness for every ε, and n ≥ 4.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 16 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Exceptional-set count for abc (n = 3 instance). Scope as in the BLT entry.",
+      "object": null,
+      "people": ["Christian Bernert"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["Abstract page: no AI or computer-assistance statement."]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2506.13364", "title": "The exceptional set in the abc conjecture (abstract page)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "li-2025-abc-exceptional-set",
+      "what_happened": "Runbo Li, 'On the exceptional set in the abc conjecture', arXiv:2507.02885, submitted 19 June 2025 (v1 only; 15 pages). Shows the number of abc triples with c ≤ X is O(X^(56/85+ε)) for every ε > 0, improving O(X^(33/50)) from BLT by refining their methods.",
+      "date": "2025-06-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "For the abc case (n = 3 instance): count of abc triples with c ≤ X, exponent 56/85 (+ε). Power-saving; not a resolution.",
+      "remains": "As for the BLT entry: n = 3 finiteness for every ε, and all n ≥ 4.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 16 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Power-saving exceptional-set count for abc (n = 3 instance). Scope as in the BLT entry.",
+      "object": null,
+      "people": ["Runbo Li"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["Abstract page: no AI or computer-assistance statement; does not mention the n-conjecture."]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2507.02885", "title": "On the exceptional set in the abc conjecture (abstract page)", "type": "preprint", "opened": true}
+      ]
+    },
+    {
+      "id": "redhill-hks-formalisation-2026",
+      "what_happened": "Parcly-Taxel's Lean 4 package Redhill (repository github.com/Parcly-Taxel/Redhill; Reservoir 'version 0.1.0'), described as 'A formalisation of the disproof of Ramaekers's conjecture' and in its README as a Lean formalisation of Hölzl–Kleine–Stephan 2409.13439. It contains modules BB94 (the 1994 lower bound: le_quality_nConjectureTuples, quality ≥ 2n−5 for n ≥ 3), Common/Conjectures (definitions NConjecture as quality = 2n−5, StrongNConjecture as quality < ⊤, RamaekersConjecture as quality = 1, and a proven nConjecture_3_iff_ABC), Four (the n = 4 refutation, see the Adamczewski entries), Odd and General (strong variants). Commit history on the first page runs from 11 Apr 2026 to 12 Oct 2026. Reservoir shows 'last updated 18 Sep 2026'.",
+      "date": "2026-04-11",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Earliest commit shown on the first page of history is 11 Apr 2026; earlier history not read. Latest shown 12 Oct 2026 ('update version').",
+      "delivers": "Lean formal statements and proofs of the Hölzl–Kleine–Stephan strong-variant bounds (Odd and General modules), the 1994 standard lower bound (BB94), and the n = 3 equivalence NConjecture 3 ↔ ABCConjecture as formalised (with quality = 1 as an equality). Exactly which theorems of the paper are formalised was not read.",
+      "remains": "Same as the paper: upper bound of the standard conjecture for every n; strong variants for n = 3, 4.",
+      "checked_by": [
+        {
+          "who": "Parcly-Taxel (GitHub handle; a search summary associates it with Jeremy Tan, not verified on a page I read)",
+          "qualification": "Maintainer of the Redhill package; the README lists mathlib pull requests they upstreamed; active on the Erdős Problems forum (profile fetched)",
+          "what_they_did": "Formalised the paper and the 1994 lower bound in Lean 4 with Mathlib. The formalisation is a human-written port, and its module docstrings say which parts were ported without LLM use.",
+          "where": "https://github.com/Parcly-Taxel/Redhill",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 months (earliest commit shown)",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (Redhill; Reservoir toolchain v4.35.0-rc2)",
+        "sorry_free": "Not confirmed by a build. The summarising fetches of Redhill.lean, BB94.lean, Four.lean and Common/Conjectures.lean found no sorry, axiom or admit. I ran no lake build.",
+        "url": "https://github.com/Parcly-Taxel/Redhill"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Formal version of the strong-variant disproofs and of the standard lower bound. Same direction as the paper.",
+      "object": null,
+      "people": ["Parcly-Taxel (GitHub handle)", "Rupert Hölzl", "Sören Kleine", "Frank Stephan"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["No AI tool named in the README, the root file, or the BB94/Common modules. The author's Erdős Problems forum posts say they used Aristotle for formalising other problems ('Using Aristotle I have formalised a proof…'); no source links Aristotle to Redhill, and the README states none."]
+      },
+      "sources": [
+        {"url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/README.md", "title": "Redhill README (raw)", "type": "repository", "opened": true},
+        {"url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill.lean", "title": "Redhill.lean (root; imports only)", "type": "repository", "opened": true},
+        {"url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/Common/Conjectures.lean", "title": "Redhill/Common/Conjectures.lean", "type": "repository", "opened": true},
+        {"url": "https://github.com/Parcly-Taxel/Redhill/commits/main", "title": "Redhill commit history (first page)", "type": "repository", "opened": true},
+        {"url": "https://reservoir.lean-lang.org/@Parcly-Taxel/Redhill", "title": "Reservoir package page for Redhill", "type": "repository", "opened": true},
+        {"url": "https://www.erdosproblems.com/forum/user/parclytaxel", "title": "Erdős Problems forum profile (parclytaxel)", "type": "blog", "opened": true}
+      ]
+    },
+    {
+      "id": "adamczewski-2026-n4-counterexample",
+      "what_happened": "Repository tadamcz/n-conjecture-strong (github.com/tadamcz/n-conjecture-strong), commits on main dated 5–7 Sep 2026 (15 commits; the earliest is 'Initial import: Hawk run data and analysis (strong n-conjecture, n=4 refutations)', 5 Sep; 'Prove strong four-conjecture false with a 9/8 quality bound' also 5 Sep; 'Add Comparator-format Challenge.lean stating the refuted formulations', 7 Sep). README description: 'Lean 4 counterexample to the n=4 case of the strong n-conjecture (Ramaekers 2009; Hölzl–Kleine–Stephan 2024, Conj. 7)'. Claims: an explicit infinite family of pairwise coprime integer 4-tuples with sum zero whose quality limsup is at least 9/8 (so limsup = 1 fails for Ramaekers' R(4)); the same family disproves every uniform bound for 0 ≤ ε < 1/8. The Wikipedia 'List of mathematical discoveries by artificial intelligence' (last edited 12 Oct 2026) has a row for it (September 2026, number theory, 'Lean formalization', note 'the only remaining open case', AI provenance 'Epoch AI, GPT-6 Astra', citing this repository as 'Lean 4 counterexample to the n=4 case of the strong N conjecture').",
+      "date": "2026-09-05",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "15 commits on main, 5–7 Sep 2026 (commit dates only, times not shown); latest shown 7 Sep 2026 ('Remove redundant Lean audit and add AI authorship note' and earlier docs commits). Commit dates on the page are the only dates; no arXiv preprint or write-up found. Date reads as first public posting, pending the repository's visibility history, which I did not check.",
+      "delivers": "Refutes Ramaekers' strong conjecture at n = 4: an explicit family with quality limsup ≥ 9/8 > 1 among pairwise coprime admissible 4-tuples (HKS Conjecture 7 / Ramaekers R(4)). Restriction: n = 4 only, and the stated claim is a lower bound 9/8, not an equality or convergence (the README says so). Optimality and publication novelty are not claimed. The family is a subset of the standard class A(4), so it gives Q_A(4) ≥ 9/8, far below the conjectured and already-known Q_A(4) ≥ 3; it does not touch the standard upper bound.",
+      "remains": "For the Ramaekers variant: nothing at n = 4 beyond the bound. For the standard n-conjecture: the upper bound for every n, including n = 4 (conjectured limsup 3). Browkin's strong conjecture (finite quality at n = 4) is not addressed (the README does not mention Browkin).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 weeks (5 Sep to 13 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4.27.0 with a pinned Mathlib (repository lean-toolchain and lake-manifest.json)",
+        "sorry_free": "README: the proof contains no sorry or axiom. Challenge.lean contains sorry by design (a comparator-format statement). I ran no build; the README's build steps are 'lake exe cache get' then 'lake build', plus a Docker route and a Python SymPy check (scripts/check_construction.py).",
+        "url": "https://github.com/tadamcz/n-conjecture-strong"
+      },
+      "directly_checkable": "Yes in principle. The family is given by the identity u^9 − (u−8)^5(u²+20u+280)² − 105(2u−3)^6 + D(u) = 0 (README), with D(u) a polynomial bounded by 1249182732·u⁴ for u ≥ 19 (PROOF.md; D itself not transcribed here). PROOF.md says it comes from the Pakovich–Zvonkin pair P = x⁹, Q = (x−1)⁵(x²+5x/2+35/8)² by subtracting (105/8)(x−3/16)⁶ and substituting x = u/8 and multiplying by 8⁹. Coprimality is by explicit Bézout identities. Indices are u_n with 2u_n − 3 = 35·Kⁿ. A hand check means expanding degree-nine polynomials.",
+      "doubts": "(1) Origin of the construction is attributed inconsistently. The Redhill module docstring says 'This construction was originally found by Tom Adamczewski using GPT-6 Astra.' The repository's own PROOF.md attributes the family to Pakovich–Zvonkin §3 and says 'A bounded search through the binomial-series examples' found it, naming no searcher. The README says 'The Lean proof itself was written by GPT-6 Astra.' Those three statements are not reconciled in any source I read. (2) The README says the 9/8 improves on 'supplied' constructions at 20/19 and 180/179. I could not identify their source, and a value above 1 at n = 4 would sit awkwardly with 'no nontrivial lower bound at n = 4' in the Wikipedia summary of Hölzl–Kleine–Stephan. (3) The 'Hawk run data' in the first commit is not explained anywhere I could read. (4) No human written review found. The repository is five weeks old. (5) The repository's conjecture target is HKS Conjecture 7 (the README says it follows the 'Stronger form' section of the Wikipedia article); the Wikipedia list's citation calls it the 'strong N conjecture'. Both are signals, not verdicts.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Refutes Ramaekers' strong conjecture at n = 4 (limsup 1 vs ≥ 9/8). Neutral for the standard n-conjecture, whose conjectured n = 4 value 3 is not contradicted by a lower bound of 9/8.",
+      "object": "An explicit infinite family of pairwise-coprime integer 4-tuples (x_1..x_4) with sum zero, indexed by u_n (2u_n − 3 = 35·Kⁿ), from the polynomial identity in directly_checkable. It shows limsup of log max|x_i| / log rad(x_1x_2x_3x_4) ≥ 9/8 (PROOF.md: for every real q < 9/8, eventually q < log H_n / log R_n). Explicit construction, not an existence proof. The same family disproves every uniform bound max|x_i| ≤ C·rad^(1+ε) for 0 ≤ ε < 1/8.",
+      "people": ["Tom Adamczewski"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Per the README: the Lean proof was written by GPT-6 Astra, and the repository was 'machine-written by AI assistants at the direction of Tom Adamczewski' (AI assistants not named). Per the Redhill docstring (second-hand): the construction 'was originally found by Tom Adamczewski using GPT-6 Astra'. PROOF.md attributes the family to a bounded search over Pakovich–Zvonkin binomial-series examples and names no searcher. So whether the mathematical construction, as against the Lean proof, came from the model is unresolved between these sources. A search snippet of OpenAI's 1 Aug 2026 announcement (openai.com page returned 403, not opened) describes 'Astra' as an unreleased internal model; this repository does not say whether GPT-6 Astra was internal or public.",
+            "basis_quote": "The Lean proof itself was written by GPT-6 Astra, as described below.",
+            "quote_url": "https://github.com/tadamcz/n-conjecture-strong"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/tadamcz/n-conjecture-strong (README; quotes as returned by a summarising fetch)",
+          "https://raw.githubusercontent.com/tadamcz/n-conjecture-strong/main/PROOF.md",
+          "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/Four.lean (docstring credit)",
+          "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence (row credits 'Epoch AI, GPT-6 Astra')"
+        ]
+      },
+      "sources": [
+        {"url": "https://github.com/tadamcz/n-conjecture-strong", "title": "tadamcz/n-conjecture-strong (README)", "type": "repository", "opened": true},
+        {"url": "https://raw.githubusercontent.com/tadamcz/n-conjecture-strong/main/PROOF.md", "title": "tadamcz/n-conjecture-strong PROOF.md", "type": "repository", "opened": true},
+        {"url": "https://github.com/tadamcz/n-conjecture-strong/commits/main", "title": "tadamcz/n-conjecture-strong commit history", "type": "repository", "opened": true},
+        {"url": "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence", "title": "List of mathematical discoveries by artificial intelligence (Wikipedia; row for N conjecture n = 4)", "type": "encyclopedia", "opened": true},
+        {"url": "https://github.com/tadamcz", "title": "tadamcz GitHub profile (pinned repositories only; no n-conjecture repository listed)", "type": "repository", "opened": true}
+      ]
+    },
+    {
+      "id": "redhill-n4-port-2026",
+      "what_happened": "Within Redhill, the module Redhill/Four.lean ports the n = 4 construction into Lean: quality_ramaekersTuples_four_ge (9/8 ≤ quality (ramaekersTuples 4)) and not_ramaekersConjecture_four (¬ RamaekersConjecture 4). Commits 'n = 4 case of Ramaekers' (15 Sep 2026), 'n = 4 case DONE' and 'StrongSSC for n = 4' (17 Sep 2026), and an optimisation of the n = 4 construction on 18 Sep 2026. The module docstring says: 'This construction was originally found by Tom Adamczewski using GPT-6 Astra.' and 'The port to Redhill was done by me without any (further) LLM usage whatsoever.'",
+      "date": "2026-09-15",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Commits 15–18 Sep 2026 on the n = 4 case; later changes to other modules through 12 Oct 2026.",
+      "delivers": "Lean formalisation of the same 9/8 lower bound and the refutation of Ramaekers' R(4) claim. Same restriction as the source repository: n = 4, Ramaekers variant.",
+      "remains": "As for the source repository.",
+      "checked_by": [
+        {
+          "who": "Parcly-Taxel (GitHub handle), as in the Redhill entry",
+          "qualification": "Maintainer of the Redhill Lean package",
+          "what_they_did": "Ported and re-proved the n = 4 construction in Lean 4 with Mathlib, independently of the source repository's build",
+          "where": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/Four.lean",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 4 weeks",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib (Redhill)",
+        "sorry_free": "Not confirmed by a build; the summarising fetch found no sorry, axiom or admit in Four.lean (no line numbers visible).",
+        "url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/Four.lean"
+      },
+      "directly_checkable": null,
+      "doubts": "The port's construction is the source repository's; a second Lean port is not an independent mathematical check of the construction's origin.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Refutes Ramaekers' R(4) claim, as the source repository does.",
+      "object": "Same family as the Adamczewski entry (u_n family, quality limsup ≥ 9/8), formalised.",
+      "people": ["Parcly-Taxel (GitHub handle)", "Tom Adamczewski (credited originator, per docstring)"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Second-hand credit in the docstring: 'originally found' the construction. The port itself is stated to use no LLM.",
+            "basis_quote": "This construction was originally found by Tom Adamczewski using GPT-6 Astra.",
+            "quote_url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/Four.lean"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": ["https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/Four.lean"]
+      },
+      "sources": [
+        {"url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/Four.lean", "title": "Redhill/Four.lean", "type": "repository", "opened": true},
+        {"url": "https://github.com/Parcly-Taxel/Redhill/commits/main", "title": "Redhill commit history", "type": "repository", "opened": true}
+      ]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "Origin of the n = 4 construction. Redhill's docstring says 'originally found by Tom Adamczewski using GPT-6 Astra'; the README says 'The Lean proof itself was written by GPT-6 Astra'; PROOF.md says the family comes from Pakovich–Zvonkin §3 and 'a bounded search through the binomial-series examples', with no searcher named. No source reconciles these.",
+      "sources": [
+        "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/Four.lean",
+        "https://github.com/tadamcz/n-conjecture-strong",
+        "https://raw.githubusercontent.com/tadamcz/n-conjecture-strong/main/PROOF.md"
+      ]
+    },
+    {
+      "kind": "status",
+      "summary": "Whether n = 4 was open before Sept 2026. The Wikipedia summary of Hölzl–Kleine–Stephan says they found no nontrivial lower bound for n = 3 or n = 4. The HKS HTML says Ramaekers 'computed numerous example elements' of R(3), R(4), R(5). The README says the 9/8 improves on 'supplied' constructions at 20/19 and 180/179, whose source I could not identify. If any of those is a quality above 1 at n = 4 for Ramaekers' variant, the 'open at n = 4' status is not clean. Not resolved.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/N_conjecture",
+        "https://arxiv.org/html/2409.13439v2",
+        "https://github.com/tadamcz/n-conjecture-strong"
+      ]
+    },
+    {
+      "kind": "naming",
+      "summary": "'Strong n-conjecture' names two variants. Browkin's B(n) (pairwise coprime, no subsum condition, finite quality) and Ramaekers' R(n) (pairwise coprime, subsum kept, quality 1). HKS uses the term for both. The Wikipedia article calls the second 'Ramaekers conjecture' under a 'Strong n conjecture' heading. The Wikipedia list row labels the object 'N conjecture (n = 4 case)' but its citation says 'strong N conjecture'.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/N_conjecture",
+        "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence",
+        "https://arxiv.org/html/2409.13439v2"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "Scope of the abc instance. Under the bullet's own wording ('more than three integers') n = 3 is excluded, but the literature's family includes n = 3 as abc. Under that reading the 2012 Mochizuki claim, the 2024–25 exceptional-set counts and the 2026 LANA report bear on the family; under the bullet's wording they do not. Recorded both ways for the judging pass.",
+      "sources": [
+        "https://arxiv.org/html/2409.13439v2",
+        "https://arxiv.org/abs/2410.12234",
+        "https://arxiv.org/abs/2507.02885"
+      ]
+    }
+  ],
+
+  "summary": "The standard n-conjecture (Browkin and Brzeziński 1994) says that for n ≥ 3, the limsup of q = log max|a_i| / log rad(a_1⋯a_n) equals 2n−5. The lower-bound half is a 1994 theorem: Redhill formalises it in Lean as Theorem 1.3 of that paper, and Hölzl–Kleine–Stephan write 'One half of the n-conjecture is known'. I could not open the 1994 paper itself (AMS returned 403; JSTOR blocked). The upper-bound half is conjectured. Hölzl–Kleine–Stephan (arXiv 2409.13439) state it as Conjecture 2, the Wikipedia article (last edited 2 Oct 2026) calls it open, and Redhill defines it in Lean as an equality without proving the upper half. I found no proof or disproof of the upper bound for any n in the window.\n\nWhat moved in the window concerns variants and the n = 3 case. (a) Hölzl, Kleine and Stephan (20 Sep 2024) show Browkin–Brzeziński-type lower bounds for restricted strong variants (5/3 for odd n ≥ 5, 5/4 for n ≥ 6) and so disprove Ramaekers' strong variant (limsup quality = 1) for every n ≥ 5. Those bounds sit below the known 2n−5 lower bound, so they change no value of the standard statement. (b) Adamczewski's repository (5–7 Sep 2026) gives an explicit family of pairwise coprime integer 4-tuples with quality limsup ≥ 9/8, which refutes Ramaekers' variant at n = 4. The README says the Lean proof was written by GPT-6 Astra; the same repository's PROOF.md says the family comes from Pakovich–Zvonkin §3 and a bounded search, without naming a searcher; the Redhill module docstring says the construction was originally found by Adamczewski using GPT-6 Astra. Redhill ports it into Lean (15–18 Sep 2026) and says the port used no LLM. The Wikipedia AI list has a row for it ('Lean formalization', 'the only remaining open case', provenance 'Epoch AI, GPT-6 Astra'). No written human review was found. For the standard statement the result is inert: its family is a subset of the standard class and its 9/8 sits below the known 3 at n = 4.\n\nThe n = 3 instance is abc. Mochizuki's IUT papers (August 2012, by the best-supported date) claim it; the claim is disputed (Scholze–Stix 2018; the LANA interim report of 17 Jul 2026 says the Theorem 3.11→Corollary 3.12 step cannot be formalised as written, with no verdict). Three exceptional-set papers, all n = 3 only (BLT Oct 2024 with X^(33/50); Bernert June 2025; Li June 2025 with X^(56/85+ε)), bound abc exceptions with a power saving. On the bullet's wording (more than three integers) these are outside scope; on the literature's family (n = 3 included) the exception count is the conjecture's own quantity. Both readings are recorded.\n\nCalls that were close: whether the bullet denotes the standard statement or the variant family; whether the Adamczewski family was AI-originated or AI-written (the sources disagree); whether the 20/19 and 180/179 constructions in the README make n = 4 'open' untrue for the Ramaekers variant. None of these changes the standard statement's status.",
+
+  "competing_reading": "Read the bullet as the family that Wikipedia's 'N conjecture' article covers, which includes the 'strong' Ramaekers variant. Then the family moved twice in the window: HKS (Sep 2024) disproved the variant for n ≥ 5, and the Sep 2026 n = 4 refutation, credited in part to GPT-6 Astra and Lean-checked, closes the only remaining case of that variant (per the Wikipedia list's note). That reading makes this item an AI-involved move, and one in which the AI attribution is contested. Read the bullet as the Browkin–Brzeziński statement (upper bound limsup = 2n−5): nothing in the window moves it, and the AI-credited result does not touch it. A third reading includes n = 3, so that the 2012 claim and the 2024–25 exceptional-set counts count as well.",
+
+  "what_would_settle_it": "(1) The judging pass fixes which statement the bullet denotes: the standard Browkin–Brzeziński limsup = 2n−5, or the family including Ramaekers' and Browkin's strong variants, and whether n = 3 is included. (2) For the AI item: who or what found the n = 4 family. The 'Hawk run data' in the first commit of tadamcz/n-conjecture-strong, or a statement by the repository's author, would settle it. (3) A lake build of tadamcz/n-conjecture-strong and of Redhill, plus a hand expansion of the degree-nine identity, to confirm the sorry-free claims. I did not run these. (4) The source of the 20/19 and 180/179 constructions for n = 4. (5) For the standard statement, any proof or disproof of limsup Q_A(n) ≤ 2n−5 for any n. None found.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/N_conjecture", "title": "N conjecture (Wikipedia; last edited 2 Oct 2026)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Jerzy_Browkin", "title": "Jerzy Browkin (Wikipedia; last edited 31 Aug 2026)", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence", "title": "List of mathematical discoveries by artificial intelligence (Wikipedia; last edited 12 Oct 2026)", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/2409.13439", "title": "Improved lower bounds for strong n-conjectures (abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2409.13439v2", "title": "Improved lower bounds for strong n-conjectures (HTML v2)", "type": "preprint", "opened": true},
+    {"url": "https://www.cambridge.org/core/journals/journal-of-the-australian-mathematical-society/article/improved-lower-bounds-for-strong-nconjectures/881532D8B69924BBFA5C76A32A52063A", "title": "Journal of the Australian Mathematical Society record for 2409.13439", "type": "journal", "opened": true},
+    {"url": "https://www.comp.nus.edu.sg/~fstephan/strongnconjectureslides.pdf", "title": "Stephan et al. slides, Lower Bounds for the Strong N-Conjecture (binary PDF; text unreadable; bookmarks read: includes 'Computer Search')", "type": "preprint", "opened": true},
+    {"url": "https://www.comp.nus.edu.sg/~fstephan/strongnconjecture.pdf", "title": "Stephan strong n-conjecture PDF (binary; text unreadable)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2503.05296v1", "title": "Strong n-conjectures over rings of integers (HTML v1)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2406.05083", "title": "On the abc and the abcd conjectures (abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2406.05083v1", "title": "On the abc and the abcd conjectures (HTML v1)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2410.12234", "title": "Bounds on the exceptional set in the abc conjecture (abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2506.13364", "title": "The exceptional set in the abc conjecture (Bernert; abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2507.02885", "title": "On the exceptional set in the abc conjecture (Li; abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1409.2974", "title": "abc triples (Martin and Miao survey; no n-conjecture content)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.29595", "title": "GPT, the Counterexample Machine (Sra; abstract page; no abc or n-conjecture mention)", "type": "preprint", "opened": true},
+    {"url": "https://github.com/tadamcz/n-conjecture-strong", "title": "tadamcz/n-conjecture-strong (README)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/tadamcz/n-conjecture-strong/main/PROOF.md", "title": "tadamcz/n-conjecture-strong PROOF.md", "type": "repository", "opened": true},
+    {"url": "https://github.com/tadamcz/n-conjecture-strong/commits/main", "title": "tadamcz/n-conjecture-strong commit history", "type": "repository", "opened": true},
+    {"url": "https://github.com/tadamcz", "title": "tadamcz GitHub profile", "type": "repository", "opened": true},
+    {"url": "https://github.com/Parcly-Taxel/Redhill", "title": "Parcly-Taxel/Redhill repository page", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/README.md", "title": "Redhill README (raw)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill.lean", "title": "Redhill.lean (root)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/BB94.lean", "title": "Redhill/BB94.lean", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/Four.lean", "title": "Redhill/Four.lean", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/Parcly-Taxel/Redhill/main/Redhill/Common/Conjectures.lean", "title": "Redhill/Common/Conjectures.lean", "type": "repository", "opened": true},
+    {"url": "https://github.com/Parcly-Taxel/Redhill/commits/main", "title": "Redhill commit history (first page)", "type": "repository", "opened": true},
+    {"url": "https://reservoir.lean-lang.org/@Parcly-Taxel/Redhill", "title": "Reservoir package page for Redhill", "type": "repository", "opened": true},
+    {"url": "https://www.erdosproblems.com/forum/user/parclytaxel", "title": "Erdős Problems forum profile (parclytaxel)", "type": "blog", "opened": true},
+    {"url": "https://pure.tue.nl/ws/portalfiles/portal/67739846/657782-1.pdf", "title": "Ramaekers thesis PDF (binary; unreadable)", "type": "preprint", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/search?q=Browkin", "title": "google-deepmind/formal-conjectures code search for 'Browkin' (0 results)", "type": "repository", "opened": true},
+    {"url": "https://www.ams.org/journals/mcom/1994-62-206/S0025-5718-1994-1201997-6/", "title": "Math. Comp. 62(206) AMS record (HTTP 403)", "type": "journal", "opened": false},
+    {"url": "https://www.jstor.org/stable/2153551?origin=crossref", "title": "JSTOR 2153551 (access blocked)", "type": "journal", "opened": false},
+    {"url": "https://openai.com/index/ten-advances-in-mathematics", "title": "OpenAI ten advances announcement (HTTP 403)", "type": "press_release", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "n conjecture generalization of abc conjecture more than three integers",
+      "\"n-conjecture\" abc conjecture",
+      "Wikipedia list of unsolved problems in mathematics n conjecture",
+      "n-abc conjecture sum of n integers coprime radical arXiv",
+      "generalized abc conjecture several integers a1+...+an radical counterexample 2025",
+      "Browkin Brzezinski n-abc conjecture",
+      "n-conjecture Stewart Yu Mason-Stothers generalization multiple terms",
+      "n-abc conjecture AI model proof counterexample",
+      "abc conjecture AI 2026 proof claim Lean",
+      "\"n conjecture\" number theory radical sum integers exceptional set arXiv 2024",
+      "Vojta conjecture higher-dimensional generalization abc n terms Mason-Stothers theorem several terms",
+      "Mason-Stothers theorem generalization n polynomials sum of n terms abc analogue",
+      "Wikipedia abc conjecture generalizations n-abc conjecture Browkin",
+      "Wikipedia \"n conjecture\" unsolved problems mathematics Browkin",
+      "Browkin Brzeziński \"Some remarks on the abc-conjecture\" Mathematics of Computation 1994",
+      "Hölzl Kleine Stephan strong n-conjecture Journal of the Australian Mathematical Society 2025",
+      "Ramaekers strong n-conjecture abc quality limit superior 1",
+      "Konyagin Browkin abc n-conjecture lower bound quality 2n-5",
+      "Stephan Hobor Hölzl strong n-conjecture slides lower bounds worked example",
+      "\"n-conjecture\" 2026 arXiv",
+      "\"strong n-conjecture\" 2026",
+      "\"n-abc\" conjecture OR \"abc conjecture for n terms\" 2026 new result",
+      "Pasten Sepúlveda-Manzo abcd conjecture unconditional subexponential bound n=4",
+      "AI system mathematics abc conjecture generalization counterexample OpenAI Google DeepMind AlphaEvolve number theory 2026",
+      "AlphaEvolve abc conjecture radical counterexample search",
+      "Erdős problems AI solved abc conjecture variant n terms",
+      "Parcly-Taxel Redhill Lean strong n-conjecture formalization",
+      "Lean formalization n-conjecture Browkin Brzezinski Hölzl Kleine Stephan sorry",
+      "Frank Stephan AI assisted proof strong n-conjecture ChatGPT OR Claude OR Gemini",
+      "\"Ramaekers\" abc-conjecture and the n-conjecture thesis Eindhoven 2009",
+      "GPT counterexample machine catalogue arXiv 2608.29595 number theory abc",
+      "Li 2025 exceptional set abc conjecture X^{56/85} Runbo Li arXiv 2507.02885",
+      "Hobor Hölzl Li Stephan \"strong n-conjecture\" lower bounds companion paper arXiv",
+      "Browkin Brzezinski n-conjecture upper bound 2n-5 open problem Vojta implies",
+      "Aristotle Harmonic AI formalization n-conjecture OR \"strong n-conjecture\"",
+      "AI disproves Ramaekers conjecture strong n-conjecture counterexample",
+      "Gemini Deep Think OR AlphaProof \"n-conjecture\" OR \"abc-conjecture\" generalization 2026",
+      "Terence Tao blog abc conjecture n-conjecture AI 2026",
+      "Konyagin n-tuples sum zero radical quality 3/2 odd n Darmon Granville",
+      "Count Ex Machina GPT Pro counterexamples GitHub repository number theory list",
+      "OpenAI ten mathematics claims Lean proofs August 2026 list abc n-conjecture",
+      "\"Browkin\" conjecture abc AI-generated OR \"AI-assisted\" OR \"large language model\" arXiv 2025 2026",
+      "Hölzl Stephan Kleine arXiv 2026 new preprint number theory Diophantine quality radical",
+      "\"generalized abc conjecture\" OR \"n-variable abc\" new bound 2025 2026 arXiv sum of several coprime integers radical",
+      "google-deepmind formal-conjectures abc conjecture n-conjecture Browkin Brzezinski Lean statement",
+      "AI contributions to Erdős problems wiki abc conjecture generalization n integers",
+      "Quanta magazine AI mathematics 2026 abc conjecture radical counterexample",
+      "\"n-conjecture\" OR \"strong n-conjecture\" counterexample 2026 GitHub language model",
+      "Karsten Müller 2026 preprint generalized diagonal superelliptic equation strong abc hypothesis arXiv 2602.19061",
+      "Browkin 1999 Colloquium Mathematicum abc n-tuples Konyagin Browkin strong conjecture 2000 proceedings",
+      "Redhill Lean formalisation disproof Ramaekers conjecture Aristotle AI-assisted",
+      "Harmonic Aristotle formalised Hölzl Kleine Stephan Improved lower bounds strong n-conjectures",
+      "Ramaekers conjecture n-tuples pairwise coprime quality 1 disproved AI-generated Lean proof",
+      "Ramaekers conjecture n=4 case quality limit superior 1 Lean formalisation new result 2026",
+      "Tom Adamczewski GPT-6 Astra Ramaekers n=4 counterexample",
+      "Adamczewski Astra quality 9/8 tuples pairwise coprime four integers sum zero",
+      "\"Adamczewski\" arXiv 2026 abc conjecture OR n-conjecture OR Ramaekers",
+      "GPT-6 Astra counterexample number theory 2026 Ramaekers OR \"n-conjecture\" OR \"abc\"",
+      "\"Lean 4 counterexample to the n=4 case of the strong N conjecture\"",
+      "Adamczewski Lean 4 counterexample n=4 strong N conjecture github tadamcz",
+      "tadamcz github Ramaekers n-conjecture Lean disproof n=4 GPT-6 Astra repository",
+      "tadamcz n-conjecture-strong README Lean GPT-6 Astra counterexample quality n=4",
+      "strong n-conjecture n=4 quality 20/19 180/179 Ramaekers construction",
+      "Hawk agent run Adamczewski GPT-6 Astra strong n-conjecture refutation n=4 9/8",
+      "Pakovich Zvonkin binomial series polynomial quality radical construction n-conjecture",
+      "Mochizuki inter-universal Teichmüller theory papers posted 2012 RIMS website date abc conjecture proof",
+      "Kato ZEN University interim report abc conjecture Lean Theorem 3.11 Corollary 3.12 July 2026"
+    ],
+    "places_checked": [
+      "Wikipedia 'N conjecture' (fetched; last edited 2 Oct 2026, not the Jan 2024 revision)",
+      "Wikipedia 'Jerzy Browkin' (fetched)",
+      "Wikipedia 'List of mathematical discoveries by artificial intelligence' (fetched; N conjecture n = 4 row; last edited 12 Oct 2026)",
+      "arXiv 2409.13439 abstract page and HTML v2 (fetched)",
+      "arXiv 2503.05296 HTML v1 (fetched)",
+      "arXiv 2406.05083 abstract page and HTML v1 (fetched)",
+      "arXiv 2410.12234, 2506.13364, 2507.02885 abstract pages (fetched)",
+      "arXiv 1409.2974 (Martin and Miao; fetched; no n-conjecture mention)",
+      "arXiv 2608.29595 (GPT, the Counterexample Machine; fetched; no abc or n-conjecture mention)",
+      "Cambridge JAMS record for 2409.13439 (fetched)",
+      "Stephan NUS slide deck and strong n-conjecture PDF (fetched; binary, unreadable beyond bookmarks)",
+      "Ramaekers thesis PDF at pure.tue.nl (fetched; binary, unreadable)",
+      "tadamcz/n-conjecture-strong: README (via github page), PROOF.md (raw), commit history (fetched)",
+      "tadamcz GitHub profile (fetched; two pinned repositories only)",
+      "Parcly-Taxel/Redhill: repository page, README (raw), root Redhill.lean, Redhill/BB94.lean, Redhill/Four.lean, Redhill/Common/Conjectures.lean (raw, summarising fetches), file tree, commit history (fetched), Reservoir package page (fetched)",
+      "Erdős Problems forum profile parclytaxel (fetched)",
+      "google-deepmind/formal-conjectures code search for 'Browkin' (fetched; 0 results; other names not searched)",
+      "AMS record for Math. Comp. 62(206) (HTTP 403); JSTOR 2153551 (blocked); OpenAI ten-advances page (HTTP 403)",
+      "ResearchGate listing 'The abc-conjecture and the n-conjecture' (seen in search only; not opened)",
+      "Search-only (not opened): OpenAI 1 Aug 2026 ten-advances coverage; Project LANA press item and critique; Kirti Joshi critique; Erdős AI wiki on GitHub; Quanta articles; arXiv 2602.19061 (Müller); arXiv 2505.13991 (Lichtman); arXiv 2312.03566 (Pasten Inventiones)"
+    ],
+    "dead_ends": [
+      "Martin and Miao 'abc triples' survey (arXiv 1409.2974): opened; no n-conjecture content.",
+      "Browkin 1999 Colloquium Mathematicum 'A consequence of an effective form of the abc-conjecture' (n = 3 only; from search).",
+      "Browkin 2008 weak effective abc conjecture (n = 3 only; from search).",
+      "Pasten, 'The largest prime factor of n²+1 and improvements on subexponential ABC' (Inventiones 2024; arXiv Dec 2023, predates window; n = 3 only; search snippet).",
+      "Lichtman, 'The abc conjecture is true almost always' (arXiv 2505.13991; expository on BLT; search snippet only).",
+      "Müller, 'Gain Bounds for Diagonal Superelliptic Equations under the Strong ABC Conjecture' (arXiv 2602.19061; conditional on a strong abc hypothesis; different equation; search only).",
+      "Carella 2005 'Probable counterexamples of the abc conjecture' (n = 3 heuristic; pre-window; search snippet).",
+      "OpenAI unit-distance counterexample (20 May 2026), Erdős problems 90, 728, 848, 1196 and others (AI results on other problems; no n-conjecture link; search summaries).",
+      "OpenAI 1 Aug 2026 ten-advances list (sphere packing, codes, non-sofic groups, Connes rigidity, permanent circuits, quantum parallel repetition, CVP, Ehrhart volume, Erdős 146/180/183, extremal graph theory): none is an n-conjecture result (search summaries; openai.com returned 403).",
+      "Jacobian conjecture AI counterexamples (Alpöge, 2026; Claude-based per coverage): unrelated.",
+      "Sendov conjecture (Tao, 2026), AlphaEvolve (arXiv 2511.02864), Gemini Deep Think / Aletheia, AlphaProof: no abc or n-conjecture content in the sources seen.",
+      "Stephan AI search (four queries): no AI credit found for any Hölzl–Kleine–Stephan work.",
+      "Aristotle search: no link between Aristotle and Redhill; Adamczewski's Erdős forum posts say they used Aristotle for other formalisations (the parclytaxel profile).",
+      "Redhill and tadamcz commit messages: no co-author lines and no mention of Aristotle, Claude, GPT, OpenAI or LLM in Redhill's history beyond the 'without LLM' docstring; the tadamcz commit 'Add AI authorship note' is the README's AI statement.",
+      "Google formal-conjectures repository: code search for 'Browkin' returned no files; search for 'Ramaekers' and 'Brzezinski' not run.",
+      "tadamcz GitHub profile: only two pinned repositories shown (inspect_ai and scipy); the n-conjecture repository was reached through Wikipedia's citation, not the profile.",
+      "Konyagin / Darmon–Granville link: a search found no source tying Darmon–Granville to the Konyagin bound.",
+      "Pakovich–Zvonkin polynomial work (search): not tied to the n-conjecture in any source; the link is the README's construction origin only.",
+      "Kato/LANA interim report and the Mochizuki IUT primary texts: not opened; search summaries only."
+    ]
+  },
+
+  "incomplete": "(1) The 1994 Browkin–Brzeziński paper was not accessed (AMS 403; JSTOR blocked). Its statement and the lower bound are taken from Hölzl–Kleine–Stephan and the Redhill docstring. (2) The Browkin 2000 proceedings volume was not accessed; its date and content come from secondary references. (3) The Ramaekers 2009 thesis PDF is binary and unreadable with WebFetch; its existence is supported by the Wikipedia reference list, a ResearchGate title, and the tadamcz README link, not by reading the text. The claims about its Conjecture 5.1 and its computed examples come from the README and the HKS summary. (4) The stephan slides and strong n-conjecture PDF are binary and unreadable; the 'Computer Search' section in the slide bookmarks was not read. (5) The 20/19 and 180/179 constructions in the Adamczewski README have no identified source. (6) The Adamczewski and Redhill repositories were read through WebFetch's summarising fetch of the raw files, not by clone, grep or build. Quotations are as the fetch returned them and were not checked character by character. Sorry-free status, the lake build and the Python check are unverified. The degree-nine identity was not hand-checked and D(u) is not transcribed. (7) The origin of the n = 4 family (Astra vs bounded search) is unresolved. The 'Hawk run data' referred to in the first commit is unexplained, and I found no run logs. (8) The OpenAI announcement (1 Aug 2026) was not opened (403); the 'unreleased internal model' description of Astra comes from search summaries. (9) The Mochizuki claim, the LANA report and the Joshi critique were not opened; the 2012 date conflicts between August and September sources. (10) The BLT exponent 33/50 is not verified in BLT's own text. Bernert's main theorem was not read. The journal acceptance date for Hölzl–Kleine–Stephan was not seen. (11) The Wikipedia pages read are the October 2026 revisions, not the frozen January 2024 revision. (12) Search coverage is limited to the web index available to me; no MathSciNet, zbMATH, Google Scholar or arXiv full-text search was available, and no later independent review of the n = 4 claim was found. (13) The Google formal-conjectures check covered only 'Browkin'."
+}

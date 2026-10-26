@@ -1,0 +1,2232 @@
+{
+  "key": "generalized-riemann-hypothesis",
+  "nothing_found": false,
+  "outcome": "As of 11 Oct 2026 the GRH is not settled: no accepted proof or disproof exists. Since 26 Jan 2024 the events are (i) unconditional lower bounds on the proportion of zeros that are simple and on the line, for each fixed primitive Dirichlet character (Alpöge and Furman, arXiv:2608.13637, Aug 2026, whose argument its authors credit to Claude) and for averaged families of characters (Hua and Yang, Aug 2026; Johns, Sep 2026); (ii) an OpenAI release of 6 Oct 2026 claiming a zero-free half-plane Re s > 7/8 for every Dirichlet L-function, plus a uniform gap for real zeros of real characters, neither peer reviewed; (iii) unrefereed claimed proofs of the GRH (Zhang 2025–26; Blinovsky, whose GRH claim was dropped in Dec 2025), and an earlier 2019 claimed proof (Agélas) whose key lemma Brent called false in 2021.",
+  "problem_asks": "Whether every nontrivial zero of every Dirichlet L-function lies on the critical line, i.e. has the form 1/2 + it with real t. Unpacked: (1) the family: L(s,χ) for every Dirichlet character χ of every modulus q, including imprimitive characters, real (quadratic and other real-valued) characters, and the trivial character, whose L-function is ζ(s) up to finitely many Euler factors, so that its case is the Riemann hypothesis; (2) the objects: nontrivial zeros, meaning zeros with 0 < Re s < 1 (the trivial zeros at negative integers are not asked about); (3) the location claim: each such zero ρ has Re ρ = 1/2; (4) the answer is yes/no: yes if the claim holds for all χ, no if one nontrivial zero off the line exists for some χ. Not asked by the statement: multiplicity or simplicity of zeros, counts or proportions of zeros, zero-free regions short of the line, any restriction to primitive characters, bounded height, or averages over characters. The parent (grand RH) asks the same for all automorphic L-functions and is not part of this bullet.",
+  "events": [
+    {
+      "id": "oi-003-7-8",
+      "what_happened": "OpenAI's openai/math repository, released 6 Oct 2026 (date from secondary coverage; the repository itself is undated), contains family 003, 'The quasi-Riemann hypothesis'. Its lead manuscript, 'The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re s > 7/8' (preprint folder dated 30 Sep 2026), states that every Dirichlet L-function, including ζ(s), is zero-free in Re s > 7/8, and that the same half-plane is zero-free for every finite-order Hecke L-function over Q(√-3). Repository wording (CONTENTS.md, read via fetch): 'Proves that every Dirichlet L-function, including ζ(s), is zero-free in Re s>7/8.' Lean file DirichletSevenEighths.lean is described as giving θ = 7/8 'uniformly over all positive moduli and all characters', with principal-character poles at s = 1 excluded; the paper's own abstract (as summarised by a secondary page) allows the pole at s = 1. The paper's PDF was not parsed, so the statement is taken from the repository index and Lean descriptions.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Preprint folder dated 30 Sep 2026; public release on GitHub 6 Oct 2026 (secondary coverage). The 7 Oct 2026 history entry withdraws three other manuscripts (Hodge-conjecture-related) and does not mention family 003. Public date used; the manuscript's internal date is 30 Sep 2026.",
+      "delivers": "Zero-freeness of every Dirichlet L-function (as the repository states it, and as the Lean description states it, for all moduli and characters) in the half-plane Re s > 7/8, and of ζ(s) and of finite-order Hecke L-functions over Q(√-3) in the same half-plane. Restrictions: a zero-free region only; it says nothing about zeros with 1/2 ≤ Re s ≤ 7/8, nothing about the line Re s = 1/2, and (per the abstract) allows the principal pole at s = 1 while the Lean description excludes it.",
+      "remains": "All zeros with 1/2 ≤ Re s ≤ 7/8 for every χ, including whether any lie on Re s = 1/2 (the GRH question). Everything in problem_asks is untouched in the strip 1/2 ≤ Re s ≤ 7/8.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "5 days at 11 Oct 2026. Informal public reactions exist (secondary sources quote a praise from an Anthropic mathematician and two social-media comments), none of them a worked verification. No peer review ('None of these results has been peer reviewed', per secondary summary of the repository).",
+      "machine_checked": {
+        "system": "Lean 4 (Comparator challenge per secondary coverage)",
+        "sorry_free": null,
+        "url": "https://raw.githubusercontent.com/openai/math/main/lean/docs/003.md",
+        "note": "Repository says only that 'many, but not all' manuscripts are formalised and that 'Some of the unformalized results could have issues'. The family page lists Lean for family 003 at family level (QuasiRiemannHypothesis.lean, DirichletSevenEighths.lean, HeckeSevenEighths.lean). No sorry status is stated. A secondary summary reports an independent re-run accepted by two kernels with the challenge review status 'unchecked'; I did not verify this."
+      },
+      "directly_checkable": null,
+      "doubts": "(a) The README lists as exceptions to its fixed procedure 'work on a zero-free region for the Riemann zeta function' and says the 'Re(s) > 11/12' write-up 'was human edited for readability'. It does not say which 003 paper the first exception refers to, so the human role in the 7/8 paper is not established. (b) The abstract allows the pole at s = 1; the Lean description excludes it. (c) No named human has checked the proof; OpenAI itself warns that unformalised results 'could have issues'. (d) The 7/8 vs 11/12 assignment differs between sources (see disputes).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial, and consistent with GRH: it places all nontrivial zeros of Dirichlet L-functions in Re s ≤ 7/8, a region-level result. It does not say anything about the line Re s = 1/2, so it neither proves nor refutes GRH.",
+      "object": null,
+      "people": [
+        "OpenAI (unreleased internal model; no human author named in the repository)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "Per the repository README, 'The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.' The README does not say which procedure produced family 003 in particular (see doubts (a)). The README exceptions are 'work on a zero-free region for the Riemann zeta function' and a Hodge-conjecture result.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://raw.githubusercontent.com/openai/math/main/README.md"
+          }
+        ],
+        "disclosed_cost": "README, as summarised by the fetch tool (not verbatim): each result used about three hours of ChatGPT Pro thinking compute on average; the model was posed roughly 4,000 problems.",
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/README.md",
+          "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+          "https://raw.githubusercontent.com/openai/math/main/lean/docs/003.md",
+          "https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://raw.githubusercontent.com/openai/math/main/lean/docs/003.md",
+        "https://raw.githubusercontent.com/openai/math/main/README.md",
+        "https://raw.githubusercontent.com/openai/math/main/history.md",
+        "https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026",
+        "https://www.emergentmind.com/openai-math-explorer/results/003"
+      ]
+    },
+    {
+      "id": "oi-003-11-12",
+      "what_happened": "Companion manuscript 'The Quasi-Riemann Hypothesis (alternate 11/12 proof)' in the same family 003 (preprint folder dated 5 Oct 2026, public with the 6 Oct 2026 release), giving a different proof that every Dirichlet L-function, including ζ(s), is zero-free in Re s > 11/12, and that the same holds for finite-order Hecke L-functions over Q(√-3). The repository's CONTENTS entry quotes: 'We establish the quasi-Riemann hypothesis by proving that every Dirichlet'. The README says 'The writeup for the Re(s) > 11/12 zero-free region was human edited for readability.' The family page lists no Lean file for this paper.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Preprint folder dated 5 Oct 2026; public 6 Oct 2026 (secondary coverage).",
+      "delivers": "Zero-freeness in Re s > 11/12 for every Dirichlet L-function (ζ included) and for finite-order Hecke L-functions over Q(√-3). Weaker than the 7/8 result in the lead paper; restricted to the half-plane Re s > 11/12.",
+      "remains": "All zeros with 1/2 ≤ Re s ≤ 11/12, including the line Re s = 1/2 (the GRH question).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "5 days at 11 Oct 2026; no worked verification found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The README says this write-up was human edited for readability; it is the README's named exception to the automated procedure, and the human edit is not described beyond 'readability'. No Lean file is listed for this paper on the family page. Secondary sources disagree on whether it or the lead paper states 11/12 (see disputes).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial and consistent with GRH: all nontrivial zeros of every Dirichlet L-function lie in Re s ≤ 11/12, by a different method. Silent on Re s = 1/2.",
+      "object": null,
+      "people": [
+        "OpenAI (human editors not named; 'human edited for readability' per README)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "The companion's mathematics is credited to the same unreleased OpenAI model in the README's general statement; the README singles this writeup out as human edited for readability, which describes the write-up rather than the mathematics.",
+            "basis_quote": "The writeup for the Re(s) > 11/12 zero-free region was human edited for readability.",
+            "quote_url": "https://raw.githubusercontent.com/openai/math/main/README.md"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/README.md",
+          "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://raw.githubusercontent.com/openai/math/main/README.md",
+        "https://www.emergentmind.com/openai-math-explorer/results/003"
+      ]
+    },
+    {
+      "id": "oi-siegel-uniform-2026",
+      "what_happened": "OpenAI family 003 companion 'Uniform exclusion of Landau–Siegel zeros' (preprint folder dated 1 Oct 2026; public 6 Oct 2026). The family page quotes: 'There is an absolute constant c > 0 such that every real zero' of a primitive nonprincipal real Dirichlet L-function (conductor q ≥ 3) satisfies (1 − β) log q ≥ c. A secondary summary says no explicit value of c is given. The Lean file SiegelZeros.lean is listed; a secondary summary says it covers 'both parities'.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Preprint folder dated 1 Oct 2026; public 6 Oct 2026.",
+      "delivers": "For primitive nonprincipal real Dirichlet characters of conductor q ≥ 3: every real zero β satisfies β ≤ 1 − c/log q for an absolute constant c > 0 (no explicit value). Equivalently, real zeros are excluded from the window 1 − c/log q < β < 1; no explicit value of c is given. Restrictions: real characters only, primitive only, nonprincipal only; it excludes nothing in 1/2 < β ≤ 1 − c/log q.",
+      "remains": "Real zeros β with 1/2 < β ≤ 1 − c/log q for primitive real characters; all non-real zeros; all imprimitive characters; the trivial character; and the line Re s = 1/2 itself.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "5 days at 11 Oct 2026; no worked verification found.",
+      "machine_checked": {
+        "system": "Lean 4 (SiegelZeros.lean, per family page)",
+        "sorry_free": null,
+        "url": "https://raw.githubusercontent.com/openai/math/main/lean/docs/003.md",
+        "note": "Family page lists the Lean file; no sorry status is stated in the source I read."
+      },
+      "directly_checkable": null,
+      "doubts": "A secondary page calls this 'completely eliminated' the Landau–Siegel zero in some coverage; that overstates it, since the statement is a uniform gap with no explicit c. The statement's exact quantifiers (primitive, nonprincipal, real, conductor ≥ 3) matter and were read from a quoted fragment, not the PDF. No human check.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial, cutting toward GRH for real characters: a real zero off the line in (1/2, 1) would be a counterexample to GRH, and this result removes only the part of that window nearest s = 1. It does not decide whether such zeros exist further from 1.",
+      "object": null,
+      "people": [
+        "OpenAI (unreleased internal model; no human author named)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "Per the README's general statement, the result was produced by the same procedure using the unreleased internal model; the family page does not name the procedure for this companion specifically.",
+            "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+            "quote_url": "https://raw.githubusercontent.com/openai/math/main/README.md"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://raw.githubusercontent.com/openai/math/main/README.md",
+          "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://raw.githubusercontent.com/openai/math/main/lean/docs/003.md",
+        "https://www.emergentmind.com/openai-math-explorer/results/003"
+      ]
+    },
+    {
+      "id": "anthropic-zeta-2608-13637",
+      "what_happened": "Anthropic blog post 'Claude has improved on a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the Riemann hypothesis' (dated 10 Aug 2026, updated 13 Aug 2026), and arXiv:2608.13637 by Levent Alpöge and Ralph Furman, 'More than two thirds of the zeta zeros are simple and on the critical line' (v1 13 Aug 2026; v2 19 Aug 2026). The blog states the bound rose from 41.6% to 67.2% (zeros on the critical line). The arXiv abstract gives: at least two thirds of nontrivial zeta zeros, counted with multiplicity, are simple and on the line, and at least five sixths are distinct; with the Montgomery–Taylor window the constants are 0.6725 and 0.8362. Theorem B (§1.1, read in the HTML version): 'Theorem A holds verbatim for L(s,χ) in place of ζ(s), for any fixed primitive Dirichlet character χ.' The abstract says 'The results extend to primitive Dirichlet L-functions and are formally verified in Lean 4.' The main results are stated as unconditional, and §1.3 says RH 'entered only to read the zero side termwise'. §1.5 and the title footnote state the argument was produced by Claude.",
+      "date": "2026-08-10",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": false,
+      "revisions": "Blog dated 10 Aug 2026 and updated 13 Aug 2026 with a revised version of the paper (per the blog's changelog). arXiv v1 13 Aug 2026; v2 19 Aug 2026. Date chosen is the blog (the first public written account of the bound and the outline of the argument). The first full written argument is arXiv v1 on 13 Aug 2026; the judging pass may prefer that date.",
+      "delivers": "For ζ(s): unconditional lower bounds of about 2/3 (0.6725 with the Montgomery–Taylor window) for the proportion of zeros in windows (T, 2T) that are simple and on Re s = 1/2, and 5/6 (0.8362) for distinct zeros. Theorem B: the same bounds, with o(1) error terms, hold for L(s,χ) for each fixed primitive Dirichlet character χ. Restrictions: lower bounds for a proportion, not all zeros; windows (T, 2T); fixed primitive characters (no statement uniform in q, none for imprimitive characters, none averaged over χ); the blog's 41.6→67.2 figure is for zeros on the line (no simple qualifier). The paper says 'RH itself is out of reach of the mechanism' (§7.2, per fetch summary).",
+      "remains": "For each primitive χ: whether every nontrivial zero lies on Re s = 1/2 (the GRH statement); the remaining zeros of each L(s,χ) that are not simple-and-on-line; imprimitive characters; uniformity in q; all zeros rather than windows; the Riemann hypothesis itself.",
+      "checked_by": [
+        {
+          "who": "Brian Conrey and Dan Goldston",
+          "qualification": "Analytic number theorists who work on the zeta function (per Anthropic's post)",
+          "what_they_did": "Per Anthropic's post, they 'generously examined the paper on short notice'. I found no public statement by either of them on the result.",
+          "where": "https://www.anthropic.com/research/riemann-zeta",
+          "automated": false
+        },
+        {
+          "who": "Levent Alpöge and Ralph Furman",
+          "qualification": "Mathematicians at Anthropic and the listed authors of the arXiv paper, so not independent of the result",
+          "what_they_did": "Verified the argument and wrote the paper ('verified and communicated by the listed authors', arXiv comments field).",
+          "where": "https://arxiv.org/abs/2608.13637",
+          "automated": false
+        },
+        {
+          "who": "Youness Lamzouri",
+          "qualification": "Author of arXiv:2609.02882 (analytic number theory)",
+          "what_they_did": "Gave a different, unconditional proof of the zeta bound for simple zeros on the line (67.25%) and two further estimates; says 'Our proof takes a different and more direct route'. His paper does not treat Dirichlet L-functions, so this is not an independent check of Theorem B.",
+          "where": "https://arxiv.org/abs/2609.02882",
+          "automated": false
+        },
+        {
+          "who": "Claude subagents (self-review)",
+          "qualification": "Same model family that produced the argument",
+          "what_they_did": "Per Anthropic's post, 'various subagents review the proofs, search for counterexamples', and 54 arXiv papers were checked. This is self-review, not an independent reading.",
+          "where": "https://www.anthropic.com/research/riemann-zeta",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 months at 11 Oct 2026 (arXiv v1 13 Aug 2026). Engagement so far: the Lamzouri paper (a re-derivation for ζ), an Anthropic note, and a Lean repository. The Dirichlet extension has no reported independent reading.",
+      "machine_checked": {
+        "system": "Lean 4 with the comparator tool",
+        "sorry_free": null,
+        "url": "https://raw.githubusercontent.com/anthropics/zeta-23-lean/main/README.md",
+        "note": "The repository README describes zeta23/ as formalising the zeta result and says CI requires lake build with 'no sorry outside the trusted comparator statement files'; it does not state that the Dirichlet extension is formalised. Anthropic's post says the proof 'passes the standard validation tool comparator'. The arXiv abstract says the results are formally verified in Lean 4, including the Dirichlet extension; I did not find the Dirichlet formalisation."
+      },
+      "directly_checkable": null,
+      "doubts": "(1) The Dirichlet extension (Theorem B) is said in the abstract to be formally verified; the Lean repository describes only the zeta result, so the Dirichlet formalisation is not located. (2) The argument is attributed to Claude by its authors; the human verifiers are two Anthropic employees who are also the listed authors, and the external reviewers' engagement is reported only by Anthropic. (3) Most reviews were by Claude subagents (Anthropic's account). (4) A third-party static audit of the Lean project (github.com/aidilamrym-ops/zeta-23-audit) exists; I did not open it, so I have not verified it. (5) The blog's 41.6→67.2 figure and the arXiv headline (two thirds simple and on the line) are different quantities; secondary coverage often merges them.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial and cuts toward GRH for each fixed primitive Dirichlet character: a positive proportion (2/3, simple and on the line) of zeros in windows, unconditionally, in the Dirichlet case by Theorem B. It is a lower bound on a proportion, not a counterexample and not a proof that all zeros lie on the line.",
+      "object": null,
+      "people": [
+        "Levent Alpöge",
+        "Ralph Furman",
+        "Brian Conrey (external reviewer, per Anthropic)",
+        "Dan Goldston (external reviewer, per Anthropic)",
+        "Eric Easley (Lean formalisation, per Anthropic)",
+        "Jarred Sumner (Anthropic staff who prompted the model, per Anthropic)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Claude",
+            "what_it_did": "Per Anthropic's post, an unreleased research version of Claude found the argument, 'combining the results from Aryan with the work of Baluyot, Goldston, Suriajaya, Turnage-Butterbaugh' and Bombieri. Per the arXiv comments and the title footnote, the proof was 'discovered autonomously by Claude (Anthropic)' and 'The mathematical argument in this paper was discovered and written by Claude, an AI developed by Anthropic.' Per §1.5 the author of the paper is described as 'a large language model developed by Anthropic'. Early in the search it 'generated and tried 650 ideas, none of which worked'; the work ran about 60 subagents over a day and a half and wrote hundreds of Python scripts.",
+            "basis_quote": "Proof discovered autonomously by Claude (Anthropic); verified and communicated by the listed authors.",
+            "quote_url": "https://arxiv.org/abs/2608.13637"
+          }
+        ],
+        "disclosed_cost": "Anthropic's post: 'two sessions in Claude Code, using a total of 31 million output tokens'; about 60 subagents over 'a day and a half'; '2,400 shell commands'.",
+        "sources": [
+          "https://www.anthropic.com/research/riemann-zeta",
+          "https://arxiv.org/abs/2608.13637",
+          "https://arxiv.org/html/2608.13637v2"
+        ]
+      },
+      "sources": [
+        "https://www.anthropic.com/research/riemann-zeta",
+        "https://arxiv.org/abs/2608.13637",
+        "https://arxiv.org/html/2608.13637v2",
+        "https://raw.githubusercontent.com/anthropics/zeta-23-lean/main/README.md"
+      ]
+    },
+    {
+      "id": "lamzouri-2609-02882",
+      "what_happened": "Youness Lamzouri, 'A new proof that more than 2/3 of the zeros of the Riemann zeta function are simple and on the critical line' (arXiv:2609.02882; v1 2 Sep 2026; v2 8 Sep 2026). A new, conceptually simpler, unconditional proof that more than 67.25% of nontrivial zeta zeros are simple and on the line, that at least 83.62% are distinct, and that at least 88.76% are simple or on the line (or both). The introduction and abstract credit the 67.25% bound to 'an internal research version of Claude developed by Anthropic' and say it was 'subsequently verified by Alpöge and Furman'. Appendix A: AxiomProver 'autonomously generated (from natural language) an unconditional formal certificate for Proposition 2.1'. The paper does not mention Dirichlet L-functions in the abstract.",
+      "date": "2026-09-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 2 Sep 2026; v2 8 Sep 2026 (expanded exposition, per the comments field).",
+      "delivers": "For ζ(s) only: unconditional lower bounds 67.25% (simple zeros on the line), 83.62% (distinct), 88.76% (simple or on the line or both), and 83.62% for the average of the two proportions. Zeta only; no statement about Dirichlet L-functions.",
+      "remains": "All nontrivial Dirichlet L-functions, since the paper covers only ζ; the GRH question; the Riemann hypothesis beyond the zeta bounds it states.",
+      "checked_by": [
+        {
+          "who": "Youness Lamzouri",
+          "qualification": "Analytic number theorist; author line on arXiv (qualification not separately checked)",
+          "what_they_did": "Re-derived the zeta bound by a different route (a Hilbert-space inequality per the Lean description on GitHub) and proved two further estimates. Describes the argument as 'a different and more direct route' from the Claude argument.",
+          "where": "https://arxiv.org/abs/2609.02882",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 weeks at 11 Oct 2026.",
+      "machine_checked": {
+        "system": "Lean 4 (AxiomProver-generated certificate; Comparator)",
+        "sorry_free": null,
+        "url": "https://github.com/AxiomMath/ZetaZeros",
+        "note": "Named in a secondary summary of Appendix A; I did not open the repository. Whether the certificate covers the main theorem or only Proposition 2.1 is not established from what I read. The paper says the Lean files 'can be mechanically verified using the Comparator tool'."
+      },
+      "directly_checkable": null,
+      "doubts": "Zeta only. The formal certificate was machine-generated for Proposition 2.1; the human proof is the paper's own. No other reading found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "The same ζ bound as the Claude event, reproved by a different route with two added estimates. Cuts the same way: a partial, positive proportion for ζ, not a counterexample.",
+      "object": null,
+      "people": [
+        "Youness Lamzouri",
+        "Levent Alpöge and Ralph Furman (credited with verifying the earlier argument)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.02882",
+          "https://arxiv.org/html/2609.02882"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.02882",
+        "https://arxiv.org/html/2609.02882"
+      ]
+    },
+    {
+      "id": "johns-dirichlet-2026-09-30",
+      "what_happened": "Nic Johns, 'Simple zeros on the critical line for a weighted family of Dirichlet L-functions, from polylogarithmic to polynomial height' (Zenodo DOI 10.5281/zenodo.23070760, published 30 Sep 2026, v1.0.1; code and Lean at github.com/nic410/dirichlet-critical-zeros; no arXiv identifier). Theorem 1.1: unconditional. Over primitive Dirichlet characters of conductor between ηQ and Q, weighted by roughly Q²/(qφ(q)), zeros with height between T and 2T (T in a range given by fixed powers of log Q) are at least 0.9322 − ε likely to be simple and on the line. Theorem 1.4: explicit bounds at fixed polynomial heights (constants 0.8656 − ε for T ≤ Q, down to 0.7274 − ε for T ≤ Q^10, stated above 2/3 at every polynomial height). The page says the paper 'does not prove RH or GRH'. Lean: Theorem 1.1 and Theorem 1.4(a) machine-checked; Theorems 1.2, 1.3, 1.4(b), 1.4(c) and Corollary 1.5 not formalised.",
+      "date": "2026-09-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1.0.1 (GitHub release, September 2026). The VERIFICATION page records withdrawn internal constants (a distinct-zero bound of 0.9430 withdrawn in favour of 0.9429) and corrections accepted from AI reviewers.",
+      "delivers": "For a weighted family of primitive Dirichlet L-functions: at least 0.9322 − ε of zeros with height in [T, 2T], for T in a polylogarithmic range, are simple and on the line; and, for polynomial heights in the conductor, lower bounds from 0.8656 − ε down to 0.7274 − ε (all stated as above 2/3). Restrictions: a weighted average over characters, not a statement for each fixed character; height windows [T, 2T]; lower bounds only; the family is weighted by Q²/(qφ(q)) and restricted to conductors between ηQ and Q.",
+      "remains": "The per-character statement for each fixed primitive χ; zeros outside the stated height windows and families; imprimitive characters; the full set of zeros; the line Re s = 1/2 for all zeros (the GRH question).",
+      "checked_by": [
+        {
+          "who": "Claude instances as hostile referees (AI, self-reported)",
+          "qualification": "Same model family as the author's agents",
+          "what_they_did": "Per the VERIFICATION page: 'separate Claude agents acting as hostile referees'; record-level reviews including a lead referee and four section referees, which 'found no mathematical error'.",
+          "where": "https://github.com/nic410/dirichlet-critical-zeros/blob/main/docs/VERIFICATION.md",
+          "automated": true
+        },
+        {
+          "who": "'Astra' (named on the VERIFICATION page as 'a model from another developer'; the Zenodo page refers to 'OpenAI's Astra')",
+          "qualification": "AI model from another developer, per the page",
+          "what_they_did": "Statement audit of Theorem 1.1 (found faithful) and an independent paper review that reproduced the rational certificates and interval computations. The page records six of its corrections as accepted.",
+          "where": "https://github.com/nic410/dirichlet-critical-zeros/blob/main/docs/VERIFICATION.md",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "11 days at 11 Oct 2026. The page itself says: 'No human mathematician has yet checked the proofs line by line' and 'No human has audited either statement.'",
+      "machine_checked": {
+        "system": "Lean 4 (Lean release candidate v4.33.0-rc2 per VERIFICATION page)",
+        "sorry_free": true,
+        "url": "https://github.com/nic410/dirichlet-critical-zeros",
+        "note": "Zenodo page: 'no sorry or native_decide anywhere in the project'; only Lean's three standard axioms for Theorem 1.1 and 1.4(a). Theorems 1.2 and 1.3 are stated in Lean only as definitions; Theorems 1.4(b), 1.4(c) and Corollary 1.5 are not formalised. The page says 'accurate to call Theorem 1.1 formally proved, but inaccurate to call the whole paper formally verified.'"
+      },
+      "directly_checkable": null,
+      "doubts": "(1) The page records that 'No human mathematician has yet checked the proofs line by line' and lists specific items for a human specialist (Lemma C, Prop. 6.21, a swap in Prop. 6.24, Appendix B, priority). (2) Most reviews were by Claude, the same family that produced the work; only two records came from another model, and one reviewed a version without §9 (per the page). (3) Headline constant 0.9322 is the same number that a search summary attributes to Sono (Bull. Aust. Math. Soc. 2016) as a GRH-conditional bound for low-lying zeros; a different quantity, but the coincidence is not explained on the page as far as I read. (4) Sole author, no affiliation shown.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "Internal sub-result: a distinct-zero bound of 0.9430 was withdrawn; the certificate supports 0.9429 (VERIFICATION page). The headline theorem was not withdrawn.",
+        "date": null,
+        "by": "author",
+        "sources": [
+          "https://github.com/nic410/dirichlet-critical-zeros/blob/main/docs/VERIFICATION.md"
+        ]
+      },
+      "direction": "Partial and cuts toward GRH as a proportion result for an averaged family of primitive Dirichlet L-functions. No counterexample; lower bounds only.",
+      "object": null,
+      "people": [
+        "Nic Johns (sole listed author; no affiliation shown)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Anthropic's Claude Opus 5.5",
+            "what_it_did": "Per the author's Zenodo page, 'the mathematics, the proofs, the numerical certificate scripts, the Lean formalisation and the text were produced by AI agents'; the VERIFICATION page says the paper and certificates were produced by 'AI agents (instances of Anthropic's Claude)'. The Zenodo page says 'under the author's direction'. The Zenodo page also lists 'OpenAI's Astra' as a reviewer (see checked_by).",
+            "basis_quote": "produced by AI agents (Anthropic's Claude Opus 5.5) under the author's direction.",
+            "quote_url": "https://zenodo.org/records/23070760"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://zenodo.org/records/23070760",
+          "https://github.com/nic410/dirichlet-critical-zeros",
+          "https://github.com/nic410/dirichlet-critical-zeros/blob/main/docs/VERIFICATION.md"
+        ]
+      },
+      "sources": [
+        "https://zenodo.org/records/23070760",
+        "https://github.com/nic410/dirichlet-critical-zeros",
+        "https://github.com/nic410/dirichlet-critical-zeros/blob/main/docs/VERIFICATION.md"
+      ]
+    },
+    {
+      "id": "hua-yang-2608-16034",
+      "what_happened": "Zhixu Hua and Xiufan Yang, 'Simple and distinct zeros in a prime-modulus Dirichlet family from near-microscopic to polylogarithmic heights' (arXiv:2608.16034; v1 17 Aug 2026; v2 24 Aug 2026; 35 pages). For the unweighted family of the q − 2 nonprincipal characters modulo a prime q, as q → ∞, the authors prove unconditional counting bounds for simple zeros on the line and distinct zeros, uniformly for heights in a range that v2 widens to (log log q)^(1+η)/log q ≤ T ≤ (log q)^A (fixed η, A > 0). The abstract: 'No form of the generalized Riemann hypothesis is assumed.'",
+      "date": "2026-08-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 17 Aug 2026; v2 24 Aug 2026 (height range extended; Gevrey localisation and exterior-zero analysis revised; 'The main constants are unchanged', per the comments).",
+      "delivers": "For the unweighted family of nonprincipal characters modulo a prime q (averaged over the family, not per character): unconditional lower bounds for the proportions of simple zeros on the line and of distinct zeros, in height windows from mesoscopic (T of size (log log q)^(1+η)/log q) to polylogarithmic. The constants are stated in the companion arXiv:2609.27808 (0.6725… and 0.8362… when log T = o(log q)). Restrictions: prime modulus; family average; lower bounds only.",
+      "remains": "Per-character statements; composite moduli; zeros at heights outside the stated windows; all zeros on the line (the GRH question).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 weeks at 11 Oct 2026. No reaction or verification found in this run; I did not search for one specifically.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Preprint; authors' affiliations not shown on the fetched page. The PDF was not parsed, so only the abstract and comments were read; no AI or Lean statement appears in those.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial and cuts toward GRH as an averaged proportion result for prime-modulus families; no counterexample.",
+      "object": null,
+      "people": [
+        "Zhixu Hua",
+        "Xiufan Yang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.16034"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.16034"
+      ]
+    },
+    {
+      "id": "hua-yang-2609-27808",
+      "what_happened": "Zhixu Hua and Xiufan Yang, 'Gevrey localization for simple and distinct zeros in a prime-modulus Dirichlet family' (arXiv:2609.27808, described as the growing-height companion to 2608.16034). For the unweighted family of the q − 2 nonprincipal characters modulo q (q prime, odd), with ℓ = log(qT/2π) and ℓ^s = o(T) for some fixed s > 1: unconditional lower bounds, and 'When log T = o(log q), this gives respectively 0.6725007036… and 0.8362503518…' (simple on the line; distinct). 'No form of GRH is assumed.' The fetched listing gives v1 submitted 18 Aug 2026, although the identifier begins 2609 (flagged; see doubts).",
+      "date": "2026-08-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, as fetched.",
+      "delivers": "For the unweighted family of nonprincipal characters modulo a prime q: unconditional lower bounds 0.6725… (simple zeros on the line) and 0.8362… (distinct zeros) in the regime log T = o(log q); for growing heights with ℓ^s = o(T), which the abstract says covers T = (log q)^A for A > 1. Family average; lower bounds only.",
+      "remains": "Per-character statements; zeros outside the stated regime; all zeros on the line (the GRH question).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 weeks at 11 Oct 2026, as the listing states; no reaction found in this run.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Date conflict: the identifier 2609.27808 implies a September 2026 submission, but the listing gives 18 Aug 2026; I have not resolved this. The PDF was not parsed; only the abstract and comments were read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Same direction as 2608.16034: partial, a proportion for an averaged prime-modulus family; no counterexample.",
+      "object": null,
+      "people": [
+        "Zhixu Hua",
+        "Xiufan Yang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.27808"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.27808"
+      ]
+    },
+    {
+      "id": "knausgard-2610-08965",
+      "what_happened": "Kristian Muri Knausgård, 'More than 83.9% of the zeros of the Riemann zeta function are distinct and more than 67.35% are simple and on the critical line' (arXiv:2610.08965; v1 6 Oct 2026). Zeta only. Lean 4 proofs with three extra axioms, each recording that a search program returned true (per the abstract). The abstract says 'This work is an experiment in AI-assisted mathematical research.' The introduction credits 'An argument discovered by Claude (Anthropic)' with an earlier bound lim inf N_d(T)/N(T) ≥ 0.83625, verified by Alpöge and Furman; this paper's distinct-zero bound is 0.83900 (1645064/1960733).",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 6 Oct 2026 as fetched.",
+      "delivers": "For ζ(s) only: lim inf N_d(T)/N(T) ≥ 0.83900…; lim inf N_0^s(T)/N(T) ≥ 0.67353… (simple and on the line; Theorem 1.3); and simple zeros anywhere in the strip ≥ 0.6780… (Corollary 1.2). Computer-assisted inequality for seven or eight consecutive zeros, plus Lean proofs.",
+      "remains": "All Dirichlet L-functions; GRH; the Riemann hypothesis itself.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "5 days at 11 Oct 2026; no independent reading found.",
+      "machine_checked": {
+        "system": "Lean 4 (with three extra axioms recording search-program results)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/2610.08965",
+        "note": "The abstract says the three axioms record that a search program returned true and that 'Lean's kernel does not check the run itself'. Sorry status not stated in what I read."
+      },
+      "directly_checkable": null,
+      "doubts": "The computer-assisted step is an output of a search program recorded as an axiom, which the kernel does not re-run (per abstract). Title and abstract use different thresholds (67.35% for simple and on the line in Theorem 1.3; 67.80% for simple anywhere in the strip in Corollary 1.2), which invites confusion. The AI involvement is described generically; the only named system is Claude, credited with the earlier argument.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Zeta only; partial and positive, a lower bound on proportions; no counterexample.",
+      "object": null,
+      "people": [
+        "Kristian Muri Knausgård"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2610.08965",
+          "https://arxiv.org/html/2610.08965"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.08965",
+        "https://arxiv.org/html/2610.08965"
+      ]
+    },
+    {
+      "id": "sono-2021-2105-07422",
+      "what_happened": "Keiju Sono, 'Zeros of Dirichlet L-functions on the critical line' (arXiv:2105.07422; v1 16 May 2021; v2 26 Apr 2024; v3 12 Jun 2024). Averaged over primitive characters and conductors, at least 61.07% of zeros of Dirichlet L-functions lie on the critical line, and at least 60.44% are simple and on the line. Method: Feng's mollifier and a mean-square asymptotic. The abstract states no conditional hypothesis.",
+      "date": "2021-05-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 26 Apr 2024; v3 12 Jun 2024 (both after the frozen revision; the first public argument is v1).",
+      "delivers": "Averaged over primitive characters and conductors: lower bounds 61.07% (on the line) and 60.44% (simple and on the line) for zeros of Dirichlet L-functions. A proportion for an average, not for each character; not all zeros.",
+      "remains": "All zeros of every character; GRH.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "not searched in this run",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "None raised in what I read; the journal reference is not listed on the arXiv page.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial, cutting toward GRH for an average over primitive characters.",
+      "object": null,
+      "people": [
+        "Keiju Sono"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2105.07422"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2105.07422"
+      ]
+    },
+    {
+      "id": "wu-2018-1802-09704",
+      "what_happened": "Xiaosheng Wu, 'The twisted mean square and critical zeros of Dirichlet L-functions' (arXiv:1802.09704; v1 27 Feb 2018; v2 13 Oct 2022); published Mathematische Zeitschrift 293 (2019), 825–865. For every Dirichlet L-function, more than 41.72% of nontrivial zeros lie on the critical line, and more than 40.74% are simple and on the line. The abstract does not assume GRH.",
+      "date": "2018-02-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 13 Oct 2022; journal Math. Z. 2019.",
+      "delivers": "For each Dirichlet L-function (per-character, as the abstract words it): at least 41.72% of nontrivial zeros on the line; at least 40.74% simple and on the line. Proportions, not all zeros.",
+      "remains": "All zeros of every character; GRH.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 8 years; the journal publication is a referee process (Math. Z.)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "None raised in what I read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial, cutting toward GRH; per-character bound. Predates the window.",
+      "object": null,
+      "people": [
+        "Xiaosheng Wu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1802.09704"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1802.09704"
+      ]
+    },
+    {
+      "id": "agelas-2019-hal",
+      "what_happened": "Léo Agélas, 'Generalized Riemann Hypothesis' (HAL hal-00747680, v3; 2019 per Brent's reference). Claims a proof that every nontrivial zero of every Dirichlet L-function lies on Re s = 1/2 (Theorem 2.1 as Brent quotes it), and the RH as a special case. NOT OPENED: hal.science returned HTTP 403. The description comes from Brent's arXiv abstract (event brent-2021-2103-09418), which I opened.",
+      "date": "2019",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v3 per HAL reference; earlier versions not checked.",
+      "delivers": "As claimed: GRH for all Dirichlet L-functions, and the RH as the trivial-character case. Per Brent, the argument fails at Lemma 2.3 (see brent-2021).",
+      "remains": "Nothing established: Brent's critique (next event) says the key lemma is false.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 7 years; the critique by Brent (2021) is the only engagement I found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Brent (2021) states that Lemma 2.3 of this proof is false and that Lemma 2.3 generalises Theorem 1 of Vassilev-Missana, which Brent shows false by several independent methods. I did not read Agélas's text, so I cannot check the lemma directly. No reply by Agélas found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims a proof of GRH (would settle the bullet in the 'yes' direction if correct).",
+      "object": null,
+      "people": [
+        "Léo Agélas"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2103.09418"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2103.09418"
+      ]
+    },
+    {
+      "id": "brent-2021-2103-09418",
+      "what_happened": "Richard P. Brent, 'On some results of Agelas concerning the GRH and of Vassilev-Missana concerning the prime zeta function' (arXiv:2103.09418; v1 17 Mar 2021; v2 21 Mar 2021; Notes on Number Theory and Discrete Mathematics 27(2) (2021), 49–50). Says the proof given by Agélas contains an error: 'Lemma 2.3 of Agelas is false'; Lemma 2.3 generalises Theorem 1 of Vassilev-Missana, which Brent shows false by several independent methods; Theorem 2 of Vassilev-Missana is also false. The body of the paper was not retrieved, so the lemma's content is from the abstract only.",
+      "date": "2021-03-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 21 Mar 2021 ('postscript added in v2'); journal Notes Number Theory Discrete Math 27(2) 2021.",
+      "delivers": "A refutation of the proof step (Lemma 2.3) on which Agélas's claimed GRH proof relies, as Brent states it. Establishes nothing about whether GRH is true.",
+      "remains": "GRH entirely (Brent's note does not decide the statement).",
+      "checked_by": [
+        {
+          "who": "Richard P. Brent",
+          "qualification": "Number theorist (Australian National University) with published work on zeta and L-function computation",
+          "what_they_did": "Reads the Agélas proof and states that Lemma 2.3 is false and that the Vassilev-Missana theorems it generalises are false; cites Artur Kawalec and Léo Agélas for confirming some computations.",
+          "where": "https://arxiv.org/abs/2103.09418",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "I read the abstract only (body not retrieved), so the claimed false step is taken from Brent's summary.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts against the Agélas claim: a specific error identified in a key lemma, per Brent.",
+      "object": null,
+      "people": [
+        "Richard P. Brent"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2103.09418"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2103.09418"
+      ]
+    },
+    {
+      "id": "blinovsky-2017-1703-03827",
+      "what_happened": "Vladimir Blinovsky, 'Proof of Riemann hypothesis' (arXiv:1703.03827; math.GM; v1 13 Mar 2017). v1 abstract: 'We prove Riemann hypothesis. Method is to show that if there exists zero on the critical strip away from sigma =1/2 then zeta function should be zero identically which is not true.' v1 claims the RH only. The listing has 16 versions; v16 (10 Aug 2026) is current and claims the RH only.",
+      "date": "2017-03-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 15 Mar 2017; v3 24 Mar 2017; v4 3 Apr 2017; v5 1 May 2017; v6 30 Oct 2017; v7 30 Jan 2018; v8 25 Jul 2018; v9 25 Aug 2018; v10 22 Sep 2018; v11 28 Sep 2018; v12 6 Mar 2019 (abstract adds GRH and the Ramanujan tau-Dirichlet hypothesis; see next event); v13 25 Dec 2025 (title and abstract back to RH only); v14 7 Feb 2026; v15 2 Aug 2026; v16 10 Aug 2026.",
+      "delivers": "As claimed in v1: the RH (the trivial-character case of the GRH). Nothing about nontrivial characters in v1.",
+      "remains": "Nontrivial characters (the GRH content beyond ζ), and the RH itself if the argument fails.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9 years; the listing shows no peer review. A forum thread (secondary search summary, not opened) notes that the proof is not being discussed by mathematicians.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Author-only arXiv posting in math.GM; no peer review shown. The method has been revised across versions ('some small corrections'; v15 'corrections, concerning the proof of convexity of K(σ,T)'). The v1 text was not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims the RH (trivial-character case of GRH). Would not by itself settle GRH.",
+      "object": null,
+      "people": [
+        "Vladimir Blinovsky"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1703.03827"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1703.03827"
+      ]
+    },
+    {
+      "id": "blinovsky-2019-grh-claim",
+      "what_happened": "Blinovsky's arXiv:1703.03827 at v12 (6 Mar 2019) has the abstract: 'We prove Riemann hypothesis, Generalized Riemann hypothesis, and Ramanujan τ-Dirichlet series hypothesis.' The GRH is absent from the title and abstract of v13 (25 Dec 2025), v14 (7 Feb 2026), v15 (2 Aug 2026) and v16 (10 Aug 2026). The first version carrying the GRH claim is not established: versions v2 to v11 were not checked, so 6 Mar 2019 is the earliest version I verified to carry it.",
+      "date": "2019-03-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "The GRH claim is dropped at v13 (25 Dec 2025) with the comment 'some small corrections, I change the name - because it contain complete proof of RH'. No withdrawal notice is recorded.",
+      "delivers": "As claimed in v12: a proof of GRH for Dirichlet L-functions (and of the Ramanujan tau-Dirichlet hypothesis). The fetched abstract gives no separate argument for GRH; the body was not read.",
+      "remains": "The whole GRH, if the claim is not valid. Current versions no longer make the claim.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7 years at the v12 date; no referee or endorsement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Scope changed between versions: RH only at v1 (2017); RH, GRH and the Ramanujan hypothesis by v12 (2019); RH only again from v13 (Dec 2025). The reason for dropping the GRH is not given in the fetched comments.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims GRH (the 'yes' direction) in v12, no longer claimed in current versions.",
+      "object": null,
+      "people": [
+        "Vladimir Blinovsky"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1703.03827v12",
+          "https://arxiv.org/abs/1703.03827v13"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1703.03827v12",
+        "https://arxiv.org/abs/1703.03827v13",
+        "https://arxiv.org/abs/1703.03827v15"
+      ]
+    },
+    {
+      "id": "zhang-2025-preprints",
+      "what_happened": "Weicun Zhang (University of Science and Technology Beijing, per a search summary), 'A Unified Proof of the Extended, Generalized, and Grand Riemann Hypotheses', Preprints.org, marked not peer-reviewed. Per search snippets of the Preprints.org listing (not opened: the site returned 'Access Denied' and HTTP 403 in this run), the latest version (posted 1 Apr 2026) claims that the Extended RH (Dedekind zeta), the GRH (Dirichlet L-functions) and the Grand RH are proved under one framework, and that this excludes Landau–Siegel zeros. The method is said to rely on divisibility of entire functions in the symmetric functional equation and the uniqueness of zero multiplicities. Versions are reported from July 2025 onward; the earliest date is not confirmed.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Many versions, per search snippets (July 2025 to April 2026); the title and abstract changed across versions, per snippets. Not verified.",
+      "delivers": "As claimed: the GRH for Dirichlet L-functions, the ERH and the grand RH, plus exclusion of Landau–Siegel zeros. Not verified by me.",
+      "remains": "Nothing established by the record.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 months for the latest version (1 Apr 2026, per snippet); no outside reading found in the searches.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not peer reviewed (per the listing as the snippet shows it). Many revisions with changing title and abstract. The claim to exclude Landau–Siegel zeros is a major statement with no outside reading found. The same author is said (snippet) to have a companion claimed proof of the RH. I did not open the text, so the method description is from the snippet only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims GRH (the 'yes' direction) and the exclusion of Landau–Siegel zeros; not verified.",
+      "object": null,
+      "people": [
+        "Weicun Zhang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.preprints.org/frontend/manuscript/48672ce4a86b68a6f9d4e7eb950aefd0/download_pub"
+        ]
+      },
+      "sources": [
+        "https://www.preprints.org/frontend/manuscript/48672ce4a86b68a6f9d4e7eb950aefd0/download_pub"
+      ]
+    },
+    {
+      "id": "singh-gehlot-2025-cnt",
+      "what_happened": "Gajendra Singh and Kuldeep Singh Gehlot (Jai Narain Vyas University, Jodhpur), 'A new criterion for the generalized Riemann hypothesis', Combinatorics and Number Theory 14(2) (2025), 113–118, DOI 10.2140/cnt.2025.14.113 (Mathematical Sciences Publishers; ISSN 2996-220X). Received 2 Dec 2024; revised 12 Mar 2025; accepted 27 Mar 2025; published 12 Apr 2025. The abstract defines φ(s,χ) as the product of ξ(s,χ) and ξ(s,χ̄) for a primitive χ, determines the sign of Re of its logarithmic derivative in the zero-free region, shows |φ(s,χ)| is strictly monotone along certain circles, and proposes a criterion; 'This result establishes an equivalence relation for the generalized Riemann hypothesis.' No arXiv or preprint identifier is listed on the page.",
+      "date": "2025-04-12",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "No preprint found; the journal publication date is the earliest public appearance I found.",
+      "delivers": "A reformulation (an equivalence/criterion) of the GRH for primitive characters in terms of a sign or monotonicity property of φ(s,χ) in the zero-free region. It does not establish the GRH and does not refute it.",
+      "remains": "The GRH itself, unless the criterion is verified for all χ.",
+      "checked_by": [
+        {
+          "who": "Combinatorics and Number Theory (Mathematical Sciences Publishers), journal of record",
+          "qualification": "Refereed journal in number theory (the page records accepted 27 Mar 2025; its refereeing process is not described on the page)",
+          "what_they_did": "Accepted the paper after revision (received 2 Dec 2024, revised 12 Mar 2025, accepted 27 Mar 2025).",
+          "where": "https://msp.org/cnt/2025/14-2/p02.xhtml",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 months at 11 Oct 2026.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "A reformulation, not a proof. The journal name in one search summary ('Communications in Number Theory and Physics') was wrong: the page is Combinatorics and Number Theory, ISSN 2996-220X. Whether the claimed equivalence is correct was not checked.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "A criterion for GRH; no direction on whether GRH is true.",
+      "object": null,
+      "people": [
+        "Gajendra Singh",
+        "Kuldeep Singh Gehlot"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://msp.org/cnt/2025/14-2/p02.xhtml"
+        ]
+      },
+      "sources": [
+        "https://msp.org/cnt/2025/14-2/p02.xhtml"
+      ]
+    },
+    {
+      "id": "kubalalika-2020-2006-12546",
+      "what_happened": "Tatenda Kubalalika, 'The Riemann Hypothesis is false' (arXiv:2006.12546; v1 16 Jun 2020; latest v49 17 Feb 2026). Claims Θ = 1, where Θ is the supremum of the real parts of nontrivial zeros of ζ, hence infinitely many zeros off the critical line, disproving the RH. The abstract includes an author's note and an addendum dated 11 Feb 2026 (a typo fix and a change of method, per the fetched text).",
+      "date": "2020-06-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "49 versions; latest v49 17 Feb 2026; addendum 11 Feb 2026 (change of method per the abstract).",
+      "delivers": "As claimed: a counterexample to the RH (infinitely many zeros of ζ off Re s = 1/2). Since the RH is the trivial-character case of the GRH, a valid disproof would also refute the GRH; the claim says nothing about nontrivial characters, and the abstract says the argument does not carry over to the Weil and Beurling zeta functions.",
+      "remains": "If the claim is not valid, the whole GRH. If valid, the GRH is refuted through ζ.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 5 years; no refutation or endorsement found in this run.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Author-only arXiv posting; 49 versions; the method changed in Feb 2026 (addendum per the abstract); the fetched abstract does not say whether the change repairs or replaces the earlier argument. I did not read the body.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims a counterexample to the RH, which would refute the GRH via the trivial character if valid.",
+      "object": "Claimed: a supremum Θ = 1 of the real parts of ζ's nontrivial zeros, which gives infinitely many zeros off the line; the object is not exhibited explicitly. The abstract also says the same method fails for the Weil and Beurling zeta functions.",
+      "people": [
+        "Tatenda Kubalalika"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2006.12546"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2006.12546"
+      ]
+    },
+    {
+      "id": "ryazanov-2018-1808-10774",
+      "what_happened": "Vladimir Ryazanov, arXiv:1808.10774 (first submitted 30 Aug 2018; eleven versions, latest v11 31 Aug 2026). Current title: 'A proof of the Riemann hypothesis on zeros of ζ-function'. Abstract: 'applying the known Beurling–Nyman criterion, it is just proved the Riemann hypothesis.' Versions v5 (10 Dec 2024), v6 (24 Jan 2025), v7 (6 Jul 2025), v8 (17 Jul 2025), v9 (25 Jul 2025), v10 (25 Aug 2026) and v11 (31 Aug 2026). Per search snippets of the HTML versions v6 and v9 (not opened in full), those versions are titled 'A disproof of the Riemann hypothesis'.",
+      "date": "2018-08-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 3 Sep 2018; v3 8 Apr 2019; v4 11 Apr 2019; v5 10 Dec 2024; v6 24 Jan 2025; v7 6 Jul 2025; v8 17 Jul 2025; v9 25 Jul 2025; v10 25 Aug 2026; v11 31 Aug 2026. Comments field on v11: 'one typo has been corrected in Section 4, references and minor comments along the rest of the text added'.",
+      "delivers": "As claimed: the RH for ζ. For the GRH, the trivial-character case only.",
+      "remains": "GRH for nontrivial characters; and the RH if the argument fails.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 years for v1; no referee report or endorsement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Per search snippets, the HTML versions v6 and v9 are titled as a disproof of the RH, while the current listing is titled as a proof: the author's position is not stable across versions. I did not read the body. No independent verification found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims the RH (trivial-character case) in the current version; per snippet, earlier HTML versions claim a disproof.",
+      "object": null,
+      "people": [
+        "Vladimir Ryazanov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1808.10774"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1808.10774"
+      ]
+    },
+    {
+      "id": "ech-chatbi-2019-1905-09385",
+      "what_happened": "Charaf Ech-Chatbi, 'A Simple Proof of the Riemann's Hypothesis' (arXiv:1905.09385; v1 18 May 2019; latest v27 4 Nov 2023). Abstract: 'We present a simple proof of the Riemann's Hypothesis (RH) where only undergraduate mathematics is needed.' No GRH claim.",
+      "date": "2019-05-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "27 versions; latest v27 4 Nov 2023 (before the window).",
+      "delivers": "As claimed: RH only.",
+      "remains": "GRH entirely (the RH is only the trivial-character case).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7 years; no referee or endorsement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Author-only arXiv posting; no review shown.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims the RH (trivial-character case) only.",
+      "object": null,
+      "people": [
+        "Charaf Ech-Chatbi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1905.09385"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1905.09385"
+      ]
+    },
+    {
+      "id": "yun-2024-ajams",
+      "what_happened": "Young Hwan Yun (Zero Theoretical Physics Laboratory, Seoul), 'A Proof of the Riemann Hypothesis', American Journal of Applied Mathematics and Statistics 12(4) (2024), 86–92, DOI 10.12691/ajams-12-4-3; published 4 Dec 2024 per the journal page. Argues the zeta functional-equation relation at zeros 'follows the Schwarz reflection principle', so zeros lie on Re s = 1/2, and concludes 'Therefore, the Riemann Hypothesis is true.' RH only.",
+      "date": "2024-12-04",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "No earlier preprint found; the journal date is the earliest public appearance I found.",
+      "delivers": "As claimed: the RH for ζ. Nothing about nontrivial characters.",
+      "remains": "The GRH for nontrivial characters; and the RH if the argument fails.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 months; no expert engagement found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The abstract gives no step-by-step reason why a reflection symmetry forces zeros onto the line; a symmetry of the functional equation alone does not obviously do that (a search summary raises this point). Journal refereeing is not described on the page.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims the RH (trivial-character case) only.",
+      "object": null,
+      "people": [
+        "Young Hwan Yun"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.sciepub.com/AJAMS/abstract/16338"
+        ]
+      },
+      "sources": [
+        "https://www.sciepub.com/AJAMS/abstract/16338"
+      ]
+    },
+    {
+      "id": "abe-2022-coe",
+      "what_happened": "Yukitaka Abe, 'A rigorous proof of the Riemann hypothesis' (Cambridge Open Engage working paper, DOI 10.33774/coe-2022-d3nj5-v26). Abstract: 'We prove the Riemann hypothesis by a new analytic approach.' Version 26 posted 17 Jul 2026 ('The proof of Theorem 1 is improved'); version 25 on 11 Jul 2026 (a correction to the proof of Theorem 1 from version 23). The page says the content 'has not been peer-reviewed by Cambridge University Press at the time of posting'. Earliest version: April 2022, per a search snippet (not opened); version 2 is said to say 'The proof of the simpleness is incomplete'.",
+      "date": "2022",
+      "precision": "year",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Many versions since 2022; v23 corrects Theorem 1's proof; v25 11 Jul 2026; v26 17 Jul 2026.",
+      "delivers": "As claimed: the RH (ζ). Scope is RH only; the page does not mention GRH or Dirichlet L-functions.",
+      "remains": "GRH for nontrivial characters; and the RH if the claimed proof fails.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 years since the earliest version (per snippet); no referee found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Repeated corrections to the main theorem's proof (v23, v26); earlier versions were more modest (v2 says the simpleness proof is incomplete, per snippet).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims the RH (trivial-character case) only.",
+      "object": null,
+      "people": [
+        "Yukitaka Abe"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.cambridge.org/engage/coe/article-details/6a52f0d3810b9dcc82011b00"
+        ]
+      },
+      "sources": [
+        "https://www.cambridge.org/engage/coe/article-details/6a52f0d3810b9dcc82011b00"
+      ]
+    },
+    {
+      "id": "hardy-2019-1912-04058",
+      "what_happened": "Devin Hardy, 'On The Complex Zeros of The Riemann Zeta Function' (arXiv:1912.04058; v1 4 Dec 2019; v2 28 Dec 2022 (withdrawn per the listing); v3 17 Apr 2024; v4 14 Feb 2026). Latest abstract: a summary of an approach 'toward proving the riemann hypothesis', presenting 'numerical and graphical proof' with 'analytical arguments', and stating that more work is needed to make the arguments 'analytically rigorous for a full proof'; some lemmas are stated 'which if proven fit well into this apparatus'. Zeta only.",
+      "date": "2019-12-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 28 Dec 2022 (listed as withdrawn); v3 17 Apr 2024; v4 14 Feb 2026 ('a summary of the previous two versions, and related work on the riemann hypothesis').",
+      "delivers": "As claimed: a numerical and graphical approach to the RH; by the author's own statement the analytic proof is not complete. Zeta only.",
+      "remains": "The RH and the GRH.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7 years for v1.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The author states that the full proof needs further lemmas; the listing says v2 was withdrawn. Not a claimed proof in the strict sense.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "v2 (28 Dec 2022) listed as withdrawn on the arXiv page",
+        "date": "2022-12-28",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/1912.04058"
+        ]
+      },
+      "direction": "Partial numerical evidence for the RH; not a proof; zeta only.",
+      "object": null,
+      "people": [
+        "Devin Hardy"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1912.04058"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1912.04058"
+      ]
+    },
+    {
+      "id": "basak-thorner-zaharescu-2024-2404-16003",
+      "what_happened": "Debmalya Basak, Jesse Thorner and Alexandru Zaharescu, 'Remarks on Landau–Siegel zeros' (arXiv:2404.16003; v1 24 Apr 2024; v2 23 Dec 2024; Algebra & Number Theory 20 (2026), 209–217, DOI 10.2140/ant.2026.20.209). For certain families of L-functions, if every member has only real zeros in a fixed small neighbourhood of s = 1, the known results on Landau–Siegel zeros can be considerably improved. The main result is conditional on that hypothesis.",
+      "date": "2024-04-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 23 Dec 2024 ('referee comments incorporated', per arXiv page); journal Algebra & Number Theory 20 (2026).",
+      "delivers": "Conditional on the real-zeros hypothesis for a family, better Siegel-zero bounds. Unconditional statement for the GRH: none.",
+      "remains": "The GRH; unconditional Siegel-zero exclusion for Dirichlet L-functions.",
+      "checked_by": [
+        {
+          "who": "Algebra & Number Theory (MSP) referee process",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published after referee comments, which v2 incorporates (per arXiv comments).",
+          "where": "https://arxiv.org/abs/2404.16003",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 years.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "None raised: this is a conditional, not a GRH claim.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Conditional (different hypothesis); no direction on whether GRH is true.",
+      "object": null,
+      "people": [
+        "Debmalya Basak",
+        "Jesse Thorner",
+        "Alexandru Zaharescu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2404.16003"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2404.16003"
+      ]
+    },
+    {
+      "id": "lu-zaman-zhao-2026-2602-03626",
+      "what_happened": "Rick F. Lu, Asif Zaman and Haonan Zhao, 'Numerical Computations Concerning Landau-Siegel Zeros' (arXiv:2602.03626; submitted 3 Feb 2026; one version). Computational verification: for quadratic Dirichlet L-functions modulo q ≤ 10^10, L(σ,χ) ≠ 0 for real σ ≥ 1 − 1/(5 log q). The algorithm 'draws from zero-free region arguments'; the verified moduli exceed Watkins (2004), Platt (2016) and Languasco (2023) by a factor of 66 to 25,000.",
+      "date": "2026-02-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "One version.",
+      "delivers": "A finite computation: no real zeros of quadratic characters with q ≤ 10^10 in σ ≥ 1 − 1/(5 log q). Quadratic characters only, finitely many moduli; no statement for all q or for non-quadratic characters.",
+      "remains": "All moduli q; all characters other than quadratic ones; non-real zeros; the line Re s = 1/2 (the GRH question).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 months at 11 Oct 2026; no reaction found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Finite check, so it adds instances but does not move the all-q statement.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with GRH in the verified range; no counterexample reported.",
+      "object": null,
+      "people": [
+        "Rick F. Lu",
+        "Asif Zaman",
+        "Haonan Zhao"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2602.03626"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2602.03626"
+      ]
+    },
+    {
+      "id": "munsch-toma-2025-2503-05269",
+      "what_happened": "Marc Munsch (v1, 7 Mar 2025) and, from v2 (8 Oct 2025), Yuichiro Toma, 'Bounds for moments of quadratic character sums and theta functions' (arXiv:2503.05269). Unconditional lower bounds for all even moments of quadratic character sums averaged over fundamental discriminants; a sharp upper bound on those moments under the GRH; for quadratic theta functions, unconditional lower bounds and GRH-conditional upper bounds, with an unconditional second-moment upper bound (abstract).",
+      "date": "2025-03-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 8 Oct 2025 (rewritten and expanded; Toma added).",
+      "delivers": "Moments of quadratic character sums and theta functions averaged over fundamental discriminants; upper bounds under GRH. It bounds sums of characters, not zeros of L-functions.",
+      "remains": "Everything in problem_asks: the question is about zeros, not about moments of character sums.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 7 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Different quantity (moments of character sums), conditional on the GRH for the upper bounds.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Different question (moments of character sums); conditional on GRH in part; says nothing about the location of zeros.",
+      "object": null,
+      "people": [
+        "Marc Munsch",
+        "Yuichiro Toma"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2503.05269"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2503.05269"
+      ]
+    },
+    {
+      "id": "vihko-2025-2506-16115",
+      "what_happened": "Sami Vihko, 'Dirichlet L-functions on the critical line and multiplicative chaos' (arXiv:2506.16115 listing; v1 19 Jun 2025; v3 24 Oct 2025). Shows that L(1/2 + ix, χ_q), for a uniformly random character χ_q modulo q, converges to a random Schwartz distribution related to complex Gaussian multiplicative chaos. The listing's comments refer to 'a revised and corrected version of arXiv:2506.16115', an internal inconsistency in the listing that I did not resolve.",
+      "date": "2025-06-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 23 Jun 2025; v3 24 Oct 2025 (new section on convergence to the right of the critical line).",
+      "delivers": "A limit law for values L(1/2 + ix, χ) at random characters. Values on the critical line, not zeros. No GRH assumed.",
+      "remains": "Everything in problem_asks; the paper does not study zeros.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Different question (values on the line, not zeros).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Different question; says nothing about the location of zeros.",
+      "object": null,
+      "people": [
+        "Sami Vihko"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2506.16115"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2506.16115"
+      ]
+    },
+    {
+      "id": "kandhil-languasco-moree-2026-2607-14515",
+      "what_happened": "Neelam Kandhil, Alessandro Languasco and Pieter Moree, 'Beyond the Riemann Hypothesis bounds: a pair-correlation approach to the least prime in arithmetic progression and the smallest quadratic non-residue' (arXiv:2607.14515; v1 16 Jul 2026). Under the GRH together with specific pair-correlation hypotheses, sharper bounds for the least prime in an arithmetic progression and for the least quadratic non-residue than the GRH alone gives.",
+      "date": "2026-07-16",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, as fetched.",
+      "delivers": "Conditional bounds (under GRH plus pair-correlation hypotheses) for two arithmetic quantities. No statement about the location of zeros.",
+      "remains": "The GRH itself.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Conditional, and about different quantities.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Conditional on the GRH; no bearing on whether it is true.",
+      "object": null,
+      "people": [
+        "Neelam Kandhil",
+        "Alessandro Languasco",
+        "Pieter Moree"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2607.14515"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.14515"
+      ]
+    },
+    {
+      "id": "openai-math-003",
+      "what_happened": "The same two zero-free-region manuscripts. 'The Quasi-Riemann Hypothesis: A Zero-Free Half-Plane Re s>7/8' (Sept 30 2026) claims that every Dirichlet L-function, zeta included, has no zero with Re s > 7/8. It gets there from finite-order Hecke L-functions over Q(√-3), using the factorisation of the norm-composed character into L(s,χ)L(s,χχ_{-3}) up to finitely many Euler factors that are nonzero for Re s > 0 (Proposition 'Quadratic transfer'). 'The Quasi-Riemann Hypothesis' (Oct 5 2026) claims the same families have no zeros with Re s > 11/12, stating the factorisation explicitly. Neither manuscript says anything about the critical line.",
+      "date": "2026-10-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "For every Dirichlet L-function (all moduli and characters, the principal one included with its pole at s=1 allowed), no nontrivial zero with Re s > 7/8 (Sept 30) or Re s > 11/12 (Oct 5). This is a zero-free half-plane, not GRH: zeros with 0 < Re s ≤ 7/8 are not located on Re s = 1/2 or anywhere else.",
+      "remains": "Every nontrivial zero of every Dirichlet L-function with 0 < Re s ≤ 7/8 (or ≤ 11/12), and the claim that each such zero has real part exactly 1/2.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "8 days",
+      "machine_checked": {
+        "system": "Lean 4",
+        "sorry_free": null,
+        "url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/003.md",
+        "scope": "The quasi-Riemann hypothesis asks for a fixed zero-free half-plane $\\Re s>\\theta$ with $\\theta<1$. The formalization gives $\\theta=7/8$ for the Riemann zeta function and every Dirichlet $L$-function, uniformly over all positive moduli and all characters. It also establishes the same bound for finite-order Hecke $L$-functions over $\\mathbb Q(\\sqrt{-3})$.\n\nThe principal-character poles at $s=1$ are excluded in the Dirichlet and Hecke statements. The paper's later applications are not included.\n\nThe formalized result gives a uniform logarithmic exclusion region for Landau–Siegel zeros. There is one constant $c>0$ such that every primitive nonprincipal real Dirichlet character of conductor $q\\ge3$ and every real zero $0<\\beta<1$ of its $L$-function satisfy $1-\\beta\\ge c/\\log q$.\n\nBoth character parities are included. No explicit value of $c$ is given. This excludes real zeros in $1-c/\\log q<\\beta<1$, but does not rule out real zeros elsewhere in $(0,1)$.",
+        "theorems": [
+          "OAI.riemannZeta_ne_zero_of_seven_eighths_lt_re",
+          "OAI.DirichletCharacter.LFunction_ne_zero_of_seven_eighths_lt_re",
+          "OAI.SevenEighths.HeckeFamily.LFunction_ne_zero_of_seven_eighths_lt_re",
+          "OAI.SiegelZeros.WeightedTorusJets.exists_absolute_real_zero_gap",
+          "OAI.SiegelZeros.WeightedTorusJets.dirichletRealZeroBound_proof"
+        ]
+      },
+      "directly_checkable": null,
+      "doubts": "The proof-level caveats in riemann-hypothesis apply. The Dirichlet statement is a short transfer from the Hecke statement; Sept 30's proof of it is a few lines, and it relies on the Euler factors omitted from the transfer being nonzero in Re s > 0, which the text asserts. The Sept 30 introduction states that the theorem does not establish the generalized Riemann hypothesis.; conditional on: As in riemann-hypothesis: no unproven hypothesis is stated, and published results are used as black boxes for some steps. The Dirichlet claim is derived inside each manuscript from its Hecke claim, which is proved in the same manuscript. Oct 5 does not depend on Sept 30.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "proves a zero-free half-plane for all Dirichlet L-functions (partial result toward GRH)",
+      "object": null,
+      "people": [],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "an unreleased internal OpenAI model",
+            "what_it_did": "produced the manuscripts, per the repository README",
+            "basis_quote": "Exceptions to this fixed procedure include work on a zero-free region for the Riemann zeta function and proof of the Hodge Conjecture for CM abelian varieties.",
+            "quote_url": "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+          }
+        ],
+        "disclosed_cost": "On average, each result used three hours of ChatGPT Pro thinking compute with that model.",
+        "sources": [
+          "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md"
+        ]
+      },
+      "sources": [
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/paper.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/paper2.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/preprints/Uniform-exclusion-of-Landau-Siegel-zeros-October-1-2026/paper.pdf",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/README.md",
+        "https://github.com/openai/math/blob/1581d4cbdd69a0faf34b2089614fe2a814316a6a/lean/docs/003.md"
+      ],
+      "origin": {
+        "stage": "openai",
+        "family": "003",
+        "family_title": "The quasi-Riemann hypothesis",
+        "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a",
+        "read": [
+          "sources/openai-math/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex",
+          "sources/openai-math/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/README.md",
+          "sources/openai-math/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/build/paper2.tex",
+          "sources/openai-math/preprints/The-Quasi-Riemann-Hypothesis-October-5-2026/README.md"
+        ]
+      }
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "priority",
+      "summary": "Credit for the zeta bound of two-thirds simple zeros on the line (67.25%): the arXiv paper lists Alpöge and Furman as authors, with the comments and title footnote saying the argument was discovered by Claude. Anthropic's post says Claude found the argument and that Alpöge and Furman validated it. Lamzouri credits the bound to 'an internal research version of Claude' and then to Alpöge and Furman's verification. The Johns page attributes the constants to Alpöge and Furman. These readings are not reconciled in any source I read.",
+      "sources": [
+        "https://arxiv.org/abs/2608.13637",
+        "https://www.anthropic.com/research/riemann-zeta",
+        "https://arxiv.org/abs/2609.02882",
+        "https://github.com/nic410/dirichlet-critical-zeros/blob/main/docs/VERIFICATION.md"
+      ]
+    },
+    {
+      "kind": "scope",
+      "summary": "Two different Anthropic-linked figures are often merged: the blog's 41.6% → 67.2% concerns zeros on the critical line (no simple qualifier), whereas the arXiv headline (two thirds) concerns zeros that are simple and on the line, and its Theorem B concerns each fixed primitive Dirichlet character.",
+      "sources": [
+        "https://www.anthropic.com/research/riemann-zeta",
+        "https://arxiv.org/html/2608.13637v2"
+      ]
+    },
+    {
+      "kind": "statement",
+      "summary": "Which OpenAI family-003 paper states 7/8 and which 11/12: the repository index assigns 7/8 to the lead paper and 11/12 to the companion; a secondary summary says the repository's paper states 11/12. Also, the lead paper's abstract allows the principal pole at s = 1, while the Lean description excludes it.",
+      "sources": [
+        "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+        "https://raw.githubusercontent.com/openai/math/main/lean/docs/003.md",
+        "https://www.emergentmind.com/openai-math-explorer/results/003"
+      ]
+    },
+    {
+      "kind": "statement",
+      "summary": "Knausgård's title (more than 67.35% simple and on the line) and abstract (more than 67.80% simple) use different quantities: Theorem 1.3 (simple and on the line) and Corollary 1.2 (simple anywhere in the strip). The title and abstract phrasing invites confusion.",
+      "sources": [
+        "https://arxiv.org/html/2610.08965"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "The Johns headline constant 0.9322 matches a number a search summary attributes to Sono (Bull. Aust. Math. Soc. 2016) as a GRH-conditional bound for low-lying zeros of primitive Dirichlet L-functions. This is a different quantity by the summaries, and I did not open Sono's paper, so this is an unverified coincidence to be checked.",
+      "sources": [
+        "https://github.com/nic410/dirichlet-critical-zeros/blob/main/docs/VERIFICATION.md"
+      ]
+    },
+    {
+      "kind": "scope",
+      "summary": "Blinovsky's arXiv:1703.03827 claims RH only at v1 (2017), claims RH, GRH and the Ramanujan tau-Dirichlet hypothesis by v12 (2019), and claims RH only again from v13 (25 Dec 2025).",
+      "sources": [
+        "https://arxiv.org/abs/1703.03827v1",
+        "https://arxiv.org/abs/1703.03827v12",
+        "https://arxiv.org/abs/1703.03827v13",
+        "https://arxiv.org/abs/1703.03827v15"
+      ]
+    },
+    {
+      "kind": "claim",
+      "summary": "Ryazanov's arXiv:1808.10774: the current listing is titled 'A proof of the Riemann hypothesis on zeros of ζ-function'; per search snippets, the HTML versions v6 and v9 are titled 'A disproof of the Riemann hypothesis'.",
+      "sources": [
+        "https://arxiv.org/abs/1808.10774"
+      ]
+    }
+  ],
+  "summary": "Searches: 44 web searches (listed verbatim in search.queries), with primary sources opened wherever the host allowed, and about 60 page fetches: the Anthropic post; the arXiv abstracts and HTML for 2608.13637, 2609.02882, 2610.08965, 2608.16034, 2609.27808, 2607.14515, 2503.05269, 2506.16115, 2404.16003, 2602.03626, 1912.04058, 1905.09385, 1808.10774, 2006.12546, 2105.07422, 1802.09704 and 2103.09418, and the Blinovsky listing across v1, v12, v13 and v15 and the current version; the openai/math README, CONTENTS, history, overview.tex, the Lean docs for family 003 and the Lean README, plus the preprint folder listing; the anthropics/zeta-23-lean README; the nic410 repository README and its VERIFICATION page; the Zenodo record for Johns; the MSP and sciepub journal pages; the Cambridge Open Engage page for Abe; and the Wikipedia article. Verdict on the GRH: no accepted proof or disproof. The Wikipedia article (last edited 2 Oct 2026, the most recent version I could read) still lists the GRH as open, notes that the only proven cases are in the function-field setting, and mentions none of the 2026 results. Events that move a quantity named in the GRH: (a) unconditional proportions of zeros simple and on the line for each fixed primitive Dirichlet character (Alpöge and Furman, Theorem B, Aug 2026, 2/3 in windows (T, 2T), with o(1) errors) and for averaged families (Hua and Yang, Aug 2026, 0.6725 and 0.8362; Johns, Sep 2026, weighted family, 0.9322); (b) OpenAI's zero-free half-plane Re s > 7/8 (and 11/12 companion) for all Dirichlet L-functions and a uniform real-zero gap (Oct 2026), both unreviewed. The closer calls are these. A proportion of zeros on the line is a relaxation of GRH's all-zeros statement, so whether a lower bound on that proportion 'moves the quantity named' is for the judging pass; I have recorded the windowing and the per-character versus averaged scope in each event. A zero-free region at 7/8 is a statement about where zeros are, not whether they lie on the line; I have recorded it as partial with no direction on the line. The real-zero exclusion (OpenAI, uniform gap) removes only zeros with 1 − β < c/log q, leaving 1/2 < β ≤ 1 − c/log q open. AI involvement in the Dirichlet-specific results: Alpöge and Furman's paper credits Claude with discovering the argument (its authors' own account, arXiv comments and title footnote; Anthropic's post gives the process and compute). Johns credits Anthropic's Claude Opus 5.5 agents with the mathematics, proofs, certificates and Lean work, with AI referees and no named human line-by-line check (Zenodo and VERIFICATION page). The OpenAI family 003 is credited to 'an unreleased internal OpenAI model' by the README. Knausgård's zeta paper describes itself as 'an experiment in AI-assisted mathematical research' and names only Claude, credited with an earlier argument it builds on. Hua–Yang, Lamzouri, Sono, Wu and the conditional papers show no AI system in what I read. Lamzouri's formal certificate for Proposition 2.1 is machine-generated (AxiomProver) but formalises a human-written argument, so it is recorded in the summary of his event and not in ai.systems. Two items were not used. The emergentmind page is a machine-generated summary and attributes a section to 'GPT-6 Astra Medium'; I did not rely on that name, which no primary source I opened gives. The Johns VERIFICATION page names 'Astra' as a reviewer, and I have recorded that name as the page gives it. Unverified or unopened: Zhang's Preprints.org record (blocked, 403; snippet-level dates), the Agélas HAL record (blocked, 403; described only through Brent's abstract), Sghiar's AI-assisted RH claim (ResearchGate, blocked; title only, not recorded as an event). Not recorded for lack of an opened source: Palojärvi–Simonič (arXiv:2410.22711, conditional on GRH), Thorner–Zhao (January 2026, automorphic L-functions, parent-level), Ray (arXiv:2511.06109, expository re-proof of Wu's result), Garunkštis–Paliulionytė (2025) and Sono's 2016 BAMS paper (both snippet-level). The OpenAI withdrawals of 7 Oct 2026 concern three Hodge-related manuscripts and do not touch family 003 (history.md). The Johns page cites a GRH-conditional 0.9350 for a simple-zero statistic by Chirre, Gonçalves and de Laat; I could not find that figure in any source, so I have not relied on it.",
+  "competing_reading": "Reading the Dirichlet results as progress on the GRH: each fixed-character theorem (Alpöge–Furman Theorem B, 2/3 of zeros in windows simple and on the line) and each family average (Hua–Yang, Johns) is a quantitative move on the one thing the statement is about, which is where the zeros of Dirichlet L-functions lie. Reading them as settling nothing about the GRH: the statement is an all-zeros assertion, every result here is a lower bound on a proportion that is not one, the bounds are restricted to windows or to averages, and the simple-zero condition is a different property from location. The zero-free region at 7/8 and the Siegel gap are, on the strict reading, statements about where zeros are not, not about whether they lie on the line. The AI-attribution question is also open: the authors of 2608.13637 say the argument was 'discovered and written by Claude'; a reader who counts the authors as the originators would instead see two human-verified results and an AI-produced draft. The OpenAI release is less checked than the Anthropic one (no named human reading, Lean only in part, and an explicit warning that unformalised results 'could have issues').",
+  "what_would_settle_it": "(1) For the proportion results: a formal statement and a Lean check of Theorem B (the Dirichlet extension) in the anthropics/zeta-23-lean project or a sibling repository, and an independent human reading of Theorem B. (2) For Johns' weighted-family result: a human line-by-line check, which the page says has not yet happened, and the Lean scope for Theorems 1.2 to 1.4(c), which are not formalised. (3) For OpenAI family 003: the statements of the lead paper and companion read from the PDFs (not parsed here), a Lean check that the formal statements match the informal ones, a resolution of the 7/8 versus 11/12 assignment, and the procedure used for 003 (the README's 'zero-free region for the Riemann zeta function' exception). (4) For the Siegel gap: the exact quantifiers in the PDF and whether c is effective. (5) For the Agélas claim: the body of the proof and Brent's Lemma 2.3 counterexample checked against it. (6) For Zhang and Blinovsky: a referee or expert reading of the GRH argument (Zhang's text was blocked; Blinovsky's GRH-carrying version between v2 and v12 is not located). (7) For the Johns 0.9322 coincidence: Sono (2016) read directly to compare its quantity with Johns' weighted statement.",
+  "sources": [
+    {
+      "url": "https://www.anthropic.com/research/riemann-zeta",
+      "title": "Claude has improved on a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the Riemann hypothesis (Anthropic, 10 Aug 2026)",
+      "type": "press_release",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.13637",
+      "title": "More than two thirds of the zeta zeros are simple and on the critical line (Alpöge, Furman), arXiv abstract",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2608.13637v2",
+      "title": "More than two thirds of the zeta zeros are simple and on the critical line, HTML v2 (first ~100k of 141k characters read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.13637",
+      "title": "PDF of 2608.13637 (binary; not parsed)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://raw.githubusercontent.com/anthropics/zeta-23-lean/main/README.md",
+      "title": "anthropics/zeta-23-lean README",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.02882",
+      "title": "A new proof that more than 2/3 of the zeros of the Riemann zeta function are simple and on the critical line (Lamzouri), abstract",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.02882",
+      "title": "Lamzouri, HTML (introduction and Appendix A read via fetch)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.08965",
+      "title": "More than 83.9% of the zeros of the Riemann zeta function are distinct and more than 67.35% are simple and on the critical line (Knausgård), abstract",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2610.08965",
+      "title": "Knausgård, HTML (first 100k of 198k characters read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/README.md",
+      "title": "openai/math README",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math",
+      "title": "openai/math repository root",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/CONTENTS.md",
+      "title": "openai/math CONTENTS.md (family 003 entries read; first 100k of 636k characters)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/history.md",
+      "title": "openai/math history.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/overview.tex",
+      "title": "openai/math overview.tex (first 100k of 322k characters read)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/docs/003.md",
+      "title": "openai/math lean/docs/003.md (family 003 Lean files)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/openai/math/main/lean/README.md",
+      "title": "openai/math lean/README.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026",
+      "title": "openai/math preprint folder listing for the lead 003 paper",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.emergentmind.com/openai-math-explorer/results/003",
+      "title": "Emergentmind summary of family 003 (machine-generated; used only for cross-checking the Lean file names)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://zenodo.org/records/23070760",
+      "title": "Johns, Simple zeros on the critical line for a weighted family of Dirichlet L-functions (Zenodo record)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/nic410/dirichlet-critical-zeros",
+      "title": "nic410/dirichlet-critical-zeros repository",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/nic410/dirichlet-critical-zeros/blob/main/docs/VERIFICATION.md",
+      "title": "nic410/dirichlet-critical-zeros docs/VERIFICATION.md",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.16034",
+      "title": "Hua, Yang: Simple and distinct zeros in a prime-modulus Dirichlet family from near-microscopic to polylogarithmic heights",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.27808",
+      "title": "Hua, Yang: Gevrey localization for simple and distinct zeros in a prime-modulus Dirichlet family",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2105.07422",
+      "title": "Sono: Zeros of Dirichlet L-functions on the critical line",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1802.09704",
+      "title": "Wu: The twisted mean square and critical zeros of Dirichlet L-functions",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://msp.org/cnt/2025/14-2/p02.xhtml",
+      "title": "Singh, Gehlot: A new criterion for the generalized Riemann hypothesis (Combinatorics and Number Theory 14(2), 2025)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1703.03827",
+      "title": "Blinovsky: Proof of Riemann hypothesis (current listing, v16)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1703.03827v1",
+      "title": "Blinovsky, arXiv:1703.03827 v1",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1703.03827v12",
+      "title": "Blinovsky, arXiv:1703.03827 v12",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1703.03827v13",
+      "title": "Blinovsky, arXiv:1703.03827 v13",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1703.03827v15",
+      "title": "Blinovsky, arXiv:1703.03827 v15",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2103.09418",
+      "title": "Brent: On some results of Agelas concerning the GRH and of Vassilev-Missana concerning the prime zeta function (abstract only)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://hal.science/hal-00747680",
+      "title": "Agélas, Generalized Riemann Hypothesis (HAL hal-00747680)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.preprints.org/frontend/manuscript/48672ce4a86b68a6f9d4e7eb950aefd0/download_pub",
+      "title": "Zhang, A Unified Proof of the Extended, Generalized, and Grand Riemann Hypotheses (Preprints.org; HTTP 403)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.researchgate.net/publication/396297266_A_Proof_of_the_Riemann_Hypothesis_Assisted_by_Artificial_Intelligence_An_Analytic_Approach",
+      "title": "Sghiar, A Proof of the Riemann Hypothesis Assisted by Artificial Intelligence (ResearchGate; HTTP 403)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1905.09385",
+      "title": "Ech-Chatbi: A Simple Proof of the Riemann's Hypothesis",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2006.12546",
+      "title": "Kubalalika: The Riemann Hypothesis is false",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1808.10774",
+      "title": "Ryazanov: A proof of the Riemann hypothesis on zeros of ζ-function",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.sciepub.com/AJAMS/abstract/16338",
+      "title": "Yun: A Proof of the Riemann Hypothesis (AJAMS 12(4), 2024)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.cambridge.org/engage/coe/article-details/6a52f0d3810b9dcc82011b00",
+      "title": "Abe: A rigorous proof of the Riemann hypothesis (Cambridge Open Engage, v26)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1912.04058",
+      "title": "Hardy: On The Complex Zeros of The Riemann Zeta Function",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2404.16003",
+      "title": "Basak, Thorner, Zaharescu: Remarks on Landau-Siegel zeros",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2602.03626",
+      "title": "Lu, Zaman, Zhao: Numerical Computations Concerning Landau-Siegel Zeros",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2503.05269",
+      "title": "Munsch, Toma: Bounds for moments of quadratic character sums and theta functions",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.16115",
+      "title": "Vihko: Dirichlet L-functions on the critical line and multiplicative chaos (listing)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.14515",
+      "title": "Kandhil, Languasco, Moree: Beyond the Riemann Hypothesis bounds",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Generalized_Riemann_hypothesis",
+      "title": "Generalized Riemann hypothesis (Wikipedia; last edited 2 Oct 2026 per the page)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.kucoin.com/news/flash/openai-retracts-3-ai-math-papers-due-to-sign-error-in-key-proof",
+      "title": "Secondary news on the 7 Oct 2026 withdrawals (snippet only; consistent with history.md)",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://techcrunch.com/2026/08/11/an-unreleased-anthropic-model-made-progress-on-one-of-maths-biggest-unsolved-problems/",
+      "title": "TechCrunch report on the Anthropic result (snippet only)",
+      "type": "news",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "generalized Riemann hypothesis proof 2025",
+      "generalized Riemann hypothesis AI proof",
+      "generalized Riemann hypothesis counterexample disproved",
+      "Wikipedia Generalized Riemann hypothesis",
+      "Dirichlet L-functions zeros critical line new result arXiv 2025",
+      "\"generalized Riemann hypothesis\" arXiv 2026",
+      "\"Riemann hypothesis\" AI model proof claim 2026",
+      "\"GRH\" Dirichlet L-function zeros proof claimed",
+      "\"generalized Riemann hypothesis\" \"conditional\" new bound 2025 arXiv",
+      "Riemann hypothesis unsolved news 2026 mathematicians",
+      "\"Quasi-Riemann Hypothesis\" OpenAI manuscript Dirichlet L-functions 7/8",
+      "Anthropic Claude zeta zeros critical line 67.2% Lean research",
+      "OpenAI 722 AI-generated math manuscripts open problems",
+      "zero-free region Dirichlet L-functions 2026 arXiv",
+      "Agélas 2021 arXiv every nontrivial zero Dirichlet L-function critical line claim",
+      "Blinovsky arXiv 1703.03827 Riemann hypothesis generalized proof",
+      "Matnyak generalized Riemann hypothesis proof arXiv",
+      "Younghwan Yun symmetry-based proof generalized Riemann hypothesis Schwarz reflection",
+      "Weicun Zhang unified proof extended generalized grand Riemann hypothesis",
+      "Singh Gehlot criterion generalized Riemann hypothesis Communications in Number Theory and Physics 2025",
+      "Terence Tao AI Riemann hypothesis Claude zeta bound reaction",
+      "Riemann hypothesis Lean formalization AI zero-free region verified 2026",
+      "OpenAI Landau-Siegel zeros companion manuscript quasi-Riemann 2026",
+      "github openai math repository README manuscripts formalized Lean Comparator",
+      "\"A Human Audit of OpenAI's AI-Generated Mathematical Proofs\" arXiv 2608.14673",
+      "Tao group scrutinizes OpenAI 722 math claims mathematicians verification",
+      "\"More than two thirds of the zeta zeros are simple and on the critical line\" arXiv 2608.13637 authors",
+      "Lamzouri simple zeros critical line 67.25% Riemann zeta preprint Claude",
+      "Anthropic riemann-zeta research Conrey Goldston review Lean zeta-23",
+      "Siegel zero Dirichlet L-function 2026 new result excluded real zeros",
+      "AI generalized Riemann hypothesis Dirichlet L-functions manuscript 2026 nontrivial zeros",
+      "OpenAI quasi-Riemann hypothesis mathematicians criticism withdrawn sign error manuscripts",
+      "Riemann hypothesis 2026 status report mathlumen generalized Riemann hypothesis",
+      "Brent \"Agélas\" generalized Riemann hypothesis error Lemma 2.3 Vassilev-Missana arXiv 2103.09418",
+      "Aryan zeta zeros critical line arXiv 2025 Riemann zeta proportion simple zeros",
+      "Biao Wang zeta zeros simple critical line 2026 preprint Claude Lamzouri",
+      "AxiomMath ZetaZeros AxiomProver Lean zeros Riemann zeta 2026",
+      "Dirichlet L-functions simple zeros critical line 2026 Claude extension primitive characters mathematicians",
+      "Xiaosheng Wu 2018 more than two-fifths nontrivial zeros Dirichlet L-functions critical line simple",
+      "Ryazanov Riemann hypothesis Beurling-Nyman criterion proof arXiv",
+      "Yukitaka Abe Riemann hypothesis proof Cambridge Core 2026 working paper",
+      "Chirre Gonçalves de Laat generalized Riemann hypothesis simple zeros 0.9350 proportion",
+      "Johns Dirichlet L-functions 93.22% simple critical zeros Claude agents mathematicians response",
+      "Quanta Magazine 2026 Claude zeta zeros critical line Dirichlet L-functions mathematicians react"
+    ],
+    "places_checked": [
+      "arXiv: abstracts, HTML and version histories for the papers listed in events (2608.13637, 2609.02882, 2610.08965, 2608.16034, 2609.27808, 2607.14515, 2503.05269, 2506.16115, 2404.16003, 2602.03626, 2105.07422, 1802.09704, 1703.03827 v1/v12/v13/v15/current, 2103.09418, 1905.09385, 2006.12546, 1808.10774, 1912.04058)",
+      "Anthropic research post (anthropic.com/research/riemann-zeta)",
+      "openai/math GitHub repository: README, CONTENTS.md, history.md, overview.tex, lean/README.md, lean/docs/003.md, preprint folder listing for the 30 Sep 2026 paper",
+      "anthropics/zeta-23-lean README",
+      "nic410/dirichlet-critical-zeros repository README and docs/VERIFICATION.md; Zenodo record 23070760",
+      "MSP Combinatorics and Number Theory 14(2) 2025 article page; Sciepub AJAMS 12(4) 2024 abstract page",
+      "Cambridge Open Engage article page for Abe (v26)",
+      "Wikipedia: Generalized Riemann hypothesis (last edited 2 Oct 2026 per the page)",
+      "Secondary coverage (search snippets and news pages, used only to locate primary sources and to date items the primary pages did not date)",
+      "Blocked and not opened: Preprints.org (Zhang), HAL (Agélas), ResearchGate (Sghiar), arXiv PDF of 2608.13637 (binary)",
+      "Quanta Magazine (searched; no article on the 2026 Dirichlet or zeta results found)",
+      "Problem databases: none checked specifically for the GRH"
+    ],
+    "dead_ends": [
+      "The Preprints.org record for Zhang's unified proof returned 'Access Denied' (Anubis) and HTTP 403 in two URL forms; its latest-version date and the Landau-Siegel claim rest on search snippets.",
+      "HAL (hal-00747680) for Agélas returned HTTP 403; the claim is described only through Brent's abstract.",
+      "ResearchGate for the AI-assisted RH claim by Sghiar returned HTTP 403; the title is all I have, so it is not recorded as an event.",
+      "The arXiv PDF of 2608.13637 is binary in this tool; the HTML version was read to 100k of 141k characters.",
+      "The Mathlumen term returned no results.",
+      "A search for a 0.9350 GRH-conditional bound attributed to Chirre, Gonçalves and de Laat found only a 0.6845 GRH bound on N_s(T); the 0.9350 figure appears only in the Johns VERIFICATION page, so it is not relied on.",
+      "A search for Dirichlet-specific reactions to the Johns result returned no reaction; the only 93.22% source is Sono's 2016 GRH-conditional bound (snippet).",
+      "The Quanta search returned no article on the 2026 results.",
+      "Thorner–Zhao (January 2026) on Rankin–Selberg and triple-product L-functions appeared in searches; it concerns automorphic L-functions (parent-level) and was not opened.",
+      "Palojärvi–Simonič (arXiv:2410.22711, conditional on GRH, revised May 2025) appeared in a search; not opened, so not recorded as an event.",
+      "Ray (arXiv:2511.06109, Nov 2025) is an expository re-proof of Wu's result; not opened.",
+      "Garunkštis–Paliulionytė (2025, Glasnik) and Sono (2016, Bull. Aust. Math. Soc.) appeared as GRH-conditional results with 93.22%; snippets only.",
+      "AxiomMath/ZetaZeros GitHub repository (named in a secondary summary of 2609.02882 Appendix A) was not opened.",
+      "Matnyak (arXiv:1406.2270 and a journal paper) is on the BSD conjecture and an RH claim in a non-mathematical journal; not recorded as an event because it is not about GRH and I did not open the RH paper.",
+      "Knausgård's HTML was read to 100k of 198k characters; the remaining sections were not read.",
+      "The emergentmind 003 page is machine-generated; its 'GPT-6 Astra Medium' attribution is not used."
+    ]
+  },
+  "incomplete": "(1) The OpenAI family-003 papers (the 7/8 lead paper, the 11/12 companion and the Siegel paper) were not read from their PDFs; the statements come from repository index pages, Lean-file descriptions and a secondary summary. The AI-use section of each paper is unread. (2) The Anthropic paper's PDF was not parsed; the HTML was read to about 100k of 141k characters, so the proof and §§6–7 are only partly read. The Dirichlet extension (Theorem B) and the provenance paragraph are read. (3) The Anthropic Lean repository's Dirichlet formalisation (if any) was not located; the README describes only zeta23. (4) Johns' PDF was not read; the Zenodo and VERIFICATION pages were read. (5) Hua–Yang's full PDFs were not read; only the abstracts and comments, so their AI disclosure (if any) is unknown beyond the abstract. (6) Zhang (Preprints.org, blocked), Agélas (HAL, blocked) and Sghiar (ResearchGate, blocked) were not opened; their entries rest on snippets or on Brent's abstract. (7) Several GRH-conditional or partial papers were seen only as snippets and are not recorded as events (Palojärvi–Simonič, Thorner–Zhao, Ray, Sono 2016 and Garunkštis–Paliulionytė). The conditional literature is therefore not exhaustively recorded. (8) Reactions by Conrey and Goldston were not found; Anthropic's account is the only source for their review. (9) The OpenAI public release date (6 Oct 2026) comes from secondary coverage; the repository is undated. (10) The Hua–Yang 2609.27808 date conflicts with its identifier (flagged in its doubts). (11) I did not check problem databases for GRH specifically. (12) The record covers the GRH bullet only; whether the Dirichlet results move the grand RH parent is not addressed beyond noting that the parent is a separate bullet.",
+  "combined": {
+    "openai_events_added": [
+      "openai-math-003"
+    ],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "progress",
+  "ai_role": "generated",
+  "resolution_direction": null,
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "anthropic-zeta-2608-13637",
+  "no_change_found": false,
+  "event": {
+    "id": "anthropic-zeta-2608-13637",
+    "what_happened": "Anthropic blog post 'Claude has improved on a longstanding lower bound for the fraction of zeros of the Riemann zeta function that satisfy the Riemann hypothesis' (dated 10 Aug 2026, updated 13 Aug 2026), and arXiv:2608.13637 by Levent Alpöge and Ralph Furman, 'More than two thirds of the zeta zeros are simple and on the critical line' (v1 13 Aug 2026; v2 19 Aug 2026). The blog states the bound rose from 41.6% to 67.2% (zeros on the critical line). The arXiv abstract gives: at least two thirds of nontrivial zeta zeros, counted with multiplicity, are simple and on the line, and at least five sixths are distinct; with the Montgomery–Taylor window the constants are 0.6725 and 0.8362. Theorem B (§1.1, read in the HTML version): 'Theorem A holds verbatim for L(s,χ) in place of ζ(s), for any fixed primitive Dirichlet character χ.' The abstract says 'The results extend to primitive Dirichlet L-functions and are formally verified in Lean 4.' The main results are stated as unconditional, and §1.3 says RH 'entered only to read the zero side termwise'. §1.5 and the title footnote state the argument was produced by Claude.",
+    "date": "2026-08-10",
+    "precision": "day",
+    "kind": "announcement",
+    "predates_frozen_revision": false,
+    "revisions": "Blog dated 10 Aug 2026 and updated 13 Aug 2026 with a revised version of the paper (per the blog's changelog). arXiv v1 13 Aug 2026; v2 19 Aug 2026. Date chosen is the blog (the first public written account of the bound and the outline of the argument). The first full written argument is arXiv v1 on 13 Aug 2026; the judging pass may prefer that date.",
+    "delivers": "For ζ(s): unconditional lower bounds of about 2/3 (0.6725 with the Montgomery–Taylor window) for the proportion of zeros in windows (T, 2T) that are simple and on Re s = 1/2, and 5/6 (0.8362) for distinct zeros. Theorem B: the same bounds, with o(1) error terms, hold for L(s,χ) for each fixed primitive Dirichlet character χ. Restrictions: lower bounds for a proportion, not all zeros; windows (T, 2T); fixed primitive characters (no statement uniform in q, none for imprimitive characters, none averaged over χ); the blog's 41.6→67.2 figure is for zeros on the line (no simple qualifier). The paper says 'RH itself is out of reach of the mechanism' (§7.2, per fetch summary).",
+    "remains": "For each primitive χ: whether every nontrivial zero lies on Re s = 1/2 (the GRH statement); the remaining zeros of each L(s,χ) that are not simple-and-on-line; imprimitive characters; uniformity in q; all zeros rather than windows; the Riemann hypothesis itself.",
+    "checked_by": [
+      {
+        "who": "Brian Conrey and Dan Goldston",
+        "qualification": "Analytic number theorists who work on the zeta function (per Anthropic's post)",
+        "what_they_did": "Per Anthropic's post, they 'generously examined the paper on short notice'. I found no public statement by either of them on the result.",
+        "where": "https://www.anthropic.com/research/riemann-zeta",
+        "automated": false
+      },
+      {
+        "who": "Levent Alpöge and Ralph Furman",
+        "qualification": "Mathematicians at Anthropic and the listed authors of the arXiv paper, so not independent of the result",
+        "what_they_did": "Verified the argument and wrote the paper ('verified and communicated by the listed authors', arXiv comments field).",
+        "where": "https://arxiv.org/abs/2608.13637",
+        "automated": false
+      },
+      {
+        "who": "Youness Lamzouri",
+        "qualification": "Author of arXiv:2609.02882 (analytic number theory)",
+        "what_they_did": "Gave a different, unconditional proof of the zeta bound for simple zeros on the line (67.25%) and two further estimates; says 'Our proof takes a different and more direct route'. His paper does not treat Dirichlet L-functions, so this is not an independent check of Theorem B.",
+        "where": "https://arxiv.org/abs/2609.02882",
+        "automated": false
+      },
+      {
+        "who": "Claude subagents (self-review)",
+        "qualification": "Same model family that produced the argument",
+        "what_they_did": "Per Anthropic's post, 'various subagents review the proofs, search for counterexamples', and 54 arXiv papers were checked. This is self-review, not an independent reading.",
+        "where": "https://www.anthropic.com/research/riemann-zeta",
+        "automated": true
+      }
+    ],
+    "no_engagement_found": false,
+    "time_since_posted": "about 2 months at 11 Oct 2026 (arXiv v1 13 Aug 2026). Engagement so far: the Lamzouri paper (a re-derivation for ζ), an Anthropic note, and a Lean repository. The Dirichlet extension has no reported independent reading.",
+    "machine_checked": {
+      "system": "Lean 4 with the comparator tool",
+      "sorry_free": null,
+      "url": "https://raw.githubusercontent.com/anthropics/zeta-23-lean/main/README.md",
+      "note": "The repository README describes zeta23/ as formalising the zeta result and says CI requires lake build with 'no sorry outside the trusted comparator statement files'; it does not state that the Dirichlet extension is formalised. Anthropic's post says the proof 'passes the standard validation tool comparator'. The arXiv abstract says the results are formally verified in Lean 4, including the Dirichlet extension; I did not find the Dirichlet formalisation."
+    },
+    "directly_checkable": null,
+    "doubts": "(1) The Dirichlet extension (Theorem B) is said in the abstract to be formally verified; the Lean repository describes only the zeta result, so the Dirichlet formalisation is not located. (2) The argument is attributed to Claude by its authors; the human verifiers are two Anthropic employees who are also the listed authors, and the external reviewers' engagement is reported only by Anthropic. (3) Most reviews were by Claude subagents (Anthropic's account). (4) A third-party static audit of the Lean project (github.com/aidilamrym-ops/zeta-23-audit) exists; I did not open it, so I have not verified it. (5) The blog's 41.6→67.2 figure and the arXiv headline (two thirds simple and on the line) are different quantities; secondary coverage often merges them.",
+    "later_work_cites_it": true,
+    "withdrawn": null,
+    "direction": "Partial and cuts toward GRH for each fixed primitive Dirichlet character: a positive proportion (2/3, simple and on the line) of zeros in windows, unconditionally, in the Dirichlet case by Theorem B. It is a lower bound on a proportion, not a counterexample and not a proof that all zeros lie on the line.",
+    "object": null,
+    "people": [
+      "Levent Alpöge",
+      "Ralph Furman",
+      "Brian Conrey (external reviewer, per Anthropic)",
+      "Dan Goldston (external reviewer, per Anthropic)",
+      "Eric Easley (Lean formalisation, per Anthropic)",
+      "Jarred Sumner (Anthropic staff who prompted the model, per Anthropic)"
+    ],
+    "ai": {
+      "none_found": false,
+      "systems": [
+        {
+          "name": "Claude",
+          "what_it_did": "Per Anthropic's post, an unreleased research version of Claude found the argument, 'combining the results from Aryan with the work of Baluyot, Goldston, Suriajaya, Turnage-Butterbaugh' and Bombieri. Per the arXiv comments and the title footnote, the proof was 'discovered autonomously by Claude (Anthropic)' and 'The mathematical argument in this paper was discovered and written by Claude, an AI developed by Anthropic.' Per §1.5 the author of the paper is described as 'a large language model developed by Anthropic'. Early in the search it 'generated and tried 650 ideas, none of which worked'; the work ran about 60 subagents over a day and a half and wrote hundreds of Python scripts.",
+          "basis_quote": "Proof discovered autonomously by Claude (Anthropic); verified and communicated by the listed authors.",
+          "quote_url": "https://arxiv.org/abs/2608.13637"
+        }
+      ],
+      "disclosed_cost": "Anthropic's post: 'two sessions in Claude Code, using a total of 31 million output tokens'; about 60 subagents over 'a day and a half'; '2,400 shell commands'.",
+      "sources": [
+        "https://www.anthropic.com/research/riemann-zeta",
+        "https://arxiv.org/abs/2608.13637",
+        "https://arxiv.org/html/2608.13637v2"
+      ]
+    },
+    "sources": [
+      "https://www.anthropic.com/research/riemann-zeta",
+      "https://arxiv.org/abs/2608.13637",
+      "https://arxiv.org/html/2608.13637v2",
+      "https://raw.githubusercontent.com/anthropics/zeta-23-lean/main/README.md"
+    ]
+  },
+  "credited_humans": [
+    "Levent Alpöge",
+    "Ralph Furman",
+    "Brian Conrey (external reviewer, per Anthropic)",
+    "Dan Goldston (external reviewer, per Anthropic)",
+    "Eric Easley (Lean formalisation, per Anthropic)",
+    "Jarred Sumner (Anthropic staff who prompted the model, per Anthropic)"
+  ],
+  "status_sources": [
+    "https://www.anthropic.com/research/riemann-zeta",
+    "https://arxiv.org/abs/2608.13637",
+    "https://arxiv.org/html/2608.13637v2",
+    "https://raw.githubusercontent.com/anthropics/zeta-23-lean/main/README.md"
+  ],
+  "ai": {
+    "systems": [
+      "an unreleased internal OpenAI model"
+    ],
+    "from_event": "oi-003-7-8",
+    "basis_quote": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+    "none_found": false,
+    "disclosed_cost": "README, as summarised by the fetch tool (not verbatim): each result used about three hours of ChatGPT Pro thinking compute on average; the model was posed roughly 4,000 problems."
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "oi-003-7-8",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "oi-003-11-12",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The writeup for the Re(s) > 11/12 zero-free region was human edited for readability.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "oi-siegel-uniform-2026",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "The vast majority of results were obtained with the same procedure using an unreleased internal OpenAI model.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "anthropic-zeta-2608-13637",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "Proof discovered autonomously by Claude (Anthropic); verified and communicated by the listed authors.",
+        "ai_systems_credited": [
+          "Claude"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lamzouri-2609-02882",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "johns-dirichlet-2026-09-30",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Sole unaffiliated author, all review by AI models, page itself says no human has checked the proofs, and the headline constant coincides unexplained with a known GRH-conditional figure.",
+        "ai_role": "generated",
+        "ai_basis": "produced by AI agents (Anthropic's Claude Opus 5.5) under the author's direction.",
+        "ai_systems_credited": [
+          "Anthropic's Claude Opus 5.5"
+        ],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hua-yang-2608-16034",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hua-yang-2609-27808",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "knausgard-2610-08965",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "sono-2021-2105-07422",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "wu-2018-1802-09704",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "agelas-2019-hal",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Brent (2021) identifies the key Lemma 2.3 as false; no reply found.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "brent-2021-2103-09418",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "blinovsky-2017-1703-03827",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "math.GM author-only RH claim, 16 patch revisions over 9 years, no uptake on a landmark problem, field still calls RH open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "blinovsky-2019-grh-claim",
+        "after_snapshot": false,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "The GRH claim was dropped by the author from v13 (Dec 2025); scope ballooned then shrank; no uptake.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "zhang-2025-preprints",
+        "after_snapshot": true,
+        "scope": "whole",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Unrefereed Preprints.org claim of GRH, grand RH and Siegel-zero exclusion together, with many revisions changing title and abstract, no expert uptake, and the field still treats GRH as open.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "singh-gehlot-2025-cnt",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kubalalika-2020-2006-12546",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "49 versions with a change of method, author-only posting claiming to disprove RH, no uptake over five years.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "refuted",
+        "object_role": null
+      },
+      {
+        "id": "ryazanov-2018-1808-10774",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Versions alternate between claiming a proof and a disproof of RH; no uptake over eight years.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "ech-chatbi-2019-1905-09385",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "27-version author-only 'undergraduate' RH proof with no uptake over seven years.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "yun-2024-ajams",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "Author outside the field, low-review venue, argument rests on a symmetry that does not force zeros onto the line, no uptake.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "abe-2022-coe",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "not_credible",
+        "credibility_reason": "26 versions with repeated corrections to the main theorem, unrefereed, no uptake.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "hardy-2019-1912-04058",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "basak-thorner-zaharescu-2024-2404-16003",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lu-zaman-zhao-2026-2602-03626",
+        "after_snapshot": true,
+        "scope": "instances",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "munsch-toma-2025-2503-05269",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "vihko-2025-2506-16115",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kandhil-languasco-moree-2026-2607-14515",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "openai-math-003",
+        "after_snapshot": true,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "generated",
+        "ai_basis": "Exceptions to this fixed procedure include work on a zero-free region for the Riemann zeta function and proof of the Hodge Conjecture for CM abelian varieties.",
+        "ai_systems_credited": [
+          "an unreleased internal OpenAI model"
+        ],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "GRH asks that every nontrivial zero of every Dirichlet L-function lie on Re s = 1/2. Nothing after the snapshot settles that or any named part of it. Zero-free half-planes (7/8, 11/12), the uniform Siegel-zero gap, and the lower bounds on the proportion of zeros that are simple and on the line (Alpöge–Furman Theorem B, Hua–Yang, Johns, and the zeta-only Lamzouri and Knausgård papers) all move a quantity while leaving the question open, so they are bounds. A proof of RH alone would be a case, because the trivial character is one named restriction. The OpenAI and Anthropic work credits the model with producing the mathematics, so it is generated. Lamzouri's AxiomProver use is formalisation, so it is none, and Knausgård has no system credited with mathematics. Conrey and Goldston's examination is reported only by Anthropic, so it is not public digestion. Full GRH claims are knocked down (Agélas, through Brent's identified false lemma) or not credible (Zhang). Blinovsky dropped his own GRH claim. The crank RH claims carry several F10 signals each. Conditional, moment and value-distribution papers are variants, and the Lu–Zaman–Zhao computation is instances.",
+    "doubts": "openai-math-003 duplicates oi-003-7-8 and oi-003-11-12 (and includes the Siegel Lean statement), so they are one release counted three or four times. All of them are bounds, so the duplication does not change the arithmetic. The README's exception for 'a zero-free region for the Riemann zeta function' may mean humans had a larger hand in the 7/8 or 11/12 work than the general quote implies, but nothing in the record supports reducing it below generated. An unconditional uniform Siegel-zero gap and a quasi-RH would be landmark claims. I left them credible because Lean theorem names are listed and nothing specific is wrong, but they are unchecked. The Zhang date of 2025 is year-only but clearly falls after January 2024.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "progress",
+      "rests_on": "anthropic-zeta-2608-13637",
+      "ai_role": "generated",
+      "ai_from": "oi-003-7-8",
+      "resolution_direction": null,
+      "object_role": null,
+      "ai_systems_credited": [
+        "an unreleased internal OpenAI model"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

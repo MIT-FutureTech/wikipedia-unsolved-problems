@@ -1,0 +1,668 @@
+{
+  "key": "determinantal-conjecture",
+
+  "nothing_found": false,
+  "outcome": "No proof of the Marcus-de Oliveira determinantal conjecture for general n has been found dated since 26 January 2024. The window holds a 2024 Auburn PhD dissertation (Speck, advisor Oeding) whose abstract describes a reduction and does not claim a proof, a 2025 Izvestiya paper (Shitov) that proves containment only when all eigenvalues of A are real and all but three eigenvalues of B are real, a 2025 MDPI survey that calls the problem open, and a 2026 LAA paper (Mulero-Martinez) whose abstract I could not read. A January 2023 talk abstract by Oeding (joint with Speck) claimed a complete proof, but that predates the window and no written argument for it has been found. No AI system is named in any source found for this conjecture.",
+
+  "problem_asks": "One conjecture, quantified over every n >= 1 and every pair of n-by-n normal complex matrices A and B with eigenvalues a_1..a_n and b_1..b_n. The claim: det(A+B) lies in the convex hull of the n! complex numbers prod_i (a_i + b_{sigma(i)}), with sigma ranging over the permutations of {1..n}. Wikipedia's wording (per its lead, as fetched) is the determinant of A+B lies in the convex hull of the n! points. Parts: (a) containment of det(A+B) in that convex hull, for all n, for all normal A and B. That is the only part the bullet names. The literature usually writes A-B (equivalent after replacing B by -B). The bullet says nothing about the shape of the region, about equality cases, or about any restricted class; those are not parts of the problem as stated.",
+
+  "events": [
+    {
+      "id": "fiedler-1971",
+      "what_happened": "Fiedler, 'Bounds for the determinant of the sum of Hermitian matrices', Proc. Amer. Math. Soc. (1971). Cited as reference 11 in Shitov's 2025 paper (reference list read via the journal page). Described as the motivating result: for Hermitian A and B, the set of determinants det(A+UBU*) over unitary U is a line segment whose endpoints are sigma-points. That description comes from search-result summaries of Bebiano-da Providencia and Rodtes, not from the original paper, which I did not open.",
+      "date": "1971",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Restricted to Hermitian pairs (all eigenvalues real), and to the one-parameter family det(A+UBU*). Its values lie on a segment with sigma-points at the ends, so they lie in the convex hull of the sigma-points. Establishes the containment for Hermitian A and B only.",
+      "remains": "Every pair of normal matrices that is not Hermitian (non-real eigenvalues on either side), so the containment for general normal A and B.",
+      "checked_by": [
+        {
+          "who": "Proc. Amer. Math. Soc. (journal of record)",
+          "qualification": "Refereed mathematics journal",
+          "what_they_did": "Published the paper",
+          "where": "Journal record, not opened; cited in https://journals.rcsi.science/1607-0046/article/view/306781",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 55 years",
+      "machine_checked": null,
+      "directly_checkable": "Hermitian examples can be checked by computing det(A+UBU*) for a few unitaries U and comparing with the sigma-point hull; not checked here.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture in the Hermitian case.",
+      "object": null,
+      "people": ["M. Fiedler"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://journals.rcsi.science/1607-0046/article/view/306781"]
+      },
+      "sources": ["https://journals.rcsi.science/1607-0046/article/view/306781"]
+    },
+    {
+      "id": "kovacec-1999",
+      "what_happened": "Kovacec, 'The Marcus-de Oliveira conjecture, bilinear forms, and cones', Linear Algebra Appl. 289 (1999) 243-259. The abstract was read only through a search-result copy of the Coimbra repository record; the record page itself did not open. Per that abstract: the n=4 subcase with X Hermitian and Y normal is recast as a statement about a family of bilinear forms on R^16 x C^16; the method succeeds for a unitary similarity from Drury's work; the natural extension of the bilinear assertion to complex arguments is false; the n=4 case is reformulated as a question about cones, which would follow from showing certain semialgebraic sets are empty; and computer experiments are reported. The abstract says the n=4 subcase is still open. Shitov's introduction, as quoted in a search-result snippet, credits this paper with the case of one non-real eigenvalue of B.",
+      "date": "1999",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per its abstract: no established case of the containment for general n. The paper states the n=4 subcase with X Hermitian and Y normal is still open. Per Shitov's introduction (snippet only), it settles the case where all eigenvalues are real except possibly one eigenvalue of B.",
+      "remains": "The n=4 subcase with X Hermitian and Y normal (per the abstract), and general n. The variant with complex arguments is false, which is a different statement from the conjecture.",
+      "checked_by": [
+        {
+          "who": "Linear Algebra and its Applications (journal of record)",
+          "qualification": "Refereed linear algebra journal",
+          "what_they_did": "Published the paper",
+          "where": "https://estudogeral.uc.pt/handle/10316/4662 (abstract via search snippet, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 27 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial: supports the conjecture for one non-real eigenvalue (per Shitov's introduction, snippet only). Its own abstract leaves the n=4 subcase open and reports a false variant.",
+      "object": null,
+      "people": ["A. Kovacec"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://journals.rcsi.science/1607-0046/article/view/306781"]
+      },
+      "sources": [
+        {"url": "https://journals.rcsi.science/1607-0046/article/view/306781", "title": "A further sufficient condition for the determinantal conjecture (Shitov), reference list", "type": "journal", "opened": true},
+        {"url": "https://estudogeral.uc.pt/handle/10316/4662", "title": "Coimbra repository record for Kovacec abstract", "type": "repository", "opened": false}
+      ]
+    },
+    {
+      "id": "bebiano-merikoski-providencia-n3",
+      "what_happened": "The case n=3 of the containment is settled by Bebiano, Merikoski and da Providencia. This is recorded in Drury's 2004 ELA abstract (opened). The paper is cited in search summaries as 'On a conjecture of G. N. de Oliveira on determinants', Linear and Multilinear Algebra 20 (1987) 167-170. I did not open it, and the year 1987 is unverified.",
+      "date": "1987",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The containment for all 3-by-3 normal A and B, per Drury 2004.",
+      "remains": "n >= 4, which is the bulk of the conjecture.",
+      "checked_by": [
+        {
+          "who": "Linear and Multilinear Algebra (journal of record)",
+          "qualification": "Refereed linear algebra journal",
+          "what_they_did": "Published the paper (not opened)",
+          "where": "https://journals.uwyo.edu/index.php/ela/article/view/263 (states the result; the original paper was not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 39 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture for n=3.",
+      "object": null,
+      "people": ["N. Bebiano", "J. K. Merikoski", "J. da Providencia"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://journals.uwyo.edu/index.php/ela/article/view/263"]
+      },
+      "sources": [
+        {"url": "https://journals.uwyo.edu/index.php/ela/article/view/263", "title": "Drury, The external vertices conjecture in case n=4 (ELA 11, 2004)", "type": "journal", "opened": true}
+      ]
+    },
+    {
+      "id": "drury-2004-n4",
+      "what_happened": "Drury, 'The external vertices conjecture in case n=4', Electronic Journal of Linear Algebra vol. 11 (2004). Abstract read (opened): the conjecture is known in many special cases; the 3x3 case was settled by Bebiano, Merikoski and da Providencia; 'The case n=4 remains open'; and a technical conjecture is established that implies a weakened form of the conjecture for n=4. The site's 1 January 2004 date is not used as the event date; year precision is given instead.",
+      "date": "2004",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A weakened form of the containment for n=4, conditional on or implied by a technical conjecture that the paper establishes (per the abstract). It does not establish the containment for n=4.",
+      "remains": "The full containment for n=4, and every n >= 5.",
+      "checked_by": [
+        {
+          "who": "Electronic Journal of Linear Algebra (journal of record)",
+          "qualification": "Refereed linear algebra journal",
+          "what_they_did": "Published the paper",
+          "where": "https://journals.uwyo.edu/index.php/ela/article/view/263",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 22 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial: a weakened form for n=4, not the conjecture itself. Confirms n=4 open as of 2004.",
+      "object": null,
+      "people": ["S. W. Drury"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://journals.uwyo.edu/index.php/ela/article/view/263"]
+      },
+      "sources": [
+        {"url": "https://journals.uwyo.edu/index.php/ela/article/view/263", "title": "The external vertices conjecture in case n=4 (Drury, ELA 11, 2004)", "type": "journal", "opened": true}
+      ]
+    },
+    {
+      "id": "drury-2006",
+      "what_happened": "Drury, 'Essentially Hermitian matrices revisited', Electronic Journal of Linear Algebra vol. 15 (2006) 285-296. Read through a paraphrase of the abstract (the ELA abstract file was fetched; the verbatim abstract exceeds my quoting limit). Result: for Hermitian n-by-n A and C with prescribed eigenvalues and B = kC with k a non-real unimodular complex number, det(A-B) lies in the convex hull of the products prod(a_j - b_sigma(j)). The search summary adds that the paper reduces the general problem by a Mobius-transformation observation; not verified.",
+      "date": "2006",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The containment for pairs where A is Hermitian and B is a non-real unimodular multiple of a Hermitian matrix (essentially Hermitian pairs). This is a restricted class.",
+      "remains": "Normal pairs outside the essentially Hermitian class, including pairs where both matrices are non-Hermitian in an essential way.",
+      "checked_by": [
+        {
+          "who": "Electronic Journal of Linear Algebra (journal of record)",
+          "qualification": "Refereed linear algebra journal",
+          "what_they_did": "Published the paper",
+          "where": "https://emis.dsd.sztaki.hu/journals/ELA/ela-articles/abstracts/abs_vol15_pp285-296.txt",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 20 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Supports the conjecture for essentially Hermitian pairs.",
+      "object": null,
+      "people": ["S. W. Drury"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://emis.dsd.sztaki.hu/journals/ELA/ela-articles/abstracts/abs_vol15_pp285-296.txt"]
+      },
+      "sources": [
+        {"url": "https://emis.dsd.sztaki.hu/journals/ELA/ela-articles/abstracts/abs_vol15_pp285-296.txt", "title": "Drury, Essentially Hermitian matrices revisited (ELA 15, 2006), abstract", "type": "journal", "opened": true}
+      ]
+    },
+    {
+      "id": "homadi-2017",
+      "what_happened": "Khadejah Homadi, 'Progress on the Marcus-de Oliveira Determinantal Conjecture', master's thesis, Auburn University, dated 2017-04-12 (advisor Huajun Huang; committee Holmes, Nylen, Albrecht). The ETD record was opened. Its abstract says the thesis discusses the conjecture, presents its motivation and history, and compiles several situations in which the conjecture holds, linked to other conjectures. The list of situations is not in the record. The thesis PDF returned unreadable binary, so the cases themselves are not known to me.",
+      "date": "2017-04-12",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A compilation of cases where the containment holds, per the abstract. Whether any case is new is not established from what I read.",
+      "remains": "Everything outside the compiled cases.",
+      "checked_by": [
+        {
+          "who": "Auburn University master's thesis committee (Holmes, Nylen, Albrecht; advisor Huang)",
+          "qualification": "Mathematics faculty approving a master's thesis",
+          "what_they_did": "Approved the thesis",
+          "where": "https://etd.auburn.edu/handle/10415/5587?show=full",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 9 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjecture in the cases it compiles, as the abstract describes them.",
+      "object": null,
+      "people": ["Khadejah Homadi"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://etd.auburn.edu/handle/10415/5587?show=full"]
+      },
+      "sources": [
+        {"url": "https://etd.auburn.edu/handle/10415/5587?show=full", "title": "Homadi, Progress on the Marcus-de Oliveira Determinantal Conjecture (ETD metadata)", "type": "repository", "opened": true},
+        {"url": "https://etd.auburn.edu/bitstream/handle/10415/5587/My%20thesis.pdf?sequence=2", "title": "Homadi thesis PDF", "type": "repository", "opened": false}
+      ]
+    },
+    {
+      "id": "rodtes-2020",
+      "what_happened": "Kijti Rodtes, 'A class of normal dilation matrices affirming the Marcus-de Oliveira conjecture', arXiv:2006.14846, first submitted 26 June 2020 (arXiv abstract page shows only v1). The abstract was read: 'In this article, we prove a class of normal dilation matrices affirming the Marcus-de Oliveira conjecture.' A journal copy appears in Operators and Matrices (URL neomath.ele-math.com/oam/15-09); the year 2021 is from a search summary and unverified. The arXiv PDF returned unreadable binary, so the class and the proof are not known to me.",
+      "date": "2020-06-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 only (26 June 2020) per the arXiv abstract page; later journal version in Operators and Matrices.",
+      "delivers": "Affirms the containment for a class of normal dilation matrices. The class is not described in the abstract, and the body was not read. Restricted class.",
+      "remains": "Normal pairs outside the dilation class.",
+      "checked_by": [
+        {
+          "who": "Operators and Matrices (journal of record, per the journal URL)",
+          "qualification": "Refereed operator and matrix theory journal (assumed from the journal's standing; not checked)",
+          "what_they_did": "Published the paper (not opened)",
+          "where": "https://neomath.ele-math.com/oam/15-09/a-class-of-normal-dilation-matrices-affirming-the-marcus-de-oliveira-conjecture",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 6 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjecture for a restricted class of normal matrices.",
+      "object": null,
+      "people": ["Kijti Rodtes"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/2006.14846"]
+      },
+      "sources": [
+        {"url": "https://arxiv.org/abs/2006.14846", "title": "arXiv:2006.14846 abstract page", "type": "preprint", "opened": true},
+        {"url": "https://arxiv.org/pdf/2006.14846", "title": "arXiv:2006.14846 PDF", "type": "preprint", "opened": false}
+      ]
+    },
+    {
+      "id": "speck-oeding-2023-talk",
+      "what_happened": "Talk by Luke Oeding, 'Determinants of Sums of Normal Matrices', 'joint work with Matt Speck', Georgia Tech algebra seminar, Monday 30 January 2023 (page opened). Abstract: the determinantal range of the sum of two normal matrices with prescribed eigenvalues is a flattened solid twisted permutahedron, a finite union of flattened solid twisted hypercubes with prescribed vertices. It states: 'This complete geometric description, in particular, proves the conjecture.' A companion Auburn seminar listing (2023/01, same title) appeared in search results but did not open. No written argument has been found for this claim.",
+      "date": "2023-01-30",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "As stated in the abstract: the containment for all n, via a geometric description of the determinantal range. The argument is not in any source I could read.",
+      "remains": "Per the abstract, nothing. But no written argument was found, and the same authors' later Auburn material describes a reduction (2024 dissertation) or n=3 progress (2024 talk).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 44 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The claim exists only as a talk abstract. An arXiv author search for Oeding (34 entries, 2008-2026) and for Speck (0 entries) found no normal-matrix paper by either. The 2024 talk and 2024 dissertation describe the same project as n=3 progress or as a reduction, so the scope claimed in January 2023 does not appear in any later written statement I could read. Under the first-written-argument rule, a talk is dated to its write-up; no write-up was found, so the date rests on the abstract.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims to prove the conjecture in full, which would cut in its favour, for all n.",
+      "object": "A geometric description, not an explicit object: the determinantal range of det(A+B) over normal A, B with prescribed spectra is claimed to be a flattened solid twisted permutahedron, a finite union of flattened solid twisted hypercubes with prescribed vertices. The abstract gives no formula, vertex list or check.",
+      "people": ["Luke Oeding", "Matt (Matthew) Speck"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://math.gatech.edu/node/32834520"]
+      },
+      "sources": [
+        {"url": "https://math.gatech.edu/node/32834520", "title": "Georgia Tech seminar listing: Determinants of Sums of Normal Matrices (Oeding, 30 Jan 2023)", "type": "news", "opened": true},
+        {"url": "https://auburn.edu/cosam/events/2023/01/dms_algebra_seminar1.htm", "title": "Auburn DMS algebra seminar 2023/01 (redirect to department root; not opened)", "type": "news", "opened": false}
+      ]
+    },
+    {
+      "id": "speck-jan-2024-talk",
+      "what_happened": "Matthew Speck, 'Recent Progress on the Marcus-de Oliveira Conjecture', Auburn algebra seminar. The date (23 January 2024) and abstract come from search-result snippets and a search summary of the Auburn listing. The Auburn 2024/01 pages did not open (404 on the htmlscript host; redirect to the department root on the main host). Per that summary, the abstract says representation-theoretic and combinatorial tools 'have yielded a novel proof of the conjectured bounds for n=3', with an outline for larger n. Not verified against the page.",
+      "date": "2024-01-23",
+      "precision": "day",
+      "kind": "announcement",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per the unverified summary: the containment for n=3 (a case), with a plan for n > 3.",
+      "remains": "n >= 4 and the general conjecture.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 33 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The n=3 claim was not in a written argument I could find. Its date is unverified, and it is three days before the frozen revision date, so its predates flag rests on that date.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjecture for n=3 (per the unverified summary).",
+      "object": null,
+      "people": ["Matthew Speck"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://htmlscript.auburn.edu/cosam/events/2024/01/dms_algebra_seminar1.htm"]
+      },
+      "sources": [
+        {"url": "https://htmlscript.auburn.edu/cosam/events/2024/01/dms_algebra_seminar1.htm", "title": "Auburn DMS algebra seminar 2024/01 (404 when fetched; seen in search results)", "type": "news", "opened": false},
+        {"url": "https://auburn.edu/cosam/events/2024/01/dms_algebra_seminar1.htm", "title": "Auburn DMS algebra seminar 2024/01 (redirect to department root; not opened)", "type": "news", "opened": false}
+      ]
+    },
+    {
+      "id": "speck-dissertation-2024",
+      "what_happened": "Matthew Speck, 'Determinants of Sums of Normal Matrices', PhD dissertation, Auburn University, Mathematics and Statistics, issued 2024-05-06, advisor Luke Oeding (the only advisor listed; no other committee members on the record). The ETD metadata was opened. Abstract (paraphrased from the record): it addresses a conjecture on the determinant of the sum of two normal matrices; it reduces the conjecture to finding non-negative solutions of a rank-deficient linear system; it uses representation theory and combinatorics to describe the modifications such solutions need; and it proposes a statistical approach to the broader problem. It does not state that the conjecture is proved. The embargo field reads EMBARGO_GLOBAL, 12 months, end date 2025-05-06, status EMBARGOED. The PDF ('Speck Dissertation Final.pdf', 2.52 MB) came back as binary that my tools could not decode, so its text was not read.",
+      "date": "2024-05-06",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Per the abstract only: a reduction of the conjecture to a non-negativity question for a rank-deficient linear system, a description of the modifications needed, and a statistical approach. Whether the text proves any case is unknown to me.",
+      "remains": "Per the abstract, the conjecture as a whole. The abstract makes no claim to settle it.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 29 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Two points. (1) The 2023 talk by the same author team claims a complete proof, but this dissertation's abstract describes a reduction, so the scope appears to have narrowed between the two; the body would show which, and I could not read it. (2) The only listed advisor is Oeding, who gave the 2023 talk, so the dissertation is not an independent reading of that claim. The embargo end date (2025-05-06) has passed, but the record still showed EMBARGOED when I read it, so current access is unknown.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown from the abstract. It frames the work as a reduction and does not say whether it cuts for or against the conjecture.",
+      "object": null,
+      "people": ["Matthew Speck", "Luke Oeding (advisor)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://etd.auburn.edu/handle/10415/9283?show=full"]
+      },
+      "sources": [
+        {"url": "https://etd.auburn.edu/handle/10415/9283?show=full", "title": "Speck, Determinants of Sums of Normal Matrices (ETD metadata)", "type": "repository", "opened": true},
+        {"url": "https://etd.auburn.edu/bitstream/handle/10415/9283/Speck%20Dissertation%20Final.pdf?sequence=2&isAllowed=y", "title": "Speck dissertation PDF (binary, text not readable)", "type": "repository", "opened": false},
+        {"url": "https://mathgenealogy.org/id.php?id=315461", "title": "Math Genealogy entry for Matthew Speck", "type": "encyclopedia", "opened": true}
+      ]
+    },
+    {
+      "id": "sharma-2018-viXra",
+      "what_happened": "Ameet Sharma, 'Boundary Matrices and the Marcus-de Oliveira Determinantal Conjecture', viXra 1805.0355, category Algebra. v1 submitted 20 May 2018; latest version vG submitted 18 June 2019 (per the viXra abstract page, opened). Abstract: 'We present notes on the Marcus-de Oliveira conjecture ... This paper focuses on boundary matrices of Delta. We prove 2 theorems regarding these boundary matrices', where Delta is the region of values det(A+B) over normal A, B with prescribed eigenvalues.",
+      "date": "2018-05-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 2018-05-20; vG 2019-06-18 (latest, per viXra abstract page).",
+      "delivers": "Two theorems about boundary matrices of the region Delta. The abstract does not say whether those theorems bear on the containment, and it does not claim a proof of the conjecture.",
+      "remains": "The containment itself, which the abstract does not claim.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "viXra is an unrefereed repository. My searches found no journal version and no review.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial and unclear in bearing: results on boundary matrices of Delta, with no claim on the containment.",
+      "object": null,
+      "people": ["Ameet Sharma"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://vixra.org/abs/1805.0355"]
+      },
+      "sources": [
+        {"url": "https://vixra.org/abs/1805.0355", "title": "viXra 1805.0355 abstract page", "type": "repository", "opened": true},
+        {"url": "https://vixra.org/pdf/1805.0355v1.pdf", "title": "viXra 1805.0355 PDF (binary, text not readable)", "type": "repository", "opened": false}
+      ]
+    },
+    {
+      "id": "shitov-2025",
+      "what_happened": "Yaroslav N. Shitov, 'A further sufficient condition for the determinantal conjecture', Izvestiya: Mathematics 89:4 (2025), pp. 862-869 (Russian original Izv. RAN Ser. Mat. 89:4 (2025), 219-226; DOI 10.4213/im9292). The journal's Russian page was opened and gives volume, issue, pages and DOI. Abstract (paraphrased from that page, which exceeded my quoting limit): for n-by-n normal A and B with eigenvalues (a_i) and (b_i), det(A+B) lies in the convex hull of the products prod(a_i + b_{psi(i)}) over permutations psi, provided all eigenvalues of A and B are real except three eigenvalues of B. The received date (21 Nov 2021) and the 2025 publication dates (August 2025; two different days) come from search-result snippets, not the page, and conflict. No arXiv or other preprint was found, so the journal publication is the first public written argument I can find.",
+      "date": "2025",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "The containment, under the hypothesis that all eigenvalues of A are real and all but at most three eigenvalues of B are real. Restricted to normal A with real spectrum and B with at most three non-real eigenvalues. Per a search summary of the paper, it improves the one-non-real-eigenvalue case of Kovacec 1999 and the all-real case of Fiedler.",
+      "remains": "Normal pairs where A has any non-real eigenvalue, and normal pairs where B has four or more non-real eigenvalues (for n >= 4).",
+      "checked_by": [
+        {
+          "who": "Izvestiya: Mathematics / Izvestiya RAN Ser. Mat. (journal of record, Russian Academy of Sciences)",
+          "qualification": "Refereed mathematics journal; no named referee visible on the page",
+          "what_they_did": "Accepted and published the paper",
+          "where": "https://journals.rcsi.science/1607-0046/article/view/306781",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "about 14 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Supports the conjecture within the restricted class described above. It is a partial result, not a full proof.",
+      "object": null,
+      "people": ["Yaroslav N. Shitov"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://journals.rcsi.science/1607-0046/article/view/306781"]
+      },
+      "sources": [
+        {"url": "https://journals.rcsi.science/1607-0046/article/view/306781", "title": "Shitov, A further sufficient condition for the determinantal conjecture (Izv. RAN 2025), journal page", "type": "journal", "opened": true},
+        {"url": "https://www.mathnet.ru/eng/im9292", "title": "Izvestiya: Mathematics page (refused on fetch)", "type": "journal", "opened": false}
+      ]
+    },
+    {
+      "id": "bebiano-providencia-2025-survey",
+      "what_happened": "Natalia Bebiano and Joao P. da Providencia, 'Revisiting the Marcus-de Oliveira Conjecture', Mathematics (MDPI) 13(5):711, February 2025, DOI 10.3390/math13050711. The RePEc/IDEAS page was opened, and its abstract says: 'We survey the main achievements relating to this open problem in matrix analysis.' The abstract attributes the conjecture to Marcus (1973) and de Oliveira (1982), inspired by Fiedler (1971). The MDPI page returned 403 on every route tried, so the body was not read. Search summaries describe its contents (e.g. the conjecture holds when A or B has at most one nonzero eigenvalue, and a theorem on pairs of such spectra); these are unverified.",
+      "date": "2025-02",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "A survey. The abstract claims no new general result. Whether it reports any new case is not established from what I read.",
+      "remains": "The whole conjecture, which the survey calls open.",
+      "checked_by": [
+        {
+          "who": "Natalia Bebiano (University of Coimbra) and Joao P. da Providencia (University of Beira Interior)",
+          "qualification": "Authors of a survey of the conjecture, in a refereed journal; per search summaries, the same authors have earlier papers on this conjecture (not verified)",
+          "what_they_did": "Surveyed the known results and described the problem as open",
+          "where": "https://ideas.repec.org/a/gam/jmathe/v13y2025i5p711-d1597300.html",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 20 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Describes the conjecture as open. No direction on the result itself.",
+      "object": null,
+      "people": ["Natalia Bebiano", "Joao P. da Providencia"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://ideas.repec.org/a/gam/jmathe/v13y2025i5p711-d1597300.html"]
+      },
+      "sources": [
+        {"url": "https://ideas.repec.org/a/gam/jmathe/v13y2025i5p711-d1597300.html", "title": "RePEc record: Revisiting the Marcus-de Oliveira Conjecture (MDPI Mathematics 2025)", "type": "journal", "opened": true},
+        {"url": "https://www.mdpi.com/2227-7390/13/5/711", "title": "MDPI article page (403 on fetch, all routes)", "type": "journal", "opened": false}
+      ]
+    },
+    {
+      "id": "mulero-martinez-2026",
+      "what_happened": "J. I. Mulero-Martinez, 'A variational framework for determinantal inequalities of normal matrices: Successes and obstructions', Linear Algebra and its Applications 740 (2026) 19-38, DOI 10.1016/J.LAA.2026.03.019. The portal record was opened and gives metadata only, with no abstract. The DOI redirected to Elsevier, which I did not open. Whether it bears on the Marcus-de Oliveira conjecture is unknown. The title concerns determinantal inequalities for normal matrices, which is adjacent but not stated to be this problem.",
+      "date": "2026",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Unknown. The abstract was not read.",
+      "remains": "Unknown.",
+      "checked_by": [
+        {
+          "who": "Linear Algebra and its Applications (journal of record)",
+          "qualification": "Refereed linear algebra journal",
+          "what_they_did": "Published the paper (not opened)",
+          "where": "https://portalinvestigacion.upct.es/documentos/69db0124226b77548f678650",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "unknown (2026 publication date not confirmed on the record)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Unknown. Scope relative to the conjecture is not established.",
+      "object": null,
+      "people": ["J. I. Mulero-Martinez"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://portalinvestigacion.upct.es/documentos/69db0124226b77548f678650"]
+      },
+      "sources": [
+        {"url": "https://portalinvestigacion.upct.es/documentos/69db0124226b77548f678650", "title": "UPCT portal record for Mulero-Martinez 2026 (metadata only)", "type": "repository", "opened": true},
+        {"url": "https://doi.org/10.1016/j.laa.2026.03.019", "title": "DOI for Mulero-Martinez 2026 (redirects to Elsevier, not followed)", "type": "journal", "opened": false}
+      ]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "scope",
+      "summary": "The January 2023 Oeding talk abstract (joint with Speck) says the geometric description 'proves the conjecture' in full. The January 2024 Speck talk, per a search summary, claims a novel proof for n=3 only. The May 2024 dissertation abstract describes a reduction and does not claim a proof. The record does not show which of these the authors stand behind, and the dissertation body is unread.",
+      "sources": ["https://math.gatech.edu/node/32834520", "https://etd.auburn.edu/handle/10415/9283?show=full"]
+    },
+    {
+      "kind": "attribution-date",
+      "summary": "The publication year of Marcus's paper is given as 1972 in Wikipedia's article and as 1973 in Bebiano-da Providencia's abstract. Rodtes cites it as Indiana Univ. Math. J. 22 (1972/73), per a search summary. The date of the conjecture is not an event; it is recorded here only because the two sources differ.",
+      "sources": ["https://en.wikipedia.org/wiki/Determinantal_conjecture", "https://ideas.repec.org/a/gam/jmathe/v13y2025i5p711-d1597300.html"]
+    }
+  ],
+
+  "summary": "Sources checked: the Wikipedia article (a stub; it names Marcus 1972 and de Oliveira 1982), the Georgia Tech seminar record for the 2023 Oeding talk, the Auburn ETD records for Speck's 2024 dissertation and Homadi's 2017 thesis (metadata only, because the PDFs returned binary), Drury's ELA abstracts (2004 and 2006), Shitov's 2025 Izvestiya paper (journal page), the Bebiano-da Providencia 2025 MDPI survey (abstract only, via RePEc, because MDPI blocked the fetch), the Mulero-Martinez 2026 LAA record (metadata only), Rodtes's arXiv abstract (2020), Sharma's viXra abstract (2018), and arXiv author and title searches. The main question is the Speck-Oeding claim. A January 2023 talk abstract says a complete geometric description proves the conjecture. That is before the window, and I found no written argument behind it: no arXiv preprint by Oeding or Speck appears in the arXiv records, and the only later written item is the dissertation, whose abstract describes a reduction rather than a proof. The 2024 dissertation is the one in-window item that could contain the argument, and I could not read its text. Shitov's 2025 result is a genuine journal-refereed partial result (at most three non-real eigenvalues, all in B, with A real). The 2025 MDPI survey calls the problem open, and I could not check whether it mentions Speck or Oeding. The 2026 Mulero-Martinez paper may or may not concern this conjecture; its abstract was not read. Close calls: (a) whether the 2023 talk counts as a first written argument, since its date rests on an abstract and the rule dates a talk to its write-up, which I could not find; (b) whether the dissertation proves anything, which the abstract does not say and I could not verify; (c) whether Shitov's restriction makes it partial or a near-complete case; I read it as partial because the two excluded classes are large. AI: I searched for AI involvement with this conjecture by name and with terms for ChatGPT, GPT, Gemini, Claude, AlphaEvolve, Deep Think and formal verification. I found no source that names an AI system for this conjecture. The AI-tagged 2026 items I saw are about other problems (the Jacobian conjecture, an Erdos unit-distance result, and the determinant approximation conjecture, arXiv 2609.15567, whose abstract page I opened and which concerns Fuglede-Kadison determinants on group rings with no AI attribution on that page). The Google DeepMind formal-conjectures repository's top level has no Marcus or determinant entry, but I could not search its code, so the Lean status is unverified.",
+
+  "competing_reading": "The strongest case for reading this as in-window progress: the 2024 dissertation was written after the 2023 claim, has the same advisor and co-author, and may contain the full argument. The abstract is written in the vocabulary of a proof strategy (a reduction to non-negative solutions of a rank-deficient system, plus modifications), and the 2023 abstract claims the complete geometric description proves the conjecture. If the dissertation body contains that proof, the status would be a claimed full proof from an embargoed PhD thesis, unreviewed and in-window. The opposite reading, which the record currently supports better: the dissertation abstract does not claim a proof, the 2024 talk claims only n=3, and the 2025 survey and 2025 Shitov paper treat the conjecture as open. On that reading nothing in the window settles the conjecture, and the 2023 claim is pre-window and unwritten.",
+
+  "what_would_settle_it": "(1) The text of the Speck dissertation (etd.auburn.edu bitstream, 'Speck Dissertation Final.pdf'): whether it contains a proof of the containment for all n, or only for n=3 or a reduction, and whether any theorem is stated as settling the conjecture. (2) Any arXiv or journal version by Speck and/or Oeding, and its date. (3) The full text of the 2025 Bebiano-da Providencia survey (MDPI), in particular whether it cites or discusses the Speck-Oeding claim and what it lists as the state of the n=3 and general cases. (4) The Auburn seminar pages for 2023/01, 2024/01 and 2024/04 (currently redirect), to confirm the dates and abstracts of the Jan 2024 talk and the defense. (5) The abstract of Mulero-Martinez (LAA 740, 2026) to see whether it treats the containment. (6) A search of the google-deepmind formal-conjectures repository (FormalConjectures/) for a Marcus or determinant entry and its sorry status.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Determinantal_conjecture", "title": "Wikipedia: Determinantal conjecture", "type": "encyclopedia", "opened": true},
+    {"url": "https://math.gatech.edu/node/32834520", "title": "Georgia Tech seminar: Determinants of Sums of Normal Matrices (Oeding, 30 Jan 2023)", "type": "news", "opened": true},
+    {"url": "https://etd.auburn.edu/handle/10415/9283?show=full", "title": "Speck, Determinants of Sums of Normal Matrices, ETD metadata", "type": "repository", "opened": true},
+    {"url": "https://etd.auburn.edu/bitstream/handle/10415/9283/Speck%20Dissertation%20Final.pdf?sequence=2&isAllowed=y", "title": "Speck dissertation PDF (binary, not readable)", "type": "repository", "opened": false},
+    {"url": "https://mathgenealogy.org/id.php?id=315461", "title": "Math Genealogy: Matthew Speck", "type": "encyclopedia", "opened": true},
+    {"url": "https://etd.auburn.edu/handle/10415/5587?show=full", "title": "Homadi, Progress on the Marcus-de Oliveira Determinantal Conjecture, ETD metadata", "type": "repository", "opened": true},
+    {"url": "https://etd.auburn.edu/bitstream/handle/10415/5587/My%20thesis.pdf?sequence=2", "title": "Homadi thesis PDF (binary, not readable)", "type": "repository", "opened": false},
+    {"url": "https://htmlscript.auburn.edu/cosam/events/2024/01/dms_algebra_seminar1.htm", "title": "Auburn DMS algebra seminar 2024/01 (404)", "type": "news", "opened": false},
+    {"url": "https://auburn.edu/cosam/events/2024/01/dms_algebra_seminar1.htm", "title": "Auburn DMS algebra seminar 2024/01 (redirect to root)", "type": "news", "opened": false},
+    {"url": "https://htmlscript.auburn.edu/cosam/events/2023/01/dms_algebra_seminar1.htm", "title": "Auburn DMS algebra seminar 2023/01 (404)", "type": "news", "opened": false},
+    {"url": "https://auburn.edu/cosam/events/2023/03/dms_graduate_student_seminar.htm", "title": "Auburn DMS graduate seminar 2023/03 (redirect to root)", "type": "news", "opened": false},
+    {"url": "https://auburn.edu/cosam/events/2024/04/dms_algebra_seminar.htm", "title": "Auburn DMS algebra seminar 2024/04 (redirect to root; htmlscript host refused)", "type": "news", "opened": false},
+    {"url": "https://journals.uwyo.edu/index.php/ela/article/view/263", "title": "Drury, The external vertices conjecture in case n=4, ELA 11 (2004)", "type": "journal", "opened": true},
+    {"url": "https://emis.dsd.sztaki.hu/journals/ELA/ela-articles/abstracts/abs_vol15_pp285-296.txt", "title": "Drury, Essentially Hermitian matrices revisited, ELA 15 (2006), abstract", "type": "journal", "opened": true},
+    {"url": "https://arxiv.org/abs/2006.14846", "title": "Rodtes, arXiv:2006.14846 abstract", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2006.14846", "title": "Rodtes, arXiv:2006.14846 PDF (binary, not readable)", "type": "preprint", "opened": false},
+    {"url": "http://export.arxiv.org/api/query?search_query=au:Oeding&max_results=50&sortBy=submittedDate", "title": "arXiv API: author Oeding (34 entries, no normal-matrix paper)", "type": "repository", "opened": true},
+    {"url": "http://export.arxiv.org/api/query?search_query=au:Speck_M&max_results=50", "title": "arXiv API: author Speck (0 entries)", "type": "repository", "opened": true},
+    {"url": "http://export.arxiv.org/api/query?search_query=au:Oeding+AND+au:Speck&max_results=20", "title": "arXiv API: Oeding AND Speck (0 entries)", "type": "repository", "opened": true},
+    {"url": "https://export.arxiv.org/api/query?search_query=all:%22Marcus-de%20Oliveira%22&max_results=30", "title": "arXiv API: all fields Marcus-de Oliveira (1 entry, Rodtes 2020)", "type": "repository", "opened": true},
+    {"url": "https://journals.rcsi.science/1607-0046/article/view/306781", "title": "Shitov, A further sufficient condition for the determinantal conjecture, Izv. RAN 89:4 (2025)", "type": "journal", "opened": true},
+    {"url": "https://www.mathnet.ru/eng/im9292", "title": "Izvestiya: Mathematics journal page (refused)", "type": "journal", "opened": false},
+    {"url": "https://ideas.repec.org/a/gam/jmathe/v13y2025i5p711-d1597300.html", "title": "RePEc: Bebiano and da Providencia, Revisiting the Marcus-de Oliveira Conjecture (Mathematics 2025)", "type": "journal", "opened": true},
+    {"url": "https://www.mdpi.com/2227-7390/13/5/711", "title": "MDPI article page (403)", "type": "journal", "opened": false},
+    {"url": "https://portalinvestigacion.upct.es/documentos/69db0124226b77548f678650", "title": "UPCT portal record: Mulero-Martinez, LAA 740 (2026), metadata only", "type": "repository", "opened": true},
+    {"url": "https://doi.org/10.1016/j.laa.2026.03.019", "title": "DOI for Mulero-Martinez 2026 (redirected to Elsevier, not followed)", "type": "journal", "opened": false},
+    {"url": "https://vixra.org/abs/1805.0355", "title": "viXra 1805.0355, Sharma, Boundary Matrices and the Marcus-de Oliveira Determinantal Conjecture", "type": "repository", "opened": true},
+    {"url": "https://vixra.org/pdf/1805.0355v1.pdf", "title": "viXra 1805.0355 PDF (binary, not readable)", "type": "repository", "opened": false},
+    {"url": "https://arxiv.org/abs/2609.15567", "title": "Kammeyer, A counterexample to the determinant approximation conjecture (unrelated; no AI attribution on abstract page)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2605.13171", "title": "Formal Conjectures benchmark (arXiv 2605.13171); no mention of this conjecture in the abstract", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2604.03789", "title": "Automated Conjecture Resolution with Formal Verification (arXiv 2604.03789); no mention of this conjecture", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2602.05394", "title": "Simons workshop open questions, linear systems (arXiv 2602.05394), PDF binary, not readable", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/pdf/2608.29595", "title": "Sra, GPT, the Counterexample Machine (arXiv 2608.29595), PDF binary, not readable", "type": "preprint", "opened": false},
+    {"url": "https://github.com/google-deepmind/formal-conjectures", "title": "Google DeepMind formal-conjectures repository (top level only; no Marcus or determinant entry seen)", "type": "repository", "opened": true},
+    {"url": "https://www.sciencedirect.com/science/article/pii/0024379594901074", "title": "ScienceDirect: Kovacec 1994, On a conjecture of Marcus and de Oliveira (403)", "type": "journal", "opened": false},
+    {"url": "https://www.sciencedirect.com/science/article/pii/0024379585902319", "title": "ScienceDirect: The determinant of the sum of two normal matrices with prescribed eigenvalues (403)", "type": "journal", "opened": false},
+    {"url": "https://www.researchgate.net/publication/331388585_A_Survey_of_the_Marcus-de_Oliveira_Conjecture", "title": "ResearchGate: A Survey of the Marcus-de Oliveira Conjecture (search result only; possible earlier survey version)", "type": "journal", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "determinantal conjecture determinant of sum of two normal matrices",
+      "Wikipedia list of unsolved problems in mathematics determinantal conjecture normal matrices",
+      "Ky Fan determinantal conjecture normal matrices det(A+B)",
+      "Bhatia determinantal conjecture normal matrices sum eigenvalues permutation",
+      "determinantal conjecture normal matrices 2024 arXiv",
+      "\"determinantal conjecture\" normal matrices proof",
+      "Speck Oeding determinantal conjecture normal matrices arXiv",
+      "\"flattened solid twisted permutahedron\" determinant",
+      "Oeding Speck \"normal matrices\" permutahedron Marcus de Oliveira arXiv 2024",
+      "Shitov \"A further sufficient condition for the determinantal conjecture\" arXiv",
+      "Marcus de Oliveira conjecture determinant normal matrices convex hull 2025 proof",
+      "Marcus de Oliveira conjecture AI proof GPT Gemini AlphaEvolve normal matrices determinant",
+      "google-deepmind formal-conjectures Marcus de Oliveira determinantal conjecture Lean",
+      "determinantal conjecture normal matrices AI-generated proof language model 2026",
+      "Marcus-de Oliveira conjecture solved 2026",
+      "Speck Oeding \"determinantal range\" normal matrices",
+      "Luke Oeding Matt Speck permutahedron determinant normal matrices journal paper",
+      "Shitov determinantal conjecture normal matrices Izvestiya 2025 real eigenvalues three eigenvalues convex hull",
+      "Speck \"Determinants of Sums of Normal Matrices\" dissertation abstract Auburn non-negative solutions statistical approach",
+      "Marcus de Oliveira conjecture arXiv 2025 normal matrices sum determinant convex hull eigenvalues preprint",
+      "Kovačec 1999 Marcus de Oliveira conjecture Linear Algebra Appl normal matrices n-2 eigenvalues equal",
+      "Drury Electronic Journal of Linear Algebra Marcus de Oliveira conjecture essentially Hermitian unimodular",
+      "\"Mulero-Martínez\" determinantal inequalities normal matrices successes obstructions abstract Marcus de Oliveira",
+      "Marcus de Oliveira conjecture Fiedler 1971 Marcus 1973 de Oliveira 1982 normal matrices history partial results Bebiano Merikoski da Providência 3x3",
+      "Oeding talk 2025 2026 \"normal matrices\" determinant Marcus de Oliveira proof Speck seminar",
+      "\"Recent Progress on the Marcus-de Oliveira Conjecture\" Speck",
+      "Marcus de Oliveira determinantal conjecture ChatGPT OR Claude OR Gemini OR \"Deep Think\" counterexample or proof",
+      "open problems matrix analysis solved by AI 2026 normal matrices determinant conjecture Erdős-style database",
+      "Marcus de Oliveira determinantal conjecture n=3 proof Speck Oeding publication journal 2025",
+      "Kovačec \"The Marcus-de Oliveira conjecture, bilinear forms, and cones\" abstract",
+      "Matthew Speck mathematics publications determinantal range normal matrices Lie theory journal article",
+      "Oeding Speck \"normal matrices\" Linear Algebra and its Applications OR \"Linear Multilinear Algebra\" 2025 Marcus-de Oliveira resolved",
+      "\"BOUNDARY MATRICES AND THE MARCUS-DE OLIVEIRA DETERMINANTAL CONJECTURE\" vixra"
+    ],
+    "places_checked": [
+      "Wikipedia article Determinantal conjecture (opened; stub)",
+      "Georgia Tech seminar listing for Oeding talk, 30 Jan 2023 (opened)",
+      "Auburn ETD: Speck dissertation metadata (opened); dissertation PDF (binary)",
+      "Auburn ETD: Homadi thesis metadata (opened); PDF (binary)",
+      "Auburn DMS seminar pages 2023/01, 2023/03, 2024/01, 2024/04 (404 or redirect to department root; not opened)",
+      "Auburn algebra seminar index (redirect; not opened)",
+      "Math Genealogy entry for Matthew Speck (opened)",
+      "arXiv author searches: Oeding (34 entries, none on normal matrices), Speck (0), Oeding AND Speck (0)",
+      "arXiv title/all-field search Marcus-de Oliveira (1 entry: Rodtes 2020)",
+      "arXiv 2006.14846 (Rodtes) abstract (opened); PDF (binary)",
+      "arXiv 2605.13171 (Formal Conjectures) abstract (opened; no mention)",
+      "arXiv 2604.03789 (Automated Conjecture Resolution) abstract (opened; no mention)",
+      "arXiv 2609.15567 (Kammeyer, determinant approximation) abstract (opened; unrelated)",
+      "arXiv 2602.05394 and 2608.29595 PDFs (binary; not readable)",
+      "Journal of Drury ELA 2004 (opened via journals.uwyo.edu)",
+      "Journal of Drury ELA 2006 abstract (opened via EMIS)",
+      "Shitov Izvestiya 2025 (journals.rcsi.science opened; mathnet refused)",
+      "Bebiano-da Providencia MDPI 2025 (RePEc opened; MDPI 403 on all routes)",
+      "Mulero-Martinez LAA 2026 (UPCT portal opened, metadata only; Elsevier not followed)",
+      "viXra 1805.0355 abstract (opened); PDF (binary)",
+      "Google DeepMind formal-conjectures GitHub top level (opened; no Marcus or determinant entry visible; code search not available)",
+      "ScienceDirect Kovacec 1994 and 1985 Fiedler-related pages (403)",
+      "Coimbra repository record 10316/4662 (Kovacec 1999 abstract via search snippet; direct fetch redirect loop)",
+      "Auburn cosam.auburn.edu department root (opened; shows a 2026 listing only)"
+    ],
+    "dead_ends": [
+      "No arXiv preprint by Speck or Oeding on normal matrices (arXiv API author searches returned 34 Oeding entries, none on this; 0 Speck entries).",
+      "The 2024 Auburn talk page and the 2023/03 and 2023/01 Auburn seminar pages would not open (404 or redirect); their content is from search snippets only.",
+      "The AI-attributed 2026 results surfaced in searches concern other problems: the Jacobian conjecture (Claude 'Fable 5' per a news summary), an Erdos unit-distance result (OpenAI internal model, per a blog summary), and the determinant approximation conjecture (arXiv 2609.15567; the abstract page has no AI attribution, and the ChatGPT attribution in the search summary was not verified).",
+      "Searches for a 2025 or 2026 AI-generated or formal proof of this conjecture returned nothing relevant.",
+      "The ResearchGate copy of 'A Survey of the Marcus-de Oliveira Conjecture' (ID 331388585) appeared in search results but was not opened; it may be an earlier version of the 2025 survey.",
+      "The Kovacec 1994 paper 'On a conjecture of Marcus and de Oliveira' (ScienceDirect) and the Bebiano-Kovacec-da Providencia essentially Hermitian paper (ScienceDirect, pii 0024379594904987) appeared in search results only; both pages returned 403 or were not opened.",
+      "The Speck dissertation was checked for embargo status: metadata says embargoed until 2025-05-06, and the record still showed EMBARGOED when I read it."
+    ]
+  },
+
+  "incomplete": "(1) The Speck dissertation body (etd.auburn.edu bitstream, 'Speck Dissertation Final.pdf', 2.52 MB) could not be read: the fetch returned compressed PDF binary and no local tool was available (Bash needed approval and was not used). So whether the dissertation contains a proof, and which cases it covers, is unknown. This is the main gap. (2) The 2025 Bebiano-da Providencia survey body could not be read (MDPI returned 403 on every route). So I cannot say whether it mentions Speck, Oeding or Shitov, or what it lists as known cases. (3) The Mulero-Martinez 2026 abstract was not read; its scope relative to this conjecture is unknown. (4) The January 2024 Speck talk and the 2023 Auburn seminar listings could not be opened; their dates and abstracts come from search summaries and are marked unverified. (5) The Shitov publication dates differ between search snippets (Russian page 15.08.2025; English 25.08.2025); the year 2025 is used. (6) The Homadi thesis PDF (2017) and the Rodtes arXiv PDF (2020) were not readable; their cases are known only from abstracts. (7) The Lean formal-conjectures repository was checked only at top level; no code search was available, so whether it holds a formal statement of this conjecture and its sorry status are unverified. (8) The Kovacec 1994 and 1999 papers, and the Bebiano-Kovacec-da Providencia paper, were not opened directly. (9) The 1987 date for Bebiano-Merikoski-da Providencia comes from a search summary, not a page. (10) No direct check was made of whether any 2024 or 2025 paper cites the Speck-Oeding claim; the arXiv records are the only index checked for these authors."
+}

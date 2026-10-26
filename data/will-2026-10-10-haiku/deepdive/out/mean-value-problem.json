@@ -1,0 +1,1047 @@
+{
+  "key": "mean-value-problem",
+
+  "nothing_found": false,
+
+  "outcome": "Since 26 January 2024 a Lean 4 (Mathlib) disproof of the constant-1 form has been posted (repository dated 3 September 2026, by Tom Adamczewski, crediting a pre-release GPT-6 Astra run in an Epoch AI evaluation); as of the latest sources read (13 October 2026) no mathematician outside the project had reviewed it, and the tracker labels it 'Candidate (review pending)'. Before that, the only in-window events were a restricted-class partial result (Jatar and Ng, 27 August 2026, which still calls the problem unsolved), dual-conjecture analogues, and a negative AlphaEvolve search (November 2025).",
+
+  "problem_asks": "Read from the statement alone. (1) For every complex polynomial f of degree d >= 2 (the statement quantifies over all such f and all degrees). (2) For every complex number z. (3) Whether there exists a critical point c of f (f'(c) = 0, with c allowed to depend on f and z) such that |f(z) - f(c)| <= |f'(z)| * |z - c|. (4) With the constant exactly 1. The bullet is phrased as a question ('is there a critical point ...'), and the universal reading (every f and every z admits such a c) is the conjecture it names. The bullet does not itself ask about the sharp constant (d-1)/d, the best constant between 1 and 4, or the dual inequality; those are different questions that share the name and are discussed in the Wikipedia article and the literature, not in the bullet.",
+
+  "events": [
+    {
+      "id": "adamczewski-astra-2026-09",
+      "what_happened": "Tom Adamczewski posted a GitHub repository (tadamcz/mean-value-problem), titled 'Lean 4 disproof of Smale's mean value conjecture (K = 1), found by GPT-6 Astra'. Its README says the conjecture with K = 1 is false and that the witness was 'found autonomously by a pre-release version of GPT-6 Astra (OpenAI)' in an evaluation run by Epoch AI, which the README names wikipedia-vega-1000usd and describes as running over the open statements of Formal Conjectures' Wikipedia collection. A VibeMathed tracker entry lists it as Disproved, status 'Candidate (review pending)', verification 'Lean-verified', with 'Solved 2026-09-03', submitted 4 Sep 2026 and approved for listing 5 Sep 2026. MathWorld (page updated 2 Oct 2026) cites it as Adamczewski (2026) and calls it a 'proposed counterexample'. The Wikipedia article 'Mean value problem' now carries the short description 'Mathematical problem in complex analysis, disproved in 2026' (last edited 13 Sep 2026), while its body still presents the K = 1 case as open.",
+      "date": "2026-09-03",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Four commits visible on the repository, all by the author: 3 Sep 2026 (two: 'Package the GPT-6 Astra resolution ... for Palomar' and 'Report cost at GPT-6 Astra's actual prices and working time'), 6 Sep 2026 ('Update authorship note at top of README'), 17 Sep 2026 ('Remove references to Palomar from the README'). The run used Lean v4.27.0; the README later targets Lean v4.28.0 / Mathlib v4.28.0. No arXiv version or journal version found.",
+      "delivers": "Claims that the constant-1 inequality fails for some normalised polynomial. Witness: a complex polynomial p of degree at least 2 with p(0) = 0 and p'(0) = 1 such that |p(c)/c| > 1 at every critical point c, so at z = 0 no critical point satisfies the inequality. In the Lean file (Challenge.lean, with the proof in an imported module) this is the negation of the universal statement that every polynomial of degree >= 2 and every z admit a critical point c with ||p(z) - p(c)|| / ||z - c|| <= ||p'(z)||. Restrictions: one witness, at z = 0, of degree the README calls 'very large, unspecified' and does not write out. It refutes the universal constant-1 claim as stated and nothing finer.",
+      "remains": "Nothing of the bullet's universal claim remains open if the Lean statement faithfully encodes the bullet and the proof is sound; both are unverified by anyone outside the project (see doubts). Not addressed: the value of the best constant in any particular degree; the sharp (d-1)/d form, which is a different question; whether the witness is schlicht (relevant to the Jatar and Ng event); and whether the witness degree lies in any range where earlier numerical checks would have caught it.",
+      "checked_by": [
+        {
+          "who": "Comparator (Lean verification tool), run by the repository's own script",
+          "qualification": "Software, not a human reading",
+          "what_they_did": "The README says Comparator checks that the challenge statement and the compared theorem coincide and that only propext, Quot.sound and Classical.choice are used. I did not run it; I read the README's description.",
+          "where": "https://github.com/tadamcz/mean-value-problem",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "about six weeks as of 13 Oct 2026",
+      "machine_checked": {
+        "system": "Lean 4 with Mathlib, checked by Comparator according to the repository",
+        "sorry_free": true,
+        "url": "https://github.com/tadamcz/mean-value-problem/blob/main/README.md"
+      },
+      "directly_checkable": "Not by hand from the record. The witness is not written out: AllBadWitness (a definition in the Lean module) is satisfied by a polynomial obtained by polynomial approximation of a model function plus a perturbation family, indexed by an n 'sufficiently large'. No coefficients are given. The check is the Lean development, which I did not compile.",
+      "doubts": "(1) Single source. Only the author's repository, a tracker and MathWorld's citation of it; no arXiv write-up, journal submission, or expert commentary found through 13 Oct 2026. VibeMathed says: 'No independent mathematician has checked this yet.' and 'Candidate rather than resolved because, two days after the run, no mathematician outside it has read the proof.' and 'The proof account was machine-generated and is unaudited.' MathWorld says independent review had not been reported as of 7 Sep 2026. (2) Authorship. The README says 'No human saw or steered the proof search.' It also says the entire repository was 'machine-written by AI assistants at the direction of Tom Adamczewski' (the assistants are not named). (3) Non-explicit witness with degree stated only as 'very large, unspecified'. (4) Statement fidelity, which is the human question the Lean check does not settle. Challenge.lean's theorem binds an extra real variable K (written as 'forall (K : R)') that the conclusion never uses. I judge this logically harmless because the reals are inhabited, but a reader should look. The inequality uses Lean's division convention (x/0 = 0); I checked by hand that it agrees with the multiplicative form |f(z)-f(c)| <= |f'(z)||z-c| in both the z = c and z != c cases, but that is my reading. The upstream Formal Conjectures entry the file says it follows was not found. (5) Relationship. Adamczewski's Epoch AI page bio says 'Tom Adamczewski started Epoch AI's benchmark engineering team', and the run is described as Epoch's. Epoch's public results repository (19 commits) lists runs named oeis-..., bloom68-... and erdos-... but not wikipedia-vega-1000usd, so the run name is not confirmed from Epoch's side as far as I could read. (6) Cost. The README reports $265 'at GPT-6 Astra's standard rates' and a commit reports that figure was changed to 'actual prices'. Epoch's results README says that because no prices had been published, the harness metered GPT-6 Astra spend at GPT-5.6 Sol's prices. The two bases are not reconciled. (7) A Chinese-language AI4Math tracker record (PR #41, merged 1 Oct 2026) says the original construction was later mathematically checked and generalised by Adamczewski, Bohmler and Marczinzik. The only Bohmler and Marczinzik paper I found with Adamczewski is a counterexample to Kothe's conjecture (arXiv 2609.07996), and I found no link to Smale's problem, so I treat that claim as unverified and probably a mix-up. (8) The model name is the authors' own; they call it a pre-release version. I could not verify any public release, and I do not date it.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Against. The claim is that the constant-1 inequality is false: a witness at z = 0 violates it at every critical point. The bullet's universal reading predicts the opposite answer ('yes, there is always such a c'), so the claim cuts against the conjecture as worded. Consequence for the sharp form (my inference, not stated in the sources): a degree-d witness with min |p(c)/c| > 1 would also contradict the sharp bound M_d = (d-1)/d at that degree, because (d-1)/d < 1. The bullet does not ask about the sharp form.",
+      "object": "A complex polynomial p of degree d >= 2 (degree 'very large, unspecified' per the README and not written out), normalised so that p(0) = 0 and p'(0) = 1, with |p(c)/c| > 1 at every critical point c. So at z = 0 no critical point satisfies the constant-1 inequality. Non-constructive: it is built in Lean from a model function, a polynomial approximation of that model, and a perturbation family anchored at z0, with existence proved as exists_allBadWitness. Coefficients are not given anywhere in the sources I read.",
+      "people": [
+        "Tom Adamczewski (repository author; the README says the repository was machine-written at their direction; Epoch AI's own page describes them as starting Epoch's benchmark engineering team)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "GPT-6 Astra",
+            "what_it_did": "Per the authors, found the counterexample autonomously in an Epoch AI evaluation run and wrote the Lean proof. The README describes it as a pre-release version (OpenAI). The human role is directing the repository's AI assistants and the run's setup; the README says no human saw or steered the proof search.",
+            "basis_quote": "found autonomously by a pre-release version of GPT-6 Astra (OpenAI)",
+            "quote_url": "https://github.com/tadamcz/mean-value-problem"
+          }
+        ],
+        "disclosed_cost": "README: $265 'at GPT-6 Astra's standard rates'; 15.0 hours of agent working time; run budget $1,000 and 96 hours per statement. Epoch's results repository says the harness metered GPT-6 Astra spend at GPT-5.6 Sol's prices because no prices had been published. Not reconciled.",
+        "sources": [
+          "https://github.com/tadamcz/mean-value-problem",
+          "https://github.com/tadamcz/mean-value-problem/blob/main/README.md",
+          "https://vibemathed.com/problem/smale-s-mean-value-conjecture-k-1",
+          "https://github.com/epoch-research/LeanOpenProblems-results",
+          "https://epoch.ai/latest/announcing-frontiermath-erdos"
+        ]
+      },
+      "sources": [
+        "https://github.com/tadamcz/mean-value-problem",
+        "https://github.com/tadamcz/mean-value-problem/blob/main/README.md",
+        "https://github.com/tadamcz/mean-value-problem/commits/main",
+        "https://raw.githubusercontent.com/tadamcz/mean-value-problem/main/Challenge.lean",
+        "https://raw.githubusercontent.com/tadamcz/mean-value-problem/main/Solution.lean",
+        "https://raw.githubusercontent.com/tadamcz/mean-value-problem/main/MeanValueProblem/Resolutions/MeanValueProblem.lean",
+        "https://vibemathed.com/problem/smale-s-mean-value-conjecture-k-1",
+        "https://mathworld.wolfram.com/SmalesMeanValueConjecture.html",
+        "https://en.wikipedia.org/wiki/Mean_value_problem",
+        "https://epoch.ai/latest/announcing-frontiermath-erdos",
+        "https://github.com/epoch-research/LeanOpenProblems-results"
+      ]
+    },
+    {
+      "id": "jatar-ng-2026-08",
+      "what_happened": "Preprint 'Smale's Mean Value Conjecture and its Dual Conjecture for Complex Polynomials' by Aneesh Jatar and Tuen Wai Ng (Hong Kong). Its introduction says the conjecture 'is still unsolved' and that it was 'studied by the AI tool AlphaEvolve in Georgiev, Gomez-Serrano, Tao and Wagner's problem list' without finding a counterexample. Results: (i) restricting to Schlicht normalised polynomials, the bound 1 becomes asymptotically valid as the degree tends to infinity when the leading coefficient decays slowly enough; (ii) an improved Markov-type inequality for maximal univalent lemniscates, for the dual conjecture; (iii) an improved unconditional lower bound (d - 1/2)^(1/d) / d^2 for the dual, improving Dubinin's 1/d^2.",
+      "date": "2026-08-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, submitted 27 Aug 2026, 40 pages (arXiv listing).",
+      "delivers": "Result (i) is a restricted-class, asymptotic statement about the constant-1 inequality: for Schlicht normalised polynomials with slowly decaying leading coefficient, the bound 1 holds asymptotically as d grows. Results (ii) and (iii) concern the dual lower-bound conjecture, a different question. Result (i) does not establish the universal claim for all polynomials and all z, and says nothing for fixed small degree.",
+      "remains": "The universal constant-1 claim for all polynomials of degree at least 2 and all z; the non-Schlicht case; the non-asymptotic (fixed-degree) case.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about seven weeks as of 13 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Predates the 3 Sep 2026 disproof claim, so its 'still unsolved' sentence does not address it. Whether the disproof witness is Schlicht, and what its leading coefficient looks like, is not stated in the disproof repository, so the two cannot be compared. If the witness were Schlicht with a suitably slowly decaying leading coefficient at large degree, result (i) would conflict with it; the sources do not settle this. I read only the first 100,000 characters of the HTML; the acknowledgements and any AI-use disclosure were not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "For the restricted Schlicht asymptotic class, consistent with the constant-1 inequality (a partial result in the direction the conjecture predicts). The paper's own status sentence says the conjecture is unsolved.",
+      "object": null,
+      "people": [
+        "Aneesh Jatar",
+        "Tuen Wai Ng"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.27047",
+          "https://arxiv.org/html/2608.27047"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.27047",
+        "https://arxiv.org/html/2608.27047"
+      ]
+    },
+    {
+      "id": "georgiev-et-al-alphaevolve-2025-11",
+      "what_happened": "Georgiev, Gomez-Serrano, Tao and Wagner, 'Mathematical exploration and discovery at scale' (arXiv 2511.02864). Problem 6.23 is Smale's problem, stated with C_Smale(n), the least constant such that for any polynomial f of degree n and any z with f'(z) != 0 there is a critical point xi with |f(z) - f(xi)| / |z - xi| <= C_Smale(n) |f'(z)|. The paper cites Smale's bounds 1 - 1/n <= C(n) <= 4, and Smale's conjecture that C(n) = 1 - 1/n. The AlphaEvolve experiment matched the best known lower bound, using the extremal polynomial z^n - nz, and found other constructions with similar scores. The paper reports that it 'did not manage to find a counterexample' and did not improve the bounds.",
+      "date": "2025-11-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 submitted 3 Nov 2025; v3 last revised 22 Dec 2025 (arXiv listing). Version 2 not separately checked.",
+      "delivers": "Nothing new on the bullet. It is a negative computational search: AlphaEvolve reproduced the known lower bound and found no counterexample to the constant-1 claim. The degrees searched are not stated in the portion I read; the example constructions shown include degree 12 (z^12 - 12z and a second degree-12 polynomial).",
+      "remains": "All of problem_asks; the search cannot settle a universal claim.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about eleven months as of 13 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The quoted sentences ('AlphaEvolve matched the best known lower bound for C_Smale(n)' and 'did not manage to find a counterexample') came through a summarising fetch of the HTML, so their exact wording should be checked against the PDF. I read Problem 6.23 across the HTML range I could fetch; the paper's full text was longer and not all read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "None. A negative search; it neither supports nor contradicts the constant-1 claim, and it says it found no counterexample.",
+      "object": null,
+      "people": [
+        "Bogdan Georgiev",
+        "Javier Gomez-Serrano",
+        "Terence Tao",
+        "Adam Zsolt Wagner"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "AlphaEvolve",
+            "what_it_did": "Evolutionary search over constructions, with an LLM proposing candidate programs and automated scoring (the paper's own description of AlphaEvolve). On Problem 6.23 it searched for constructions scoring against the lower bound. It rediscovered the known bound and found no counterexample and no improvement. This was a search that did not feed a result on the bullet, so it is recorded here, not weighed as a contribution.",
+            "basis_quote": "AlphaEvolve matched the best known lower bound for C_Smale(n)",
+            "quote_url": "https://arxiv.org/html/2511.02864"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2511.02864",
+          "https://arxiv.org/html/2511.02864"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2511.02864",
+        "https://arxiv.org/html/2511.02864"
+      ]
+    },
+    {
+      "id": "tang-odd-dual-2025-10",
+      "what_happened": "Quanyu Tang, 'Dual Smale's mean value conjecture for odd polynomials' (arXiv 2510.16875). Proves the dual conjecture for all odd polynomials with nonzero linear term: for normalised P (P(0) = 0, P'(0) = 1) of degree d >= 3 there is a critical point zeta with |P(zeta)/zeta| >= 1/d. The introduction says Smale's mean value conjecture 'has resisted proof despite extensive efforts by many leading mathematicians' and that 'the general case remains unresolved'.",
+      "date": "2025-10-19",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, submitted 19 Oct 2025.",
+      "delivers": "A result on the dual lower-bound question for a restricted class (odd polynomials with nonzero linear term). It is the dual inequality, a different question, and it is restricted to odd polynomials. It is recorded as an analogue. It does not bear on the constant-1 upper inequality.",
+      "remains": "The dual conjecture for even and general polynomials; the constant-1 bullet, which this result does not touch.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about one year as of 13 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not against or for the bullet. It settles a dual lower-bound question on a restricted class.",
+      "object": null,
+      "people": [
+        "Quanyu Tang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2510.16875",
+          "https://arxiv.org/html/2510.16875v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2510.16875",
+        "https://arxiv.org/html/2510.16875v1"
+      ]
+    },
+    {
+      "id": "hinkkanen-kayumov-khammatova-n7-dual-2023-03",
+      "what_happened": "Hinkkanen, Kayumov and Khammatova, 'Dual Smale's mean value conjecture for n = 7' (arXiv 2303.17586, identifier dated March 2023; journal version Constructive Approximation 61 (2025), 603-613). Gives an analytic proof of the dual inequality in degree 7.",
+      "date": "2023-03",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Journal version in Constructive Approximation 2025 (DOI 10.1007/s00365-025-09709-4). arXiv version history not read.",
+      "delivers": "The dual inequality for degree-7 polynomials. Analogue: different question (lower bound, dual). Not the bullet.",
+      "remains": "The constant-1 bullet, and the dual conjecture in other degrees.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not against or for the bullet. Dual question.",
+      "object": null,
+      "people": [
+        "Aimo Hinkkanen",
+        "Ilgiz R. Kayumov",
+        "Diana M. Khammatova"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ar5iv.labs.arxiv.org/html/2303.17586",
+          "https://link.springer.com/article/10.1007/s00365-025-09709-4"
+        ]
+      },
+      "sources": [
+        "https://ar5iv.labs.arxiv.org/html/2303.17586",
+        "https://link.springer.com/article/10.1007/s00365-025-09709-4"
+      ]
+    },
+    {
+      "id": "dubinin-blaschke-2024",
+      "what_happened": "V. N. Dubinin, 'Blaschke products and Smale's conjecture on complex polynomials', Mat. Zametki 116:2 (2024), 229-235; Math. Notes 116:2 (2024), 252-257. Treats an analogue of Smale's mean value conjecture for finite Blaschke products.",
+      "date": "2024",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "An analogue for finite Blaschke products, not polynomials. Different question. Recorded as a discounted analogue.",
+      "remains": "The bullet, which concerns polynomials.",
+      "checked_by": [
+        {
+          "who": "Mat. Zametki and Math. Notes (journal of record)",
+          "qualification": "Peer-reviewed journals",
+          "what_they_did": "Published (received 18 March 2024, per the MathNet record in search results)",
+          "where": "https://mathnet.ru/eng/mzm14315",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not against or for the bullet. Analogue for Blaschke products.",
+      "object": null,
+      "people": [
+        "V. N. Dubinin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://mathnet.ru/eng/mzm14315"
+        ]
+      },
+      "sources": [
+        "https://mathnet.ru/eng/mzm14315"
+      ]
+    },
+    {
+      "id": "ng-zhang-blaschke-2016-09",
+      "what_happened": "T. W. Ng and Y. Zhang, 'Smale's mean value conjecture for finite Blaschke products' (arXiv 1609.00170, September 2016; Springer, s41478-016-0007-4). Studies the Blaschke analogue of the mean value conjecture and its dual; their dual result improves a bound of Dubinin and Sugawa for polynomials.",
+      "date": "2016-09",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Analogue for finite Blaschke products and a dual improvement for polynomials. Different question from the bullet.",
+      "remains": "The bullet.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not against or for the bullet.",
+      "object": null,
+      "people": [
+        "Tuen Wai Ng",
+        "Y. Zhang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/1609.00170"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/1609.00170"
+      ]
+    },
+    {
+      "id": "dubinin-sugawa-dual-2009-06",
+      "what_happened": "V. N. Dubinin and T. Sugawa, 'Dual mean value problem for complex polynomials' (arXiv 0906.4605, June 2009). Introduces the dual extremal problem for polynomials and gives an unconditional lower bound on the dual quantity of the order 1/d^2 (as stated by Jatar and Ng).",
+      "date": "2009-06",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A lower bound for the dual quantity (order 1/d^2), not an upper bound of the constant-1 type. A different question.",
+      "remains": "The bullet.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not against or for the bullet. Dual question.",
+      "object": null,
+      "people": [
+        "V. N. Dubinin",
+        "T. Sugawa"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ar5iv.arxiv.org/html/0906.4605"
+        ]
+      },
+      "sources": [
+        "https://ar5iv.arxiv.org/html/0906.4605"
+      ]
+    },
+    {
+      "id": "hinkkanen-kayumov-khammatova-deg6-dual-2019",
+      "what_happened": "A. Hinkkanen, I. R. Kayumov and D. M. Khammatova, 'Dual Smale's mean value conjecture', Proc. Amer. Math. Soc. 147 (12) (2019), 5227-5237. Proves the dual inequality for degree 6: for normalised f there is a critical point zeta with |f(zeta)/zeta| >= 1/6.",
+      "date": "2019",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The dual inequality in degree 6. Different question.",
+      "remains": "The bullet.",
+      "checked_by": [
+        {
+          "who": "Proceedings of the American Mathematical Society (journal of record)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published (listing in search results; abstract read only via search snippet)",
+          "where": "https://www.ams.org/proc/2019-147-12/S0002-9939-2019-14639-6/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not against or for the bullet. Dual question.",
+      "object": null,
+      "people": [
+        "Aimo Hinkkanen",
+        "Ilgiz R. Kayumov",
+        "Diana M. Khammatova"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.ams.org/proc/2019-147-12/S0002-9939-2019-14639-6/"
+        ]
+      },
+      "sources": [
+        "https://www.ams.org/proc/2019-147-12/S0002-9939-2019-14639-6/"
+      ]
+    },
+    {
+      "id": "ng-odd-polynomials-2003",
+      "what_happened": "T. W. Ng, 'Smale's mean value conjecture for odd polynomials' (Journal of the Australian Mathematical Society, 2003 per the citing literature). Establishes the inequality for odd polynomials with nonzero linear term with constant 2, not 1.",
+      "date": "2003",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The inequality with constant 2, for odd polynomials with nonzero linear term. A restricted class and a weaker constant. Not the bullet.",
+      "remains": "The constant-1 claim for even and general polynomials.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Year and journal taken from the citing literature (Tang's introduction); the original was not opened.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Not against or for the bullet. Restricted class and constant 2.",
+      "object": null,
+      "people": [
+        "T. W. Ng"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2510.16875v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2510.16875v1"
+      ]
+    },
+    {
+      "id": "krishna-cstar-2022-06",
+      "what_happened": "arXiv 2206.08154, 'C*-algebraic Smale Mean Value Conjecture and Dubinin-Sugawa Dual Mean Value Conjecture' (June 2022, identifier-dated). An operator-algebra analogue; the title is the only part read.",
+      "date": "2022-06",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "An analogue in C*-algebras. Different question. Not read beyond the title.",
+      "remains": "The bullet.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Only the title was seen in search results; the analogue's content was not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not against or for the bullet. Operator analogue.",
+      "object": null,
+      "people": [
+        "Krishna (first name not read)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/pdf/2206.08154"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/pdf/2206.08154"
+      ]
+    },
+    {
+      "id": "ma-ma-claimed-solution-2022-11",
+      "what_happened": "Lande Ma and ZhaoKun Ma, 'The mean value problem of Smale's problems' (arXiv 2211.02402, submitted 4 Nov 2022). The abstract says: 'We show two results of mean value problem, Smale's mean value problem is comprehensively solved in this paper.' The comments field says 'arXiv admin note: substantial text overlap with arXiv:2210.10366'.",
+      "date": "2022-11-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only, per the arXiv listing read.",
+      "delivers": "Claimed: a complete solution. The abstract does not say which constant or which form is covered, and the two 'results' are not identified. Not verified: the full text was not read.",
+      "remains": "Unknown from the abstract; the claimed scope is 'comprehensive'.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about four years as of 13 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No journal publication, no later version, and no published engagement found. Wikipedia's article (undated in the mirror read) and later preprints (Jatar and Ng, Aug 2026) describe the problem as open, with no mention of this paper in what I read. The 'text overlap' note is an arXiv administrative note about related work by the same authors, not a retraction.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims the problem is solved in the direction the conjecture predicts, with no visible scope. Not verified.",
+      "object": null,
+      "people": [
+        "Lande Ma",
+        "ZhaoKun Ma"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2211.02402"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2211.02402"
+      ]
+    },
+    {
+      "id": "wang-claimed-proof-2017-03",
+      "what_happened": "Yuefei Wang, 'On Smale's Mean Value Conjecture' (arXiv 1703.06627, submitted 20 Mar 2017). The abstract says: 'In this paper, we prove Smale's mean value conjecture by making use of quasiconformal deformations and holomorphic motions.' The author then withdrew it.",
+      "date": "2017-03-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 20 Mar 2017 (13 KB); v2 1 Apr 2017 (1 KB), withdrawn; the withdrawal comment says: 'This paper has been withdrawn by the author due to an error in page 10'.",
+      "delivers": "Claimed: proof of the conjecture. The abstract gives no constant. Withdrawn by the author, so nothing stands on it.",
+      "remains": "Everything, given the withdrawal.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 9.5 years as of 13 Oct 2026; withdrawn 1 Apr 2017",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Withdrawn by the author for an error on page 10. The v1 PDF was not read. The sharp (d-1)/d form is described in a search summary, not in the abstract.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "Withdrawn by the author in v2; comment: 'This paper has been withdrawn by the author due to an error in page 10'.",
+        "date": "2017-04-01",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/1703.06627"
+        ]
+      },
+      "direction": "Claimed proof in the direction the conjecture predicts; withdrawn.",
+      "object": null,
+      "people": [
+        "Yuefei Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1703.06627"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1703.06627"
+      ]
+    },
+    {
+      "id": "borcea-critique-2003-09",
+      "what_happened": "Julius Borcea, 'Maximal and inextensible polynomials and the geometry of the spectra of normal operators' (arXiv math/0309233, v1 15 Sep 2003; v2 25 Oct 2007). Its abstract says: 'This invalidates the recently claimed proofs of the conjectures of Sendov and Smale.' It refers to the claimed proofs of Schmieder (eight versions) and gives concrete counterexamples to the main claims of each version, and argues that first-order variational methods cannot succeed (as described in a search summary of the paper).",
+      "date": "2003-09-15",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 15 Sep 2003; v2 25 Oct 2007 (current).",
+      "delivers": "Not a proof. It establishes that the claimed proofs of Smale's conjecture in that family are invalid, by counterexample to their steps. It does not decide the conjecture either way.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [
+        {
+          "who": "Julius Borcea",
+          "qualification": "Author of published work on Sendov's conjecture and critical points of polynomials (math/0309233); professional standing not checked",
+          "what_they_did": "Wrote a critique identifying counterexamples to the claimed proofs (per the abstract and a search summary of the paper).",
+          "where": "https://arxiv.org/abs/math/0309233",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The counterexamples are described in the abstract and in a search summary; the body was not read beyond the abstract. A 2003 talk abstract by Sendov (found in search, not opened) reportedly also calls the eight proofs incorrect.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against the claimed proofs (not the conjecture): the proofs are invalid for the stated reasons.",
+      "object": "Concrete polynomials (counterexamples to the main claims in each of Schmieder's eight arXiv versions), per the critique's description. Not reproduced in the sources read.",
+      "people": [
+        "Julius Borcea"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0309233"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0309233"
+      ]
+    },
+    {
+      "id": "schmieder-claimed-proof-2002-06",
+      "what_happened": "Gerald Schmieder, 'A proof of Smale's mean value conjecture' (arXiv math/0206174). The abstract reads: 'A proof of Smale's mean value conjecture from 1981 is given.' The paper was revised eight times, the last on 3 Jul 2003. No refereed publication found.",
+      "date": "2002-06-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 18 Jun 2002; v2 21 Aug 2002; v3 8 Sep 2002; v4 13 Nov 2002; v5 to v8; v8 3 Jul 2003 (arXiv listing).",
+      "delivers": "Claimed: a proof of the full conjecture. The abstract gives no constant. Per search summaries of the paper and of Borcea's critique, the claim is a variational proof of the normalised sharp form (n-1)/n. That form is not verified by my reading of the paper.",
+      "remains": "Everything, if the claim were valid; it is refuted for the reasons in the Borcea event.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 24 years as of 13 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Counterexamples to the main claims of all eight versions (Borcea, 2003). The Sendov talk abstract (2003, search only) calls the eight proofs incorrect. No journal publication found; the arXiv abstract page shows no journal reference. Author withdrawal not found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Claims the conjecture is true, in the direction the bullet predicts. Refuted per the Borcea critique.",
+      "object": null,
+      "people": [
+        "Gerald Schmieder"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0206174"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0206174",
+        "https://arxiv.org/abs/math/0309233"
+      ]
+    },
+    {
+      "id": "tyson-tischler-counterexamples-2005",
+      "what_happened": "Tyson, 'Counterexamples to Tischler's strong form of Smale's mean value conjecture' (Bull. London Math. Soc. 37(1), 2005, per search results). Shows Tischler's stronger variant (bound 1/2 - 1/d on a different functional) is false in each degree d >= 5; verifies it in some local perturbation settings.",
+      "date": "2005",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Counterexamples to a stronger variant (Tischler's), not to Smale's constant-1 inequality. Different question.",
+      "remains": "The bullet.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Taken from search summaries; the paper was not opened.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Against Tischler's stronger variant only. Not against the bullet's constant-1 inequality.",
+      "object": "Counterexamples to Tischler's strong form in each degree d >= 5 (per search summaries).",
+      "people": [
+        "Tyson"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://academic.oup.com/blms/article-abstract/37/1/95/281035"
+        ]
+      },
+      "sources": [
+        "https://academic.oup.com/blms/article-abstract/37/1/95/281035"
+      ]
+    },
+    {
+      "id": "marinov-sendov-numerical-2007",
+      "what_happened": "P. Marinov and B. Sendov, 'Verification of the Smale's mean value conjecture for n <= 10', C. R. Acad. Bulg. Sci. 60(11) (2007), 1151-1156. Computer-assisted numerical verification in degrees up to 10.",
+      "date": "2007",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Numerical verification in each degree n <= 10. Which constant (1, or the sharp (d-1)/d) was verified is not stated in the sources I read; secondary sources describe it as verifying the conjecture. Computer-assisted numerics, not symbolic proof and not AI.",
+      "remains": "All degrees n >= 11, and the universal claim.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Reported only via secondary summaries (a 2017 survey and Dubinin and Sugawa, 2009). The original was not opened. If the constant verified is the sharp form, the checks cover degrees 2-10 for constant 1 as well, which would put any K = 1 counterexample above degree 10; this is my inference, conditional on the secondary reports.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "For, within the degrees checked (conditional on the secondary reports).",
+      "object": null,
+      "people": [
+        "P. Marinov",
+        "B. Sendov"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://ar5iv.arxiv.org/html/0906.4605",
+          "https://imsarchives.nus.edu.sg/oldwww2/events/2017/geo/files/patrick.pdf"
+        ]
+      },
+      "sources": [
+        "https://ar5iv.arxiv.org/html/0906.4605",
+        "https://imsarchives.nus.edu.sg/oldwww2/events/2017/geo/files/patrick.pdf"
+      ]
+    },
+    {
+      "id": "conte-fujikawa-lakic-2007",
+      "what_happened": "Conte, Fujikawa and Lakic, 'Smale's mean value conjecture and the coefficients of univalent functions', Proc. Amer. Math. Soc. 135(10) (2007). Improves the general-degree constant to 4(d-1)/(d+1), by repeated use of the Bieberbach coefficient bound.",
+      "date": "2007",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A constant bound, not 1: for each degree d the best constant is at most 4(d-1)/(d+1). Restricted to the constant, not the existence claim at constant 1.",
+      "remains": "The constant-1 claim, and the sharp (d-1)/d value.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "From the Wikipedia article's history section and search summaries; not opened.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neither for nor against the constant-1 claim; improves the constant bound.",
+      "object": null,
+      "people": [
+        "Conte",
+        "Fujikawa",
+        "Lakic"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Mean_value_problem"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Mean_value_problem"
+      ]
+    },
+    {
+      "id": "crane-bound-2007",
+      "what_happened": "M. Crane, 'A bound for Smale's mean value conjecture for complex polynomials', Bull. London Math. Soc. 39(5) (Oct 2007), 781-791. For degree d >= 8 (the Bristol version says d > 8) gives a constant bound of the form 4 - c/sqrt(d); the constant c is reported as 2.263 in one survey and 2 in a later talk.",
+      "date": "2007",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A constant bound, not 1, for large degree. Not the bullet's constant.",
+      "remains": "The constant-1 claim.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The constant c is disputed among secondary sources; the paper was not opened. Crane also announced a degree-5 result (L(5) = 4/5) using verified interval arithmetic (search summary), which is computer-assisted but not AI.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neither for nor against the constant-1 claim.",
+      "object": null,
+      "people": [
+        "M. Crane"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Mean_value_problem"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Mean_value_problem"
+      ]
+    },
+    {
+      "id": "beardon-minda-ng-2002",
+      "what_happened": "A. F. Beardon, D. Minda and T. W. Ng, Math. Annalen 2002, using the hyperbolic metric, bound the general-degree constant by 4^((d-2)/(d-1)) (search summary).",
+      "date": "2002",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A constant bound, not 1.",
+      "remains": "The constant-1 claim.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "From a search summary only; not opened. The Wikipedia article does not mention this paper, and the search link I saw for it does not establish the claim, so no source in this record supports the 2002 attribution or the bound. Treat as unverified.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither for nor against the constant-1 claim.",
+      "object": null,
+      "people": [
+        "A. F. Beardon",
+        "D. Minda",
+        "T. W. Ng"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": []
+      },
+      "sources": []
+    },
+    {
+      "id": "tischler-special-classes-1989",
+      "what_happened": "D. Tischler, 'Critical points and values of complex polynomials', J. Complexity 5(4) (1989), 438-456. Per the Wikipedia article: the sharp constant (d-1)/d holds for polynomials with only real roots, and for polynomials whose roots all have the same modulus. Also reported to confirm degrees 2, 3 and 4 (secondary sources).",
+      "date": "1989",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The sharp value for two special classes (real-rooted; equal-modulus roots). Restricted classes, not the general claim.",
+      "remains": "The general case of the constant-1 claim and the sharp form.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The Wikipedia article is the source for the class description; the original paper was not opened.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "For, on the two restricted classes.",
+      "object": null,
+      "people": [
+        "D. Tischler"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Mean_value_problem"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Mean_value_problem"
+      ]
+    },
+    {
+      "id": "smale-constant-4-1981",
+      "what_happened": "Stephen Smale, 'The fundamental theorem of algebra and complexity theory' (1981; listed in the Wikipedia article's references, journal not opened). Proves the inequality with constant 4 for every complex polynomial of degree d >= 2 and every z (some critical point c with |f(z) - f(c)| <= 4 |f'(z)| |z - c|), and poses the conjecture with constant 1, and the sharper (d-1)/d.",
+      "date": "1981",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "The inequality with constant 4 (proved). Not constant 1.",
+      "remains": "The constant-1 claim (the bullet), and the sharp form.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Taken from the Wikipedia article ('The question was initially resolved by Smale for K = 4'); Smale's paper was not opened.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neither: a constant-4 result with the constant-1 conjecture posed.",
+      "object": null,
+      "people": [
+        "Stephen Smale"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Mean_value_problem"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Mean_value_problem"
+      ]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "status",
+      "summary": "Status of the constant-1 claim is inconsistent across sources. The Wikipedia short description says 'disproved in 2026' (last edited 13 Sep 2026) while its body still describes K = 1 as open. MathWorld (updated 2 Oct 2026) calls the Adamczewski result a 'proposed counterexample'. The VibeMathed tracker says 'Candidate (review pending)' and 'No independent mathematician has checked this yet'. Jatar and Ng (27 Aug 2026, predating the claim) say the problem is unsolved.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Mean_value_problem",
+        "https://mathworld.wolfram.com/SmalesMeanValueConjecture.html",
+        "https://vibemathed.com/problem/smale-s-mean-value-conjecture-k-1",
+        "https://arxiv.org/abs/2608.27047"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "The repository credits the Lean proof to GPT-6 Astra ('The Lean proof itself was written by GPT-6 Astra') and the search to no human ('No human saw or steered the proof search'), but also says the whole repository was 'machine-written by AI assistants at the direction of Tom Adamczewski' (unnamed assistants). The record does not pick between these; the later pass should read both.",
+      "sources": [
+        "https://github.com/tadamcz/mean-value-problem/blob/main/README.md"
+      ]
+    },
+    {
+      "kind": "claimed-proof",
+      "summary": "Claimed full proofs of the conjecture from 2002 (Schmieder), 2017 (Wang, withdrawn) and 2022 (Ma and Ma, not refuted in the sources read) conflict with the 'still unsolved' status in the 2026 literature. Schmieder's claim is refuted in the Borcea critique (2003); Wang's was withdrawn by its author; Ma and Ma's has no visible engagement.",
+      "sources": [
+        "https://arxiv.org/abs/math/0206174",
+        "https://arxiv.org/abs/math/0309233",
+        "https://arxiv.org/abs/1703.06627",
+        "https://arxiv.org/abs/2211.02402"
+      ]
+    },
+    {
+      "kind": "cost",
+      "summary": "The disclosed cost basis differs: the README reports $265 at GPT-6 Astra's standard rates, while Epoch's results repository says the harness metered GPT-6 Astra at GPT-5.6 Sol's prices because no prices had been published.",
+      "sources": [
+        "https://github.com/tadamcz/mean-value-problem/blob/main/README.md",
+        "https://github.com/epoch-research/LeanOpenProblems-results"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "An AI4Math tracker record (PR #41) says the original construction was later checked and generalised by Adamczewski, Bohmler and Marczinzik. I found that Bohmler and Marczinzik co-wrote a different paper with Adamczewski (a Kothe conjecture counterexample, arXiv 2609.07996) and no link to Smale's problem. Treat the claim as unverified and probably a mix-up.",
+      "sources": [
+        "https://github.com/Charlie-Wang-03/ai4math-radar/pull/41"
+      ]
+    }
+  ],
+
+  "summary": "Found one in-window claim that bears directly on the bullet, and a long pre-window history. (1) On 3 Sep 2026 Tom Adamczewski posted a Lean 4 (Mathlib) disproof of the constant-1 inequality. The README credits the witness and the Lean proof to a pre-release GPT-6 Astra run in an Epoch AI evaluation, and says no human steered the proof search. I read the README, the challenge statement and the imported module through summarising fetches; I did not compile them or run Comparator. The Lean statement is the negation of the universal constant-1 claim; the witness is a normalised polynomial p (p(0)=0, p'(0)=1) of degree described only as 'very large, unspecified', with |p(c)/c| > 1 at every critical point, at z = 0. The witness is non-explicit. No mathematician review was found: the VibeMathed tracker says none has checked it, and MathWorld (updated 2 Oct 2026) reports no review as of 7 Sep 2026. Two parts of Wikipedia disagree: the short description says 'disproved in 2026' and the body still treats K = 1 as open. Close calls: (a) whether the disproof resolves the bullet depends on whether the Lean statement faithfully encodes it (an unused K binder; x/0 = 0 convention, which I judge harmless on my reading) and on accepting a single AI-generated, unreviewed proof; (b) my inference is that a degree-d witness would also contradict the sharp (d-1)/d form at that degree, although the bullet does not ask for it; (c) Jatar and Ng's restricted Schlicht asymptotic result (27 Aug 2026, predating the claim) would conflict with a Schlicht witness with slowly decaying leading coefficient at large degree; the sources do not say whether the witness is Schlicht. On AI involvement: the authors' own account (README) credits GPT-6 Astra with the Lean proof and the autonomous search, which is load-bearing and recorded in ai.systems. The same README says the whole repository was machine-written by unnamed 'AI assistants'; those are not recorded as systems. Epoch's public results repository, read, lists no run named wikipedia-vega-1000usd, though it does describe GPT-6 Astra as a pre-release model; the run name is therefore not confirmed from Epoch's side. Epoch's own page says Adamczewski started its benchmark engineering team. (2) AI search in the window: AlphaEvolve on Problem 6.23 (Georgiev, Gomez-Serrano, Tao and Wagner, 3 Nov 2025) rediscovered the known lower bound and found no counterexample; it is a null search and recorded as such. (3) Partial and analogue results in the window: Jatar and Ng (Aug 2026, restricted asymptotic plus dual results); Tang (Oct 2025, dual, odd polynomials); Hinkkanen et al. (dual, degree 7, preprint March 2023, journal 2025); Dubinin (2024, Blaschke analogue). (4) Pre-window claims of proofs: Schmieder (2002), refuted per Borcea (2003); Wang (2017), withdrawn; Ma and Ma (2022), no visible engagement. Pre-window partial results: Smale (1981, constant 4), Tischler (1989, two special classes), Ng (2003, odd polynomials, constant 2), Marinov and Sendov (2007, numerical, n <= 10), Crane and Conte et al. (2007, constant bounds), plus dual and analogue papers recorded as discounted events. Dead ends: Tao's blog and Mathstodon (nothing found); a 'Bohmler and Marczinzik' claim in a tracker record (unverified, probably a mix-up); Watanabe's disproof of the 4-dimensional Smale conjecture (a different problem); and the Epoch FrontierMath Erdos paper, the Sra 'GPT, the Counterexample Machine' paper and the 'Endless Exam' paper, whose abstracts do not mention Smale (their bodies were not readable).",
+
+  "competing_reading": "The strongest case against counting the disproof is that it is one unreviewed claim: the only proof is the author's own AI-generated Lean development, the Lean statement's fidelity to the bullet has not been checked by a human, the witness is non-explicit with no stated degree, and the Wikipedia body and the Aug 2026 Jatar and Ng paper still describe the problem as open. On that reading the bullet stays open, the disproof is a candidate pending review, and it should not be treated as settling the problem until a complex-analysis specialist has checked the statement and the construction. The contrary reading, that the disproof is a formal refutation of the universal claim as stated, rests on the Lean development compiling with only standard axioms and the statement matching the bullet, which the record shows only by the author's own account.",
+
+  "what_would_settle_it": "(i) A human reading of Challenge.lean against Smale's 1981 statement and the Wikipedia wording, including whether the unused real K binder and the x/0 convention change the statement. (ii) A successful lake build and Comparator run on the repository at its stated toolchain, by someone other than the author. (iii) A mathematician's account of the witness's construction (the approximation and perturbation steps) and of its degree, and whether that degree is above the range of earlier numerical checks. (iv) An arXiv write-up or journal submission, and any response from complex analysts. (v) Epoch's own record of the wikipedia-vega-1000usd run (its results, the identity of the pre-release model, and the cost basis). (vi) Whether the Wikipedia body text is updated to match its short description. (vii) Whether the witness is Schlicht, and if so with what leading coefficient, to settle its relation to Jatar and Ng's asymptotic result.",
+
+  "sources": [
+    {"url": "https://github.com/tadamcz/mean-value-problem", "title": "tadamcz/mean-value-problem: Lean 4 disproof of Smale's mean value conjecture (K = 1), found by GPT-6 Astra", "type": "repository", "opened": true},
+    {"url": "https://github.com/tadamcz/mean-value-problem/blob/main/README.md", "title": "README.md (tadamcz/mean-value-problem)", "type": "repository", "opened": true},
+    {"url": "https://github.com/tadamcz/mean-value-problem/commits/main", "title": "Commits (tadamcz/mean-value-problem)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/tadamcz/mean-value-problem/main/Challenge.lean", "title": "Challenge.lean", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/tadamcz/mean-value-problem/main/Solution.lean", "title": "Solution.lean", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/tadamcz/mean-value-problem/main/MeanValueProblem/Resolutions/MeanValueProblem.lean", "title": "MeanValueProblem/Resolutions/MeanValueProblem.lean", "type": "repository", "opened": true},
+    {"url": "https://vibemathed.com/problem/smale-s-mean-value-conjecture-k-1", "title": "Smale's Mean Value Conjecture (K=1), VibeMathed tracker", "type": "blog", "opened": true},
+    {"url": "https://mathworld.wolfram.com/SmalesMeanValueConjecture.html", "title": "Smale's Mean Value Conjecture, MathWorld", "type": "encyclopedia", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/Mean_value_problem", "title": "Mean value problem, Wikipedia (rendered and raw wikitext)", "type": "encyclopedia", "opened": true},
+    {"url": "https://epoch.ai/latest/announcing-frontiermath-erdos", "title": "Announcing FrontierMath Erdos, Epoch AI (1 Sep 2026)", "type": "blog", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.25050", "title": "FrontierMath Erdos (Adamczewski and Bloom), arXiv 2609.25050", "type": "preprint", "opened": true},
+    {"url": "https://github.com/epoch-research/LeanOpenProblems", "title": "epoch-research/LeanOpenProblems", "type": "repository", "opened": true},
+    {"url": "https://github.com/epoch-research/LeanOpenProblems-results", "title": "epoch-research/LeanOpenProblems-results", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.27047", "title": "Smale's Mean Value Conjecture and its Dual Conjecture for Complex Polynomials (Jatar, Ng), arXiv 2608.27047", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.27047", "title": "arXiv 2608.27047 HTML (first 100,000 characters read)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2511.02864", "title": "Mathematical exploration and discovery at scale (Georgiev, Gomez-Serrano, Tao, Wagner), arXiv 2511.02864", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2511.02864", "title": "arXiv 2511.02864 HTML (Problem 6.23 read; other sections partly)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2510.16875", "title": "Dual Smale's mean value conjecture for odd polynomials (Tang), arXiv 2510.16875", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2510.16875v1", "title": "arXiv 2510.16875 HTML", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2211.02402", "title": "The mean value problem of Smale's problems (Ma and Ma), arXiv 2211.02402", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/1703.06627", "title": "On Smale's Mean Value Conjecture (Wang), arXiv 1703.06627 (withdrawn v2)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/math/0206174", "title": "A proof of Smale's mean value conjecture (Schmieder), arXiv math/0206174", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/math/0309233", "title": "Maximal and inextensible polynomials and the geometry of the spectra of normal operators (Borcea), arXiv math/0309233", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.29595", "title": "GPT, the Counterexample Machine (Sra), arXiv 2608.29595 (abstract only)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.24555", "title": "The Endless Exam (Zhang), arXiv 2609.24555 (abstract only)", "type": "preprint", "opened": true},
+    {"url": "https://github.com/Charlie-Wang-03/ai4math-radar/pull/41", "title": "ai4math-radar PR #41 (daily AI4Math maintenance, 2026-09-03)", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/alphaevolve_repository_of_problems", "title": "google-deepmind/alphaevolve_repository_of_problems", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/search?q=%22mean+value%22+smale&type=code", "title": "Formal Conjectures code search (login required; no results)", "type": "repository", "opened": true},
+    {"url": "https://arhiva-stiinte.uoradea.ro/en/auofm/auofm2026/GaoLiShao77.pdf", "title": "Gao, Li, Shao (2026), Annals of the University of Oradea (returned HTTP 404)", "type": "preprint", "opened": false},
+    {"url": "https://x.com/tmkadamcz/status/2095785941193404457", "title": "X post by the repository author (connection refused)", "type": "news", "opened": false},
+    {"url": "https://arxiv.org/abs/2609.07996", "title": "A counterexample to Kothe's conjecture and a question of Rowen (search result only)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/pdf/1609.00170", "title": "Smale's mean value conjecture for finite Blaschke products (Ng, Zhang), arXiv 1609.00170 (search result only)", "type": "preprint", "opened": false},
+    {"url": "https://mathnet.ru/eng/mzm14315", "title": "Dubinin 2024, MathNet record (search result only)", "type": "journal", "opened": false},
+    {"url": "https://www.ams.org/proc/2019-147-12/S0002-9939-2019-14639-6/", "title": "Hinkkanen, Kayumov, Khammatova 2019, AMS listing (search result only)", "type": "journal", "opened": false},
+    {"url": "https://ar5iv.labs.arxiv.org/html/2303.17586", "title": "Dual Smale's mean value conjecture for n=7, arXiv 2303.17586 (search result only)", "type": "preprint", "opened": false},
+    {"url": "https://link.springer.com/article/10.1007/s00365-025-09709-4", "title": "Dual Smale's Mean Value Conjecture for n=7, Constructive Approximation (search result only)", "type": "journal", "opened": false},
+    {"url": "https://ar5iv.arxiv.org/html/0906.4605", "title": "Dual mean value problem for complex polynomials (Dubinin, Sugawa), arXiv 0906.4605 (search result only)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/pdf/2206.08154", "title": "C*-algebraic Smale Mean Value Conjecture ..., arXiv 2206.08154 (title only)", "type": "preprint", "opened": false},
+    {"url": "https://academic.oup.com/blms/article-abstract/37/1/95/281035", "title": "Tyson, Counterexamples to Tischler's strong form (search result only)", "type": "journal", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Smale mean value conjecture polynomial critical point",
+      "Smale's mean value problem proof 2025",
+      "mean value problem Smale complex polynomial arXiv",
+      "Smale mean value conjecture AI proof",
+      "Smale mean value conjecture 2024",
+      "|f(z)-f(c)| ≤ |f'(z)||z-c| critical point polynomial",
+      "Smale mean value conjecture Wikipedia list of unsolved problems in mathematics",
+      "Smale mean value conjecture constant 4 polynomial degree proof",
+      "Adamczewski Smale's mean value problem counterexample",
+      "GPT-6 Astra mathematics counterexample Smale",
+      "VibeMathed Smale mean value problem",
+      "Smale mean value problem disproved 2026",
+      "Smale mean value conjecture counterexample constant 1 Lean formal proof",
+      "AlphaEvolve Smale mean value conjecture Georgiev Gómez-Serrano Tao Wagner problems",
+      "Georgiev Gómez-Serrano Tao Wagner AlphaEvolve mathematical problems list",
+      "Jatar Ng Smale's mean value conjecture dual conjecture complex polynomials",
+      "Epoch AI LeanOpenProblems wikipedia-vega evaluation GPT-6 Astra",
+      "Borcea Schmieder proof Smale mean value conjecture not valid",
+      "Smale mean value conjecture disproof Lean expert review mathematicians reaction",
+      "Borcea Smale mean value conjecture Sendov arXiv Schmieder eight versions counterexamples",
+      "formal-conjectures Smale mean value conjecture K=1 Lean statement",
+      "Böhmler Marczinzik Smale mean value conjecture counterexample generalization",
+      "Adamczewski Epoch AI Smale mean value conjecture Lean disproof write-up",
+      "Smale mean value conjecture Tao blog Mathstodon disproof",
+      "Smale mean value conjecture Tischler 1989 critical points and values of complex polynomials real zeros",
+      "Crane bound Smale mean value conjecture complex polynomials arXiv 2007 d ≥ 8",
+      "Ma Ma \"mean value problem of Smale's problems\" comprehensively solved",
+      "Sikorav degree 4 Smale mean value conjecture 3/4 Tischler L(4)",
+      "Dubinin 2024 analog Smale mean value conjecture finite Blaschke products Mathematical Notes",
+      "Smale mean value conjecture K=1 false GPT-6 Astra disproof news",
+      "Sendov Marinov numerical verification Smale mean value conjecture degree 10 computer",
+      "Hinkkanen Kayumov Khammatova dual Smale mean value conjecture degree six Proceedings AMS",
+      "Schmieder proof Smale mean value conjecture arXiv revisions refereed journal status",
+      "Smale mean value conjecture disproof independent review mathematicians verified October 2026",
+      "Formal Conjectures Wikipedia collection 222 research-open statements Epoch AI LeanOpenProblems wikipedia run",
+      "epoch-research LeanOpenProblems-results wikipedia-vega Smale mean value"
+    ],
+    "places_checked": [
+      "Wikipedia 'Mean value problem' (rendered page and raw wikitext)",
+      "MathWorld 'Smale's Mean Value Conjecture'",
+      "GitHub repository tadamcz/mean-value-problem (README, commits, Challenge.lean, Solution.lean, module MeanValueProblem/Resolutions/MeanValueProblem.lean, repository root listing)",
+      "VibeMathed problem page for Smale's Mean Value Conjecture (K=1)",
+      "Epoch AI 'Announcing FrontierMath Erdos' page",
+      "arXiv 2609.25050 (FrontierMath Erdos, abstract)",
+      "GitHub epoch-research/LeanOpenProblems and epoch-research/LeanOpenProblems-results",
+      "arXiv 2608.27047 (Jatar and Ng; abstract, HTML first 100k characters)",
+      "arXiv 2511.02864 (Georgiev et al.; abstract, HTML Problem 6.23)",
+      "arXiv 2510.16875 (Tang; HTML intro)",
+      "arXiv 2211.02402 (Ma and Ma; abstract)",
+      "arXiv 1703.06627 (Wang; abstract and version history)",
+      "arXiv math/0206174 (Schmieder; abstract and version history)",
+      "arXiv math/0309233 (Borcea; abstract and version history)",
+      "arXiv 2608.29595 (Sra; abstract) and arXiv 2609.24555 (Zhang; abstract)",
+      "ai4math-radar PR #41",
+      "GitHub google-deepmind/alphaevolve_repository_of_problems (problem count; no Smale entry visible)",
+      "GitHub google-deepmind/formal-conjectures code search (requires login; not available)",
+      "Search results for Tao blog and Mathstodon, Lean Zulip-style discussion, Quanta, and MathSciNet/zbMATH style listings (none found through the search tool)"
+    ],
+    "dead_ends": [
+      "Tao's blog and Mathstodon: no post about the Smale disproof found by search.",
+      "Bohmler and Marczinzik 'checked and generalised' claim (AI4Math PR #41): traced only to a Kothe conjecture paper; no Smale link found.",
+      "Formal Conjectures upstream Smale entry: code search needs a GitHub login; no file path found by search.",
+      "Epoch's public results repository does not list a run named wikipedia-vega-1000usd (run names visible: oeis-..., bloom68-..., erdos-...).",
+      "X post by the repository author: connection refused.",
+      "Gao, Li, Shao (2026) PDF: HTTP 404.",
+      "Watanabe's disproof of the 4-dimensional Smale conjecture (a different Smale conjecture about diffeomorphisms; search result).",
+      "Sendov's conjecture for degrees >= 10^200000 (arXiv 2609.20256; a different conjecture about zeros and critical points).",
+      "Sra, 'GPT, the Counterexample Machine' (arXiv 2608.29595): abstract lists combinatorics, number theory, convexity and analysis; no Smale mention in the abstract; body not readable.",
+      "Zhang, 'The Endless Exam' (arXiv 2609.24555): abstract does not mention Smale; body not readable.",
+      "Epoch FrontierMath Erdos (arXiv 2609.25050): abstract and Epoch's announcement do not mention Smale or the Wikipedia run.",
+      "Jacobian-conjecture and other AI-disproof coverage that surfaces in searches on 'disproved' and 'counterexample': a different problem."
+    ]
+  },
+
+  "incomplete": "(1) I could not compile the Lean development or run Comparator; the statement and witness readings come from summarising fetches of the README and Lean files, and the 'sorry_free' value is the repository's claim as I read it. (2) Upstream Formal Conjectures entry for this problem was not found; I could not check whether the repository's statement matches it. (3) Full text was not read for arXiv 2608.27047 beyond the first 100,000 characters (acknowledgements and any AI-use disclosure are unread), arXiv 2511.02864 beyond the Problem 6.23 range (the rest of the paper unread), arXiv 2609.24555 and 2608.29595 (PDF bodies unreadable; abstracts only), and arXiv 2609.25050 (abstract only). (4) Many pre-window items were recorded from search summaries and secondary descriptions and not opened: Smale (1981), Tischler (1989), Crane (2007), Conte, Fujikawa and Lakic (2007), Marinov and Sendov (2007), Beardon, Minda and Ng (2002), Ng (2003), Tyson (2005), Hinkkanen et al. (2019), Dubinin (2024), Ng and Zhang (2016), Dubinin and Sugawa (2009), Krishna (2022). Sikorav's degree-4 result (constant 3/4) is reported in secondary sources but its date could not be established, so it is described in the summary rather than recorded as an event. Fujikawa and Sugawa's refinement is also not recorded as an event. (5) The Epoch run's existence is only evidenced by the repository's own README; the Epoch results repository does not list it. (6) The X post, the Gao, Li, Shao PDF and the Sendov 2003 talk abstract could not be read. (7) No Tao blog, Quanta, Lean Zulip, MathSciNet or zbMATH coverage of the disproof was found; I did not have direct access to MathSciNet or zbMATH. (8) The witness degree is not stated; whether it is Schlicht is not stated; the relation to Jatar and Ng's restricted result is therefore unresolved. (9) I did not check any statement on the constant-1 claim beyond 13 October 2026."
+}

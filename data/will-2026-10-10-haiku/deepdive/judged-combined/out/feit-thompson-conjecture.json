@@ -1,0 +1,966 @@
+{
+  "key": "feit-thompson-conjecture",
+  "nothing_found": false,
+  "outcome": "Nothing has settled the divisibility conjecture as stated since 26 January 2024, and I found no peer-reviewed or independently checked progress. The one in-window event that claims to move it is a March 2024 unrefereed Preprints.org preprint (C. Hannusch) asserting the non-divisibility for twin-prime pairs p = q+2; I could not open the preprint, found no review, citation or journal version, and did not read the proof. The other in-window items concern the stronger coprimality form (a 2025 counterexample search that found nothing new) or namesake problems.",
+  "problem_asks": "For every pair of distinct primes p and q: the number (p^q - 1)/(p - 1) does not divide (q^p - 1)/(q - 1). This is one universal negative divisibility claim over all pairs of distinct primes. Because the quantifier ranges over all ordered pairs, each unordered pair {p, q} is covered in both directions. The statement does not ask for the stronger form that the two quotients are always coprime (gcd > 1 never occurs), which is a different claim and is refuted by Stephens (1971) with p = 17, q = 3313.",
+  "events": [
+    {
+      "id": "feit-thompson-odd-order-1963",
+      "what_happened": "NAMESAKE ONLY, NOT THIS QUESTION. W. Feit and J. G. Thompson, 'Solvability of groups of odd order', Pacific J. Math. 13 (1963), 775-1029: every finite group of odd order is solvable. The conjecture was motivated by this proof: if the divisibility claim held, the final chapter would be shortened. A Coq formalisation of the odd-order theorem exists (search results cite a 2012 announcement and ITP 2013; the Lean eval page cites the Coq work and says there is no Lean port). Recorded so the namesake is visible to the judging pass; it settles nothing about the divisibility claim.",
+      "date": "1963",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Solvability of finite groups of odd order. A different problem sharing the names Feit and Thompson. Delivers nothing about primes p, q or the quotients (p^q - 1)/(p - 1).",
+      "remains": "The whole of the divisibility claim.",
+      "checked_by": [
+        {
+          "who": "G. Gonthier and collaborators (Coq formalisation of the odd-order theorem)",
+          "qualification": "Machine-checked formal proof project; a human-led project reported via the Lean eval page and search results",
+          "what_they_did": "Formalised the odd-order theorem in Coq (not reached directly; package page seen in search results only)",
+          "where": "https://rocq-prover.org/p/coq-mathcomp-odd-order",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "63 years for the theorem; not applicable to the conjecture",
+      "machine_checked": {
+        "system": "Coq (mathcomp odd-order package)",
+        "sorry_free": null,
+        "url": "https://rocq-prover.org/p/coq-mathcomp-odd-order"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not applicable: a different theorem sharing the namesakes. It does not cut for or against the divisibility claim.",
+      "object": null,
+      "people": [
+        "W. Feit",
+        "J. G. Thompson"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://lean-lang.org/eval/problems/feit_thompson/"
+        ]
+      },
+      "sources": [
+        "https://lean-lang.org/eval/problems/feit_thompson/",
+        "https://proofwiki.org/wiki/Feit-Thompson_Conjecture"
+      ]
+    },
+    {
+      "id": "stephens-1971",
+      "what_happened": "N. M. Stephens, 'On the Feit-Thompson Conjecture', Mathematics of Computation 25(115), p. 625 (July 1971; DOI 10.2307/2005226). By computer search Stephens found p = 17, q = 3313 for which the two quotients share the factor 2pq + 1 = 112643, which refutes the stronger coprimality form. Wikipedia also cites this paper for the case q = 2 of the divisibility claim. The paper itself was not reachable (AMS PDF returned 403). The content above comes from secondary sources: ProofWiki, Groupprops, MathWorld, Wikipedia, and Motose 2012 (which opens by saying Stephens found the example for 17 and 3313).",
+      "date": "1971-07",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Refutes only the stronger form (the two quotients are always coprime), which is not what the statement asks. Per Wikipedia, establishes the divisibility claim for q = 2. Checked independently by me: for q = 2 and odd p, (p^2 - 1)/(p - 1) = p + 1 is even while (2^p - 1)/1 = 2^p - 1 is odd, so p + 1 cannot divide it, and 2^p - 1 exceeds p + 1, so the reverse divisibility fails too. The q = 2 case is elementary.",
+      "remains": "On the Wikipedia reading, every pair in which neither prime is 2. On the stricter reading that the paper says nothing about divisibility, everything. The coprime form is not part of the statement.",
+      "checked_by": [
+        {
+          "who": "Kaoru Motose",
+          "qualification": "Author of several papers on this conjecture, published in the refereed Proc. Japan Acad. Ser. A",
+          "what_they_did": "Re-derived the Stephens primes 17 and 3313 as common index divisors of cyclotomic subfields using the Artin map (2012)",
+          "where": "https://projecteuclid.org/euclid.pja/1330958573",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "55 years",
+      "machine_checked": null,
+      "directly_checkable": "The pair p = 17, q = 3313: the claimed common factor 2pq + 1 = 2 x 17 x 3313 + 1 = 112643 checks by hand (I did this arithmetic). Whether 112643 divides both quotients is a finite computation I did not run (Bash approval was refused). For q = 2 the case is checkable by hand as above.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Against the stronger coprime form: it is a counterexample to coprimality. Against the divisibility claim as stated in the bullet: no counterexample; the divisibility claim is not refuted. For q = 2 it supports the conjecture (per Wikipedia, and by my parity check).",
+      "object": "The pair p = 17, q = 3313. The two quotients (p^q - 1)/(p - 1) and (q^p - 1)/(q - 1) share the common factor 112643 = 2pq + 1. This is an explicit computer-found pair, not a non-constructive existence result. It is a counterexample to coprimality, not to divisibility. ProofWiki says the search covered p < 443, pq < 200000 and r < 400000; MathWorld reports no other such pair with both values below 400000.",
+      "people": [
+        "N. M. Stephens",
+        "Kaoru Motose (2012 re-derivation)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Feit%E2%80%93Thompson_conjecture"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Feit%E2%80%93Thompson_conjecture",
+        "https://proofwiki.org/wiki/Feit-Thompson_Conjecture",
+        "https://groupprops.subwiki.org/wiki/Feit-Thompson_conjecture",
+        "https://mathworld.wolfram.com/Feit-ThompsonConjecture.html",
+        "https://projecteuclid.org/euclid.pja/1330958573",
+        "https://www.ams.org/journals/mcom/1971-25-115/S0025-5718-1971-0297686-1/S0025-5718-1971-0297686-1.pdf"
+      ]
+    },
+    {
+      "id": "motose-2009-notes-i",
+      "what_happened": "Kaoru Motose, 'Notes to the Feit-Thompson conjecture', Proc. Japan Acad. Ser. A 85(2), 16-17 (February 2009; DOI 10.3792/pjaa.85.16). The abstract (opened) reads: 'We shall present partial solutions to the conjecture such that (q^p-1)/(q-1) does not divide (p^q-1)/(p-1) for distinct primes p<q.' Its full text is behind a subscription and I could not read it, so which (p, q) cases are proved is unknown to me.",
+      "date": "2009-02",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Partial solutions of the divisibility claim, written for p < q as (q^p-1)/(q-1) not dividing (p^q-1)/(p-1). Since p and q range over all distinct primes, this is the bullet's claim in one direction for each pair. Which restricted cases are established is not visible from the abstract.",
+      "remains": "Not determinable from the abstract. The general claim is open on every source I read.",
+      "checked_by": [
+        {
+          "who": "Proc. Japan Acad. Ser. A (refereed journal)",
+          "qualification": "Journal publication after refereeing",
+          "what_they_did": "Published the note",
+          "where": "https://projecteuclid.org/journals/proceedings-of-the-japan-academy-series-a-mathematical-sciences/volume-85/issue-2/Notes-to-the-Feit-Thompson-conjecture/10.3792/pjaa.85.16.full",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "17 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial results in favour of the divisibility claim (no counterexample is reported).",
+      "object": null,
+      "people": [
+        "Kaoru Motose"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://projecteuclid.org/journals/proceedings-of-the-japan-academy-series-a-mathematical-sciences/volume-85/issue-2/Notes-to-the-Feit-Thompson-conjecture/10.3792/pjaa.85.16.full"
+        ]
+      },
+      "sources": [
+        "https://projecteuclid.org/journals/proceedings-of-the-japan-academy-series-a-mathematical-sciences/volume-85/issue-2/Notes-to-the-Feit-Thompson-conjecture/10.3792/pjaa.85.16.full"
+      ]
+    },
+    {
+      "id": "motose-2010-notes-ii",
+      "what_happened": "Kaoru Motose, 'Notes to the Feit-Thompson conjecture. II', Proc. Japan Acad. Ser. A 86(8), 131-132 (October 2010; DOI 10.3792/pjaa.86.131). The abstract (opened) states the conjecture for distinct primes p < q and says the paper 'is a record on partial solutions to this conjecture for small primes 3 and 5'. Keywords: Eisenstein reciprocity, odd order theorem, power residue symbol. A search excerpt quoting the paper (I did not open the full text) reports the reduction that if q is congruent to 1 mod p then the quotient (p^q-1)/(p-1) is 1 mod p while (q^p-1)/(q-1) is 0 mod p, so the claim holds, and the paper therefore assumes q not congruent to 1 mod p.",
+      "date": "2010-10",
+      "precision": "month",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Partial solutions for the small primes p = 3 and p = 5 (per the abstract), i.e. the claim with one of the primes fixed at 3 or 5 and the other arbitrary, subject to conditions I could not read in full. The congruence reduction (q = 1 mod p settles the case) is from the search excerpt, not from a page I opened.",
+      "remains": "Every pair in which neither prime is 3 or 5, and whatever residual conditions the paper leaves for p = 3 and 5.",
+      "checked_by": [
+        {
+          "who": "Proc. Japan Acad. Ser. A (refereed journal)",
+          "qualification": "Journal publication after refereeing",
+          "what_they_did": "Published the note",
+          "where": "https://projecteuclid.org/euclid.pja/1286198321",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "16 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial results in favour of the divisibility claim for p = 3 and p = 5 (no counterexample).",
+      "object": null,
+      "people": [
+        "Kaoru Motose"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://projecteuclid.org/euclid.pja/1286198321"
+        ]
+      },
+      "sources": [
+        "https://projecteuclid.org/euclid.pja/1286198321"
+      ]
+    },
+    {
+      "id": "le-2012",
+      "what_happened": "Le Mao-hua (also written Le Maohua), '[A divisibility problem concerning group theory]', 2012, cited by Wikipedia as Pure Appl. Math. Q. for the case q = 3 of the divisibility claim. I did not reach the paper. A search returned only a garbled bibliographic listing with a 2012 entry under Le Mao-hua. The title in brackets is my reconstruction from that listing and is unverified; the listing also records a 2006 Le paper on a related divisibility, which is a different result.",
+      "date": "2012",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per Wikipedia: the divisibility claim for q = 3, i.e. pairs in which 3 is one of the primes. Unverified against the paper.",
+      "remains": "Every pair in which neither prime is 3. The q = 2 case is elementary (see stephens-1971).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 14 years; the only public mention I found is Wikipedia's citation",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "In favour of the divisibility claim for q = 3 (no counterexample), if Wikipedia's statement is accurate.",
+      "object": null,
+      "people": [
+        "Le Mao-hua"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Feit%E2%80%93Thompson_conjecture"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Feit%E2%80%93Thompson_conjecture"
+      ]
+    },
+    {
+      "id": "motose-2012-example-by-stephens",
+      "what_happened": "Kaoru Motose, 'The example by Stephens', Proc. Japan Acad. Ser. A 88(3), 35-37 (DOI 10.3792/pjaa.88.35; first online 5 March 2012). The abstract (opened) reads: 'Concerning the Feit-Thompson conjecture, Stephens found an example for primes 17 and 3313. In this paper, using the Artin map, these primes are common index divisors of subfields of a cyclotomic field, and some results in [7,8] shall be again proved.' The paper concerns the stronger coprime form's counterexample. Its full text was not reachable.",
+      "date": "2012-03-05",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "A structural explanation of the 17/3313 counterexample to the coprime form (common index divisors of cyclotomic subfields). It establishes nothing about the divisibility claim.",
+      "remains": "The whole of the divisibility claim.",
+      "checked_by": [
+        {
+          "who": "Proc. Japan Acad. Ser. A (refereed journal)",
+          "qualification": "Journal publication after refereeing",
+          "what_they_did": "Published the note",
+          "where": "https://projecteuclid.org/euclid.pja/1330958573",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "14 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral for the divisibility claim. Bears only on the coprime counterexample.",
+      "object": null,
+      "people": [
+        "Kaoru Motose"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://projecteuclid.org/euclid.pja/1330958573"
+        ]
+      },
+      "sources": [
+        "https://projecteuclid.org/euclid.pja/1330958573"
+      ]
+    },
+    {
+      "id": "hannusch-2024-preprint",
+      "what_happened": "C. Hannusch (the author's publication page shows C. Hannusch; a ResearchGate URL gives Carolin Hannusch), 'The Feit-Thompson Conjecture: An Example for Mathematical Research Based on Contradictory Sources', Preprints.org, DOI 10.20944/preprints202403.1214.v1, posted March 2024 (manuscript ID 202403). The author's own publication page lists it as a Preprints.org preprint with no journal version. Preprints.org and ResearchGate both returned HTTP 403 when I tried to open them, so the abstract wording below is from search-result excerpts, not from a page I opened. Excerpt: 'Thus we prove that the Feit-Thompson conjecture is true for twin prime numbers', where twin primes means p = q+2. The excerpt also says the paper has a second aim, to resolve contradictions among online sources about the conjecture, and marks the version as not peer-reviewed with zero comments at crawl time. Only v1 was seen.",
+      "date": "2024-03",
+      "precision": "month",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Only v1 seen (March 2024). No later version found.",
+      "delivers": "Claims that (p^q-1)/(p-1) does not divide (q^p-1)/(q-1) when p and q are twin primes, p = q+2. This is a restricted case: the family of twin-prime pairs only. The proof was not read by me. On the author's own description it is a proof for twin primes, not a general result.",
+      "remains": "Every pair of distinct primes that is not a twin pair (p = q+2), which is the bulk of the claim.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 31 months (March 2024 to October 2026)",
+      "machine_checked": null,
+      "directly_checkable": "Small twin pairs can be checked by hand, which tests the statement but not the proof: (p,q) = (5,3) gives 31 and 121, and 31 does not divide 121; (p,q) = (7,5) gives 2801 and 19531, and 2801 does not divide 19531. These are my own arithmetic. The twin-prime proof itself has not been checked by anyone I could find.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "If the proof holds, it cuts for the conjecture on twin-prime pairs (no divisibility occurs there). It claims a special case and does not address the general claim.",
+      "object": null,
+      "people": [
+        "Carolin Hannusch (C. Hannusch on the author's page)"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.preprints.org/manuscript/202403.1214",
+          "https://arato.inf.unideb.hu/hannusch.carolin/publications.html"
+        ]
+      },
+      "sources": [
+        "https://arato.inf.unideb.hu/hannusch.carolin/publications.html",
+        "https://www.preprints.org/manuscript/202403.1214",
+        "https://www.researchgate.net/publication/379277967_The_Feit-Thompson_Conjecture_An_Example_for_Mathematical_Research_Based_on_Contradictory_Sources"
+      ]
+    },
+    {
+      "id": "boltje-kleshchev-navarro-tiep-2025",
+      "what_happened": "NAMESAKE ONLY, NOT THIS QUESTION. R. Boltje, A. Kleshchev, G. Navarro and P. H. Tiep, 'A reduction theorem for the Feit conjecture', arXiv:2507.19618 (math.RT, submitted 25 July 2025). It proves Walter Feit's 1980 character-theoretic conjecture for groups whose simple sections satisfy an 'inductive Feit condition', and resolves Brauer's Problem 41 in the affirmative in that setting. A publisher link in search results points to the Journal of the European Mathematical Society (DOI 10.4171/jems/1742); not opened. Recorded so the namesake is visible.",
+      "date": "2025-07-25",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 25 July 2025; a journal version is linked in search results (not opened).",
+      "delivers": "Feit's 1980 character-theoretic conjecture for a class of finite groups. A different problem.",
+      "remains": "The whole of the divisibility claim.",
+      "checked_by": [
+        {
+          "who": "Journal of the European Mathematical Society (per publisher link in search results)",
+          "qualification": "Refereed journal",
+          "what_they_did": "Published the paper (not verified by opening the link)",
+          "where": "https://ems.press/doi/10.4171/jems/1742",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 15 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not applicable: a different conjecture.",
+      "object": null,
+      "people": [
+        "R. Boltje",
+        "A. Kleshchev",
+        "G. Navarro",
+        "P. H. Tiep"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2507.19618"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2507.19618"
+      ]
+    },
+    {
+      "id": "primepuzzles-2025-coprime-searches",
+      "what_happened": "Community searches on the Problems & Puzzles site (puzzle 91) for a second counterexample to the stronger coprime form. The challenge was posted 3 August 2025 by Giorgos Kalogeropoulos. Contributions on 9-16 August 2025: Michael Branicky reports all prime pairs 1 < p < q <= 31627 with no further counterexample; Vicente Felipe Izquierdo searched p up to the 950th prime and q up to the 10000th prime; Jeff Heleen searched p up to the 488th prime and q up to the 9592nd prime. None found a pair beyond (17, 3313). The page addresses only the coprime form and says nothing about divisibility. Not peer reviewed.",
+      "date": "2025-08-03",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": null,
+      "delivers": "Finite computer search for counterexamples to the stronger coprime form: none beyond (17, 3313) in the searched ranges. Bears on the coprime form only.",
+      "remains": "Everything in the divisibility claim. The searches do not test divisibility on this page.",
+      "checked_by": [
+        {
+          "who": "Michael Branicky; Vicente Felipe Izquierdo; Jeff Heleen (site contributors)",
+          "qualification": "Not stated on the page; amateur or hobbyist computation",
+          "what_they_did": "Ran finite searches for a second coprime counterexample and reported null results",
+          "where": "https://primepuzzles.net/problems/prob_091.htm",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 14 months",
+      "machine_checked": null,
+      "directly_checkable": "A finite search over prime pairs; the claim checked is about the coprime form.",
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "No counterexample to the coprime form beyond (17, 3313) in the searched range. Silent on the divisibility claim.",
+      "object": null,
+      "people": [
+        "Giorgos Kalogeropoulos",
+        "Michael Branicky",
+        "Vicente Felipe Izquierdo",
+        "Jeff Heleen"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://primepuzzles.net/problems/prob_091.htm"
+        ]
+      },
+      "sources": [
+        "https://primepuzzles.net/problems/prob_091.htm",
+        "https://oeis.org/A189830"
+      ]
+    },
+    {
+      "id": "liao-wang-zhang-2026-thompson",
+      "what_happened": "NAMESAKE ONLY, NOT THIS QUESTION. Jun Liao, Lizhong Wang and Jiping Zhang, 'Thompson's Conjecture for Finite Simple Groups of Lie Type over Small Fields', arXiv:2608.17891 (math.GR, math.RT; submitted 18 August 2026; 69 pages). The abstract (opened) says the paper proves that every finite simple group of Lie type over a field of order at most 8 has a conjugacy class whose square is the whole group, completing Thompson's conjecture in that setting. This is Thompson's conjugacy-class problem, not the Feit-Thompson prime-divisibility claim. A search-result summary (not from the paper) said the authors used ChatGPT to explore proof strategies. The PDF was unreadable to me, so I could not confirm that statement. Recorded as a namesake; the AI statement, if true, concerns another problem.",
+      "date": "2026-08-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only seen",
+      "delivers": "Thompson's conjugacy-class squares problem for finite simple groups of Lie type over fields of order at most 8. A different problem.",
+      "remains": "The whole of the divisibility claim.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "under 2 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not applicable: a different conjecture.",
+      "object": null,
+      "people": [
+        "Jun Liao",
+        "Lizhong Wang",
+        "Jiping Zhang"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2608.17891"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.17891",
+        "https://arxiv.org/pdf/2608.17891"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "statement_version",
+      "summary": "MathWorld says the Stephens example (p = 17, q = 3313, common factor 112643) shows the conjecture 'is, in fact, false'. ProofWiki, Wikipedia and Groupprops attribute the refutation to the stronger coprime form and keep the divisibility claim as a conjecture. I follow the latter reading: a common factor of the two quotients does not divide one into the other, so the example does not refute the divisibility claim.",
+      "sources": [
+        "https://mathworld.wolfram.com/Feit-ThompsonConjecture.html",
+        "https://proofwiki.org/wiki/Feit-Thompson_Conjecture",
+        "https://groupprops.subwiki.org/wiki/Feit-Thompson_conjecture",
+        "https://en.wikipedia.org/wiki/Feit%E2%80%93Thompson_conjecture"
+      ]
+    },
+    {
+      "kind": "statement_version",
+      "summary": "ProofWiki (per a search-result excerpt of its historical note; not opened directly) says David Wells, in The Penguin Dictionary of Curious and Interesting Numbers (1986), misreports the Stephens result as a statement about the common divisor of p^q - 1 and q^p - 1 rather than about the quotients.",
+      "sources": [
+        "https://proofwiki.org/wiki/Feit-Thompson_Conjecture/Stronger/Historical_Note"
+      ]
+    }
+  ],
+  "summary": "Since 26 January 2024 the divisibility conjecture has not been settled, and no event in the window moves it in a way I could verify. The one in-window event that claims to move it is C. Hannusch's Preprints.org preprint of March 2024 (DOI 10.20944/preprints202403.1214.v1), which asserts non-divisibility for twin-prime pairs p = q+2. Preprints.org and ResearchGate both returned 403, so its wording is taken from search-result excerpts of its abstract and from the author's own publication page, which lists it as an unrefereed preprint with no journal version. I found no review, rebuttal, citation, or later version, and I did not read the proof. The pre-window record consists of restricted cases. Stephens (1971) refuted the stronger coprime form with p = 17, q = 3313 (common factor 2pq + 1 = 112643, which I checked arithmetically), and per Wikipedia also proved the q = 2 case, which I confirmed is elementary by parity (p + 1 is even while 2^p - 1 is odd). Le (2012), per Wikipedia, proved the q = 3 case; I did not reach the paper, only a garbled listing and Wikipedia's citation. Motose (2009) gave partial solutions for p < q whose exact cases I could not read; Motose (2010) gave partial solutions for p = 3 and p = 5 (abstract read); Motose (2012) reproved the Stephens example via the Artin map and does not touch the divisibility claim. The statement quantifies over all ordered pairs of distinct primes, so Motose's p < q form is the same claim. Current Wikipedia (last edited 10 May 2026 per the fetched page) lists only q = 2 and q = 3 as known cases. The 2025 puzzle-site searches (Branicky up to p<q<=31627; Izquierdo; Heleen) concern only the coprime form and found nothing beyond (17, 3313). Liao, Wang and Zhang (arXiv 2608.17891, August 2026) prove a different 'Thompson's conjecture' on squares of conjugacy classes and are recorded as a namesake; a search summary said they used ChatGPT, but the PDF was unreadable to me, so I could not confirm it, and it concerns another problem. AI: no source I could read names an AI system in connection with this conjecture. I checked the 2026 lab releases most likely to reach it. OpenAI's Astra announcement (1 August 2026; the ten results listed on TheNextWeb and the ten-proofs repository) includes nothing on this conjecture. OpenAI's manuscript repository (github.com/openai/math, 6 October 2026) states 719 manuscripts in 372 families; its README shows titles only for reasoning summaries, none matching, and the full catalogue CONTENTS.md was unreadable, so an unlisted manuscript cannot be excluded. DeepMind's AlphaProof Nexus preprint (arXiv 2605.22763) showed no mention in the abstract view, which is not a full-text check. The Kourovka Notebook lists this as problem 4.65 (J. G. Thompson). The 20th edition (2022) has no comment on it in the retrieved text; I could not check the 21st edition (2026), and the arXiv listing (arXiv:1401.0300, v48, 6 October 2026) does not mention it in the fetched view. A Lean statement with sorry exists in the Benchify/BuddenBench dataset; it is a statement only and undated, so I did not record it as an event. On names: one search summary called the author 'Christian' Hannusch, but the author's own page shows 'C. Hannusch' and the ResearchGate URL 'Carolin Hannusch', so I used Carolin with that caveat. The computer searches (Stephens 1971; the 2025 puzzle-site searches) are computer-assisted, not AI.",
+  "competing_reading": "Read as a case settled since the window opened, the Hannusch preprint is the only in-window event that moves the claim: it establishes non-divisibility for every twin-prime pair, a family the statement quantifies over, and a judging pass could count it as a restricted case. Against this: the claim is unrefereed, I found no one who has checked it, I did not read the proof, and twin-prime pairs are a thin family among all prime pairs. The same logic applies to the pre-window fixed-prime cases (q = 2 and q = 3 via Stephens and Le; p = 3 and p = 5 via Motose), which are restricted cases of the same kind. The q = 2 case is elementary, and the Le and Motose results are not read in full. A reading that counts none of these as movement treats them as finite or fixed-prime instances of a universal claim, which the bullet's own wording does not exclude.",
+  "what_would_settle_it": "(1) The full text of Hannusch's preprint and its proof, especially the step where twin primes are used; any referee report or journal version; any citing paper. (2) The full text of Le (2012): the exact statement, whether 'q = 3' covers both divisibility directions, and the journal. (3) The full text of Motose 2009 and 2010: exactly which (p, q) cases are proved. (4) Stephens (1971): whether it says anything about q = 2 or about divisibility. (5) The Kourovka Notebook 21st edition (2026) entry for problem 4.65, and any comment on it. (6) MathOverflow question 63233 'Variant of Stephens result' (blocked to me). (7) OpenAI's CONTENTS.md or the full list of 719 manuscripts, to rule out an AI-derived case of this conjecture; a full-text check of the Astra manuscript for the name. (8) A zbMATH or MathSciNet search for later citations of Motose or Le, and for any post-2024 review of the Hannusch preprint.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Feit%E2%80%93Thompson_conjecture",
+      "title": "Feit-Thompson conjecture (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://proofwiki.org/wiki/Feit-Thompson_Conjecture",
+      "title": "ProofWiki: Feit-Thompson Conjecture",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/Feit-ThompsonConjecture.html",
+      "title": "MathWorld: Feit-Thompson Conjecture",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://groupprops.subwiki.org/wiki/Feit-Thompson_conjecture",
+      "title": "Groupprops: Feit-Thompson conjecture",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://number.subwiki.org/wiki/Feit-Thompson_conjecture",
+      "title": "Number Theory Subwiki: Feit-Thompson conjecture",
+      "type": "encyclopedia",
+      "opened": false
+    },
+    {
+      "url": "https://projecteuclid.org/journals/proceedings-of-the-japan-academy-series-a-mathematical-sciences/volume-85/issue-2/Notes-to-the-Feit-Thompson-conjecture/10.3792/pjaa.85.16.full",
+      "title": "Motose, Notes to the Feit-Thompson conjecture (2009), abstract",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://projecteuclid.org/euclid.pja/1286198321",
+      "title": "Motose, Notes to the Feit-Thompson conjecture II (2010), abstract",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://projecteuclid.org/euclid.pja/1330958573",
+      "title": "Motose, The example by Stephens (2012), abstract",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.ams.org/journals/mcom/1971-25-115/S0025-5718-1971-0297686-1/S0025-5718-1971-0297686-1.pdf",
+      "title": "Stephens, On the Feit-Thompson Conjecture (Math. Comp. 1971)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arato.inf.unideb.hu/hannusch.carolin/publications.html",
+      "title": "C. Hannusch publications page",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://www.preprints.org/manuscript/202403.1214",
+      "title": "Preprints.org 202403.1214: The Feit-Thompson Conjecture: An Example for Mathematical Research Based on Contradictory Sources (blocked, 403; excerpts via search only)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://www.researchgate.net/publication/379277967_The_Feit-Thompson_Conjecture_An_Example_for_Mathematical_Research_Based_on_Contradictory_Sources",
+      "title": "ResearchGate copy of the Hannusch preprint (blocked, 403)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://lean-lang.org/eval/problems/feit_thompson/",
+      "title": "Lean eval: Feit-Thompson odd-order theorem",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://rocq-prover.org/p/coq-mathcomp-odd-order",
+      "title": "Rocq package coq-mathcomp-odd-order (search result only)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://oeis.org/A189830",
+      "title": "OEIS A189830",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://primepuzzles.net/problems/prob_091.htm",
+      "title": "Problems & Puzzles, problem 91 (2025 community searches)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1401.0300",
+      "title": "Unsolved Problems in Group Theory: The Kourovka Notebook (arXiv abstract view, v48)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2607.17477",
+      "title": "On Some Problems from the Kourovka Notebook (arXiv 2607.17477; PDF unreadable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.29219",
+      "title": "On Some More Problems from the Kourovka Notebook (arXiv 2608.29219; PDF unreadable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2507.19618",
+      "title": "Boltje, Kleshchev, Navarro, Tiep: A reduction theorem for the Feit conjecture (arXiv abstract view)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://ems.press/doi/10.4171/jems/1742",
+      "title": "A reduction theorem for the Feit conjecture (JEMS, search link only)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/2608.17891",
+      "title": "Liao, Wang, Zhang: Thompson's Conjecture for Finite Simple Groups of Lie Type over Small Fields (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.17891",
+      "title": "Liao, Wang, Zhang (PDF; unreadable, binary content)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2106.00346",
+      "title": "Groups of prime degree and the Bateman-Horn Conjecture (PDF; unreadable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.22763",
+      "title": "Tsoukalas et al., Advancing Mathematics Research with AI-Driven Formal Proof Search (DeepMind AlphaProof Nexus; abstract view)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math",
+      "title": "openai/math repository README (722-manuscript release)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/tree/main",
+      "title": "openai/math repository top level",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/math/blob/main/CONTENTS.md",
+      "title": "openai/math CONTENTS.md (catalogue; contents not readable in fetch)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/openai/ten-proofs",
+      "title": "openai/ten-proofs (Astra Lean certificates)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://thenextweb.com/news/openai-astra-model-ten-math-proofs-non-sofic-groups",
+      "title": "TheNextWeb: OpenAI says its next model, Astra, has solved ten open problems",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://openai.com/index/model-disproves-discrete-geometry-conjecture/",
+      "title": "OpenAI announcement (blocked, 403)",
+      "type": "press_release",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/pdf/2608.14673",
+      "title": "Sienicki and Sienicki, A Human Audit of OpenAI's AI-Generated Mathematical Proofs (PDF unreadable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://mathoverflow.net/questions/63233",
+      "title": "MathOverflow 63233: Variant of Stephens result (blocked)",
+      "type": "news",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/google-deepmind/formal-conjectures/search?q=Kourovka+4.65&type=code",
+      "title": "formal-conjectures code search (sign-in wall, no results)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://huggingface.co/datasets/Benchify/BuddenBench/viewer/default/train?p=17",
+      "title": "BuddenBench dataset entry: Kourovka 4.65 Lean statement with sorry (search result only)",
+      "type": "repository",
+      "opened": false
+    }
+  ],
+  "search": {
+    "queries": [
+      "Feit-Thompson conjecture (p^q-1)/(p-1) divides (q^p-1)/(q-1)",
+      "Feit-Thompson conjecture prime numbers",
+      "Feit-Thompson conjecture arXiv",
+      "Feit-Thompson conjecture Wikipedia",
+      "Feit Thompson conjecture 2025 proof",
+      "Feit-Thompson conjecture AI proof",
+      "Feit-Thompson conjecture counterexample",
+      "Feit-Thompson conjecture solved 2026",
+      "\"Feit-Thompson\" conjecture cyclotomic divisibility primes Sylow",
+      "Feit Thompson conjecture Mathoverflow",
+      "Feit-Thompson 1963 solvability odd order conjecture (p^q-1)/(p-1) Heath-Brown",
+      "\"Feit-Thompson conjecture\" Cohen Heath-Brown partial results",
+      "Hannusch Feit-Thompson conjecture twin primes",
+      "Christian Hannusch Feit Thompson conjecture preprint 2024",
+      "Stephens 1971 \"On the Feit-Thompson conjecture\" Mathematics of Computation",
+      "Le 2012 \"A divisibility problem concerning group theory\" Feit-Thompson q=3",
+      "Motose Feit-Thompson conjecture notes cyclotomic index divisors Artin map 2012",
+      "Kourovka notebook problem 4.65 Thompson (p^q-1)/(p-1)",
+      "AI model proves open problem number theory primes divisibility cyclotomic 2026",
+      "OpenAI Astra 10 open math problems list Lean proofs",
+      "OpenAI 722 manuscripts math problems list",
+      "Feit-Thompson conjecture OpenAI",
+      "Feit-Thompson conjecture Erdős problems AI DeepMind AlphaProof AlphaEvolve",
+      "Feit-Thompson conjecture GPT Claude Gemini open problem attempt",
+      "aiweekly OpenAI Astra ten Lean certificates non-sofic groups Erdős 183 list of problems",
+      "\"Feit-Thompson\" 2026 arXiv preprint divisibility primes (p^q-1)/(p-1)",
+      "Carolin Hannusch Debrecen Feit-Thompson",
+      "Notes to the Feit-Thompson conjecture Motose partial solutions q=83 explicit",
+      "Feit-Thompson conjecture Hannusch preprint peer review critique contradictory sources",
+      "Motose \"The example by Stephens\" Proc. Japan Acad. 2012 Feit-Thompson index divisors",
+      "Thompson's conjecture (p^q-1)/(p-1) Feit-Thompson zbMATH review Le Mao-hua 2012 divisibility group theory",
+      "google-deepmind formal-conjectures Feit-Thompson Kourovka 4.65 Lean statement",
+      "Kourovka notebook 20th edition 2026 Thompson problem 4.65 status comment",
+      "\"Feit-Thompson\" conjecture twin primes 2025 citing Hannusch",
+      "Erdős problems AI solved list Feit-Thompson Thompson conjecture number theory open problems database 2026",
+      "Feit-Thompson conjecture Stephens 3313 search 2025 no other counterexample primes p q up to bound",
+      "Kourovka 4.65 formal-conjectures issue Thompson (p^q-1)/(p-1) Lean",
+      "Feit-Thompson conjecture Pith review Hannusch twin prime proof assessment",
+      "Motose cyclotomic index common divisor Feit-Thompson 2026 new paper",
+      "Feit-Thompson conjecture Stephens Le Motose Hannusch review state of the art survey 2025"
+    ],
+    "places_checked": [
+      "Wikipedia article on the Feit-Thompson conjecture (opened; the lead's status and cited partial results)",
+      "ProofWiki, MathWorld, Groupprops (opened; statement, history, references)",
+      "Project Euclid: Motose 2009, 2010, 2012 (abstracts opened; full texts not reachable)",
+      "Author's publication page (arato.inf.unideb.hu, opened)",
+      "Preprints.org and ResearchGate copies of the Hannusch preprint (both 403; excerpts via search only)",
+      "AMS Mathematics of Computation PDF for Stephens 1971 (403)",
+      "MathOverflow 63233 (blocked)",
+      "OEIS A189830 (opened; calls the Stephens pair 'related to a conjecture of Feit-Thompson')",
+      "Problems & Puzzles problem 91 (opened; 2025 community searches)",
+      "arXiv: Kourovka arXiv 1401.0300 (abstract view, v48), 2607.17477 and 2608.29219 (PDFs unreadable), 2106.00346 (PDF unreadable), 2507.19618 (abstract), 2608.17891 (abstract; PDF unreadable), 2605.22763 (abstract view), 2608.14673 (PDF unreadable)",
+      "OpenAI github.com/openai/math (README and top level opened; CONTENTS.md unreadable), github.com/openai/ten-proofs (opened), openai.com announcement (403)",
+      "TheNextWeb coverage of OpenAI Astra (opened)",
+      "Google DeepMind formal-conjectures GitHub code search (sign-in wall, no results)",
+      "Lean eval page for the Feit-Thompson odd-order theorem (opened; the odd-order theorem, not this conjecture)",
+      "Hugging Face BuddenBench entry for Kourovka 4.65 (search excerpt only)"
+    ],
+    "dead_ends": [
+      "Heath-Brown and Cohen as contributors to partial results: no source found; the hits were the Adleman-Heath-Brown FLT paper and unrelated prime-gap work.",
+      "Christian Hannusch: no hit for this name in the search; the author is C. Hannusch / Carolin Hannusch, University of Debrecen per a search summary (not confirmed on the author page).",
+      "2025 or 2026 review or state-of-the-art survey of the conjecture: none found.",
+      "Peer-review or critique of the Hannusch preprint (Pith and others): none found.",
+      "Motose 2026 or any new paper on the divisibility claim: none found.",
+      "Le Mao-hua 2012 full text, journal and page numbers: not found; the listing was garbled.",
+      "A search-result summary's claim that a Japanese slide shows Euler's conjecture implies the q = 3 case: unverified and not used.",
+      "OpenAI, DeepMind, Anthropic and Google searches for the conjecture by name: no hit. The Astra ten-result list contains no match. The 722-manuscript README's ten listed reasoning-summary titles contain no match; the full catalogue was unreadable.",
+      "AlphaProof Nexus (arXiv 2605.22763): the abstract view mentions no Feit, Thompson, Kourovka or divisibility item; full text not searched.",
+      "Erdős-problems AI contribution tracker (teorth wiki, found in search): not checked for this conjecture; it is organised by Erdős problem number and this conjecture is not one.",
+      "Quanta 'Why the legendary Erdős problems are falling to AI' (search result only): not relevant to this conjecture and not opened.",
+      "Numerical sanity check of the divisibility claim over small primes: attempted with a local Python run, which the Bash tool refused pending approval; not run. Two small twin pairs were checked by hand instead.",
+      "Kourovka Notebook 21st edition (2026) PDF and the June 2026 update file: not reached."
+    ]
+  },
+  "incomplete": "(1) The Hannusch preprint was not opened (Preprints.org and ResearchGate returned 403). Its claim, the twin-prime scope, the 'Comments (0)' status and the March 2024 date all come from search-result excerpts and the author's page. The proof was not read, so I cannot say whether it is correct. (2) Le (2012) was not reached; its title and journal are unverified and its q = 3 claim rests on Wikipedia's citation. (3) Motose 2009 and 2010 full texts are behind a subscription; the cases they prove are known only from abstracts, and the congruence reduction attributed to Motose 2010 comes from a search excerpt. (4) Stephens (1971) was not reachable; its q = 2 content comes from Wikipedia, and I confirmed the q = 2 case by my own parity argument, not from the paper. (5) MathOverflow 63233 was blocked. (6) The Kourovka Notebook 21st edition (2026) was not checked; the 20th edition's retrieved text shows no comment on 4.65. (7) OpenAI's CONTENTS.md (full manuscript catalogue) and the Astra manuscript were not readable, so I cannot fully rule out an AI-derived manuscript on this conjecture; the OpenAI README shows titles only for ten reasoning summaries. (8) The DeepMind AlphaProof Nexus paper was checked only at the abstract view, not in full text. (9) The Liao, Wang and Zhang PDF was unreadable; its ChatGPT mention is unverified and concerns another problem. (10) The undated Lean statement (BuddenBench/Hugging Face) was not recorded as an event because it has no date and is a statement only. (11) Zentralblatt and MathSciNet were not reachable through the tools, so later citing papers were searched only through a general search engine. (12) No numerical verification was run in this session.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "none",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "hannusch-2024-preprint",
+  "no_change_found": false,
+  "event": {
+    "id": "hannusch-2024-preprint",
+    "what_happened": "C. Hannusch (the author's publication page shows C. Hannusch; a ResearchGate URL gives Carolin Hannusch), 'The Feit-Thompson Conjecture: An Example for Mathematical Research Based on Contradictory Sources', Preprints.org, DOI 10.20944/preprints202403.1214.v1, posted March 2024 (manuscript ID 202403). The author's own publication page lists it as a Preprints.org preprint with no journal version. Preprints.org and ResearchGate both returned HTTP 403 when I tried to open them, so the abstract wording below is from search-result excerpts, not from a page I opened. Excerpt: 'Thus we prove that the Feit-Thompson conjecture is true for twin prime numbers', where twin primes means p = q+2. The excerpt also says the paper has a second aim, to resolve contradictions among online sources about the conjecture, and marks the version as not peer-reviewed with zero comments at crawl time. Only v1 was seen.",
+    "date": "2024-03",
+    "precision": "month",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "Only v1 seen (March 2024). No later version found.",
+    "delivers": "Claims that (p^q-1)/(p-1) does not divide (q^p-1)/(q-1) when p and q are twin primes, p = q+2. This is a restricted case: the family of twin-prime pairs only. The proof was not read by me. On the author's own description it is a proof for twin primes, not a general result.",
+    "remains": "Every pair of distinct primes that is not a twin pair (p = q+2), which is the bulk of the claim.",
+    "checked_by": [],
+    "no_engagement_found": true,
+    "time_since_posted": "about 31 months (March 2024 to October 2026)",
+    "machine_checked": null,
+    "directly_checkable": "Small twin pairs can be checked by hand, which tests the statement but not the proof: (p,q) = (5,3) gives 31 and 121, and 31 does not divide 121; (p,q) = (7,5) gives 2801 and 19531, and 2801 does not divide 19531. These are my own arithmetic. The twin-prime proof itself has not been checked by anyone I could find.",
+    "doubts": null,
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "If the proof holds, it cuts for the conjecture on twin-prime pairs (no divisibility occurs there). It claims a special case and does not address the general claim.",
+    "object": null,
+    "people": [
+      "Carolin Hannusch (C. Hannusch on the author's page)"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://www.preprints.org/manuscript/202403.1214",
+        "https://arato.inf.unideb.hu/hannusch.carolin/publications.html"
+      ]
+    },
+    "sources": [
+      "https://arato.inf.unideb.hu/hannusch.carolin/publications.html",
+      "https://www.preprints.org/manuscript/202403.1214",
+      "https://www.researchgate.net/publication/379277967_The_Feit-Thompson_Conjecture_An_Example_for_Mathematical_Research_Based_on_Contradictory_Sources"
+    ]
+  },
+  "credited_humans": [
+    "Carolin Hannusch (C. Hannusch on the author's page)"
+  ],
+  "status_sources": [
+    "https://arato.inf.unideb.hu/hannusch.carolin/publications.html",
+    "https://www.preprints.org/manuscript/202403.1214",
+    "https://www.researchgate.net/publication/379277967_The_Feit-Thompson_Conjecture_An_Example_for_Mathematical_Research_Based_on_Contradictory_Sources"
+  ],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "feit-thompson-odd-order-1963",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "stephens-1971",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "motose-2009-notes-i",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "motose-2010-notes-ii",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "le-2012",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "motose-2012-example-by-stephens",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hannusch-2024-preprint",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Claim known only from search-result excerpts (preprint not opened, proof unread); no citation, review or journal version in about 31 months; the paper's framing is partly pedagogical ('an example for mathematical research based on contradictory sources') on an unrefereed venue. Not enough for not_credible: no specific error and a restricted twin-prime case is a modest claim.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "boltje-kleshchev-navarro-tiep-2025",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "primepuzzles-2025-coprime-searches",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "liao-wang-zhang-2026-thompson",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement is a single universal non-divisibility claim over pairs of distinct primes, so fixed-prime results (q = 2 via Stephens, q = 3 via Le, p = 3, 5 via Motose 2010, unspecified partial cases in Motose 2009) and the twin-prime family (Hannusch) are restrictions: case. Results about the stronger coprimality form (Motose 2012, the 2025 puzzle-site searches) and namesake problems (odd-order theorem, Feit's character conjecture, Thompson's conjugacy-class conjecture) answer different questions: variant. The Stephens pair 17/3313 refutes only coprimality, so it is no counterexample here and its object role is null. The only post-snapshot event bearing on the statement is Hannusch's twin-prime preprint: case, unreviewed, and doubtful because its content is known only via search excerpts and has drawn no engagement; the close call was doubtful vs credible, and the unread, unopened source tipped it. No event credits an AI system with mathematics; the ChatGPT mention in Liao-Wang-Zhang is unverified, has no systems entry, and concerns another problem.",
+    "doubts": "Hannusch's preprint was never opened; its twin-prime claim rests on search excerpts plus the author's publication page listing. Le 2012's content and venue rest on Wikipedia's citation alone; marked digested on the assumption it is a journal publication. Motose 2009's exact cases are unknown. The AI search could not exclude an unlisted OpenAI manuscript.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "hannusch-2024-preprint",
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

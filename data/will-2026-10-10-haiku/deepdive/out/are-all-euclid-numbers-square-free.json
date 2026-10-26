@@ -1,0 +1,292 @@
+{
+  "key": "are-all-euclid-numbers-square-free",
+
+  "nothing_found": false,
+  "outcome": "Nothing since 26 January 2024 settles, bounds or moves the question. The only in-window item is a Lean formalisation of the open statement (merged 17 Oct 2025, proof body sorry), which proves nothing. The only partial result found is a square-divisor bound (any square dividing p#+1 exceeds 2.5×10^15), recorded by OEIS as coming from Vardi’s 1991 book and predating the window; Wikipedia still lists the question as open.",
+
+  "problem_asks": "One universal yes/no claim: every Euclid number is square-free. (a) The family: the bullet gives no formula; the article it links to defines the n-th Euclid number as E_n = p_n# + 1, the product of the first n primes plus one. (b) The property: square-free, meaning no square m² with m > 1 divides E_n, equivalently no prime q has q² dividing E_n. (c) The quantifier: for all n, with no restriction on n, on the prime q, or on size. Not asked by this bullet: whether Euclid numbers are prime (a separate bullet on infinitely many Euclid primes), a bound on the size of any square factor, or the full factorisation of any E_n.",
+
+  "events": [
+    {
+      "id": "vardi-1991-square-divisor-bound",
+      "what_happened": "Ilan Vardi, Computational Recreations in Mathematica (Addison-Wesley, 1991), sections 5.1–5.2, pp. 82–89, the chapter ‘Are All Euclid Numbers Squarefree?’. OEIS A054988 cites p. 87 for the statement ‘Any square dividing p#+1 must exceed 2.5*10^15’. I could not open the book, so the statement and its page are known only through that citation. MathWorld’s Sylvester’s-sequence entry attributes the same 2.5×10^15 figure to Vardi 1991 for a different sequence (no term below that bound is non-squarefree). This is the only partial result on the question I found.",
+      "date": "1991",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Per the OEIS reading (not checked against the book): for every Euclid number, any square factor q² satisfies q² > 2.5×10^15, so no prime q below about 5×10^7 divides any E_n twice. The source does not state the method or range. My inference, not stated by the source: since q² | E_n forces q > p_n, the check is over the finitely many pairs (n, q) with p_n < q < 5×10^7, so it would cover every n at once.",
+      "remains": "Every prime q above about 5×10^7, for every n. The universal claim that every E_n is square-free is untouched.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 35 years (1991 to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": "Any single E_n can be checked for square factors by factoring it, or by testing p_n# ≡ −1 (mod q²) for each prime q with p_n < q. The bound is a claim over all n, so no single object is checkable. I did not run any check.",
+      "doubts": "The only support is a one-line OEIS citation to a book page I could not read. OEIS gives no method, range or computation. MathWorld attaches the same 2.5×10^15 figure to Sylvester’s sequence, citing the same Vardi chapter, so the OEIS entry alone does not show whether the bound is for Euclid numbers, Sylvester’s sequence, or both. Nothing I found contradicts it.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial, and cuts toward the conjecture: it excludes square factors below about 2.5×10^15 for every Euclid number, if the attribution holds. It does not decide the universal claim.",
+      "object": null,
+      "people": ["Ilan Vardi"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A054988", "https://mathworld.wolfram.com/SylvestersSequence.html"]
+      },
+      "sources": [
+        "https://oeis.org/A054988",
+        "https://mathworld.wolfram.com/SylvestersSequence.html",
+        "https://en.wikipedia.org/wiki/Euclid_number"
+      ]
+    },
+    {
+      "id": "irvine-oeis-2023-10-21",
+      "what_happened": "Sean A. Irvine adds comments to OEIS A054988 (‘Number of prime divisors of 1 + (product of first n primes), with multiplicity’) dated 21 Oct 2023. He states that it is an open question whether omega(p#+1) = bigomega(p#+1) = a(n), that is, whether the Euclid numbers are squarefree, and repeats the 2.5×10^15 bound with the citation ‘see Vardi, p. 87’. No new computation is described.",
+      "date": "2023-10-21",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Restates the open status and the same partial bound as the Vardi 1991 event. Adds no new mathematics or computation.",
+      "remains": "The same as the Vardi 1991 event: every prime q above about 5×10^7 for every n, and the universal claim as a whole.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 years (Oct 2023 to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Relies wholly on the Vardi citation. Gives no computation, method or range.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Same as the Vardi 1991 event: restates a partial result that cuts toward the conjecture.",
+      "object": null,
+      "people": ["Sean A. Irvine"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://oeis.org/A054988"]
+      },
+      "sources": ["https://oeis.org/A054988", "https://oeis.org/A006862"]
+    },
+    {
+      "id": "lord-2014-euclid-perfect-powers",
+      "what_happened": "Nick Lord, ‘Euclid numbers are free from powers’, The Mathematical Gazette 98(543), 2014, pp. 482–483 (note 98.21; DOI 10.1017/S0025557200008184). Wikipedia cites it for the claim that no Euclid or Kummer number is a perfect power. This is a neighbouring result: it concerns perfect powers, not square divisors. The Cambridge Core page is paywalled and I did not read the note; the claim is taken from Wikipedia’s citation.",
+      "date": "2014",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": "Cambridge Core lists the issue as November 2014 and online publication as 25 Aug 2015. I found no earlier preprint.",
+      "delivers": "As cited by Wikipedia: no Euclid number (or Kummer number) is a perfect power x^k with k ≥ 2. This says nothing about whether q² divides E_n, since a non-perfect-power can still have a square factor. Discounted for this question.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [
+        {
+          "who": "The Mathematical Gazette",
+          "qualification": "Refereed mathematics journal of record (Mathematical Association); I did not verify its refereeing for this note",
+          "what_they_did": "Published the note (online 25 Aug 2015 per Cambridge Core)",
+          "where": "https://www.cambridge.org/core/journals/mathematical-gazette/article/9821-euclid-numbers-are-free-from-powers/B5787675E795C9D56EF1CFFB4523C35E",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 12 years (2014 to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neighbouring: no Euclid number is a perfect power. It does not bear on square-freeness.",
+      "object": null,
+      "people": ["Nick Lord"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://en.wikipedia.org/wiki/Euclid_number"]
+      },
+      "sources": [
+        "https://www.cambridge.org/core/journals/mathematical-gazette/article/9821-euclid-numbers-are-free-from-powers/B5787675E795C9D56EF1CFFB4523C35E",
+        "https://en.wikipedia.org/wiki/Euclid_number"
+      ]
+    },
+    {
+      "id": "formal-conjectures-euclid-lean-2025",
+      "what_happened": "Google DeepMind’s Formal Conjectures repository adds FormalConjectures/Wikipedia/Euclid.lean through PR #1123, ‘Formalization of the open problems about Euclid numbers’, which fixes issue #1122 ‘Euclid Numbers’. The PR was opened 15 Oct 2025 by szabadka, with a co-author trailer naming Moritz Firsching, and approved by callesonne and mo271; it was merged 17 Oct 2025 (commit 4d74786). The file defines Euclid n := 1 + ∏ i ∈ Finset.range n, i.nth Nat.Prime, and states theorem euclid_numbers_are_square_free : answer(sorry) ↔ (∀ n, Squarefree (Euclid n)) := by sorry. The docstring reads ‘It is not known whether every Euclid number is a square-free number.’, and the attribute is @[category research open, AMS 11]. The Lean text came through WebFetch extraction, not a raw copy.",
+      "date": "2025-10-15",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "PR opened 15 Oct 2025; merged 17 Oct 2025 (commit 4d74786). The commit list shows a later commit on 18 Sep 2026, ‘chore: modulize FormalConjectures/ (#4688)’, a restructuring commit whose effect on the file’s content I did not check.",
+      "delivers": "No mathematical content toward the answer. It fixes the statement: E_n = 1 + (product of the first n primes), and the claim that all E_n are square-free, stated as an open conjecture with truth value answer(sorry). The proof body is sorry.",
+      "remains": "All of problem_asks.",
+      "checked_by": [
+        {
+          "who": "callesonne and mo271 (PR approvers); Moritz Firsching (co-author per commit trailer)",
+          "qualification": "Maintainers or contributors of the Formal Conjectures repository; I did not check their mathematical credentials",
+          "what_they_did": "Reviewed and approved the Lean statement in PR #1123. No mathematical reading of the question is recorded.",
+          "where": "https://github.com/google-deepmind/formal-conjectures/pull/1123",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "about 1 year (Oct 2025 to 11 Oct 2026)",
+      "machine_checked": {
+        "system": "Lean 4 with mathlib (Formal Conjectures repository)",
+        "sorry_free": false,
+        "url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/Wikipedia/Euclid.lean"
+      },
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neither way. It formalises the open question with the truth value left as answer(sorry).",
+      "object": null,
+      "people": ["szabadka", "Moritz Firsching", "callesonne", "mo271"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/google-deepmind/formal-conjectures/pull/1123",
+          "https://github.com/google-deepmind/formal-conjectures/commits/main/FormalConjectures/Wikipedia/Euclid.lean"
+        ]
+      },
+      "sources": [
+        "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/Wikipedia/Euclid.lean",
+        "https://github.com/google-deepmind/formal-conjectures/pull/1123",
+        "https://github.com/google-deepmind/formal-conjectures/commits/main/FormalConjectures/Wikipedia/Euclid.lean",
+        "https://github.com/google-deepmind/formal-conjectures/tree/main/FormalConjectures/Wikipedia"
+      ]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "The 2.5×10^15 square-divisor bound is attributed by OEIS A054988 to Euclid numbers, citing Vardi 1991 p. 87. MathWorld’s Sylvester’s-sequence entry gives the same 2.5×10^15 figure, citing Vardi 1991 without a page, for Sylvester’s sequence. I could not read the Vardi chapter, so it is unresolved whether the figure applies to Euclid numbers, to Sylvester’s sequence, or to both.",
+      "sources": ["https://oeis.org/A054988", "https://mathworld.wolfram.com/SylvestersSequence.html"]
+    }
+  ],
+
+  "summary": "I ran 48 web searches (verbatim in search.queries) and opened the current Wikipedia Euclid number article (last edited 9 Nov 2025; still lists the question as open), OEIS A006862, A054988 and A189409, MathWorld’s Euclid number and Sylvester’s sequence entries, the Booker–Pomerance paper (arXiv 1607.01557, via ar5iv), the Formal Conjectures file Euclid.lean with its PR #1123 and commit log, the Epoch FrontierMath Open Problems list (9 of about 49 entries visible), the AIM ‘AI and Number Theory’ 2026 workshop page, and the AlphaEvolve paper (arXiv 2511.02864, read through about section 26). The events are: a 1991 partial bound (no square factor below 2.5×10^15), restated by Irvine in OEIS in Oct 2023; a 2014 note showing no Euclid number is a perfect power, which is neighbouring and discounted; and a Lean formalisation of the open statement, merged 17 Oct 2025 with a sorry body. Nothing in the window moves the problem. Close calls: (a) the 1991 bound is recorded as an event but predates the window, and its attribution rests on one OEIS citation to a book page I could not read, with a second source attaching the same figure to Sylvester’s sequence; (b) the Lean formalisation is recorded because it is a formal bearing on the problem, though it contains no mathematics toward the answer. Booker and Pomerance (2016/2017) state three open questions in their Section 6, none about Euclid numbers, so their paper is not an event. Campbell’s 2026 arXiv 2609.14714 and the Lee–O’Clarey 2026 preprint concern prime plus non-squarefree integers, not Euclid numbers, and are dead ends. AI: I found no source connecting any AI system to this problem; ai.none_found is true for every event. The AI-credited results I saw (Erdős problems #848, #728, #11 and #1196, the unit-distance counterexample, the Carlitz–Wieferich preprint arXiv 2607.15305 naming ‘Claude Opus 4.8’, and the AlphaEvolve paper) concern other questions. Of those, I opened only the AlphaEvolve paper and the AI4Math survey arXiv 2608.24961 (abstract only); the rest are search snippets. The AlphaEvolve text I read through about section 26 has no Euclid or primorial hit; sections 27–35 were not read. Heuristic, not sourced: since E_n is coprime to every prime up to p_n, a square factor needs q > p_n, and the expected count of such q is about the sum over q > p_n of 1/q², which is roughly 1/(p_n log p_n) and summable over n. That suggests non-square-free Euclid numbers are rare, but it is my own derivation and gives no evidence either way for the universal claim.",
+
+  "competing_reading": "Read one way, the record is a clean ‘nothing happened’: the only in-window item is a statement formalisation with sorry, and the only partial result predates the window and rests on one citation. Read another way, a 1991 bound that rules out every square factor below 2.5×10^15 for all Euclid numbers is a real restriction that a fair reader could count as partial progress, not just background. A third reading treats the Lean statement as the most authoritative current formulation, which would make the problem’s status ‘open, formally stated’. I record the bound as a predating event and do not rank these readings.",
+
+  "what_would_settle_it": "(1) Vardi 1991 pp. 82–89 (§§5.1–5.2), to confirm the bound’s scope, method and whether it is for Euclid numbers, Sylvester’s sequence, or both. (2) Any published or OEIS computation stating the range of n and q that was checked for square factors of E_n. (3) A verified square factor of some E_n, which would answer the question negatively, or a proof for all n, which would answer it positively. (4) For AI involvement: a lab, benchmark or tracker entry that names this problem with a system and quotes the authors’ own account; none was found, and the Formal Conjectures statement carries no AI attribution.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Euclid_number", "title": "Euclid number (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A006862", "title": "OEIS A006862: Euclid numbers, 1 + product of first n primes", "type": "repository", "opened": true},
+    {"url": "https://oeis.org/A054988", "title": "OEIS A054988: prime divisors of 1 + product of first n primes, with multiplicity", "type": "repository", "opened": true},
+    {"url": "https://oeis.org/A189409", "title": "OEIS A189409: squares of primorials plus one", "type": "repository", "opened": true},
+    {"url": "https://oeis.org/A389167", "title": "OEIS A389167 (Karttunen, Sep 2025): largest squarefree divisor of Euler-criterion numbers; unrelated", "type": "repository", "opened": true},
+    {"url": "https://oeis.org/A389208", "title": "OEIS A389208 (Karttunen, Sep 2025): unrelated to Euclid numbers", "type": "repository", "opened": true},
+    {"url": "https://oeis.org/A392607", "title": "OEIS A392607 (Karttunen, Jan 2026): squarefree k with primorial-related inequalities; not p#+1", "type": "repository", "opened": true},
+    {"url": "https://mathworld.wolfram.com/EuclidNumber.html", "title": "MathWorld: Euclid Number", "type": "encyclopedia", "opened": true},
+    {"url": "https://mathworld.wolfram.com/SylvestersSequence.html", "title": "MathWorld: Sylvester’s Sequence (attributes 2.5×10^15 to Vardi 1991)", "type": "encyclopedia", "opened": true},
+    {"url": "https://ar5iv.labs.arxiv.org/html/1607.01557", "title": "Booker & Pomerance, Squarefree smooth numbers and Euclidean prime generators (arXiv 1607.01557); Section 6 open questions do not include this one", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.14714", "title": "Campbell, Prime Plus a Non-Square-Free Integer (arXiv 2609.14714, Sep 2026); different question", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.24961", "title": "Jin, Ke, Sui, The Gold Rush in AI4Math (arXiv 2608.24961); abstract only, no Euclid entry visible", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2511.02864", "title": "Georgiev, Gómez-Serrano, Tao, Wagner, Mathematical exploration and discovery at scale (arXiv 2511.02864); abstract", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2511.02864", "title": "Same paper, full HTML text read through about section 26 of 35; no Euclid or primorial hit", "type": "preprint", "opened": true},
+    {"url": "https://www.cambridge.org/core/journals/mathematical-gazette/article/9821-euclid-numbers-are-free-from-powers/B5787675E795C9D56EF1CFFB4523C35E", "title": "Lord, Euclid numbers are free from powers, Math. Gazette 98(543) (paywalled; metadata only)", "type": "journal", "opened": true},
+    {"url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/main/FormalConjectures/Wikipedia/Euclid.lean", "title": "Formal Conjectures, FormalConjectures/Wikipedia/Euclid.lean (read via WebFetch extraction)", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/pull/1123", "title": "Formal Conjectures PR #1123, Formalization of the open problems about Euclid numbers", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/commits/main/FormalConjectures/Wikipedia/Euclid.lean", "title": "Commit history of Euclid.lean (cut off at ‘Loading’)", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/tree/main/FormalConjectures/Wikipedia", "title": "Formal Conjectures Wikipedia folder (listing truncated at ‘View all files’)", "type": "repository", "opened": true},
+    {"url": "https://github.com/search?q=repo%3Agoogle-deepmind%2Fformal-conjectures+primorial&type=code", "title": "GitHub code search for ‘primorial’ in formal-conjectures (login required; no results shown)", "type": "repository", "opened": true},
+    {"url": "https://epoch.ai/frontiermath/open-problems", "title": "Epoch AI, FrontierMath: Open Problems (9 of about 49 entries visible; no Euclid or squarefree entry among them)", "type": "repository", "opened": true},
+    {"url": "https://aimath.org/misc/aint26.txt", "title": "AIM workshop ‘AI and number theory’, 27–30 May 2026 (no Euclid or primorial mention; no named AI systems)", "type": "blog", "opened": true},
+    {"url": "https://aimath.org/pastworkshops/aint26problemlist.pdf", "title": "AIM ‘AI and number theory’ problem list (PDF; returned binary, text unreadable)", "type": "preprint", "opened": false},
+    {"url": "https://math.dartmouth.edu/~carlp/nothing8.5.pdf", "title": "Pomerance notes PDF (returned binary, text unreadable)", "type": "preprint", "opened": false},
+    {"url": "https://www.academia.edu/129461270/Euclid_s_Theorem_against_the_asymptotic_numbers_of_squarefree_numbers_and_primes", "title": "Academia.edu preprint on Euclid’s theorem vs squarefree asymptotics (HTTP 403)", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "Euclid numbers square-free primorial plus one",
+      "are all Euclid numbers squarefree open problem",
+      "Euclid number square-free conjecture 2025",
+      "Euclid number non-squarefree divisible by square of prime p_n# + 1",
+      "Wikipedia Euclid number primorial prime square-free unsolved",
+      "Euclid numbers squarefree factorization table n = 1..",
+      "Euclid number square-free AI model proof",
+      "Euclid numbers Erdos problem square-free primorial",
+      "\"Euclid numbers\" squarefree arXiv",
+      "Euclid number square-free OEIS primorial plus 1 squarefree sequence",
+      "primorial plus one squarefree Euclid numbers Lean formalization",
+      "Euclid numbers Mullin sequence square-free conjecture recent result",
+      "square-free Euclid numbers AI discovered counterexample",
+      "unsolved problems in number theory Euclid numbers squarefree Fermat Mersenne square-free list",
+      "Euclid number primorial plus one divisible by square of a prime found",
+      "Vardi \"Are All Euclid Numbers Squarefree\" Computational Recreations in Mathematica",
+      "primorial plus one factorization record largest Euclid number factored",
+      "Euclid numbers squarefree 2026",
+      "primorial plus one squarefree arXiv 2024 2025 2026 p# + 1",
+      "Kummer numbers Euclid numbers squarefree primorial minus one factorization",
+      "AI mathematics open problems solved list 2026 number theory Euclid",
+      "AlphaEvolve OR FrontierMath OR \"Erdős problems\" AI solved squarefree primorial",
+      "Euclid number square-free Wikipedia unsolved problems in mathematics talk page",
+      "Pomerance unsolved problems Euclid numbers squarefree primorial notes",
+      "square divisor of primorial plus one bound 10^15 search squared prime Euclid",
+      "Euclid numbers Lean Mathlib primorial squarefree formal proof",
+      "\"Euclid number\" \"squarefree\" 2025 preprint",
+      "Euclid numbers heuristic squarefree probability sum over primes 1/p^2 non-squarefree expected",
+      "Euclid number \"square-free\" Claude OR GPT OR Gemini OR \"language model\" mathematics",
+      "Euclid numbers primorial squarefree problem solved proof 2025 2026 news (extended mode)",
+      "Nick Lord \"Euclid numbers are free from powers\" Mathematical Gazette 2014",
+      "erdosproblems primorial n# + 1 squarefree Erdős problem",
+      "\"p#+1\" OR \"p# + 1\" squarefree primorial prime Euclid arXiv math.NT abstract",
+      "Euclid number primorial plus one AI agent formal conjecture open problem benchmark",
+      "Erdős Problems AI 2026 squarefree numbers new result GPT Aristotle AlphaProof",
+      "Lee O'Clarey conjecture prime plus non-squarefree primorial 997# Campbell 2026",
+      "Euclid number squarefree factorization PrimeGrid Cunningham primorial plus one composite n factored",
+      "Euclid-Mullin sequence squarefree primorial Booker Simon 2026 arXiv",
+      "Euclid numbers squarefree \"open problem\" Pomerance OR Booker OR Irvine OR Vardi 2024",
+      "large prime factor square dividing primorial plus one computation Sean Irvine OEIS 2023 squarefree Euclid",
+      "formal-conjectures google-deepmind Euclid number squarefree primorial Lean statement",
+      "AlphaEvolve number theory open problems 2026 squarefree primorial Euclid",
+      "OpenAI OR DeepMind OR Anthropic mathematics announcement 2026 Euclid numbers primorial squarefree",
+      "Epoch AI open problems tracker AI solved list number theory squarefree 2026",
+      "Guy Unsolved Problems in Number Theory Euclid numbers squarefree Fermat Mersenne section F",
+      "Ribenboim new book of prime number records Euclid numbers squarefree primorial plus one",
+      "Vardi Computational Recreations Mathematica \"Euclid numbers\" squarefree \"2.5\" square factor search Sylvester 5 × 10^7",
+      "mathstackexchange Euclid numbers squarefree primorial plus one question answer"
+    ],
+    "places_checked": [
+      "Wikipedia Euclid number article (current; last edited 9 Nov 2025; unsolved-problems section lists the question; lead and Kummer definition read)",
+      "OEIS A006862 (open-question comment; offset 0,1; first terms 2, 3, 7, 31, 211, 2311, 30031, …)",
+      "OEIS A054988 (Irvine comment 21 Oct 2023; Vardi p. 87 bound)",
+      "OEIS A189409 (squares of primorials plus one; Campbell 2011 comment that squarefreeness is unknown)",
+      "OEIS A389167, A389208, A392607 (2025–26 squarefree or odd-perfect-number sequences; not about p#+1)",
+      "MathWorld Euclid Number (last updated 2 Oct 2026; no squarefree statement; says the question of infinitely many prime Euclid numbers is open)",
+      "MathWorld Sylvester’s Sequence (2.5×10^15 attributed to Vardi 1991 for Sylvester’s sequence)",
+      "Booker & Pomerance arXiv 1607.01557 (ar5iv): Section 6 open questions read; none about Euclid numbers",
+      "Campbell arXiv 2609.14714 (abstract; no Euclid or p#+1 mention; no AI disclosure)",
+      "Lord 2014 Math. Gazette (Cambridge Core metadata; paywalled)",
+      "Formal Conjectures: FormalConjectures/Wikipedia/Euclid.lean (read via WebFetch extraction); PR #1123; commit log; Wikipedia folder listing (truncated); GitHub code search for primorial (login required)",
+      "Epoch AI FrontierMath: Open Problems list (9 of about 49 entries visible; truncated)",
+      "AIM ‘AI and number theory’ workshop page (text) and problem list (PDF unreadable)",
+      "AI4Math survey arXiv 2608.24961 (abstract only)",
+      "AlphaEvolve arXiv 2511.02864 (abstract and HTML through about section 26)",
+      "erdosproblems.com (search snippets only: #854, #848, #11, #728, #1196, #1209; none about Euclid numbers; not opened)",
+      "PrimeGrid and Cunningham-project primality or factorisation records (search snippets only; primality, not squarefreeness, so out of scope)"
+    ],
+    "dead_ends": [
+      "Booker & Pomerance (2016/2017) on squarefree smooth numbers: related Euclid-style generators, but their open questions do not ask about Euclid numbers.",
+      "Booker & Simon arXiv 2601.21901 (Jan 2026), generalised Euclid–Mullin sequences: different question, abstract mentions no squarefree primorial result.",
+      "Lee & O’Clarey arXiv 2605.02426 and Campbell arXiv 2609.14714: prime plus non-squarefree integer, a different question; Campbell uses primorials only as a tool.",
+      "Munsch & Shparlinski on squarefree residues mod p (2018): different question.",
+      "Hathi & Johnston, sums of a prime and a squarefree number: different question.",
+      "PrimeGrid primorial-prime records (MathWorld and boinc snippets): primality, not squarefreeness; the two sources disagree on the current record, which I did not reconcile.",
+      "Academia.edu preprint (Euclid’s theorem vs squarefree asymptotics): returned 403; title suggests a different claim.",
+      "Lean/Mathlib search: no Mathlib or Lean development on squarefree primorial-plus-one found by search; Mathlib itself not checked directly.",
+      "AI searches: Erdős #848 (GPT-5), #728 (GPT-5.2 Pro with Aristotle), #11 (ChatGPT and Aristotle, no result), #1196 (GPT-5.4 Pro, primitive sets), the unit-distance counterexample (internal OpenAI model), the Carlitz–Wieferich preprint arXiv 2607.15305 (credits ‘Claude Opus 4.8’), FrontierMath Erdős and Open Problems: all concern other problems; none mentions Euclid numbers.",
+      "Formal Conjectures GitHub code search for primorial: login required, no results shown.",
+      "OEIS A077067, A113165, A066576, A014545, A005234: primality or divisor sequences, not squarefreeness.",
+      "Heuristic (my derivation, uncited): squarefree-ness is plausible because only q > p_n can give q² | E_n, and the sum of 1/q² over q > p_n is about 1/(p_n log p_n), which is summable over n. No source states this."
+    ]
+  },
+
+  "incomplete": "(1) Vardi 1991 (Computational Recreations in Mathematica, pp. 82–89) was not read, so the 2.5×10^15 bound, its p. 87 attribution and its scope (Euclid numbers, Sylvester’s sequence, or both) are unverified. (2) Lord 2014 is paywalled; its content is taken from Wikipedia’s citation. (3) The Pomerance notes PDF (math.dartmouth.edu/~carlp/nothing8.5.pdf) and the AIM problem-list PDF returned binary and were not read. (4) The Academia.edu preprint returned HTTP 403 and was not read. (5) The Epoch FrontierMath Open Problems list shows 9 of about 49 entries; the rest were not read. (6) Formal Conjectures: the Euclid.lean text came through WebFetch extraction, not a raw copy, because curl was not permitted in this session; I did not check whether the file compiles; the commit history stopped at ‘Loading’, so older commits may exist; GitHub code search for ‘primorial’ needs login, so other formalisations in the repo were not checked. (7) AlphaEvolve arXiv 2511.02864: read through about section 26 of 35; sections 27–35 not read. The table of contents lists ‘Erdős squarefree problem’ at section 32 (Problem 6.52, about ab+1), not Euclid numbers. (8) AI4Math survey arXiv 2608.24961: abstract only; its tracker of 717 records was not searched. (9) Erdős problem pages, Epoch FrontierMath Erdős and the Carlitz–Wieferich preprint were checked by search snippet only, not opened. (10) The Wikipedia ‘List of unsolved problems in mathematics’ page and the Euclid number talk page were not opened. (11) The Mathematica note and Ribenboim’s book were checked by search snippet only; I could not confirm their treatment of Euclid numbers."
+}

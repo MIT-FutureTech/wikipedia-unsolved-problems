@@ -1,0 +1,1490 @@
+{
+  "key": "cerecedas-conjecture",
+  "nothing_found": false,
+  "outcome": "Since 26 January 2024 the general conjecture (quadratic recolouring diameter for every d-degenerate graph with d+2 colours) has not been settled, and I found no claimed proof or disproof; the window holds only class-restricted results (quadratic for (P2+P3,C4)-free graphs, Sep 2025 preprint; linear for K2,3-minor-free graphs at ℓ≥5 colours, May 2026 preprint; linear for degenerate chordal and bounded-treewidth graphs at larger colour counts, Sep 2025 preprint) plus list-colouring and recolourability papers that address neighbouring questions, and none of the mathematics I found is credited to an AI system.",
+  "problem_asks": "(1) For every degeneracy value d: for every d-degenerate graph G on n vertices (2) the reconfiguration graph of proper colourings of G with k = d+2 colours (two colourings adjacent when they differ at exactly one vertex) (3) has diameter O(n²), i.e. any two proper (d+2)-colourings are joined by a single-vertex recolouring sequence of length at most C·n² for a constant C independent of G. The frozen Wikipedia wording fixes the colour count at d+2 ('(d+2)-colorings'); the literature (Cereceda 2007; Eiben–Feghali 2018; Bousquet–Heinrich 2019) states the conjecture for every k ≥ d+2, and I record both readings. Connectivity of the space for k ≥ d+2 (Cereceda et al.; Dyer, Flaxman, Frieze, Vigoda 2006) is presupposed rather than asked. The quadratic order is asked as the sharp order; Wikipedia states it is best possible because 3-colourings of a path already have quadratic diameter.",
+  "events": [
+    {
+      "id": "cereceda-2007-thesis",
+      "what_happened": "Luis Cereceda's LSE PhD thesis 'Mixing graph colourings' poses the question later called Cereceda's conjecture. Per the Wikipedia article (read via a summarising fetch) it shows the diameter can be exponential for (d+1)-colourings, proves an O(n²) bound for colourings with at least 2d+1 colours, and leaves open the intermediate colour counts. The thesis itself was not opened; the 2007 date comes from the LSE repository listing (search snippet) and from Eiben–Feghali (opened).",
+      "date": "2007",
+      "precision": "year",
+      "kind": "repository",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "Poses the conjecture. Establishes no quadratic bound for the d+2 case itself.",
+      "remains": "Everything in problem_asks.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "19 years (origin event; not a result)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Origin of the conjecture; no direction of result.",
+      "object": null,
+      "people": [
+        "Luis Cereceda"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://en.wikipedia.org/wiki/Cereceda%27s_conjecture",
+          "https://arxiv.org/abs/1810.00731"
+        ]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Cereceda%27s_conjecture",
+        "https://arxiv.org/abs/1810.00731"
+      ]
+    },
+    {
+      "id": "bonamy-bousquet-2013-treewidth",
+      "what_happened": "Bonamy and Bousquet, 'Recoloring bounded treewidth graphs': for graphs of treewidth tw, the shortest recolouring sequence between any two (tw+2)-colourings has quadratic length. Their abstract cites Cereceda (2006) for the fact that every graph of treewidth tw is (tw+2)-mixing.",
+      "date": "2013-02-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Single version listed (v1, 14 Feb 2013).",
+      "delivers": "Quadratic diameter for (tw+2)-colourings of graphs of treewidth tw. Since treewidth tw implies tw-degeneracy, this is the conjecture's d+2 case restricted to degeneracy-matched bounded-treewidth graphs.",
+      "remains": "Every d-degenerate graph not of treewidth d (in particular all planar and other sparse classes with larger treewidth).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Upper bound of the conjectured quadratic order, for a restricted class (bounded treewidth at the matching colour count).",
+      "object": null,
+      "people": [
+        "Marthe Bonamy",
+        "Nicolas Bousquet"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1302.3486"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1302.3486"
+      ]
+    },
+    {
+      "id": "eiben-feghali-2018-planar-subexp",
+      "what_happened": "Eiben and Feghali, 'Towards Cereceda's conjecture for planar graphs' (arXiv only): improves the best known planar bound from O(k^n) to 2^{O(√n)} and describes the general conjecture for R_{k+2}(G) of k-degenerate graphs as wide open even for planar graphs. A search snippet attributes a 7-colour planar statement to this paper; the abstract page I opened does not show it, so I do not rely on that.",
+      "date": "2018-10-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Single version listed (v1, 1 Oct 2018).",
+      "delivers": "Subexponential, 2^{O(√n)}, diameter bound for planar graphs at the planar colour count. Not polynomial.",
+      "remains": "Polynomial and quadratic bounds for planar and all other d-degenerate graphs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The search snippet and the abstract page disagree on whether the 7-colour (R_7) case is mentioned; I could not settle which from the sources read.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial bound on the diameter order (exponential to subexponential), for planar graphs; no quadratic claim.",
+      "object": null,
+      "people": [
+        "Eduard Eiben",
+        "Carl Feghali"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1810.00731"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1810.00731"
+      ]
+    },
+    {
+      "id": "feghali-2019-planar-R10",
+      "what_happened": "Feghali, 'Reconfiguring 10-colourings of planar graphs' (arXiv v1 6 Feb 2019; v2 20 Feb 2019): for every planar graph on n vertices, R_10(G) has diameter at most n². The paper states that since planar graphs are 5-degenerate this affirms the conjecture for planar graphs in the case ℓ = 2k. The arXiv abstract's bound is n²; a Charles University catalogue record (search snippet, not opened) gives the journal abstract as n(n+1)/2 with a Graphs and Combinatorics 2020 DOI.",
+      "date": "2019-02-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 6 Feb 2019; v2 20 Feb 2019 ('added a corollary and other minor changes'). Journal version Graphs and Combinatorics 36 (2020) 1815–1818 per search snippet, not opened.",
+      "delivers": "Quadratic diameter for planar graphs at 10 colours (= 2k, k = 5 degeneracy). Restricted to planar graphs and to that colour count.",
+      "remains": "Planar graphs at colour counts other than 10 (the fixed planar case k=7 is in the subsequent Dvořák–Feghali result); all other d-degenerate graphs.",
+      "checked_by": [
+        {
+          "who": "Graphs and Combinatorics (journal of record)",
+          "qualification": "Peer-reviewed journal, per journal DOI 10.1007/s00373-020-02199-0 in a search snippet",
+          "what_they_did": "Accepted for publication in 2020 (journal version not opened; referee identities not available to me)",
+          "where": "https://link.springer.com/10.1007/s00373-020-02199-0 (search result, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Discrepancy between the arXiv abstract (n²) and the journal-record abstract reported by a catalogue snippet (n(n+1)/2). I could not open the Springer page to settle which is the published statement.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Quadratic upper bound for a planar subclass at 10 colours; consistent with the conjecture's direction.",
+      "object": null,
+      "people": [
+        "Carl Feghali"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1902.02278"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1902.02278"
+      ]
+    },
+    {
+      "id": "bousquet-heinrich-2019-polynomial",
+      "what_happened": "Bousquet and Heinrich, 'A polynomial version of Cereceda's conjecture' (arXiv 1903.05619, one version, 14 pages; journal version in JCTB 2022 per search-result URLs, not opened): for every d-degenerate graph and k ≥ d+2, the k-reconfiguration graph has diameter O(n^{d+1}); for k ≥ 3(d+1)/2 the diameter is quadratic (from the Wikipedia summary and search snippets, not the arXiv abstract page); the 5-reconfiguration graph of planar bipartite graphs has quadratic diameter.",
+      "date": "2019-03-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 13 Mar 2019 only on arXiv. Journal version in JCTB 2022 (DOI 10.1016/j.jctb.2022.01.006 per search-result URL; not opened).",
+      "delivers": "General polynomial bound O(n^{d+1}) for all d-degenerate graphs at k ≥ d+2 colours: the full conjecture is replaced by a polynomial bound. Quadratic for k ≥ 3(d+1)/2 colours (not the k=d+2 case). Quadratic for planar bipartite graphs at 5 colours.",
+      "remains": "The quadratic bound at k = d+2 for general d-degenerate graphs; the authors state that even the existence of a polynomial diameter is open for d = 2.",
+      "checked_by": [
+        {
+          "who": "Journal of Combinatorial Theory Series B (journal of record)",
+          "qualification": "Peer-reviewed journal, per search-result URL",
+          "what_they_did": "Published the paper in 2022 (journal version not opened)",
+          "where": "https://dl.acm.org/doi/10.1016/j.jctb.2022.01.006 (search result, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Polynomial upper bound in general; quadratic for the planar bipartite 5-colour case and for k ≥ 3(d+1)/2. Cuts in the conjecture's direction but does not reach its quadratic bound at d+2 colours.",
+      "object": null,
+      "people": [
+        "Nicolas Bousquet",
+        "Marc Heinrich"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1903.05619"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1903.05619"
+      ]
+    },
+    {
+      "id": "bousquet-bartier-2019-chordal",
+      "what_happened": "Bousquet and Bartier, 'Linear transformations between colorings in chordal graphs' (arXiv 3 Jul 2019; ESA 2019 per Wikipedia reference list, not opened): for chordal graphs, k = d+2 admits graphs needing quadratically many recolourings; k = 2d+2 always admits a linear transformation; for k ≥ d+4 chordal graphs admit transformations of length f(Δ)·n, with a linear-time algorithm.",
+      "date": "2019-07-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Single version listed (v1, 3 Jul 2019).",
+      "delivers": "For chordal graphs: a quadratic lower bound at k=d+2 (so the conjectured order is tight for chordal graphs), linear bounds at k=2d+2 and at k≥d+4 with f(Δ) dependence on maximum degree.",
+      "remains": "Chordal graphs at k = d+2 are not made linear; general d-degenerate graphs at k = d+2.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Shows the quadratic order is attained at d+2 for chordal graphs (consistent with the conjecture being sharp); linear results only at larger colour counts.",
+      "object": "Existence of chordal graphs (for k = d+2) whose any two colourings need quadratically many recolourings; the construction is not described in the abstract I read, so the object itself was not checked.",
+      "people": [
+        "Nicolas Bousquet",
+        "Valentin Bartier"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1907.01863"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1907.01863"
+      ]
+    },
+    {
+      "id": "dvorak-feghali-2020-planar-R10-linear",
+      "what_happened": "Dvořák and Feghali, 'An update on reconfiguring 10-colorings of planar graphs' (arXiv 13 Feb 2020; Electronic Journal of Combinatorics P4.51, 2020 per search snippet): for every planar graph on n vertices R_10(G) has diameter at most 8n; improves the 6n bound for 12 colours that follows from Bousquet–Perarnau (2016).",
+      "date": "2020-02-13",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Single version listed on arXiv (v1). EJC publication 2020 (search snippet).",
+      "delivers": "Linear diameter (8n) for planar graphs at 10 colours. Restricted to planar graphs and that colour count; the abstract does not mention Cereceda's conjecture.",
+      "remains": "General d-degenerate graphs at d+2 colours; planar graphs at 7 colours (quadratic at the planar d+2 count is not established by this event).",
+      "checked_by": [
+        {
+          "who": "Electronic Journal of Combinatorics (journal of record)",
+          "qualification": "Peer-reviewed journal, per search snippet",
+          "what_they_did": "Accepted and published 2020 (journal page not opened)",
+          "where": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v27i4p51 (search result, not opened)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Linear upper bound for planar graphs at 10 colours; in the conjecture's direction (linear is within O(n²)) but for a restricted class and colour count.",
+      "object": null,
+      "people": [
+        "Zdeněk Dvořák",
+        "Carl Feghali"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2002.05383"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2002.05383"
+      ]
+    },
+    {
+      "id": "bartier-bousquet-heinrich-2020-tw2",
+      "what_happened": "Bartier, Bousquet and Heinrich, 'Recoloring graphs of treewidth 2' (arXiv 21 Dec 2020): for graphs of treewidth 2 there is a linear transformation between 5-colourings, and this is tight since some treewidth-2 graphs admit no linear transformation between 4-colourings. The abstract does not mention Cereceda's conjecture.",
+      "date": "2020-12-21",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Single version listed (v1, 21 Dec 2020). Later cited as 2021 by Wang–Lu (search snippet).",
+      "delivers": "Linear diameter for treewidth-2 graphs at 5 colours (2-degenerate with d+3 colours). Restricted to treewidth 2.",
+      "remains": "Treewidth ≥ 3 and general d-degenerate graphs at d+2 colours.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Linear upper bound for a restricted class at one more colour than the conjecture's d+2 for d=2; does not contradict the conjecture.",
+      "object": "Existence of treewidth-2 graphs with no linear transformation between 4-colourings (tightness claim in the abstract; construction not read).",
+      "people": [
+        "Valentin Bartier",
+        "Nicolas Bousquet",
+        "Marc Heinrich"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2012.11459"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2012.11459"
+      ]
+    },
+    {
+      "id": "cambie-et-al-2022-list-bounds",
+      "what_happened": "Cambie, Cames van Batenburg and Cranston, 'Optimally reconfiguring list and correspondence colourings' (arXiv v1 17 Apr 2022; v3 2 Oct 2023; EJC vol 115, Jan 2024): list-colouring analogue. Conjecture diam ≤ n(G)+μ(G) (μ = matching number) when |L(v)| ≥ d(v)+2; proven as n+2μ in general and the conjecture proven when |L(v)| ≥ 2d(v)+1; verified for complete bipartite, subcubic, cactus and bounded mad graphs.",
+      "date": "2022-04-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 17 Apr 2022; v2 28 Apr 2022; v3 2 Oct 2023 (latest per arXiv).",
+      "delivers": "List-colouring analogue: diameter ≤ n+2μ in general, and n+μ under |L(v)| ≥ 2d(v)+1 and for several classes. A different question (list colourings with list sizes tied to degree), not the colour-count statement of the problem.",
+      "remains": "Analogue; the problem's colour-count statement for degenerate graphs is not addressed.",
+      "checked_by": [
+        {
+          "who": "European Journal of Combinatorics (journal of record)",
+          "qualification": "Peer-reviewed journal, per the arXiv journal reference",
+          "what_they_did": "Published in vol. 115 (Jan 2024), DOI 10.1016/j.ejc.2023.103798",
+          "where": "https://arxiv.org/abs/2204.07928 (journal reference on arXiv page)",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "List-colouring analogue; positive bounds in the conjecture's spirit but for a different question.",
+      "object": null,
+      "people": [
+        "Stijn Cambie",
+        "Wouter Cames van Batenburg",
+        "Daniel W. Cranston"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2204.07928"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2204.07928"
+      ]
+    },
+    {
+      "id": "cranston-mahmoud-2022-planar-no3-5cycles",
+      "what_happened": "Cranston and Mahmoud, '5-Coloring Reconfiguration of Planar Graphs with No Short Odd Cycles' (arXiv v1 3 Aug 2022; v2 11 Aug; v3 16 Aug 2022; J. Graph Theory 105(4), April 2024): for every planar graph with no 3-cycles and no 5-cycles, the 5-colour reconfiguration graph has diameter O(n²). The abstract frames this as a partial solution to a problem of Bousquet and Heinrich and mentions Cereceda's conjecture.",
+      "date": "2022-08-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 3 Aug 2022; v2 11 Aug 2022; v3 16 Aug 2022 corrects errors from the previous version (per arXiv listing, read via summarising fetch). Search snippet: acknowledgements credit Tao Wang with alerting the authors to two inaccuracies in an earlier version.",
+      "delivers": "Quadratic diameter at 5 colours for planar graphs with no 3- and no 5-cycles (these are 3-degenerate, so the d+2 = 5 case of the conjecture for that class). Restricted class.",
+      "remains": "Triangle-containing planar graphs and general 3-degenerate graphs at 5 colours; triangle-free planar graphs with 5-cycles are not covered.",
+      "checked_by": [
+        {
+          "who": "Journal of Graph Theory (journal of record)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Accepted for publication; published April 2024, vol. 105(4), pp. 670–679",
+          "where": "https://onlinelibrary.wiley.com/doi/abs/10.1002/jgt.23064 (search result, not opened); DOI 10.1002/jgt.23064",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The authors' v2 and v3 corrected errors in earlier versions (arXiv version history, and acknowledgements in a search snippet); the errors are not described in the text I read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Quadratic upper bound for a restricted class of planar graphs at 5 colours; in the conjecture's direction.",
+      "object": null,
+      "people": [
+        "Daniel W. Cranston",
+        "Reem Mahmoud"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2208.02228"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2208.02228"
+      ]
+    },
+    {
+      "id": "bousquet-2024-kmixing-complexity",
+      "what_happened": "Bousquet, 'A Note on the Complexity of Graph Recoloring' (arXiv 5 Jan 2024, before the frozen revision): proves that for every k ≥ 4 deciding whether a graph is k-mixing (every k-colouring reachable from every other) is co-NP-hard, completing the k=3 result of Cereceda, van den Heuvel and Johnson (2009).",
+      "date": "2024-01-05",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "Single version listed (v1, 5 Jan 2024).",
+      "delivers": "Computational complexity of the k-mixing (connectivity) property for k ≥ 4. It addresses whether the space is connected, not how far apart colourings are.",
+      "remains": "The diameter question (the quantity the problem asks about) is not touched.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Different question (connectivity complexity); does not bear on the diameter bound.",
+      "object": null,
+      "people": [
+        "Nicolas Bousquet"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2401.03011"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2401.03011"
+      ]
+    },
+    {
+      "id": "cranston-2024-10-list-planar",
+      "what_happened": "Cranston, '10-list Recoloring of Planar Graphs' (arXiv v1 1 Nov 2024, v2 22 May 2025; published European J. Combinatorics vol. 130, Dec 2025, per search snippet): for planar graphs with a list of exactly 10 colours per vertex, a constant C exists such that any two list colourings are joined by a sequence in which each vertex changes at most C times, so length ≤ C|V(G)|. Confirms a conjecture of Dvořák and Feghali. The abstract does not mention Cereceda's conjecture.",
+      "date": "2024-11-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 1 Nov 2024; v2 22 May 2025 (per arXiv).",
+      "delivers": "Linear length for planar graphs in the list version with 10 colours per vertex. A list-colouring analogue, with a list-size hypothesis not in the problem statement.",
+      "remains": "The colour-count statement for d-degenerate graphs (the problem's question) is untouched.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Linear bound in a list analogue for planar graphs; a different question.",
+      "object": null,
+      "people": [
+        "Daniel W. Cranston"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2411.00679"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2411.00679"
+      ]
+    },
+    {
+      "id": "de-meyer-2025-list-subcubic",
+      "what_happened": "De Meyer, 'Optimal List Recoloring of Subcubic Graphs and Complete Multipartite Graphs' (arXiv v1 7 Jan 2025; v3 1 Apr 2026): proves Cambie et al.'s list conjecture diam ≤ n(G)+μ(G) for subcubic graphs and complete multipartite graphs. The abstract does not mention Cereceda's conjecture.",
+      "date": "2025-01-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 7 Jan 2025; v2 9 Jan 2025; v3 1 Apr 2026 (per arXiv).",
+      "delivers": "Sharp list-colouring diameter bound for two graph classes (subcubic, complete multipartite) under |L(v)| ≥ d(v)+2. A list analogue; the colour-count statement is not addressed.",
+      "remains": "Other graph classes for the list conjecture; the problem's degenerate colour-count statement.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Upper bound n+μ on list-colouring diameter for two classes; a different question.",
+      "object": null,
+      "people": [
+        "Lucas De Meyer"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2501.03748"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2501.03748"
+      ]
+    },
+    {
+      "id": "cambie-et-al-2025-list-quadratic",
+      "what_happened": "Cambie, Cames van Batenburg, van den Heuvel, Kang and Cranston, 'Reconfiguration of List Colourings' (arXiv 12 May 2025): for connected graphs with maximum degree at least 3 and lists |L(v)| ≥ deg(v)+1, any two list colourings in which some vertex can be recoloured are joined by O(|V(G)|²) recolouring steps; shrinking one vertex's list to its degree can shatter the colouring space. The abstract does not mention Cereceda's conjecture.",
+      "date": "2025-05-12",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version listed on arXiv (v1, 12 May 2025).",
+      "delivers": "Quadratic recolouring length for list colourings with lists deg(v)+1 on connected graphs with Δ≥3. A list analogue with a different hypothesis (lists tied to degree, not a colour count).",
+      "remains": "The problem's statement for d-degenerate graphs with d+2 colours is not addressed.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Quadratic upper bound in a list analogue; a different question.",
+      "object": "Shattering example: a single vertex whose list is reduced to its degree splits the colouring space into pieces (construction described in the abstract, not read in full).",
+      "people": [
+        "Stijn Cambie",
+        "Wouter Cames van Batenburg",
+        "Daniel W. Cranston",
+        "Jan van den Heuvel",
+        "Ross J. Kang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2505.08020"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2505.08020"
+      ]
+    },
+    {
+      "id": "belavadi-karthick-2025-p2p3c4",
+      "what_happened": "Belavadi and Karthick, arXiv 2509.03190. v1 (3 Sep 2025, titled 'Reconfiguration graph of vertex colorings of some generalized split graphs') states: 'We prove that every (P2+P3, C4)-free graph satifies Cereceda's conjecture', with a bound of 2n² on the ℓ-recolouring diameter. v2 (24 Feb 2026, titled 'Reconfiguration graph for vertex colorings of (P2+P3, C4)-free graphs') states the result as confirming a conjecture of Cereceda for that class; it gives that a recolourable member has ℓ-recolouring diameter at most 2n² for every ℓ > χ(G), and that for any member of degeneracy ρ the diameter is O(n²) for all ℓ > ρ(G)+1, i.e. ℓ ≥ ρ+2.",
+      "date": "2025-09-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 3 Sep 2025 (title 'Reconfiguration graph of vertex colorings of some generalized split graphs'; abstract 'We prove that every (P2+P3, C4)-free graph satifies Cereceda's conjecture'); v2 24 Feb 2026 (title 'Reconfiguration graph for vertex colorings of (P2+P3, C4)-free graphs'; abstract 'confirms a conjecture of Cereceda for the class'). Comment: '18 pages'. No change log seen.",
+      "delivers": "For the hereditary class of (P2+P3, C4)-free graphs: every member of degeneracy ρ has ℓ-recolouring diameter O(n²) for all ℓ ≥ ρ+2, which is the conjecture's form for that class (v2 wording). Also a characterisation of recolourable members and a 2n² bound for them. Restricted to the class; no bound for other degenerate graphs.",
+      "remains": "All d-degenerate graphs outside the (P2+P3, C4)-free class, including planar and triangle-free planar graphs.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13 months (to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The headline claim changed between versions: v1's abstract says the authors 'prove that every (P2+P3, C4)-free graph satisfies Cereceda's conjecture' under a different title; v2's abstract says the result 'confirms a conjecture of Cereceda for the class'. The reason for the change is not in the pages I read, and I did not read the formal theorem statements (Theorems 3 and 4 were cut off in the 100,000-character read). The authors' claims for the class are stated only as abstract-level summaries here. No referee report, journal version, or public comment was found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Confirms the conjecture's quadratic-bound form for one hereditary class (asserts O(n²) for that class at ℓ ≥ ρ+2); does not address the general statement, which the paper itself describes as open.",
+      "object": null,
+      "people": [
+        "Manoj Belavadi",
+        "T. Karthick"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2509.03190",
+          "https://arxiv.org/abs/2509.03190v1",
+          "https://arxiv.org/html/2509.03190v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2509.03190",
+        "https://arxiv.org/abs/2509.03190v1",
+        "https://arxiv.org/html/2509.03190v2"
+      ]
+    },
+    {
+      "id": "wang-lu-2025-chordal-treewidth-linear",
+      "what_happened": "Wang and Lu, 'Linear recoloring diameter of degenerate chordal graphs and bounded treewidth graphs' (arXiv v1 18 Sep 2025; v2 4 Nov 2025): for d-degenerate chordal graphs the t-recolouring diameter is O(n) when t ≥ 2d+1; for graphs of treewidth at most k it is O(n) when t ≥ 2k+1. The abstract does not mention Cereceda's conjecture.",
+      "date": "2025-09-18",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 18 Sep 2025; v2 4 Nov 2025 (per arXiv).",
+      "delivers": "Linear diameter (hence within O(n²)) for d-degenerate chordal graphs at t ≥ 2d+1 colours, and for treewidth-k graphs at t ≥ 2k+1 colours. Restricted classes at colour counts above d+2 (for chordal graphs the conjecture's d+2 case is already quadratic from Bonamy et al. 2014, per the paper's background as read in a search snippet; not opened).",
+      "remains": "The d+2 colour count for chordal graphs with t between d+2 and 2d (not linear here); all general d-degenerate graphs at d+2 colours.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13 months (to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Linear upper bounds for restricted classes at colour counts above d+2; in the conjecture's direction, but not at the statement's colour count for general classes.",
+      "object": null,
+      "people": [
+        "Yichen Wang",
+        "Mei Lu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2509.15456"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2509.15456"
+      ]
+    },
+    {
+      "id": "asgarli-et-al-2025-trees-3col",
+      "what_happened": "Asgarli, Krehbiel, MacLean and Zaimi, 'Extremal diameters of 3-coloring graphs of trees' (arXiv v1 3 Dec 2025; v2 3 Jan 2026): determine the maximum and minimum of the 3-colouring diameter over all trees on n vertices, and characterise the extremal trees, via balanced labelings. The abstract does not mention Cereceda's conjecture.",
+      "date": "2025-12-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 3 Dec 2025; v2 3 Jan 2026 (per arXiv).",
+      "delivers": "Exact extremal diameters for 3-colourings of trees (1-degenerate, k = d+2 = 3). Restricted to trees. The Θ(n²) order for trees at this colour count is the d=1 case of the conjecture; per a search snippet of Belavadi–Karthick's introduction it was known before, so this event refines rather than settles it.",
+      "remains": "All d ≥ 2 graphs; for trees this event adds exact values, not a new order.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 months (to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Exact tree values at d=1, k=3; consistent with the conjecture's quadratic order for trees; does not move the general question.",
+      "object": "Path P_n attains the maximum 3-colouring diameter over trees (per search snippets, not the abstract); double stars with |a−b| ≤ 4 and stars attain the minimum floor(3n/2) (search snippet).",
+      "people": [
+        "Shamil Asgarli",
+        "Sara Krehbiel",
+        "Simon MacLean",
+        "Gjergji Zaimi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2512.03789",
+          "https://arxiv.org/abs/2512.03789v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2512.03789",
+        "https://arxiv.org/abs/2512.03789v2"
+      ]
+    },
+    {
+      "id": "cambie-et-al-2026-linear-sequences-EJC",
+      "what_happened": "Cambie, Cames van Batenburg and Cranston, 'Sharp Bounds on Lengths of Linear Recolouring Sequences' (Electronic J. Combinatorics vol. 33 issue 1, article P1.18, published 23 Jan 2026): for each k ≥ 3, the k-recolouring diameter of complete bipartite graphs K_{p,q} is determined exactly up to a small additive constant; a recolouring lemma is sharpened. The abstract does not mention Cereceda's conjecture or degenerate graphs.",
+      "date": null,
+      "precision": null,
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "First public arXiv posting date not established; journal publication date 23 Jan 2026 is not used as the event date (§5.1).",
+      "delivers": "Exact diameter values for complete bipartite graphs K_{p,q} (specific classes; not degenerate-graph statements).",
+      "remains": "Degenerate graphs in general at d+2 colours.",
+      "checked_by": [
+        {
+          "who": "Electronic Journal of Combinatorics (journal of record)",
+          "qualification": "Peer-reviewed journal",
+          "what_they_did": "Published vol. 33 issue 1, P1.18, 23 Jan 2026",
+          "where": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v33i1p18",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": null,
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Exact values for a specific class (K_{p,q}); a different question from the degenerate-graph statement.",
+      "object": null,
+      "people": [
+        "Stijn Cambie",
+        "Wouter Cames van Batenburg",
+        "Daniel W. Cranston"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v33i1p18"
+        ]
+      },
+      "sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v33i1p18"
+      ]
+    },
+    {
+      "id": "gu-et-al-2026-K23minor-linear",
+      "what_happened": "Gu, Lei, Li, Ma and Wang, 'Reconfiguration graphs of K_{2,3}-minor-free graphs' (arXiv 2605.31225, submitted 29 May 2026). Theorem 1.2 (read from the HTML version): for a K_{2,3}-minor-free graph G and ℓ ≥ 5, any two ℓ-colourings can be transformed into each other with each vertex recoloured at most t times, where t = 3 for ℓ ≥ 6 and t = 1387 for ℓ = 5, giving linear length. The abstract also states that (ℓ−1)-reconfiguration graphs of cactus graphs have linear diameter. The paper's introduction cites Cereceda's conjecture (in the HTML text read).",
+      "date": "2026-05-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version listed (v1, 29 May 2026).",
+      "delivers": "Linear length for K_{2,3}-minor-free graphs at ℓ ≥ 5 colours (ℓ ≥ 6 with a per-vertex bound of 3), and linear diameter for cactus graphs at (ℓ−1) colours. Restricted to these classes. I did not establish whether K_{2,3}-minor-free graphs are d-degenerate for a fixed d in the form the conjecture needs.",
+      "remains": "All other d-degenerate graph classes at d+2 colours, including the general statement.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 4.5 months (to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Linear bounds for a restricted minor-closed class; in the conjecture's direction, not a resolution.",
+      "object": null,
+      "people": [
+        "Ruijuan Gu",
+        "Hui Lei",
+        "Zhaoxiang Li",
+        "Yulai Ma",
+        "Susu Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2605.31225",
+          "https://arxiv.org/html/2605.31225v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2605.31225",
+        "https://arxiv.org/html/2605.31225v1"
+      ]
+    },
+    {
+      "id": "echeverria-henderschedt-2026-2K2K4-partial",
+      "what_happened": "Echeverría and Henderschedt, 'On the recolorability of (2K2, K4)-free graphs' (arXiv 2607.07860, submitted 8 Jul 2026). Establishes recolorability (connectivity of ℓ-colourings for every ℓ > χ) for three subclasses of (2K2,K4)-free graphs. This is a connectivity classification, not a diameter bound, and it does not mention Cereceda's conjecture. Its AI-use declaration is described below.",
+      "date": "2026-07-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version listed (v1).",
+      "delivers": "Recolorability (connectivity, not diameter) for (2K2,K4,C5)-free graphs, (2K2,K4,H_a,H_b)-free graphs, and (2K2,K4,H4)-free graphs containing W5, under the stated subclasses.",
+      "remains": "Whether every (2K2,K4)-free graph with χ = 4 is recolorable (later resolved in the separate 2609.28893 preprint; that preprint is a connectivity result too).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 3 months (to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Yes-type connectivity for subclasses; a different question (connectivity of recolouring space, not its diameter, and not degenerate graphs).",
+      "object": null,
+      "people": [
+        "Henry Echeverría",
+        "Owen Henderschedt"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2607.07860",
+          "https://arxiv.org/html/2607.07860v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.07860",
+        "https://arxiv.org/html/2607.07860v1"
+      ]
+    },
+    {
+      "id": "echeverria-henderschedt-2026-2K2K4-full",
+      "what_happened": "Echeverría and Henderschedt, 'Yes, (2K2, K4)-free graphs are recolorable' (arXiv 2609.28893, submitted 24 Sep 2026): claims every (2K2,K4)-free graph is recolorable, which the abstract says resolves the final open case of the classification of recolorable (F1,F2)-free graphs with at most four vertices. Connectivity result; no mention of Cereceda's conjecture or diameter in the text I could read.",
+      "date": "2026-09-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "Single version listed (v1, 24 Sep 2026).",
+      "delivers": "Recolorability (connectivity) of every (2K2,K4)-free graph. Not a diameter bound and not about degenerate graphs.",
+      "remains": "The diameter question for degenerate graphs is untouched.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2.5 weeks (to 11 Oct 2026)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "I read the abstract and the first 100,000 characters of the HTML text, and I did not verify the proof. The end of the paper (acknowledgements and any AI-use declaration) could not be read through the tool.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Yes: every (2K2,K4)-free graph is recolorable (connectivity). Different question from the problem's diameter bound.",
+      "object": null,
+      "people": [
+        "Henry Echeverría",
+        "Owen Henderschedt"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2609.28893",
+          "https://arxiv.org/html/2609.28893v1"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.28893",
+        "https://arxiv.org/html/2609.28893v1"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "The conjecture is attributed to Luis Cereceda's 2007 thesis (Wikipedia; Feghali 2019 cites 2007), but some papers credit 'Cereceda et al.' (2009) (search snippet of Bousquet–Perarnau 1411.6997, not opened). Connectivity for k ≥ d+2 was proved independently by Dyer, Flaxman, Frieze and Vigoda (2006) and by Cereceda et al., so the attribution of the connectivity result is also shared. This is naming, not a dispute over the mathematics.",
+      "sources": [
+        "https://en.wikipedia.org/wiki/Cereceda%27s_conjecture",
+        "https://arxiv.org/abs/1902.02278",
+        "https://arxiv.org/html/2605.31225v1"
+      ]
+    },
+    {
+      "kind": "revision",
+      "summary": "Belavadi–Karthick (arXiv 2509.03190) changed the title and the headline wording between v1 and v2. v1 says the authors 'prove that every (P2+P3, C4)-free graph satisfies Cereceda's conjecture'; v2 says the result 'confirms a conjecture of Cereceda for the class'. No explanation of the change was in the pages read.",
+      "sources": [
+        "https://arxiv.org/abs/2509.03190v1",
+        "https://arxiv.org/abs/2509.03190"
+      ]
+    },
+    {
+      "kind": "priority",
+      "summary": "Feghali's planar R_10 bound: the arXiv v2 abstract states diameter at most n²; a catalogue snippet gives the journal abstract as n(n+1)/2. Unresolved because the Springer page was not opened.",
+      "sources": [
+        "https://arxiv.org/abs/1902.02278",
+        "https://link.springer.com/10.1007/s00373-020-02199-0"
+      ]
+    }
+  ],
+  "summary": "Across 47 web searches and about 45 pages opened, I found no claimed proof or disproof of Cereceda's conjecture (quadratic recolouring diameter for d-degenerate graphs at d+2 colours) since 26 January 2024, and the Wikipedia article (revision 16 April 2026, read through a summarising fetch) and the ProofAtlas status page (checked 26 August 2026) both still describe it as open. The window holds three class-restricted results that move the diameter question inside restricted classes: Belavadi–Karthick (arXiv 2509.03190, Sep 2025) confirm the O(n²) form for every (P2+P3, C4)-free graph at ℓ ≥ ρ+2 colours, which is the conjecture's form for that class and not for the general statement; Wang–Lu (arXiv 2509.15456, Sep 2025) give linear recolouring diameter for d-degenerate chordal and treewidth-k graphs at larger colour counts (t ≥ 2d+1, t ≥ 2k+1); Gu et al. (arXiv 2605.31225, May 2026) give linear length for K_{2,3}-minor-free graphs at ℓ ≥ 5 colours. Close calls: (a) the Belavadi–Karthick v1 claim that 'every' (P2+P3, C4)-free graph satisfies the conjecture is stronger in wording than the v2 'for the class' statement, and I could not read their formal theorems past the 100,000-character cut; (b) whether the Gu et al. class is d-degenerate for a fixed d, which the conjecture needs, is not established from the text I read; (c) Wang–Lu's linear bounds are at colour counts above d+2 for chordal and treewidth classes, so they do not settle the d+2 statement even on those classes. Pre-window context (Cereceda 2007; Bonamy–Bousquet 2013; Eiben–Feghali 2018; Feghali 2019; Bousquet–Heinrich 2019 with the O(n^{d+1}) general bound; Bousquet–Bartier 2019; Dvořák–Feghali 2020; Bartier–Bousquet–Heinrich 2020; Cranston–Mahmoud 2022, JGT 2024) is recorded as events so the status is visible. Neighbouring post-window papers on list colourings (De Meyer 2025; Cranston 2024/25; Cambie et al. 2025; Cambie et al. EJC 2026) and recolourability (Echeverría–Henderschedt, July and September 2026) are recorded and discounted as different questions. For AI: I found no AI system credited with any result on this problem. ProofAtlas describes itself as an 'AI-first mathematical research' workspace, but its page credits no model and says no model output was used as independent status evidence. The one AI disclosure I found is an editing-only statement attributed to arXiv 2607.07860 ('OpenAI's ChatGPT 5.5 Plus and Anthropic's Claude to assist with editing, grammar, and formatting'); I could not open the authors' text to verify it, so it rests on a search snippet, and it is out of scope regardless. The 2026 AI-mathematics news I found (Erdős problems, OEIS conjectures, FrontierMath Open Problems, Knuth's Hamiltonian-cycle problem, a cycle double cover claim from an aggregator) does not name this problem. The record is incomplete in the places listed below.",
+  "competing_reading": "The strongest case for counting the Belavadi–Karthick result as settling a substantial part of the problem is that the authors describe it as 'confirming a conjecture of Cereceda' and their v1 says 'every (P2+P3, C4)-free graph satisfies Cereceda's conjecture'. Read as the conjecture for that hereditary class, the result is a complete resolution of the statement restricted to that class, and a judge could treat the class as the problem's natural test case. The case against is the scope test: the problem asks about all d-degenerate graphs, and the paper itself describes the general conjecture as open. For the Wang–Lu and Gu et al. results, the competing reading is that a linear bound on a class is the conjecture's quantity moved for that class, so each counts as partial progress; the case against is that the chordal and treewidth results are at colour counts above d+2, and the Gu et al. class has not been shown to be degenerate in the required sense. For the AI question the competing reading is that the Echeverría–Henderschedt declaration names ChatGPT and Claude, so AI is 'involved' in a 2026 reconfiguration preprint; the case against is that the declaration describes editing only, is out of scope, and I could not read it on the authors' page.",
+  "what_would_settle_it": "(1) The formal Theorems 3 and 4 of arXiv 2509.03190 v2 and the reason for the v1-to-v2 change in headline wording, plus any referee or journal report on it. (2) Whether any post-October-2026 preprint claims the d+2 quadratic bound for general d-degenerate graphs (an arXiv listing search for 'Cereceda' or 'reconfiguration graph diameter' after the frozen period). (3) The full text of arXiv 2607.07860 and 2609.28893 (end sections), to verify the AI-use declaration and any acknowledgements. (4) Whether K_{2,3}-minor-free graphs are d-degenerate for a fixed d, and the published version of Gu et al.'s Theorem 1.2. (5) The Springer full text of Feghali 2020 (n² versus n(n+1)/2). (6) The published JCTB 2022 version of Bousquet–Heinrich, to confirm the k ≥ 3(d+1)/2 threshold, which I took from the Wikipedia summary and search snippets.",
+  "sources": [
+    {
+      "url": "https://en.wikipedia.org/wiki/Cereceda%27s_conjecture",
+      "title": "Cereceda's conjecture (Wikipedia, revision 16 Apr 2026; read via summarising fetch)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.proofatlas.ai/collaboration/cerecedas-conjecture/",
+      "title": "Cereceda's Conjecture — ProofAtlas collaboration workspace",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.03190",
+      "title": "Reconfiguration graph for vertex colorings of (P2+P3, C4)-free graphs (v2)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.03190v1",
+      "title": "Reconfiguration graph of vertex colorings of some generalized split graphs (v1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2509.03190v2",
+      "title": "2509.03190v2 HTML (first 100k characters read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.15456",
+      "title": "Linear recoloring diameter of degenerate chordal graphs and bounded treewidth graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.03748",
+      "title": "Optimal List Recoloring of Subcubic Graphs and Complete Multipartite Graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1903.05619",
+      "title": "A polynomial version of Cereceda's conjecture",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1810.00731",
+      "title": "Towards Cereceda's conjecture for planar graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1902.02278",
+      "title": "Reconfiguring 10-colourings of planar graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2002.05383",
+      "title": "An update on reconfiguring 10-colorings of planar graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2208.02228",
+      "title": "5-Coloring Reconfiguration of Planar Graphs with No Short Odd Cycles",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2204.07928",
+      "title": "Optimally Reconfiguring List and Correspondence Colourings",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2505.08020",
+      "title": "Reconfiguration of List Colourings",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2411.00679",
+      "title": "10-list Recoloring of Planar Graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2401.03011",
+      "title": "A Note on the Complexity of Graph Recoloring",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1302.3486",
+      "title": "Recoloring bounded treewidth graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2012.11459",
+      "title": "Recoloring graphs of treewidth 2",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1907.01863",
+      "title": "Linear transformations between colorings in chordal graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.03789",
+      "title": "Extremal diameters of 3-coloring graphs of trees (v1)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2512.03789v2",
+      "title": "Extremal diameters of 3-coloring graphs of trees (v2)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v33i1p18",
+      "title": "Sharp Bounds on Lengths of Linear Recolouring Sequences (EJC P1.18)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2605.31225",
+      "title": "Reconfiguration graphs of K_{2,3}-minor-free graphs (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2605.31225v1",
+      "title": "Reconfiguration graphs of K_{2,3}-minor-free graphs (HTML, first 100k characters)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.07860",
+      "title": "On the recolorability of (2K2, K4)-free graphs (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.07860v1",
+      "title": "On the recolorability of (2K2, K4)-free graphs (HTML, truncated before end)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.28893",
+      "title": "Yes, (2K2, K4)-free graphs are recolorable (abstract)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.28893v1",
+      "title": "Yes, (2K2, K4)-free graphs are recolorable (HTML, truncated before end)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.27159",
+      "title": "Breaking the 2^n barrier for graph k-coloring (AI-search lead; unrelated to reconfiguration)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/search/?query=Cereceda&searchtype=all&source=header",
+      "title": "arXiv search: Cereceda (50 of 70 results read)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/search/?query=reconfiguration+graph+diameter+colorings&searchtype=all",
+      "title": "arXiv search: reconfiguration graph diameter colorings (10 results read)",
+      "type": "repository",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "Cereceda conjecture diameter reconfiguration graph colourings degenerate graphs",
+      "Cereceda's conjecture k-colourings d-degenerate graph O(n^2) recolouring",
+      "Cereceda conjecture proof 2024 arXiv",
+      "Cereceda conjecture Wikipedia list of unsolved problems in mathematics",
+      "reconfiguration graph k-colorings diameter degeneracy k at least d+2 quadratic bound",
+      "Cereceda conjecture 2025 colouring reconfiguration",
+      "Cereceda's conjecture Wikipedia",
+      "(P2+P3, C4)-free graphs Cereceda's conjecture arXiv 2025",
+      "Linear recoloring diameter of degenerate chordal graphs and bounded treewidth graphs",
+      "arXiv 2501.03748 reconfiguration colourings subcubic complete multipartite Cereceda",
+      "Cereceda conjecture AI proof language model reconfiguration colorings",
+      "Cereceda conjecture GPT Claude Gemini AI solved open problem graph coloring",
+      "101010-list recoloring of planar graphs arXiv 2411.00679",
+      "Optimally reconfiguring list and correspondence colourings Cambie Cames van Batenburg Cranston European Journal of Combinatorics",
+      "Kempe changes in degenerate graphs arXiv 2112.02313",
+      "Cereceda thesis 2007 Luis Cereceda reconfiguration colourings LSE",
+      "\"Cereceda\" conjecture reconfiguration 2026",
+      "Cereceda conjecture quadratic diameter recolouring proof resolved",
+      "proofatlas Cereceda's conjecture collaboration",
+      "Extremal diameters of 3-coloring graphs of trees arXiv 2512.03789",
+      "Reconfiguration of list colourings arXiv 2505.08020",
+      "5-coloring reconfiguration planar graphs no short odd cycles Cranston Mahmoud",
+      "List-recoloring of sparse graphs arXiv 2201.05133 Cereceda",
+      "AI system open problems graph reconfiguration diameter conjecture solved 2026 mathematics",
+      "proofatlas.ai collaboration conjecture",
+      "Cereceda conjecture Claude Opus proof reconfiguration",
+      "Bousquet Heinrich polynomial version Cereceda conjecture JCTB 2022 diameter O(n^{d+1})",
+      "Bartier Bousquet Heinrich recoloring treewidth two linear diameter 5 colours",
+      "Feghali Reconfiguring 10-colourings of planar graphs Graphs and Combinatorics 2020 n(n+1)/2",
+      "Cereceda conjecture mixing 3-colourings bipartite graphs Cereceda van den Heuvel Johnson",
+      "Google DeepMind formal conjectures repository Cereceda",
+      "MathOverflow Cereceda conjecture reconfiguration colorings degenerate",
+      "Erdos problems AI solved graph colouring reconfiguration open problem list 2026 GPT-5.5 Pro Claude",
+      "AlphaEvolve OR AlphaProof OR \"Deep Think\" graph recoloring diameter conjecture",
+      "Cranston blog LLM-assisted proof coloring reconfiguration 2025 2026 AI acknowledgements",
+      "Epoch AI FrontierMath open problems list coloring reconfiguration solved",
+      "\"used OpenAI's ChatGPT 5.5 Plus and Anthropic's Claude to assist with editing, grammar, and formatting\" reconfiguration",
+      "arXiv 2026 recolouring degenerate graphs Cereceda conjecture ChatGPT acknowledgements reconfiguration graph diameter",
+      "Cambie Cranston 2026 arXiv reconfiguration colourings degenerate diameter Cereceda new bound",
+      "Dvořák Feghali linear reconfiguration planar graphs R10 8n diameter Electronic Journal of Combinatorics 2020",
+      "Bousquet Perarnau fast recoloring of sparse graphs linear diameter 2d+2 Cereceda arXiv 1411.6997",
+      "Echeverría Henderschedt recolorability (2K2,K4)-free graphs ChatGPT declaration",
+      "Belavadi Cameron recolorability F1 F2-free graphs Cereceda conjecture",
+      "Cereceda conjecture Terence Tao OR Quanta OR \"Matroid Union\" reconfiguration colorings blog",
+      "Nishimura introduction to reconfiguration survey colorings Cereceda conjecture open 2025 survey recolouring diameter",
+      "Gaspers Huang (2K2,K4)-free 4-colorable graphs recolorability reconfiguration",
+      "Cereceda conjecture quadratic reconfiguration degenerate graphs open question survey 2026 status"
+    ],
+    "places_checked": [
+      "Wikipedia article 'Cereceda's conjecture' (revision 16 Apr 2026, via summarising fetch; quotes are from that summary)",
+      "arXiv abstract pages for every preprint cited above; HTML versions of 2509.03190 v2, 2605.31225, 2607.07860, 2609.28893 (truncated, see incomplete)",
+      "arXiv listing search for 'Cereceda' (50 of 70 results read; 2024–2026 items checked individually) and for 'reconfiguration graph diameter colorings' (10 results)",
+      "ProofAtlas 'Cereceda's Conjecture' collaboration workspace (AI-first platform; no model credited)",
+      "EJC article page for Cambie–Cames van Batenburg–Cranston P1.18 (opened)",
+      "Google DeepMind formal-conjectures repository (search only; not opened on GitHub; no link to this problem found)",
+      "Epoch AI FrontierMath Open Problems (search only; no link found)",
+      "erdosproblems.com and Erdős-AI results (search only; they concern other problems)",
+      "MathOverflow (search returned no threads)",
+      "Terence Tao blog, Quanta, Matroid Union (search only; Tao/Quanta hits concern Collatz; no link found)",
+      "Cranston personal/blog (search only; no LLM-assisted reconfiguration post found)",
+      "Belavadi–Cameron 2023 (recolorability classification; search snippet only, not opened)"
+    ],
+    "dead_ends": [
+      "No claimed proof or disproof of the general conjecture in any search or listing (through the arXiv search page, which covers the 2026 items I could read).",
+      "AI searches (Claude Opus, GPT, Gemini, AlphaEvolve, AlphaProof, Deep Think, FrontierMath, Erdős AI, OEIS, DeepMind formal conjectures): no system credited with anything on this problem. The AI-math results found concern other problems (Erdős unit-distance, OEIS conjectures, Knuth's Hamiltonian-cycle problem, FrontierMath Open Problems, a cycle double cover claim reported by an aggregator).",
+      "ProofAtlas: an 'AI-first' workspace that credits no model and states that no model output was used as independent status evidence; treated as a status source, not an event.",
+      "arXiv 2607.27159 (Pratt, 'Breaking the 2^n barrier for graph k-coloring'): k-colouring algorithms, not reconfiguration; no AI-use statement visible in the page read; excluded from events.",
+      "Kempe-change reconfiguration (Bonamy–Delecroix–Legrand-Duchesne, arXiv 2112.02313): different move set; search snippet only, not opened; excluded.",
+      "List-recolouring of planar graphs (arXiv 2209.05992) and list-recolouring of sparse graphs (Cranston, arXiv 2201.05133): list analogues; search snippets only, not opened; excluded.",
+      "Cranston–Mahmoud's 3-degenerate planar class and 'Thomassen-type method' (Dvořák–Feghali, arXiv 2006.09269): search snippet only; not opened.",
+      "Bousquet–Perarnau 'Fast recoloring of sparse graphs' (arXiv 1411.6997): search snippets only; not opened.",
+      "Nishimura, 'Introduction to Reconfiguration' (Algorithms 2018, DOI 10.3390/a11040052): search snippet only; not opened.",
+      "Cereceda et al. 'Mixing 3-colourings in bipartite graphs' (EJC 2009) and the LSE thesis PDF: not opened; the thesis date comes from a repository listing in a search snippet."
+    ]
+  },
+  "incomplete": "(1) Theorems 3 and 4 of arXiv 2509.03190 v2 and the text after 100,000 characters were not read; the class-level statements are taken from the abstract and the introduction. (2) arXiv 2509.15456 and arXiv 2605.31225 were read from the abstract page (and 2605.31225's HTML to 100,000 characters) only; acknowledgements and full theorem statements were not checked for AI use. (3) arXiv 2607.07860: the AI-use declaration ('OpenAI's ChatGPT 5.5 Plus and Anthropic's Claude to assist with editing, grammar, and formatting') appears only in a search snippet; the authors' text could not be read beyond about Section 6, so it is unverified and I have not put it in ai.systems (it is editing only in any case). (4) arXiv 2609.28893: only the abstract and the first 100,000 characters of the HTML were read; the acknowledgements and any AI-use declaration at the end were not reachable. (5) PDF fetches of 2607.07860 and 2605.31225 returned binary data and were not read. (6) Journal versions of Feghali 2020 (Springer), Bousquet–Heinrich (JCTB 2022), Dvořák–Feghali (EJC 2020), Cranston–Mahmoud (JGT 2024), Cranston 10-list (EJC 2025) and Cambie et al. (EJC 2024) were identified from search results and not opened. (7) The Wikipedia article and the ProofAtlas page were read through a summarising fetch, so exact wording is taken from that summary. (8) I did not check whether Wikipedia's own 'List of unsolved problems in mathematics' links to this article (not in my scope per §7.1). (9) No direct check of lab announcements or the authors' pages for any AI claim was possible, because none was found to check; the AI search relied on search results plus the ProofAtlas page. (10) Search coverage of very recent (Sep–Oct 2026) preprints is limited to what the search index and the arXiv listing returned.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "none",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "belavadi-karthick-2025-p2p3c4",
+  "no_change_found": false,
+  "event": {
+    "id": "belavadi-karthick-2025-p2p3c4",
+    "what_happened": "Belavadi and Karthick, arXiv 2509.03190. v1 (3 Sep 2025, titled 'Reconfiguration graph of vertex colorings of some generalized split graphs') states: 'We prove that every (P2+P3, C4)-free graph satifies Cereceda's conjecture', with a bound of 2n² on the ℓ-recolouring diameter. v2 (24 Feb 2026, titled 'Reconfiguration graph for vertex colorings of (P2+P3, C4)-free graphs') states the result as confirming a conjecture of Cereceda for that class; it gives that a recolourable member has ℓ-recolouring diameter at most 2n² for every ℓ > χ(G), and that for any member of degeneracy ρ the diameter is O(n²) for all ℓ > ρ(G)+1, i.e. ℓ ≥ ρ+2.",
+    "date": "2025-09-03",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 3 Sep 2025 (title 'Reconfiguration graph of vertex colorings of some generalized split graphs'; abstract 'We prove that every (P2+P3, C4)-free graph satifies Cereceda's conjecture'); v2 24 Feb 2026 (title 'Reconfiguration graph for vertex colorings of (P2+P3, C4)-free graphs'; abstract 'confirms a conjecture of Cereceda for the class'). Comment: '18 pages'. No change log seen.",
+    "delivers": "For the hereditary class of (P2+P3, C4)-free graphs: every member of degeneracy ρ has ℓ-recolouring diameter O(n²) for all ℓ ≥ ρ+2, which is the conjecture's form for that class (v2 wording). Also a characterisation of recolourable members and a 2n² bound for them. Restricted to the class; no bound for other degenerate graphs.",
+    "remains": "All d-degenerate graphs outside the (P2+P3, C4)-free class, including planar and triangle-free planar graphs.",
+    "checked_by": [],
+    "no_engagement_found": true,
+    "time_since_posted": "about 13 months (to 11 Oct 2026)",
+    "machine_checked": null,
+    "directly_checkable": null,
+    "doubts": "The headline claim changed between versions: v1's abstract says the authors 'prove that every (P2+P3, C4)-free graph satisfies Cereceda's conjecture' under a different title; v2's abstract says the result 'confirms a conjecture of Cereceda for the class'. The reason for the change is not in the pages I read, and I did not read the formal theorem statements (Theorems 3 and 4 were cut off in the 100,000-character read). The authors' claims for the class are stated only as abstract-level summaries here. No referee report, journal version, or public comment was found.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Confirms the conjecture's quadratic-bound form for one hereditary class (asserts O(n²) for that class at ℓ ≥ ρ+2); does not address the general statement, which the paper itself describes as open.",
+    "object": null,
+    "people": [
+      "Manoj Belavadi",
+      "T. Karthick"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/abs/2509.03190",
+        "https://arxiv.org/abs/2509.03190v1",
+        "https://arxiv.org/html/2509.03190v2"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2509.03190",
+      "https://arxiv.org/abs/2509.03190v1",
+      "https://arxiv.org/html/2509.03190v2"
+    ]
+  },
+  "credited_humans": [
+    "Manoj Belavadi",
+    "T. Karthick"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2509.03190",
+    "https://arxiv.org/abs/2509.03190v1",
+    "https://arxiv.org/html/2509.03190v2"
+  ],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "cereceda-2007-thesis",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bonamy-bousquet-2013-treewidth",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "eiben-feghali-2018-planar-subexp",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "feghali-2019-planar-R10",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bousquet-heinrich-2019-polynomial",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bousquet-bartier-2019-chordal",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "dvorak-feghali-2020-planar-R10-linear",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bartier-bousquet-heinrich-2020-tw2",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "cambie-et-al-2022-list-bounds",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "cranston-mahmoud-2022-planar-no3-5cycles",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "bousquet-2024-kmixing-complexity",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "cranston-2024-10-list-planar",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "de-meyer-2025-list-subcubic",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "cambie-et-al-2025-list-quadratic",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "belavadi-karthick-2025-p2p3c4",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "wang-lu-2025-chordal-treewidth-linear",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "asgarli-et-al-2025-trees-3col",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "cambie-et-al-2026-linear-sequences-EJC",
+        "after_snapshot": null,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "gu-et-al-2026-K23minor-linear",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "echeverria-henderschedt-2026-2K2K4-partial",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "echeverria-henderschedt-2026-2K2K4-full",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks for O(n²) diameter at exactly d+2 colours for d-degenerate graphs. Results proving the quadratic bound at d+2 for a restricted class (Bonamy–Bousquet treewidth, Cranston–Mahmoud, Belavadi–Karthick) are cases. Results at more colours than d+2 (Feghali R10, Dvořák–Feghali, treewidth-2 at 5, Wang–Lu, Gu et al. at ℓ≥5 on a 2-degenerate class), list analogues, and connectivity/recolorability papers change the question and are variants. Bousquet–Heinrich's O(n^{d+1}) and Eiben–Feghali's subexponential planar bound move the quantity: bounds. Bousquet–Bartier's chordal lower bound only shows sharpness and the tree paper refines a d=1 case already known, so both are none. Belavadi–Karthick's v1→v2 wording change narrows phrasing but not the class claim, so I keep it credible. Journal acceptances count as digested. No event credits AI with mathematics; the 2607.07860 editing disclosure is not mathematics.",
+    "doubts": "Gu et al.'s class: I take K_{2,3}-minor-free graphs as 2-degenerate (so ℓ≥5 exceeds d+2=4), which the record did not establish; if that were wrong the event might be a case. Belavadi–Karthick's formal theorems were not read. Asgarli et al. could arguably be a case at d=1, but the record says the tree order was already known.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "belavadi-karthick-2025-p2p3c4",
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

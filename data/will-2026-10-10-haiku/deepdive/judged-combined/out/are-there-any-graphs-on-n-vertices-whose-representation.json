@@ -1,0 +1,872 @@
+{
+  "key": "are-there-any-graphs-on-n-vertices-whose-representation",
+  "nothing_found": false,
+  "outcome": "Not settled for general graphs as of 11 October 2026: no counterexample and no proof that the representation number is at most floor(n/2) appears in any source I could read. The one new event that bears directly on the bullet since 26 January 2024 is Colbrook and Drysdale (arXiv 2609.35842, 24 Sep 2026), which settles the bipartite class (every bipartite graph on N ≥ 9 vertices has representation number at most ⌈N/4⌉), with ChatGPT-assisted steps declared by the authors; two Hefty–Horn–Muir–Owens papers on lower bounds (EJC 2024, JCTA 2026) could bear on general graphs but their full texts were not readable, so that remains unverified.",
+  "problem_asks": "(1) Existence: for a given n (or for some n; the bullet does not say which), is there a graph G on n vertices whose representation number R(G) exceeds floor(n/2)? R(G) is the least k such that G is represented by a word over its vertices in which each letter occurs exactly k times and two distinct letters alternate exactly when they are adjacent; because k-representable implies (k+1)-representable, 'requires more than floor(n/2) copies' is read as R(G) > floor(n/2). (2) Scope: every graph on n vertices, with no restriction to bipartite, triangle-free, or any other class. (3) Word-representability: the bullet does not say what to do with graphs that have no representation at all (non-word-representable graphs, with R = infinity); a literal reading would count them. (4) The bullet asks only for the existence question with floor(n/2) as the threshold; it does not ask for the exact maximum representation number of each n.",
+  "events": [
+    {
+      "id": "halldorsson-kitaev-pyatkin-2008",
+      "what_happened": "Halldórsson, Kitaev and Pyatkin, 'On representable graphs, semi-transitive orientations, and the representation numbers', arXiv:0810.0310 (1 Oct 2008; one version). The abstract (opened) states that 'the representation number of a graph on n nodes is at most n' and that the bound 'is tight up to a constant factor, as we present a graph whose representation number is n/2'. Search excerpts, not checked in the PDF (not extractable), place the n/2 family in a theorem numbered 15: the crown graph H_{k,k} plus an all-adjacent vertex, with representation number k = floor(n/2) on n = 2k+1 vertices.",
+      "date": "2008-10-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only (1 Oct 2008) per the arXiv abstract page. The same authors' 2015 preprint (arXiv:1501.07108) and its 2016 journal version state the general upper bound as 2n, not n. No withdrawal or correction notice was found, and the record does not show whether the 2008 bound was withdrawn, corrected or dropped.",
+      "delivers": "Claims R(G) ≤ n for every word-representable graph G on n vertices (a bound the 2015/2016 versions do not repeat). Exhibits a family with R = n/2, which for odd n is floor(n/2) (per excerpts). Establishes that some n-vertex graphs have representation number about n/2, which makes floor(n/2) the natural frontier.",
+      "remains": "Whether any graph on n vertices has R > floor(n/2). The abstract does not address it. If the claimed bound R ≤ n were right, it would cap R at n, leaving the gap (floor(n/2), n] open.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 18 years",
+      "machine_checked": null,
+      "directly_checkable": "The n/2 family is an explicit graph (crown graph with an added all-adjacent vertex); its representation number can be checked by computer for small k. The authors' check was not read.",
+      "doubts": "(1) The 2008 bound R ≤ n is inconsistent with the 2n bound the same authors state in 2015; the record cannot say which is correct or whether the 2008 claim was retracted. (2) Theorem 15 and the family's identity come from search excerpts, since the PDF was not extractable.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the question's threshold: it exhibits graphs with R about n/2 and makes no claim that exceeds floor(n/2). Its upper bound n is a claim about a different quantity and does not settle whether floor(n/2) is exceeded.",
+      "object": "A family of graphs with representation number n/2 (for odd n, floor(n/2)): the crown graph H_{k,k} (K_{k,k} minus a perfect matching, 2k vertices) with one added all-adjacent vertex, giving G_k on 2k+1 vertices with representation number k (per search excerpts of Theorem 15; not read in the paper). Explicit, not existential. Does not exceed floor(n/2).",
+      "people": [
+        "Magnús M. Halldórsson",
+        "Sergey Kitaev",
+        "Artem Pyatkin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/0810.0310"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/0810.0310"
+      ]
+    },
+    {
+      "id": "halldorsson-kitaev-pyatkin-2015",
+      "what_happened": "Halldórsson, Kitaev and Pyatkin, 'Semi-transitive orientations and word-representable graphs', arXiv:1501.07108 (submitted 28 Jan 2015; one version, submitter Kitaev), published Discrete Applied Mathematics 201 (2016) 164–171, DOI 10.1016/j.dam.2015.07.033 (journal details from a Strathclyde record in search results). The abstract (opened) states that the representation number of a word-representable graph on n vertices is at most 2n, 'while there exist graphs for which it is n/2', and that the bound is 'tight up to a constant factor'. Wikipedia's article and Kitaev's 2017 survey (both opened) cite the journal version for the bound 'each non-complete word-representable graph G is 2(n − κ(G))-representable', κ(G) the maximum clique size; since κ ≥ 2 for a non-complete graph with an edge, this gives 2n − 4. The paper's PDF was not extractable, so that bound is from the secondary sources.",
+      "date": "2015-01-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "arXiv v1 only (28 Jan 2015) per the abstract page. Journal version DAM 201 (2016) 164–171.",
+      "delivers": "Characterises word-representability by semi-transitive orientations. Upper bound R ≤ 2n (abstract) and, per secondary sources, R ≤ 2(n − κ) ≤ 2n − 4 for non-complete graphs. Lower bound family with R = n/2 (abstract). Not a resolution of the question: the gap between n/2 and 2n − 4 is left open.",
+      "remains": "Whether any graph on n vertices has R > floor(n/2). The upper bound leaves a gap of roughly n to 2n − 4 above the best-known family.",
+      "checked_by": [
+        {
+          "who": "Discrete Applied Mathematics (journal referees)",
+          "qualification": "Peer-reviewed journal of record",
+          "what_they_did": "Published the paper in DAM 201 (2016) 164–171 (per the Strathclyde record in search results; the referee process itself is not visible)",
+          "where": "https://strathprints.strath.ac.uk/54148/",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 11.7 years (arXiv v1, Jan 2015)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The 2n bound replaced the 2008 preprint's n (see the 2008 event), and the 2(n − κ) form is taken from secondary sources only (Wikipedia citing the 2016 paper; Kitaev's survey, Theorem 32), not read in the paper itself.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neutral to the question. Supplies the n/2 benchmark and an upper bound well above it.",
+      "object": null,
+      "people": [
+        "Magnús M. Halldórsson",
+        "Sergey Kitaev",
+        "Artem Pyatkin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1501.07108"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1501.07108",
+        "https://en.wikipedia.org/wiki/Word-representable_graph",
+        "https://arxiv.org/html/1705.05924v1"
+      ]
+    },
+    {
+      "id": "glen-kitaev-pyatkin-2016",
+      "what_happened": "Glen, Kitaev and Pyatkin, 'On the representation number of a crown graph', arXiv:1609.00674 (submitted 2 Sep 2016; one version), published Discrete Applied Mathematics 244 (2018) 89–93, DOI 10.1016/j.dam.2018.03.013 (journal details from search results). The arXiv abstract (opened) states that for n ≥ 5 the crown graph H_{n,n} (K_{n,n} minus a perfect matching, 2n vertices) has representation number ⌈n/2⌉, that this completely solves Problem 7.4.2 of Kitaev and Lozin's book Words and Graphs (2015), and that it answers Problem 7.2.7 negatively. The paper's introduction (opened, HTML) says non-bipartite graphs obtained from crown graphs by adding an all-adjacent vertex 'require roughly twice as long words'.",
+      "date": "2016-09-02",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only per the arXiv abstract page; journal version DAM 244 (2018).",
+      "delivers": "Exact value of R for crowns: R(H_{n,n}) = ⌈n/2⌉ for n ≥ 5. Here N = 2n vertices and R = ⌈N/4⌉, far below floor(N/2). This is a bipartite family that does not exceed the threshold. It does not address graphs in general.",
+      "remains": "All graphs on n vertices (the bullet is about every graph, not crowns). The crown-plus-apex family, which reaches floor(n/2) at odd order according to secondary sources, is the closest known match to the threshold.",
+      "checked_by": [
+        {
+          "who": "Discrete Applied Mathematics (journal referees)",
+          "qualification": "Peer-reviewed journal of record",
+          "what_they_did": "Published in DAM 244 (2018) 89–93 (per search results; the paper was not opened in the journal version)",
+          "where": "https://arxiv.org/abs/1609.00674",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 10 years 1 month",
+      "machine_checked": null,
+      "directly_checkable": "The crown graph H_{n,n} is explicit, and its representation number can be checked by computer for small n. The proof was not read.",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Consistent with the question: a bipartite family whose representation number is ⌈N/4⌉ is far below floor(N/2).",
+      "object": "Explicit crown graphs H_{n,n} (K_{n,n} minus a perfect matching) with R = ⌈n/2⌉ for n ≥ 5 (value from the abstract; the proof was not read). Not a counterexample: R = ⌈n/2⌉ = ⌈N/4⌉ for N = 2n vertices.",
+      "people": [
+        "Marc Glen",
+        "Sergey Kitaev",
+        "Artem Pyatkin"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1609.00674",
+          "https://arxiv.org/html/1609.00674"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1609.00674",
+        "https://arxiv.org/html/1609.00674"
+      ]
+    },
+    {
+      "id": "akgun-gent-kitaev-zantema-2018",
+      "what_happened": "Akgün, Gent, Kitaev and Zantema, 'Solving computational problems in the theory of word-representable graphs', arXiv:1808.01215 (submitted 3 Aug 2018; one version), Journal of Integer Sequences 22 (2019) Article 19.2.5. The abstract (opened) reports exhaustive computation: enumeration of connected non-word-representable graphs up to 11 vertices (3 CPU years, which led to a correction of a published result), a 'distribution of k-representable graphs on at most 9 vertices', and 'a new graph on 9 vertices with high representation number'. Search excerpts of the full text (PDF not extractable) add: the 9-vertex word-representable graphs with representation number 4 are G_4 (known) and a new graph J_4 (a non-comparability graph); no word-representable graph on at most 9 vertices has representation number above 4; and the authors say this 'may suggest that Conjecture 2 might not be true'. Conjecture 2, per excerpts, is Kitaev's conjecture that the crown with an apex, G_n, has the highest representation number among graphs on 2n+1 vertices.",
+      "date": "2018-08-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only per the arXiv abstract page; journal version JIS 22 (2019) 19.2.5.",
+      "delivers": "Finite instances: exhaustive computation for graphs on at most 9 vertices. Per excerpts, every word-representable graph on at most 9 vertices has R ≤ 4. That is at most floor(n/2) at n = 8 and 9 only; for n ≤ 7, floor(n/2) ≤ 3, so R ≤ 4 does not by itself establish R ≤ floor(n/2) there. The per-n maxima tables were not read. Finite instances of a universal claim do not resolve it (§2.1).",
+      "remains": "All n ≥ 10, and the per-n threshold for n ≤ 7 and 8 (the per-n maxima were not read).",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 8 years 2 months",
+      "machine_checked": {
+        "system": "Exhaustive computer enumeration with semi-transitive orientation tests (the authors' own code; not a proof assistant)",
+        "sorry_free": null,
+        "url": "https://arxiv.org/abs/1808.01215"
+      },
+      "directly_checkable": "The graph J_4 (9 vertices, non-comparability, R = 4) is a finite object that could be checked by computer; its construction was not read.",
+      "doubts": "The enumeration led to a correction of a published result (per the abstract), so the computational pipeline has already been revised once. The per-n tables and the J_4 construction were not read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the question: no counterexample for graphs up to 9 vertices. J_4 attains floor(9/2) = 4 exactly, so it is not a counterexample.",
+      "object": "J_4, a 9-vertex non-comparability graph with representation number 4 = floor(9/2) (per search excerpts), and G_4, a comparability graph on 9 vertices with the same value. Neither exceeds the threshold.",
+      "people": [
+        "Özgür Akgün",
+        "Ian P. Gent",
+        "Sergey Kitaev",
+        "Hans Zantema"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1808.01215"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1808.01215",
+        "https://cs.uwaterloo.ca/journals/JIS/VOL22/Kitaev/kitaev11.html"
+      ]
+    },
+    {
+      "id": "mozhui-krishna-2021",
+      "what_happened": "Mozhui and Krishna, 'On the representation number of bipartite graphs', arXiv:2109.03458 (submitted 8 Sep 2021; one version; comment says RAMiCS 2021). The abstract (opened) gives a polynomial-time relabeling algorithm producing 'an upper bound for the representation number of bipartite graphs', and an upper bound on poset dimension for bipartite-derived posets. It states that 'it was conjectured that the representation number of bipartite graphs on n vertices is at most n/4', without naming the conjecturer. The 2025 follow-up (see the next event) attributes the conjecture to Glen et al.",
+      "date": "2021-09-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only per the arXiv abstract page.",
+      "delivers": "An upper bound for representation numbers of bipartite graphs, not stated explicitly in the abstract. Restricted to bipartite graphs. The n/4 conjecture is not proved here.",
+      "remains": "The bipartite conjecture, and the whole question for non-bipartite graphs.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 5 years 1 month",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Restricted to bipartite graphs; consistent with the question, which is about an upper threshold.",
+      "object": null,
+      "people": [
+        "Khyodeno Mozhui",
+        "K. V. Krishna"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2109.03458"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2109.03458"
+      ]
+    },
+    {
+      "id": "mozhui-krishna-2025",
+      "what_happened": "Mozhui and Krishna, 'On the Conjecture of the Representation Number of Bipartite Graphs', arXiv:2506.01057 (submitted 1 Jun 2025; one version, v1, submitter K. V. Krishna). The abstract (opened) states that every bipartite graph is (1 + ⌈m/2⌉)-representable, m the size of the smaller partite set; when m is odd the bound drops to ⌈m/2⌉. So the Glen et al. conjecture (R ≤ ⌈(m+n)/4⌉ for bipartite graphs with partite sets of sizes m and n, m + n ≥ 9) holds for all bipartite graphs except those with both partite sets of equal, even size. For that remaining class the authors prove the conjecture for subclasses, using a neighbourhood-inclusion-graph approach. Search excerpts say the representation numbers are known for all bipartite graphs with at most nine vertices (not verified in full text).",
+      "date": "2025-06-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (1 Jun 2025) per the arXiv abstract page.",
+      "delivers": "For bipartite graphs with smaller part m: R ≤ 1 + ⌈m/2⌉. Since m ≤ floor(N/2), this gives R ≤ floor(N/2) for N ≥ 4 (my arithmetic from the abstract's bound; the paper does not state it). The Glen et al. conjecture is settled for all bipartite graphs outside the equal-even-parts class, and proved for subclasses inside it.",
+      "remains": "Non-bipartite graphs entirely. Bipartite graphs with equal, even partite sets, except the proven subclasses.",
+      "checked_by": [],
+      "no_engagement_found": null,
+      "time_since_posted": "about 16 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Restricted to bipartite graphs; its bound is consistent with the question's threshold for N ≥ 4.",
+      "object": null,
+      "people": [
+        "Khyodeno Mozhui",
+        "K. V. Krishna"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2506.01057"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2506.01057"
+      ]
+    },
+    {
+      "id": "colbrook-drysdale-2026",
+      "what_happened": "Colbrook and Drysdale, 'Crown graphs maximise the representation number of bipartite graphs', arXiv:2609.35842 (submitted 24 Sep 2026, math.CO, cross-listed cs.DM; one version). The abstract (opened, HTML) states that every bipartite graph on N ≥ 9 vertices has representation number at most ⌈N/4⌉, and that this settles the conjecture that crowns maximise the representation number among bipartite graphs of the same order (Corollary 1.2; H_{n,n} attains the bound by equation (1.1)). The proof builds on a construction of Mozhui and Krishna and reduces to an ordering problem on neighbourhoods. Two finite cases (six and eight vertices per part) are settled by Boolean unsatisfiability certificates, and the main theorem and crown corollary are formalised in Lean 4. The AI declaration in Section 6.2 is recorded under ai.",
+      "date": "2026-09-24",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (24 Sep 2026) per the arXiv abstract page. No v2 page was found (arxiv.org/abs/2609.35842v2 returned 404).",
+      "delivers": "Bipartite class only: every bipartite graph on N ≥ 9 vertices has R ≤ ⌈N/4⌉. Since ⌈N/4⌉ ≤ floor(N/2) for N ≥ 9, no bipartite graph on N ≥ 9 vertices is a counterexample to the bullet. Combined with the Mozhui–Krishna bound (my arithmetic), no bipartite graph on N ≥ 4 vertices is a counterexample. This is a restriction to a class, not a resolution of the general question (§2.1).",
+      "remains": "Every non-bipartite graph, at every order. Whether a non-bipartite graph on n vertices exceeds floor(n/2) is not addressed.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "17 days",
+      "machine_checked": {
+        "system": "Lean 4 (version 4.33.1 per the repository README) with Lean Comparator; finite cases checked by Boolean unsatisfiability certificates in the repository's validation scripts",
+        "sorry_free": true,
+        "url": "https://github.com/miinadietrich/crown_graphs_maximise"
+      },
+      "directly_checkable": "The crown extremality and the finite certificates are computational, and the repository contains the certificate data and validators (per the README). The ordering argument is not hand-checkable in a short form.",
+      "doubts": "(1) Single version, posted 17 days before this record; no peer review and no independent reading found (no blog post, review, or citing paper in search). (2) Model assistance is declared for the approach, the classification, the odd-part argument, the finite certificates, and the Lean formalisation (see ai). The authors state they reviewed all content and take responsibility for it. (3) The Lean repository's owner is a GitHub user, miinadietrich, whose relation to the authors is not stated; the sorry-free status is taken from the README's statement that the proof closure uses only propext, Classical.choice and Quot.sound, and the Lean files themselves were not read. (4) MathWorld's entry repeats the claim; it is a reference summary, not a check.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against bipartite counterexamples to the threshold for N ≥ 9: it bounds bipartite R by ⌈N/4⌉, below floor(N/2). Silent on non-bipartite graphs.",
+      "object": null,
+      "people": [
+        "Matthew J. Colbrook",
+        "Catherine Drysdale"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "ChatGPT 5.5",
+            "what_it_did": "Discussions with the authors from which the approach arose; the paper does not say which step the discussions produced beyond the approach as a whole.",
+            "basis_quote": "This approach arose through discussions between the authors and ChatGPT 5.5 and 5.6.",
+            "quote_url": "https://arxiv.org/html/2609.35842v1"
+          },
+          {
+            "name": "ChatGPT 5.6",
+            "what_it_did": "(a) Co-source of the approach, per the joint sentence above. (b) The obstruction classification (the paper's wording: 'The classification also emerged from discussions between the authors and ChatGPT 5.6, after the authors directed attention to the implications between the possible assignments of the unspecified ranks.'). (c) Through Codex, assistance with combinatorial counting and with constructing and verifying the finite computational certificates.",
+            "basis_quote": "We used ChatGPT 5.6 through Codex to assist with combinatorial counting and with the construction and verification of the finite computational certificates.",
+            "quote_url": "https://arxiv.org/html/2609.35842v1"
+          },
+          {
+            "name": "ChatGPT 6",
+            "what_it_did": "Discussions 'towards the remaining odd part sizes', from the classification onward (per the sentence below), and, through Codex and after the manuscript was developed, assistance with a Lean formalisation of the proof. The Lean work is formalisation of an argument already proven, which by itself would not count; the odd-part discussions are the load-bearing part.",
+            "basis_quote": "Building on this classification, the authors directed further discussions with ChatGPT 6 towards the remaining odd part sizes. After developing the manuscript, we used ChatGPT 6 through Codex to assist with a Lean formalisation of the proof.",
+            "quote_url": "https://arxiv.org/html/2609.35842v1"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.35842v1",
+          "https://arxiv.org/abs/2609.35842"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.35842",
+        "https://arxiv.org/html/2609.35842v1",
+        "https://github.com/miinadietrich/crown_graphs_maximise",
+        "https://mathworld.wolfram.com/RepresentationNumber.html"
+      ]
+    },
+    {
+      "id": "hefty-horn-muir-owens-2024",
+      "what_happened": "Hefty, Horn, Muir and Owens, 'Word-Representable Graphs: Orientations, Posets, and Bounds', Electronic Journal of Combinatorics 31(4) (2024) #P4.2, DOI 10.37236/12806. Dates from search results: submitted 16 Feb 2024, accepted 6 Sep 2024, published 4 Oct 2024. No arXiv preprint was found. The abstract (opened on the journal page) says the paper uses tools from posets, Ramsey theory, finite geometry and probabilistic methods, and 'settle[s] a number of open problems in the field, regarding both the existence and length of word-representations for various classes of graphs'. Search excerpts of the full text (the PDFs were not extractable) add: two new lower bounds on the representation number of a graph, a counting bound (Corollary 20) and a bound from the structure of orientations (Theorem 25); R of the n-cube is O(log n / log log n); bipartite graphs of maximum degree Δ have R = O(Δ log^(1+o(1)) Δ); triangle-free graphs of large chromatic number with R = O(√n) exist.",
+      "date": "2024-10-04",
+      "precision": "day",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "No arXiv or other earlier public version was found. The date given is the journal publication date, used because nothing earlier was found; the first public version may be earlier (submission 16 Feb 2024).",
+      "delivers": "Per the abstract, lower bounds on R for some graph classes; per excerpts, Corollary 20 and Theorem 25 are general lower bounds, but their statements were not read. Whether either applies to general graphs at order n above floor(n/2) is not established by anything I could read.",
+      "remains": "Unknown. If either lower bound applied to general graphs and exceeded floor(n/2) at some order, the question would be settled as yes; the statements have to be read to know.",
+      "checked_by": [
+        {
+          "who": "Electronic Journal of Combinatorics (referees)",
+          "qualification": "Peer-reviewed journal of record",
+          "what_they_did": "Published EJC 31(4) #P4.2 (2024)",
+          "where": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 2 years (journal publication 4 Oct 2024)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The statements of Corollary 20 and Theorem 25 were not read, so their scope (general graphs or specific classes) is unknown. The abstract's claim of settling open problems is about existence and length for classes; the record does not tie any of those to floor(n/2).",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not established. Lower bounds could cut either way on this question, so the record cannot say.",
+      "object": null,
+      "people": [
+        "Zion Hefty",
+        "Paul Horn",
+        "Colby Muir",
+        "Andrew Owens"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2"
+        ]
+      },
+      "sources": [
+        "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2",
+        "https://par.nsf.gov/servlets/purl/10601294"
+      ]
+    },
+    {
+      "id": "hefty-horn-muir-owens-2026",
+      "what_happened": "Hefty, Horn, Muir and Owens, 'Word-representation numbers of graphs: Bottlenecks and bounds', Journal of Combinatorial Theory, Series A 223 (2026) 106215, DOI 10.1016/j.jcta.2026.106215 (open access per search excerpt). The ScienceDirect page refused the fetch (HTTP 403), so the following is from a search-result summary: the paper focuses on lower bounds on word-representation length; it proves a sharp lower bound on R for almost every balanced bipartite graph, and a non-trivial lower bound for the hypercube; the results depend on the interplay between poset dimension and word-representations; the multi-word-representation number can be unbounded, refuting a conjecture of Kenkireth and Malhotra (using the resolution of the Erdős–Hajnal conjecture for C5); and there is an edit-distance result (cut off in the excerpt).",
+      "date": "2026",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": false,
+      "revisions": "Online-first date not found; listed in the October 2026 issue per search excerpt. Month omitted because the first public date could not be pinned.",
+      "delivers": "Per the excerpt: lower bounds for almost every balanced bipartite graph (of order about N/4 for N = 2n, by my reading of a garbled formula) and for the hypercube. Nothing reported for general graphs in the excerpt.",
+      "remains": "General graphs, and whether any graph on n vertices exceeds floor(n/2).",
+      "checked_by": [
+        {
+          "who": "Journal of Combinatorial Theory, Series A (referees)",
+          "qualification": "Peer-reviewed journal of record",
+          "what_they_did": "Published in JCTA 223 (2026) 106215 (per search excerpt; not opened)",
+          "where": "https://www.sciencedirect.com/science/article/pii/S0097316526000580",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": null,
+      "time_since_posted": "under 1 month if the October 2026 issue date holds",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Not read: the journal page refused the fetch, and the statements are from a search-result summary with a garbled bipartite formula.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not established for the general question. The bipartite lower bound is consistent with Colbrook and Drysdale's upper bound ⌈N/4⌉.",
+      "object": null,
+      "people": [
+        "Zion Hefty",
+        "Paul Horn",
+        "Colby Muir",
+        "Andrew Owens"
+      ],
+      "ai": {
+        "none_found": null,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://www.sciencedirect.com/science/article/pii/S0097316526000580"
+        ]
+      },
+      "sources": [
+        "https://www.sciencedirect.com/science/article/pii/S0097316526000580"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "bound-revision",
+      "summary": "The general upper bound on R for n-vertex word-representable graphs is stated as n in the 2008 preprint (arXiv:0810.0310), as 2n in the 2015 preprint and 2016 journal version (arXiv:1501.07108), and as 2(n − κ(G)) (≤ 2n − 4 for non-complete graphs) in secondary sources citing the 2016 paper. No account of the change was found, and the 2008 PDF was not readable.",
+      "sources": [
+        "https://arxiv.org/abs/0810.0310",
+        "https://arxiv.org/abs/1501.07108",
+        "https://en.wikipedia.org/wiki/Word-representable_graph"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "The bipartite conjecture (R ≤ n/4 for bipartite graphs on n vertices, or ⌈(m+n)/4⌉ in the Glen et al. form) is attributed to no one in the 2021 abstract, and to Glen et al. in the 2025 follow-up. The Glen et al. paper (2016) was not read on this point.",
+      "sources": [
+        "https://arxiv.org/abs/2109.03458",
+        "https://arxiv.org/abs/2506.01057"
+      ]
+    }
+  ],
+  "summary": "Searches (47 web searches) and about 30 page fetches found no counterexample and no proof of the floor(n/2) bound for general graphs in any source up to 11 October 2026. The benchmark is set by older results. Halldórsson, Kitaev and Pyatkin give an n/2 family (per the 2008 abstract and 2015 abstract; the family itself is the crown graph with an added all-adjacent vertex according to excerpts, which has odd order 2k+1 and R = k, so it meets floor(n/2) exactly at odd n; I found no graph in the record that reaches n/2 at even n, which is my inference from the cited families and not a stated result). Their upper bound is n in the 2008 preprint and 2n in 2015/2016, and Wikipedia cites 2(n − κ) ≤ 2n − 4. Glen, Kitaev and Pyatkin (2016) show that crowns have R = ⌈n/2⌉ on 2n vertices, far below the threshold. Akgün et al. (2018) computed representation numbers for graphs up to 9 vertices and found R ≤ 4 there (per excerpts; the per-n maxima were not read). Since 26 January 2024, the bullet has these events: Mozhui and Krishna (1 June 2025) bound bipartite R by 1 + ⌈m/2⌉ with m the smaller part, settling the Glen et al. bipartite conjecture except for equal even parts; Colbrook and Drysdale (24 September 2026) prove every bipartite graph on N ≥ 9 vertices has R ≤ ⌈N/4⌉, so no bipartite graph on N ≥ 9 is a counterexample, and with the 2025 bound, none on N ≥ 4 by my arithmetic; Hefty, Horn, Muir and Owens published lower-bound papers in EJC (4 Oct 2024) and JCTA (2026) whose full texts I could not read, so whether any general lower bound exceeds floor(n/2) is open to me. Close calls. (a) Colbrook and Drysdale is a class restriction (bipartite only), so under §2.1 it does not resolve the bullet; I record it as a restricted case. (b) The authors' AI declaration says the approach 'arose through discussions' with ChatGPT 5.5 and 5.6, that the obstruction classification 'emerged from discussions' with ChatGPT 5.6, that further discussions with ChatGPT 6 addressed the odd part sizes, and that ChatGPT 5.6 through Codex assisted with counting and the finite certificates. On §5.4 these look load-bearing, not proofreading; the verbatim quotes were read through a fetch that enforced length limits, so the middle sentences should be checked against the PDF. The first and last quotes were confirmed verbatim across two fetches. (c) The literal existential reading is trivially yes at n = 1 (K1 has R = 1 > floor(1/2) = 0) and at n = 3 (the path P3 is a non-complete circle graph with R = 2 > floor(3/2) = 1). If non-word-representable graphs count as needing more copies, W5 (6 vertices, the smallest non-word-representable graph) also qualifies. No source frames the bullet this way; the record flags it so the later pass can choose. (d) The 2008 preprint's upper bound n conflicts with the 2n bound from the same authors in 2015; I could not resolve which the authors stand behind.",
+  "competing_reading": "The bullet is open for general graphs, and the bipartite class is closed: a reader who takes the question to mean large n, and who counts Colbrook and Drysdale as the bipartite half of a result the community was working toward, records 'open, bipartite case closed'. A reader who takes the bullet literally, as an existential over all n, records 'yes' at trivial small n (K1, P3) or, counting non-word-representable graphs, at n ≥ 6. Neither reading changes the general-graph status found here. A third reader could argue that the Hefty–Horn–Muir–Owens lower bounds, if they apply to general graphs, already exceed floor(n/2) at some order, which would make the general question answered 'yes' in the window; I could not read the statements to rule this out, so this reading is not excluded.",
+  "what_would_settle_it": "(1) The full text of Hefty, Horn, Muir and Owens (EJC 31(4) #P4.2, Corollary 20 and Theorem 25; and JCTA 223 (2026) 106215) to see whether any lower bound applies to general graphs and exceeds floor(n/2) at some order. (2) The per-n maxima tables of Akgün, Gent, Kitaev and Zantema (2019), for n ≤ 9, to check the threshold for each n up to 9, and any extension to n = 10 and 11. (3) A construction of a graph on some n with R > floor(n/2), or a general upper bound below floor(n/2), either of which would settle the existential. (4) The Kitaev–Lozin book's Chapter 7 wording and the Kitaev survey's Section 9, to confirm the original formulation and whether the question is posed for all n or for large n. (5) The Colbrook–Drysdale PDF's declaration section read verbatim, and the Lean repository's files with a #print axioms check on the main theorems, to settle the AI and sorry-free status in event colbrook-drysdale-2026.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2609.35842",
+      "title": "Crown graphs maximise the representation number of bipartite graphs (abstract page)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.35842v1",
+      "title": "Crown graphs maximise the representation number of bipartite graphs (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/2609.35842",
+      "title": "Crown graphs maximise the representation number of bipartite graphs (PDF)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://github.com/miinadietrich/crown_graphs_maximise",
+      "title": "crown_graphs_maximise (Lean and certificates repository, per paper reference list)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://mathworld.wolfram.com/RepresentationNumber.html",
+      "title": "Wolfram MathWorld: Representation Number (secondary)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.01057",
+      "title": "On the Conjecture of the Representation Number of Bipartite Graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2109.03458",
+      "title": "On the Representation Number of Bipartite Graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/0810.0310",
+      "title": "On representable graphs, semi-transitive orientations, and the representation numbers",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/0810.0310",
+      "title": "On representable graphs, semi-transitive orientations, and the representation numbers (PDF)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1501.07108",
+      "title": "Semi-Transitive Orientations and Word-Representable Graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/1501.07108",
+      "title": "Semi-Transitive Orientations and Word-Representable Graphs (PDF)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://strathprints.strath.ac.uk/54148/",
+      "title": "Strathclyde record: Semi-transitive orientations and word-representable graphs (DAM 2016)",
+      "type": "repository",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1609.00674",
+      "title": "On the representation number of a crown graph",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/1609.00674",
+      "title": "On the representation number of a crown graph (HTML)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1808.01215",
+      "title": "Solving computational problems in the theory of word-representable graphs",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/pdf/1808.01215",
+      "title": "Solving computational problems in the theory of word-representable graphs (PDF)",
+      "type": "preprint",
+      "opened": false
+    },
+    {
+      "url": "https://cs.uwaterloo.ca/journals/JIS/VOL22/Kitaev/kitaev11.html",
+      "title": "Journal of Integer Sequences 22 (2019) Article 19.2.5 (listing)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://arxiv.org/abs/1705.05924",
+      "title": "A Comprehensive Introduction to the Theory of Word-Representable Graphs (Kitaev, 2017)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/1705.05924v1",
+      "title": "A Comprehensive Introduction to the Theory of Word-Representable Graphs (HTML; only a tail section was reachable)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/view/v31i4p2",
+      "title": "Word-Representable Graphs: Orientations, Posets, and Bounds (EJC abstract page)",
+      "type": "journal",
+      "opened": true
+    },
+    {
+      "url": "https://www.combinatorics.org/ojs/index.php/eljc/article/download/v31i4p2/pdf/",
+      "title": "Word-Representable Graphs: Orientations, Posets, and Bounds (PDF)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://par.nsf.gov/servlets/purl/10601294",
+      "title": "Word-Representable Graphs: Orientations, Posets, and Bounds (NSF PAR copy)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://www.sciencedirect.com/science/article/pii/S0097316526000580",
+      "title": "Word-representation numbers of graphs: Bottlenecks and bounds (JCTA; HTTP 403)",
+      "type": "journal",
+      "opened": false
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Word-representable_graph",
+      "title": "Word-representable graph (Wikipedia)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics",
+      "title": "List of unsolved problems in mathematics (Wikipedia; bullet under 'Word-representation of graphs' confirmed)",
+      "type": "encyclopedia",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "word-representable graphs representation number n/2 copies of each letter open problem",
+      "word-representable graph uniform representation number floor(n/2) counterexample",
+      "Are there any graphs on n vertices whose representation requires more than floor(n/2) copies of each letter",
+      "word-representable graphs Wikipedia list of unsolved problems in mathematics graph theory",
+      "Kitaev word-representable graphs book open problems representation number",
+      "representation number of word-representable graphs 2n-4 upper bound Halldórsson Kitaev Pyatkin",
+      "word-representable graphs arXiv 2025 representation number",
+      "word-representable graphs arXiv 2026 new results",
+      "word-representable graph AI language model discovered counterexample representation",
+      "word-representability graph theory AI-assisted proof Claude GPT",
+      "\"word-representable\" graphs \"k-representable\" uniform representation each letter occurs",
+      "word-representable graphs semi-transitive orientation representation number lower bound graphs n vertices",
+      "Hefty Horn Muir Owens \"Word-representable graphs: orientations, posets, and bounds\" representation number",
+      "word-representable graphs representation number at most n/2 conjecture Kitaev Lozin Problem",
+      "Halldórsson Kitaev Pyatkin \"representation number\" \"n/2\" word-representable graph lower bound construction",
+      "word-representable graph \"representation number\" \"2n-4\" OR \"2n - 4\" Halldórsson",
+      "Heftly Horn Muir Owens word-representable graphs Electronic Journal of Combinatorics 2024 bounds on representation number",
+      "Wikipedia list of unsolved problems in mathematics word-representable graph representation copies letter",
+      "\"Word-representation numbers of graphs\" bottlenecks and bounds Journal of Combinatorial Theory Series A 2026",
+      "Crown graphs maximise the representation number of bipartite graphs arXiv 2609.35842",
+      "word-representable graphs representation number arXiv September 2026",
+      "representation number of non-bipartite word-representable graphs exceeds n/2 open",
+      "word-representable graph representation number hypercube n-cube Kitaev Pyatkin question answered",
+      "word-representable graphs AI discovered new graph representation number OpenAI OR Anthropic OR DeepMind",
+      "Akgün Gent Kitaev Zantema word-representable graphs computer enumeration 11 vertices representation number",
+      "Colbrook Drysdale word-representable graphs crown representation number",
+      "Colbrook Drysdale Lean 4 formalisation crown graphs representation number repository",
+      "Mozhui Krishna representation number bipartite graphs conjecture 2025 arXiv 2506.01057",
+      "Glen Kitaev Pyatkin \"On the representation number of a crown graph\" abstract open problem",
+      "word-representable graph \"representation number\" \"cocktail party\" all-adjacent vertex n/2 Halldórsson Kitaev Pyatkin",
+      "\"Crown graphs maximise the representation number\" Colbrook",
+      "Colbrook ChatGPT Codex Lean graph theory crown representation number blog OR preprint discussion",
+      "word-representable graph representation number exceeds n/2 new lower bound general graphs 2026",
+      "\"word-representable\" ChatGPT OR Codex OR \"GPT-5\" graph theory proof arXiv 2026",
+      "Catherine Drysdale Lancaster mathematics word-representable crown graphs 2026",
+      "Hefty Horn Muir Owens word-representable graphs orientations posets bounds arXiv preprint full text",
+      "Hefty Horn Muir Owens \"bottlenecks and bounds\" word-representation arXiv",
+      "Halldórsson Kitaev Pyatkin \"Semi-transitive orientations and word-representable graphs\" Discrete Applied Mathematics 2016 volume 201 pages DOI",
+      "word-representable graphs AlphaEvolve OR FunSearch OR \"large language model\" representation number lower bound graph construction",
+      "\"Claude\" OR \"Anthropic\" word-representable graph representation number proof 2026",
+      "Hefty Horn Muir Owens word-representable \"Corollary 20\" OR \"Theorem 25\" lower bound representation number orientation poset dimension",
+      "word-representable graph no graph on at most 9 vertices has representation number greater than 4 J_4 non-comparability graph Kitaev",
+      "representation number word-representable graphs 2026 follow-up crown graph bipartite \"Colbrook\"",
+      "Mozhui Krishna 2026 arXiv word-representable graphs representation number upper bound general graphs",
+      "representation number word-representable graph exceeds floor(n/2) counterexample non-bipartite found computer search 2026",
+      "\"representation number\" graphs ChatGPT OR Codex OR \"AI-assisted\" word-representable crown 2026 arXiv declaration",
+      "word-representable graphs survey 2026 open problems representation number remaining open Kitaev Lozin problem list"
+    ],
+    "places_checked": [
+      "arXiv abstract and HTML pages for every paper listed under sources (2008, 2015, 2016, 2018, 2017 survey, 2021, 2025, 2026 bipartite preprint)",
+      "arXiv PDF versions (all attempted; none extractable for the compressed PDFs)",
+      "Wikipedia: Word-representable graph (open-problem section and lead) and List of unsolved problems in mathematics (bullet under 'Word-representation of graphs')",
+      "Electronic Journal of Combinatorics abstract page (v31i4p2); NSF PAR and combinatorics.org PDFs (not extractable)",
+      "ScienceDirect JCTA page (HTTP 403)",
+      "Wolfram MathWorld Representation Number entry (secondary summary of the 2026 paper and its AI declaration)",
+      "GitHub repository linked from the 2026 paper's reference list (README read; Lean files not read)",
+      "Strathclyde, St Andrews, IIT Guwahati, ResearchGate and pure.nsu.ru records (search metadata only)",
+      "Web searches for AI involvement: ChatGPT, Codex, GPT, Claude, Anthropic, AlphaEvolve, FunSearch, large language model, combined with word-representable and representation number (no AI involvement found beyond the 2026 paper's own declaration)"
+    ],
+    "dead_ends": [
+      "ScienceDirect JCTA 2026 page: HTTP 403; abstract only through a search summary, full text not read.",
+      "EJC 2024 full text (combinatorics.org and NSF PAR PDFs): not extractable; Corollary 20 and Theorem 25 unread.",
+      "Akgün et al. 2019 PDF: not extractable; per-n maxima tables unread.",
+      "Halldórsson–Kitaev–Pyatkin 2008 and 2015 PDFs: not extractable; Theorem 15 and the 2016 journal's bound statements taken from excerpts and secondary sources.",
+      "Kitaev 2017 survey (arXiv 1705.05924): the open-problems section (Section 9) and the Section 2.4.2 sentence were not reachable; the tool returned only a tail section.",
+      "Kitaev–Lozin 2015 book (Words and Graphs), Chapter 7: not accessible; original wording of the bullet's question not confirmed beyond the Wikipedia bullet.",
+      "2026 arXiv preprint 2609.35842 PDF: not extractable; declaration and Lean statements read from the HTML version via a fetch with length limits.",
+      "AlphaEvolve, FunSearch, Claude and Anthropic searches: no AI involvement in the general word-representability question found.",
+      "Broere–Zantema (the n-cube is n-representable): irrelevant, since Q_n has 2^n vertices and R = n.",
+      "Co-bipartite (2025), split graphs (2025), melon graphs (2026), line graphs, square-free words, graph products, pattern-avoidance and modular decomposition papers: they treat restricted classes or other questions and do not bear on the threshold for general graphs.",
+      "Gupta 2026 (balance constants for posets, not representation numbers): unrelated problem, not searched further."
+    ]
+  },
+  "incomplete": "(1) Not read in full: the Hefty–Horn–Muir–Owens EJC 2024 paper (Corollary 20, Theorem 25 and any statement about general graphs) and JCTA 2026 paper (ScienceDirect refused; abstract only through search). These are the largest unresolved risk: a general lower bound above floor(n/2) would settle the bullet as yes. (2) Not read in full: Halldórsson–Kitaev–Pyatkin 2008 and 2015 PDFs, so the n/2 family, Theorem 15, and the 2016 journal's 2(n − κ) bound come from excerpts and secondary sources. (3) Not read in full: Akgün et al. 2019 PDF, so the per-n maxima for n ≤ 9 and the J_4 construction are from excerpts only. (4) Not reached: Kitaev's 2017 survey Section 9 and the Kitaev–Lozin book Chapter 7; the original formulation and attribution of the bullet's question are therefore unconfirmed (the Wikipedia bullet itself is confirmed verbatim). (5) The Colbrook–Drysdale PDF was not extractable: the AI declaration sentences were read from the HTML through a fetch that enforced length limits. Two (the 'This approach arose' sentence and the 'After developing the manuscript' sentence) were confirmed verbatim in two fetches; the 'classification' and 'odd part' sentences and the 'We used ChatGPT 5.6 through Codex' sentence should be checked against the PDF before the AI attribution is relied on. (6) The Lean repository: only the README was read, via a fetch; the Lean files and any #print axioms output were not read, so sorry_free true rests on the README's statement. (7) No later source on the 2026 bipartite result was found (17 days old); no referee report, blog, or citing paper was located. (8) The EJC 2024 date is the journal publication date because no earlier public version was found. (9) The 2008 preprint's upper bound (n) and the 2015 bound (2n) conflict, and I could not check the 2008 PDF to see which the authors stood behind. (10) The question of whether even n can reach n/2 is my inference from the cited families (they are odd-order), not a finding from any source.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "assisted",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "mozhui-krishna-2025",
+  "no_change_found": false,
+  "event": {
+    "id": "mozhui-krishna-2025",
+    "what_happened": "Mozhui and Krishna, 'On the Conjecture of the Representation Number of Bipartite Graphs', arXiv:2506.01057 (submitted 1 Jun 2025; one version, v1, submitter K. V. Krishna). The abstract (opened) states that every bipartite graph is (1 + ⌈m/2⌉)-representable, m the size of the smaller partite set; when m is odd the bound drops to ⌈m/2⌉. So the Glen et al. conjecture (R ≤ ⌈(m+n)/4⌉ for bipartite graphs with partite sets of sizes m and n, m + n ≥ 9) holds for all bipartite graphs except those with both partite sets of equal, even size. For that remaining class the authors prove the conjecture for subclasses, using a neighbourhood-inclusion-graph approach. Search excerpts say the representation numbers are known for all bipartite graphs with at most nine vertices (not verified in full text).",
+    "date": "2025-06-01",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v1 only (1 Jun 2025) per the arXiv abstract page.",
+    "delivers": "For bipartite graphs with smaller part m: R ≤ 1 + ⌈m/2⌉. Since m ≤ floor(N/2), this gives R ≤ floor(N/2) for N ≥ 4 (my arithmetic from the abstract's bound; the paper does not state it). The Glen et al. conjecture is settled for all bipartite graphs outside the equal-even-parts class, and proved for subclasses inside it.",
+    "remains": "Non-bipartite graphs entirely. Bipartite graphs with equal, even partite sets, except the proven subclasses.",
+    "checked_by": [],
+    "no_engagement_found": null,
+    "time_since_posted": "about 16 months",
+    "machine_checked": null,
+    "directly_checkable": null,
+    "doubts": null,
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Restricted to bipartite graphs; its bound is consistent with the question's threshold for N ≥ 4.",
+    "object": null,
+    "people": [
+      "Khyodeno Mozhui",
+      "K. V. Krishna"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/abs/2506.01057"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2506.01057"
+    ]
+  },
+  "credited_humans": [
+    "Khyodeno Mozhui",
+    "K. V. Krishna"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2506.01057"
+  ],
+  "ai": {
+    "systems": [
+      "ChatGPT 5.5",
+      "ChatGPT 5.6",
+      "ChatGPT 6"
+    ],
+    "from_event": "colbrook-drysdale-2026",
+    "basis_quote": "This approach arose through discussions between the authors and ChatGPT 5.5 and 5.6.",
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "halldorsson-kitaev-pyatkin-2008",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "doubtful",
+        "credibility_reason": "Its upper bound n conflicts with the same authors' later bound of 2n, and the n/2 family is known only from search excerpts.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "halldorsson-kitaev-pyatkin-2015",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "glen-kitaev-pyatkin-2016",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "akgun-gent-kitaev-zantema-2018",
+        "after_snapshot": false,
+        "scope": "instances",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "mozhui-krishna-2021",
+        "after_snapshot": false,
+        "scope": "bound",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "mozhui-krishna-2025",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "colbrook-drysdale-2026",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "assisted",
+        "ai_basis": "This approach arose through discussions between the authors and ChatGPT 5.5 and 5.6. ... The classification also emerged from discussions between the authors and ChatGPT 5.6, after the authors directed attention to the implications between the possible assignments of the unspecified ranks. ... Building on this classification, the authors directed further discussions with ChatGPT 6 towards the remaining odd part sizes.",
+        "ai_systems_credited": [
+          "ChatGPT 5.5",
+          "ChatGPT 5.6",
+          "ChatGPT 6"
+        ],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "hefty-horn-muir-owens-2024",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "hefty-horn-muir-owens-2026",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks whether any n-vertex graph needs more than floor(n/2) copies of each letter. Showing that a whole class of graphs never exceeds the threshold settles a restriction of that question, so it is a case. Mozhui-Krishna 2025 is a case: its bound 1+⌈m/2⌉ is at most floor(N/2) for every bipartite graph with N ≥ 4. The paper does not state that comparison; it is the researcher's arithmetic, and I checked it. Colbrook-Drysdale 2026 also settles the bipartite class (R ≤ ⌈N/4⌉), so it is a case too. It is a 17-day-old preprint, so unreviewed; the Lean build does not count as review. Its AI role is assisted, not generated: by the authors' account the approach, the obstruction classification and the odd-part argument came out of discussions with ChatGPT, but the humans directed those discussions and wrote the manuscript. The Hefty-Horn-Muir-Owens papers are scored none. Nothing readable in the record ties their lower bounds to general graphs or to floor(n/2); the 2026 excerpt covers only bipartite graphs and hypercubes. The pre-snapshot events are benchmarks and bounds, plus finite computations in Akgün et al., which are instances. None of them resolves the question.",
+    "doubts": "The literal existential reading is trivially yes for small n: K1 has R = 1 > 0 and P3 has R = 2 > 1. No source frames the bullet that way, and I answered on the intended reading for large n. The Hefty-Horn-Muir-Owens lower bounds were not read. If either applies to general graphs and exceeds floor(n/2), that would answer the question yes, and the record cannot rule this out. The middle sentences of the Colbrook-Drysdale AI declaration were read through a fetch with length limits and were not confirmed verbatim. The Mozhui-Krishna 2025 case rests on the researcher's own comparison with floor(N/2), not on anything the paper states.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "mozhui-krishna-2025",
+      "ai_role": "assisted",
+      "ai_from": "colbrook-drysdale-2026",
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": [
+        "ChatGPT 5.5",
+        "ChatGPT 5.6",
+        "ChatGPT 6"
+      ]
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}

@@ -1,0 +1,321 @@
+{
+  "key": "do-any-non-power-of-2-almost-perfect-numbers-exist",
+  "nothing_found": false,
+  "outcome": "Nothing has settled the question since 26 January 2024. The one in-window event is a January 2026 computation by Max A. Alekseyev (arXiv:2601.17832, submitted 25 Jan 2026) reporting no almost perfect numbers other than the powers of 2 below 10^33, and no odd one other than 1 below 10^47; I found no independent check, journal version, or citing paper for that bound, and Wikipedia, MathWorld and the OEIS entries still describe the existence question as open.",
+
+  "problem_asks": "(1) Existence: whether some positive integer n satisfies sigma(n) = 2n - 1 (an almost perfect number) and is not a power of 2. (2) Equivalently, whether every almost perfect number is a power of 2; the converse, that every power of 2 is almost perfect, is known. (3) The statement does not restrict parity or the shape 2^r·b² with b odd, so even and odd candidates are both in scope; the odd case (any odd almost perfect number greater than 1) is a sub-case of (1). The statement asks for existence or nonexistence of such an n, not for a bound on the smallest one, so a search finding none below some size does not by itself answer it.",
+
+  "events": [
+    {
+      "id": "kishore-odd-almost-perfect-prime-factors",
+      "what_happened": "Kishore's result that an odd almost perfect number greater than 1 has at least six distinct prime factors (omega(n) >= 6). Wikipedia's reference list cites Kishore, 'On odd perfect, quasiperfect, and odd almost perfect numbers', Mathematics of Computation 36 (154), 1981, pp. 583-586, for this. One search snippet instead attributes the omega >= 6 result to a 1978 Kishore paper in Mathematics of Computation. The AMS record returned HTTP 403 and zbMATH returned HTTP 403, so the year is not settled; I did not read the paper itself.",
+      "date": "1981",
+      "precision": "year",
+      "kind": "journal",
+      "predates_frozen_revision": true,
+      "revisions": null,
+      "delivers": "For odd almost perfect n > 1 only: n has at least six distinct prime factors. This restricts any odd counterexample to the question; it exhibits no almost perfect number and checks no range.",
+      "remains": "Whether any odd almost perfect number greater than 1 exists at all, and the whole even case (whether any even non-power of 2 is almost perfect).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 45 years (1981)",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Constrains any odd counterexample; it neither proves nor disproves that one exists. Later sources (Wikipedia, Encyclopedia of Mathematics, and a 2019 arXiv paper on deficient-perfect numbers, arXiv:1906.09947) restate it, but I found no independent re-verification.",
+      "object": null,
+      "people": ["Kishore"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://en.wikipedia.org/wiki/Almost_perfect_number"]
+      },
+      "sources": [
+        "https://en.wikipedia.org/wiki/Almost_perfect_number",
+        "https://www.ams.org/journals/mcom/1981-36-154/S0025-5718-1981-0606516-3",
+        "https://arxiv.org/pdf/1906.09947"
+      ]
+    },
+    {
+      "id": "dris-2013-abundancy-criterion",
+      "what_happened": "Dagal and Dris (arXiv:1308.6767, first version 14 Aug 2013; Dagal later removed as author; Dris sole author in the version I read, v7 7 Oct 2016) give a characterisation: n is almost perfect if and only if I(n) - 1 < D(n) <= I(n), where I(n) = sigma(n)/n is the abundancy index and D(n) is the deficiency.",
+      "date": "2013-08-14",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 14 Aug 2013; v2 2 Oct 2014; v3 8 Apr 2015; v4 12 Oct 2015; v5 5 Apr 2016; v6 26 Jul 2016; v7 7 Oct 2016.",
+      "delivers": "A reformulation of the condition sigma(n) = 2n - 1 in terms of the abundancy index and deficiency. It contains no bound and says nothing about powers of 2 specifically.",
+      "remains": "Everything in problem_asks: the criterion does not decide whether any non-power of 2 satisfies it.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "about 13 years",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Neither for nor against: a characterisation used as a tool by Antalan and Dris (below).",
+      "object": null,
+      "people": ["Jose Arnaldo B. Dris", "Keneth Adrian P. Dagal (listed on v1, removed later)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1308.6767"]
+      },
+      "sources": ["https://arxiv.org/abs/1308.6767"]
+    },
+    {
+      "id": "antalan-dris-2016-even-not-power-of-two",
+      "what_happened": "Antalan and Dris, 'Some New Results On Even Almost Perfect Numbers Which Are Not Powers Of Two', arXiv:1602.04248, 7 pages, MSC 11A25. The abstract says: 'In particular, we show that 2^(r+1) < b, if 2^r b^2 is an even almost perfect number.' Theorem 2.1 in the version read (v4) states that if 2^r b^2 is almost perfect with gcd(2,b) = 1 and b > 1, then r < log2(b) - 1. Theorem 2.4 gives I(b^2) bounds and deduces 3 does not divide b when r = 1, and 7 does not divide b when r > 1. The introduction states it is currently an open problem to determine whether the only even almost perfect numbers are of the form 2^k, k >= 1.",
+      "date": "2016-02-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 7 Feb 2016; v2 18 Feb 2016; v3 24 Mar 2016; v4 5 Feb 2017 (the version whose text I read). I did not confirm that v1 already carries the 2^(r+1) < b argument, so the date may move if it does not.",
+      "delivers": "Restricted to even almost perfect numbers of the form 2^r·b² with b odd and greater than 1: a lower bound on b in terms of r (b > 2^(r+1)) and divisibility constraints (3 does not divide b when r = 1; 7 does not divide b when r > 1). It is a structural constraint on any such counterexample. It exhibits none and checks no range.",
+      "remains": "Whether any even almost perfect number that is not a power of 2 exists (the paper leaves this open), the odd case, and the whole of the bullet's existence question.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 10 years 8 months",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Constrains any counterexample of the form 2^r·b²; it neither proves nor disproves existence.",
+      "object": null,
+      "people": ["John Rafael M. Antalan (Central Luzon State University)", "Jose Arnaldo B. Dris (Far Eastern University)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/abs/1602.04248", "https://ar5iv.labs.arxiv.org/html/1602.04248"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1602.04248",
+        "https://ar5iv.labs.arxiv.org/html/1602.04248"
+      ]
+    },
+    {
+      "id": "alekseyev-2026-computational-bounds",
+      "what_happened": "Max A. Alekseyev (George Washington University), 'Computing bounded solutions to linear Diophantine equations with the sum of divisors', arXiv:2601.17832, submitted 25 Jan 2026 (single version; math.NT with cs.DM cross-list). Section 5.1 states: 'With our method, we establish that no other almost-perfect numbers exist below 10^33, which took about 6540 core-hours.' and 'For the odd almost-perfect number other than 1, we establish that none exist below 10^47, which took about 1272 core-hours.' The method is a SageMath implementation for solving a·sigma(n) = b·n + c up to a bound U, parallelised with MapReduce. The abstract frames the result as 'significantly lift[ing] the existence bounds in open questions about quasiperfect and almost-perfect numbers', and §5.1 says the existing literature 'does not seem to give an explicit lower bound on almost-perfect non-powers of 2'. The paper does not state a theorem about almost perfect numbers beyond these computed bounds.",
+      "date": "2026-01-25",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (25 Jan 2026), per the arXiv abstract page as fetched on 11 Oct 2026.",
+      "delivers": "A finite computation: no almost perfect number other than the known powers of 2 is below 10^33 (the wording says 'no other almost-perfect numbers exist below 10^33', which covers both parities), and no odd almost perfect number other than 1 is below 10^47. So any non-power-of-2 almost perfect number, if one exists, is at least 10^33, and any odd one is at least 10^47. This restricts the size of a counterexample; it gives no structural constraint, no argument valid for all n, and no counterexample.",
+      "remains": "Whether any non-power-of-2 almost perfect number exists above 10^33 (any parity) or above 10^47 (odd), and the universal claim that every almost perfect number is a power of 2. The paper itself calls these questions open.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 8.5 months as of 11 Oct 2026",
+      "machine_checked": null,
+      "directly_checkable": "The search code is public at https://github.com/maxale/multiplicative_functions. The repository page lists sigma_linear_eq.sage; the paper (§4.6) names the function res_solve_sigma_abc. I saw the file listing but did not read the file, so the function name and the 10^33 and 10^47 runs are unverified against the code.",
+      "doubts": "Single-author SageMath computation with no independent reimplementation, rerun, or review that I could find; a single preprint version with no journal reference; no error identified in any step. The bound comes from my reading of a summarising fetch of §5.1, not verbatim text; the numbers also appear in a search snippet with the same wording.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Every searched n below 10^33 is a power of 2 (and every odd n other than 1 below 10^47 is absent), so the computation points toward the powers-of-2 answer without deciding the question, since the question quantifies over all n.",
+      "object": null,
+      "people": ["Max A. Alekseyev (George Washington University)"],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": "About 6540 core-hours for the all-parity search below 10^33 and about 1272 core-hours for the odd search below 10^47 (§5.1); runs used at most 80 cores (§6).",
+        "sources": ["https://arxiv.org/html/2601.17832v1", "https://github.com/maxale/multiplicative_functions"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2601.17832",
+        "https://arxiv.org/html/2601.17832v1",
+        "https://github.com/maxale/multiplicative_functions"
+      ]
+    },
+    {
+      "id": "quasiperfect-2026-ai-credited-neighbour",
+      "what_happened": "Toyohara, Tao and Yao, 'Every quasiperfect number has at least eight distinct prime factors', arXiv:2608.02066, submitted 3 Aug 2026. It concerns quasiperfect numbers (sigma(n) = 2n + 1), a different problem from this bullet. It is recorded here because it is the nearest AI-credited result I found. Its acknowledgements say the mathematics 'was produced in an AI-assisted workflow' and credit 'AI systems (Anthropic's Claude, principally the Fable 5 and Opus model series ...) [which] carried out the computations, discovered and proved the lemmas, wrote and checked the Lean formalizations', while 'the human authors directed the campaign, made the methodological and editorial decisions, reviewed the results, and take responsibility for the content.' The paper does not mention almost perfect numbers or sigma(n) = 2n - 1.",
+      "date": "2026-08-03",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, as far as the abstract page shows.",
+      "delivers": "Not this problem. It establishes for quasiperfect numbers (sigma(n) = 2n + 1) that any such n has omega(n) >= 8, per its abstract. It does not touch sigma(n) = 2n - 1, so it neither restricts nor settles the almost perfect question.",
+      "remains": "Everything in problem_asks; this event has no bearing on it.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 2 months as of 11 Oct 2026",
+      "machine_checked": {
+        "system": "Lean: the paper's own 'qp_lean' library (19 modules, 259 theorems, 'zero sorry', no mathlib, kernel decide only), plus machine enumeration",
+        "sorry_free": true,
+        "url": "https://arxiv.org/html/2608.02066v1"
+      },
+      "directly_checkable": null,
+      "doubts": "The sorry-free status is the authors' own claim; I did not run the Lean code. The result is AI-credited by the authors, and I found no human public reading of it.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Not applicable to this bullet; the claimed lower bound on omega(n) is for quasiperfect numbers.",
+      "object": null,
+      "people": ["Akira Toyohara", "Ye Tao", "Siqiong Yao"],
+      "ai": {
+        "none_found": false,
+        "systems": [
+          {
+            "name": "Anthropic's Claude, Fable 5 model series (as named in the acknowledgements)",
+            "what_it_did": "Per the authors' acknowledgements, AI systems carried out the computations, discovered and proved the lemmas, and wrote and checked the Lean formalizations. The authors name the systems jointly; the attribution is to the series rather than to a dated release.",
+            "basis_quote": "AI systems (Anthropic's Claude, principally the Fable 5 and Opus model series ...) carried out the computations, discovered and proved the lemmas, wrote and checked the Lean formalizations",
+            "quote_url": "https://arxiv.org/html/2608.02066v1"
+          },
+          {
+            "name": "Anthropic's Claude, Opus model series (as named in the acknowledgements)",
+            "what_it_did": "The same joint statement as for the Fable 5 series, covering the computations, lemma discovery and proof, and Lean formalization for the quasiperfect paper.",
+            "basis_quote": "AI systems (Anthropic's Claude, principally the Fable 5 and Opus model series ...) carried out the computations, discovered and proved the lemmas, wrote and checked the Lean formalizations",
+            "quote_url": "https://arxiv.org/html/2608.02066v1"
+          }
+        ],
+        "disclosed_cost": null,
+        "sources": ["https://arxiv.org/html/2608.02066v1", "https://arxiv.org/abs/2608.02066"]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2608.02066",
+        "https://arxiv.org/html/2608.02066v1"
+      ]
+    }
+  ],
+
+  "disputes": [
+    {
+      "kind": "attribution",
+      "summary": "The year of Kishore's odd-almost-perfect result is given as 1981 (Math. Comp. 36, 583-586) by Wikipedia and as 1978 by a search snippet from a 2019 arXiv paper. Both are pre-window, so this affects attribution only.",
+      "sources": ["https://en.wikipedia.org/wiki/Almost_perfect_number", "https://arxiv.org/pdf/1906.09947"]
+    }
+  ],
+
+  "summary": "Across 40 searches and about 30 opened sources, the in-window picture is one computational preprint and no resolution. The Wikipedia lead (last edited 1 Nov 2025, per the fetched page) still poses the question as open and does not mention the 2026 computation; MathWorld (last updated 2 Oct 2026) and the OEIS comments on A000079 and A237588 (the latter a conjecture that a(n) = 0 iff n is a power of 2, last modified 11 Oct 2026) also still describe the question as open. The pre-window literature consists of Dris's 2013 abundancy-index criterion, Kishore's odd-case bound (ω(n) ≥ 6), and Antalan–Dris's 2016 even-case constraint (2^(r+1) < b for 2^r·b² almost perfect), which constrain a counterexample without exhibiting one. The in-window event is Alekseyev (arXiv:2601.17832, 25 Jan 2026), who reports by SageMath search that no almost perfect number other than powers of 2 lies below 10^33 and no odd one other than 1 lies below 10^47; I read the bounds from a summarising fetch of the paper's §5.1 and did not read the code. Whether this event moves the problem is a close call. Reading one: the question is existential over all n, so finite searches move nothing, as with Collatz verification. Reading two: the smallest possible non-power-of-2 almost perfect number is a quantity the question concerns, and the search raises its lower bound, as with the abc exceptional-set bound. The author's own framing ('lift the existence bounds') sides with the second reading. The AI search found no AI-credited work on this problem: AlphaProof Nexus (arXiv:2605.22763, 21 May 2026) and Epoch's OEIS Open benchmark (arXiv:2608.11941) each report settling OEIS conjectures, but A237588, the OEIS conjecture that is this problem's 'only powers of 2' claim, is absent from the 492-conjecture set in both the Epoch results repository (conjectures.json, read in full by summarising fetch) and the DeepMind formal-conjectures OEIS mapping (auto_oeis branch, summarising fetch; direct grep was refused). The one AI-credited result near this problem, arXiv:2608.02066 (Aug 2026), concerns quasiperfect numbers, not almost perfect ones, and is recorded as a discounted event.",
+
+  "competing_reading": "Read strictly, the 10^33 and 10^47 searches contribute nothing toward the existence question, since the bullet asks whether any such number exists and a finite search, like Collatz verification to 2^71, changes no universal or existential claim. Read the other way, the bullet's quantity is the smallest non-power-of-2 almost perfect number, and the search moves its lower bound by roughly 20 orders of magnitude for the odd case; that is the abc-style reading. The paper's own framing favours the second reading, but the first is the more conventional view of finite computations on existence problems.",
+
+  "what_would_settle_it": "(a) A peer-reviewed or independently re-run version of the 10^33 and 10^47 computations, and confirmation that res_solve_sigma_abc in the public code implements the stated search. (b) A statement from the bullet's maintainers or the literature on whether lower bounds on the smallest counterexample count as movement on this question. (c) Any later paper or OEIS comment that cites arXiv:2601.17832 for almost perfect numbers, or any proof that every almost perfect number is a power of 2, which would settle the bullet outright.",
+
+  "sources": [
+    {"url": "https://en.wikipedia.org/wiki/Almost_perfect_number", "title": "Almost perfect number (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://mathworld.wolfram.com/AlmostPerfectNumber.html", "title": "Almost Perfect Number (MathWorld)", "type": "encyclopedia", "opened": true},
+    {"url": "https://encyclopediaofmath.org/wiki/Almost_perfect_number", "title": "Almost perfect number (Encyclopedia of Mathematics)", "type": "encyclopedia", "opened": false},
+    {"url": "https://proofwiki.org/wiki/Are_all_Almost_Perfect_Numbers_Even%3F", "title": "Are all Almost Perfect Numbers Even? (ProofWiki)", "type": "encyclopedia", "opened": true},
+    {"url": "https://arxiv.org/abs/1602.04248", "title": "Some New Results On Even Almost Perfect Numbers Which Are Not Powers Of Two (Antalan, Dris)", "type": "preprint", "opened": true},
+    {"url": "https://ar5iv.labs.arxiv.org/html/1602.04248", "title": "Same, HTML rendering (ar5iv)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/1602.04248", "title": "Same, PDF (text extraction failed)", "type": "preprint", "opened": false},
+    {"url": "https://arxiv.org/abs/1308.6767", "title": "A Criterion for Deficient Numbers Using the Abundancy Index and Deficiency Functions (Dris)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2601.17832", "title": "Computing bounded solutions to linear Diophantine equations with the sum of divisors (Alekseyev)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2601.17832v1", "title": "Same, HTML rendering (summarised by fetch)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/pdf/2601.17832", "title": "Same, PDF (search snippet only)", "type": "preprint", "opened": false},
+    {"url": "https://github.com/maxale/multiplicative_functions", "title": "maxale/multiplicative_functions (repository page)", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/abs/2608.02066", "title": "Every quasiperfect number has at least eight distinct prime factors (abstract)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2608.02066v1", "title": "Same, HTML rendering (acknowledgements read)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2609.03091", "title": "Perfect numbers, Wieferich primes and the solutions of binomial congruence (Guedes, Machado)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/abs/2605.22763", "title": "Advancing Mathematics Research with AI-Driven Formal Proof Search (AlphaProof Nexus)", "type": "preprint", "opened": true},
+    {"url": "https://arxiv.org/html/2605.22763v1", "title": "Same, HTML rendering (summarised by fetch, both halves)", "type": "preprint", "opened": true},
+    {"url": "https://github.com/google-deepmind/alphaproof-nexus-results", "title": "google-deepmind/alphaproof-nexus-results (repository page)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/google-deepmind/formal-conjectures/auto_oeis/FormalConjectures/OEIS/Auto/THEOREM_MAPPING.txt", "title": "formal-conjectures auto_oeis THEOREM_MAPPING.txt (summarised by fetch)", "type": "repository", "opened": true},
+    {"url": "https://github.com/google-deepmind/formal-conjectures/pull/6456", "title": "formal-conjectures PR #6456 (Mark OEIS conjectures settled by OEIS Open)", "type": "repository", "opened": true},
+    {"url": "https://arxiv.org/pdf/2608.11941", "title": "OEIS Open: How many conjectures can language models turn into theorems? (Adamczewski)", "type": "preprint", "opened": false},
+    {"url": "https://github.com/epoch-research/LeanOpenProblems-results", "title": "epoch-research/LeanOpenProblems-results (repository page)", "type": "repository", "opened": true},
+    {"url": "https://raw.githubusercontent.com/epoch-research/LeanOpenProblems-results/main/metadata/oeis/conjectures.json", "title": "LeanOpenProblems-results metadata/oeis/conjectures.json (read in three parts by summarising fetch)", "type": "repository", "opened": true},
+    {"url": "https://tadamcz.com/oeis-open", "title": "OEIS Open results explorer (no searchable content returned)", "type": "blog", "opened": true},
+    {"url": "https://groups.google.com/g/seqfan/c/gbb7MKvandc", "title": "SeqFan post: Language models resolving OEIS conjectures", "type": "news", "opened": true},
+    {"url": "https://en.wikipedia.org/wiki/List_of_mathematical_discoveries_by_artificial_intelligence", "title": "List of mathematical discoveries by artificial intelligence (Wikipedia)", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A000079", "title": "OEIS A000079 (powers of 2)", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A237588", "title": "OEIS A237588, sigma(n) - 2n + 1", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A103288", "title": "OEIS A103288, numbers k with sigma(k) >= 2k - 1", "type": "encyclopedia", "opened": true},
+    {"url": "https://oeis.org/A028502", "title": "OEIS A028502 (hyperperfect; Alekseyev comment dated Mar 2026, from search snippet)", "type": "encyclopedia", "opened": false},
+    {"url": "https://www.ams.org/journals/mcom/1981-36-154/S0025-5718-1981-0606516-3", "title": "Kishore 1981, Math. Comp. 36 (154) (HTTP 403)", "type": "journal", "opened": false},
+    {"url": "https://zbmath.org/?q=Kishore+odd+almost+perfect+numbers", "title": "zbMATH search for Kishore 1981 (HTTP 403)", "type": "encyclopedia", "opened": false},
+    {"url": "https://arxiv.org/pdf/1906.09947", "title": "On Deficient Perfect Numbers with Four Distinct Prime Factors (Dutta, Saikia), snippet only", "type": "preprint", "opened": false}
+  ],
+
+  "search": {
+    "queries": [
+      "almost perfect numbers non-power of 2 exist",
+      "almost perfect number sigma(n) = 2n-1 odd almost perfect number",
+      "Wikipedia almost perfect number",
+      "almost perfect numbers arXiv 2025",
+      "Lehmer almost perfect numbers only powers of two open problem",
+      "almost perfect numbers AI proof OR AlphaProof OR LLM",
+      "even almost perfect numbers 2^r b^2 Antalan Dris",
+      "\"almost perfect\" numbers Dris 2024",
+      "odd almost perfect number Kishore omega(n) >= 6 new result",
+      "almost perfect numbers Pollack not always buried deep",
+      "almost perfect numbers sigma(n)=2n-1 2026 preprint",
+      "OEIS A000079 almost perfect numbers unknown non-power of two",
+      "AI model perfect numbers new result Claude GPT Gemini arXiv 2026",
+      "AlphaEvolve OR AlphaProof number theory divisor sum sigma conjecture 2026",
+      "Erdős problems site almost perfect numbers sigma(n)=2n-1",
+      "Guy Unsolved Problems in Number Theory B2 perfect numbers almost perfect powers of 2 open",
+      "Lean formalization almost perfect number sigma sorry mathlib",
+      "\"almost perfect\" number theory 2025 arXiv counterexample powers of two sigma",
+      "AlphaProof Nexus OEIS conjectures solved list sigma sequences",
+      "\"least deficient\" numbers 2^k open problem sigma(n) = 2n - 1 2025 OR 2026",
+      "\"slightly defective\" numbers almost perfect non-power of two Mathematics StackExchange",
+      "Antalan Dris \"even almost perfect\" journal published 2017 OR 2018 OR 2019",
+      "Google DeepMind formal-conjectures repository almost perfect numbers OEIS A237588",
+      "odd almost perfect number does not exist proof 2024 2025 Descartes number sigma",
+      "Terence Tao blog almost perfect numbers OR perfect numbers AI 2026",
+      "arXiv 2608.11941 OEIS Open language models conjectures theorems",
+      "formal-conjectures OEIS Auto A237588 lean file conjecture powers of 2 sigma",
+      "A237588 sigma(n)-2n+1 OEIS Open formal conjecture resolved",
+      "seqfan \"Language models resolving OEIS conjectures\" Lean proofs list A-numbers",
+      "Epoch AI OEIS Open Lean proofs resolved conjectures \"almost perfect\" OR \"A237588\" OR \"least deficient\"",
+      "Wikipedia OEIS Open Epoch AI 147 of 492 conjectures LLM proofs",
+      "odd almost perfect number greater than 1 none below 10^47 computation",
+      "\"almost perfect\" odd numbers bound 10^47 arXiv",
+      "odd almost perfect numbers computational search lower bound prime factors Ochem Rao OR Brent OR Dris",
+      "Alekseyev \"Computing bounded solutions to linear Diophantine equations with the sum of divisors\"",
+      "Alekseyev almost-perfect numbers 10^33 hyperperfect f-perfect computation",
+      "\"almost perfect\" number Claude OR Fable OR Opus OR Gemini OR GPT proof sigma 2n-1",
+      "Quanta Magazine perfect numbers 2026 open problem powers of two",
+      "arXiv 2026 almost perfect numbers AI-assisted OR \"AI-generated\" OR \"language model\" sigma(n)=2n-1 not power of two",
+      "Alekseyev 2026 almost-perfect numbers cited follow-up \"10^33\" OR \"10^{33}\" OEIS comment"
+    ],
+    "places_checked": [
+      "Wikipedia article on almost perfect numbers (lead, open problem, odd and even sections, references; last edited 1 Nov 2025)",
+      "Wikipedia list of mathematical discoveries by AI (no almost perfect entry; last edited 11 Oct 2026)",
+      "MathWorld almost perfect number page (last updated 2 Oct 2026; still open)",
+      "ProofWiki 'Are all almost perfect numbers even?' (status open; last modified 13 Dec 2018)",
+      "Encyclopedia of Mathematics entry (HTTP 502; known only from search snippets)",
+      "arXiv abstract and HTML for 1602.04248 (Antalan, Dris, 2016)",
+      "arXiv abstract for 1308.6767 (Dagal, Dris, 2013)",
+      "arXiv abstract and HTML for 2601.17832 (Alekseyev, 2026); GitHub repository maxale/multiplicative_functions",
+      "arXiv abstract and HTML for 2608.02066 (quasiperfect, AI-credited); abstract for 2609.03091 (perfect numbers and Wieferich primes; no almost perfect content)",
+      "arXiv 2605.22763 (AlphaProof Nexus, full text read in two halves by summarising fetch; no A237588 found) and its GitHub repository",
+      "arXiv 2608.11941 (Epoch OEIS Open; PDF not readable by fetch, abstract via search snippets only)",
+      "Epoch LeanOpenProblems-results metadata/oeis/conjectures.json (read in three parts by summarising fetch; no A237588, no almost perfect entry)",
+      "DeepMind formal-conjectures auto_oeis THEOREM_MAPPING.txt (summarising fetch; no A237588). A direct gh api grep was refused by permission",
+      "formal-conjectures PR #6456 (merged 23 Sep 2026; no A237588)",
+      "tadamcz.com/oeis-open (no searchable content returned); SeqFan post of 24 Aug 2026",
+      "OEIS A000079 (powers of 2; Alekseyev comment 26 Jan 2005; no 2026 comment on almost perfect bounds; last modified 11 Oct 2026)",
+      "OEIS A237588 (conjecture a(n)=0 iff n is a power of 2; open)",
+      "OEIS A103288 (least-deficient conditional comment; last modified 11 Oct 2026)",
+      "Searches for Quanta, Terence Tao, Erdős problems site, Lean/mathlib formalisations, Google Scholar-style queries via the search tool"
+    ],
+    "dead_ends": [
+      "AlphaProof Nexus (arXiv 2605.22763): the OEIS experiment's 492 conjectures were drawn from OEIS; the read did not name A237588 or any sigma sequence, and the Epoch conjectures.json list (the same 492) does not contain A237588. Not an event for this problem.",
+      "Epoch OEIS Open (arXiv 2608.11941; 147 of 492 by the best model, 160 across all experiments): the paper's PDF was not readable, but the accepted-proof repository and the 492-conjecture list do not contain A237588. Not an event for this problem.",
+      "Formal-conjectures PR #6456 (merged 23 Sep 2026): marks A176477, A306477 and A060841 as settled; no sigma or almost perfect conjecture.",
+      "Lean/mathlib search for almost perfect formalisations with sorry: no formalisation found; the closest is an amicable-number Lean 4 development (arXiv 2601.07444), which is not about this problem.",
+      "2608.02066 (quasiperfect, AI-credited): recorded as a discounted neighbouring event, not as an answer to this bullet.",
+      "2609.03091 (Guedes and Machado, Sept 2026): perfect numbers and Wieferich primes, no almost perfect content, no AI mention.",
+      "Dutta and Saikia (arXiv 1906.09947) and the follow-up arXiv 1908.04932: deficient-perfect numbers with a general deficient divisor, not almost perfect numbers. Snippet only; not opened.",
+      "Tom Adamczewski's SeqFan post and the Epoch site: the results explorer returned no content; the post gives no A237588 status.",
+      "Tao blog and Quanta: no almost perfect number coverage found; the Quanta hit is a 2021 article on perfect numbers.",
+      "Blog anecdote about Claude and Gemini claiming a 'new perfect number': perfect numbers, not almost perfect; the author said the claims were unverified.",
+      "Pollack's book Not Always Buried Deep: no evidence it treats almost perfect numbers beyond the chapter title.",
+      "Antalan–Dris journal publication: none found in searches. The arXiv listing shows no journal reference.",
+      "Dris's two Math StackExchange questions cited in the Antalan–Dris references (1474844 and 1466358): cited, not opened.",
+      "2026 arXiv search for AI-assisted almost perfect work: none found. The closest hits are the quasiperfect paper and the AlphaProof/Epoch benchmark papers.",
+      "OEIS A028502 (hyperperfect) comment crediting arXiv:2601.17832: seen in a search snippet only; not opened."
+    ]
+  },
+
+  "incomplete": "(1) The Kishore 1978/1981 paper was not reachable (AMS and zbMATH HTTP 403), so its year and content rest on Wikipedia's reference list and a search snippet. (2) The Encyclopedia of Mathematics page returned HTTP 502, so it is known only from snippets. (3) The Antalan–Dris PDF text did not extract; the theorems were read from the ar5iv HTML of v4 only, so I did not confirm whether v1 (7 Feb 2016) already contains the 2^(r+1) < b argument. (4) The Alekseyev PDF was not readable by fetch; the 10^33 and 10^47 statements are from a summarising fetch of the HTML, and the search code was not read (only the repository listing). (5) The Epoch OEIS Open PDF was not readable, so its appendix tables were not checked directly. (6) The conclusion that A237588 is not in the Epoch 492 set rests on a summarising fetch of conjectures.json, read in three parts, and on a summarising fetch of the DeepMind mapping; a direct gh api grep was refused by permission. (7) Google Scholar and MathSciNet were not accessible through my tools, so citation counts for the 2026 bounds are unestablished; the OEIS comments were the only later-citation check. (8) The quasiperfect paper's acknowledgements were confirmed from its HTML only; the PDF was unreadable."
+}

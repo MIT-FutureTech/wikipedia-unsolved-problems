@@ -1,0 +1,1924 @@
+{
+  "key": "fugledes-conjecture",
+  "nothing_found": false,
+  "outcome": "Since 26 Jan 2024 the R^2 half of the problem has been claimed refuted in both directions for bounded nonconvex planar sets (Zhang, arXiv:2607.15632, 17 Jul 2026, one preprint, no human evaluation found, one flagged step), with a Lean formalisation of one direction posted 10 Oct 2026; the R half has only partial results (three intervals, Shi 27 Jul 2026; three unit squares in R^2 and three unit intervals, Chen-Fan-Kolountzakis-Lai 28 Sep 2026), and the general one-dimensional question is still open on every source read.",
+  "problem_asks": "The statement asks whether, for nonconvex bounded measurable sets (positive finite measure), spectrality and translational tiling coincide, in two dimensions. Unpacked into parts: (1) in R, spectral implies tiles by translation; (2) in R, tiles by translation implies spectral; (3) in R^2, spectral implies tiles by translation; (4) in R^2, tiles by translation implies spectral. The 'if and only if' in each dimension is the conjunction of its two directions, so the question is answered affirmatively in a dimension only if both directions hold there. The convex case is excluded by the nonconvex restriction. The statement does not restrict to unions of finitely many intervals or squares; the restricted classes in the literature are partial answers to the general question.",
+  "events": [
+    {
+      "id": "zhang-2026-07",
+      "what_happened": "Tao Zhang (Xidian University, per homepage and tracker), 'Both directions of Fuglede's conjecture fail in dimension two', arXiv:2607.15632, single version, 18 pages, math.CO primary with math.CA cross-list. Constructs two explicit 60-point subsets of Z_60 x Z_12: A- tiles the group but is not spectral (Thm 3.1), and A+ is spectral with spectrum Lambda+ but does not tile (Thm 4.1). A finite-to-infinite transference principle (Prop 2.1, with A[k] = A + Q_k) lifts them to R^2. Thm 1.1 states that there is a bounded translational tile of R^2 that is not spectral and a bounded spectral set of R^2 that does not tile by translations. Cor 4.5: Omega+(97) = A+[97] + [0,1)^2 is a disjoint union of 564,540 half-open unit squares, spectral, not tiling. The paper says the one- and two-dimensional cases were open before this.",
+      "date": "2026-07-17",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (17 Jul 2026) as of the abs page read on 11 Oct 2026; no v2 listed.",
+      "delivers": "Refutes the R^2 half of the conjecture for nonconvex sets in both directions if the construction holds: a bounded tile of R^2 (finite union of unit squares) with no spectrum refutes tile-implies-spectral; a bounded spectral set of R^2 (finite union of unit squares) that does not tile refutes spectral-implies-tile. The two directions rest on different parts of Prop 2.1 (see doubts). Says nothing about R.",
+      "remains": "All of R, both directions (parts 1 and 2). In R^2 nothing remains open if the construction holds, since the equivalence fails there.",
+      "checked_by": [
+        {
+          "who": "Pith AI referee (deepseek-v4-flash), labelled a T0 review",
+          "qualification": "Automated model review; not a human reader",
+          "what_they_did": "Read the paper on 1 Aug 2026. Judges the finite-group computations and layer-amplification lemmas sound. Says the non-tiling direction rests on a notational error in Prop 2.1(ii), where R_k is used for both the k x k rectangle and the boundary ring, so that 'A[k] is a subset of R_k' is false with the ring meaning. Says the Euclidean conclusion is 'not fully established, although the intended repair seems plausible'. Lists four minor objections (see doubts). Suggests checking whether the 97x97 block expansion A+[97] admits any translational tiling of Z^2.",
+          "where": "https://pith.science/paper/2607.15632",
+          "automated": true
+        },
+        {
+          "who": "Breakthrough tracker (kingy.ai), author not named",
+          "qualification": "Tracker entry; does not say whether a person or a system did the check",
+          "what_they_did": "Records 'Evidence tier 1' and 'Peer reviewed: No'. States that the tracker 'checked the explicit constructions and the stated finite-to-infinite transfer'. Says no independent specialist assessment or peer review had been located. Record prepared 23 Jul 2026, last checked 29 Jul 2026.",
+          "where": "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-fuglede-dimension-two-counterexamples-2026/",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "86 days at 11 Oct 2026. No human has publicly evaluated the argument in any source read. Engagement exists only as citation: Somlai (arXiv:2607.26534, 29 Jul 2026) cites it as ref [25] and treats it as established; Chen-Fan-Kolountzakis-Lai (28 Sep 2026) cite a planar counterexample as ref [24], whose author the excerpt does not name.",
+      "machine_checked": null,
+      "directly_checkable": "The two 60-point sets in Z_60 x Z_12 are finite and checkable by computer. The planar lift is checkable through Prop 2.1 and the k = 97 instance (the paper's bound is 8*60*12/60 = 96 < 97). I did not check either.",
+      "doubts": "(1) Pith referee: Prop 2.1(ii) uses R_k for both the solid rectangle and the boundary ring; the referee says 'with the ring meaning, the assertion A[k] subset of R_k is false' and that Cor 4.5 depends on that step. My reading of the arXiv HTML text: the proof defines R_k = ([0,kn1) x [0,kn2)) intersected with Z^2 as a solid rectangle, and writes the ring with a different calligraphic symbol. On that reading A[k] subset of R_k holds. The clash is typographic, and the PDF (not readable by my tools) may differ. Unresolved. (2) Pith's minor objections: make the direct-sum assumption E + B_j = H explicit in Lemma 2.3; spell out the boundary-avoidance step in Prop 2.1(iii); add an equation number to condition (14); carry the measurable-set qualification of 'both implications fail' into the abstract or introduction. (3) The two counterexample directions use different halves of Prop 2.1. On my reading the tile-without-spectrum direction uses the 'tiles' half of (ii) and part (i), not the 'does not tile' half the referee flags; I did not verify this in detail. (4) Single version, no author response found, no human review found.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Cuts against the statement in R^2 in both directions: a finite union of unit squares that tiles without spectrum, and a finite union of unit squares that is spectral without tiling. Nothing about R.",
+      "object": "Two objects. (a) A bounded translational tile of R^2 with no spectrum, lifted from A- (60 points in Z_60 x Z_12 that tiles the group but is not spectral) by the grid construction A[k] = A + Q_k and Prop 2.1; a finite union of unit squares. Non-spectrality is a finite-group argument lifted through transference, not an explicit orthogonal-basis computation; the value of k used for the planar set was not confirmed in my read. (b) Omega+(97) = A+[97] + [0,1)^2, a disjoint union of 564,540 half-open unit squares. Its spectrum is explicit (the paper's set (31)); its non-tiling is proved, from A+ not tiling Z_60 x Z_12 together with Prop 2.1(ii) at k = 97 > 96, not computed directly.",
+      "people": [
+        "Tao Zhang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2607.15632",
+          "https://arxiv.org/abs/2607.15632"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.15632",
+        "https://arxiv.org/html/2607.15632",
+        "https://arxiv.org/html/2607.15632v1",
+        "https://pith.science/paper/2607.15632",
+        "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-fuglede-dimension-two-counterexamples-2026/",
+        "https://taozhang220.github.io/"
+      ]
+    },
+    {
+      "id": "xhao-lean-2026-10",
+      "what_happened": "Lean 4 repository xhao0307/fuglede-counterexample-lean (GitHub account xhao0307), created 10 Oct 2026 (API created_at 2026-10-10T09:24:40Z; pushed 09:32). Formalises Cor 4.5 of Zhang's paper: a bounded measurable planar set of positive finite measure that is spectral and does not tile by translations. Main declarations FugledeCounterexample.exists_bounded_measurable_spectral_nontile and FugledeCounterexample.not_FugledeConjectureFor_two. Toolchain leanprover/lean4:v4.34.1; Mathlib pinned to d13f23b723b8a846827a245b89c10fc7d3f11612; build 'lake build FugledeCounterexample Audit'. README: 'the proof chain has no sorry, custom mathematical axiom, or native_decide'; final declarations depend only on propext, Classical.choice, Quot.sound. README credits the mathematics to Zhang. ATTRIBUTION.md says the proof scripts and local reviews were 'produced with OpenAI Codex assistance, under the submitting user's direction'; it names no other AI tool. A separate AI-agent 'submission semantic review' is in the repo.",
+      "date": "2026-10-10",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Repo shows one commit. README gives a 'submission recheck' on 10 Oct 2026. README says public history starts at publication and does not treat local timestamps as priority evidence.",
+      "delivers": "By the repo's own account, not re-run by me: a Lean-verified statement that there is a bounded measurable planar set of positive finite measure that is spectral and does not tile by translations (the spectral-but-non-tiling direction, in R^2). That refutes the R^2 spectral-implies-tile half. The repo says only one of the paper's two counterexample directions is formalised, which it says suffices to refute the two-dimensional equivalence. Says nothing about R.",
+      "remains": "Formally: the tile-without-spectrum direction in R^2 and all of R. The mathematics of the non-tiling half is the paper's; the Lean artifact checks the Cor 4.5 statement and whatever chain of lemmas it contains.",
+      "checked_by": [
+        {
+          "who": "Repository's 'submission semantic review', written by an AI agent that calls itself 'this agent'",
+          "qualification": "Automated; not a human reader",
+          "what_they_did": "Read the source modules; compared the target definition with the pinned Formal Conjectures source and concluded the formal statement matches the genuine two-dimensional Fuglede conjecture; checked key interfaces; scanned 18 Lean files for sorry, admit, custom axioms, native_decide, unsafe, with none found. Recorded that a new 'lake env' import run timed out at 60 s, and that another agent was investigating; the attribution file later says that limitation was resolved by a successful build.",
+          "where": "https://github.com/xhao0307/fuglede-counterexample-lean/blob/main/submission-semantic-review.md",
+          "automated": true
+        }
+      ],
+      "no_engagement_found": true,
+      "time_since_posted": "1 day. No human reviewer found. The linked Justin Sun Prize issue, opened the same day, shows no replies at fetch.",
+      "machine_checked": {
+        "system": "Lean 4 (leanprover/lean4:v4.34.1) with Mathlib pinned to d13f23b723b8a846827a245b89c10fc7d3f11612",
+        "sorry_free": true,
+        "url": "https://github.com/xhao0307/fuglede-counterexample-lean",
+        "note": "sorry-free and axiom-clean as the repo states in its README. I did not clone or build the repo, so this is the repo's claim, not my check."
+      },
+      "directly_checkable": "The Lean statement is in the repo's FugledeCounterexample module and can be read against Cor 4.5 of arXiv:2607.15632. The set is 564,540 unit squares, a finite object that can be checked combinatorially.",
+      "doubts": "(1) Scope: one direction only (spectral without tiling); the tile-without-spectrum direction is not formalised. (2) Statement fidelity rests on definitions adapted from Google DeepMind's Formal Conjectures and a Mathlib fragment; the only check is the AI semantic review. (3) The submitter is an unnamed GitHub account. The README says the human 'initiated and directed the project' and 'does not claim that the human manually authored each proof step'. (4) If the formal proof is correct, it checks the non-tiling half independently of the paper's printed Prop 2.1 argument, which is relevant to the Pith objection; I have not verified this. (5) The GitHub API reports license null, although the README includes Apache-2.0 text for adapted parts.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Cuts against the R^2 conjecture: spectral does not imply tiling, witnessed by Omega+(97) of Cor 4.5, as formally stated.",
+      "object": "The formal (Lean) version of Omega+(97): a bounded measurable subset of R^2 of positive finite Lebesgue measure, a disjoint union of 564,540 half-open unit squares. The repo's own description: the set has a complete orthogonal family of complex exponentials on its restricted Lebesgue space and no countable translational tiling. The spectrum is explicit; the non-tiling is a proof.",
+      "people": [
+        "xhao0307 (GitHub account; the human submitter, name not stated)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/xhao0307/fuglede-counterexample-lean",
+          "https://raw.githubusercontent.com/xhao0307/fuglede-counterexample-lean/main/README.md",
+          "https://raw.githubusercontent.com/xhao0307/fuglede-counterexample-lean/main/ATTRIBUTION.md",
+          "https://github.com/xhao0307/fuglede-counterexample-lean/blob/main/submission-semantic-review.md"
+        ],
+        "ai_note": "OpenAI Codex (named in ATTRIBUTION.md; the README and submission review use 'AI agents' and 'coordinated AI agents'). What it did, in the repo's words: 'Proof scripting, auxiliary computations, verification orchestration, semantic audits, and review documents were produced with OpenAI Codex assistance, including coordinated AI agents'; and 'Codex generated/adapted the proof scripts and performed the local checks'. The mathematics is credited to Zhang. I read this as formalisation and checking of a result already proved by humans, so it is not listed in systems. The later pass should weigh whether Codex-generated Lean proofs of the planar set count as load-bearing (see competing_reading in the record). The paper itself names no AI system."
+      },
+      "sources": [
+        "https://github.com/xhao0307/fuglede-counterexample-lean",
+        "https://raw.githubusercontent.com/xhao0307/fuglede-counterexample-lean/main/README.md",
+        "https://raw.githubusercontent.com/xhao0307/fuglede-counterexample-lean/main/ATTRIBUTION.md",
+        "https://github.com/xhao0307/fuglede-counterexample-lean/blob/main/submission-semantic-review.md",
+        "https://api.github.com/repos/xhao0307/fuglede-counterexample-lean"
+      ]
+    },
+    {
+      "id": "jsp-issue-2026-10",
+      "what_happened": "Issue #4951 'JSP-000032: scope of a complete dimension-two negative answer', opened 10 Oct 2026 by GitHub user xhao0307 in TheJustinSunPrize/awards (the submission tracker of a sponsored prize; the sponsor's announcement is commercial coverage). The submission names the catalogue entry 'Fuglede conjecture (dimensions one and two)' and offers the Lean formalisation of Zhang's Cor 4.5 as the contribution. It states that the formalised result negates the dimension-two conjecture and the conjunction of the dimension-one and dimension-two versions, leaving dimension one unresolved. It asks whether a complete dimension-two negative answer meets the scope for a Lean contribution, or whether separate resolutions of both dimension variants would be required. It credits the mathematics to Zhang and does not assert award eligibility or priority.",
+      "date": "2026-10-10",
+      "precision": "day",
+      "kind": "repository",
+      "predates_frozen_revision": false,
+      "revisions": "Issue status open at fetch; no edits shown.",
+      "delivers": "No new mathematics. A prize submission, with a scope question to the maintainers, citing the Lean repository.",
+      "remains": "Everything the Lean repository leaves open. The issue asks the maintainers to decide scope.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "1 day. No replies, labels, or assignees shown at fetch.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Would cut against the R^2 conjecture if the Lean result is accepted. The issue itself makes a scope claim, not a mathematical one.",
+      "object": null,
+      "people": [
+        "xhao0307 (GitHub account)"
+      ],
+      "ai": {
+        "none_found": false,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://github.com/TheJustinSunPrize/awards/issues/4951"
+        ],
+        "ai_note": "The issue text names no AI tool. The repository it cites says its proof scripts were produced with OpenAI Codex assistance (see xhao-lean-2026-10). The sponsor's coverage describes the prize as not separating human from AI work; I did not verify that."
+      },
+      "sources": [
+        "https://github.com/TheJustinSunPrize/awards/issues/4951"
+      ]
+    },
+    {
+      "id": "shi-2026-07",
+      "what_happened": "Ruxi Shi, 'Fuglede's conjecture holds for three intervals', arXiv:2607.24005, single author, single version, 33 pages, math.CA. Thm 1.1 (per fetched HTML): 'Let Omega be a bounded measurable set which, up to a null set, is a union of at most three bounded intervals. If Omega is spectral, then Omega tiles R by translations.' Method: a self-adjoint realisation of the derivative in the exponential basis, with a boundary unitary whose secular determinant vanishes exactly on the spectrum; cofactor identities extended to all complex parameters force one of three cases (monomial boundary unitary giving a lattice tiling; equal lengths; one additive length relation), finished by a fiber lemma for low-multiplicity lattice multitilings. Intro: spectral-to-tiling for three intervals 'was left open' after Bose, Kumar, Krishnan and Madan and Bose and Madan.",
+      "date": "2026-07-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (27 Jul 2026).",
+      "delivers": "Spectral implies tiles for bounded measurable subsets of R that are, up to null sets, unions of at most three intervals. With the tile-implies-spectral half for three intervals (Bose, Kumar, Krishnan, Madan 2008), the paper's claim is a full equivalence for that class. Restricted to at most three intervals; not general R. The paper's Section 10 says the n >= 4 case stays obstructed by 'the algebraic classification and the passage from higher multiplicity lattice multitilings to ordinary tilings'.",
+      "remains": "R for four or more intervals, and for general bounded measurable nonconvex subsets of R, both directions. R^2 entirely.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "76 days. No public check found. Not cited by Zhang or Fu-Song; Shi's own reference list does not include either.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "No public check found. The argument is new in method (cofactor rigidity) and runs to 33 pages. The place to look is Bose and Madan's exceptional configuration (tied to generalised Vandermonde varieties): the paper claims to cover it, and I did not verify that coverage.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive for the restricted class of at most three intervals: spectral implies tile in R.",
+      "object": null,
+      "people": [
+        "Ruxi Shi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2607.24005",
+          "https://arxiv.org/abs/2607.24005"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.24005",
+        "https://arxiv.org/html/2607.24005"
+      ]
+    },
+    {
+      "id": "chen-fan-kolountzakis-lai-2026-09",
+      "what_happened": "Tianyu Chen, Shilei Fan, Mihail N. Kolountzakis, Chun-Kit Lai, 'Weak Tiling by Unions of Non-overlapping Unit Cubes', arXiv:2609.34852, single version, 41 pages, math.CA. Proves a weak-tiling analogue of Keller's theorem and derives restrictions on configurations of unit cubes admitting a weak tiling. Applications stated in the abstract: Fuglede's conjecture for unions of three non-overlapping unit squares in R^2 (not required to be parallel) and for unions of two non-overlapping axis-parallel unit cubes in any dimension. Thm 1.10 (per fetched HTML): a union of three pairwise non-overlapping unit squares in R^2, not necessarily parallel, is spectral if and only if it tiles R^2 by translations. Thm 1.5: for three disjoint unit intervals in R or three disjoint axis-parallel unit squares in R^2, a weak tile in the class is both a tile and a spectral set. Intro (per fetched HTML): 'Fuglede's conjecture was also disproved in R^2 [24], leaving it open only for R^1.'",
+      "date": "2026-09-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (28 Sep 2026).",
+      "delivers": "Restricted positive results. In R^2: for unions of three pairwise non-overlapping unit squares (any orientation), spectral if and only if tiles, both directions. In R, for unions of two or three unit intervals (via the two-cube result with d = 1 and Thm 1.5, as summarised), the equivalence holds; the two-interval case was already settled for all two-interval unions by Laba (2000). Nothing for general sets.",
+      "remains": "R^2: unions of four or more squares, squares of other shapes, and general nonconvex planar sets (the general R^2 question is refuted by Zhang if his construction holds). R: unions of four or more intervals and general nonconvex sets of R.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "13 days. No public check found.",
+      "machine_checked": null,
+      "directly_checkable": "Unions of three unit squares are finite polygonal sets; the paper's tiling and spectrality criteria apply. Not checked by me.",
+      "doubts": "No public check found. The method (weak tiling with a Keller-type support restriction) is introduced in this paper. The excerpt cites the planar counterexample as reference [24] without naming its author, so I cannot confirm that [24] is Zhang's arXiv:2607.15632, although it is the only planar counterexample found in my search.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive for the restricted classes. Consistent with Zhang's construction, which needs far more squares (my reading). The paper itself treats R^2 as disproved in general and R as the only open Euclidean case.",
+      "object": null,
+      "people": [
+        "Tianyu Chen",
+        "Shilei Fan",
+        "Mihail N. Kolountzakis",
+        "Chun-Kit Lai"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2609.34852",
+          "https://arxiv.org/abs/2609.34852"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2609.34852",
+        "https://arxiv.org/html/2609.34852"
+      ]
+    },
+    {
+      "id": "fu-song-2026-07",
+      "what_happened": "Xiao-Ye Fu and Zi-Jian Song, 'Rational Spectra for Finite Hadamard Pairs and Bounded Spectral Sets on the real line', arXiv:2607.19858 (math.FA, cross-list math.NT), single version, 19 pages, 22 Jul 2026. Proves that a finite spectral pair (A, Gamma) with A in Z, Gamma in R/Z and 0 in Gamma has a rational spectrum. Using periodicity and fiberisation of one-dimensional spectra, extends to bounded measurable spectral sets Omega in R with |Omega| = 1: every spectrum containing 0 lies in Q. Abstract says this completes a chain of equivalences from Dutkay-Lai reducing the one-dimensional Fuglede conjecture to finite cyclic analogues Z_n. Intro (per fetched HTML): 'The conjecture remains open in dimensions one and two (see [12] for a recent overview).' Does not cite Zhang's paper posted five days earlier.",
+      "date": "2026-07-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only (22 Jul 2026).",
+      "delivers": "A rationality constraint on spectra in R of bounded spectral sets with measure 1 containing 0, and, via the cited Dutkay-Lai chain, a reduction of the one-dimensional conjecture to cyclic groups. The abstract does not claim spectral iff tile for any class of R sets.",
+      "remains": "All of R (both directions, the conjecture itself), which the paper reduces to finite cyclic cases. R^2 not addressed; the paper states dimension two is open, which conflicts with Zhang.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "81 days. No public check found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The rationality claim for R overlaps Lai-Wang (2019), withdrawn in 2020 for a gap in its Section 4 (event lai-wang-2019-08). Whether the Fu-Song argument repairs that gap is not stated in the sources read, and I did not check its section structure. The statement that dimension two is open conflicts with the July 2026 Zhang claim, and the paper does not cite Zhang.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Structural: it points to the one-dimensional case being reducible to cyclic groups. It decides no direction of the R equivalence.",
+      "object": null,
+      "people": [
+        "Xiao-Ye Fu",
+        "Zi-Jian Song"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2607.19858",
+          "https://arxiv.org/abs/2607.19858"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2607.19858",
+        "https://arxiv.org/html/2607.19858"
+      ]
+    },
+    {
+      "id": "somlai-2026-07",
+      "what_happened": "Gabor Somlai, 'Fuglede's Conjecture on Cyclic Groups of Square-Free Order: The Case of Rapidly Growing Prime Factors', arXiv:2607.26534, single version, 29 Jul 2026. Finite cyclic groups of square-free order: tile implies spectral for an infinite family, and spectral implies tile only when prime factors grow rapidly. Introduction (per fetched HTML) cites Zhang as ref [25] ('Very recently, Tao Zhang constructed counterexamples to both implications in dimension two'), states 'The conjecture is false in all dimensions d >= 2', and calls R 'the only remaining Euclidean case'. Cites Fu-Song as ref [8].",
+      "date": "2026-07-29",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "Nothing for R or R^2: finite groups only.",
+      "remains": "All of R and R^2, as far as this paper goes.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "74 days. No public check found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None for the Euclidean question. Its introduction takes Zhang's R^2 counterexample as established, which is the citing paper's own reading.",
+      "object": null,
+      "people": [
+        "Gabor Somlai"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/html/2607.26534"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/html/2607.26534"
+      ]
+    },
+    {
+      "id": "tan-zhang-2026-09",
+      "what_happened": "Hu Tan and Ying Zhang (a different Zhang from Tao Zhang), 'Fuglede's Conjecture for Cyclic Groups of Square-free Order', arXiv:2610.02218. For finite cyclic groups of square-free order: a subset is spectral if and only if it tiles, characterised by m dividing N and A being a complete set of representatives modulo m. Key step is a prime-coordinate elimination theorem.",
+      "date": "2026-09-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only, as listed.",
+      "delivers": "Finite cyclic groups of square-free order only. Nothing for R or R^2.",
+      "remains": "All of R and R^2.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "32 days. No public check found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Date inconsistency: the arXiv identifier prefix 2610 indicates an October 2026 posting, while the abs page gives 'Submitted on 9 Sep 2026'. Recorded as listed.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None for the Euclidean question.",
+      "object": null,
+      "people": [
+        "Hu Tan",
+        "Ying Zhang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2610.02218"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2610.02218"
+      ]
+    },
+    {
+      "id": "liu-wang-zheng-2026-03",
+      "what_happened": "Jing-Cheng Liu, Jia-Jie Wang, Jia Zheng, arXiv:2603.21031, 'Spectrality of product-form self-similar measures and tiles'. In R with product-form digit sets D = {0,...,N-1} + m{0,...,L-1} and contraction ratio rho: a criterion for an exponential orthonormal basis in terms of rho^-1 and divisibility conditions. For rho^-1 = #D = NL, L^2(chi_T dx) has an exponential orthonormal basis exactly when T is a translation tile of R (abstract).",
+      "date": "2026-03-22",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 22 Mar 2026; v2 21 Apr 2026.",
+      "delivers": "For one family of self-similar sets (fractal tiles) in R, product-form digits with rho^-1 = #D = NL: spectral if and only if translation tile, both directions. Restricted to that family; the general nonconvex question in R is untouched.",
+      "remains": "All other self-similar tiles and all general nonconvex sets in R. R^2 nothing.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "203 days. No public check found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Read from the abstract page only. The family is narrow and no human check was found.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Positive for the restricted family of self-similar tiles in R.",
+      "object": null,
+      "people": [
+        "Jing-Cheng Liu",
+        "Jia-Jie Wang",
+        "Jia Zheng"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2603.21031"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2603.21031"
+      ]
+    },
+    {
+      "id": "kiss-londner-matolcsi-somlai-2024-10",
+      "what_happened": "Gergely Kiss, Itay Londner, Mate Matolcsi, Gabor Somlai, 'A lonely weak tile', arXiv:2410.04948 (v1 7 Oct 2024; v2 3 Dec 2024). Constructs a set T that tiles its complement weakly but is neither spectral nor a proper tile, answering a question of Kolountzakis, Lev and Matolcsi. The construction lives in R^5: built in the finite group Z_6^5 x Z_q x Z_p^4 and lifted, giving a finite union of unit cubes (per fetched HTML). Published in Expositiones Mathematicae 44(1) per a search snippet; not verified.",
+      "date": "2024-10-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 3 Dec 2024.",
+      "delivers": "A weak tile in R^5 that is neither spectral nor a proper tile. Concerns dimension five; it bears on R and R^2 only through the general weak-tiling theory.",
+      "remains": "All of R and R^2.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 24 months. No public check found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Consistent with the known higher-dimensional failures. No bearing on R or R^2.",
+      "object": "A finite union of unit cubes in R^5 that weakly tiles its complement but is neither spectral nor a tile; the construction is a finite-group example lifted to R^5 (per fetched HTML).",
+      "people": [
+        "Gergely Kiss",
+        "Itay Londner",
+        "Mate Matolcsi",
+        "Gabor Somlai"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2410.04948",
+          "https://arxiv.org/html/2410.04948v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2410.04948",
+        "https://arxiv.org/html/2410.04948v2"
+      ]
+    },
+    {
+      "id": "kolountzakis-lev-matolcsi-2025-06",
+      "what_happened": "Mihail N. Kolountzakis, Nir Lev, Mate Matolcsi, 'Geometric implications of weak tiling', arXiv:2506.23631 (v1 30 Jun 2025; v2 16 Sep 2025). Every spectral set weakly tiles its complement, so necessary conditions for weak tiling restrict spectral sets. Gives a direct proof that a convex polytope in R^d weakly tiling its complement is centrally symmetric with symmetric facets, and for a finite union of intervals in R a necessary condition on the gap lengths.",
+      "date": "2025-06-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 16 Sep 2025.",
+      "delivers": "Necessary conditions (gap lengths) for weak tiling by a finite union of intervals in R, hence for spectrality in that class. Decides no direction of the equivalence for any class.",
+      "remains": "The spectral/tile equivalence for unions of intervals in R, and all of R^2.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 months. No public check found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Neutral: necessary conditions only.",
+      "object": null,
+      "people": [
+        "Mihail N. Kolountzakis",
+        "Nir Lev",
+        "Mate Matolcsi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2506.23631"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2506.23631"
+      ]
+    },
+    {
+      "id": "ducasse-dutkay-fernandez-2025-06",
+      "what_happened": "Bryan Ducasse, Dorin Ervin Dutkay, Colby Fernandez, 'Spectral properties of unions of intervals and groups of local translations', arXiv:2506.18625 (v1 23 Jun 2025; v2 24 Jun 2026, comment 'minor correction after the referee's suggestions'). For a finite union of disjoint open intervals in R, studies self-adjoint extensions of the momentum operator and their unitary groups. Thm 3.1(i): if spectral, every gap between intervals is a sum of lengths of intervals in Omega. Thm 4.7: if spectral and the unitary group is multiplicative, the boundary matrix is a cyclic permutation matrix, the spectrum is (1/L)Z and Omega tiles by LZ. Thm 4.14: same conclusions under the Forelli condition. The converse and the general case are not proved (Remark 4.9 leaves rational spectrum open in the equal-length case).",
+      "date": "2025-06-23",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 24 Jun 2026, after a referee's suggestions (per arXiv comment; journal not named in the record).",
+      "delivers": "Spectral implies tile for finite unions of intervals in R under extra hypotheses (multiplicative unitary group, or the Forelli condition), plus gap conditions. Not the full conjecture; converse not proved.",
+      "remains": "R outside those hypotheses, both directions. R^2 nothing.",
+      "checked_by": [
+        {
+          "who": "Unnamed referee at an unnamed venue",
+          "qualification": "Referee (venue not identified in the record)",
+          "what_they_did": "Suggested corrections, incorporated in v2 (arXiv comment field)",
+          "where": "https://arxiv.org/abs/2506.18625v2",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "about 15 months from v1; v2 about 3.5 months ago.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The v2 comment indicates a referee has seen the paper, but the venue and the outcome are not recorded in the sources I read.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "Partial positive in R under extra hypotheses; structural otherwise.",
+      "object": null,
+      "people": [
+        "Bryan Ducasse",
+        "Dorin Ervin Dutkay",
+        "Colby Fernandez"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2506.18625",
+          "https://arxiv.org/html/2506.18625",
+          "https://arxiv.org/abs/2506.18625v2"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2506.18625",
+        "https://arxiv.org/html/2506.18625",
+        "https://arxiv.org/abs/2506.18625v2"
+      ]
+    },
+    {
+      "id": "chakraborty-dutkay-2025-06",
+      "what_happened": "Piyali Chakraborty, Dorin Ervin Dutkay, 'Commuting self-adjoint extensions of the partial differential operators on disconnected sets', arXiv:2506.23720 (v1 30 Jun 2025; v2 24 Jun 2026). Studies commuting self-adjoint extensions of PDOs on arbitrary, possibly disconnected, domains in R^d, in connection with the Fuglede conjecture. The abstract claims no case of the conjecture.",
+      "date": "2025-06-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 24 Jun 2026.",
+      "delivers": "Structural only, per abstract: no case of the spectral/tile question is claimed.",
+      "remains": "All of R and R^2.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 15 months. No public check found.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None decided.",
+      "object": null,
+      "people": [
+        "Piyali Chakraborty",
+        "Dorin Ervin Dutkay"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2506.23720"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2506.23720"
+      ]
+    },
+    {
+      "id": "kolountzakis-wu-2025-01",
+      "what_happened": "Mihail N. Kolountzakis, Sha Wu, arXiv:2501.11367 (v1 20 Jan 2025; v2 28 Jan 2025). Spectrality of the normalised Lebesgue measure on two line segments, one on the x-axis and one on the y-axis, offset t, in the plane. Shows the measure is not spectral for -1/2 < t < 0 and for irrational t; t = -1/2 is the only undecided case. It concerns a measure, not a set, and does not mention Fuglede's conjecture.",
+      "date": "2025-01-20",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v2 28 Jan 2025.",
+      "delivers": "Spectrality for a specific measure in R^2. Not a set and not a tile question.",
+      "remains": "The set question in R and R^2 is untouched.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 21 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None for the set question; discarded as a different question (measures).",
+      "object": null,
+      "people": [
+        "Mihail N. Kolountzakis",
+        "Sha Wu"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2501.11367"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2501.11367"
+      ]
+    },
+    {
+      "id": "kolountzakis-2025-09",
+      "what_happened": "Mihail N. Kolountzakis, 'Fuglede's conjecture on orthogonal bases of exponentials', arXiv:2509.05782, single version, 6 Sep 2025. Discusses part of Fuglede's 1974 paper, on which domains in Euclidean space have an orthogonal basis of exponentials for their L^2 space. Abstract claims no new theorem.",
+      "date": "2025-09-06",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 only.",
+      "delivers": "No result claimed, per abstract.",
+      "remains": "All of R and R^2.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 13 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None decided.",
+      "object": null,
+      "people": [
+        "Mihail N. Kolountzakis"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2509.05782"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2509.05782"
+      ]
+    },
+    {
+      "id": "kolountzakis-survey-2024-08",
+      "what_happened": "Mihail N. Kolountzakis, 'Orthogonal Fourier Analysis on Domains', arXiv:2408.15361, survey of the Fuglede (spectral set) conjecture over about 30 years. Not exhaustive; leaves out finite groups and the spectral-measure version; 'point[s] out several open questions'. The abstract does not mention dimensions one and two.",
+      "date": "2024-08-27",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v1 27 Aug 2024; v2 21 Oct 2024; v3 30 Oct 2024 (current).",
+      "delivers": "Survey; no new result claimed.",
+      "remains": "All of R and R^2 (no new result).",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 26 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "I read only the abstract page; the survey's own statement of the dimension-one and two status was not checked.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None decided.",
+      "object": null,
+      "people": [
+        "Mihail N. Kolountzakis"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2408.15361"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2408.15361"
+      ]
+    },
+    {
+      "id": "chakraborty-dutkay-jorgensen-survey-2024-10",
+      "what_happened": "Piyali Chakraborty, Dorin Ervin Dutkay, Palle E. T. Jorgensen, 'Fuglede's conjecture, differential operators and unitary groups of local translations', arXiv:2410.03587 (v1 4 Oct 2024; v2 24 Jan 2025; v3 10 Mar 2025). Survey-style account of developments since Fuglede's 1974 paper, linking Fourier bases, extensions of partial derivative operators and domain geometry. No specific spectral or tiling result for subsets of R or R^2 is stated in the abstract.",
+      "date": "2024-10-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": false,
+      "revisions": "v3 10 Mar 2025 (current).",
+      "delivers": "Survey; no new result claimed in the abstract.",
+      "remains": "All of R and R^2.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "about 24 months.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Read from the abstract page only.",
+      "later_work_cites_it": null,
+      "withdrawn": null,
+      "direction": "None decided.",
+      "object": null,
+      "people": [
+        "Piyali Chakraborty",
+        "Dorin Ervin Dutkay",
+        "Palle E. T. Jorgensen"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/2410.03587"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/2410.03587"
+      ]
+    },
+    {
+      "id": "lai-wang-2019-08",
+      "what_happened": "Chun-Kit Lai, Yang Wang, 'Spectrum is rational in dimension one', arXiv:1908.02794, v1 7 Aug 2019. Claimed that for a bounded measurable spectral set in R with measure 1, any spectrum containing 0 is rational. With periodicity this would reduce the one-dimensional conjecture to cyclic groups. v2 (13 May 2020) is marked withdrawn by Chun-Kit Lai: 'A gap was found in Section 4 of the paper, which appears to be uneasy to be resolved'; results before Section 4 are said to be correct. An earlier search summary attributes the gap to Nir Lev; the withdrawal text I read does not name him.",
+      "date": "2019-08-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 13 May 2020 (withdrawn).",
+      "delivers": "Claimed (not established, withdrawn): rational spectra for bounded spectral sets in R with measure 1 containing 0.",
+      "remains": "All of R.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "pre-window; withdrawn May 2020.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Withdrawn by the author for a gap in Section 4. The withdrawal says the gap 'appears to be uneasy to be resolved'.",
+      "later_work_cites_it": null,
+      "withdrawn": {
+        "what": "v1 claim that spectra of bounded measurable spectral sets in R with |Omega| = 1 containing 0 are rational; withdrawn for a gap in Section 4",
+        "date": "13 May 2020 (the v2 posting that carries the withdrawal; no separate withdrawal date shown)",
+        "by": "author",
+        "sources": [
+          "https://arxiv.org/abs/1908.02794"
+        ]
+      },
+      "direction": "Would have been structural evidence for the R direction; withdrawn.",
+      "object": null,
+      "people": [
+        "Chun-Kit Lai",
+        "Yang Wang"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1908.02794"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1908.02794"
+      ]
+    },
+    {
+      "id": "dutkay-lai-2013-01",
+      "what_happened": "Dorin Ervin Dutkay, Chun-Kit Lai, 'Some reductions of the spectral set conjecture to integers', arXiv:1301.0814 (v1 4 Jan 2013; v2 7 Jan 2013). Clarifies equivalences among the Fuglede statements on R, Z and Z_n, including the universal tiling and spectrum conjectures. Per abstract: if Fuglede's conjecture holds on R, every spectral set with rational measure has a rational spectrum; if the Coven-Meyerowitz property holds for spectral sets and tiles in Z, then both sides of Fuglede on R hold. arXiv gives DOI 10.1017/S0305004113000558 for the published version.",
+      "date": "2013-01-04",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 7 Jan 2013 (current).",
+      "delivers": "Conditional reductions between the statements on R, Z and Z_n; no unconditional case of the R equivalence.",
+      "remains": "All of R.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "pre-window.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "I read only the abstract page; the exact directions of the reductions were not checked.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Structural, conditional.",
+      "object": null,
+      "people": [
+        "Dorin Ervin Dutkay",
+        "Chun-Kit Lai"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1301.0814"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1301.0814"
+      ]
+    },
+    {
+      "id": "bose-kumar-krishnan-madan-2008-03",
+      "what_happened": "Debashish Bose, C. P. Anil Kumar, R. Krishnan, Shobha Madan, 'On Fuglede's conjecture for three intervals', arXiv:0803.0049 (v1 1 Mar 2008; v2 23 Feb 2010). Abstract: proves tiling implies spectral for unions of three intervals; proves spectral implies tiling for three equal intervals and for lengths 1/2, 1/4, 1/4; studies the spectrum for n intervals; and, 'Using Mathematica computations', proves the remaining direction under an additional assumption on the spectrum. No journal reference on arXiv.",
+      "date": "2008-03-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 23 Feb 2010.",
+      "delivers": "Tile implies spectral for all unions of three intervals in R. Spectral implies tile only for three equal intervals and the 1/2, 1/4, 1/4 configuration; for n intervals, only under an additional spectral assumption (Mathematica-assisted).",
+      "remains": "Spectral implies tile for general three-interval unions (left open, per Shi's introduction); all four-or-more-interval unions; general R; all of R^2.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "pre-window; cited by Shi (2026) as the source of the tile-implies-spectral result for three intervals.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "Read from the abstract page only.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial: the tile-implies-spectral half for three intervals; partial spectral-implies-tile.",
+      "object": null,
+      "people": [
+        "Debashish Bose",
+        "C. P. Anil Kumar",
+        "R. Krishnan",
+        "Shobha Madan"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/0803.0049"
+        ],
+        "ai_note": "Mathematica computations, per abstract. This is computer algebra, not an AI system."
+      },
+      "sources": [
+        "https://arxiv.org/abs/0803.0049"
+      ]
+    },
+    {
+      "id": "bose-madan-2011-07",
+      "what_happened": "Debashish Bose, Shobha Madan, '\"Spectral implies Tiling\" for Three Intervals Revisited', arXiv:1107.5209, single version, 26 Jul 2011. For two intervals, spectral implies tiling follows from two distinct circles meeting in at most two points. For three intervals, spectral implies tiling is proved in every configuration except one, which is linked to intersections of generalised Vandermonde varieties. No journal listed on arXiv; a 2012 citation record exists (not verified).",
+      "date": "2011-07-26",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only.",
+      "delivers": "Spectral implies tile for three intervals except one configuration; reproves the two-interval case.",
+      "remains": "The exceptional three-interval configuration (per the authors); four or more intervals; general R; all of R^2.",
+      "checked_by": [],
+      "no_engagement_found": true,
+      "time_since_posted": "pre-window.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": "The abstract does not specify the exceptional configuration. Shi's paper claims to cover it; I did not check that.",
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Partial positive for three intervals, with one configuration left.",
+      "object": null,
+      "people": [
+        "Debashish Bose",
+        "Shobha Madan"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1107.5209"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1107.5209"
+      ]
+    },
+    {
+      "id": "laba-2000-02",
+      "what_happened": "Izabella Laba, 'Fuglede's conjecture for a union of two intervals', arXiv:math/0002067, v1 9 Feb 2000. Proves that a union of two intervals in R is a spectral set if and only if it tiles R by translations. Published in Proc. Amer. Math. Soc. (2001) per a search snippet; not verified.",
+      "date": "2000-02-09",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only.",
+      "delivers": "Both directions for finite unions of exactly two intervals in R.",
+      "remains": "Unions of three or more intervals; general nonconvex subsets of R; all of R^2.",
+      "checked_by": [
+        {
+          "who": "Proc. Amer. Math. Soc. (journal of record), per search snippet only",
+          "qualification": "Journal refereeing",
+          "what_they_did": "Publication (not verified by me)",
+          "where": "not opened",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "pre-window.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Positive for the two-interval class.",
+      "object": null,
+      "people": [
+        "Izabella Laba"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0002067"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0002067"
+      ]
+    },
+    {
+      "id": "iosevich-katz-tao-2001-04",
+      "what_happened": "Alex Iosevich, Nets Katz, Terence Tao, 'Fuglede conjecture holds for convex planar domains', arXiv:math/0104087, v1 7 Apr 2001. For a compact convex planar domain Omega: L^2(Omega) has an orthogonal basis of exponentials if and only if Omega tiles the plane by translation. Journal version: Math. Res. Lett. (2003), per Wikipedia summary.",
+      "date": "2001-04-07",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only.",
+      "delivers": "Both directions for convex planar domains. Out of scope for the nonconvex bullet.",
+      "remains": "All nonconvex sets in R^2 (and all of R).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "pre-window.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Positive, but for the convex class only; discarded for this bullet's nonconvex scope.",
+      "object": null,
+      "people": [
+        "Alex Iosevich",
+        "Nets Katz",
+        "Terence Tao"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0104087"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0104087"
+      ]
+    },
+    {
+      "id": "lev-matolcsi-2019-04",
+      "what_happened": "Nir Lev, Mate Matolcsi, 'The Fuglede conjecture for convex domains is true in all dimensions', arXiv:1904.12262 (v1 28 Apr 2019; v4 2 Jul 2022). A spectral convex body is a convex polytope that tiles space by translations, in all dimensions. Journal reference on arXiv: Acta Mathematica 228 (2022), 385-420. Convex; out of scope for the nonconvex bullet.",
+      "date": "2019-04-28",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v4 2 Jul 2022 (current).",
+      "delivers": "Convex bodies in all dimensions: spectral implies polytope and tiles. Out of scope for nonconvex sets.",
+      "remains": "Nonconvex sets in R and R^2.",
+      "checked_by": [
+        {
+          "who": "Acta Mathematica (journal of record)",
+          "qualification": "Journal refereeing",
+          "what_they_did": "Published (2022); journal reference on arXiv abs page",
+          "where": "https://arxiv.org/abs/1904.12262",
+          "automated": false
+        }
+      ],
+      "no_engagement_found": false,
+      "time_since_posted": "pre-window.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Positive for the convex class; discarded for this bullet's nonconvex scope.",
+      "object": null,
+      "people": [
+        "Nir Lev",
+        "Mate Matolcsi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/1904.12262"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/1904.12262"
+      ]
+    },
+    {
+      "id": "tao-2003-06",
+      "what_happened": "Terence Tao, 'Fuglede's conjecture is false in 5 and higher dimensions', arXiv:math/0306134, v1 8 Jun 2003, v2 9 Jun 2003. A finite union of unit cubes Omega in R^5 with an orthonormal basis of exponentials, indexed by a discrete set, that does not tile R^5 by translations; disproves the conjecture in dimension five, with extension to higher dimensions. Published Math. Res. Lett. 11 (2004) per a search result; not verified.",
+      "date": "2003-06-08",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v2 9 Jun 2003 (current).",
+      "delivers": "Spectral non-tile in R^d for d >= 5. Out of scope for R and R^2.",
+      "remains": "R and R^2 (dimensions three and four were later handled by others).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "pre-window.",
+      "machine_checked": null,
+      "directly_checkable": "The finite union of unit cubes is explicit in the paper (checked only at abstract level by me).",
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Counterexample in dimension five or more (spectral does not imply tile there); out of scope for R and R^2.",
+      "object": "A finite union of unit cubes in R^5 that is spectral but does not tile R^5 (abstract). The construction is via a finite group argument, which secondary sources summarise as a spectral set in Z_3^5; I did not read the construction in the paper.",
+      "people": [
+        "Terence Tao"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0306134"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0306134"
+      ]
+    },
+    {
+      "id": "matolcsi-2006-11",
+      "what_happened": "Mate Matolcsi, 'Fuglede's conjecture fails in dimension 4', arXiv:math/0611936, v1 30 Nov 2006. A set W in R^4 with an orthonormal basis of exponentials in L^2(W) that does not tile R^4 by translations; improves Tao's five-dimensional example.",
+      "date": "2006-11-30",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only.",
+      "delivers": "Spectral non-tile in R^4. Out of scope for R and R^2.",
+      "remains": "R and R^2.",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "pre-window.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Counterexample in dimension four (spectral does not imply tile); out of scope.",
+      "object": "A set W in R^4 with an orthonormal basis of exponentials that does not tile R^4 by translations (abstract).",
+      "people": [
+        "Mate Matolcsi"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0611936"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0611936"
+      ]
+    },
+    {
+      "id": "farkas-matolcsi-mora-2006-12",
+      "what_happened": "Balint Farkas, Mate Matolcsi, Peter Mora, 'On Fuglede's conjecture and the existence of universal spectra', arXiv:math/0612016, v1 1 Dec 2006. Obtains non-spectral tiles in R^3, so tile implies spectral fails in dimension three. Shows the universal spectrum conjecture and the tile-implies-spectral direction are equivalent in every dimension. The abstract states that the conjecture and the universal spectrum conjecture 'remain open in 1 and 2 dimensions'. Journal listed in a search snippet as J. Fourier Anal. Appl. (2006); not verified.",
+      "date": "2006-12-01",
+      "precision": "day",
+      "kind": "preprint",
+      "predates_frozen_revision": true,
+      "revisions": "v1 only.",
+      "delivers": "Non-spectral tiles in R^3 (out of scope for R and R^2); equivalence of two conjectures in every dimension; restates that dimensions one and two were open in 2006.",
+      "remains": "R and R^2 (open per the abstract).",
+      "checked_by": [],
+      "no_engagement_found": false,
+      "time_since_posted": "pre-window.",
+      "machine_checked": null,
+      "directly_checkable": null,
+      "doubts": null,
+      "later_work_cites_it": true,
+      "withdrawn": null,
+      "direction": "Counterexample in dimension three (tile does not imply spectral); out of scope; dimensions one and two stated open.",
+      "object": "Non-spectral translational tiles in R^3, built with ideas of Revesz and Farkas (abstract).",
+      "people": [
+        "Balint Farkas",
+        "Mate Matolcsi",
+        "Peter Mora"
+      ],
+      "ai": {
+        "none_found": true,
+        "systems": [],
+        "disclosed_cost": null,
+        "sources": [
+          "https://arxiv.org/abs/math/0612016"
+        ]
+      },
+      "sources": [
+        "https://arxiv.org/abs/math/0612016"
+      ]
+    }
+  ],
+  "disputes": [
+    {
+      "kind": "status",
+      "summary": "The status of dimensions one and two is stated inconsistently after 17 Jul 2026. Fu-Song (22 Jul 2026) say the conjecture 'remains open in dimensions one and two' and do not cite Zhang. Somlai (29 Jul 2026) cites Zhang and calls R the only remaining Euclidean case. Chen-Fan-Kolountzakis-Lai (28 Sep 2026) say the conjecture is disproved in R^2 (citing their reference [24]) and open only for R^1. The Wikipedia article (last edited 31 Jul 2026; fetched summary) says 'the conjecture remains unknown for d = 1, 2' and mentions no planar counterexample.",
+      "sources": [
+        "https://arxiv.org/html/2607.19858",
+        "https://arxiv.org/html/2607.26534",
+        "https://arxiv.org/html/2609.34852",
+        "https://en.wikipedia.org/wiki/Fuglede%27s_conjecture"
+      ]
+    },
+    {
+      "kind": "attribution",
+      "summary": "Credit for the planar refutation is split. The mathematics is credited to Zhang in the Lean repository, the prize submission and the tracker. The Lean repository's submitter claims the formalisation as the contribution to the Justin Sun Prize catalogue, and says they do not assert eligibility or priority. The prize maintainers are asked whether a complete dimension-two negative answer meets the scope for a Lean contribution.",
+      "sources": [
+        "https://github.com/xhao0307/fuglede-counterexample-lean",
+        "https://github.com/TheJustinSunPrize/awards/issues/4951"
+      ]
+    },
+    {
+      "kind": "validity",
+      "summary": "The only automated referee read of Zhang's paper (Pith, deepseek-v4-flash, 1 Aug 2026) says the non-tiling step (Prop 2.1(ii) feeding Cor 4.5) is not established as printed because of R_k notation. My reading of the HTML text does not confirm the clash, which may be typographic; the PDF was unreadable to my tools. The Lean repository claims a formal proof of Cor 4.5 that would not depend on the printed step if it is correct. Neither has a recorded human response.",
+      "sources": [
+        "https://pith.science/paper/2607.15632",
+        "https://arxiv.org/html/2607.15632v1",
+        "https://github.com/xhao0307/fuglede-counterexample-lean"
+      ]
+    }
+  ],
+  "summary": "Since 26 January 2024 the R^2 half of the problem has moved sharply, while the R half has moved only in restricted classes. Tao Zhang's single-author preprint arXiv:2607.15632 (17 Jul 2026, one version) claims both implications fail for bounded nonconvex planar sets that are finite unions of unit squares, via two 60-point subsets of Z_60 x Z_12 and a transference principle; the sources read show no human who has publicly evaluated the argument, and the record's only automated checks are an AI referee (Pith, deepseek-v4-flash) and an unsigned tracker entry. The Pith referee judges the finite-group computations and layer lemmas sound, but says the non-tiling step (Prop 2.1(ii) feeding Cor 4.5) rests on a notational clash in R_k (rectangle versus boundary ring), so the Euclidean conclusion is not established as printed. My reading of the arXiv HTML defines R_k as a solid rectangle and uses a different symbol for the ring, so the clash may be typographic; the PDF was not readable to me, so this is open. The only AI-related item on the planar result is a separate Lean 4 repository (xhao0307/fuglede-counterexample-lean, created 10 Oct 2026), whose ATTRIBUTION.md says its proof scripts and local reviews were produced with OpenAI Codex under the submitter's direction; it formalises Cor 4.5 (the spectral-but-non-tiling set of 564,540 unit squares) and not the tile-without-spectrum direction, and the mathematics is credited to Zhang. The paper and its acknowledgements name no AI system. I have treated the Codex role as formalisation and checking, so it is not in ai.systems, and the event's ai_note records what it did; the later pass should decide whether Codex-generated Lean proofs count as load-bearing. Later work is mixed: Somlai (29 Jul 2026) cites Zhang and treats the planar counterexample as established; Fu-Song (22 Jul 2026, five days after Zhang) and Shi (27 Jul 2026) do not cite it, and Fu-Song say dimension two remains open. The one-dimensional record is partial. Laba (2000) settled two intervals; Bose, Kumar, Krishnan and Madan (2008) proved tile implies spectral for three intervals; Bose and Madan (2011) proved spectral implies tile for three intervals except one configuration. Shi (27 Jul 2026) claims spectral implies tile for unions of at most three intervals, which with the 2008 result would give the three-interval equivalence; Chen, Fan, Kolountzakis and Lai (28 Sep 2026) prove the equivalence for three non-overlapping unit squares in R^2 (Thm 1.10, any orientation) and for three unit intervals (Thm 1.5, weak tiles). Structural results do not settle any class: Dutkay-Lai (2013) reductions, Ducasse-Dutkay-Fernandez (2025) under extra hypotheses, Kolountzakis-Lev-Matolcsi (2025) gap conditions, and Fu-Song (2026) rationality, which sits near the Lai-Wang (2019) rationality claim withdrawn in 2020 for a Section 4 gap. Self-similar tiles in R (Liu-Wang-Zheng 2026) are settled only for one parameter family. Closer calls. Whether Zhang settles R^2 depends on the flagged step and on the unexamined PDF. Whether Shi's three-interval result settles that class depends on the exceptional configuration of Bose and Madan, which I did not check. Whether the Lean repository is AI involvement in the mathematics or only in its formalisation is a judgement the record leaves open. On the R question, nothing in the sources decides the general nonconvex case. Many 2025-2026 arXiv items in the Fuglede listing concern finite cyclic groups, p-groups or p-adic fields, or are about measures or different Fuglede problems (flux extensions, balayage, operator Fuglede theorems); they are excluded by scope and listed in the dead ends.",
+  "competing_reading": "Read Zhang's planar result as not yet established. If the referee's clash is real in the PDF, the non-tiling half of Cor 4.5 is unsupported as printed, no human has checked either half, and the R^2 equivalence stays formally open; only the three-square planar class (Chen et al.) would then be settled. A second reading: the Lean repository, if its formal proof is correct, verifies the non-tiling half of the same set independently of the paper's printed notation, so the R^2 failure would stand on a machine check (I have not built the repository, and it formalises only one direction). On AI: a reader could treat the Codex-generated Lean proofs as load-bearing, since they are the verified form of the counterexample, which would move the Lean event into ai.systems; the stricter reading treats them as formalisation of a human-proved result, which the record follows. On Shi's three-interval result: a reader who trusts the paper's coverage of the Bose-Madan exceptional configuration would count the three-interval class as settled; a reader waiting for review would count it as claimed only.",
+  "what_would_settle_it": "(1) The PDF of arXiv:2607.15632 (or a v2) read against Prop 2.1(ii) and Cor 4.5, to see whether R_k is used for both the rectangle and the ring; or a human referee report on that step. (2) A fresh build of the Lean repository, plus a formalisation of the tile-without-spectrum direction of Zhang's Thm 1.1. (3) The check the Pith referee proposes: whether A+[97] admits any translational tiling of Z^2 (a tiling would refute the non-tiling claim). (4) For R: a referee report on Shi (2607.24005), an explicit check of its method on Bose and Madan's exceptional configuration, and an account of whether Fu-Song's proof repairs the gap in Lai-Wang's withdrawn Section 4. (5) Confirmation of whether reference [24] in Chen et al. is Zhang's paper, and whether Chen et al.'s three-unit-interval result overlaps Shi's class. (6) Any later paper (after 11 Oct 2026) that evaluates, cites or repairs Zhang's argument, or that still calls R^2 open without citing it.",
+  "sources": [
+    {
+      "url": "https://arxiv.org/abs/2607.15632",
+      "title": "Both directions of Fuglede's conjecture fail in dimension two (Zhang)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.15632",
+      "title": "Both directions of Fuglede's conjecture fail in dimension two, HTML (Zhang)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.15632v1",
+      "title": "HTML v1, Prop 2.1 and Cor 4.5 passages (Zhang)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://pith.science/paper/2607.15632",
+      "title": "Pith AI referee review (deepseek-v4-flash)",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://kingy.ai/mathematics-science-breakthrough-tracker/records/math-fuglede-dimension-two-counterexamples-2026/",
+      "title": "Breakthrough tracker record",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://taozhang220.github.io/",
+      "title": "Tao Zhang homepage",
+      "type": "blog",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/xhao0307/fuglede-counterexample-lean",
+      "title": "Lean formalisation repository (xhao0307)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/xhao0307/fuglede-counterexample-lean/main/README.md",
+      "title": "Repository README (raw)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://raw.githubusercontent.com/xhao0307/fuglede-counterexample-lean/main/ATTRIBUTION.md",
+      "title": "Repository ATTRIBUTION.md (raw)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/xhao0307/fuglede-counterexample-lean/blob/main/submission-semantic-review.md",
+      "title": "Repository submission semantic review (AI agent)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://api.github.com/repos/xhao0307/fuglede-counterexample-lean",
+      "title": "GitHub API metadata for the repository",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://github.com/TheJustinSunPrize/awards/issues/4951",
+      "title": "Justin Sun Prize submission issue JSP-000032",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.24005",
+      "title": "Fuglede's conjecture holds for three intervals (Shi)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.24005",
+      "title": "Shi, HTML (two chunks read)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2609.34852",
+      "title": "Weak Tiling by Unions of Non-overlapping Unit Cubes (Chen, Fan, Kolountzakis, Lai)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2609.34852",
+      "title": "Chen et al., HTML",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2607.19858",
+      "title": "Rational Spectra for Finite Hadamard Pairs and Bounded Spectral Sets on the real line (Fu, Song)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.19858",
+      "title": "Fu-Song, HTML",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2607.26534",
+      "title": "Somlai, square-free cyclic groups, HTML",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2610.02218",
+      "title": "Tan and Zhang, square-free cyclic groups",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2603.21031",
+      "title": "Liu, Wang, Zheng, product-form self-similar measures and tiles",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.04948",
+      "title": "A lonely weak tile (Kiss, Londner, Matolcsi, Somlai)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2410.04948v2",
+      "title": "A lonely weak tile, HTML v2",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.23631",
+      "title": "Geometric implications of weak tiling (Kolountzakis, Lev, Matolcsi)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.18625",
+      "title": "Spectral properties of unions of intervals and groups of local translations (Ducasse, Dutkay, Fernandez)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.18625v2",
+      "title": "Ducasse et al. version history",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/html/2506.18625",
+      "title": "Ducasse et al., HTML (first chunk)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2506.23720",
+      "title": "Commuting self-adjoint extensions of PDOs on disconnected sets (Chakraborty, Dutkay)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2501.11367",
+      "title": "Spectrality of a measure consisting of two line segments (Kolountzakis, Wu)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.05782",
+      "title": "Fuglede's conjecture on orthogonal bases of exponentials (Kolountzakis)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2408.15361",
+      "title": "Orthogonal Fourier Analysis on Domains (Kolountzakis survey)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2410.03587",
+      "title": "Fuglede's conjecture, differential operators and unitary groups of local translations (Chakraborty, Dutkay, Jorgensen)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/2301.11377",
+      "title": "The momentum operator on a union of intervals and the Fuglede conjecture (Dutkay, Jorgensen)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1908.02794",
+      "title": "Spectrum is rational in dimension one (Lai, Wang; withdrawn)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1301.0814",
+      "title": "Some reductions of the spectral set conjecture to integers (Dutkay, Lai)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/0803.0049",
+      "title": "On Fuglede's conjecture for three intervals (Bose, Kumar, Krishnan, Madan)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1107.5209",
+      "title": "Spectral implies Tiling for Three Intervals Revisited (Bose, Madan)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0002067",
+      "title": "Fuglede's conjecture for a union of two intervals (Laba)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0104087",
+      "title": "Fuglede conjecture holds for convex planar domains (Iosevich, Katz, Tao)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/1904.12262",
+      "title": "The Fuglede conjecture for convex domains is true in all dimensions (Lev, Matolcsi)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0306134",
+      "title": "Fuglede's conjecture is false in 5 and higher dimensions (Tao)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0611936",
+      "title": "Fuglede's conjecture fails in dimension 4 (Matolcsi)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/abs/math/0612016",
+      "title": "On Fuglede's conjecture and the existence of universal spectra (Farkas, Matolcsi, Mora)",
+      "type": "preprint",
+      "opened": true
+    },
+    {
+      "url": "https://en.wikipedia.org/wiki/Fuglede%27s_conjecture",
+      "title": "Fuglede's conjecture, Wikipedia (fetched summary, last edited 31 Jul 2026)",
+      "type": "encyclopedia",
+      "opened": true
+    },
+    {
+      "url": "https://www.icmat.es/news/12-11-24-en/",
+      "title": "Mosaics and spectra: the Fuglede conjecture (ICMAT, 12 Nov 2024)",
+      "type": "news",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/search/?query=Fuglede&searchtype=all&order=-announced_date_first&size=50",
+      "title": "arXiv listing search: Fuglede (first 50 of 202)",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/search/?query=%22spectral+set%22+tile&searchtype=all&order=-announced_date_first&size=50",
+      "title": "arXiv listing search: spectral set tile",
+      "type": "repository",
+      "opened": true
+    },
+    {
+      "url": "https://arxiv.org/search/?query=translational+tiles+spectrum&searchtype=all&order=-announced_date_first&size=50",
+      "title": "arXiv listing search: translational tiles spectrum",
+      "type": "repository",
+      "opened": true
+    }
+  ],
+  "search": {
+    "queries": [
+      "Fuglede conjecture 2024 nonconvex sets plane spectral tile",
+      "Fuglede's conjecture dimension 1 dimension 2 proof 2025",
+      "Fuglede conjecture arXiv 2024",
+      "Fuglede conjecture AI proof OR counterexample OR AlphaEvolve OR GPT",
+      "spectral set tile by translation union of intervals Fuglede 2025 arXiv",
+      "Fuglede's conjecture Wikipedia",
+      "Fuglede conjecture Tao disproved five dimensions Kolountzakis Matolcsi status",
+      "Fuglede conjecture Lev Matolcsi Greenfeld Kolountzakis recent results",
+      "Tao Zhang Fuglede conjecture dimension two counterexample",
+      "Fuglede conjecture plane counterexample blog reaction 2026",
+      "Ruxi Shi Fuglede conjecture three intervals cofactor rigidity",
+      "xhao0307 fuglede-counterexample-lean Codex",
+      "Terence Tao blog Fuglede 2026",
+      "Fuglede conjecture AI-assisted proof 2026 Lean formalization spectral tile",
+      "\"Fuglede\" conjecture Quanta Magazine",
+      "\"Spectral implies Tiling\" three intervals revisited arXiv 1107.5209",
+      "Fuglede conjecture Google Formal Conjectures repository Lean statement",
+      "Fuglede conjecture OpenAI GPT model counterexample spectral set",
+      "Fuglede conjecture DeepMind AlphaEvolve spectral tiling finite group search",
+      "Fuglede conjecture dimension one 2026 arXiv new result tiles spectral real line",
+      "Kolountzakis Orthogonal Fourier analysis on domains 2026 survey Fuglede",
+      "Somlai weak tiling spectral sets Fuglede Lev Matolcsi weak tile question",
+      "Lev Matolcsi Fuglede conjecture convex domains weak tiling arXiv 1904.12262",
+      "Farkas Matolcsi Mora non-spectral tiles R^3 Fuglede dimension three arXiv",
+      "Fu Song spectrum rational bounded spectral set real line arXiv 2026",
+      "Fuglede conjecture mathoverflow 2026 plane non-convex counterexample 60 points",
+      "\"Both directions of Fuglede\" cited",
+      "Nir Lev Fuglede conjecture dimension one open problem talk 2026",
+      "Fuglede conjecture Iosevich Katz Tao 2003 convex planar domains arXiv spectral set",
+      "Fuglede conjecture arXiv 2026 spectral set tile plane new preprint Zhang correction erratum",
+      "Dutkay Lai Fuglede one-dimensional spectra periodic rational reduction cyclic groups Z_n",
+      "Fuglede conjecture LLM large language model proof 2026",
+      "Fuglede conjecture Gemini Deep Think OR Claude OR Codex spectral tile",
+      "Justin Sun Prize awards mathematics AI Lean submissions",
+      "Pith review Both directions of Fuglede's conjecture fail in dimension two AI referee"
+    ],
+    "places_checked": [
+      "arXiv abs and HTML pages for every event listed in events[] (versions and dates read from abs pages)",
+      "arXiv listing searches for 'Fuglede' (first 50 of 202), 'spectral set tile', and 'translational tiles spectrum'",
+      "Zhang arXiv:2607.15632: abs, HTML, HTML v1 (Prop 2.1, Cor 4.5, acknowledgements, AI-term search); PDF was binary and unreadable",
+      "Lean repository xhao0307/fuglede-counterexample-lean: README and ATTRIBUTION.md (raw), submission-semantic-review.md, GitHub API metadata, repo landing page; the ATTRIBUTION.md GitHub page returned HTTP 503 once, so the raw copy was used",
+      "Pith review page (pith.science/paper/2607.15632), read by direct fetch; it did not appear in web search results",
+      "Breakthrough tracker record (kingy.ai)",
+      "Justin Sun Prize awards issue #4951",
+      "Shi arXiv:2607.24005: abs, HTML first 100k characters, HTML remaining 28k characters (references, acknowledgements); PDF binary and unreadable",
+      "Chen-Fan-Kolountzakis-Lai arXiv:2609.34852: abs and HTML",
+      "Fu-Song arXiv:2607.19858: abs and HTML",
+      "Somlai arXiv:2607.26534: HTML (introduction and references checked via fetch summary); PDF binary and unreadable",
+      "Wikipedia 'Fuglede's conjecture' (fetched twice; footer 'last edited on 31 July 2026')",
+      "ICMAT news 'Mosaics and spectra' (12 Nov 2024)",
+      "Zhang homepage (taozhang220.github.io)",
+      "Tao blog index: appeared in search results only; the posts were not opened, and no Fuglede post was found in the search results"
+    ],
+    "dead_ends": [
+      "Terence Tao's blog: search surfaced recent posts (Oct 2026) but no Fuglede post; blog archive not opened",
+      "Quanta Magazine: no Fuglede article found by search",
+      "MathOverflow: no thread on the 2026 planar result found by search",
+      "AlphaEvolve or Google DeepMind and Fuglede: no source connecting them found in search",
+      "OpenAI GPT and Fuglede: no source found; the OpenAI discrete-geometry result surfaced in search is a different problem and was not researched",
+      "Gemini Deep Think or Claude and Fuglede: no source found; the Claude Fable 5 Jacobian-conjecture coverage is a different problem and was not researched",
+      "Google DeepMind Formal Conjectures repository: the Fuglede statement was not located by search; the repo's own semantic review says its statement is adapted from it. I did not open the Formal Conjectures repository itself",
+      "Kolountzakis 2026 survey: not found; the 2024 arXiv survey was found instead",
+      "Nir Lev 2026 talk on dimension one: not found",
+      "Erratum or correction to Zhang's paper: none found; arXiv abs shows v1 only",
+      "Fan-Kadir arXiv:2609.00087 (translational tiles without spectra in finite abelian p-groups, 31 Aug 2026): finite groups; from listing only, not opened",
+      "Fallon-Kiss-Mayeli-Somlai arXiv:2308.16277: finite groups; search snippet only",
+      "Greenfeld-Lev arXiv:1602.08854 (spectral convex polytopes, 2016): convex; search snippet only",
+      "Kolountzakis-Matolcsi arXiv:math/0406127 (Tiles with no spectra, 2004): dimension five and up; listing only",
+      "Zorii arXiv:2406.11874 and Duse arXiv:2401.15974: different Fuglede problems (pseudo-balayage; flux extensions); search snippet only",
+      "Chakraborty-Dutkay arXiv:2510.23754 (Plancherel identities for unbounded subsets of R): listing only; not about spectral/tile equivalence by its title",
+      "Kiss-Malikiosis-Somlai-Vizer (cyclic groups of order pqrs), Shi (cyclic groups Z_pqr), Malikiosis-Kolountzakis and similar finite-group papers: excluded by scope; not opened",
+      "Fu-Song-like rationality results in Iosevich-Kolountzakis (periodicity of spectrum in dimension one, 2013): cited inside Shi and Dutkay-Lai, not opened",
+      "Kolountzakis-Lev-Matolcsi 2023 survey 'Tiling by translates of a function: results and open problems': not opened",
+      "Bose-Madan 'Spectrum is periodic for n-intervals': cited inside Shi, not opened",
+      "Kolountzakis-Lev-Matolcsi 'Spectral sets and weak tiling' (arXiv:2209.04540, 2022) and Kolountzakis-Lev-Matolcsi weak-tiling convex work: convex or weak-tiling background, not opened",
+      "Tao 'Tiles with no spectra' (math/0406127) and Kolountzakis-Matolcsi 'Complex Hadamard matrices' (math/0411512): dimension five and up; listing only",
+      "Quantum/physics or unrelated 2026 listings (Navier-Stokes algebra, CNOT complexity, Alexandrov stability, Putnam-Fuglede operator commutativity withdrawn in Aug 2026): different subjects or different Fuglede problems",
+      "Search results mentioning 'Mosaics and spectra' and a 'Breakthrough Tracker' for other problems: not researched"
+    ]
+  },
+  "incomplete": "(1) PDFs were unreadable with WebFetch (binary output) for arXiv:2607.15632, 2607.24005, 2607.26534 and 2607.19858; claims about them come from HTML pages and from WebFetch's summaries, so quoted sentences are summariser-quoted, not verbatim copies from the PDF. (2) The Lean repository was not cloned or built; sorry-free and axiom claims are the repo's own, and the semantic review's build status was read from its text. (3) The Pith referee's notational objection could not be checked against the PDF; my reading is from HTML rendering. (4) Zhang's Thm 3.1 and Cor 3.5 (the tile-without-spectrum direction) were read only through summaries; I did not verify the value of k or the spectrality argument. (5) The Justin Sun Prize context (sponsored coverage) and the kingy.ai tracker were read as secondary material; I did not verify the sponsor's rules. (6) Pre-2024 events were checked from abstract pages and search snippets; their full texts, and any AI statements in their full texts, were not read; ai.none_found for these rests on the abstracts. (7) Journal publication details for Laba (2000), Iosevich-Katz-Tao (2001), Tao (2003), Matolcsi (2006), Farkas-Matolcsi-Mora (2006) and Bose-Madan (2011) come from search snippets, not from the journal pages. (8) Chen et al.'s reference [24] was not confirmed as Zhang's paper, because the excerpt names no author. (9) Whether Fu-Song's argument repairs the Section 4 gap in Lai-Wang's withdrawn paper was not checked. (10) Tan-Zhang's date is inconsistent between its arXiv ID and its listed submission date; recorded as listed. (11) The Wikipedia status sentence is from a fetched summary of the page footer dated 31 Jul 2026; I did not check the page's revision history. (12) Not checked: whether any paper after 11 Oct 2026 cites or evaluates Zhang's result; the search index may be missing late items. (13) The problem's Wikipedia list entry was not checked, since the statement is given. (14) The arXiv listing search reports 202 results for 'Fuglede' but only the first 50 were read.",
+  "combined": {
+    "openai_events_added": [],
+    "repository_commit": "1581d4cbdd69a0faf34b2089614fe2a814316a6a"
+  },
+  "status": "partial",
+  "ai_role": "none",
+  "resolution_direction": "confirmed",
+  "object_role": null,
+  "counterexample": {
+    "is_counterexample": false
+  },
+  "rests_on": "ducasse-dutkay-fernandez-2025-06",
+  "no_change_found": false,
+  "event": {
+    "id": "ducasse-dutkay-fernandez-2025-06",
+    "what_happened": "Bryan Ducasse, Dorin Ervin Dutkay, Colby Fernandez, 'Spectral properties of unions of intervals and groups of local translations', arXiv:2506.18625 (v1 23 Jun 2025; v2 24 Jun 2026, comment 'minor correction after the referee's suggestions'). For a finite union of disjoint open intervals in R, studies self-adjoint extensions of the momentum operator and their unitary groups. Thm 3.1(i): if spectral, every gap between intervals is a sum of lengths of intervals in Omega. Thm 4.7: if spectral and the unitary group is multiplicative, the boundary matrix is a cyclic permutation matrix, the spectrum is (1/L)Z and Omega tiles by LZ. Thm 4.14: same conclusions under the Forelli condition. The converse and the general case are not proved (Remark 4.9 leaves rational spectrum open in the equal-length case).",
+    "date": "2025-06-23",
+    "precision": "day",
+    "kind": "preprint",
+    "predates_frozen_revision": false,
+    "revisions": "v2 24 Jun 2026, after a referee's suggestions (per arXiv comment; journal not named in the record).",
+    "delivers": "Spectral implies tile for finite unions of intervals in R under extra hypotheses (multiplicative unitary group, or the Forelli condition), plus gap conditions. Not the full conjecture; converse not proved.",
+    "remains": "R outside those hypotheses, both directions. R^2 nothing.",
+    "checked_by": [
+      {
+        "who": "Unnamed referee at an unnamed venue",
+        "qualification": "Referee (venue not identified in the record)",
+        "what_they_did": "Suggested corrections, incorporated in v2 (arXiv comment field)",
+        "where": "https://arxiv.org/abs/2506.18625v2",
+        "automated": false
+      }
+    ],
+    "no_engagement_found": false,
+    "time_since_posted": "about 15 months from v1; v2 about 3.5 months ago.",
+    "machine_checked": null,
+    "directly_checkable": null,
+    "doubts": "The v2 comment indicates a referee has seen the paper, but the venue and the outcome are not recorded in the sources I read.",
+    "later_work_cites_it": null,
+    "withdrawn": null,
+    "direction": "Partial positive in R under extra hypotheses; structural otherwise.",
+    "object": null,
+    "people": [
+      "Bryan Ducasse",
+      "Dorin Ervin Dutkay",
+      "Colby Fernandez"
+    ],
+    "ai": {
+      "none_found": true,
+      "systems": [],
+      "disclosed_cost": null,
+      "sources": [
+        "https://arxiv.org/abs/2506.18625",
+        "https://arxiv.org/html/2506.18625",
+        "https://arxiv.org/abs/2506.18625v2"
+      ]
+    },
+    "sources": [
+      "https://arxiv.org/abs/2506.18625",
+      "https://arxiv.org/html/2506.18625",
+      "https://arxiv.org/abs/2506.18625v2"
+    ]
+  },
+  "credited_humans": [
+    "Bryan Ducasse",
+    "Dorin Ervin Dutkay",
+    "Colby Fernandez"
+  ],
+  "status_sources": [
+    "https://arxiv.org/abs/2506.18625",
+    "https://arxiv.org/html/2506.18625",
+    "https://arxiv.org/abs/2506.18625v2"
+  ],
+  "ai": {
+    "systems": [],
+    "from_event": null,
+    "basis_quote": null,
+    "none_found": true,
+    "disclosed_cost": null
+  },
+  "judgement": {
+    "events": [
+      {
+        "id": "zhang-2026-07",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "refuted",
+        "object_role": "counterexample"
+      },
+      {
+        "id": "xhao-lean-2026-10",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "jsp-issue-2026-10",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "shi-2026-07",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "chen-fan-kolountzakis-lai-2026-09",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "fu-song-2026-07",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "somlai-2026-07",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "tan-zhang-2026-09",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "liu-wang-zheng-2026-03",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "kiss-londner-matolcsi-somlai-2024-10",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kolountzakis-lev-matolcsi-2025-06",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "ducasse-dutkay-fernandez-2025-06",
+        "after_snapshot": true,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "chakraborty-dutkay-2025-06",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kolountzakis-wu-2025-01",
+        "after_snapshot": true,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kolountzakis-2025-09",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "kolountzakis-survey-2024-08",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "chakraborty-dutkay-jorgensen-survey-2024-10",
+        "after_snapshot": true,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lai-wang-2019-08",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "unreviewed",
+        "credibility": "knocked_down",
+        "credibility_reason": "Withdrawn by the author in May 2020 for a gap in Section 4.",
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "dutkay-lai-2013-01",
+        "after_snapshot": false,
+        "scope": "none",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "bose-kumar-krishnan-madan-2008-03",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "bose-madan-2011-07",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "laba-2000-02",
+        "after_snapshot": false,
+        "scope": "case",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": "confirmed",
+        "object_role": null
+      },
+      {
+        "id": "iosevich-katz-tao-2001-04",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "lev-matolcsi-2019-04",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "tao-2003-06",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "digested",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "matolcsi-2006-11",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      },
+      {
+        "id": "farkas-matolcsi-mora-2006-12",
+        "after_snapshot": false,
+        "scope": "variant",
+        "verification": "unreviewed",
+        "credibility": "credible",
+        "credibility_reason": null,
+        "ai_role": "none",
+        "ai_basis": null,
+        "ai_systems_credited": [],
+        "direction": null,
+        "object_role": null
+      }
+    ],
+    "why": "The statement asks about two dimensions, R and R^2, so Zhang's planar refutation of both directions settles one named part: case, not whole, with R still open. It is unreviewed (only an AI referee and an unsigned tracker engaged; Somlai's and Chen-Fan-Kolountzakis-Lai's citations are uptake, not reading). The Pith objection is automated and about notation, and the researcher's HTML reading suggests it is typographic, so it neither knocks the paper down nor amounts to a real doubt by the standards here; I kept it credible, with doubtful the close alternative. The object contradicts the R^2 equivalence: counterexample, refuted. The Lean repository formalises Zhang's already proved Cor 4.5, so its scope is none; Codex wrote the proof scripts for a human result, which is formalisation, so ai_role is none (F12). Shi (at most three intervals), Chen et al. (three unit squares or intervals), Liu-Wang-Zheng (one self-similar family) and Ducasse et al. (unions of intervals under extra hypotheses) each settle a restricted class: case, confirmed. Finite-group, convex, R^3+ and measure results are variants. Surveys and reductions (Fu-Song, Dutkay-Lai) are none. Lai-Wang was withdrawn.",
+    "doubts": "Zhang's non-tiling step (Prop 2.1(ii)) is flagged only by an automated referee, and the PDF was not read. If a human confirms the clash, Zhang should be doubtful or knocked down for the spectral-non-tile direction, although the tile-without-spectrum direction reportedly rests on other parts. Fu-Song (posted five days later) still call dimension two open without citing Zhang. Ducasse et al. counting as a case is borderline because extra operator hypotheses restrict the class; one could read that as a variant. Journal verification for the pre-snapshot papers rests on snippets.",
+    "insufficient_evidence": false,
+    "confidence": "medium",
+    "derived": {
+      "status": "partial",
+      "rests_on": "ducasse-dutkay-fernandez-2025-06",
+      "ai_role": "none",
+      "ai_from": null,
+      "resolution_direction": "confirmed",
+      "object_role": null,
+      "ai_systems_credited": []
+    },
+    "date": "2026-10-14",
+    "by": "judging pass (JUDGE.md), claude-opus-5-5; not the researching agent and not a human reviewer"
+  },
+  "judge_problems": []
+}
