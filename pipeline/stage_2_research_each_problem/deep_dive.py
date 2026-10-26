@@ -38,9 +38,9 @@ ap.add_argument('--version', required=True, metavar='NAME',
                      'data/<NAME>/deepdive/ — e.g. mark_2026-09-22')
 ap.add_argument('--revision', default='2024-01')
 ap.add_argument('--parallel', type=int, default=4)
-ap.add_argument('--model', default='claude-sonnet-5-5',
+ap.add_argument('--model', default='claude-haiku-5-5',
                 help='exact model id, never an alias: an alias resolves to a different model over time, and a trial that records one cannot be read back')
-ap.add_argument('--effort', default='medium', help='pinned so the run does not inherit the shell')
+ap.add_argument('--effort', default='high', help='pinned so the run does not inherit the shell')
 ap.add_argument('--limit', type=int, help='run only the first N outstanding problems, in key order')
 ap.add_argument('--sample', type=int, metavar='N',
                 help='run N problems drawn at random across the whole list, which --limit does not: '

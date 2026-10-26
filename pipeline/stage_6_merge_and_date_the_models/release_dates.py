@@ -24,9 +24,9 @@ ap = argparse.ArgumentParser()
 ap.add_argument('--version', required=True, metavar='NAME',
                 help='the dataset version to work in: data/<NAME>/ — e.g. mark_2026-09-22')
 ap.add_argument('--parallel', type=int, default=4)
-ap.add_argument('--model', default='claude-haiku-4-5-20251001',
+ap.add_argument('--model', default='claude-haiku-5-5',
                 help='exact model id, never an alias: an alias resolves to a different model over time, and a trial that records one cannot be read back')
-ap.add_argument('--effort', default='low', help='pinned so the run does not inherit the shell')
+ap.add_argument('--effort', default='high', help='pinned so the run does not inherit the shell')
 ap.add_argument('--subscription', action='store_true',
                 help='bill the Claude Code subscription instead of the API key in .secrets.json')
 ap.add_argument('--only', nargs='+', metavar='MODEL', help='run only these canonical model names')

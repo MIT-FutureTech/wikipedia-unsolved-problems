@@ -16,7 +16,10 @@
 #                                                 because every later stage keys off it
 #   research  stage_2_research_each_problem/      one agent per problem — BILLS AN API KEY unless --subscription
 #   openai    stage_3_check_the_openai_repository/ the openai/math manuscripts, read from a pinned
-#                                                 clone, turned into events beside the research ones
+#                                                 clone (sources/openai-math): indexed, matched to
+#                                                 problems and turned into events by agents (Claude
+#                                                 Code subscription), then combined with the research
+#                                                 records into deepdive/combined/
 #   judge     stage_4_judge_the_records/          one agent per record — Claude Code subscription
 #   years     stage_5_date_each_problem/          agents, only for problems the scrape could not
 #                                                 date. OPTIONAL: the merge reads year_scraped.json
@@ -31,14 +34,19 @@
 # of research.json, and merge_research.py reads the dates back in. The first merge tolerates the
 # missing file, so the order is merge, dates, merge again.
 #
+# `judge` and `merge` work on one set of records under deepdive/: `combined` (the research plus the
+# OpenAI stage's events) once the openai stage has written it, otherwise `out` (the research alone).
+# --records overrides the choice.
+#
 # Every stage is resumable: the agent passes skip problems whose record already exists, so running
 # the same command again retries only what failed.
 set -e
 
-VERSION= STAGE= DRY= ONLY= LIMIT= CHECK= SAMPLE= SEED= FORCE= SUBSCRIPTION= MODEL= EFFORT= MINQ= PARALLEL=
+VERSION= STAGE= DRY= ONLY= LIMIT= CHECK= SAMPLE= SEED= FORCE= SUBSCRIPTION= MODEL= EFFORT= MINQ= PARALLEL= RECORDS=
 while [ $# -gt 0 ]; do
   case "$1" in
     --version) VERSION=$2; shift 2 ;;
+    --records) RECORDS=$2; shift 2 ;;
     --subscription) SUBSCRIPTION=1; shift ;;
     --model)   MODEL=$2; shift 2 ;;
     --effort)  EFFORT=$2; shift 2 ;;
@@ -67,10 +75,12 @@ usage() {
   echo "       stages: fetch research openai judge years merge build" >&2
   echo "       --only and --limit apply to: research judge years  (--only also: merge)" >&2
   echo "       --check  re-validates and re-collects without running an agent: research judge years" >&2
-  echo "       --sample N [--seed S]  research only: N problems drawn across the whole list" >&2
+  echo "       --sample N [--seed S]  research only: N problems drawn across the whole list (seed default 1)" >&2
   echo "       --subscription  research, years and merge: bill the Claude Code subscription, not the API key" >&2
-  echo "       --model ID --effort LEVEL  research and judge: override the script's pinned model and effort" >&2
-  echo "       --parallel N  research and judge: agents at once (defaults: research 4, judge 8)" >&2
+  echo "       --model ID --effort LEVEL  research, judge, years, and merge's release-date step:" >&2
+  echo "                  override the script's pinned model and effort" >&2
+  echo "       --parallel N  research, judge, years, merge's release-date step: agents at once" >&2
+  echo "       --records SET  judge and merge: 'combined' or 'out' (default: combined once the openai stage has run)" >&2
   echo "       --min-queries N  research only: the search floor each agent is given (default 8)" >&2
   echo "       --force  years only: research again although year_posed.json is cached" >&2
 }
@@ -85,8 +95,14 @@ cd "$(dirname "$0")/.."
   echo "--subscription applies to research, years and merge (its release-date step); judge always uses the subscription" >&2; exit 2; }
 [ -n "$MINQ" ] && [ "$STAGE" != research ] && {
   echo "--min-queries applies to the research stage only" >&2; exit 2; }
-[ -n "$MODEL$EFFORT$PARALLEL" ] && [ "$STAGE" != research ] && [ "$STAGE" != judge ] && [ "$STAGE" != years ] && {
-  echo "--model, --effort and --parallel apply to the research, judge and years stages only" >&2; exit 2; }
+[ -n "$MODEL$EFFORT$PARALLEL" ] && [ "$STAGE" != research ] && [ "$STAGE" != judge ] && [ "$STAGE" != years ] && [ "$STAGE" != merge ] && {
+  echo "--model, --effort and --parallel apply to the research, judge and years stages and merge's release-date step only" >&2; exit 2; }
+[ -n "$RECORDS" ] && [ "$STAGE" != judge ] && [ "$STAGE" != merge ] && {
+  echo "--records applies to the judge and merge stages only" >&2; exit 2; }
+case "$RECORDS" in ''|out|combined) ;; *) echo "--records takes 'out' or 'combined'" >&2; exit 2 ;; esac
+if [ -z "$RECORDS" ]; then
+  if [ -d "data/$VERSION/deepdive/combined" ]; then RECORDS=combined; else RECORDS=out; fi
+fi
 case "$STAGE" in
   research) ;;
   judge)
@@ -148,15 +164,20 @@ case "$STAGE" in
   research)
     run pipeline/stage_2_research_each_problem/deep_dive.py ;;
   openai)
-    run_plain pipeline/stage_3_check_the_openai_repository/index.py --version "$VERSION" ;;
+    # Each agent step runs at the model and effort its script pins (match: Sonnet 5.5 medium;
+    # events: Haiku 5.5 high), on the subscription.
+    run_plain pipeline/stage_3_check_the_openai_repository/index.py --version "$VERSION"
+    run_plain pipeline/stage_3_check_the_openai_repository/match.py --version "$VERSION"
+    run_plain pipeline/stage_3_check_the_openai_repository/events.py --version "$VERSION"
+    run_plain pipeline/stage_3_check_the_openai_repository/combine.py --version "$VERSION" ;;
   judge)
-    run pipeline/stage_4_judge_the_records/judge.py ;;
+    run pipeline/stage_4_judge_the_records/judge.py --records "$RECORDS" ;;
   years)
     run pipeline/stage_5_date_each_problem/year_posed.py ;;
   merge)
-    run_plain pipeline/stage_6_merge_and_date_the_models/merge_research.py --version "$VERSION"
+    run_plain pipeline/stage_6_merge_and_date_the_models/merge_research.py --version "$VERSION" --records "$RECORDS"
     run      pipeline/stage_6_merge_and_date_the_models/release_dates.py
-    run_plain pipeline/stage_6_merge_and_date_the_models/merge_research.py --version "$VERSION" ;;
+    run_plain pipeline/stage_6_merge_and_date_the_models/merge_research.py --version "$VERSION" --records "$RECORDS" ;;
   build)
     run_plain pipeline/stage_7_build_the_dataset/build.py --version "$VERSION" ;;
 esac
