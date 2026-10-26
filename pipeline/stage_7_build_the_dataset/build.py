@@ -12,17 +12,37 @@ _ap.add_argument('--version', required=True, metavar='NAME',
 _ap.add_argument('--site-dir', metavar='DIR',
                  help='write data.js and the page here instead of site/, e.g. to preview a trial '
                       'without touching the published files; the page sources are still read from site/')
+_ap.add_argument('--status-checked', help='YYYY-MM-DD, for a version with no manifests to read the date from')
 _args = _ap.parse_args()
 VERSION = _args.version
 STARTED = manifest.now()
-# The agent pass wrote its records 22-24 Sep 2026; the last hand corrections landed 28 Sep. This is
-# the later date, so it is the date every status on the site was last reviewed.
-STATUS_CHECKED = '2026-09-28'
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 DATA_DIR = os.path.join(ROOT, 'data', VERSION)
 P = lambda name: os.path.join(DATA_DIR, name)
 
-# The research: one record per problem from pipeline/stage_2_research_each_problem/deep_dive.py, merged and normalised by
+
+def review_dates():
+    """(first, last) dates of the runs that set the statuses: research, the OpenAI stage, the judge.
+
+    Read from the version's manifests, so the dates on the site follow the data. A version with no
+    manifests (built before they existed) has to pass --status-checked.
+    """
+    runs = []
+    for stage in ('research', 'openai', 'judge'):
+        path = os.path.join(DATA_DIR, 'manifests', f'{stage}.json')
+        if os.path.exists(path):
+            runs += json.load(open(path, encoding='utf-8'))
+    if not runs:
+        return None, None
+    return min(r['started'] for r in runs)[:10], max(r['finished'] for r in runs)[:10]
+
+
+REVIEWED_FROM, STATUS_CHECKED = review_dates()
+STATUS_CHECKED = _args.status_checked or STATUS_CHECKED
+if not STATUS_CHECKED:
+    sys.exit(f'{VERSION} has no research/openai/judge manifests to date it; pass --status-checked YYYY-MM-DD')
+
+# The research: one record per problem from pipeline/stage_2_research_each_problem/deep_dive.py, merged and normalized by
 # pipeline/stage_6_merge_and_date_the_models/merge_research.py. Keyed by statement text, with the five Millennium problems keyed by
 # build's own record name (see pipeline/shared/join_map.py).
 if not os.path.exists(P('research.json')):
@@ -160,8 +180,7 @@ for raw in SRC.split('\n'):
     fl = first_link(body)
     primary = fl[0] if fl else None
     key = primary or name
-    # year_introduced is not researched in this version (merge_research.year_introduced is a stub),
-    # so every record starts with no year; the join below fills it if a record ever carries one.
+    # Every record starts with no year; the join below fills it from the years stage.
     yinfo = (None, None, '')
     field, sub = h3, h4
     if field == 'Number theory' and sub == 'General':
@@ -225,29 +244,33 @@ def predates(st):
 
     Compared at the precision the event carries: a year-only date is only counted as earlier when
     the whole year is earlier, so the flag never rests on a month nobody sourced.
+    Each AI-credited event is compared against the models credited on that event.
     """
-    when = st.get('month') or (str(st['year']) if st.get('year') else None)
-    if not when:
-        return None, []
+    events = [e for e in st.get('events') or [] if e.get('after_snapshot') is True and e.get('ai') != 'none']
+    dated = False
     hits = []
-    for m in st['ai_models']:
-        avail = (MODELS.get(m) or {}).get('available')
-        if not avail:
+    for e in events:
+        date = str(e.get('date') or '')
+        when = date[:4] if e.get('precision') == 'year' or len(date) < 7 else date[:7]
+        if not re.match(r'\d{4}', when):
             continue
-        n = min(len(when), len(avail))
-        if when[:n] < avail[:n]:
-            hits.append(m)
-    return bool(hits), hits
+        dated = True
+        for m in e.get('ai_models') or []:
+            info = MODELS.get(m) or {}
+            avail = info.get('available') if info.get('release_basis') != 'tentative' else None   # never a provisional date
+            n = min(len(when), len(avail or ''))
+            if avail and when[:n] < avail[:n] and m not in hits:
+                hits.append(m)
+    return (bool(hits) if dated else None), hits
 
 
 # Models come from research.json, which merge_research.py builds from pipeline/shared/model_aliases.py:
-# the canonical name each source string maps to, with lab, family, kind and release date. Release
-# dates are not researched in this version — they are a pass of their own — so `release` is None
-# throughout and the site shows no release timeline until that pass runs.
+# the canonical name each source string maps to, with lab, family, kind and the release date from
+# the release-dates pass (None where that pass found none).
 MODEL_FAMILY = {m: v.get('family') for m, v in MODELS.items()}
 LAB_OF_MODEL = {m: v.get('lab') for m, v in MODELS.items()}
 
-STATUS_LABEL = {'open': 'Open', 'resolved': 'Resolved', 'partial': 'Partially resolved', 'claimed': 'Resolution claimed', 'progress': 'Notable progress', 'open_stale': 'Already settled before snapshot'}
+STATUS_LABEL = {'open': 'Still open', 'resolved': 'Resolution confirmed', 'partial': 'Partial result', 'claimed': 'Resolution claimed', 'progress': 'Notable progress', 'open_stale': 'Settled before snapshot'}
 used = set()
 for r in records:
     r['is_grouping'] = r['statement'] in GROUPINGS
@@ -276,7 +299,7 @@ for r in records:
             r['year_introduced'], r['year_source'], r['year_note'] = yi[0], yi[1], yi[2]
             r['year_approx'] = bool(yi[3]) if len(yi) > 3 else False
     else:
-        r.update(status='open', status_label='Open', outcome=None, year_resolved=None, resolved_by=None,
+        r.update(status='open', status_label=STATUS_LABEL['open'], outcome=None, year_resolved=None, resolved_by=None,
                  ai_involvement='none', ai_systems=[], ai_system=None, status_note='', status_sources=[],
                  resolution_direction=None, research_key=None, confidence=None, counterexample=False,
                  corrections=[], month_resolved=None, month_approx=False,
@@ -397,19 +420,24 @@ _dup = [(k, v) for k, v in _hits.items() if v > 1]
 if _dup: print('ONE RESEARCH RECORD LANDED ON SEVERAL BULLETS:', _dup)
 
 PROBLEMS = [r for r in records if not r['is_grouping']]
+# Problems already settled before the snapshot stay in the files but are not counted: nothing after
+# January 2024 could resolve them, so they are not part of the denominator.
+COUNTED = [r for r in PROBLEMS if r['status'] != 'open_stale']
 meta = dict(source='Wikipedia, "List of unsolved problems in mathematics"', revision=REV,
-            n_unsolved=len(PROBLEMS), n_bullets=len(records), n_groupings=len(records) - len(PROBLEMS),
+            n_unsolved=len(COUNTED), n_bullets=len(records), n_groupings=len(records) - len(PROBLEMS),
+            n_settled_before=len(PROBLEMS) - len(COUNTED),
             n_solved=len(solved),
             fields=sorted({r['field'] for r in records}),
             notes=['year_introduced is not on the Wikipedia list. It was established by a pass of its own: read mechanically off the linked article where the infobox or lead states it (pipeline/stage_1_fetch_the_frozen_list/scrape_years.py, year_source "Wikipedia infobox" or "Wikipedia article lead"), otherwise researched one problem per agent run against the literature (pipeline/stage_5_date_each_problem/year_posed.py, year_source "mathematical literature (sourced)"), with a quote recorded in year_note. A problem whose year no source states carries none. The mechanical read has known false positives where a dating verb sits beside a year that is not the posing year — the Collatz article\'s "Lagarias stated in 2010" dated it to 2010 — so treat "Wikipedia article lead" years as the weakest of the three.',
                    'The problem list reflects the 26 Jan 2024 revision; status fields describe what has happened since.',
-                   'The page has 467 bullets, ten of which are headings the article uses to group the problems beneath them (Sudoku, Chess, Go, Landau\'s problems, Kaplansky\'s conjectures and five others). They carry is_grouping=true, were never researched, and are excluded from every count: the denominator is 457 problems.',
+                   f'The page has {len(records)} bullets, {len(records) - len(PROBLEMS)} of which are headings the article uses to group the problems beneath them (Sudoku, Chess, Go, Landau\'s problems, Kaplansky\'s conjectures and five others). They carry is_grouping=true, were never researched, and are excluded from every count. A further {len(PROBLEMS) - len(COUNTED)} were already settled before the snapshot (status open_stale); they stay in the files but are also excluded: the denominator is {len(COUNTED)} problems.',
                    'The six Millennium Prize Problems appear in the page introduction rather than the field lists and were added as records 463–467.',
-                   'status / year_resolved / resolved_by / ai_involvement / status_sources were researched on 22-24 Sep 2026 for this version, with hand corrections through 28 Sep, from primary sources opened one by one (arXiv abstracts and full texts, authors\' own accounts, Tao and Oum digestions, lab announcements, Lean repositories). Several 2026 items are recent preprints, machine-checked certificates or press releases and have not completed peer review. Every problem on the list was researched individually by an agent (one problem per run), so absence of an entry means the research found no change, not that nobody looked.',
-                   'Status codes: resolved = settled and accepted by experts or checkable by hand/computer algebra; claimed = preprint, announcement or machine-checked certificate not yet digested by experts; partial = a listed sub-question or major special case settled; progress = a bound moved or an instructive incident; open_stale = already settled before the 26 Jan 2024 snapshot (shown, but not counted as a change); open = still open (a status_note may record a pre-snapshot claim, also not counted).',
-                   "ai_involvement: generated = an AI system produced the proof or counterexample and people checked it; assisted = human-led work in which, by the authors' own account, an AI system did a substantial part of the work (checking, proofreading or Lean formalisation alone does not qualify); incident = an AI-produced claim that was withdrawn; none.",
+                   'Every problem carries `events`: each relevant result since the snapshot, with its own tier, credibility, AI role and credited systems; the site\'s charts count these. The problem-level fields are derived from them: year_resolved, month_resolved, resolved_by, resolution_direction and counterexample describe the first resolution, or for a problem not resolved its latest event; ai_systems and ai_models list every system credited on any event; status is the highest tier among the events.', f'Every problem was researched individually by an agent (one problem per run) between {REVIEWED_FROM} and {STATUS_CHECKED}, from primary sources (arXiv abstracts and full texts, authors\' own accounts, expert digestions, lab announcements, Lean repositories); each event was then rated by a separate judge pass, and the claims in OpenAI\'s openai/math repository were matched to problems by a stage of their own. Absence of an event means the research found no change, not that nobody looked. Many 2026 items are recent preprints, machine-checked certificates or announcements that have not completed peer review. Which runs produced this version, with models, prompts and dates, is recorded in manifests/.',
+                   'Credibility: a claim on the whole problem rated doubtful (a specific, named reason for doubt) does not count, and is not among the events; claims OpenAI published in its own repositories (openai/math, openai/NavierStokesAndEuler) count whatever their rating, with counted_by_policy = openai_repository and the judge\'s rating kept. Claims rated not_credible or knocked_down (withdrawn, or with an identified error) never count.',
+                   'Status codes: resolved = settled and accepted by experts or checkable by hand/computer algebra; claimed = preprint, announcement or machine-checked certificate not yet digested by experts; partial = a listed sub-question or major special case settled; progress = a bound moved or an instructive incident; open_stale = already settled before the 26 Jan 2024 snapshot (kept in the files, excluded from the site and every count); open = still open (a status_note may record a pre-snapshot claim, also not counted).',
+                   "ai_involvement: generated = an AI system produced the proof or counterexample and people checked it; assisted = human-led work in which, by the authors' own account, an AI system did a substantial part of the work (checking, proofreading or Lean formalization alone does not qualify); none. For a resolved problem it is the role on the first resolution; for a problem that only progressed it is taken over all its events, and both = AI and human contributions in separate results.",
                    'month_resolved is the month of the preprint, announcement or posting, not of journal publication.',
-                   'resolution_direction says which way a result went: refuted = the conjecture is false or the question was answered against expectation; confirmed = proved, or answered as expected; mixed = listed sub-cases went both ways; null = no direction, meaning a bound moved or nothing was settled. It is coded per problem by the deep-dive pass (DEEP_DIVE.md §6.4).'],
+                   'resolution_direction says which way a result went: refuted = the conjecture is false or the question was answered against expectation; confirmed = proved, or answered as expected; mixed = listed sub-cases went both ways; null = no direction, meaning a bound moved or nothing was settled. It is the judge\'s coding of the first resolution, or for a problem not resolved of its latest event.'],
             version=VERSION, status_checked=STATUS_CHECKED)
 
 model_releases = {m: dict(release=v.get('release'), preview_date=v.get('preview_date'),
@@ -530,7 +558,11 @@ head = head.replace('__LOGO__', open(os.path.join(SITE_DIR, 'logo.b64'), encodin
 # markup, so it cannot drift from the dataset it describes.
 _d = datetime.date.fromisoformat(STATUS_CHECKED)
 head = head.replace('__STATUS_CHECKED__', f'{_d.day} {_d.strftime("%B")} {_d.year}')
+# The same for the month statuses are given as of, and the corpus size the page shows before its
+# script has run (the script then fills in the live count).
+head = head.replace('__STATUS_MONTH__', _d.strftime('%B %Y')).replace('__N_PROBLEMS__', str(len(COUNTED)))
 app = open(os.path.join(SITE_DIR, 'explorer_app.js'), encoding='utf-8').read()
+app = app.replace('__STATUS_MONTH__', _d.strftime('%B %Y'))
 explorer = head + '<script>\n' + data_js + app + '</script>\n'
 standalone = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">\n' + explorer + '</html>\n'
 open(os.path.join(OUT_SITE, 'unsolved_problems_explorer.html'), 'w', encoding='utf-8').write(standalone)

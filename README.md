@@ -4,8 +4,8 @@ Wikipedia's *List of unsolved problems in mathematics*, frozen at 26 January 202
 1199136318), every problem on it researched individually, and each result since scored for whether
 an AI system was involved.
 
-The page has 467 bullets, ten of which are headings grouping the ones beneath them. **The
-denominator is the other 457.**
+The page has 467 bullets. Ten are headings grouping the ones beneath them, and thirteen name
+problems that had already been settled before the snapshot. **The denominator is the other 444.**
 
 **[Explore the data →](https://alexfogelson.github.io/wikipedia-unsolved-problems-tracker/)**
 
@@ -19,12 +19,13 @@ being measured, and **every problem on it is researched whether or not anything 
 
 ## Current version
 
-`data/mark_2026-09-22/` — 457 problems researched in September 2026, one agent per problem. The
-raw records it was built from sit beside it in `data/mark_2026-09-22/deepdive/`. Earlier runs
-under `archive/data/` used a different method and are kept for comparison only.
-
-Read `data/mark_2026-09-22/AUDIT.md` before relying on any number here: it covers what was
-measured, what went wrong in the run, and the gaps that remain.
+`data/will-2026-10-10-haiku/` — every non-heading bullet researched 10–14 October 2026, one agent per problem
+(Claude Haiku 5.5), with every result it found rated by a separate judging pass (Claude Opus 5.5).
+The manuscripts OpenAI released in its `openai/math` repository on 6 October 2026 were matched to
+problems by a stage of their own and added as results. The records the dataset is built from sit
+beside it: `deepdive/out/` holds the research, `deepdive/judged-combined/` the judged records, and
+`openai/` the repository's index, matches and events. Earlier runs under `archive/data/` used a
+different method and are kept for comparison only.
 
 ## Rebuilding
 
@@ -37,7 +38,8 @@ the ones after them are worthless until you have read what the one before produc
                                                    # the Jan-2024 titles, the scraped years
     pipeline/run.sh --version $V --stage research   # one agent per problem — BILLS AN API KEY
                                                    # unless --subscription
-    pipeline/run.sh --version $V --stage openai     # the openai/math manuscripts, as events
+    pipeline/run.sh --version $V --stage openai     # the openai/math manuscripts, matched to
+                                                   # problems and made into events — subscription
     pipeline/run.sh --version $V --stage judge      # one agent per record — subscription
     pipeline/run.sh --version $V --stage years      # agents; optional, and cached once run
     pipeline/run.sh --version $V --stage merge      # merge, date the models, merge again
@@ -45,6 +47,11 @@ the ones after them are worthless until you have read what the one before produc
 
 Add `-n` to print the commands without running them, `--only KEY...` or `--sample N` to work on
 part of the list, and `--check` to re-validate and re-collect a stage without launching an agent.
+`judge` and `merge` work on the research plus the OpenAI events once the `openai` stage has run, and
+on the research alone before it; `--records out|combined` overrides that. `--model` and `--effort`
+override a stage's pinned model; the pinned defaults are the ones the current version used, which
+was researched and had its models dated with `--subscription`. The
+`openai` stage reads a clone of `github.com/openai/math` at `sources/openai-math/` (gitignored).
 
 **The research pass reports findings and assigns no codes; the judging pass assigns them all.**
 That is why judging is not optional: the merge refuses to write `research.json` while any record
@@ -78,9 +85,10 @@ prompt's hash, the commit — to `data/<version>/manifests/<stage>.json`.
   `DEEP_DIVE.md` §5 is what a research record must establish; `JUDGE.md` §3 is the arithmetic that
   turns a judge's per-event answers into the codes the dataset counts.
 - `data/<version>/` — one run, self-contained: the built dataset as JSON, CSV and SQLite, the
-  `problem_keys.md` it was keyed against, `manifests/` saying what produced each stage, and under
-  `deepdive/` the raw agent records, judged copies and logs.
+  `problem_keys.md` it was keyed against, `manifests/` saying what produced each stage, under
+  `deepdive/` the research records (`out/`) and judged records (`judged-combined/`), and under
+  `openai/` the OpenAI stage's index, matches and events. Logs are not committed.
 
-## Licence
+## License
 
 Code MIT, data CC BY-SA 4.0 (inherited from Wikipedia). See `LICENSE`.

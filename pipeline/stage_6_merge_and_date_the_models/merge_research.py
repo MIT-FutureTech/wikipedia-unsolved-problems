@@ -24,7 +24,7 @@ sys.path.insert(0, os.path.join(
 import manifest
 from join_map import BY_NAME
 from model_aliases import MODELS, ALIASES
-from tiers import tier_of
+from tiers import tier_of, TIERS
 from wikitext import parse_problem_keys, strip_wiki
 
 ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -70,6 +70,11 @@ def load_record(f):
         return live, 'overruled' if not missing else f'OVERRULES but the record has no {missing[0]}'
     judged = json.load(open(path, encoding='utf-8'))
     problems = judged.get('judge_problems', ['not validated'])
+    # An AI credit with no quote naming the system is accepted on progress, not on a resolution:
+    # the site shows it as AI involvement with no system named.
+    unnamed_ai = re.compile(r'derived ai_role \w+ with no basis_quote behind it')
+    if problems and all(unnamed_ai.fullmatch(p) for p in problems) and judged.get('status') not in ('resolved', 'claimed'):
+        problems = []
     if problems:
         return judged, f'JUDGE REJECTED: {problems[0]}'
     # JUDGE.md §3 step 6: only a resolution carries a direction. A partial result, a moved bound or
@@ -203,6 +208,27 @@ def month_of(event):
     return date[:7]
 
 
+# Claims OpenAI published in its own repositories (openai/math, October 2026; openai/NavierStokesAndEuler,
+# September 2026): the stage's own events, and research events whose source is one of them.
+OPENAI_REPO = re.compile(r'(github|githubusercontent)\.com/openai/(math|NavierStokesAndEuler)')
+
+
+def from_openai_repo(ev):
+    if (ev.get('origin') or {}).get('stage') == 'openai':
+        return True
+    return any(OPENAI_REPO.search(str(s.get('url') if isinstance(s, dict) else s)) for s in ev.get('sources') or [])
+
+
+# Hand corrections to individual events, applied over the judge's answers: data/<version>/corrections.json,
+# a list of {key, event, field, from, to, by, why}, where field is `ai` (the role), `ai_models` (the
+# credited systems after aliasing) or `date` (with `precision` beside `to`). `from` must match the
+# record, so a correction that no longer applies stops the merge rather than silently changing
+# something else.
+_CORR_PATH = os.path.join(OUT_DIR, 'corrections.json')
+CORRECTIONS = {(c['key'], c['event']): c for c in (json.load(open(_CORR_PATH, encoding='utf-8')) if os.path.exists(_CORR_PATH) else [])}
+_corrections_used = set()
+
+
 def events_of(r):
     """Every event that survives JUDGE.md §3 step 1, with the judge's answers beside it.
 
@@ -217,45 +243,107 @@ def events_of(r):
         row = rows.get(ev.get('id'))
         if not row or not (tier := tier_of(row)):
             continue
+        # A doubtful claim on the whole problem does not count, except a claim from the OpenAI
+        # repository, which counts by policy; the judge's rating is kept beside it (see About).
+        policy = None
+        if tier in ('resolved', 'claimed') and row.get('credibility') == 'doubtful':
+            if not from_openai_repo(ev):
+                continue
+            policy = 'openai_repository'
         role = row.get('ai_role') or 'none'
+        corr = CORRECTIONS.get((r.get('key'), ev.get('id')))
+        if corr and corr['field'] == 'ai':
+            if corr['from'] != role:
+                sys.exit(f"corrections.json: {corr['key']} {corr['event']} expects ai {corr['from']!r}, the judge says {role!r}")
+            role = corr['to']
+            _corrections_used.add((corr['key'], corr['event']))
         names = row.get('ai_systems_credited') or [] if role != 'none' else []
+        models = [ALIASES[n.strip()] for n in names if ALIASES.get(n.strip())]
+        if corr and corr['field'] == 'ai_models':
+            if corr['from'] != models:
+                sys.exit(f"corrections.json: {corr['key']} {corr['event']} expects ai_models {corr['from']!r}, the judge's names give {models!r}")
+            models = corr['to']
+            _corrections_used.add((corr['key'], corr['event']))
+        date, precision = ev.get('date'), ev.get('precision')
+        if corr and corr['field'] == 'date':
+            if corr['from'] != date:
+                sys.exit(f"corrections.json: {corr['key']} {corr['event']} expects date {corr['from']!r}, the record says {date!r}")
+            date, precision = corr['to'], corr['precision']
+            _corrections_used.add((corr['key'], corr['event']))
         mc = ev.get('machine_checked')
         out.append(dict(
             id=ev.get('id'),
-            date=ev.get('date'), precision=ev.get('precision'),
+            date=date, precision=precision,
             after_snapshot=row.get('after_snapshot'),
             tier=tier, scope=row.get('scope'), verification=row.get('verification'),
             credibility=row.get('credibility'),
             ai=role,
             ai_systems=names,
-            ai_models=[ALIASES[n.strip()] for n in names if ALIASES.get(n.strip())],
+            ai_models=models,
             direction=row.get('direction'), object_role=row.get('object_role'),
             lean=bool(isinstance(mc, dict) and mc.get('system')),
             origin=(ev.get('origin') or {}).get('stage') or 'research',
             source=next((s.get('url') if isinstance(s, dict) else s for s in ev.get('sources') or []), None),
+            counted_by_policy=policy,
+            correction=(corr['by'] + ': ' + corr['why']) if corr else None,
+            people=ev.get('people') or [],
+            delivers=ev.get('delivers') if tier in ('resolved', 'claimed') else None,
         ))
     return out
 
 
+def status_of(r, events):
+    """The highest tier among the events that count, which matches the judge's status except where
+    events_of has set a doubtful claim aside."""
+    tiers = [e['tier'] for e in events if e['after_snapshot'] is True]
+    if tiers:
+        return max(tiers, key=TIERS.index)
+    return r['status'] if r['status'] in ('open', 'open_stale') else 'open'
+
+
+def key_event(events):
+    """The event the problem-level fields describe: the first resolution, or else the latest relevant event."""
+    ev = sorted((e for e in events if e['after_snapshot'] is True), key=lambda e: str(e.get('date') or '9999'))
+    res = [e for e in ev if e['tier'] in ('resolved', 'claimed')]
+    return res[0] if res else (ev[-1] if ev else None)
+
+
+def ai_category(events):
+    """As on the site: a resolved problem by the AI role on its first resolution; any other problem
+    that moved by all its relevant events (generated, assisted, both = AI and human separately, none)."""
+    ev = [e for e in events if e['after_snapshot'] is True]
+    res = sorted((e for e in ev if e['tier'] in ('resolved', 'claimed')), key=lambda e: str(e.get('date') or '9999'))
+    if res:
+        return res[0]['ai']
+    ai = [e for e in ev if e['ai'] != 'none']
+    if not ai:
+        return 'none'
+    if len(ai) < len(ev):
+        return 'both'
+    return 'generated' if all(e['ai'] == 'generated' for e in ai) else 'assisted'
+
+
 def finding(r):
-    """The record in the shape build.py expects, plus the fields the site shows."""
-    ev = r.get('event') or {}
-    ce = r.get('counterexample') or {}
-    named, models, _ = systems_of(r)
-    by = r.get('credited_humans') or []
+    """The record in the shape build.py expects, plus the fields the site shows. The problem-level
+    fields are derived from the events, so they agree with the site's charts."""
+    events = events_of(r)
+    ev = key_event(events) or {}
+    credited = [e for e in events if e['after_snapshot'] is True and e['ai'] != 'none']
+    named = list(dict.fromkeys(n for e in credited for n in e['ai_systems']))
+    models = list(dict.fromkeys(m for e in credited for m in e['ai_models']))
     return dict(
-        status=r['status'],
+        status=status_of(r, events),
         outcome=r.get('outcome'),
         year=int(str(ev.get('date'))[:4]) if re.match(r'\d{4}', str(ev.get('date') or '')) else None,
         month=month_of(ev),
-        by='; '.join(by) if isinstance(by, list) else (by or None),
-        ai=r.get('ai_role') or 'none',
+        by='; '.join(ev.get('people') or []) or None,
+        ai=ai_category(events),
         ai_systems=named,                       # verbatim, as the sources named them
         ai_models=models,                       # canonical, for counting
-        ai_labs=sorted({MODELS[m]['lab'] for m in models if MODELS[m]['lab']}),
+        ai_labs=sorted({MODELS[m]['lab'] for m in models if m in MODELS and MODELS[m]['lab']}),
         ai_quote=(r.get('ai') or {}).get('basis_quote'),
-        direction=r.get('resolution_direction'),
-        counterexample=bool(ce.get('is_counterexample')),
+        direction=ev.get('direction'),
+        counterexample=ev.get('object_role') == 'counterexample',
         note=r.get('summary') or '',
         competing_reading=r.get('competing_reading'),
         confidence=(r.get('judgement') or {}).get('confidence'),   # the judge's; research no longer gives one
@@ -264,7 +352,7 @@ def finding(r):
                  if (s.get('url') if isinstance(s, dict) else s)],
         no_change_found=bool(r.get('no_change_found')),
         corrections=r.get('corrections') or [],
-        events=events_of(r),
+        events=events,
         key=r['key'],
     )
 
@@ -335,6 +423,10 @@ json.dump(out, open(os.path.join(OUT_DIR, 'research.json'), 'w', encoding='utf-8
 
 print('records from: ' + '  '.join(f'{k}={v}' for k, v in source.most_common()))
 print(f'{n} records -> {len(by_statement)} by statement + {len(by_name)} by name = {len(by_statement)+len(by_name)} placed')
+unused = set(CORRECTIONS) - _corrections_used
+if unused:
+    sys.exit('corrections.json: not applied (no such counted event): ' + ', '.join(f'{k} {e}' for k, e in sorted(unused)))
+print(f'corrections applied: {len(_corrections_used)}')
 print('status: ' + '  '.join(f'{k}={v}' for k, v in collections.Counter(
     v['status'] for v in list(by_statement.values()) + list(by_name.values())).most_common()))
 print('ai:     ' + '  '.join(f'{k}={v}' for k, v in collections.Counter(

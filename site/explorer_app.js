@@ -1,8 +1,9 @@
 document.documentElement.setAttribute('data-theme', 'dark');
 // Ten of the page's bullets are headings the article uses to group the problems beneath them, not
-// problems: they carry is_grouping and were never researched. They are dropped here, so every
-// count on the site is against the 457 problems.
-const PROBLEMS = ALL_DATA.filter(p => !p.is_grouping);
+// problems: they carry is_grouping and were never researched. Thirteen more were already settled
+// before the snapshot (open_stale), so nothing since could resolve them. Both are dropped here, so
+// every count on the site is against the problems still open in January 2024.
+const PROBLEMS = ALL_DATA.filter(p => !p.is_grouping && p.status !== 'open_stale');
 // ALL_DATA is the full snapshot; DATA is the corpus every tab reads, narrowed by the site-wide
 // scope control in the tab bar. Reassigned by applyScope(), so all counts and denominators follow.
 let DATA = PROBLEMS;
@@ -23,12 +24,12 @@ const LISTS = [
   ['smale', "Smale's problems", p => p.smale_problem != null],
   ['named', 'Named after someone', p => p.named_after.length > 0],
 ];
-const STATUS_ORDER = ['resolved', 'claimed', 'partial', 'progress', 'open_stale', 'open'];
-const STATUS_LABEL = { resolved: 'Resolved', claimed: 'Resolution claimed', partial: 'Partially resolved', progress: 'Notable progress', open_stale: 'Settled before snapshot', open: 'Still open' };
+// The one name for each category, used by every tile, legend, chip, tooltip and the About tab.
+// "Resolved or claimed" is the umbrella for the first two statuses, "Progress" for the next two.
+const STATUS_ORDER = ['resolved', 'claimed', 'partial', 'progress', 'open'];
+const STATUS_LABEL = { resolved: 'Resolution confirmed', claimed: 'Resolution claimed', partial: 'Partial result', progress: 'Notable progress', open: 'Still open' };
 const AI_ORDER = ['generated', 'assisted', 'incident', 'none'];
-const AI_STACK = ['none', 'incident', 'assisted', 'generated'];
-const AI_LABEL = { generated: 'AI-generated', assisted: 'AI-assisted', incident: 'AI claim retracted', none: 'No AI involvement' };
-const aiTouched = p => p.ai_involvement && p.ai_involvement !== 'none';
+const AI_LABEL = { generated: 'AI-generated', assisted: 'AI-assisted', both: 'AI and human, separately', incident: 'AI claim retracted', none: 'No AI' };
 
 /* ---- Per-chart rules. Each chart answers its own question from a problem's events (p.events:
    every event that survives JUDGE.md §3 step 1, with the judge's answers), instead of from one
@@ -46,7 +47,6 @@ const resolutionAccepted = p => sinceSnapshot(p).some(e => e.tier === 'resolved'
 // help on an event, or AI and human events side by side.
 // 'both' (AI and human events side by side) is kept apart from 'assisted' (every event involved
 // AI, at least one only as help) so a chart can draw it distinctly; both count as involving AI.
-const PROGRESS_LABEL = { generated: 'entirely by AI', assisted: 'AI-assisted', both: 'by AI and humans both', none: 'without AI' };
 const progressCredit = p => {
   const ev = sinceSnapshot(p);
   if (!ev.length) return null;
@@ -55,19 +55,32 @@ const progressCredit = p => {
   if (ai.length < ev.length) return 'both';
   return ai.every(e => e.ai === 'generated') ? 'generated' : 'assisted';
 };
-// A hatched swatch: the band's colour striped with the panel's, so a mixed band reads as the same
-// family as its solid neighbour but visibly not the same thing. Used in legends and tooltips.
+// The Explore tab's AI category, as on the AI tab: a resolved problem by the role on its first
+// resolution, any other problem that moved by its Cumulative Progress band.
+const EXPLORE_AI = ['generated', 'assisted', 'both', 'none'];
+const exploreAI = p => { const r = firstResolution(p); return r ? r.ai : progressCredit(p) || 'none'; };
+// Every system credited on any relevant event, as in AI systems credited.
+const creditedModels = p => [...new Set(sinceSnapshot(p).filter(e => e.ai && e.ai !== 'none').flatMap(e => e.ai_models || []))];
+// What a card or table row reports: the first resolution, or else the latest relevant event.
+// OpenAI-repository manuscripts name no human authors, so they are attributed to the repository.
+const whoOf = e => (e.people || []).join(', ') || (/github\.com\/openai\/math|openai\/math/.test(e.source || '') || e.origin === 'openai' ? 'OpenAI (openai/math repository)' : 'unattributed');
+const keyEvent = p => firstResolution(p) || sinceSnapshot(p).sort(byDate).slice(-1)[0] || null;
+const keyYear = p => String((keyEvent(p) || {}).date || '').slice(0, 4);
+const keyWho = p => keyEvent(p) ? whoOf(keyEvent(p)) : '';
+const aiNames = p => creditedModels(p).join(', ');
+// A hatched swatch: the band's color striped with the panel's, so a mixed band reads as the same
+// family as its solid neighbor but visibly not the same thing. Used in legends and tooltips.
 const hatchCSS = c => `repeating-linear-gradient(45deg,${c} 0 2.5px,var(--panel) 2.5px 4px)`;
-const state = { q: '', fields: new Set(), y0: null, y1: null, noyear: true, scope: 'all', lists: new Set(), status: new Set(), ai: new Set(), models: new Set(), tab: 'attribution', aMode: 'count', cMode: 'count', view: 'cards', sort: 'page', open: new Set(), sortCol: 'id', sortAsc: true };
+const state = { q: '', fields: new Set(), y0: null, y1: null, noyear: true, scope: 'all', lists: new Set(), status: new Set(), ai: new Set(), models: new Set(), tab: 'attribution', aMode: 'count', fMode: 'count', cMode: 'count', view: 'cards', sort: 'page', open: new Set(), sortCol: 'id', sortAsc: true };
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 const fmtYear = y => y == null ? '—' : y < 0 ? `${-y} BC` : String(y);
 const wpUrl = t => 'https://en.wikipedia.org/wiki/' + encodeURIComponent(t.replace(/ /g, '_'));
-const MODEL_ORDER = (() => { const c = {}; DATA.forEach(p => p.ai_models.forEach(m => c[m] = (c[m] || 0) + 1)); return Object.keys(c).sort((x, y) => c[y] - c[x] || x.localeCompare(y)); })();
+const MODEL_ORDER = (() => { const c = {}; DATA.forEach(p => creditedModels(p).forEach(m => c[m] = (c[m] || 0) + 1)); return Object.keys(c).sort((x, y) => c[y] - c[x] || x.localeCompare(y)); })();
 // The lab is researched, one entry per system in MODEL_RELEASES (pipeline/model_aliases.py), so it
 // is read from there rather than guessed. An earlier version pattern-matched the model's name and
 // fell back to 'other', which put every system outside OpenAI/Anthropic/DeepMind — xAI, Together
-// AI, Axiom Math, the university harnesses — into one unlabelled bucket.
+// AI, Axiom Math, the university harnesses — into one unlabeled bucket.
 // Every system in MODEL_RELEASES, not only those a problem headlines, since the systems chart now
 // counts credits on any event.
 const LAB_OF = (() => { const m = {}; [...MODEL_ORDER, ...Object.keys(MODEL_RELEASES)].forEach(mm => m[mm] = (MODEL_RELEASES[mm] || {}).lab || 'unattributed'); return m; })();
@@ -77,8 +90,8 @@ const LAB_OF = (() => { const m = {}; [...MODEL_ORDER, ...Object.keys(MODEL_RELE
 const BIG3 = ['OpenAI', 'Anthropic', 'Google DeepMind'];
 const GROUP_OF = m => BIG3.includes(LAB_OF[m]) ? LAB_OF[m] : 'Other';
 const LAB_ORDER = [...BIG3, 'Other'];
-const modelCount = m => DATA.filter(p => p.ai_models.includes(m)).length;
-const searchText = p => [p.name, p.ai_models.join(' '), p.ai_labs.join(' '), p.statement, p.field, p.subfield, p.named_after.join(' '), p.wikilinks.join(' '), p.year_note, p.resolved_by, p.ai_system, p.status_note, STATUS_LABEL[p.status], AI_LABEL[p.ai_involvement]].join(' ').toLowerCase();
+const modelCount = m => DATA.filter(p => creditedModels(p).includes(m)).length;
+const searchText = p => [p.name, creditedModels(p).join(' '), p.ai_labs.join(' '), p.statement, p.field, p.subfield, p.named_after.join(' '), p.wikilinks.join(' '), p.year_note, sinceSnapshot(p).flatMap(e => [...(e.people || []), ...(e.ai_systems || []), ...(e.ai_models || [])]).join(' '), p.status_note, STATUS_LABEL[p.status], AI_LABEL[exploreAI(p)]].join(' ').toLowerCase();
 DATA.forEach(p => { p._s = searchText(p); });
 
 function filtered() {
@@ -89,17 +102,18 @@ function filtered() {
     else { if (state.y0 != null && p.year_introduced < state.y0) return false; if (state.y1 != null && p.year_introduced > state.y1) return false; }
     for (const [id, , fn] of LISTS) if (state.lists.has(id) && !fn(p)) return false;
     if (state.status.size && !state.status.has(p.status)) return false;
-    if (state.ai.size && !state.ai.has(p.ai_involvement)) return false;
-    if (state.models.size && !p.ai_models.some(m => state.models.has(m))) return false;
+    if (state.ai.size && !state.ai.has(exploreAI(p))) return false;
+    if (state.models.size && !creditedModels(p).some(m => state.models.has(m))) return false;
     return q.every(w => p._s.includes(w));
   });
 }
 function sorted(rows) {
   const r = rows.slice();
-  if (state.sort === 'status') r.sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || (b.year_resolved || 0) - (a.year_resolved || 0));
+  if (state.sort === 'status') r.sort((a, b) => STATUS_ORDER.indexOf(a.status) - STATUS_ORDER.indexOf(b.status) || byDate(keyEvent(b) || {}, keyEvent(a) || {}));
   else if (state.sort === 'year') r.sort((a, b) => (a.year_introduced ?? 9e9) - (b.year_introduced ?? 9e9));
   else if (state.sort === 'name') r.sort((a, b) => a.name.localeCompare(b.name));
   else if (state.sort === 'links') r.sort((a, b) => b.wikilinks.length - a.wikilinks.length);
+  if (state.sortRev) r.reverse();
   return r;
 }
 
@@ -115,12 +129,12 @@ function renderRail() {
   $('#status').querySelectorAll('button').forEach(b => b.onclick = () => { const s = b.dataset.s; state.status.has(s) ? state.status.delete(s) : state.status.add(s); update(); });
   $('#models').innerHTML = MODEL_ORDER.map(m => `<button class="chip${state.models.has(m) ? ' on' : ''}" data-m="${esc(m)}">${esc(m)} <span class="mono" style="color:var(--ink-3)">${modelCount(m)}</span></button>`).join('');
   $('#models').querySelectorAll('button').forEach(b => b.onclick = () => { const m = b.dataset.m; state.models.has(m) ? state.models.delete(m) : state.models.add(m); update(); });
-  const ac = {}; DATA.forEach(p => ac[p.ai_involvement] = (ac[p.ai_involvement] || 0) + 1);
-  $('#ai').innerHTML = AI_ORDER.map(s => `<button class="chip${state.ai.has(s) ? ' on' : ''}" data-a="${s}">${AI_LABEL[s]} <span class="mono" style="color:var(--ink-3)">${ac[s] || 0}</span></button>`).join('');
+  const ac = {}; DATA.forEach(p => { const k = exploreAI(p); ac[k] = (ac[k] || 0) + 1; });
+  $('#ai').innerHTML = EXPLORE_AI.map(s => `<button class="chip${state.ai.has(s) ? ' on' : ''}" data-a="${s}">${AI_LABEL[s]} <span class="mono" style="color:var(--ink-3)">${ac[s] || 0}</span></button>`).join('');
   $('#ai').querySelectorAll('button').forEach(b => b.onclick = () => { const s = b.dataset.a; state.ai.has(s) ? state.ai.delete(s) : state.ai.add(s); update(); });
 }
 
-const AIC = { generated: 'var(--ai-gen)', assisted: 'var(--ai-asst)', incident: 'var(--ai-retr)', none: 'var(--ai-none)' };
+const AIC = { generated: 'var(--ai-gen)', assisted: 'var(--ai-asst)', both: 'var(--ai-both)', incident: 'var(--ai-retr)', none: 'var(--ai-none)' };
 const attr = s => String(s).replace(/"/g, '&quot;');
 const names = ps => ps.slice(0, 5).map(p => p.name).join(', ') + (ps.length > 5 ? `, +${ps.length - 5} more` : '');
 
@@ -139,21 +153,10 @@ function barRow(label, groups, opts = {}) {
   const rowTip = `<b>${label}</b>: ${total}<br>` + groups.filter(g => g.n).map(g => `${g.label}: ${g.n}`).join('<br>');
   return `<div class="brow"${opts.gapAfter ? ' style="margin-bottom:15px"' : ''}><span class="lab" style="width:${opts.labW || 168}px" data-tip="${attr(rowTip)}">${esc(label)}</span><span class="track">${outline}${segs}</span><span class="n" data-tip="${attr(rowTip)}">${opts.nText || total}</span></div>`;
 }
-const aiGroups = ps => AI_ORDER.map(k => ({ label: AI_LABEL[k], color: AIC[k], n: ps.filter(p => p.ai_involvement === k).length, ps: ps.filter(p => p.ai_involvement === k) }));
 
 const isRes = p => ['resolved', 'claimed'].includes(p.status);
-// Who did the work, in three buckets. `incident` is a retracted claim: on a resolution the AI only
-// critiqued human work (Hopf: Refine found gaps in Brendle-Hung), so it reads as human; on a
-// still-open problem nothing moved at all, so the row is dropped rather than drawn as progress.
-const attrOf = p => p.ai_involvement === 'generated' ? 'ai'
-  : p.ai_involvement === 'assisted' ? 'with'
-    : isRes(p) ? 'human'
-      : p.ai_involvement === 'incident' ? null : 'human';
-const ATTR = [['human', 'human only', AIC.none], ['with', 'with AI', AIC.assisted], ['ai', 'AI only', AIC.generated]];
-
-// The same three buckets as bars, for charts that split a set by who did the work.
-const ATTR_LABEL = { human: 'No AI involvement', with: 'AI-assisted', ai: 'AI-generated' };
-const aiGroups3 = ps => ATTR.map(([k, , color]) => ({ label: ATTR_LABEL[k], color, n: ps.filter(p => attrOf(p) === k).length, ps: ps.filter(p => attrOf(p) === k) }));
+// Who did the work on a resolution, in three bands.
+const ATTR = [['human', AI_LABEL.none, AIC.none], ['with', AI_LABEL.assisted, AIC.assisted], ['ai', AI_LABEL.generated, AIC.generated]];
 
 
 /* ---- cumulative stacked area, monthly steps ---- */
@@ -236,7 +239,7 @@ function cumulativeChart(svgSel, legSel, tipSel, rows, bands, opts = {}) {
   const yTitle = opts.yLabel
     ? `<text class="axtitle" transform="rotate(-90)" x="${-(m.t + ih / 2)}" y="11" text-anchor="middle">${esc(opts.yLabel)}</text>` : '';
   const svg = $(svgSel); svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.style.width = '100%'; svg.style.height = 'auto';
-  // One diagonal-stripe pattern per hatched band, in that band's colour over the panel's.
+  // One diagonal-stripe pattern per hatched band, in that band's color over the panel's.
   const defs = bands.map((b, k) => b.hatch
     ? `<pattern id="${svgSel.slice(1)}-hatch-${k}" patternUnits="userSpaceOnUse" width="4" height="4" patternTransform="rotate(45)"><rect width="4" height="4" fill="${b.color}"/><rect width="1.4" height="4" fill="var(--panel)"/></pattern>` : '').join('');
   svg.innerHTML = `<defs>${defs}</defs>${g}${areas}${hits}<line x1="${m.l}" x2="${W - m.r}" y1="${y(0)}" y2="${y(0)}" stroke="var(--line)"/>${ax}${yTitle}`;
@@ -249,7 +252,7 @@ function cumulativeChart(svgSel, legSel, tipSel, rows, bands, opts = {}) {
    One bar per dated system on a monthly axis, split by kind of contribution in the same bands and
    order as the per-system bars below; systems available in the same month are dodged side by side.
    Nothing is placed more precisely than a month, and bar width is derived from the month's slot so
-   neighbouring months cannot overdraw each other. The system behind a bar is named on hover rather
+   neighboring months cannot overdraw each other. The system behind a bar is named on hover rather
    than on the axis, and systems with no date at all are named in the note instead of being placed.
    A bar can sit later than results it contains — pre-release and internal runs. */
 function releaseChart() {
@@ -310,7 +313,9 @@ function releaseChart() {
       const ps = monthKind(ds, kd.key), cnt = ps.length; if (!cnt) return;
       const y0 = y(base), y1 = y(base + cnt);
       const isTop = !kinds.slice(ki + 1).some(o => monthKind(ds, o.key).length);
-      const names = ps.slice(0, 5).map(q => q.name).join(', ');
+      // Each problem with its own resolution date, since the bar sits at the system's date.
+      const resDate = q => { const d = String((firstResolution(q) || {}).date || ''); return d.length >= 7 ? monthLabel(d.slice(0, 7)) : d.slice(0, 4); };
+      const names = ps.slice(0, 5).map(q => `${q.name} (resolved ${resDate(q)})`).join(', ');
       const tip = `<b>${monthLabel(b)}</b> \u00b7 ${tot} problem${tot > 1 ? 's' : ''} credited`
         + `<br><span style="opacity:.75">${esc(who.join(', '))}</span>`
         + `<br>${kd.label}: ${cnt}<br><span style="opacity:.75">${esc(names)}${cnt > 5 ? `, +${cnt - 5} more` : ''}</span>`;
@@ -337,15 +342,13 @@ function releaseChart() {
   const tot = k => items.reduce((s, d) => s + d[k].length, 0);
   $('#leg-release').innerHTML = kinds.filter(k => tot(k.key)).map(k => `<span data-tip="${attr(`<b>${k.label}</b><br>${tot(k.key)} across ${items.length} dated models`)}"><i style="background:${k.color}"></i>${k.label} <span class="mono" style="color:var(--ink-3)">${tot(k.key)}</span></span>`).join('');
 
-  // Only two things a reader needs: which systems are missing from the axis, and which date each
-  // bar sits on when a system has more than one.
-  // Resolutions the chart cannot place: their first resolution credits no system with a date
-  // (an internal model, an unversioned product name, or an AI the source did not name).
+  // The subtitle already says a problem crediting several systems is counted under each; the note
+  // adds the other reason the totals differ from the tiles, when it applies.
   const datedModel = m => (MODEL_RELEASES[m] || {}).available;
   const offChart = aiFirst.filter(([, e]) => !(e.ai_models || []).some(datedModel));
   $('#release-note').innerHTML =
-    `Each resolution that involved AI is counted under the systems credited on the first event to settle the problem. A bar sits at the month a system first became <b>available</b> to the people who used it: the private preview where there was one, otherwise the public release. A resolution credited to systems that arrived in different months appears once under each of them, so the bars sum to more than the number of problems.` +
-    (offChart.length ? ` <b>${offChart.length} of the ${aiFirst.length}</b> AI resolutions are not on the chart: the systems credited have no public release date (an internal model such as OpenAI's), name no version, or are not named at all.` : '');
+    `Each AI-involved resolution is counted under the systems credited on the first event to settle the problem. A bar sits at the month a system first became <b>available</b> to the people who used it: the private preview where there was one, otherwise the public release. Hover a bar for each result's own date.` +
+    (offChart.length ? ' A resolution is left off when none of the systems it credits has a release date.' : '');
   attachTip(svg, $('#tip-a3')); attachTip($('#leg-release'), $('#tip-a3'));
 }
 
@@ -353,29 +356,24 @@ function releaseChart() {
 function renderAttribution() {
   const changed = DATA.filter(p => p.status !== 'open');
   const rc = changed.filter(p => ['resolved', 'claimed'].includes(p.status));
-  // A retracted claim on a still-open problem is not an advance — the problem did not move — so
-  // those rows are out of the progress count as well as out of the chart below.
-  const retracted = p => p.ai_involvement === 'incident' && !['resolved', 'claimed'].includes(p.status);
-  const progAll = DATA.filter(p => ['resolved', 'claimed', 'partial', 'progress'].includes(p.status) && !retracted(p));
   const pct = (a, b) => `${Math.round(100 * a / b)}%`;
   const tile = (v, u, l, extra) => `<div class="stat"><div class="v"><span>${v}</span><span class="u">${u}</span></div>${extra || ''}<div class="l">${l}</div></div>`;
   // The tiles use the per-chart rules above: a resolution is credited by the first event that
-  // settled the problem, and progress counts every event, with mixed problems shown as such.
+  // settled the problem. Progress counts only problems that moved without being resolved, as
+  // Cumulative Progress does, so the two tiles split every problem that moved.
   const firsts = DATA.map(p => [p, firstResolution(p)]).filter(([, e]) => e);
   const firstAI = firsts.filter(([, e]) => e.ai !== 'none');
-  const moved = DATA.map(p => progressCredit(p)).filter(Boolean);
+  const moved = DATA.filter(p => !firstResolution(p)).map(p => progressCredit(p)).filter(Boolean);
   const nMoved = k => moved.filter(c => c === k).length;
   $('#a-stats').innerHTML = [
-    tile(DATA.length, 'open problems', 'listed by Wikipedia in January 2024'),
-    // "resolved" is in quotes because most of these are not: only those with a checked
-    // whole-problem event are accepted, and the rest are preprints and announcements nobody has
-    // checked. The subtitle gives the split.
-    tile(firsts.length, 'problems “resolved”', `${firsts.filter(([p]) => resolutionAccepted(p)).length} accepted, ${firsts.filter(([p]) => !resolutionAccepted(p)).length} still contested`),
-    tile(pct(firstAI.length, firsts.length), 'involved an AI system',
-      `of the ${firsts.length} resolutions, credited by the first event to settle each`,
-      `<div class="v v2"><span class="n2">${pct(firsts.filter(([, e]) => e.ai === 'generated').length, firsts.length)}</span><span class="u">done entirely by AI</span></div>`),
-    tile(moved.length, 'saw any progress',
-      `${pct(nMoved('generated'), moved.length)} ${PROGRESS_LABEL.generated}, ${pct(nMoved('assisted') + nMoved('both'), moved.length)} AI-assisted or by AI and humans both`),
+    tile(DATA.length, 'open problems', 'on Wikipedia’s list in January 2024 and not already settled'),
+    // Most of these are claims, not confirmed resolutions; the subtitle gives the split.
+    tile(firsts.length, 'resolved or claimed', `${firsts.filter(([p]) => resolutionAccepted(p)).length} confirmed, ${firsts.filter(([p]) => !resolutionAccepted(p)).length} claimed${firsts.some(([, e]) => e.counted_by_policy) ? `; ${firsts.filter(([, e]) => e.counted_by_policy).length} OpenAI-repository claims counted despite doubts (see About)` : ''}`),
+    tile(pct(firstAI.length, firsts.length), 'AI-involved',
+      `of the ${firsts.length} resolved or claimed, credited by the first event to settle each`,
+      `<div class="v v2"><span class="n2">${pct(firsts.filter(([, e]) => e.ai === 'generated').length, firsts.length)}</span><span class="u">${AI_LABEL.generated}</span></div>`),
+    tile(moved.length, 'with progress',
+      `a partial result or notable progress, no resolution: ${['generated', 'assisted', 'both'].map(k => `${pct(nMoved(k), moved.length)} ${AI_LABEL[k]}`).join(' · ')}`),
   ].join('');
 
 
@@ -389,62 +387,62 @@ function renderAttribution() {
     : state.cMode === 'share' ? `Percent of All Problems ${what}`
       : `Portion of Problems ${what}, to Date`;
   // Chart 2 uses the rule of the tiles: a problem enters on the date of the first event to settle
-  // it, in the colour of that event's AI role. A year-only date places it nowhere on a month axis.
+  // it, in the color of that event's AI role. A year-only date places it nowhere on a month axis.
   const resA = DATA.filter(p => firstResolution(p));
   const ROLE_TO_ATTR = { generated: 'ai', assisted: 'with', none: 'human' };
   const resBands = ATTR.map(([k, lab, color]) => ({ key: `-${k}`, label: lab[0].toUpperCase() + lab.slice(1), color,
     test: p => ROLE_TO_ATTR[firstResolution(p).ai] === k }));
   const firstMonth = p => { const e = firstResolution(p); return e.precision === 'year' ? null : String(e.date || '').slice(0, 7) || null; };
   cumulativeChart('#svg-cum-a', '#leg-cum-a', '#tip-c1', resA, resBands,
-    { yMax: niceMax(resA.length), yLabel: yLabel('Resolved'), monthOf: firstMonth });
-  // Chart 3 uses the progress rule of the tiles: every relevant event counts, and a problem is AI
-  // only, AI-assisted or both, or human by all of them together. It enters on the date of its
-  // first relevant event. Resolved problems (chart 2's set) are shaded darker within each colour.
-  const movedB = DATA.filter(p => progressCredit(p));
-  // 'both' sits between human and AI-assisted, in the assisted colour but hatched.
-  const CREDIT = [['none', 'human only', AIC.none, false], ['both', 'AI and human both', AIC.assisted, true],
-    ['assisted', 'AI-assisted', AIC.assisted, false], ['generated', 'AI only', AIC.generated, false]];
-  const progBands = (prefix, extra, opacity) => CREDIT.map(([k, lab, color, hatch]) =>
-    ({ key: `${prefix}-${k}`, label: `${prefix}, ${lab}`, color, hatch, opacity, test: p => extra(p) && progressCredit(p) === k }));
+    { yMax: niceMax(resA.length), yLabel: yLabel('Resolved or Claimed'), monthOf: firstMonth });
+  // A problem dated only to a year has no month to sit in; the note says so, so the legend's total
+  // falling short of the tile's is explained.
+  const unplaced = (sel, rows, monthOf) =>
+    $(sel).innerHTML = rows.some(p => !monthOf(p)) ? 'Results dated only to a year can’t be placed by month and are left off.' : '';
+  unplaced('#note-cum-a', resA, firstMonth);
+  // Chart 3 is progress only: problems that moved but have no event settling the whole problem.
+  // Resolved and claimed problems are chart 2's and are left out here. A problem is AI only,
+  // AI-assisted, AI and human (separately), or human by all its relevant events together, and enters on
+  // the date of its first one.
+  const movedB = DATA.filter(p => progressCredit(p) && !firstResolution(p));
+  // 'both' sits between human and AI-assisted, in its own color (--ai-both).
+  const CREDIT = ['none', 'both', 'assisted', 'generated'].map(k => [k, AI_LABEL[k], AIC[k], false]);
+  const progBands = CREDIT.map(([k, lab, color, hatch]) =>
+    ({ key: `-${k}`, label: lab[0].toUpperCase() + lab.slice(1), color, hatch, test: p => progressCredit(p) === k }));
   const firstMoved = p => { const e = sinceSnapshot(p).sort(byDate)[0]; return !e || e.precision === 'year' ? null : String(e.date || '').slice(0, 7) || null; };
-  cumulativeChart('#svg-cum-b', '#leg-cum-b', '#tip-c2', movedB,
-    [...progBands('Resolved', p => !!firstResolution(p), .95), ...progBands('Progress', p => !firstResolution(p), .5)],
-    { yMax: niceMax(movedB.length), yLabel: yLabel('Materially Advanced'), monthOf: firstMoved });
+  cumulativeChart('#svg-cum-b', '#leg-cum-b', '#tip-c2', movedB, progBands,
+    { yMax: niceMax(movedB.length), yLabel: yLabel('with Progress'), monthOf: firstMoved });
+  unplaced('#note-cum-b', movedB, firstMoved);
 
   const share = state.aMode === 'share';
-  // Four rows, by what has happened to the problem. `open_stale` is left out: those were settled
-  // before the snapshot, so they are neither movement nor an open problem. `partial` and
-  // `progress` are one row, because the split between them is about the kind of advance, which is
-  // not what this chart is asking.
+  // Four rows, by what has happened to the problem. `partial` and `progress` are one row, because
+  // the split between them is about the kind of advance, which is not what this chart is asking.
   // Each row counts problems, by the rule of the chart above it: a resolved or claimed problem is
-  // credited by the first event that settled it (charts 1 and 2), and a problem that only moved is
-  // credited by all its relevant events (chart 3), so it can be AI and human both.
-  const settledBefore = p => !sinceSnapshot(p).length && (p.events || []).some(e => e.after_snapshot === false && e.tier === 'resolved');
+  // credited by the first event that settled it (charts 1 and 2), and a problem with progress is
+  // credited by all its relevant events (chart 3), so it can be AI and human, separately.
   const STATUS_ROWS = [
-    ['Resolved', p => firstResolution(p) && resolutionAccepted(p), 'first'],
-    ['Resolution claimed', p => firstResolution(p) && !resolutionAccepted(p), 'first'],
-    ['Progress of some kind', p => !firstResolution(p) && progressCredit(p), 'progress'],
-    // Settled before the snapshot is neither movement nor an open problem, so it is left out.
-    ['Still open', p => !progressCredit(p) && !settledBefore(p), 'open'],
+    [STATUS_LABEL.resolved, p => firstResolution(p) && resolutionAccepted(p), 'first'],
+    [STATUS_LABEL.claimed, p => firstResolution(p) && !resolutionAccepted(p), 'first'],
+    ['Progress', p => !firstResolution(p) && progressCredit(p), 'progress'],
+    [STATUS_LABEL.open, p => !progressCredit(p), 'open'],
   ];
   const OPEN_C = 'var(--st-open)';
-  // [key, label, colour, hatched]: the same four kinds of credit as chart 3, in the same order.
-  const KINDS = [['none', AI_LABEL.none, AIC.none, false], ['both', 'AI and human both', AIC.assisted, true],
-    ['assisted', AI_LABEL.assisted, AIC.assisted, false], ['generated', AI_LABEL.generated, AIC.generated, false]];
+  // [key, label, color, hatched]: the same four kinds of credit as chart 3, in the same order.
+  const KINDS = CREDIT;
   const kindOf = (p, rule) => rule === 'first' ? (firstResolution(p).ai || 'none') : progressCredit(p);
   const maxTotal = Math.max(...STATUS_ROWS.map(([, f]) => DATA.filter(f).length));
   $('#a-status-bars').innerHTML = STATUS_ROWS.map(([label, f, rule]) => {
     const ps = DATA.filter(f); if (!ps.length) return '';
-    // A still-open problem has not been solved by anyone, so it does not share the colour of work
+    // A still-open problem has not been solved by anyone, so it does not share the color of work
     // finished without AI: it gets its own, and the row reads as one flat band.
     const g = rule === 'open'
-      ? [{ label: 'Not yet solved', color: OPEN_C, n: ps.length, ps }]
+      ? [{ label: STATUS_LABEL.open, color: OPEN_C, n: ps.length, ps }]
       : KINDS.map(([k, lab, color, hatch]) => ({ label: lab, color, hatch, n: ps.filter(p => kindOf(p, rule) === k).length, ps: ps.filter(p => kindOf(p, rule) === k) }));
     return barRow(label, g, { denom: share ? ps.length : maxTotal, nText: `${ps.length}`, noNames: true });
   }).join('');
   const LEG = [...KINDS.map(([k, lab, color, hatch]) => [lab, color, hatch,
     STATUS_ROWS.filter(([, , r]) => r !== 'open').reduce((s, [, f, r]) => s + DATA.filter(p => f(p) && kindOf(p, r) === k).length, 0)]),
-    ['Not yet solved', OPEN_C, false, DATA.filter(STATUS_ROWS[3][1]).length]];
+    [STATUS_LABEL.open, OPEN_C, false, DATA.filter(STATUS_ROWS[3][1]).length]];
   $('#a-legend').innerHTML = LEG.filter(([, , , n]) => n).map(([lab, color, hatch, n]) => `<span data-tip="${attr(`<b>${esc(lab)}</b><br>${n} problems`)}"><i style="background:${hatch ? hatchCSS(color) : color}"></i>${esc(lab)}</span>`).join('');
   attachTip($('#a-status'), $('#tip-a1'));
 
@@ -472,15 +470,25 @@ function renderAttribution() {
   const problemsUnder = m => credits.filter(x => x.c.has(m));
   const ORDER6 = [...new Set(credits.flatMap(x => [...x.c.keys()]))].filter(named)
     .sort((a, b) => problemsUnder(b).length - problemsUnder(a).length || a.localeCompare(b));
-  const maxM = Math.max(1, ...ORDER6.map(m => problemsUnder(m).length));
+  // A bar can stand for one system or several merged (the Other group is one bar): a problem's
+  // credit is then the strongest across those systems, a resolution outranking progress and
+  // generated outranking assisted.
+  const creditFor = (x, ms) => ms.filter(m => x.c.has(m)).map(m => x.c.get(m)).reduce((best, c) =>
+    !best || (c.resolved && !best.resolved) || (c.resolved === best.resolved && c.role === 'generated') ? c : best, null);
+  const problemsUnderAny = ms => credits.filter(x => ms.some(m => x.c.has(m)));
   const SEGS6 = [[true, 'generated'], [true, 'assisted'], [false, 'generated'], [false, 'assisted']];
-  const segsFor = m => SEGS6.map(([res, k]) => { const ps = problemsUnder(m).filter(x => x.c.get(m).resolved === res && x.c.get(m).role === k).map(x => x.p);
+  const segsFor = ms => SEGS6.map(([res, k]) => { const ps = problemsUnderAny(ms).filter(x => { const c = creditFor(x, ms); return c.resolved === res && c.role === k; }).map(x => x.p);
     return { label: `${res ? 'Credited on a resolution' : 'Credited on progress'}, ${AI_LABEL[k]}`, color: AIC[k], opacity: res ? 0.95 : 0.5, n: ps.length, ps }; });
+  // The three frontier labs get a bar per system; every other system (one or two credits each,
+  // from smaller labs, universities and open-source projects) is merged into a single bar.
+  const barsOf = l => { const ms = ORDER6.filter(m => GROUP_OF(m) === l);
+    return l === 'Other' ? [[`${ms.length} other systems`, ms]] : ms.map(m => [m, [m]]); };
+  const maxM = Math.max(1, ...LAB_ORDER.flatMap(l => barsOf(l).map(([, ms]) => problemsUnderAny(ms).length)));
   $('#a-model-bars').innerHTML = LAB_ORDER.filter(l => ORDER6.some(m => GROUP_OF(m) === l)).map(l => {
-    const ms = ORDER6.filter(m => GROUP_OF(m) === l);
     const labN = credits.filter(x => [...x.c.keys()].some(m => named(m) && GROUP_OF(m) === l)).length;
-    return `<div class="labgroup">${esc(l)} <span class="mono" style="letter-spacing:0;text-transform:none">${labN} problem${labN > 1 ? 's' : ''}</span></div>` +
-      ms.map(m => barRow(m, segsFor(m), { denom: maxM, labW: 150 })).join('');
+    const others = l === 'Other' ? ORDER6.filter(m => GROUP_OF(m) === l) : [];
+    const head = `<div class="labgroup"${others.length ? ` data-tip="${attr(`<b>Other systems</b><br>${esc(others.join(', '))}`)}"` : ''}>${esc(l)} <span class="mono" style="letter-spacing:0;text-transform:none">${labN} problem${labN > 1 ? 's' : ''}</span></div>`;
+    return head + barsOf(l).map(([label, ms]) => barRow(label, segsFor(ms), { denom: maxM, labW: 150 })).join('');
   }).join('');
   attachTip($('#a-models'), $('#tip-a2'));
 
@@ -496,31 +504,41 @@ const OUTC = { refuted: 'var(--o-disproved)', confirmed: 'var(--o-proved)', mixe
 // The direction as a reader should see it: a full resolution proved or refuted the problem, a
 // partial result only one case of it, and a moved bound went no direction at all.
 const CASE_LABEL = { refuted: 'Case refuted', confirmed: 'Case proved', mixed: 'Cases mixed' };
-const dirLabel = p => isRes(p) ? OUT_LABEL[p.resolution_direction] || '' : p.status === 'partial' ? CASE_LABEL[p.resolution_direction] || '' : '';
-const isCx = p => !!p.counterexample;
+const dirLabel = p => isRes(p) ? OUT_LABEL[(firstResolution(p) || {}).direction] || '' : p.status === 'partial' ? CASE_LABEL[p.resolution_direction] || '' : '';
 function renderOutcomes() {
-  const rc = DATA.filter(p => ['resolved', 'claimed'].includes(p.status));
-  const ai = rc.filter(aiTouched), hum = rc.filter(p => !aiTouched(p));
-  const gen = rc.filter(p => p.ai_involvement === 'generated');
+  // Charts 7 and 8 use the resolution rule of charts 1 and 2: a problem's resolution is the first
+  // event that settled it, and its AI role, direction and counterexample all come from that event.
+  const first = p => firstResolution(p);
+  const rc = DATA.filter(p => first(p));
+  const ai = rc.filter(p => first(p).ai !== 'none'), hum = rc.filter(p => first(p).ai === 'none');
+  const gen = rc.filter(p => first(p).ai === 'generated');
+  const isCx = p => first(p).object_role === 'counterexample';
+  const dirOf = p => first(p).direction;
   const shareCx = ps => ps.length ? Math.round(100 * ps.filter(isCx).length / ps.length) : 0;
   $('#x-stats').innerHTML = [
     [`${shareCx(gen)}%`, 'of AI-generated resolutions', `are counterexamples rather than proofs — ${gen.filter(isCx).length} of ${gen.length}`],
-    [`${shareCx(ai)}%`, 'of AI-generated or AI-assisted', `are counterexamples rather than proofs — ${ai.filter(isCx).length} of ${ai.length}`],
-    [`${shareCx(hum)}%`, 'of resolutions without AI', `are counterexamples rather than proofs — ${hum.filter(isCx).length} of ${hum.length}`],
+    [`${shareCx(ai)}%`, 'of AI-involved resolutions', `are counterexamples rather than proofs — ${ai.filter(isCx).length} of ${ai.length}`],
+    [`${shareCx(hum)}%`, 'of resolutions with no AI', `are counterexamples rather than proofs — ${hum.filter(isCx).length} of ${hum.length}`],
   ].map(([v, u, l]) => `<div class="stat"><div class="v"><span>${v}</span><span class="u">${u}</span></div><div class="l">${l}</div></div>`).join('');
 
 
   // Every resolution first, as the baseline the four breakdown rows are read against. `gap` sets
   // that row off from the breakdown, the three AI rows off from the row without AI, and the last
   // row off from the legend.
-  const groups = [['All resolutions', rc, true], ['AI-generated', rc.filter(p => p.ai_involvement === 'generated')], ['AI-assisted', rc.filter(p => p.ai_involvement === 'assisted')], ['AI-generated OR AI-assisted', ai, true], ['No AI involvement', hum, true]];
-  $('#x-split-bars').innerHTML = groups.map(([lab, ps, gap]) => barRow(lab, OUT_ORDER.map(k => ({ label: OUT_LABEL[k], color: OUTC[k], n: ps.filter(p => p.resolution_direction === k).length, ps: ps.filter(p => p.resolution_direction === k) })), { labW: 170, gapAfter: gap })).join('');
+  const groups = [['All resolved or claimed', rc, true], [AI_LABEL.generated, gen], [AI_LABEL.assisted, rc.filter(p => first(p).ai === 'assisted')], ['AI-involved', ai, true], [AI_LABEL.none, hum, true]];
+  $('#x-split-bars').innerHTML = groups.map(([lab, ps, gap]) => barRow(lab, OUT_ORDER.map(k => ({ label: OUT_LABEL[k], color: OUTC[k], n: ps.filter(p => dirOf(p) === k).length, ps: ps.filter(p => dirOf(p) === k) })), { labW: 170, gapAfter: gap })).join('');
   $('#leg-x-split').innerHTML = OUT_ORDER.map(k => `<span><i style="background:${OUTC[k]}"></i>${OUT_LABEL[k]}</span>`).join('');
   attachTip($('#x-split'), $('#tip-x3'));
 
   // Two panels on one scale: resolutions on the left, every kind of movement on the right, both
   // split into the same three buckets by who did the work.
-  const mov = DATA.filter(p => isRes(p) || ['partial', 'progress'].includes(p.status));
+  // The right panel is progress only, matching Cumulative Progress: problems that moved with no
+  // event settling them, in its four bands. The left is first resolutions, as above.
+  const mov = DATA.filter(p => progressCredit(p) && !first(p));
+  const PROG = ['none', 'both', 'assisted', 'generated'].map(k => [k, AI_LABEL[k], AIC[k]]);
+  const progGroups = ps => PROG.map(([k, label, color]) => { const g = ps.filter(p => progressCredit(p) === k); return { label, color, n: g.length, ps: g }; });
+  const RES = [['none', AI_LABEL.none, AIC.none], ['assisted', AI_LABEL.assisted, AIC.assisted], ['generated', AI_LABEL.generated, AIC.generated]];
+  const resGroups = ps => RES.map(([k, label, color]) => { const g = ps.filter(p => first(p).ai === k); return { label, color, n: g.length, ps: g }; });
   const perField = set => FIELD_ORDER.map(f => [f, set.filter(p => p.field === f)]).filter(([, ps]) => ps.length).sort((a, b) => b[1].length - a[1].length);
   const fres = perField(rc), fmov = perField(mov);
   const fieldTotal = f => DATA.filter(p => p.field === f).length;
@@ -528,32 +546,41 @@ function renderOutcomes() {
   // the whole corpus's biggest field and the outlines are comparable across the two panels.
   const maxF = Math.max(1, ...fres.map(([f]) => fieldTotal(f)), ...fmov.map(([f]) => fieldTotal(f)));
   // The label column is wide enough for the longest field name ("Model theory and formal
-  // languages"), so no truncation here; .brow .lab still ellipsises if one grows longer.
-  const fieldBars = rows => rows.map(([f, ps]) => barRow(f, aiGroups3(ps),
-    { denom: maxF, labW: 212, outline: fieldTotal(f), nText: `${ps.length}/${fieldTotal(f)}` })).join('');
-  const fieldLeg = set => ATTR.map(([k, , color]) => set.some(p => attrOf(p) === k)
-    ? `<span><i style="background:${color}"></i>${ATTR_LABEL[k]}</span>` : '').join('');
-  $('#x-field-bars').innerHTML = fieldBars(fres);
-  $('#leg-x-fields').innerHTML = fieldLeg(rc);
-  $('#x-field-bars-mov').innerHTML = fieldBars(fmov);
-  $('#leg-x-fields-mov').innerHTML = fieldLeg(mov);
+  // languages"), so no truncation here; .brow .lab still truncates with an ellipsis if one grows longer.
+  // Share of field draws each field's own total (the gray outline) as the full bar.
+  const fieldBars = (rows, groups) => rows.map(([f, ps]) => barRow(f, groups(ps),
+    { denom: state.fMode === 'share' ? fieldTotal(f) : maxF, labW: 212, outline: fieldTotal(f), nText: state.fMode === 'share' ? `${Math.round(100 * ps.length / fieldTotal(f))}%` : `${ps.length}/${fieldTotal(f)}` })).join('');
+  const fieldLeg = (set, groups) => groups(set).filter(g => g.n).map(g => `<span><i style="background:${g.color}"></i>${g.label}</span>`).join('');
+  $('#x-field-bars').innerHTML = fieldBars(fres, resGroups);
+  $('#leg-x-fields').innerHTML = fieldLeg(rc, resGroups);
+  $('#x-field-bars-mov').innerHTML = fieldBars(fmov, progGroups);
+  $('#leg-x-fields-mov').innerHTML = fieldLeg(mov, progGroups);
   attachTip($('#x-fields-res'), $('#tip-x4')); attachTip($('#x-fields-mov'), $('#tip-x5'));
 
 
-  const rows = rc.slice().sort((x, y) => (y.month_resolved || String(y.year_resolved || '')).localeCompare(x.month_resolved || String(x.year_resolved || '')));
-  // The chip is the direction the result went, through OUT_LABEL (Refuted / Proved / Contested).
-  // It used to read `p.outcome`, which is the prose account of what happened, not a token — which
-  // is why every row rendered a paragraph inside a one-word chip. That prose is the fold-out below.
+  // One line per problem, dated and described by its first resolution; any later resolutions of
+  // the same problem are listed beneath it, oldest first.
+  const resEvents = p => sinceSnapshot(p).filter(e => e.tier === 'resolved' || e.tier === 'claimed').sort(byDate);
+  const when = e => e.precision === 'year' || String(e.date || '').length < 7 ? String(e.date || '').slice(0, 4) : monthLabel(e.date.slice(0, 7)).replace(' ', ' ');
+  const chipOf = e => e.direction ? `<span class="st ${e.tier}" style="color:${OUTC[e.direction]};background:transparent;border:1px solid currentColor">${OUT_LABEL[e.direction]}${e.tier === 'claimed' ? ' (claimed)' : ''}</span>${e.counted_by_policy ? ' <span class="small" title="Rated doubtful by our review; counted because it is an OpenAI-repository claim (see About)">doubted, counted by policy</span>' : ''}` : '';
+  const aiOf = e => e.ai && e.ai !== 'none' ? ` <span class="ai">✦ ${esc((e.ai_systems || []).join(', ') || 'AI')}</span>` : '';
+  const rows = rc.slice().sort((x, y) => byDate(first(y), first(x)));
   $('#x-hl').innerHTML = `<ol>${rows.map(p => {
-    const dir = p.resolution_direction;
-    const chip = dir ? `<span class="st ${p.status}" style="color:${OUTC[dir]};background:transparent;border:1px solid currentColor">${OUT_LABEL[dir]}${p.status === 'claimed' ? ' (claimed)' : ''}</span>` : '';
-    const fold = p.outcome ? `<span class="fold"><span class="fold-body"><span class="fold-inner">${esc(p.outcome)}<span class="llmtag">Summary is LLM generated</span></span></span></span>` : '';
-    return `<li><span class="d">${p.month_resolved ? monthLabel(p.month_resolved).replace(' ', '\u00a0') : p.year_resolved}</span><span><b>${esc(p.name)}</b> ${chip}${aiTouched(p) ? ` <span class="ai">✦ ${esc(p.ai_system || 'AI')}</span>` : ''}<div class="who">${esc(p.resolved_by || '')}</div>${fold}</span></li>`;
+    const [e, ...later] = resEvents(p);
+    const fold = e.delivers ? `<span class="fold"><span class="fold-body"><span class="fold-inner">${esc(e.delivers)}<span class="llmtag">Summary is LLM generated</span></span></span></span>` : '';
+    const rest = later.length ? `<div class="who" style="margin-top:4px">Later: ${later.map(l => `${when(l)} · ${esc(whoOf(l))} ${chipOf(l)}${aiOf(l)}`).join('<br>')}</div>` : '';
+    return `<li><span class="d">${when(e)}</span><span><b>${esc(p.name)}</b> ${chipOf(e)}${aiOf(e)}<div class="who">${esc(whoOf(e))}</div>${fold}${rest}</span></li>`;
   }).join('')}</ol>`;
 }
 
 /* ============================== TAB 3 · origins ==============================*/
 function renderOrigins() {
+  // The resolution charts here use the rule of Cumulative Resolutions: a problem's resolution is its
+  // first resolving event, which sets its year and its AI role. Problems posed per decade colors every
+  // problem by status, the highest tier it has reached.
+  const resOf = p => firstResolution(p);
+  const resYear = p => resOf(p) && +String(resOf(p).date || '').slice(0, 4) || null;
+  const aiRes = p => resOf(p).ai !== 'none';
   const withY = DATA.filter(p => p.year_introduced != null);
   // year_introduced is researched by a pass of its own, which has not been run for this version:
   // only the five Millennium problems carry a year, from build.py's own list. Five is not a
@@ -566,14 +593,14 @@ function renderOrigins() {
     return;
   }
   const oldest = withY.reduce((a, b) => a.year_introduced < b.year_introduced ? a : b);
-  const ageOf = p => (p.year_resolved || 2026) - p.year_introduced;
-  const rcY = withY.filter(p => ['resolved', 'claimed'].includes(p.status));
+  const ageOf = p => (resYear(p) || 2026) - p.year_introduced;
+  const rcY = withY.filter(p => resOf(p));
   const mean = xs => xs.reduce((s, p) => s + ageOf(p), 0) / xs.length;
   const medOf = xs => { const a = xs.map(ageOf).sort((x, y) => x - y); return a[Math.floor(a.length / 2)]; };
   const AGE_ROWS = [
     ['All listed problems', withY, 'var(--ai-none)'],
-    ['Resolved with an AI system', rcY.filter(aiTouched), 'var(--ai-gen)'],
-    ['Resolved without AI', rcY.filter(p => !aiTouched(p)), 'var(--ai-bound)'],
+    ['AI-involved resolutions', rcY.filter(aiRes), 'var(--ai-gen)'],
+    ['Resolutions with no AI', rcY.filter(p => !aiRes(p)), 'var(--ai-bound)'],
   ];
   const seOf = xs => { const a = xs.map(ageOf), m = mean(xs); return Math.sqrt(a.reduce((s, v) => s + (v - m) ** 2, 0) / (a.length - 1) / a.length); };
   (() => {
@@ -630,8 +657,8 @@ function renderOrigins() {
     const rcAll = rcY, D1 = 2020;
     const D0 = Math.floor(Math.min(...rcAll.map(p => p.year_introduced)) / 10) * 10, nb = (D1 - D0) / 10 + 1;
     const sets = [
-      ['#o-ai-svg', '#o-ai', '#tip-o3', '#o-ai-sub', rcY.filter(aiTouched), 'var(--ai-gen)', 'with an AI system'],
-      ['#o-hum-svg', '#o-hum', '#tip-o4', '#o-hum-sub', rcY.filter(p => !aiTouched(p)), 'var(--ai-none)', 'without AI'],
+      ['#o-ai-svg', '#o-ai', '#tip-o3', '#o-ai-sub', rcY.filter(aiRes), 'var(--ai-gen)', 'AI-involved'],
+      ['#o-hum-svg', '#o-hum', '#tip-o4', '#o-hum-sub', rcY.filter(p => !aiRes(p)), 'var(--ai-none)', AI_LABEL.none],
     ];
     const binOf = ps => { const b = {}; ps.forEach(p => { if (p.year_introduced >= D0) b[Math.floor(p.year_introduced / 10) * 10] = (b[Math.floor(p.year_introduced / 10) * 10] || 0) + 1; }); return b; };
     const bins = sets.map(([, , , , ps]) => binOf(ps));
@@ -645,24 +672,24 @@ function renderOrigins() {
       for (let i = 0; i < nb; i++) {
         const d = D0 + i * 10, v = bins[si][d] || 0; if (!v) continue;
         const list = ps.filter(p => Math.floor(p.year_introduced / 10) * 10 === d);
-        const t = attr(`<b>${d}s</b><br>${v} resolved ${lab}<br><span style="opacity:.75">${esc(names(list))}</span>`);
+        const t = attr(`<b>${d}s</b><br>${v} resolved or claimed (${lab})<br><span style="opacity:.75">${esc(names(list))}</span>`);
         bars += `<rect x="${m.l + i * bw + 0.8}" y="${Y(v)}" width="${Math.max(2, bw - 1.6)}" height="${Y(0) - Y(v)}" rx="2" fill="${col}" data-tip="${t}"/>`;
       }
       let ax = '';
       for (let d = D0; d <= D1; d += 20) ax += `<text x="${m.l + (d - D0) / 10 * bw + bw / 2}" y="${H - 9}" text-anchor="middle">${d}</text>`;
       const svg = $(sel); svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.style.width = '100%'; svg.style.height = 'auto';
       svg.innerHTML = `${g}${bars}<line x1="${m.l}" x2="${W - m.r}" y1="${Y(0)}" y2="${Y(0)}" stroke="var(--line)"/>${ax}`;
-      $(sub).textContent = `${ps.length} problems resolved ${lab}, placed in the decade each was first posed`;
+      $(sub).textContent = `${ps.length} problems resolved or claimed (${lab}), placed in the decade each was first posed`;
       attachTip($(panel), $(tip));
     });
   })();
 
   // Status only, with `partial` and `progress` as one band: the split between a case settled and a
   // bound moved is about the kind of advance, which is not what a chart of when problems were posed
-  // is asking. `open` gets its own colour rather than sharing one with work finished without AI.
-  const KEYS = ['resolved', 'claimed', 'progress', 'open_stale', 'open'];
-  const KLAB = { resolved: 'Resolved', claimed: 'Resolution claimed', progress: 'Progress of some kind', open_stale: 'Settled before snapshot', open: 'Still open' };
-  const KCOL = { resolved: 'var(--ai-gen)', claimed: 'var(--ai-asst)', progress: 'var(--o-proved)', open_stale: 'var(--o-mixed)', open: 'var(--st-open)' };
+  // is asking. `open` gets its own color rather than sharing one with work finished without AI.
+  const KEYS = ['resolved', 'claimed', 'progress', 'open'];
+  const KLAB = { ...STATUS_LABEL, progress: 'Progress' };
+  const KCOL = { resolved: 'var(--ai-gen)', claimed: 'var(--ai-asst)', progress: 'var(--o-proved)', open: 'var(--st-open)' };
   const keyOf = p => p.status === 'partial' ? 'progress' : p.status;
   const W = 1000, H = 260, m = { l: 40, r: 14, t: 14, b: 30 };
   const d0 = 1600, d1 = 2020, n = (d1 - d0) / 10 + 1;
@@ -695,48 +722,24 @@ function renderOrigins() {
   svg.setAttribute('viewBox', `0 0 ${W} ${H}`); svg.style.width = '100%'; svg.style.height = 'auto';
   svg.innerHTML = `${g}${bars}<line x1="${m.l}" x2="${W - m.r}" y1="${y(0)}" y2="${y(0)}" stroke="var(--line)"/>${ax}`;
   $('#o-legend').innerHTML = KEYS.filter(k => inRange.some(p => keyOf(p) === k)).map(k => `<span data-tip="${attr(`<b>${KLAB[k]}</b><br>${DATA.filter(p => keyOf(p) === k).length} problems`)}"><i style="background:${KCOL[k]}"></i>${KLAB[k]}</span>`).join('');
-  $('#o-note').innerHTML = `Not drawn: ${pre.length} problems posed before 1600 (from ${fmtYear(oldest.year_introduced)} onwards) and ${und} I could not date. Colour marks status as of September 2026: the problems that have moved were posed across the whole span rather than clustering in any one era. ${Math.round(100 * withY.filter(p => p.year_introduced >= 1950).length / withY.length)}% of the dated problems were posed in 1950 or later, and the single busiest decade is the ${(() => { let best = 0, bd = 0; for (let i = 0; i < n; i++) { const t = tot(d0 + i * 10); if (t > best) { best = t; bd = d0 + i * 10; } } return `${bd}s with ${best}`; })()}.`;
+  $('#o-note').innerHTML = `Not drawn: ${pre.length} problem${pre.length === 1 ? '' : 's'} posed before 1600 (from ${fmtYear(oldest.year_introduced)} onwards) and ${und} that could not be dated clearly. Color marks status as of __STATUS_MONTH__: the problems with any result since the snapshot were posed across the whole span rather than clustering in any one era. ${Math.round(100 * withY.filter(p => p.year_introduced >= 1950).length / withY.length)}% of the dated problems were posed in 1950 or later, and the single busiest decade is the ${(() => { let best = 0, bd = 0; for (let i = 0; i < n; i++) { const t = tot(d0 + i * 10); if (t > best) { best = t; bd = d0 + i * 10; } } return `${bd}s with ${best}`; })()}.`;
   attachTip(svg, $('#tip-o1')); attachTip($('#o-legend'), $('#tip-o1'));
 
-  const fell = DATA.filter(p => ['resolved', 'claimed'].includes(p.status) && p.year_introduced != null && p.year_resolved)
-    .map(p => ({ p, yrs: p.year_resolved - p.year_introduced })).sort((x, y) => y.yrs - x.yrs);
+  const fell = DATA.filter(p => resOf(p) && p.year_introduced != null && resYear(p))
+    .map(p => ({ p, yrs: resYear(p) - p.year_introduced })).sort((x, y) => y.yrs - x.yrs);
   const maxY = Math.max(...fell.map(f => f.yrs));
   $('#o-open-bars').innerHTML = fell.map(({ p, yrs }) => {
-    const col = p.ai_involvement === 'generated' ? AIC.generated : p.ai_involvement === 'assisted' ? AIC.assisted : AIC.none;
-    const tip = `<b>${esc(p.name)}</b><br>posed ${fmtYear(p.year_introduced)}${p.year_source && p.year_source.startsWith('math') ? ' (approx.)' : ''} · ${p.status === 'claimed' ? 'claimed' : 'resolved'} ${p.year_resolved}<br>${yrs} years open<br><span style="opacity:.75">${esc(p.resolved_by || '')}</span>`;
+    const col = resOf(p).ai === 'generated' ? AIC.generated : resOf(p).ai === 'assisted' ? AIC.assisted : AIC.none;
+    const tip = `<b>${esc(p.name)}</b><br>posed ${fmtYear(p.year_introduced)}${p.year_source && p.year_source.startsWith('math') ? ' (approx.)' : ''} · ${STATUS_LABEL[p.status === 'claimed' ? 'claimed' : 'resolved'].toLowerCase()} ${resYear(p)}<br>${yrs} years open<br><span style="opacity:.75">${esc(whoOf(resOf(p)))}</span>`;
     return `<div class="brow"><span class="lab" style="width:210px" data-tip="${attr(tip)}">${esc(p.name.length > 30 ? p.name.slice(0, 29) + '…' : p.name)}</span><span class="track"><i style="width:${100 * yrs / maxY}%;background:${col}" data-tip="${attr(tip)}"></i></span><span class="n" data-tip="${attr(tip)}">${yrs} yr</span></div>`;
   }).join('');
   const s = fell.map(f => f.yrs).sort((a, b) => a - b), k = s.length;
   const median = k % 2 ? s[(k - 1) / 2] : (s[k / 2 - 1] + s[k / 2]) / 2;
-  const undated = DATA.filter(p => ['resolved', 'claimed'].includes(p.status)).length - k;
+  const undated = DATA.filter(p => resOf(p)).length - k;
   const top = fell[0].p;
-  $('#o-open-note').innerHTML = `<span class="legend" style="margin:0 0 6px"><span><i style="background:${AIC.generated}"></i>AI-generated</span><span><i style="background:${AIC.assisted}"></i>AI-assisted</span><span><i style="background:${AIC.none}"></i>no AI</span></span><br>The ${k} resolved or claimed problems whose posing year is known, longest-standing first${undated ? `; ${undated} more have no known year and are not shown` : ''}. Half had been open for more than ${median} years. The longest-standing was ${esc(top.name)}, posed in ${fmtYear(top.year_introduced)}${top.status === 'claimed' ? ', and its resolution is still only claimed' : ''}. The chart at the top of this tab compares how long the AI and non-AI results had stood.`;
+  $('#o-open-note').innerHTML = `<span class="legend" style="margin:0 0 6px">${['generated', 'assisted', 'none'].map(k => `<span><i style="background:${AIC[k]}"></i>${AI_LABEL[k]}</span>`).join('')}</span><br>The ${k} resolved or claimed problems whose posing year is known, longest-standing first${undated ? `; ${undated} more have no known year and are not shown` : ''}. Half had been open for more than ${median} years. The longest-standing was ${esc(top.name)}, posed in ${fmtYear(top.year_introduced)}${top.status === 'claimed' ? ', and its resolution is still only claimed' : ''}. The chart at the top of this tab compares how long the AI and non-AI results had stood.`;
   attachTip($('#o-open'), $('#tip-o2'));
 }
-
-function renderSince(rows) {
-  const changed = rows.filter(p => p.status !== 'open');
-  const cats = ['resolved', 'claimed', 'partial', 'progress', 'open_stale'];
-  const max = Math.max(1, ...cats.map(c => changed.filter(p => p.status === c).length));
-  const rowsHtml = cats.map(c => {
-    const ps = changed.filter(p => p.status === c); if (!ps.length) return '';
-    const segs = AI_ORDER.map(a => {
-      const n = ps.filter(p => p.ai_involvement === a).length; if (!n) return '';
-      const names = ps.filter(p => p.ai_involvement === a).slice(0, 4).map(p => p.name).join(', ');
-      const tip = `<b>${STATUS_LABEL[c]} · ${AI_LABEL[a]}</b><br>${n} of ${ps.length} (${Math.round(100 * n / ps.length)}%)<br><span style="opacity:.75">${esc(names)}${n > 4 ? `, +${n - 4} more` : ''}</span>`;
-      return `<i style="width:${100 * n / max}%;background:${AIC[a]}" data-tip="${tip.replace(/"/g, '&quot;')}" data-cat="${a}"></i>`;
-    }).join('');
-    const rowTip = `<b>${STATUS_LABEL[c]}</b>: ${ps.length}<br>` + AI_ORDER.filter(a => ps.some(p => p.ai_involvement === a)).map(a => `${AI_LABEL[a]}: ${ps.filter(p => p.ai_involvement === a).length}`).join('<br>');
-    return `<div class="row"><span class="lab" data-tip="${rowTip.replace(/"/g, '&quot;')}">${STATUS_LABEL[c]}</span><span class="track">${segs}</span><span class="n" data-tip="${rowTip.replace(/"/g, '&quot;')}">${ps.length}</span></div>`;
-  }).join('');
-  const hl = changed.filter(p => ['resolved', 'claimed'].includes(p.status)).sort((a, b) => (b.year_resolved || 0) - (a.year_resolved || 0) || a.name.localeCompare(b.name));
-  $('#since').innerHTML = `<div class="tip" id="tip3"></div><div><h3>What changed after the snapshot</h3><div class="sub">${changed.length} of ${rows.length} problems in the selection have moved; bars split by who did the work — hover any band for its exact count</div>${rowsHtml || '<div class="small">No changes in the current selection.</div>'}
-    <div class="legend">${AI_ORDER.filter(a => changed.some(p => p.ai_involvement === a)).map(a => `<span data-tip="<b>${AI_LABEL[a]}</b><br>${changed.filter(p => p.ai_involvement === a).length} of the ${changed.length} changes"><i style="background:${AIC[a]}"></i>${AI_LABEL[a]}</span>`).join('')}</div>
-    <div class="small" style="margin-top:8px">${changed.filter(aiTouched).length} of the ${changed.length} changes involved an AI system; of the ${changed.filter(p => ['resolved', 'claimed'].includes(p.status)).length} resolved or claimed, ${changed.filter(p => p.ai_involvement === 'generated' && ['resolved', 'claimed'].includes(p.status)).length} were AI-generated and ${changed.filter(p => p.ai_involvement === 'assisted' && ['resolved', 'claimed'].includes(p.status)).length} AI-assisted.</div></div>
-    <div><h3>Resolved or claimed, newest first</h3><div class="sub">every problem in the selection now carrying a proof or counterexample</div><div class="hl"><ol>${hl.slice(0, 10).map(p => `<li><span class="d">${p.year_resolved}</span><span><b>${esc(p.name)}</b> <span class="st ${p.status}">${OUT_LABEL[p.resolution_direction] || ''}${p.status === 'claimed' ? ' (claimed)' : ''}</span>${aiTouched(p) ? ` <span class="ai">✦ ${esc(p.ai_system || 'AI')}</span>` : ''}<div class="who">${esc(p.resolved_by || '')}</div></span></li>`).join('')}${hl.length > 10 ? `<li><span class="d"></span><span class="small">and ${hl.length - 10} more — filter by status to see them</span></li>` : ''}</ol></div></div>`;
-  attachTip($('#since'), $('#tip3'));
-}
-
 
 function attachTip(svg, tipEl, get) {
   svg.querySelectorAll('[data-tip]').forEach(el => {
@@ -789,22 +792,6 @@ function renderYears(rows) {
   attachTip($('#ch-years svg'), $('#tip1'));
 }
 
-function renderFields(rows) {
-  const counts = {}; rows.forEach(p => counts[p.field] = (counts[p.field] || 0) + 1);
-  const fs = FIELD_ORDER.filter(f => counts[f]).sort((a, b) => counts[b] - counts[a]);
-  const W = 420, rh = 18, m = { l: 150, r: 34, t: 4, b: 4 }, H = m.t + m.b + fs.length * rh;
-  const max = Math.max(1, ...fs.map(f => counts[f])), iw = W - m.l - m.r;
-  let s = '';
-  fs.forEach((f, i) => {
-    const yy = m.t + i * rh, w = iw * counts[f] / max, on = state.fields.has(f);
-    s += `<g style="cursor:pointer" data-f="${esc(f)}" data-tip="<b>${esc(f)}</b>: ${counts[f]}"><rect x="0" y="${yy}" width="${W}" height="${rh}" fill="transparent"/><text x="${m.l - 8}" y="${yy + rh / 2 + 3.5}" text-anchor="end" style="fill:${on ? 'var(--accent)' : 'var(--ink-2)'};font-family:'IBM Plex Sans',system-ui,sans-serif;font-size:11.5px">${esc(f.length > 24 ? f.slice(0, 23) + '…' : f)}</text><rect x="${m.l}" y="${yy + 3}" width="${Math.max(2, w)}" height="${rh - 6}" rx="2" fill="${on ? 'var(--accent)' : 'var(--c-conj)'}" opacity="${state.fields.size && !on ? .45 : 1}"/><text x="${m.l + w + 5}" y="${yy + rh / 2 + 3.5}">${counts[f]}</text></g>`;
-  });
-  $('#ch-fields').querySelector('svg')?.remove();
-  $('#ch-fields').insertAdjacentHTML('beforeend', `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Problems per field">${s}</svg>`);
-  const svg = $('#ch-fields svg'); attachTip(svg, $('#tip2'));
-  svg.querySelectorAll('g[data-f]').forEach(el => el.onclick = () => { const f = el.dataset.f; state.fields.has(f) ? state.fields.delete(f) : state.fields.add(f); update(); });
-}
-
 // What stood at the problem's own title on 26 Jan 2024, when it differs from today's reading
 function pageNote(p) {
   if (p.page_snapshot === 'article') return 'yes, and it already existed at the Jan 2024 snapshot';
@@ -823,8 +810,8 @@ function card(p) {
   if (p.smale_problem) tags.push(`<span class="tag">Smale #${p.smale_problem}</span>`);
   if (p.landau_problem) tags.push('<span class="tag">Landau</span>');
   if (p.subfield) tags.push(`<span class="tag">${esc(p.subfield)}</span>`);
-  const stBadge = p.status !== 'open' ? `<span class="st ${p.status}">${STATUS_LABEL[p.status]}${dirLabel(p) ? ' · ' + dirLabel(p) : ''}${p.year_resolved ? ' ' + p.year_resolved : ''}</span>` : '';
-  const aiBadge = aiTouched(p) ? `<span class="ai" title="${esc(AI_LABEL[p.ai_involvement])}">✦ ${esc(p.ai_system || 'AI')}</span>` : '';
+  const stBadge = p.status !== 'open' ? `<span class="st ${p.status}">${STATUS_LABEL[p.status]}${dirLabel(p) ? ' · ' + dirLabel(p) : ''}${keyYear(p) ? ' ' + keyYear(p) : ''}</span>` : '';
+  const aiBadge = exploreAI(p) !== 'none' ? `<span class="ai" title="${esc(AI_LABEL[exploreAI(p)])}">✦ ${esc(aiNames(p) || 'AI')}</span>` : '';
   if (p.parent) tags.push(`<span class="tag">↳ ${esc(p.parent.slice(0, 30))}</span>`);
   const desc = p.description && p.description !== p.name ? p.description : p.statement;
   return `<article class="card${state.open.has(p.id) ? ' open' : ''}${p.status !== 'open' ? ' changed' : ''}" data-id="${p.id}" style="--tc:${TYPE_VAR[k]}" tabindex="0">
@@ -837,7 +824,7 @@ function card(p) {
       ${p.named_after.length ? `<div style="margin-top:4px"><span class="k">Named after</span>${esc(p.named_after.join(', '))}</div>` : ''}
       ${p.year_introduced != null ? `<div style="margin-top:4px"><span class="k">Year</span>${fmtYear(p.year_introduced)} · ${esc(p.year_source)}${p.year_note ? ` · ${esc(p.year_note)}` : ''}</div>` : '<div style="margin-top:4px"><span class="k">Year</span>not determined</div>'}
       ${pageNote(p) ? `<div style="margin-top:4px"><span class="k">Dedicated article</span><span style="color:var(--ink-3)">${pageNote(p)}</span></div>` : ''}
-      ${p.status !== 'open' ? `<div class="statusbox"><div class="hd"><span class="st ${p.status}">${STATUS_LABEL[p.status]}</span>${dirLabel(p) ? `<b>${dirLabel(p)}</b>` : ''}${p.year_resolved ? `<span class="mono" style="color:var(--ink-3)">${p.year_resolved}</span>` : ''}${aiTouched(p) ? `<span class="ai">✦ ${esc(AI_LABEL[p.ai_involvement])}${p.ai_system ? ' · ' + esc(p.ai_system) : ''}</span>` : ''}</div>${p.resolved_by ? `<div><span class="k">By</span>${esc(p.resolved_by)}</div>` : ''}${p.status_note ? `<span class="fold"><span class="fold-body"><span class="fold-inner">${esc(p.status_note)}<span class="llmtag">Summary is LLM generated</span></span></span></span>` : ''}${p.status_sources.length ? `<div class="src"><span class="k">Sources</span>${p.status_sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(new URL(u).hostname.replace(/^www\./, ''))}${/arxiv/.test(u) ? ' ' + esc((u.match(/(\d{4}\.\d{4,5})/) || [])[1] || '') : ''}</a>`).join('')}</div>` : ''}</div>` : ''}
+      ${p.status !== 'open' ? `<div class="statusbox"><div class="hd"><span class="st ${p.status}">${STATUS_LABEL[p.status]}</span>${dirLabel(p) ? `<b>${dirLabel(p)}</b>` : ''}${keyYear(p) ? `<span class="mono" style="color:var(--ink-3)">${keyYear(p)}</span>` : ''}${exploreAI(p) !== 'none' ? `<span class="ai">✦ ${esc(AI_LABEL[exploreAI(p)])}${aiNames(p) ? ' · ' + esc(aiNames(p)) : ''}</span>` : ''}</div>${keyWho(p) ? `<div><span class="k">By</span>${esc(keyWho(p))}</div>` : ''}${p.status_note ? `<span class="fold"><span class="fold-body"><span class="fold-inner">${esc(p.status_note)}<span class="llmtag">Summary is LLM generated</span></span></span></span>` : ''}${p.status_sources.length ? `<div class="src"><span class="k">Sources</span>${p.status_sources.map(u => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(new URL(u).hostname.replace(/^www\./, ''))}${/arxiv/.test(u) ? ' ' + esc((u.match(/(\d{4}\.\d{4,5})/) || [])[1] || '') : ''}</a>`).join('')}</div>` : ''}</div>` : ''}
       <div class="links">${p.wikipedia_url ? `<a href="${esc(p.wikipedia_url)}" target="_blank" rel="noopener">Wikipedia article ↗</a>` : ''}${p.wikilinks.map(t => `<a href="${wpUrl(t)}" target="_blank" rel="noopener">${esc(t)}</a>`).join('')}</div>
     </div></article>`;
 }
@@ -851,12 +838,12 @@ function renderList(rows) {
       let va = a[state.sortCol], vb = b[state.sortCol];
       if (Array.isArray(va)) { va = va.length; vb = vb.length; }
       if (state.sortCol === 'status') { va = STATUS_ORDER.indexOf(va); vb = STATUS_ORDER.indexOf(vb); }
-      if (state.sortCol === 'ai_involvement') { va = AI_ORDER.indexOf(va); vb = AI_ORDER.indexOf(vb); }
+      if (state.sortCol === 'ai_involvement') { va = EXPLORE_AI.indexOf(exploreAI(a)); vb = EXPLORE_AI.indexOf(exploreAI(b)); }
       if (va == null) return 1; if (vb == null) return -1;
       const c = typeof va === 'number' ? va - vb : String(va).localeCompare(String(vb));
       return state.sortAsc ? c : -c;
     });
-    el.innerHTML = `<div class="tablewrap"><table><thead><tr>${cols.map(([k, l]) => `<th data-c="${k}" class="${state.sortCol === k ? 'sorted' + (state.sortAsc ? ' asc' : '') : ''}">${l}</th>`).join('')}</tr></thead><tbody>${r.map(p => `<tr><td class="num">${p.id}</td><td>${p.wikipedia_url ? `<a href="${esc(p.wikipedia_url)}" target="_blank" rel="noopener">${esc(p.name)}</a>` : esc(p.name)}<div class="small">${esc(p.description !== p.name ? p.description.slice(0, 160) : '')}</div></td><td>${esc(p.field)}${p.subfield ? `<div class="small">${esc(p.subfield)}</div>` : ''}</td><td><span style="color:${TYPE_VAR[kind(p)]};font-weight:600">${TYPE_LABEL[kind(p)]}</span></td><td class="num">${fmtYear(p.year_introduced)}${p.year_approx ? '~' : ''}</td><td>${p.status !== 'open' ? `<span class="st ${p.status}">${STATUS_LABEL[p.status]}</span><div class="small">${dirLabel(p)} ${p.year_resolved || ''} · ${esc((p.resolved_by || '').slice(0, 70))}</div>` : '<span class="small">open</span>'}</td><td>${aiTouched(p) ? `<span class="ai">✦ ${esc(AI_LABEL[p.ai_involvement])}</span><div class="small">${esc(p.ai_system || '')}</div>` : ''}</td><td>${esc(p.named_after.join(', '))}</td><td class="num">${p.wikilinks.length}</td></tr>`).join('')}</tbody></table></div>`;
+    el.innerHTML = `<div class="tablewrap"><table><thead><tr>${cols.map(([k, l]) => `<th data-c="${k}" class="${state.sortCol === k ? 'sorted' + (state.sortAsc ? ' asc' : '') : ''}">${l}</th>`).join('')}</tr></thead><tbody>${r.map(p => `<tr><td class="num">${p.id}</td><td>${p.wikipedia_url ? `<a href="${esc(p.wikipedia_url)}" target="_blank" rel="noopener">${esc(p.name)}</a>` : esc(p.name)}<div class="small">${esc(p.description !== p.name ? p.description.slice(0, 160) : '')}</div></td><td>${esc(p.field)}${p.subfield ? `<div class="small">${esc(p.subfield)}</div>` : ''}</td><td><span style="color:${TYPE_VAR[kind(p)]};font-weight:600">${TYPE_LABEL[kind(p)]}</span></td><td class="num">${fmtYear(p.year_introduced)}${p.year_approx ? '~' : ''}</td><td>${p.status !== 'open' ? `<span class="st ${p.status}">${STATUS_LABEL[p.status]}</span><div class="small">${dirLabel(p)} ${keyYear(p)} · ${esc(keyWho(p).slice(0, 70))}</div>` : '<span class="small">open</span>'}</td><td>${exploreAI(p) !== 'none' ? `<span class="ai">✦ ${esc(AI_LABEL[exploreAI(p)])}</span><div class="small">${esc(aiNames(p))}</div>` : ''}</td><td>${esc(p.named_after.join(', '))}</td><td class="num">${p.wikilinks.length}</td></tr>`).join('')}</tbody></table></div>`;
     el.querySelectorAll('th').forEach(th => th.onclick = () => { const c = th.dataset.c; if (state.sortCol === c) state.sortAsc = !state.sortAsc; else { state.sortCol = c; state.sortAsc = true; } renderList(filtered()); });
     return;
   }
@@ -893,13 +880,14 @@ function update() {
   if (state.tab === 'outcomes') { renderOutcomes(); return; }
   if (state.tab === 'about') return;
   const rows = filtered();
-  renderRail(); renderSince(rows); renderFields(rows); renderList(rows); renderSolved();
+  renderRail(); renderList(rows); renderSolved();
   $('#count').textContent = rows.length;
 }
 
 $('#tabs').querySelectorAll('button[data-v]').forEach(b => b.onclick = () => setTab(b.dataset.v));
 document.querySelectorAll('[data-goto]').forEach(el => el.onclick = e => { e.preventDefault(); setTab(el.dataset.goto); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 $('#a-mode').querySelectorAll('button').forEach(b => b.onclick = () => { state.aMode = b.dataset.m; $('#a-mode').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); renderAttribution(); });
+$('#f-mode').querySelectorAll('button').forEach(b => b.onclick = () => { state.fMode = b.dataset.m; $('#f-mode').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); renderOutcomes(); });
 $('#c-mode').querySelectorAll('button').forEach(b => b.onclick = () => { state.cMode = b.dataset.m; $('#c-mode').querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b)); renderAttribution(); });
 $('#q').addEventListener('input', e => { state.q = e.target.value; update(); });
 $('#y0').addEventListener('input', e => { state.y0 = e.target.value === '' ? null : +e.target.value; update(); });
@@ -920,6 +908,7 @@ function applyScope(id) {
   renderScope(); renderRail(); update();
 }
 $('#sort').addEventListener('change', e => { state.sort = e.target.value; update(); });
+$('#sort-rev').onclick = () => { state.sortRev = !state.sortRev; $('#sort-rev').classList.toggle('on', state.sortRev); update(); };
 $('#v-cards').onclick = () => { state.view = 'cards'; $('#v-cards').classList.add('on'); $('#v-table').classList.remove('on'); update(); };
 $('#v-table').onclick = () => { state.view = 'table'; $('#v-table').classList.add('on'); $('#v-cards').classList.remove('on'); update(); };
 $('#reset').onclick = () => { Object.assign(state, { q: '', fields: new Set(), y0: null, y1: null, noyear: true, lists: new Set(), status: new Set(), ai: new Set(), models: new Set() }); $('#q').value = ''; $('#y0').value = ''; $('#y1').value = ''; $('#noyear').checked = true; update(); };

@@ -13,7 +13,7 @@
   /* kinds of problem */
   --c-conj:#750014; --c-q:#c8304a; --c-prob:#dd7c86; --c-other:#7c868f;
   /* AI involvement, an intensity ramp: most AI -> least */
-  --ai-gen:#750014; --ai-asst:#c8304a; --ai-bound:#dd7c86; --ai-retr:#000000; --ai-none:#7c868f; --st-open:#ccd2d8;
+  --ai-gen:#750014; --ai-asst:#c8304a; --ai-both:#a8577a; --ai-bound:#dd7c86; --ai-retr:#000000; --ai-none:#7c868f; --st-open:#ccd2d8;
   --ai:#750014; --ai-bg:#f6e7e9;
   /* outcome */
   --o-disproved:#750014; --o-proved:#3f4750; --o-mixed:#a8b0b7;
@@ -31,7 +31,7 @@
   --accent:#ff5f70; --accent-soft:#3a1218;
   --grid:#2b2f33; --hover:#26201f; --focus:#ff4757; --tag-bg:#24272b;
   --c-conj:#ff5f70; --c-q:#c03249; --c-prob:#eaa3ab; --c-other:#79838d;
-  --ai-gen:#9e1026; --ai-asst:#cf4257; --ai-bound:#ea9098; --ai-retr:#e9dcde; --ai-none:#8a939b; --st-open:#454e56;
+  --ai-gen:#9e1026; --ai-asst:#cf4257; --ai-both:#d78bab; --ai-bound:#ea9098; --ai-retr:#e9dcde; --ai-none:#8a939b; --st-open:#454e56;
   --ai:#ff5f70; --ai-bg:#3a1218;
   --o-disproved:#ff5f70; --o-proved:#c3ccd4; --o-mixed:#6f7880;
   --st-resolved:#ff8d99; --st-resolved-bg:#3a1218; --st-claimed:#f2f4f5; --st-claimed-bg:#2b2f33;
@@ -47,7 +47,7 @@
   --accent:#ff5f70; --accent-soft:#3a1218;
   --grid:#2b2f33; --hover:#26201f; --focus:#ff4757; --tag-bg:#24272b;
   --c-conj:#ff5f70; --c-q:#c03249; --c-prob:#eaa3ab; --c-other:#79838d;
-  --ai-gen:#9e1026; --ai-asst:#cf4257; --ai-bound:#ea9098; --ai-retr:#e9dcde; --ai-none:#8a939b; --st-open:#454e56;
+  --ai-gen:#9e1026; --ai-asst:#cf4257; --ai-both:#d78bab; --ai-bound:#ea9098; --ai-retr:#e9dcde; --ai-none:#8a939b; --st-open:#454e56;
   --ai:#ff5f70; --ai-bg:#3a1218;
   --o-disproved:#ff5f70; --o-proved:#c3ccd4; --o-mixed:#6f7880;
   --st-resolved:#ff8d99; --st-resolved-bg:#3a1218; --st-claimed:#f2f4f5; --st-claimed-bg:#2b2f33;
@@ -65,10 +65,6 @@ header{padding:30px 32px 0;background:var(--canvas-deep);color:var(--canvas-ink)
 .brand{display:block;align-self:flex-end;line-height:0;opacity:.92}
 .brand:hover{opacity:1}
 .brand img{height:76px;width:auto;display:block}
-.newsbox{align-self:flex-end;max-width:290px;border:1px solid var(--bright-red);border-radius:5px;background:rgba(255,20,35,.09);padding:10px 12px;color:var(--canvas-ink-2);font-size:12.5px;line-height:1.5}
-.newsbox b{display:block;margin-bottom:4px;color:var(--canvas-ink);font-weight:600;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase}
-.newsbox a{color:var(--canvas-ink)}
-.newsbox a:hover{color:var(--bright-red)}
 /* the dropdown is pushed to the foot of the masthead so it lines up with the tab bar below it */
 .scope{margin-top:auto}
 .masthead{max-width:1400px;margin:0 auto;padding-bottom:20px;display:flex;gap:32px;align-items:flex-start;justify-content:space-between}
@@ -83,7 +79,7 @@ header{padding:30px 32px 0;background:var(--canvas-deep);color:var(--canvas-ink)
 .scope select option{background:var(--canvas,#1a1a1a);color:var(--canvas-ink)}
 @media (max-width:820px){.masthead{flex-direction:column;gap:18px}.scope{flex-direction:row;flex-wrap:wrap;align-items:center;max-width:none}.scope select{width:auto}
   .rightcol{align-self:stretch;flex-direction:row;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}.brand{align-self:center}.brand img{height:50px}.scope{margin-top:0}
-  .newsbox{order:3;width:100%;max-width:none;align-self:stretch}}
+}
 h1{font-family:"Fraunces",Georgia,"Times New Roman",serif;font-weight:500;font-size:46px;line-height:1.06;margin:0;letter-spacing:-.014em;text-wrap:balance;color:var(--canvas-ink)}
 h1 em{font-style:italic;font-weight:300}
 h1 .beta{font-family:system-ui,sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;vertical-align:super;margin-left:10px;padding:2px 6px;border:1px solid var(--bright-red);border-radius:3px;color:var(--bright-red)}
@@ -151,7 +147,7 @@ nav.tabs button .n{font-family:"IBM Plex Mono",monospace;font-size:11px;color:va
 .defs{margin:14px 0 12px;padding-left:20px;display:grid;grid-template-columns:auto 1fr;gap:16px 44px;align-items:baseline}
 .defs dt{font-weight:700;font-size:13px;white-space:nowrap}
 .defs dd{margin:0;color:var(--ink-2);font-size:13px}
-.defs .c-res{color:var(--st-resolved)}.defs .c-clm{color:var(--st-claimed)}.defs .c-par{color:var(--st-partial)}.defs .c-prg{color:var(--ai-bound)}.defs .c-stl{color:var(--st-stale)}.defs .c-aig{color:var(--ai-gen)}.defs .c-aia{color:var(--ai-asst)}.defs .c-ain{color:var(--ai-none)}
+.defs .c-res{color:var(--st-resolved)}.defs .c-clm{color:var(--st-claimed)}.defs .c-par{color:var(--st-partial)}.defs .c-prg{color:var(--ai-bound)}.defs .c-stl{color:var(--st-stale)}.defs .c-aig{color:var(--ai-gen)}.defs .c-aia{color:var(--ai-asst)}.defs .c-ain{color:var(--ai-none)}.defs .c-aib{color:var(--ai-both)}
 footer{border-top:1px solid var(--canvas-line);background:var(--canvas-deep)}
 .footrow{max-width:1400px;margin:0 auto;padding:18px 32px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:12px;color:var(--canvas-ink-2)}
 .footrow span:first-child{color:var(--canvas-ink);font-weight:600}
@@ -212,7 +208,7 @@ input[type=search]::placeholder{color:var(--ink-3)}
 .legend{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink-2);margin-top:6px}
 .legend span{display:inline-flex;align-items:center;gap:6px}
 .legend i{width:10px;height:10px;border-radius:2px;display:inline-block}
-.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:6px 9px;border-radius:5px;white-space:nowrap;width:max-content;max-width:min(320px,86vw);transform:translate(-50%,calc(-100% - 10px));opacity:0;transition:opacity .08s;z-index:9;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--bg);font-size:12px;padding:6px 9px;border-radius:5px;white-space:normal;overflow-wrap:anywhere;width:max-content;max-width:min(320px,86vw);transform:translate(-50%,calc(-100% - 10px));opacity:0;transition:opacity .08s;z-index:9;line-height:1.4;box-shadow:0 4px 14px rgba(0,0,0,.18)}
 .tip b{font-weight:600}
 .toolbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:13px;color:var(--canvas-ink-2)}
 .toolbar .count{font-weight:600;color:var(--canvas-ink)}
@@ -312,15 +308,14 @@ footer p{max-width:80ch}
   <div class="masthead">
     <div>
       <h1>Wikipedia Unsolved Problems Tracker<span class="beta">Beta</span></h1>
-      <p class="tagline">A controlled baseline of <span id="n-corpus">467</span> diverse problems to calibrate the unprecedented progress of AI in mathematics.</p>
+      <p class="tagline">A controlled baseline of <span id="n-corpus">__N_PROBLEMS__</span> diverse problems to calibrate the unprecedented progress of AI in mathematics.</p>
       <p class="subcopy">AI progress in mathematics has been absolutely extraordinary. In a little over a year, frontier models went from barely achieving gold medals at the International Math Olympiad to a claimed resolution of the Navier–Stokes Millennium problem, one of the holy grails of mathematics.</p>
       <p class="subcopy">Given this rapid rate of progress, it's critical to determine if AI is merely conquering &ldquo;AI shaped&rdquo; problems, or truly conquering mathematics altogether, replacing the role of human insight in proof generation.</p>
       <p class="subcopy">Measuring this is difficult, since frontier labs don't report failures on open problems, only successes. We need a large, diverse set of open problems which are, with high probability, important to their fields. For this, we argue Wikipedia&rsquo;s public <a href="https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics" target="_blank" rel="noopener"><i>List of unsolved problems in mathematics</i></a>, snapshotted in January 2024, provides a particularly robust sample.</p>
-      <p class="caveat">The dataset is in beta, and was generated using LLMs and has not been reviewed by mathematicians. See <a href="#" data-goto="about">About the Data</a> for more limitations and planned adjustments.</p>
+      <p class="caveat">The dataset is in beta, was generated using LLMs, and has not been reviewed by mathematicians. See <a href="#" data-goto="about">About the Data</a> for more limitations and planned adjustments.</p>
     </div>
     <div class="rightcol">
       <a class="brand" href="https://futuretech.mit.edu" target="_blank" rel="noopener"><img src="__LOGO__" alt="MIT FutureTech — Innovations that Shape the World" width="1200" height="306"></a>
-      <div class="newsbox"><b>Note</b>One day after this was launched, OpenAI released nearly <a href="https://github.com/openai/math/tree/main/" target="_blank" rel="noopener">722 manuscripts</a>, each making progress on an open problem. We are working on integrating these results ASAP. To a first approximation, it seems 30&ndash;40 additional problems on this list were resolved.</div>
       <div class="scope" id="scope"></div>
     </div>
   </div>
@@ -342,11 +337,13 @@ footer p{max-width:80ch}
     <div class="panel" id="cum-a"><div class="tip" id="tip-c1"></div>
       <h3>Cumulative Resolutions</h3><div class="sub">Every problem which has been resolved (or claimed to be resolved), stacked by how it was produced</div>
       <svg id="svg-cum-a" role="img" aria-label="Cumulative resolutions by attribution"></svg>
-      <div class="legend" id="leg-cum-a"></div></div>
+      <div class="legend" id="leg-cum-a"></div>
+      <div class="note" id="note-cum-a"></div></div>
     <div class="panel" id="cum-b"><div class="tip" id="tip-c2"></div>
-      <h3>Cumulative Progress</h3><div class="sub">Every problem which has seen a material advance &ndash; a case settled, a bound improved, or a claimed resolution &ndash; stacked by how it was produced</div>
+      <h3>Cumulative Progress</h3><div class="sub">Every problem with progress but no resolution &ndash; a partial result or notable progress &ndash; placed at its first result and stacked by who did the work.</div>
       <svg id="svg-cum-b" role="img" aria-label="Cumulative progress by attribution"></svg>
-      <div class="legend" id="leg-cum-b"></div></div>
+      <div class="legend" id="leg-cum-b"></div>
+      <div class="note" id="note-cum-b"></div></div>
   </div>
   <h2 class="sechead">AI's Contribution, by Problem Status</h2>
     <div class="panel" id="a-status">
@@ -361,8 +358,8 @@ footer p{max-width:80ch}
   <h2 class="sechead">Resolutions by Model Release Date</h2>
   <div class="chart" id="a-release">
     <div class="tip" id="tip-a3"></div>
-    <h3>Problems credited, by when the system shipped</h3>
-    <div class="sub">One bar per released system, at its release date; height is the problems it is credited on, split the same way as the bars below</div>
+    <h3>Number of problems resolved, by when the system shipped</h3>
+    <div class="sub">Each AI-involved resolution is placed at the month the system credited on it became available, not the month of the result. A resolution credited to more than one system appears under each of them, so the bars can sum to more than the number of problems.</div>
     <svg id="svg-release" role="img" aria-label="Problems credited to each AI system, by model release date"></svg>
     <div class="legend" id="leg-release"></div>
     <div class="note" id="release-note"></div>
@@ -381,20 +378,20 @@ footer p{max-width:80ch}
     <div class="bars" id="x-split-bars"></div>
     <div class="legend" id="leg-x-split"></div>
   </div>
-  <h2 class="sechead">AI Assisted Results, by Field</h2>
+  <h2 class="sechead">Results by Field<span class="seg small" id="f-mode"><button data-m="count" class="on">Count</button><button data-m="share">Share of field</button></span></h2>
   <div class="duo" id="x-fields">
     <div class="panel" id="x-fields-res"><div class="tip" id="tip-x4"></div>
       <h3>Resolutions</h3><div class="sub">Problems per field now carrying a proof or counterexample, split by who did the work; the count is resolutions out of that field's total</div>
       <div class="bars" id="x-field-bars"></div>
       <div class="legend" id="leg-x-fields"></div></div>
     <div class="panel" id="x-fields-mov"><div class="tip" id="tip-x5"></div>
-      <h3>All movement</h3><div class="sub">The same, widened to every problem that has moved at all — a case settled or a bound improved as well as a resolution</div>
+      <h3>Progress</h3><div class="sub">Problems per field with progress but no resolution — a partial result or notable progress — split by who did the work, as in Cumulative Progress</div>
       <div class="bars" id="x-field-bars-mov"></div>
       <div class="legend" id="leg-x-fields-mov"></div></div>
   </div>
   <h2 class="sechead">Timeline of Resolutions</h2>
   <div class="panel" style="margin-top:12px" id="x-list">
-    <h3>The resolutions, newest first</h3><div class="sub">Every problem resolved or claimed since the snapshot, in date order; the chip marks how it fell</div>
+    <h3>The resolutions, newest first</h3><div class="sub">Every problem resolved or claimed since the snapshot, dated by its first resolution, with any later resolutions listed beneath; the chip marks how each fell</div>
     <div class="hl" id="x-hl"></div>
   </div>
 </section>
@@ -417,7 +414,7 @@ footer p{max-width:80ch}
     <div class="block">
       <h2>Status since Jan 2024</h2>
       <div class="chips" id="status"></div>
-      <div class="small" style="margin-top:6px">Chip counts are across all <span class="n-corpus">467</span> problems in the current corpus; the tiles and panel above follow the current selection.</div>
+      <div class="small" style="margin-top:6px">Counts cover all <span class="n-corpus">__N_PROBLEMS__</span> problems in the current corpus, whatever else is selected.</div>
     </div>
     <div class="block">
       <h2>AI involvement</h2>
@@ -432,16 +429,14 @@ footer p{max-width:80ch}
       <div class="chips" id="lists"></div>
     </div>
     <div class="block"><button class="reset" id="reset">Clear all filters</button></div>
-    <div class="block small">Status was researched and audited claim by claim against current Wikipedia articles, arXiv preprints, Terence Tao's blog and lab announcements. Many 2026 items are weeks old and not yet peer reviewed; each card lists its sources. The review date is in the <a href="#" data-goto="about">About tab</a>.</div>
-    <div class="block small">Years marked <span class="mono">~</span> come from the mathematical literature as recalled, not from the list itself; the rest are stated in the linked Wikipedia article. Treat both as approximate.</div>
+    <div class="block small">Each problem was researched by an agent against primary sources (arXiv preprints, journals, authors&rsquo; announcements, lab posts), and every result it found was judged separately. Many 2026 results are weeks old and not yet peer reviewed; each card lists its sources. The method and review date are in the <a href="#" data-goto="about">About tab</a>.</div>
+    <div class="block small">Years posed come from the problem&rsquo;s Wikipedia article where it states one, and otherwise from the published literature; each card gives the source. Years marked <span class="mono">~</span> are approximate.</div>
   </aside>
 
   <section class="content">
-    <div class="since" id="since"></div>
-    <div class="chart" id="ch-fields"><h3>Problems per field</h3><div class="sub">Current selection · click a bar to filter</div><div class="tip" id="tip2"></div></div>
     <div class="toolbar">
       <span><span class="count" id="count">0</span> problems shown</span>
-      <label>Sort <select id="sort"><option value="page">page order</option><option value="status">status since 2024</option><option value="year">year posed</option><option value="name">name</option><option value="links">number of links</option></select></label>
+      <label>Sort <select id="sort"><option value="page">page order</option><option value="status">status since 2024</option><option value="year">year posed</option><option value="name">name</option><option value="links">number of links</option></select></label><button id="sort-rev" class="chip" title="Reverse the order">↑↓ reverse</button>
       <div class="seg"><button id="v-cards" class="on">Cards</button><button id="v-table">Table</button></div>
     </div>
     <div id="list"></div>
@@ -459,16 +454,16 @@ footer p{max-width:80ch}
   </div>
   <div id="o-mini" style="display:flex;flex-direction:column;gap:12px;margin-bottom:12px">
     <div class="panel" id="o-ai"><div class="tip" id="tip-o3"></div>
-      <h3>Resolved with an AI system, by decade posed</h3><div class="sub" id="o-ai-sub"></div>
+      <h3>AI-involved resolutions, by decade posed</h3><div class="sub" id="o-ai-sub"></div>
       <svg id="o-ai-svg" role="img" aria-label="AI-involved resolutions by decade posed"></svg></div>
     <div class="panel" id="o-hum"><div class="tip" id="tip-o4"></div>
-      <h3>Resolved without AI, by decade posed</h3><div class="sub" id="o-hum-sub"></div>
+      <h3>Resolutions with no AI, by decade posed</h3><div class="sub" id="o-hum-sub"></div>
       <svg id="o-hum-svg" role="img" aria-label="Non-AI resolutions by decade posed"></svg></div>
   </div>
   <div class="panel" style="margin-top:12px" id="o-hist">
     <div class="tip" id="tip-o1"></div>
     <div class="head" style="display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap">
-      <div style="flex:1;min-width:260px"><h3>Problems posed per decade</h3><div class="sub">All <span class="n-corpus">467</span> problems, on the same decade axis, coloured by status as of September 2026</div></div>
+      <div style="flex:1;min-width:260px"><h3>Problems posed per decade</h3><div class="sub">All <span class="n-corpus">__N_PROBLEMS__</span> problems, on the same decade axis, colored by status as of __STATUS_MONTH__</div></div>
     </div>
     <svg id="o-svg" role="img" aria-label="Problems posed per decade"></svg>
     <div class="legend" id="o-legend"></div>
@@ -495,44 +490,50 @@ footer p{max-width:80ch}
     </ol>
     <p>Epoch&rsquo;s <a href="https://epoch.ai/frontiermath" target="_blank" rel="noopener">FrontierMath</a> benchmarks are the go-to for tracking progress in mathematics, and deliberately mitigate the issue of selection bias by curating a frozen set of challenging problems. These are tremendously strong benchmarks, especially <a href="https://epoch.ai/benchmarks/frontiermath-erdos" target="_blank" rel="noopener">FrontierMath Erd&#337;s</a> and <a href="https://epoch.ai/frontiermath/open-problems" target="_blank" rel="noopener">FrontierMath Open Problems</a>, due to the effort and expertise invested in curation and formalization (such that they can be verified automatically).</p>
     <p>But these datasets suffer from their own modest selection effects: Erd&#337;s problems are sampled from the work of a single mathematician, and the Open Problems benchmark is limited to problems with computationally verifiable answers. Depending on the pace of progress, these subsets could quickly become unrepresentative of the true mathematical frontier, as LLMs continue to conquer the most difficult areas of math.</p>
-    <p><b>Hence, the ideal question set would be a large set of problems representing the peak difficulty of open problems: diverse enough to avoid selection effects, unsaturated to allow for continued relevance, and fixed in time to avoid polluting our base rates with selection bias. We think Wikipedia&rsquo;s list of unsolved problems, while far from flawless, captures the necessary conditions nicely: more than 450 problems, across a range of mathematical subfields, notable enough to have a Wikipedia entry (and optionally filtered to have their own Wikipedia page), and fixed in time to a particular point.</b></p>
+    <p><b>Hence, the ideal question set would be a large set of problems representing the peak difficulty of open problems: diverse enough to avoid selection effects, unsaturated to allow for continued relevance, and fixed in time to avoid polluting our base rates with selection bias. We think Wikipedia&rsquo;s list of unsolved problems, while far from flawless, captures the necessary conditions nicely: more than 440 problems, across a range of mathematical subfields, notable enough to have a Wikipedia entry (and optionally filtered to have their own Wikipedia page), and fixed in time to a particular point.</b></p>
     <p>Crucially, this is a strong list of problems, which has only become a viable bellwether with the most recent state-of-the-art models. Given the breadth and strength of the list, saturation (or near-saturation) would be extremely strong evidence of AI possessing superhuman mathematics capacity.</p>
 
     <h2>How to Read the Data</h2>
-    <p>We mark problems that have been resolved, are claimed to have been resolved, have been partially resolved, or have seen notable progress. Much of this required judgement calls, by both human and LLM reviewers. See the limitations section for more information.</p>
+    <p>We mark problems that have a confirmed resolution, a claimed resolution, a partial result, or notable progress. Much of this required judgment calls, by both human and LLM reviewers. See the limitations section for more information.</p>
     <dl class="defs">
-      <dt class="c-res">Resolved</dt><dd>A proof or counterexample that the community has broadly accepted, or that is machine-verified and unchallenged.</dd>
-      <dt class="c-clm">Resolution claimed</dt><dd>A preprint or announcement not yet accepted, or two conflicting claims on the table.</dd>
-      <dt class="c-par">Partially resolved</dt><dd>A listed sub-question or a major special case settled, with the general problem still open.</dd>
-      <dt class="c-prg">Notable progress</dt><dd>A new bound or an instructive incident; the problem itself is still open.</dd>
+      <dt class="c-res">Resolution confirmed</dt><dd>A proof or counterexample that the community has broadly accepted, or that is machine-verified and unchallenged.</dd>
+      <dt class="c-clm">Resolution claimed</dt><dd>A preprint or announcement on the whole problem that experts haven&rsquo;t yet checked.</dd>
+      <dt class="c-par">Partial result</dt><dd>A listed sub-question or a major special case settled, with the general problem still open.</dd>
+      <dt class="c-prg">Notable progress</dt><dd>A new bound or a smaller step; the problem itself is still open.</dd>
     </dl>
-    <p>When we reference &ldquo;Progress&rdquo; throughout this site, we merge &ldquo;Partially resolved&rdquo; and &ldquo;Notable progress&rdquo;. Separately, each result is marked by who did the mathematics, based on the authors&rsquo; own account:</p>
+    <p>Two umbrella terms are used throughout this site: &ldquo;Resolved or claimed&rdquo; merges &ldquo;Resolution confirmed&rdquo; and &ldquo;Resolution claimed&rdquo;, and &ldquo;Progress&rdquo; merges &ldquo;Partial result&rdquo; and &ldquo;Notable progress&rdquo;, covering every problem that has moved without being resolved.</p>
+    <p><b>Problems with more than one result.</b> Many problems have seen several results since the snapshot: a bound, then a special case, then a claimed proof, sometimes from different people. We keep every one of them, and each chart counts them in its own way:</p>
+    <ul>
+      <li>A problem&rsquo;s <b>status</b> is the furthest it has got: resolution confirmed, then resolution claimed, then progress.</li>
+      <li>A <b>resolution</b> is credited to the first result that settled the whole problem. Its date, its authors, whether AI was involved, and whether it proved or refuted the problem all come from that result. Later resolutions of the same problem are listed beneath it in the <a href="#outcomes" data-goto="outcomes">Timeline of Resolutions</a>, but they don&rsquo;t change the credit.</li>
+      <li><b>Progress</b> is credited across all of a problem&rsquo;s results.</li>
+    </ul>
+    <p>The research agents recorded any specific reasons to doubt a result, for example a withdrawal, an unanswered error in a key step, or later papers on the same question still calling it open, and the judging pass rated each result&rsquo;s credibility accordingly. Results rated not credible, withdrawn or shown to contain an error are excluded, and so is any claimed resolution of the whole problem rated doubtful. The one exception is the claims OpenAI published in its own repositories, <a href="https://github.com/openai/math" target="_blank" rel="noopener">openai/math</a> (October 2026) and <a href="https://github.com/openai/NavierStokesAndEuler" target="_blank" rel="noopener">openai/NavierStokesAndEuler</a> (September 2026): they count as claimed resolutions whatever their rating. The releases were weeks old or less when we judged them, and most of the doubts recorded against them were that no expert had yet read it, which is not a reason we apply to any other work. The rating and the reasons for doubt are kept in the data, and claims withdrawn or shown to contain an error are still excluded.</p>
+    <p>Separately, each result is marked by who did the mathematics, based on the authors&rsquo; own account; &ldquo;AI-involved&rdquo; covers every category but &ldquo;No AI&rdquo;:</p>
     <dl class="defs">
       <dt class="c-aig">AI-generated</dt><dd>An AI system produced the proof, construction or bound, and humans checked it.</dd>
       <dt class="c-aia">AI-assisted</dt><dd>Human-led work in which an AI system produced part of the mathematics in the result (e.g. an argument, a construction, or a case).</dd>
-      <dt class="c-ain">No AI involvement</dt><dd>No AI system was used, or it only checked, proofread, searched the literature, debugged code or wrote a formal (Lean) proof of the humans&rsquo; argument.</dd>
+      <dt class="c-ain">No AI</dt><dd>No AI system was used, or it only checked, proofread, searched the literature, debugged code or wrote a formal (Lean) proof of the humans&rsquo; argument.</dd>
+      <dt class="c-aib">AI and human, separately</dt><dd>Used for progress only. The problem&rsquo;s results include both work with AI and work without it, in separate results &mdash; for example, a bound found by an AI system and a special case proved by mathematicians working on their own.</dd>
     </dl>
     <p>These categories may need to become more granular in the future, as these tools are used to solve more and more problems.</p>
 
     <h2>The Wikipedia <i>List of Unsolved Problems</i> Snapshot</h2>
-    <p>The list of problems is Wikipedia&rsquo;s <a href="https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics" target="_blank" rel="noopener"><i>List of unsolved problems in mathematics</i></a> as it stood on 26 January 2024 &mdash; the last edit that month, and earlier than every event recorded here. That revision carries 462 open bullets across twelve field sections, as well as five Millennium Prize Problems named only in the introduction; ten of those 467 bullets are headings the article uses to group the problems beneath them, yielding the <span class="n-snapshot"></span> problems in this tracker.</p>
+    <p>The list of problems is Wikipedia&rsquo;s <a href="https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_mathematics" target="_blank" rel="noopener"><i>List of unsolved problems in mathematics</i></a> as it stood on 26 January 2024 &mdash; the last edit that month, and earlier than every event recorded here. That revision carries 462 bullets across twelve field sections, as well as five Millennium Prize Problems named only in the introduction. Ten of those 467 bullets are headings the article uses to group the problems beneath them, and thirteen name problems that had in fact already been settled before the snapshot (the list had not caught up with them); setting both aside leaves the <span class="n-snapshot"></span> problems, all open in January 2024, that this tracker counts.</p>
     <p>This site includes the option to filter the problems based on whether or not they have (or had, at the time of the snapshot) a dedicated Wikipedia page. This is to help mitigate overinclusion on the list. By default, all problems in the snapshot are included.</p>
     <p>You can explore the data and results in <a href="#explore" data-goto="explore">Explore All Problems</a>.</p>
 
     <h2>Collecting the Data</h2>
     <p class="asof">Every status on this site was last reviewed on <b>__STATUS_CHECKED__</b>.</p>
-    <p>Every problem was researched on its own by Claude Sonnet 5 (<span class="mono">medium</span> effort) with web search enabled, given that one problem and a fixed written protocol. Each agent searched for anything that had happened to its problem since the snapshot, opened the primary sources &mdash; arXiv preprints, journal pages, the authors&rsquo; own announcements, lab posts, Lean repositories &mdash; and returned a structured record: the status, the dated event, author credit, the AI involvement level, whether the result is a counterexample, and supporting links. Agents used about nine sources per problem on average.</p>
-    <p>Initially, we had Sonnet do a slimmer triage pass (with fewer suggested searches) before doing a deep dive, but many events were missed using this approach. We opted instead to give Sonnet the triage results while still completing a full search for every problem.</p>
-    <p>The records were then checked automatically for internal contradictions (manually by humans and using Claude Opus 5.5 with <span class="mono">low</span> effort). This step is to ensure the data gathered by Sonnet was consistent with the metadata summary, which often requires judgement calls. Every hand correction was kept in the record, with the underlying reasoning.</p>
-    <p>Two smaller passes, using Claude Haiku 4.5, added dates: the year each problem was first posed, read from the Wikipedia article where it states one, and otherwise researched in the literature; and the release date of each AI system credited.</p>
+    <p>Every problem was researched on its own by Claude Haiku 5.5 (<span class="mono">high</span> effort) with web search enabled, given that one problem and a fixed written protocol. Each agent searched for anything that had happened to its problem since the snapshot, opened the primary sources (arXiv preprints, journal pages, the authors&rsquo; own announcements, lab posts, Lean repositories) and recorded every result it found, each with its date, its authors, what it settles, the AI systems involved and supporting links. Agents ran about 40 searches and used about 35 distinct sources per problem on average.</p>
+    <p>A second pass, Claude Opus 5.5 (<span class="mono">low</span> effort), then judged every result separately: how much of the problem it settles (the whole problem, a case or a bound), whether anyone has checked it, whether it is credible, and what role AI played. The statuses and AI credits on this site come from those judgments, not from the research agents.</p>
+    <p>On 6 October 2026, OpenAI released 749 manuscripts in its <a href="https://github.com/openai/math" target="_blank" rel="noopener">openai/math</a> repository, each claiming progress on an open problem. We indexed the repository, used Claude Sonnet 5.5 to match its manuscripts to problems on the list, and used Claude Haiku 5.5 to record what each matched manuscript claims. These were then judged alongside everything else by Claude Opus 5.5.</p>
+    <p>Two smaller passes added dates: the year each problem was first posed (read from its Wikipedia article where it states one, and otherwise researched in the literature with Claude Haiku 4.5), and the release date of each AI system credited (Claude Haiku 5.5). OpenAI&rsquo;s internal model has no public release, so it is placed provisionally at GPT-6 Astra&rsquo;s release.</p>
 
     <h2>Next Steps and Limitations</h2>
     <p>This dataset is a first version, and there are many improvements left to make. As we make changes, we&rsquo;ll include versioning to ensure full reproducibility. But our next steps are roughly as follows:</p>
-    <ul>
-      <li>As mentioned above, although Wikipedia tends to be a reliable source, its curation of open problems errs on the side of being overly inclusive. Currently, we control for this with the option to filter problems based on the presence of a dedicated Wikipedia page, but this is still an imperfect proxy of importance. We plan to introduce additional proxies to contextualize these results: total Wikipedia edits, mentions in the scientific literature, subjective LLM or expert ratings of importance.</li>
-      <li>The agents involved used nine sources per problem, on average. While this number might be robust for some problems, more ambiguous cases may have sources missing given this limitation. Running the research pass with a more capable model and a larger search budget is a high priority.</li>
-      <li>Some of the problems in the dataset have more than one event, and we currently prioritize resolutions over progress, and AI-assisted progress over human progress. As more progress gets made, a more substantial portion of the problems will contain numerous breakthroughs, and our categorization and presentation will have to change.</li>
-    </ul>
+    <p>As mentioned above, although Wikipedia tends to be a reliable source, its curation of open problems errs on the side of being overly inclusive. Currently, we control for this with the option to filter problems based on the presence of a dedicated Wikipedia page, but this is still an imperfect proxy of importance. We plan to introduce additional proxies to contextualize these results: total Wikipedia edits, mentions in the scientific literature, subjective LLM or expert ratings of importance.</p>
+    <p>It is also often hard to tell how much an AI system contributed from the authors&rsquo; own account. Disclosures vary widely, from a detailed description of which steps a model produced to a single line thanking it, and a phrase like &ldquo;played a substantial role&rdquo; or &ldquo;used at all stages&rdquo; doesn&rsquo;t say whether the model found the key idea or helped a human who did. Where the account is vague, the line between AI-generated and AI-assisted, or between AI-assisted and No AI, is a judgment call, and some results may be classed differently by another reader.</p>
     <p>The repository for this project can be found <a href="https://github.com/alexfogelson/wikipedia-unsolved-problems-tracker" target="_blank" rel="noopener">here</a>.</p>
     <p>If you have any questions about the dataset, please reach out to Alex Fogelson (fogelson - at - mit - dot - edu).</p>
   </div>
