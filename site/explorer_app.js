@@ -368,7 +368,7 @@ function renderAttribution() {
   $('#a-stats').innerHTML = [
     tile(DATA.length, 'open problems', 'on Wikipedia’s list in January 2024 and not already settled'),
     // Most of these are claims, not confirmed resolutions; the subtitle gives the split.
-    tile(firsts.length, 'resolved or claimed', `${firsts.filter(([p]) => resolutionAccepted(p)).length} confirmed, ${firsts.filter(([p]) => !resolutionAccepted(p)).length} claimed${firsts.some(([, e]) => e.counted_by_policy) ? `; ${firsts.filter(([, e]) => e.counted_by_policy).length} OpenAI-repository claims counted despite doubts (see About)` : ''}`),
+    tile(firsts.length, 'resolved or claimed', `${firsts.filter(([p]) => resolutionAccepted(p)).length} confirmed, ${firsts.filter(([p]) => !resolutionAccepted(p)).length} claimed`),
     tile(pct(firstAI.length, firsts.length), 'AI-involved',
       `of the ${firsts.length} resolved or claimed, credited by the first event to settle each`,
       `<div class="v v2"><span class="n2">${pct(firsts.filter(([, e]) => e.ai === 'generated').length, firsts.length)}</span><span class="u">${AI_LABEL.generated}</span></div>`),
